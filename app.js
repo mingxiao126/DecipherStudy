@@ -258,8 +258,11 @@ class FlashCardApp {
     // 渲染 KaTeX 公式（保留原始 $...$ 格式，让 KaTeX 处理）
     renderWithKaTeX(text) {
         if (!text) return '';
-        // 直接返回文本，保留 $...$ 格式，由 KaTeX 的 renderMathInElement 处理
-        return text;
+        // 处理 Markdown 加粗格式：**文本** 转换为红色加粗
+        // 先处理加粗，避免影响 LaTeX 公式
+        let processed = text.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #ef4444;">$1</strong>');
+        // 返回处理后的文本，保留 $...$ 格式，由 KaTeX 的 renderMathInElement 处理
+        return processed;
     }
 
     // 预处理文本：保护货币符号和百分比符号，并修复多余的转义
@@ -454,10 +457,10 @@ class FlashCardApp {
     // 格式化答案（支持加粗等格式，但不影响 LaTeX）
     formatAnswer(answer) {
         if (!answer) return '';
-        // 将 **文本** 转换为 <strong>文本</strong>
+        // 将 **文本** 转换为红色加粗的 <strong>文本</strong>
         // 注意：要避免替换 LaTeX 中的 **（如果存在），但通常 LaTeX 中不会用 **）
         // 先处理 Markdown 加粗，保留 LaTeX 公式不变
-        return answer.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        return answer.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #ef4444;">$1</strong>');
     }
 
     // 更新关键词高亮（Signal Tags）

@@ -197,8 +197,10 @@ class FlashCardApp {
             this.updateGlossary(card.glossary || []);
             
             // 如果类型标签和生词按钮同时显示，调整生词按钮位置
+            // 移除内联样式，让 CSS 规则控制位置
             if (card.type && card.glossary && card.glossary.length > 0) {
-                glossaryBtn.style.top = '4rem';
+                // CSS 规则会自动处理两个标签同时存在的情况
+                glossaryBtn.style.top = '';
             } else if (glossaryBtn.style.display !== 'none') {
                 glossaryBtn.style.top = '1.5rem';
             }
@@ -690,12 +692,13 @@ class FlashCardApp {
 
         // 卡片翻转（点击卡片主体，但不包括按钮）
         document.getElementById('flipCard').addEventListener('click', (e) => {
-            // 如果点击的是按钮，不翻转
+            // 如果点击的是按钮或交互元素，不翻转
             if (e.target.closest('.mastery-btn') || 
                 e.target.closest('.glossary-btn') || 
                 e.target.closest('.glossary-popup')) {
                 return;
             }
+            // 允许点击卡片任何地方来翻转（标签有 pointer-events: none，会穿透）
             this.flipCard();
         });
 

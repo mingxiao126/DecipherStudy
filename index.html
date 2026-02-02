@@ -105,16 +105,19 @@
             align-items: center;
             flex: 1;
             min-height: 0;
+            padding-top: 1rem;
         }
         
         /* 卡片正面内容居中 */
         .card-front .card-content {
             justify-content: center;
+            padding-top: 4rem; /* 为左上角标签留出空间 */
         }
         
         /* 卡片背面内容从顶部开始 */
         .card-back .card-content {
             justify-content: flex-start;
+            padding-top: 1rem;
         }
 
         .card-front {
@@ -163,6 +166,9 @@
             border-radius: 12px;
             font-size: 0.875rem;
             color: #c4b5fd;
+            z-index: 10;
+            pointer-events: none; /* 不拦截点击事件 */
+            margin-bottom: 0.5rem; /* 增加与下方内容的间距 */
         }
 
         /* 淡入淡出动画 */
@@ -406,6 +412,7 @@
             left: 1.5rem;
             padding: 0.5rem 1rem;
             background: rgba(59, 130, 246, 0.2);
+            margin-bottom: 0.5rem; /* 增加与下方内容的间距 */
             border: 1px solid rgba(59, 130, 246, 0.4);
             border-radius: 12px;
             font-size: 0.875rem;
@@ -417,7 +424,7 @@
 
         /* 当类型标签和生词按钮同时存在时，调整生词按钮位置 */
         .card-front .card-type-tag:not([style*="display: none"]) ~ .glossary-btn:not([style*="display: none"]) {
-            top: 4rem;
+            top:4.3rem !important; /* 增加与上方标签的间距，使用 !important 确保覆盖内联样式 */
         }
 
         .glossary-btn:hover {
@@ -476,7 +483,9 @@
             border-radius: 12px;
             font-size: 0.875rem;
             color: #86efac;
-            z-index: 5;
+            z-index: 10;
+            pointer-events: none; /* 不拦截点击事件 */
+            margin-bottom: 0.5rem; /* 增加与下方内容的间距 */
         }
 
         /* 筛选选项 */

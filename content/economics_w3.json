@@ -1,0 +1,44 @@
+[
+  {
+    "question": "Why does GDP omit **Intermediate Goods**?",
+    "answer": "To avoid **Double Counting**. The final price already includes all prior stages of production. Only final goods and services are counted in GDP.",
+    "category": "国民账户"
+  },
+  {
+    "question": "What are the four components of GDP?",
+    "answer": "The GDP formula is: $Y = C + I + G + NX$ where **C** is Consumption, **I** is Investment, **G** is Government spending, and **NX** is Net Exports. This is the expenditure approach to calculating GDP.",
+    "category": "国民账户",
+    "type": "公式题",
+    "signals": ["C", "I", "G", "NX", "Expenditure approach"],
+    "steps": [
+      "Step 1: Identify Consumption (C) - spending by households",
+      "Step 2: Add Investment (I) - spending on capital goods",
+      "Step 3: Add Government spending (G)",
+      "Step 4: Add Net Exports (NX) = Exports - Imports",
+      "Step 5: Sum all components: $Y = C + I + G + NX$"
+    ]
+  },
+  {
+    "question": "Calculate the real growth rate if nominal GDP growth is 10% and prices rose 4%: $\\% \\Delta Real \\approx \\% \\Delta Nominal - \\% \\Delta Prices$",
+    "answer": "Using the formula: $\\% \\Delta Real = \\% \\Delta Nominal - \\% \\Delta Prices = 10\\% - 4\\% = 6\\%$. The real growth rate is approximately **6%**.",
+    "category": "国民账户",
+    "type": "计算题",
+    "signals": ["Nominal GDP", "Real GDP", "Inflation", "Growth rate"],
+    "steps": [
+      "Step 1: Identify nominal GDP growth rate (10\\%)",
+      "Step 2: Identify price change/inflation rate (4\\%)",
+      "Step 3: Apply formula: $\\% \\Delta Real = \\% \\Delta Nominal - \\% \\Delta Prices$",
+      "Step 4: Calculate: 10\\% - 4\\% = 6\\%"
+    ]
+  },
+  {
+    "question": "Define **GDP per capita**.",
+    "answer": "GDP divided by population. It measures the **average income** per person and is used to compare living standards across countries.",
+    "category": "国民账户"
+  },
+  {
+    "question": "What does **GDP not measure**?",
+    "answer": "GDP does not measure: quality of life, income distribution, non-market activities (housework), environmental quality, or leisure time.",
+    "category": "国民账户"
+  }
+]

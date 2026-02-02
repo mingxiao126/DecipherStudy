@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Define **Comparative Advantage**.",
+    "answer": "The ability to do a task at a **lower opportunity cost** (who gives up less). Even if one person is better at everything, both can benefit from specialization.",
+    "category": "贸易理论"
+  },
+  {
+    "question": "What is **Absolute Advantage**?",
+    "answer": "The ability to produce more output with the same resources, or the same output with fewer resources. Different from comparative advantage.",
+    "category": "贸易理论"
+  },
+  {
+    "question": "How does **Specialization** lead to gains from trade?",
+    "answer": "When individuals or countries specialize in what they have a **comparative advantage** in, total production increases, and trade allows both parties to consume beyond their production possibilities.",
+    "category": "贸易理论"
+  },
+  {
+    "question": "What is the **Production Possibilities Frontier (PPF)**?",
+    "answer": "A curve showing the **maximum combinations** of two goods an economy can produce with available resources and technology. Points on the curve are efficient.",
+    "category": "生产理论"
+  },
+  {
+    "question": "What does a point **inside the PPF** represent?",
+    "answer": "**Inefficiency** - resources are not being fully utilized. The economy could produce more of both goods without giving up anything.",
+    "category": "生产理论"
+  }
+]

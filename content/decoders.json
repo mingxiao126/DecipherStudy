@@ -1,0 +1,126 @@
+[
+    {
+      "id": "stat_124_bias_02",
+      "title": "Toronto Fitness Expo Survey Bias",
+      "original_question": "During a high-profile fitness convention in Toronto, a new electrolyte drink startup called 'PureHydrate' wanted to gauge interest among potential customers. They placed a large colorful banner at the main exit that read: 'Passionate about health? Take 2 minutes to rate our drink and receive a free $25 premium yoga mat!' By the end of the day, 450 attendees had participated. The results showed that 98% of respondents loved the taste and would buy it. Based on this, the marketing team concluded that 98% of all Canadians will like the drink. Identify the bias.",
+      "segments": [
+        {
+          "text": "During a high-profile fitness convention in Toronto, ",
+          "has_info": true,
+          "highlight_text": "fitness convention",
+          "condition": "Sample Source: Specific Interest Group",
+          "knowledge": "Selection Bias - 样本覆盖不足",
+          "explanation": "样本仅来自健身爱好者，不能代表不健身的普通加拿大人。",
+          "highlight_color": "yellow"
+        },
+        {
+          "text": "They placed a large colorful banner at the main exit that read: 'Passionate about health? ... and receive a free $25 premium yoga mat!' ",
+          "has_info": true,
+          "highlight_text": "receive a free $25 premium yoga mat",
+          "condition": "Incentive-based Selection",
+          "knowledge": "Voluntary Response Bias - 自愿响应偏差",
+          "explanation": "只有对**免费瑜伽垫**感兴趣或对健身极其狂热的人才会自愿参与，导致结果高度正面。",
+          "highlight_color": "red"
+        },
+        {
+          "text": "By the end of the day, 450 attendees had participated. ",
+          "has_info": false
+        },
+        {
+          "text": "The marketing team concluded that 98% of all Canadians will like the drink. ",
+          "has_info": true,
+          "highlight_text": "98% of all Canadians",
+          "condition": "Generalization Error",
+          "knowledge": "Scope of Inference - 推断范围错误",
+          "explanation": "统计学原则：推断范围（Canadians）不应超过采样总体（Convention attendees）。",
+          "highlight_color": "blue"
+        }
+      ],
+      "traps": [
+        {
+          "title": "The Reward Trap",
+          "description": "学生常忽略礼品（Yoga mat）对参与动机的影响。这不仅是抽样位置问题，更是典型的自愿响应偏见。"
+        }
+      ],
+      "solution": [
+        {
+          "step_desc": "第一步：分析抽样环境",
+          "content": "抽样仅在特定展会进行，排除了非健身人群。",
+          "source_type": "prompt_info",
+          "source_label": "来自已知条件：抽样地点"
+        },
+        {
+          "step_desc": "第二步：识别参与机制",
+          "content": "通过高额礼品吸引自愿参与者。",
+          "source_type": "external_knowledge",
+          "source_label": "外部核心知识：Voluntary Response Bias 往往由于强烈的参与动机导致样本非随机。"
+        },
+        {
+          "step_desc": "第三步：最终结论",
+          "content": "存在严重的 Selection Bias 和 Voluntary Response Bias，结论不可靠。",
+          "source_type": "prompt_info",
+          "source_label": "逻辑推导结果"
+        }
+      ]
+    },
+    {
+      "id": "stat_124_corr_03",
+      "title": "The Coffee and GPA Correlation Myth",
+      "original_question": "A university wellness department collected data from 2,500 students. They found a statistically significant correlation coefficient of $r = 0.75$ between the number of cups of coffee consumed per week and the students' Term GPA. The student newspaper published a headline: 'Drinking More Coffee Leads to Higher Grades!' and encouraged students to increase caffeine intake. Evaluate this headline.",
+      "segments": [
+        {
+          "text": "A university wellness department collected data from 2,500 students. ",
+          "has_info": true,
+          "highlight_text": "2,500 students",
+          "condition": "Sample Size: $n = 2500$",
+          "knowledge": "Large Sample Observation",
+          "explanation": "2500 人的样本量足以提供稳定的相关性观察。",
+          "highlight_color": "green"
+        },
+        {
+          "text": "They found a statistically significant correlation coefficient of $r = 0.75$ ",
+          "has_info": true,
+          "highlight_text": "$r = 0.75$",
+          "condition": "Strong Positive Correlation",
+          "knowledge": "Correlation Coefficient - 相关系数",
+          "explanation": "$r = 0.75$ 表明两者之间存在较强的正相关关系，即咖啡喝得多的人通常成绩也高。",
+          "highlight_color": "yellow"
+        },
+        {
+          "text": "The student newspaper published a headline: 'Drinking More Coffee Leads to Higher Grades!' ",
+          "has_info": true,
+          "highlight_text": "Leads to",
+          "condition": "Causal Interpretation (因果解释)",
+          "knowledge": "Correlation vs. Causation - 相关非因果",
+          "explanation": "关键词 **'Leads to'** 错误地暗示了咖啡直接导致了成绩提高。",
+          "highlight_color": "red"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Lurking Variables (潜伏变量)",
+          "description": "可能存在第三个变量，如 'Study Hours'。学习时间长的学生既喝更多咖啡熬夜，也因为复习充分而拿到高分。咖啡只是一个代理变量。"
+        }
+      ],
+      "solution": [
+        {
+          "step_desc": "第一步：解读相关性",
+          "content": "$r = 0.75$ 仅代表线性关联强度。",
+          "source_type": "prompt_info",
+          "source_label": "来自已知条件：$r$ 的取值"
+        },
+        {
+          "step_desc": "第二步：逻辑批判",
+          "content": "相关性不等于因果性（Correlation is not Causation）。",
+          "source_type": "external_knowledge",
+          "source_label": "外部核心知识：在观察性研究中，必须考虑潜伏变量的影响。"
+        },
+        {
+          "step_desc": "第三步：评价结论",
+          "content": "校报的标题严重误导，咖啡可能并非提高成绩的直接原因。",
+          "source_type": "prompt_info",
+          "source_label": "综合逻辑判定"
+        }
+      ]
+    }
+  ]

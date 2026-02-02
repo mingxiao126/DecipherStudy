@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecipherStudy - 难题拆解器</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- KaTeX for LaTeX formula rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="window.katexLoaded = true"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* 星空背景 */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* 玻璃拟态卡片 */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        /* 网格布局 - 自适应高度 */
+        .decoder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 1.5rem;
+        }
+
+        .grid-cell {
+            border-radius: 16px;
+            padding: 1.5rem;
+            min-height: 200px;
+            height: auto;
+            overflow: visible;
+            position: relative;
+        }
+
+        /* 原题框 */
+        .original-question {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        /* 解读题目框 */
+        .decoding-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        /* 已知条件框 */
+        .conditions-box {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.1) 100%);
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* 陷阱框 */
+        .traps-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        /* 详解区 - 自适应高度 */
+        .solution-box {
+            margin-top: 1.5rem;
+            min-height: 200px;
+            height: auto;
+            border-radius: 16px;
+            padding: 2rem;
+            overflow: visible;
+        }
+
+        /* 高亮效果 - 使用 mark 标签 */
+        .highlight {
+            background: rgba(251, 191, 36, 0.5);
+            color: white;
+            padding: 0.125rem 0.25rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        mark.highlight {
+            background: rgba(251, 191, 36, 0.5);
+            color: white;
+            padding: 0.125rem 0.25rem;
+            border-radius: 4px;
+        }
+
+        .highlight.trap {
+            background: rgba(239, 68, 68, 0.3);
+            animation: blink 1s infinite;
+        }
+
+        .highlight.orange {
+            background: rgba(251, 146, 60, 0.3);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .highlight.active {
+            background: rgba(251, 191, 36, 0.5);
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+
+        /* 高亮排他性：旧高亮变淡，当前高亮变亮 */
+        .highlight.past {
+            background: rgba(251, 191, 36, 0.15) !important;
+            opacity: 0.6;
+        }
+
+        .highlight.current {
+            background: rgba(251, 191, 36, 0.6) !important;
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.7);
+            animation: pulseHighlight 2s infinite;
+        }
+
+        @keyframes pulseHighlight {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* 解读框高亮样式 */
+        .current-info-highlight {
+            background: rgba(251, 191, 36, 0.3);
+            padding: 0.125rem 0.25rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .permanent-info-highlight {
+            background: rgba(251, 191, 36, 0.15);
+            padding: 0.125rem 0.25rem;
+            border-radius: 4px;
+        }
+
+        .trap-highlight {
+            background: rgba(239, 68, 68, 0.2) !important;
+        }
+
+        /* 文本动画 */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 条件清单 */
+        .condition-item {
+            margin: 0.75rem 0;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border-left: 3px solid rgba(34, 197, 94, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        /* 条件闪烁动画（联动效果） */
+        .condition-item.condition-flash {
+            animation: conditionFlash 1s ease-out;
+        }
+
+        @keyframes conditionFlash {
+            0%, 100% {
+                background: rgba(0, 0, 0, 0.2);
+                border-left-color: rgba(34, 197, 94, 0.5);
+            }
+            50% {
+                background: rgba(34, 197, 94, 0.3);
+                border-left-color: rgba(34, 197, 94, 1);
+                box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+            }
+        }
+
+        /* 同步动画效果 */
+        .conditions-box.sync-animation {
+            animation: syncFlash 0.6s ease-out;
+        }
+
+        @keyframes syncFlash {
+            0% {
+                border-color: rgba(34, 197, 94, 0.3);
+                box-shadow: 0 0 0 rgba(34, 197, 94, 0);
+            }
+            50% {
+                border-color: rgba(34, 197, 94, 1);
+                box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+            }
+            100% {
+                border-color: rgba(34, 197, 94, 0.3);
+                box-shadow: 0 0 0 rgba(34, 197, 94, 0);
+            }
+        }
+
+        .condition-item.fade-in {
+            animation: slideInLeft 0.4s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* 陷阱项 */
+        .trap-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+        }
+
+        /* 步骤项 */
+        .solution-step {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border-left: 4px solid rgba(139, 92, 246, 0.5);
+        }
+
+        /* 知识点标签 */
+        .knowledge-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .knowledge-explicit {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+
+        .knowledge-implicit {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fcd34d;
+            border: 1px solid rgba(251, 191, 36, 0.4);
+        }
+
+        /* 标题样式 */
+        .cell-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #e2e8f0;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        /* 滚动条 */
+        .grid-cell::-webkit-scrollbar,
+        .solution-box::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .grid-cell::-webkit-scrollbar-track,
+        .solution-box::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+        }
+
+        .grid-cell::-webkit-scrollbar-thumb,
+        .solution-box::-webkit-scrollbar-thumb {
+            background: rgba(139, 92, 246, 0.3);
+            border-radius: 3px;
+        }
+
+        /* 占位符 */
+        .placeholder {
+            color: rgba(226, 232, 240, 0.4);
+            font-style: italic;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* 点击提示 */
+        .click-hint {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 24px;
+            color: #e2e8f0;
+            font-size: 0.875rem;
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- 星空背景 -->
+    <div class="stars" id="stars"></div>
+
+    <!-- 导航栏 -->
+    <nav class="relative z-20 glass-card rounded-b-2xl mb-6 border-b border-purple-500/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-6">
+                    <a href="/" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-300 hover:to-pink-300 transition-all">
+                        DecipherStudy
+                    </a>
+                    <div class="flex gap-2">
+                        <a href="/" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-500/20 transition-colors font-medium">
+                            📚 闪卡学习
+                        </a>
+                        <a href="/decoder.html" class="px-4 py-2 rounded-lg text-purple-300 hover:text-white hover:bg-purple-500/20 transition-colors font-semibold bg-purple-500/10">
+                            🔍 难题拆解
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主容器 -->
+    <div class="relative z-10 container mx-auto px-4 py-8">
+        <!-- 标题 -->
+        <div class="text-center mb-8">
+            <h1 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-4">
+                Logic Decoder
+            </h1>
+            <p class="text-slate-400 text-lg">难题拆解器 - 逐步解析复杂题目</p>
+        </div>
+
+        <!-- 题目选择器 -->
+        <div class="glass-card rounded-2xl p-6 mb-8">
+            <label class="block text-slate-300 mb-3 font-semibold">选择题目：</label>
+            <select id="problemSelector" class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <option value="">加载中...</option>
+            </select>
+        </div>
+
+        <!-- 2x2 网格布局 -->
+        <div class="decoder-grid mb-6">
+            <!-- 左上：原题 -->
+            <div class="grid-cell original-question glass-card">
+                <div class="cell-title">📝 原题</div>
+                <div id="originalQuestion" class="text-slate-200 leading-relaxed"></div>
+            </div>
+
+            <!-- 右上：解读题目 -->
+            <div class="grid-cell decoding-box glass-card">
+                <div class="cell-title">🔍 解读题目</div>
+                <div id="decodingSteps" class="text-slate-200 leading-relaxed"></div>
+            </div>
+
+            <!-- 左下：已知条件 + 知识点 -->
+            <div class="grid-cell conditions-box glass-card">
+                <div class="cell-title">📋 已知条件 & 知识点</div>
+                <div id="conditionsList" class="text-slate-200"></div>
+            </div>
+
+            <!-- 右下：题目陷阱 -->
+            <div class="grid-cell traps-box glass-card">
+                <div class="cell-title">⚠️ 题目陷阱</div>
+                <div id="trapsList" class="text-slate-200"></div>
+            </div>
+        </div>
+
+        <!-- 详解区 -->
+        <div class="solution-box glass-card hidden" id="solutionBox">
+            <div class="cell-title text-xl mb-4">💡 详细解答</div>
+            <div id="detailedSolution" class="text-slate-200"></div>
+        </div>
+
+        <!-- 点击提示 -->
+        <div class="click-hint hidden" id="clickHint">
+            点击任意位置继续 →
+        </div>
+    </div>
+
+    <script src="decoder.js"></script>
+</body>
+</html>

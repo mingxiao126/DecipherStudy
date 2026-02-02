@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecipherStudy - 3D 闪卡学习系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- KaTeX for LaTeX formula rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="window.katexLoaded = true"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* 星空背景效果 */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* 玻璃拟态卡片 */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        /* 3D 翻转容器 */
+        .flip-container {
+            perspective: 1000px;
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            margin: 0 auto;
+        }
+
+        .flip-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .flip-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 2rem;
+            cursor: pointer;
+            user-select: none;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        /* 卡片内容容器 */
+        .card-content {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-height: 0;
+        }
+        
+        /* 卡片正面内容居中 */
+        .card-front .card-content {
+            justify-content: center;
+        }
+        
+        /* 卡片背面内容从顶部开始 */
+        .card-back .card-content {
+            justify-content: flex-start;
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(251, 146, 60, 0.1) 100%);
+            border: 1px solid rgba(251, 146, 60, 0.3);
+            transform: rotateY(180deg);
+        }
+
+        /* 卡片内容 */
+        .card-question {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            text-align: center;
+            line-height: 1.6;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .card-answer {
+            font-size: 1.25rem;
+            color: #f1f5f9;
+            text-align: center;
+            line-height: 1.8;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .card-answer strong {
+            color: #fbbf24;
+            font-weight: 700;
+        }
+
+        .card-category {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            border-radius: 12px;
+            font-size: 0.875rem;
+            color: #c4b5fd;
+        }
+
+        /* 淡入淡出动画 */
+        .fade-slide-enter {
+            animation: fadeSlideIn 0.4s ease-out;
+        }
+
+        .fade-slide-exit {
+            animation: fadeSlideOut 0.4s ease-in;
+        }
+
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        @keyframes fadeSlideOut {
+            from {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(-30px) scale(0.95);
+            }
+        }
+
+        /* 按钮样式 */
+        .btn-primary {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            color: #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.5) 0%, rgba(139, 92, 246, 0.5) 100%);
+            border-color: rgba(139, 92, 246, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        /* 主题选择器 */
+        .topic-selector {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* 计时器 */
+        .timer-display {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fbbf24;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+        }
+
+        .timer-warning {
+            color: #f87171;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* 提示文字 */
+        .hint-text {
+            color: rgba(226, 232, 240, 0.6);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* 掌握度按钮容器 */
+        .mastery-buttons {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            width: 100%;
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* 自定义滚动条 */
+        .card-face::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .card-face::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+        
+        .card-face::-webkit-scrollbar-thumb {
+            background: rgba(139, 92, 246, 0.3);
+            border-radius: 4px;
+        }
+        
+        .card-face::-webkit-scrollbar-thumb:hover {
+            background: rgba(139, 92, 246, 0.5);
+        }
+
+        /* LaTeX 公式样式 */
+        .katex {
+            font-size: 1.2em;
+        }
+
+        .card-question .katex,
+        .card-answer .katex {
+            margin: 0.5em 0;
+        }
+
+        /* 关键词高亮 */
+        .signal-tag {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.2);
+            border: 1px solid rgba(251, 191, 36, 0.5);
+            color: #fbbf24;
+            padding: 0.25rem 0.75rem;
+            border-radius: 8px;
+            margin: 0.25rem;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        /* 掌握度按钮 */
+        .mastery-btn {
+            padding: 0.625rem 1.25rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid;
+            cursor: pointer;
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+
+        .mastery-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .mastery-red {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.5);
+            color: #fca5a5;
+        }
+
+        .mastery-yellow {
+            background: rgba(251, 191, 36, 0.2);
+            border-color: rgba(251, 191, 36, 0.5);
+            color: #fcd34d;
+        }
+
+        .mastery-green {
+            background: rgba(34, 197, 94, 0.2);
+            border-color: rgba(34, 197, 94, 0.5);
+            color: #86efac;
+        }
+
+        /* 错题统计 */
+        .stats-badge {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 100;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            color: #fca5a5;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .stats-badge:hover {
+            background: rgba(239, 68, 68, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* 分步逻辑 */
+        .logic-steps {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            padding: 1.25rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .logic-step {
+            margin: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #cbd5e1;
+        }
+
+        .logic-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: rgba(139, 92, 246, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #c4b5fd;
+        }
+
+        .logic-steps {
+            counter-reset: step-counter;
+        }
+
+        /* 内嵌词典 */
+        .glossary-btn {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            border-radius: 12px;
+            font-size: 0.875rem;
+            color: #93c5fd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+
+        /* 当类型标签和生词按钮同时存在时，调整生词按钮位置 */
+        .card-front .card-type-tag:not([style*="display: none"]) ~ .glossary-btn:not([style*="display: none"]) {
+            top: 4rem;
+        }
+
+        .glossary-btn:hover {
+            background: rgba(59, 130, 246, 0.3);
+        }
+
+        .glossary-popup {
+            position: absolute;
+            top: 3rem;
+            left: 1.5rem;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            border-radius: 12px;
+            padding: 1rem;
+            max-width: 300px;
+            z-index: 10;
+            display: none;
+        }
+
+        .glossary-popup.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .glossary-item {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glossary-term {
+            font-weight: 600;
+            color: #93c5fd;
+        }
+
+        .glossary-def {
+            font-size: 0.875rem;
+            color: #cbd5e1;
+            margin-top: 0.25rem;
+        }
+
+        /* 题目类型标签 */
+        .card-type-tag {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            border-radius: 12px;
+            font-size: 0.875rem;
+            color: #86efac;
+            z-index: 5;
+        }
+
+        /* 筛选选项 */
+        .filter-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .filter-toggle input[type="checkbox"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- 星空背景 -->
+    <div class="stars" id="stars"></div>
+
+    <!-- 导航栏 -->
+    <nav class="relative z-20 glass-card rounded-b-2xl mb-6 border-b border-purple-500/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-6">
+                    <a href="/" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-300 hover:to-pink-300 transition-all">
+                        DecipherStudy
+                    </a>
+                    <div class="flex gap-2">
+                        <a href="/" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-500/20 transition-colors font-medium">
+                            📚 闪卡学习
+                        </a>
+                        <a href="/decoder.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-500/20 transition-colors font-medium">
+                            🔍 难题拆解
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主容器 -->
+    <div class="relative z-10 container mx-auto px-4 py-8">
+        <!-- 标题 -->
+        <div class="text-center mb-8">
+            <h1 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-4">
+                DecipherStudy
+            </h1>
+            <p class="text-slate-400 text-lg">AI 驱动的学术闪卡学习系统</p>
+        </div>
+
+        <!-- 错题统计 -->
+        <div id="statsBadge" class="stats-badge hidden" title="点击查看错题详情">
+            🔴 需重练: <span id="redCount">0</span>
+        </div>
+
+        <!-- 主题选择器 -->
+        <div class="glass-card rounded-2xl p-6 mb-8">
+            <label class="block text-slate-300 mb-3 font-semibold">选择学习主题：</label>
+            <select id="topicSelector" class="topic-selector w-full px-4 py-3 rounded-xl text-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 mb-3">
+                <option value="">加载中...</option>
+            </select>
+            <div class="filter-toggle">
+                <input type="checkbox" id="filterWeakOnly" class="cursor-pointer">
+                <label for="filterWeakOnly" class="text-slate-300 cursor-pointer">仅复习需重练题目</label>
+            </div>
+        </div>
+
+        <!-- 控制面板 -->
+        <div class="glass-card rounded-2xl p-6 mb-8">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <!-- 左侧：导航按钮 -->
+                <div class="flex gap-3">
+                    <button id="prevBtn" class="btn-primary px-6 py-3 rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
+                        ← 上一题
+                    </button>
+                    <button id="nextBtn" class="btn-primary px-6 py-3 rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
+                        下一题 →
+                    </button>
+                </div>
+
+                <!-- 中间：进度显示 -->
+                <div class="text-slate-300 text-center">
+                    <span id="progressText" class="font-semibold">0 / 0</span>
+                </div>
+
+                <!-- 右侧：功能按钮 -->
+                <div class="flex gap-3">
+                    <button id="shuffleBtn" class="btn-primary px-6 py-3 rounded-xl font-semibold">
+                        🔀 随机乱序
+                    </button>
+                    <button id="timerBtn" class="btn-primary px-6 py-3 rounded-xl font-semibold">
+                        ⏱️ 开始计时
+                    </button>
+                </div>
+            </div>
+
+            <!-- 计时器显示 -->
+            <div id="timerDisplay" class="hidden text-center mt-4">
+                <div class="timer-display" id="timerValue">10</div>
+                <button id="stopTimerBtn" class="mt-2 text-slate-400 hover:text-slate-200 text-sm">停止计时</button>
+            </div>
+        </div>
+
+        <!-- 闪卡容器 -->
+        <div class="flip-container mb-8">
+            <div id="flipCard" class="flip-card">
+                <div class="card-face card-front glass-card">
+                    <div class="card-type-tag" id="cardTypeTag" style="display: none;"></div>
+                    <div class="glossary-btn" id="glossaryBtn" style="display: none;">📖 核心生词</div>
+                    <div class="glossary-popup" id="glossaryPopup"></div>
+                    <div class="card-category" id="cardCategory">分类</div>
+                    <div class="card-content">
+                        <div class="card-question" id="cardQuestion">请选择主题开始学习</div>
+                        <div id="signalTags" class="mt-4 flex flex-wrap justify-center gap-2"></div>
+                        <div class="hint-text">点击卡片翻转查看答案</div>
+                    </div>
+                </div>
+                <div class="card-face card-back glass-card">
+                    <div class="card-content">
+                        <div class="card-answer" id="cardAnswer">等待加载...</div>
+                        <div id="logicSteps" class="logic-steps" style="display: none;"></div>
+                        <div class="hint-text">点击卡片返回问题</div>
+                        <!-- 掌握度按钮 -->
+                        <div class="mastery-buttons">
+                            <button class="mastery-btn mastery-red" data-status="red">🔴 需重练</button>
+                            <button class="mastery-btn mastery-yellow" data-status="yellow">🟡 模糊</button>
+                            <button class="mastery-btn mastery-green" data-status="green">🟢 已掌握</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 快捷键提示 -->
+        <div class="glass-card rounded-2xl p-6 text-center">
+            <p class="text-slate-400 text-sm">
+                <span class="inline-block bg-slate-800 px-2 py-1 rounded mx-1">Space</span> 翻转卡片
+                <span class="inline-block bg-slate-800 px-2 py-1 rounded mx-1">←</span> 上一题
+                <span class="inline-block bg-slate-800 px-2 py-1 rounded mx-1">→</span> 下一题
+                <span class="inline-block bg-slate-800 px-2 py-1 rounded mx-1">S</span> 随机乱序
+            </p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,125 +1,355 @@
 [
     {
-      "id": "stat_124_bias_02",
-      "title": "Toronto Fitness Expo Survey Bias",
-      "original_question": "During a high-profile fitness convention in Toronto, a new electrolyte drink startup called 'PureHydrate' wanted to gauge interest among potential customers. They placed a large colorful banner at the main exit that read: 'Passionate about health? Take 2 minutes to rate our drink and receive a free $25 premium yoga mat!' By the end of the day, 450 attendees had participated. The results showed that 98% of respondents loved the taste and would buy it. Based on this, the marketing team concluded that 98% of all Canadians will like the drink. Identify the bias.",
+      "id": "stat_124_z_score_01",
+      "title": "The Exam Performance Standard Scale",
+      "original_question": "In a competitive midterm exam for STAT 124, the class average score was 72 points with a standard deviation of 8 points. A student named Alex received his result and found his Z-score was $Z = 2.0$. Alex's friend, Jordan, received a Z-score of $Z = -1.59$. Alex claims that since his Z-score is 2.0, he scored exactly 2 points higher than the average. Meanwhile, the professor notes that Jordan's score is considered \"unusual\" because it falls below a certain threshold. Evaluate Alex's claim and explain the meaning of Jordan's score.",
       "segments": [
         {
-          "text": "During a high-profile fitness convention in Toronto, ",
+          "text": "In a competitive midterm exam for STAT 124, the class average score was 72 points with a standard deviation of 8 points. ",
           "has_info": true,
-          "highlight_text": "fitness convention",
-          "condition": "Sample Source: Specific Interest Group",
-          "knowledge": "Selection Bias - 样本覆盖不足",
-          "explanation": "样本仅来自健身爱好者，不能代表不健身的普通加拿大人。",
+          "highlight_text": "average score was 72 points with a standard deviation of 8 points",
+          "condition": "Mean = 72, SD = 8",
+          "knowledge": "Descriptive Statistics - Center and Spread",
+          "explanation": "均值衡量中心趋势，标准差衡量观测值偏离均值的典型距离。",
+          "highlight_color": "green"
+        },
+        {
+          "text": "A student named Alex received his result and found his Z-score was $Z = 2.0$. ",
+          "has_info": true,
+          "highlight_text": "$Z = 2.0$",
+          "condition": "Alex's Z = 2.0",
+          "knowledge": "Z-score (Standard Scale)",
+          "explanation": "Z 的本质是一个“标准刻度”，告诉我们数值偏离中心点（均值）多少个标准差。",
           "highlight_color": "yellow"
         },
         {
-          "text": "They placed a large colorful banner at the main exit that read: 'Passionate about health? ... and receive a free $25 premium yoga mat!' ",
+          "text": "Alex claims that since his Z-score is 2.0, he scored exactly 2 points higher than the average. ",
           "has_info": true,
-          "highlight_text": "receive a free $25 premium yoga mat",
-          "condition": "Incentive-based Selection",
-          "knowledge": "Voluntary Response Bias - 自愿响应偏差",
-          "explanation": "只有对**免费瑜伽垫**感兴趣或对健身极其狂热的人才会自愿参与，导致结果高度正面。",
+          "highlight_text": "scored exactly 2 points higher",
+          "condition": "Misinterpretation of Z-score units",
+          "knowledge": "Z-score Definition",
+          "explanation": "这是典型错误。$Z = 2.0$ 意味着比平均水平高出 2 个“标准差”，而不是 2 分。",
           "highlight_color": "red"
         },
         {
-          "text": "By the end of the day, 450 attendees had participated. ",
-          "has_info": false
+          "text": "Alex's friend, Jordan, received a Z-score of $Z = -1.59$. ",
+          "has_info": true,
+          "highlight_text": "$Z = -1.59$",
+          "condition": "Jordan's Z = -1.59",
+          "knowledge": "Z-score Interpretation",
+          "explanation": "负值意味着数值比平均水平低 1.59 个标准差。",
+          "highlight_color": "yellow"
         },
         {
-          "text": "The marketing team concluded that 98% of all Canadians will like the drink. ",
+          "text": "Meanwhile, the professor notes that Jordan's score is considered \"unusual\" because it falls below a certain threshold. ",
           "has_info": true,
-          "highlight_text": "98% of all Canadians",
-          "condition": "Generalization Error",
-          "knowledge": "Scope of Inference - 推断范围错误",
-          "explanation": "统计学原则：推断范围（Canadians）不应超过采样总体（Convention attendees）。",
+          "highlight_text": "considered \"unusual\"",
+          "condition": "Unusual threshold concept",
+          "knowledge": "Unusual Values (Z-score rule)",
+          "explanation": "在标准化刻度下，通常用 $|Z| \\ge 2$（或接近 2）作为“异常/不寻常”的经验阈值来识别极端值。",
           "highlight_color": "blue"
         }
       ],
       "traps": [
         {
-          "title": "The Reward Trap",
-          "description": "学生常忽略礼品（Yoga mat）对参与动机的影响。这不仅是抽样位置问题，更是典型的自愿响应偏见。"
+          "title": "The Raw Units Trap",
+          "description": "学生常将 Z 分数（标准差单位）误认为原始数据单位。$Z = 2.0$ 代表高出 2 个标准差，而非 2 分。"
         }
       ],
       "solution": [
         {
-          "step_desc": "第一步：分析抽样环境",
-          "content": "抽样仅在特定展会进行，排除了非健身人群。",
-          "source_type": "prompt_info",
-          "source_label": "来自已知条件：抽样地点"
-        },
-        {
-          "step_desc": "第二步：识别参与机制",
-          "content": "通过高额礼品吸引自愿参与者。",
+          "step_desc": "识别 Z 分数本质",
+          "content": "Z 衡量的是偏离均值的标准差倍数：$Z = \\frac{x-\\mu}{\\sigma}$。",
           "source_type": "external_knowledge",
-          "source_label": "外部核心知识：Voluntary Response Bias 往往由于强烈的参与动机导致样本非随机。"
+          "source_label": "外部核心知识：Z-score 定义"
         },
         {
-          "step_desc": "第三步：最终结论",
-          "content": "存在严重的 Selection Bias 和 Voluntary Response Bias，结论不可靠。",
+          "step_desc": "纠正 Alex 的错误并计算原始分数",
+          "content": "若 $Z = 2.0$，则 $x = \\mu + Z\\sigma = 72 + 2 \\times 8 = 88$。Alex 不是高 2 分，而是高 16 分。",
           "source_type": "prompt_info",
-          "source_label": "逻辑推导结果"
+          "source_label": "代入题干已知：Mean=72, SD=8, Z=2.0"
+        },
+        {
+          "step_desc": "解释 Jordan 的分数含义",
+          "content": "Jordan 的 $Z = -1.59$ 表示他比平均分低 $1.59$ 个标准差：$x = 72 + (-1.59)\\times 8 = 59.28$（约 59.3 分）。是否“不寻常”取决于课程采用的阈值规则。",
+          "source_type": "prompt_info",
+          "source_label": "代入题干已知：Mean=72, SD=8, Z=-1.59"
         }
       ]
     },
     {
-      "id": "stat_124_corr_03",
-      "title": "The Coffee and GPA Correlation Myth",
-      "original_question": "A university wellness department collected data from 2,500 students. They found a statistically significant correlation coefficient of $r = 0.75$ between the number of cups of coffee consumed per week and the students' Term GPA. The student newspaper published a headline: 'Drinking More Coffee Leads to Higher Grades!' and encouraged students to increase caffeine intake. Evaluate this headline.",
+      "id": "stat_124_pop_sample_02",
+      "title": "The Campus Cafe Satisfaction Study",
+      "original_question": "A student group wants to investigate the satisfaction level of all 25,000 students at a large university regarding the campus cafe. Due to limited time, they randomly selected 500 students who were dining at the cafe between 12:00 PM and 1:00 PM on a Tuesday. The group calculated an average satisfaction score of 7.5. They used the symbol $\\mu = 7.5$ in their report and concluded that 75% of all students are satisfied. Identify the errors.",
       "segments": [
         {
-          "text": "A university wellness department collected data from 2,500 students. ",
+          "text": "A student group wants to investigate the satisfaction level of all 25,000 students at a large university regarding the campus cafe. ",
           "has_info": true,
-          "highlight_text": "2,500 students",
-          "condition": "Sample Size: $n = 2500$",
-          "knowledge": "Large Sample Observation",
-          "explanation": "2500 人的样本量足以提供稳定的相关性观察。",
+          "highlight_text": "all 25,000 students",
+          "condition": "Population (N) = 25,000",
+          "knowledge": "Population vs. Sample",
+          "explanation": "总体（Population）是你真正关心的所有对象，这里是全校 25,000 名学生。",
           "highlight_color": "green"
         },
         {
-          "text": "They found a statistically significant correlation coefficient of $r = 0.75$ ",
+          "text": "Due to limited time, they randomly selected 500 students who were dining at the cafe between 12:00 PM and 1:00 PM on a Tuesday. ",
           "has_info": true,
-          "highlight_text": "$r = 0.75$",
-          "condition": "Strong Positive Correlation",
-          "knowledge": "Correlation Coefficient - 相关系数",
-          "explanation": "$r = 0.75$ 表明两者之间存在较强的正相关关系，即咖啡喝得多的人通常成绩也高。",
+          "highlight_text": "500 students who were dining at the cafe between 12:00 PM and 1:00 PM on a Tuesday",
+          "condition": "Sample (n) = 500 from a restricted time/location",
+          "knowledge": "Selection Bias",
+          "explanation": "即使在该时间段内是随机抽取，也只覆盖“周二中午在咖啡馆就餐的人”，无法代表所有学生，存在覆盖不足/选择偏差风险。",
+          "highlight_color": "red"
+        },
+        {
+          "text": "The group calculated an average satisfaction score of 7.5. ",
+          "has_info": true,
+          "highlight_text": "average satisfaction score of 7.5",
+          "condition": "Sample mean = 7.5",
+          "knowledge": "Statistic (Sample Summary)",
+          "explanation": "描述样本得到的数值称为统计量（statistic），不是总体参数。",
           "highlight_color": "yellow"
         },
         {
-          "text": "The student newspaper published a headline: 'Drinking More Coffee Leads to Higher Grades!' ",
+          "text": "They used the symbol $\\mu = 7.5$ in their final report to describe this result. ",
           "has_info": true,
-          "highlight_text": "Leads to",
-          "condition": "Causal Interpretation (因果解释)",
-          "knowledge": "Correlation vs. Causation - 相关非因果",
-          "explanation": "关键词 **'Leads to'** 错误地暗示了咖啡直接导致了成绩提高。",
+          "highlight_text": "symbol $\\mu = 7.5$",
+          "condition": "Notation Error: using $\\mu$ for a sample value",
+          "knowledge": "Parameter vs. Statistic Notation",
+          "explanation": "$\\mu$ 表示总体均值参数；样本均值应使用如 $\\bar{x}$ 之类的统计量符号。",
+          "highlight_color": "red"
+        },
+        {
+          "text": "They concluded that 75% of all students are satisfied. ",
+          "has_info": true,
+          "highlight_text": "75% of all students are satisfied",
+          "condition": "Unsupported inference from mean to proportion",
+          "knowledge": "Scope of Inference / Wrong Measure",
+          "explanation": "题干给的是“平均满意度 7.5”，却推断成“75% 满意”的比例结论，属于指标混用与过度推断。",
+          "highlight_color": "blue"
+        }
+      ],
+      "traps": [
+        {
+          "title": "The Symbol Trap",
+          "description": "希腊字母（如 $\\mu$, $\\sigma$）代表总体参数，样本统计量通常用如 $\\bar{x}$、$s$ 表示。"
+        }
+      ],
+      "solution": [
+        {
+          "step_desc": "识别总体与样本",
+          "content": "总体是全校 25,000 名学生；样本是“周二 12:00-1:00 在咖啡馆就餐的 500 人”。样本框与总体不一致会引入选择偏差。",
+          "source_type": "prompt_info",
+          "source_label": "来自题干定义：总体/抽样方式"
+        },
+        {
+          "step_desc": "修正符号表达",
+          "content": "7.5 是样本均值（统计量），不应写成 $\\mu = 7.5$；应使用如 $\\bar{x} = 7.5$。",
+          "source_type": "external_knowledge",
+          "source_label": "外部核心知识：参数 vs 统计量符号"
+        },
+        {
+          "step_desc": "指出结论推断错误",
+          "content": "从“平均满意度 7.5”不能直接推出“75% 满意”。比例结论需要对“满意/不满意”二分类定义并计算样本比例。",
+          "source_type": "external_knowledge",
+          "source_label": "外部核心知识：指标一致性与推断范围"
+        }
+      ]
+    },
+    {
+      "id": "stat_124_se_me_03",
+      "title": "The Sample Size Precision Paradox",
+      "original_question": "A researcher is constructing a 95% confidence interval for a proportion. With an initial sample size of $n = 400$, the Margin of Error (ME) was 0.05. The researcher wants to cut the ME in half (to 0.025) to make the estimate more precise. Her assistant suggests that they just need to double the sample size to $n = 800$. Evaluate the assistant's suggestion.",
+      "segments": [
+        {
+          "text": "With an initial sample size of $n = 400$, the Margin of Error (ME) was 0.05. ",
+          "has_info": true,
+          "highlight_text": "$n = 400$, the Margin of Error (ME) was 0.05",
+          "condition": "Initial: $n = 400$, ME = 0.05",
+          "knowledge": "Standard Error & Margin of Error",
+          "explanation": "在比例置信区间中，ME 通常等于 $z^* \\times SE$，而 $SE$ 与 $n$ 有根号关系。",
+          "highlight_color": "green"
+        },
+        {
+          "text": "The researcher wants to cut the ME in half (to 0.025) to make the estimate more precise. ",
+          "has_info": true,
+          "highlight_text": "cut the ME in half (to 0.025)",
+          "condition": "Target ME = 0.025",
+          "knowledge": "Margin of Error scaling",
+          "explanation": "要让 ME 变小，核心是让 $SE$ 变小，而 $SE$ 取决于样本量。",
+          "highlight_color": "yellow"
+        },
+        {
+          "text": "Her assistant suggests that they just need to double the sample size to $n = 800$. ",
+          "has_info": true,
+          "highlight_text": "double the sample size to $n = 800$",
+          "condition": "Assistant proposes $n \\to 2n$",
+          "knowledge": "Sample Size vs. Precision",
+          "explanation": "这是常见误区：由于 $n$ 在根号下，ME 不会随样本量线性变化。",
           "highlight_color": "red"
         }
       ],
       "traps": [
         {
-          "title": "Lurking Variables (潜伏变量)",
-          "description": "可能存在第三个变量，如 'Study Hours'。学习时间长的学生既喝更多咖啡熬夜，也因为复习充分而拿到高分。咖啡只是一个代理变量。"
+          "title": "The Square Root Relationship",
+          "description": "误差范围要减半，样本量需要扩大为原来的 4 倍，因为 $SE \\propto \\frac{1}{\\sqrt{n}}$。"
         }
       ],
       "solution": [
         {
-          "step_desc": "第一步：解读相关性",
-          "content": "$r = 0.75$ 仅代表线性关联强度。",
-          "source_type": "prompt_info",
-          "source_label": "来自已知条件：$r$ 的取值"
-        },
-        {
-          "step_desc": "第二步：逻辑批判",
-          "content": "相关性不等于因果性（Correlation is not Causation）。",
+          "step_desc": "应用根号关系",
+          "content": "对比例置信区间，$SE = \\sqrt{\\frac{p(1-p)}{n}}$，因此 $SE$（进而 ME）与 $\\frac{1}{\\sqrt{n}}$ 成正比。",
           "source_type": "external_knowledge",
-          "source_label": "外部核心知识：在观察性研究中，必须考虑潜伏变量的影响。"
+          "source_label": "外部核心知识：比例的标准误公式"
         },
         {
-          "step_desc": "第三步：评价结论",
-          "content": "校报的标题严重误导，咖啡可能并非提高成绩的直接原因。",
+          "step_desc": "计算所需样本倍数",
+          "content": "若要 ME 减半，则需要 $\\sqrt{n}$ 变为原来的 2 倍，因此 $n$ 必须变为原来的 $2^2 = 4$ 倍：$400 \\to 1600$。助手的“翻倍到 800”不够。",
+          "source_type": "external_knowledge",
+          "source_label": "外部核心知识：缩放规律（根号）"
+        }
+      ]
+    },
+    {
+      "id": "stat_124_ci_meaning_04",
+      "title": "The Misinterpreted Confidence Interval",
+      "original_question": "A poll calculates a 95% confidence interval for the proportion of voters to be (0.48, 0.54). A report states: \"There is a 95% probability that the true proportion of voters is between 48% and 54%.\" Is this statement correct based on statistical principles?",
+      "segments": [
+        {
+          "text": "A poll calculates a 95% confidence interval for the proportion of voters to be (0.48, 0.54). ",
+          "has_info": true,
+          "highlight_text": "95% confidence interval ... (0.48, 0.54)",
+          "condition": "CI = (0.48, 0.54)",
+          "knowledge": "Confidence Interval Interpretation",
+          "explanation": "这是一个对总体比例参数的区间估计结果，区间端点来自样本与方法。",
+          "highlight_color": "green"
+        },
+        {
+          "text": "A report states: \"There is a 95% probability that the true proportion of voters is between 48% and 54%.\" ",
+          "has_info": true,
+          "highlight_text": "95% probability that the true proportion ... is between",
+          "condition": "Incorrect probability claim about a fixed parameter",
+          "knowledge": "Confidence Level Meaning",
+          "explanation": "经典误解：参数是固定常数，不能说“落在该区间的概率是 95%”。",
+          "highlight_color": "red"
+        }
+      ],
+      "traps": [
+        {
+          "title": "The Probability Misconception",
+          "description": "置信度描述的是重复抽样下“构造出的区间覆盖真参数”的长期比例，而不是单个已算出的区间包含真值的概率。"
+        }
+      ],
+      "solution": [
+        {
+          "step_desc": "指出表述错误点",
+          "content": "总体比例参数是固定的（要么在区间内，要么不在），因此对单次区间不能赋予 95% 的概率意义。",
+          "source_type": "external_knowledge",
+          "source_label": "外部核心知识：参数固定，概率描述过程"
+        },
+        {
+          "step_desc": "给出正确解释",
+          "content": "正确表述：如果重复进行抽样并用同样方法构造置信区间，那么这些区间中约 95% 会包含真实比例参数。",
+          "source_type": "external_knowledge",
+          "source_label": "外部核心知识：95% 置信度的定义"
+        }
+      ]
+    },
+    {
+      "id": "stat_124_ht_logic_05",
+      "title": "The \"Not Guilty\" Verdict in Statistics",
+      "original_question": "A researcher tests a new drug. $H_0$ is that the drug has no effect. The resulting $Z$ statistic is 1.20. Since $|1.20| < 1.96$, the researcher concludes: \"We have proven that the drug has absolutely no effect ($H_0$ is true).\" Evaluate this conclusion.",
+      "segments": [
+        {
+          "text": "$H_0$ is that the drug has no effect. ",
+          "has_info": true,
+          "highlight_text": "$H_0$ is that the drug has no effect",
+          "condition": "Null Hypothesis $H_0$",
+          "knowledge": "Hypothesis Testing - $H_0$",
+          "explanation": "$H_0$ 通常表示现状/无效应/无差异等基准假设。",
+          "highlight_color": "green"
+        },
+        {
+          "text": "The resulting $Z$ statistic is 1.20. Since $|1.20| < 1.96$, the researcher concludes... ",
+          "has_info": true,
+          "highlight_text": "$|1.20| < 1.96$",
+          "condition": "$|Z| < 1.96$",
+          "knowledge": "Decision Rule",
+          "explanation": "若采用 5% 显著性水平的双侧检验，$|Z| < 1.96$ 通常对应“不拒绝 $H_0$”。",
+          "highlight_color": "yellow"
+        },
+        {
+          "text": "\"We have proven that the drug has absolutely no effect ($H_0$ is true).\" ",
+          "has_info": true,
+          "highlight_text": "proven that the drug has absolutely no effect ($H_0$ is true)",
+          "condition": "Misinterpretation of 'Fail to Reject'",
+          "knowledge": "Interpretation of Fail to Reject",
+          "explanation": "不拒绝 $H_0$ 只能说明证据不足，而不是“证明 $H_0$ 为真”。",
+          "highlight_color": "red"
+        }
+      ],
+      "traps": [
+        {
+          "title": "The 'Acceptance' Trap",
+          "description": "统计学中不说“接受 $H_0$”或证明其正确，只能说“未能拒绝 $H_0$”（证据不足）。"
+        }
+      ],
+      "solution": [
+        {
+          "step_desc": "应用决策逻辑",
+          "content": "由于 $|Z| = 1.20 < 1.96$，统计决策应为 Fail to reject $H_0$（在该显著性水平下证据不足）。",
           "source_type": "prompt_info",
-          "source_label": "综合逻辑判定"
+          "source_label": "来自题干：给定 Z 值与阈值比较"
+        },
+        {
+          "step_desc": "修正结论表达",
+          "content": "正确表述应为：目前样本证据不足以支持“药物有效”，但也不能据此证明“药物绝对无效”。",
+          "source_type": "external_knowledge",
+          "source_label": "外部核心知识：统计推断语言规范"
+        }
+      ]
+    },
+    {
+      "id": "stat_124_variance_06",
+      "title": "The Sample Spread Calculation",
+      "original_question": "A small dataset $\\{2, 4, 6\\}$ is used to estimate the standard deviation of a population. A student calculates the variance by dividing the sum of squared deviations by $n = 3$. The professor says this will underestimate the true population spread. Why?",
+      "segments": [
+        {
+          "text": "A small dataset $\\{2, 4, 6\\}$ is used to estimate the standard deviation of a population. ",
+          "has_info": true,
+          "highlight_text": "estimate the standard deviation of a population",
+          "condition": "Sample used for inference about population spread",
+          "knowledge": "Sample Standard Deviation",
+          "explanation": "用样本去估计总体离散程度时，需要使用无偏（或更合理）的估计方式来避免系统性低估。",
+          "highlight_color": "green"
+        },
+        {
+          "text": "A student calculates the variance by dividing the sum of squared deviations by $n = 3$. ",
+          "has_info": true,
+          "highlight_text": "dividing the sum of squared deviations by $n = 3$",
+          "condition": "Denominator uses $n$ instead of $n-1$",
+          "knowledge": "Bessel's Correction (n-1)",
+          "explanation": "样本方差用 $n$ 作分母会偏小；常用 $n-1$ 进行贝塞尔校正以减小低估。",
+          "highlight_color": "red"
+        }
+      ],
+      "traps": [
+        {
+          "title": "The n vs n-1 Trap",
+          "description": "计算样本方差/标准差用于估计总体时，分母通常用 $n-1$ 而不是 $n$，否则会系统性低估离散程度。"
+        }
+      ],
+      "solution": [
+        {
+          "step_desc": "指出公式选择错误",
+          "content": "当用样本估计总体方差时，常用 $s^2 = \\frac{\\sum (x_i-\\bar{x})^2}{n-1}$ 而不是除以 $n$。",
+          "source_type": "external_knowledge",
+          "source_label": "外部核心知识：样本方差公式"
+        },
+        {
+          "step_desc": "解释为什么会低估",
+          "content": "样本均值 $\\bar{x}$ 是由样本本身计算出来的，会让偏差平方和相对“更小”；用 $n-1$ 是为了补偿这种低估（贝塞尔校正）。",
+          "source_type": "external_knowledge",
+          "source_label": "外部核心知识：Bessel's correction 原理"
         }
       ]
     }

@@ -499,18 +499,18 @@
     <div class="stars" id="stars"></div>
 
     <!-- 导航栏 -->
-    <nav class="relative z-20 glass-card rounded-b-2xl mb-6 border-b border-purple-500/20">
-        <div class="container mx-auto px-4 py-4">
+    <nav class="relative z-20 glass-card rounded-b-2xl mb-4 border-b border-purple-500/20">
+        <div class="container mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
-                <div class="flex items-center gap-6">
-                    <a href="/" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-300 hover:to-pink-300 transition-all">
+                <div class="flex items-center gap-4">
+                    <a href="/" class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-300 hover:to-pink-300 transition-all">
                         DecipherStudy
                     </a>
                     <div class="flex gap-2">
-                        <a href="/" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-500/20 transition-colors font-medium">
+                        <a href="/" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-purple-500/20 transition-colors font-medium text-sm">
                             📚 闪卡学习
                         </a>
-                        <a href="/decoder.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-500/20 transition-colors font-medium">
+                        <a href="/decoder.html" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-purple-500/20 transition-colors font-medium text-sm">
                             🔍 难题拆解
                         </a>
                     </div>
@@ -520,15 +520,7 @@
     </nav>
 
     <!-- 主容器 -->
-    <div class="relative z-10 container mx-auto px-4 py-8">
-        <!-- 标题 -->
-        <div class="text-center mb-8">
-            <h1 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-4">
-                DecipherStudy
-            </h1>
-            <p class="text-slate-400 text-lg">AI 驱动的学术闪卡学习系统</p>
-        </div>
-
+    <div class="relative z-10 container mx-auto px-4 py-4">
         <!-- 错题统计 -->
         <div id="statsBadge" class="stats-badge hidden" title="点击查看错题详情">
             🔴 需重练: <span id="redCount">0</span>
@@ -540,10 +532,6 @@
             <select id="topicSelector" class="topic-selector w-full px-4 py-3 rounded-xl text-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 mb-3">
                 <option value="">加载中...</option>
             </select>
-            <div class="filter-toggle">
-                <input type="checkbox" id="filterWeakOnly" class="cursor-pointer">
-                <label for="filterWeakOnly" class="text-slate-300 cursor-pointer">仅复习需重练题目</label>
-            </div>
         </div>
 
         <!-- 控制面板 -->

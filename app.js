@@ -11,7 +11,6 @@ class FlashCardApp {
         this.timerSeconds = 10;
         this.timerInterval = null;
         this.masteryData = this.loadMasteryData(); // 从 LocalStorage 加载掌握度数据
-        this.filterWeakOnly = false;
 
         this.init();
     }
@@ -141,24 +140,9 @@ class FlashCardApp {
         }
     }
 
-    // 应用筛选（仅显示需重练的题目）
+    // 应用筛选（目前不使用筛选功能）
     applyFilter() {
-        if (this.filterWeakOnly) {
-            this.cards = this.originalCards.filter((card, index) => {
-                const cardId = this.getCardId(card, index);
-                return this.masteryData[cardId] === 'red';
-            });
-            
-            if (this.cards.length === 0) {
-                // 如果没有需重练的题目，显示提示
-                this.cards = [];
-                this.currentIndex = 0;
-                return;
-            }
-        } else {
-            this.cards = [...this.originalCards];
-        }
-        
+        this.cards = [...this.originalCards];
         // 重置索引
         this.currentIndex = 0;
     }
@@ -166,15 +150,9 @@ class FlashCardApp {
     // 更新卡片显示
     updateCard() {
         if (this.cards.length === 0) {
-            if (this.filterWeakOnly) {
-                document.getElementById('cardQuestion').textContent = '🎉 太棒了！没有需要重练的题目了！';
-                document.getElementById('cardAnswer').textContent = '';
-                document.getElementById('cardCategory').textContent = '';
-            } else {
-                document.getElementById('cardQuestion').textContent = '暂无卡片数据';
-                document.getElementById('cardAnswer').textContent = '';
-                document.getElementById('cardCategory').textContent = '';
-            }
+            document.getElementById('cardQuestion').textContent = '暂无卡片数据';
+            document.getElementById('cardAnswer').textContent = '';
+            document.getElementById('cardCategory').textContent = '';
             return;
         }
 
@@ -631,11 +609,7 @@ class FlashCardApp {
     // 更新进度显示
     updateProgress() {
         const progressText = document.getElementById('progressText');
-        if (this.filterWeakOnly) {
-            progressText.textContent = `${this.currentIndex + 1} / ${this.cards.length} (需重练)`;
-        } else {
-            progressText.textContent = `${this.currentIndex + 1} / ${this.cards.length}`;
-        }
+        progressText.textContent = `${this.currentIndex + 1} / ${this.cards.length}`;
     }
 
     // 更新按钮状态
@@ -713,13 +687,6 @@ class FlashCardApp {
             }
         });
 
-        // 筛选选项
-        document.getElementById('filterWeakOnly').addEventListener('change', (e) => {
-            this.filterWeakOnly = e.target.checked;
-            this.applyFilter();
-            this.updateCard();
-            this.updateProgress();
-        });
 
         // 卡片翻转（点击卡片主体，但不包括按钮）
         document.getElementById('flipCard').addEventListener('click', (e) => {
@@ -764,12 +731,9 @@ class FlashCardApp {
             }
         });
 
-        // 错题统计点击
+        // 错题统计点击（已移除筛选功能）
         document.getElementById('statsBadge').addEventListener('click', () => {
-            // 切换筛选模式
-            const filterCheckbox = document.getElementById('filterWeakOnly');
-            filterCheckbox.checked = !filterCheckbox.checked;
-            filterCheckbox.dispatchEvent(new Event('change'));
+            // 可以在这里添加其他功能，比如显示错题详情
         });
 
         // 导航按钮

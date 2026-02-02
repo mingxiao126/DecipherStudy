@@ -1,0 +1,188 @@
+[
+    {
+      "question": "What is the core definition of **Economics**?",
+      "answer": "Economics is the study of **choices**. It provides a set of tools to understand your own and others' decisions, going beyond just money or stocks.",
+      "category": "经济学基础",
+      "type": "概念题",
+      "signals": ["Choices", "Thinking tools"]
+    },
+    {
+      "question": "Define the **Cost-Benefit Principle**.",
+      "answer": "A choice should be made only if its **benefits** are at least as large as its **costs**.",
+      "category": "第一原则",
+      "type": "概念题",
+      "signals": ["Benefits >= Costs"],
+      "glossary": [
+        {
+          "term": "Willingness to Pay",
+          "definition": "为了获得收益 or 避免成本愿意支付的最高金额，用于将非金钱收益货币化"
+        }
+      ]
+    },
+    {
+      "question": "What is **Economic Surplus** and how is it used?",
+      "answer": "**Total Benefits - Total Costs**. The goal of any good decision is to **maximize** this surplus.",
+      "category": "决策评估",
+      "type": "计算题",
+      "signals": ["Total Benefits", "Total Costs", "Maximize"],
+      "steps": [
+        "Step 1: Convert all benefits to a dollar value (Willingness to Pay)",
+        "Step 2: Subtract all costs",
+        "Step 3: Choose the option with the highest surplus"
+      ]
+    },
+    {
+      "question": "Explain the **Framing Effect** in decision making.",
+      "answer": "Decisions are influenced by how choices are **described or presented** (e.g., special tags, menu placement). Rational deciders should focus only on actual costs and benefits.",
+      "category": "决策偏差",
+      "type": "概念题",
+      "signals": ["Description", "Presentation", "Special labels"]
+    },
+    {
+      "question": "What is the **Opportunity Cost Principle**?",
+      "answer": "The true cost of something is the **next best alternative** (the single best option) you must give up to get it.",
+      "category": "第二原则",
+      "type": "概念题",
+      "signals": ["Next best alternative", "Give up", "Or what?"],
+      "glossary": [
+        {
+          "term": "Scarcity",
+          "definition": "资源（时间、金钱、注意力）有限，迫使我们必须做取舍"
+        }
+      ]
+    },
+    {
+      "question": "What is the decision rule for **Sunk Costs**?",
+      "answer": "**Ignore them!** Sunk costs are past, irreversible expenses that cannot be recovered. They should not affect future decisions.",
+      "category": "成本分析",
+      "type": "决策规则",
+      "signals": ["Irreversible", "Non-refundable", "Already paid"]
+    },
+    {
+      "question": "Interpret the points on a **Production Possibilities Frontier (PPF)**.",
+      "answer": "**On the line**: Efficient, resources fully used. **Inside**: Inefficient, resources wasted. **Outside**: Unattainable with current productivity.",
+      "category": "经济模型",
+      "type": "图表题",
+      "signals": ["PPF", "Efficient", "Unattainable"]
+    },
+    {
+      "question": "Define the **Marginal Principle**.",
+      "answer": "Break 'how many' decisions into incremental 'one more' steps. Analyze the **Marginal Benefit (MB)** and **Marginal Cost (MC)** of each additional unit.",
+      "category": "第三原则",
+      "type": "分析方法",
+      "signals": ["How many", "One more unit", "Incrementally"]
+    },
+    {
+      "question": "What is the **Rational Rule** for marginal analysis?",
+      "answer": "If something is worth doing, keep doing it until **Marginal Benefit = Marginal Cost** (MB = MC). This maximizes economic surplus.",
+      "category": "决策规则",
+      "type": "计算题",
+      "signals": ["MB = MC", "Optimal point"]
+    },
+    {
+      "question": "What are the four types of **Dependencies** in the Interdependence Principle?",
+      "answer": "1. Between your own choices; 2. Between people/actors; 3. Between markets; 4. Through time (today vs. future).",
+      "category": "第四原则",
+      "type": "分类题",
+      "signals": ["Dependencies", "Market changes", "Future expectations"]
+    },
+    {
+      "question": "Define **Gains from Trade**.",
+      "answer": "The benefit of **reallocating** resources to their best uses. Both parties can be better off by specializing in tasks they are best at.",
+      "category": "贸易理论",
+      "type": "概念题",
+      "signals": ["Reallocating", "Mutual gain"]
+    },
+    {
+      "question": "Distinguish between **Absolute** and **Comparative Advantage**.",
+      "answer": "**Absolute Advantage**: Ability to do a task with **fewer inputs** (time/resources). **Comparative Advantage**: Ability to do a task at a **lower opportunity cost**.",
+      "category": "竞争优势",
+      "type": "对比题",
+      "signals": ["Fewer inputs vs Lower cost"],
+      "steps": [
+        "Step 1: Productivity (Inputs/Output)",
+        "Step 2: Convert to Opportunity Cost (Give up / Gain)",
+        "Step 3: Allocate based on Comparative Advantage"
+      ]
+    },
+    {
+      "question": "What are the three functions of **Prices**?",
+      "answer": "1. **Signal**: Reflects MC to buyers and MB to sellers. 2. **Incentive**: High prices encourage supply and discourage demand. 3. **Information**: Aggregates scattered market knowledge.",
+      "category": "价格机制",
+      "type": "分类题",
+      "signals": ["Signal", "Incentive", "Information"]
+    },
+    {
+      "question": "What is the **Knowledge Problem** and how is it solved internally?",
+      "answer": "Central planners cannot know everyone's needs. **Internal Markets** (like bidding) allow those with the highest MB to get resources.",
+      "category": "市场机制",
+      "type": "案例题",
+      "signals": ["Central planning", "Feeding America", "Knowledge Problem"]
+    },
+    {
+      "question": "Define **Gross Domestic Product (GDP)** in detail.",
+      "answer": "The **market value** of all **final** goods and services **produced** **within a country** in a **given year**.",
+      "category": "宏观指标",
+      "type": "概念题",
+      "signals": ["Final goods", "Produced", "Within a country"],
+      "steps": [
+        "1. Market Value: Use prices as a common unit",
+        "2. Of All: Private + Government goods",
+        "3. Final: Excludes intermediate goods to avoid double counting",
+        "4. Produced: Excludes resales",
+        "5. Within a country: Regardless of company origin"
+      ]
+    },
+    {
+      "question": "What is the **Expenditure Approach** formula ($Y=C+I+G+NX$)?",
+      "answer": "**Consumption (C)**: Household spending. **Investment (I)**: Business assets + **new housing**. **Government Purchases (G)**: Excludes transfer payments. **Net Exports (NX)**: Exports - Imports.",
+      "category": "GDP核算",
+      "type": "计算题",
+      "signals": ["Y = C + I + G + NX", "New housing", "Transfer Payments"]
+    },
+    {
+      "question": "Why are **Transfer Payments** excluded from GDP?",
+      "answer": "Payments like social security or pensions are just redistributions; they **do not produce new goods or services**.",
+      "category": "GDP核算",
+      "type": "对比题",
+      "signals": ["Pensions", "Unemployment benefits", "G component"]
+    },
+    {
+      "question": "Explain **Value Added** in the Output Perspective.",
+      "answer": "**Value Added = Total Sales - Cost of Intermediate Inputs**. It measures the contribution of each stage of production.",
+      "category": "GDP核算",
+      "type": "计算题",
+      "signals": ["Total Sales", "Intermediate Inputs"]
+    },
+    {
+      "question": "Distinguish between **Nominal GDP** and **Real GDP**.",
+      "answer": "**Nominal GDP**: Calculated using current prices. **Real GDP**: Calculated using constant (base-year) prices to remove inflation effects. Use Real GDP for growth.",
+      "category": "宏观指标",
+      "type": "对比题",
+      "signals": ["Current vs Constant prices", "Inflation"],
+      "steps": [
+        "Formula: %ΔReal GDP ≈ %ΔNominal GDP - %ΔPrices"
+      ]
+    },
+    {
+      "question": "List the 6 **Limitations of GDP**.",
+      "answer": "1. Prices are not values; 2. Non-market activities (housework); 3. Shadow economy; 4. Environmental degradation; 5. Leisure; 6. Distribution (inequality).",
+      "category": "宏观指标",
+      "type": "简答题",
+      "signals": ["Misses", "Not perfect", "Shadow economy"]
+    },
+    {
+      "question": "Explain the **Rule of 70**.",
+      "answer": "Used to find the years to double a variable: **Years to double ≈ 70 / Annual Growth Rate**.",
+      "category": "数据处理",
+      "type": "计算题",
+      "signals": ["Double", "70 / Rate"]
+    },
+    {
+      "question": "Summary: What are the primary exam keyword mappings?",
+      "answer": "**'One more'** -> Marginal; **'Next best/Give up'** -> Opportunity Cost; **'Surplus/Incentive'** -> Cost-Benefit; **'Others/Future'** -> Interdependence.",
+      "category": "复习贴士",
+      "type": "记忆题",
+      "signals": ["Keyword correspondence"]
+    }
+  ]

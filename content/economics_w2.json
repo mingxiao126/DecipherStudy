@@ -1,27 +1,77 @@
 [
-  {
-    "question": "Define **Comparative Advantage**.",
-    "answer": "The ability to do a task at a **lower opportunity cost** (who gives up less). Even if one person is better at everything, both can benefit from specialization.",
-    "category": "贸易理论"
-  },
-  {
-    "question": "What is **Absolute Advantage**?",
-    "answer": "The ability to produce more output with the same resources, or the same output with fewer resources. Different from comparative advantage.",
-    "category": "贸易理论"
-  },
-  {
-    "question": "How does **Specialization** lead to gains from trade?",
-    "answer": "When individuals or countries specialize in what they have a **comparative advantage** in, total production increases, and trade allows both parties to consume beyond their production possibilities.",
-    "category": "贸易理论"
-  },
-  {
-    "question": "What is the **Production Possibilities Frontier (PPF)**?",
-    "answer": "A curve showing the **maximum combinations** of two goods an economy can produce with available resources and technology. Points on the curve are efficient.",
-    "category": "生产理论"
-  },
-  {
-    "question": "What does a point **inside the PPF** represent?",
-    "answer": "**Inefficiency** - resources are not being fully utilized. The economy could produce more of both goods without giving up anything.",
-    "category": "生产理论"
-  }
-]
+    {
+      "question": "What is the core difference between **Absolute Advantage** and **Comparative Advantage**?",
+      "answer": "**Absolute Advantage** is about efficiency (using **fewer inputs** or time)[cite: 78, 79]. **Comparative Advantage** is about trade-offs (having a **lower opportunity cost**)[cite: 82, 83]. Decisions should be based on comparative advantage[cite: 85].",
+      "category": "贸易理论",
+      "type": "对比题",
+      "signals": ["Fewer inputs", "Lower opportunity cost", "Efficiency vs. Cost"],
+      "glossary": [
+        {
+          "term": "Absolute Advantage",
+          "definition": "绝对优势：以更少投入完成任务的能力 [cite: 79]"
+        },
+        {
+          "term": "Comparative Advantage",
+          "definition": "比较优势：以更低机会成本完成任务的能力 [cite: 83]"
+        }
+      ]
+    },
+    {
+      "question": "How do you calculate the **Opportunity Cost** of a task?",
+      "answer": "Use the 'Recipe': Divide what you **give up** by what you **gain**[cite: 92, 125]. For example, if Natalia takes 30 mins to balance accounts and 10 mins to process payments, the cost of 1 account is 3 payments (30/10)[cite: 93].",
+      "category": "计算方法",
+      "type": "计算题",
+      "signals": ["Recipe", "Convert", "Give up / Gain"],
+      "steps": [
+        "Step 1: List the productivity data for each person [cite: 90]",
+        "Step 2: Calculate how much of 'Task B' is sacrificed to do 'Task A' [cite: 92, 93]",
+        "Step 3: Compare results; the person with the lower cost has the comparative advantage [cite: 95, 96]"
+      ]
+    },
+    {
+      "question": "What is **Specialization** and why is it beneficial?",
+      "answer": "Specialization is when individuals focus on tasks where they have a **comparative advantage**[cite: 75, 117]. It leads to **Gains from Trade** by reallocating resources to their best uses, making both parties better off[cite: 72, 74].",
+      "category": "贸易理论",
+      "type": "概念题",
+      "signals": ["Specialization", "Gains from trade", "Reallocating"],
+      "glossary": [
+        {
+          "term": "Gains from Trade",
+          "definition": "贸易收益：通过重新分配资源到更好用途而获得的收益 [cite: 74]"
+        }
+      ]
+    },
+    {
+      "question": "What are the three functions of **Prices** in a market?",
+      "answer": "1. **Signal**: Reflects marginal cost to buyers and marginal benefit to sellers[cite: 100, 101, 102]. 2. **Incentive**: High prices encourage sellers to produce more and buyers to buy less[cite: 103, 104]. 3. **Information**: Aggregates scattered information from across the market[cite: 105, 106].",
+      "category": "价格机制",
+      "type": "分析题",
+      "signals": ["Signal", "Incentive", "Information", "Function of Price"]
+    },
+    {
+      "question": "What is the **Knowledge Problem** and how do **Internal Markets** solve it?",
+      "answer": "The **Knowledge Problem** occurs when central planners cannot know everyone's specific needs[cite: 108, 109]. **Internal Markets** solve this by using market mechanisms (like bidding) to let those with the highest marginal benefit obtain resources[cite: 110, 113].",
+      "category": "市场机制",
+      "type": "案例题",
+      "signals": ["Knowledge Problem", "Central Planning", "Internal Markets", "Feeding America"],
+      "steps": [
+        "Step 1: Recognize that central planners lack local information [cite: 108]",
+        "Step 2: Implement a system where departments bid for resources [cite: 110, 113]",
+        "Step 3: Resources are naturally allocated to their highest-value use [cite: 113]"
+      ]
+    },
+    {
+      "question": "Explain **Prediction Markets**.",
+      "answer": "Markets where people buy and sell based on the likelihood of future events (e.g., sports or elections)[cite: 106]. The market price reflects the aggregated judgment and information of all participants[cite: 106, 117].",
+      "category": "价格机制",
+      "type": "概念题",
+      "signals": ["Prediction Markets", "Aggregated information", "Future events"]
+    },
+    {
+      "question": "Summary: What are the exam 'short-cuts' for Chapter 2?",
+      "answer": "Identify **'Fewer inputs'** as Absolute Advantage. Identify **'Lower opportunity cost'** or **'Give up'** as Comparative Advantage. The logic chain is: Comparative Advantage → Specialization → Trade → Mutual Gain[cite: 126].",
+      "category": "考试技巧",
+      "type": "记忆题",
+      "signals": ["Keywords", "Logic Chain"]
+    }
+  ]

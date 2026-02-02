@@ -1,70 +1,123 @@
 [
-  {
-    "question": "What is the **Sunk Cost** decision rule?",
-    "answer": "**Ignore them!** Sunk costs are irreversible and should not affect current decisions. Only future costs and benefits matter when making rational choices.",
-    "category": "决策理论",
-    "type": "概念题",
-    "signals": ["Sunk Cost", "Non-refundable", "Irreversible"],
-    "steps": [
-      "Step 1: Identify if the cost is already paid and cannot be recovered",
-      "Step 2: Recognize that sunk costs should not influence future decisions",
-      "Step 3: Focus only on future costs and benefits when making choices"
-    ],
-    "glossary": [
-      {
-        "term": "Sunk Cost",
-        "definition": "已支付且无法收回的成本，不应影响未来决策"
-      },
-      {
-        "term": "Irreversible",
-        "definition": "不可逆转的，无法撤销的"
-      }
-    ]
-  },
-  {
-    "question": "How is **Economic Surplus** calculated?",
-    "answer": "**Total Benefits - Total Costs**. Making good decisions means maximizing this surplus. It represents the net gain from a decision.",
-    "category": "基础概念",
-    "type": "计算题",
-    "signals": ["Total Benefits", "Total Costs", "Maximize"],
-    "steps": [
-      "Step 1: Calculate all benefits from the decision",
-      "Step 2: Calculate all costs from the decision",
-      "Step 3: Subtract costs from benefits: Surplus = Benefits - Costs",
-      "Step 4: The goal is to maximize this surplus"
-    ]
-  },
-  {
-    "question": "What is the difference between **Opportunity Cost** and **Sunk Cost**?",
-    "answer": "**Opportunity Cost** is the value of the next best alternative forgone (relevant for decisions). **Sunk Cost** is a past expense that cannot be recovered (should be ignored).",
-    "category": "成本概念",
-    "type": "对比题",
-    "signals": ["Opportunity Cost", "Next best alternative", "Sunk Cost"],
-    "glossary": [
-      {
-        "term": "Opportunity Cost",
-        "definition": "机会成本：选择某个选项时放弃的次优选择的价值"
-      }
-    ]
-  },
-  {
-    "question": "Define **Marginal Analysis**.",
-    "answer": "The process of comparing **marginal benefits** to **marginal costs** to determine the optimal level of an activity. Continue until MB = MC.",
-    "category": "分析方法",
-    "type": "概念题",
-    "signals": ["Marginal Benefits", "Marginal Costs", "MB = MC"],
-    "steps": [
-      "Step 1: Calculate the marginal benefit of one more unit",
-      "Step 2: Calculate the marginal cost of one more unit",
-      "Step 3: Compare MB and MC",
-      "Step 4: Continue the activity until MB = MC (optimal point)"
-    ]
-  },
-  {
-    "question": "What does **Rational Choice** mean in economics?",
-    "answer": "A choice that uses the available information to achieve the goal in the best way possible. It involves weighing costs and benefits systematically.",
-    "category": "决策理论",
-    "type": "概念题",
-    "signals": ["Available information", "Best way", "Systematically"]
-  }
-]
+    {
+      "question": "What is the **Cost-Benefit Principle**?",
+      "answer": "A decision should be made only if the **benefits** of that choice are at least as large as its **costs**. It is the core framework for individual decision-making.",
+      "category": "经济学原则",
+      "type": "概念题",
+      "signals": ["Cost", "Benefit", "At least as large"],
+      "steps": [
+        "Step 1: Identify all benefits of the choice",
+        "Step 2: Identify all costs of the choice",
+        "Step 3: Compare: If Benefits ≥ Costs, proceed with the choice"
+      ],
+      "glossary": [
+        {
+          "term": "Willingness to Pay",
+          "definition": "为了获得收益或避免成本愿意支付的最高金额，用于将非金钱收益货币化"
+        }
+      ]
+    },
+    {
+      "question": "How is **Economic Surplus** calculated and what is its goal?",
+      "answer": "**Total Benefits - Total Costs**. The goal of any good decision is to **maximize** this surplus, representing the net gain from a choice.",
+      "category": "基础概念",
+      "type": "计算题",
+      "signals": ["Total Benefits", "Total Costs", "Maximize"],
+      "steps": [
+        "Step 1: Calculate total benefits (e.g., Willingness to Pay)",
+        "Step 2: Calculate total costs (actual expenditure)",
+        "Step 3: Subtract: Surplus = Benefits - Costs",
+        "Step 4: Choose the option that provides the highest surplus"
+      ]
+    },
+    {
+      "question": "What is the **Framing Effect** and how should a rational person handle it?",
+      "answer": "The tendency for decisions to be influenced by how choices are **described or presented**. A good decision-maker should **ignore the frame** and focus only on actual costs and benefits.",
+      "category": "决策偏差",
+      "type": "概念题",
+      "signals": ["Description", "Presentation", "Special labels"],
+      "glossary": [
+        {
+          "term": "Framing Effect",
+          "definition": "框架效应：决策受表达方式影响，而非实际内容"
+        }
+      ]
+    },
+    {
+      "question": "Define **Opportunity Cost Principle**.",
+      "answer": "The true cost of something is the **next best alternative** (the single best option you give up) to get it. It arises because resources are **scarce**.",
+      "category": "经济学原则",
+      "type": "概念题",
+      "signals": ["Next best alternative", "Give up", "Or what?"],
+      "steps": [
+        "Step 1: Ask 'Or what?' to identify other options",
+        "Step 2: Rank the alternatives",
+        "Step 3: Identify the value of the #2 option (this is the Opportunity Cost)"
+      ]
+    },
+    {
+      "question": "What are the rules for **Sunk Costs**?",
+      "answer": "**Ignore them!** Sunk costs are past expenses that cannot be recovered. Rational decisions should only be based on **future** costs and benefits.",
+      "category": "成本概念",
+      "type": "决策规则",
+      "signals": ["Already occurred", "Cannot be recovered", "Non-refundable"],
+      "glossary": [
+        {
+          "term": "Sunk Cost",
+          "definition": "沉没成本：已发生且无法收回的成本，决策时不应考虑"
+        }
+      ]
+    },
+    {
+      "question": "Describe the **Production Possibilities Frontier (PPF)** points.",
+      "answer": "A graph showing output combinations. **On the line**: Efficient (max utilization). **Inside the line**: Inefficient (waste). **Outside the line**: Unattainable (given current productivity).",
+      "category": "经济模型",
+      "type": "对比题",
+      "signals": ["PPF", "Efficient", "Unattainable", "Trade-off"],
+      "steps": [
+        "On the line: Moving along the line shows Opportunity Cost",
+        "Inside: Resources are wasted",
+        "Outside: Impossible unless productivity increases"
+      ]
+    },
+    {
+      "question": "What is the **Marginal Principle** and its **Rational Rule**?",
+      "answer": "Break 'how many' decisions into smaller 'one more' steps. Keep doing something until **Marginal Benefit (MB) = Marginal Cost (MC)** to maximize surplus.",
+      "category": "经济学原则",
+      "type": "分析方法",
+      "signals": ["One more unit", "How many", "MB = MC"],
+      "steps": [
+        "Step 1: Calculate MB of one extra unit",
+        "Step 2: Calculate MC of one extra unit",
+        "Step 3: If MB ≥ MC, do it. If MB < MC, stop",
+        "Step 4: Optimal point is MB = MC"
+      ]
+    },
+    {
+      "question": "What is the **Interdependence Principle**?",
+      "answer": "Your best choice depends on other factors. Decisions are not isolated and are connected through: **Your other choices**, **Other people**, **Other markets**, and **Time**.",
+      "category": "经济学原则",
+      "type": "概念题",
+      "signals": ["Dependencies", "Others", "Future", "Market changes"],
+      "glossary": [
+        {
+          "term": "Interdependence",
+          "definition": "相互依存原则：决策受自身其他选择、他人行为、不同市场及时间预期的影响"
+        }
+      ]
+    },
+    {
+      "question": "What are the four types of **Dependencies**?",
+      "answer": "1. **Between your own choices** (limited resources); 2. **Between people** (others' actions); 3. **Between markets** (changes in one affect another); 4. **Through time** (future expectations affect today).",
+      "category": "分析方法",
+      "type": "分类题",
+      "signals": ["Scarcity", "Economic actors", "Interest rates", "Future expectations"]
+    },
+    {
+      "question": "Summary: How to identify principles from exam keywords?",
+      "answer": "**'One more'** → Marginal; **'Give up/Next best'** → Opportunity Cost; **'Surplus/Incentive'** → Cost-Benefit; **'Others/Future'** → Interdependence.",
+      "category": "考试技巧",
+      "type": "记忆题",
+      "signals": ["Keywords", "Correspondence"]
+    }
+  ]

@@ -1,44 +1,83 @@
 [
-  {
-    "question": "Why does GDP omit **Intermediate Goods**?",
-    "answer": "To avoid **Double Counting**. The final price already includes all prior stages of production. Only final goods and services are counted in GDP.",
-    "category": "国民账户"
-  },
-  {
-    "question": "What are the four components of GDP?",
-    "answer": "The GDP formula is: $Y = C + I + G + NX$ where **C** is Consumption, **I** is Investment, **G** is Government spending, and **NX** is Net Exports. This is the expenditure approach to calculating GDP.",
-    "category": "国民账户",
-    "type": "公式题",
-    "signals": ["C", "I", "G", "NX", "Expenditure approach"],
-    "steps": [
-      "Step 1: Identify Consumption (C) - spending by households",
-      "Step 2: Add Investment (I) - spending on capital goods",
-      "Step 3: Add Government spending (G)",
-      "Step 4: Add Net Exports (NX) = Exports - Imports",
-      "Step 5: Sum all components: $Y = C + I + G + NX$"
-    ]
-  },
-  {
-    "question": "Calculate the real growth rate if nominal GDP growth is 10% and prices rose 4%: $\\% \\Delta Real \\approx \\% \\Delta Nominal - \\% \\Delta Prices$",
-    "answer": "Using the formula: $\\% \\Delta Real = \\% \\Delta Nominal - \\% \\Delta Prices = 10\\% - 4\\% = 6\\%$. The real growth rate is approximately **6%**.",
-    "category": "国民账户",
-    "type": "计算题",
-    "signals": ["Nominal GDP", "Real GDP", "Inflation", "Growth rate"],
-    "steps": [
-      "Step 1: Identify nominal GDP growth rate (10\\%)",
-      "Step 2: Identify price change/inflation rate (4\\%)",
-      "Step 3: Apply formula: $\\% \\Delta Real = \\% \\Delta Nominal - \\% \\Delta Prices$",
-      "Step 4: Calculate: 10\\% - 4\\% = 6\\%"
-    ]
-  },
-  {
-    "question": "Define **GDP per capita**.",
-    "answer": "GDP divided by population. It measures the **average income** per person and is used to compare living standards across countries.",
-    "category": "国民账户"
-  },
-  {
-    "question": "What does **GDP not measure**?",
-    "answer": "GDP does not measure: quality of life, income distribution, non-market activities (housework), environmental quality, or leisure time.",
-    "category": "国民账户"
-  }
-]
+    {
+      "question": "What is the formal definition of **Gross Domestic Product (GDP)**?",
+      "answer": "The **market value** of **all final goods and services** **produced** **within a country** in a **given year**.",
+      "category": "GDP基础",
+      "type": "概念题",
+      "signals": ["Market Value", "Final Goods", "Produced", "Within a country"],
+      "steps": [
+        "Step 1: Use market prices as a common unit (Market Value) [cite: 135]",
+        "Step 2: Include both private and government-provided goods (All) [cite: 136]",
+        "Step 3: Count only end-user products to avoid double counting (Final Goods) [cite: 137, 138]",
+        "Step 4: Only include newly produced items, excluding resales (Produced) ",
+        "Step 5: Ensure production happened inside the country's borders (Within a country) [cite: 140]"
+      ]
+    },
+    {
+      "question": "State the **Expenditure Approach** formula for GDP.",
+      "answer": "**$Y = C + I + G + NX$**. This represents the total spending in an economy, where Y is the total GDP.",
+      "category": "计算公式",
+      "type": "计算题",
+      "signals": ["Spending Perspective", "Y=C+I+G+NX"],
+      "glossary": [
+        { "term": "C (Consumption)", "definition": "家庭购买的商品和服务 [cite: 147]" },
+        { "term": "I (Investment)", "definition": "企业资产支出及新房购买 (New housing) [cite: 148, 149]" },
+        { "term": "G (Government Purchases)", "definition": "政府在商品和服务上的支出 [cite: 152]" },
+        { "term": "NX (Net Exports)", "definition": "出口减进口 (Exports - Imports) [cite: 154]" }
+      ]
+    },
+    {
+      "question": "Why are **Transfer Payments** and **Intermediate Goods** excluded from GDP?",
+      "answer": "**Intermediate Goods** are excluded to avoid **double counting**[cite: 138]. **Transfer Payments** (e.g., pensions, unemployment benefits) are excluded because no new product or service is produced[cite: 153].",
+      "category": "GDP核算",
+      "type": "对比题",
+      "signals": ["Double counting", "Transfer Payments", "Intermediate"],
+      "steps": [
+        "Check: Is it a raw material for another product? (Intermediate -> Exclude) [cite: 137]",
+        "Check: Is it just a redistribution of money like social security? (Transfer -> Exclude) "
+      ]
+    },
+    {
+      "question": "What is the difference between **Nominal GDP** and **Real GDP**?",
+      "answer": "**Nominal GDP** uses **current prices**, which may reflect inflation[cite: 163]. **Real GDP** uses **constant (base-year) prices** to remove the effects of price changes, showing only the growth in quantity[cite: 166, 167].",
+      "category": "GDP进阶",
+      "type": "概念题",
+      "signals": ["Current prices", "Constant prices", "Inflation effects"],
+      "steps": [
+        "Rule: Always use Real GDP to measure economic growth or living standards [cite: 168, 221]",
+        "Trick: %ΔReal GDP ≈ %ΔNominal GDP - %ΔPrices [cite: 170, 171]"
+      ]
+    },
+    {
+      "question": "What are the six **limitations** of GDP (what it misses)?",
+      "answer": "1. **Prices aren't values** (e.g., Wikipedia); 2. **Non-market activities** (e.g., housework); 3. **Shadow Economy** (illegal/untaxed); 4. **Environmental Degradation**; 5. **Leisure**; 6. **Distribution** (inequality).",
+      "category": "批判性思维",
+      "type": "简答题",
+      "signals": ["Limitations", "Misses", "Not perfect"],
+      "glossary": [
+        { "term": "Shadow Economy", "definition": "地下经济：逃税或非法的现金交易 [cite: 178, 212]" }
+      ]
+    },
+    {
+      "question": "How do you use the **Rule of 70**?",
+      "answer": "To find the years it takes for a variable to **double**, divide 70 by the **annual growth rate**. Formula: **$Years\\ to\\ double \\approx 70 / Annual\\ Growth\\ Rate$**.",
+      "category": "计算方法",
+      "type": "计算题",
+      "signals": ["Double", "Rule of 70", "Growth rate"],
+      "steps": [
+        "Step 1: Identify the annual growth rate (e.g., 2%) [cite: 191]",
+        "Step 2: Divide 70 by the rate number (70 / 2) [cite: 191]",
+        "Step 3: Result is the number of years (35 years) [cite: 191]"
+      ]
+    },
+    {
+      "question": "Define **Value Added** in the Output Perspective.",
+      "answer": "It is the difference between total sales and the cost of intermediate inputs. **Value Added = Total Sales - Cost of Intermediate Inputs**.",
+      "category": "计算公式",
+      "type": "概念题",
+      "signals": ["Total Output", "Intermediate inputs", "Value Added"],
+      "steps": [
+        "Calculate: Each stage's contribution to the final price [cite: 156, 157]"
+      ]
+    }
+  ]

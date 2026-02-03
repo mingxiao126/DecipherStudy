@@ -1,0 +1,61 @@
+[
+  {
+    "id": "econ_102_va_01",
+    "title": "Cupcake Value Added Problem",
+    "original_question": "To make each vanilla cupcake that you sell at a bake sale, you use: $3/2$ cups flour: $0.07, 2 eggs: $0.86, $2/3$ cup sugar: $0.11. You price your cupcakes at $3.50. Calculate value added.",
+    "segments": [
+      {
+        "text": "To make each vanilla cupcake that you sell at a bake sale, ",
+        "has_info": false
+      },
+      {
+        "text": "you use: $3/2$ cups flour: $0.07, 2 eggs: $0.86, $2/3$ cup sugar: $0.11. ",
+        "has_info": true,
+        "highlight_text": "flour: $0.07, 2 eggs: $0.86, sugar: $0.11",
+        "condition": "Intermediate Inputs ($Cost = $1.04$)",
+        "knowledge": "Intermediate Goods - 中间投入",
+        "explanation": "原材料属于中间投入，计算增值时需剔除  [cite: 32, 1846-1854]。",
+        "is_trap": false
+      },
+      {
+        "text": "You price your cupcakes at $3.50. ",
+        "has_info": true,
+        "highlight_text": "price your cupcakes at $3.50",
+        "condition": "Final Sale Price ($P = $3.50$)",
+        "knowledge": "Market Value of Final Goods - 最终产品市场价值",
+        "explanation": "最终售价是计算的基础  [cite: 32, 1255-1257]。",
+        "is_trap": false
+      },
+      {
+        "text": "Calculate value added.",
+        "has_info": false
+      }
+    ],
+    "traps": [
+      {
+        "title": "Value Added $\\neq$ Profit",
+        "description": "增值不等于利润，因为它未扣除人工等成本。"
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "计算总中间投入 (Intermediate Inputs)",
+        "content": "$Cost = 0.07 + 0.86 + 0.11 = 1.04$",
+        "source_type": "prompt_info",
+        "source_label": "来自已知条件：原材料清单"
+      },
+      {
+        "step_desc": "应用增值核算原则",
+        "content": "Value Added $\\neq$ Profit",
+        "source_type": "external_knowledge",
+        "source_label": "外部核心知识：增值衡量产出贡献，不等于利润"
+      },
+      {
+        "step_desc": "计算增值",
+        "content": "$VA = P - Cost = 3.50 - 1.04 = 2.46$",
+        "source_type": "prompt_info",
+        "source_label": "来自已知条件：最终价格和中间投入"
+      }
+    ]
+  }
+]

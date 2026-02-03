@@ -1,0 +1,72 @@
+[
+    {
+      "question": "What is the primary goal of **Exploratory Data Analysis (EDA)**?",
+      "answer": "The main purpose of EDA is to understand the data through **visualizing** (plotting) and **descriptive statistics** (numerical summaries) before performing formal analysis.",
+      "category": "EDA基础",
+      "type": "概念题",
+      "signals": ["Visualizing", "Descriptive Statistics", "Understand data"]
+    },
+    {
+      "question": "When should you use a **Stem-and-Leaf Plot** versus a **Dot Plot**?",
+      "answer": "**Stem-and-Leaf Plot**: Best for **small datasets** because it preserves original numerical values. **Dot Plot**: Suitable for **small to medium** datasets, showing the density of distribution by stacking dots.",
+      "category": "单变量绘图",
+      "type": "对比题",
+      "signals": ["Small dataset", "Original values", "Density"]
+    },
+    {
+      "question": "What are the key design rules for a **Bar Chart**?",
+      "answer": "1. Used for **Categorical** or discrete data. 2. There should be **gaps** between bars. 3. The vertical axis (Y-axis) must **start from 0** because humans perceive value through length.",
+      "category": "单变量绘图",
+      "type": "规则题",
+      "signals": ["Categorical", "Gaps", "Start from 0"]
+    },
+    {
+      "question": "How do **Histograms** differ from Bar Charts, and what do they show?",
+      "answer": "**Histograms** are for **continuous numeric data** with no gaps between bars (bins). They allow us to identify the **Shape**, **Center**, and **Spread** of a distribution.",
+      "category": "单变量绘图",
+      "type": "对比题",
+      "signals": ["Continuous", "Bins", "Shape/Center/Spread"]
+    },
+    {
+      "question": "Explain the components of a **Box Plot** and the **Five-number Summary**.",
+      "answer": "A Box Plot is based on: **Min, Q1, Median, Q3, and Max**. The box height represents the **Interquartile Range (IQR)** (middle 50% of data). **Outliers** are points beyond 1.5 × IQR from the box.",
+      "category": "单变量绘图",
+      "type": "概念题",
+      "signals": ["Five-number summary", "IQR", "Outliers", "1.5 x IQR"]
+    },
+    {
+      "question": "What is a **Pareto Chart**?",
+      "answer": "A combination of a **Bar Chart** (sorted in descending frequency) and a **Line Graph** (showing cumulative percentage). It highlights the 'important few' based on the **80/20 rule**.",
+      "category": "单变量绘图",
+      "type": "概念题",
+      "signals": ["80/20 rule", "Descending frequency", "Cumulative percentage"]
+    },
+    {
+      "question": "Distinguish between **Right-skewed** and **Left-skewed** distributions.",
+      "answer": "**Right-skewed**: Data heaps on the left, with a **long tail extending to the right**. **Left-skewed**: Data heaps on the right, with a **long tail extending to the left**.",
+      "category": "分布形状",
+      "type": "对比题",
+      "signals": ["Tail direction", "Skewness"]
+    },
+    {
+      "question": "In a **Scatterplot**, which variables go on which axes?",
+      "answer": "The **Explanatory Variable** (Independent/Predictor) goes on the **X-axis**, and the **Response Variable** (Dependent/Predicted) goes on the **Y-axis**.",
+      "category": "双变量绘图",
+      "type": "规则题",
+      "signals": ["X-axis vs Y-axis", "Explanatory", "Response"]
+    },
+    {
+      "question": "According to **Visual Perception** principles, what should be avoided in charts?",
+      "answer": "Avoid **Pie Charts** because humans are poor at judging **Angles** and **Areas**. Instead, use Bar Charts or Scatterplots because humans are excellent at judging **Length** and **Position**.",
+      "category": "视觉感知",
+      "type": "决策建议",
+      "signals": ["Length/Position", "Angles/Areas", "Pie charts are bad"]
+    },
+    {
+      "question": "Summary: What are the primary exam keyword mappings for Week 2?",
+      "answer": "**'Distribution'** -> Histogram or Box Plot; **'Association/Relationship'** -> Scatterplot; **'Comparison of groups'** -> Side-by-side Box Plots.",
+      "category": "复习贴士",
+      "type": "记忆题",
+      "signals": ["Keyword mapping", "Exam tips"]
+    }
+  ]

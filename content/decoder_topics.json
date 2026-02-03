@@ -1,0 +1,32 @@
+[
+  {
+    "subject": "经济学",
+    "name": "经济学 - 第一周",
+    "file": "decoders_econ_w1.json"
+  },
+  {
+    "subject": "经济学",
+    "name": "经济学 - 第二周",
+    "file": "decoders_econ_w2.json"
+  },
+  {
+    "subject": "经济学",
+    "name": "经济学 - 第三周",
+    "file": "decoders_econ_w3.json"
+  },
+  {
+    "subject": "经济学",
+    "name": "经济学 - 综合大题",
+    "file": "decoders_econ_comprehensive.json"
+  },
+  {
+    "subject": "统计学",
+    "name": "统计学 - 第一周",
+    "file": "decoders_stat_w1.json"
+  },
+  {
+    "subject": "统计学",
+    "name": "统计学 - 综合大题",
+    "file": "decoders_stat_comprehensive.json"
+  }
+]

@@ -1,0 +1,87 @@
+[
+    {
+      "category": "Week 1: Research Design",
+      "topics": [
+        {
+          "term_en": "Causation vs. Association",
+          "term_cn": "因果关系 vs. 相关性",
+          "definition": "Only **Experiments** can prove causation[cite: 6, 88]; **Observational Studies** only show association due to **Confounding Variables**[cite: 8, 87]."
+        },
+        {
+          "term_en": "Randomized Response",
+          "term_cn": "随机化回答",
+          "definition": "A technique to protect privacy when asking **sensitive or illegal** questions by introducing a random mechanism (e.g., coin flip)[cite: 40, 103]."
+        },
+        {
+          "term_en": "Capture-Recapture",
+          "term_cn": "捕获-再捕获",
+          "definition": "Method to estimate population size ($N$) using the formula: $N = (n \\times N_{2}) / n_{T}$[cite: 43, 105]."
+        },
+        {
+          "term_en": "Questionnaire Pitfalls",
+          "term_cn": "问卷设计陷阱",
+          "definition": "Avoid **Double-barrelled** (two topics in one) [cite: 27, 70] and **Leading questions** (suggesting a 'correct' answer)[cite: 28, 72]."
+        }
+      ]
+    },
+    {
+      "category": "Week 2: Data Visualization (EDA)",
+      "topics": [
+        {
+          "term_en": "Stem-and-Leaf vs. Dot Plot",
+          "term_cn": "茎叶图 vs. 点图",
+          "definition": "Both for small datasets; **Stem-and-leaf** is unique because it preserves **original numerical values**[cite: 114, 163]."
+        },
+        {
+          "term_en": "Histogram vs. Bar Chart",
+          "term_cn": "直方图 vs. 条形图",
+          "definition": "**Histogram** is for continuous data (no gaps)[cite: 124]; **Bar Chart** is for categorical data (has gaps)[cite: 120, 164]."
+        },
+        {
+          "term_en": "Skewness (Right vs. Left)",
+          "term_cn": "偏态 (右偏 vs. 左偏)",
+          "definition": "**Right-skewed**: Tail extends to the right (Mean > Median)[cite: 141, 265]; **Left-skewed**: Tail extends to the left (Mean < Median)[cite: 142, 268]."
+        },
+        {
+          "term_en": "Box Plot (Five-number summary)",
+          "term_cn": "箱线图 (五数概括)",
+          "definition": "Based on **Min, Q1, Median, Q3, Max**[cite: 131]. The box height is the **IQR** (Q3 - Q1)[cite: 132, 245]."
+        }
+      ]
+    },
+    {
+      "category": "Week 3: Numerical Summaries",
+      "topics": [
+        {
+          "term_en": "Parameter vs. Statistic",
+          "term_cn": "参数 vs. 统计量",
+          "definition": "**Parameter**: Describes population (Greek letters like $\\mu, \\sigma$)[cite: 186, 226]. **Statistic**: Describes sample (English letters like $\\bar{x}, s$)[cite: 189, 226]."
+        },
+        {
+          "term_en": "Resistant / Robust",
+          "term_cn": "稳健性 / 抗干扰性",
+          "definition": "Measures not affected by outliers; **Median** and **IQR** are resistant[cite: 204, 218]; **Mean** and **SD** are not[cite: 199, 212]."
+        },
+        {
+          "term_en": "Standard Deviation (SD)",
+          "term_cn": "标准差",
+          "definition": "The square root of variance; measures the average distance of data points from the mean[cite: 222, 248]."
+        },
+        {
+          "term_en": "Sample Variance ($s^2$)",
+          "term_cn": "样本方差",
+          "definition": "Calculated by dividing by **$n-1$** (degrees of freedom) to provide an unbiased estimate of population variance[cite: 223]."
+        }
+      ]
+    },
+    {
+      "category": "Exam Mapping Tips (关键词映射)",
+      "topics": [
+        {
+          "term_en": "Keywords",
+          "term_cn": "考试直觉",
+          "definition": "'Association' -> Scatterplot[cite: 150]; 'Sensitive' -> Randomized Response[cite: 40]; 'Skewed' -> Use Median/IQR[cite: 276]."
+        }
+      ]
+    }
+  ]

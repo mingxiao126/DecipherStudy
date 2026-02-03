@@ -87,10 +87,15 @@ class FlashCardApp {
     // 加载主题列表
     async loadTopics() {
         try {
-            const response = await fetch('/content/topics.json');
+            // 添加时间戳避免缓存
+            const timestamp = new Date().getTime();
+            const response = await fetch(`/content/topics.json?t=${timestamp}`, {
+                cache: 'no-cache'
+            });
             if (!response.ok) throw new Error('无法加载主题列表');
             
             this.topics = await response.json();
+            console.log('加载的主题列表:', this.topics);
             this.populateTopicSelector();
         } catch (error) {
             console.error('加载主题失败:', error);
@@ -104,11 +109,13 @@ class FlashCardApp {
         const selector = document.getElementById('topicSelector');
         selector.innerHTML = '<option value="">请选择主题...</option>';
         
+        console.log('填充主题选择器，主题数量:', this.topics.length);
         this.topics.forEach(topic => {
             const option = document.createElement('option');
             option.value = topic.file;
             option.textContent = topic.name;
             selector.appendChild(option);
+            console.log('添加主题选项:', topic.name, topic.file);
         });
     }
 

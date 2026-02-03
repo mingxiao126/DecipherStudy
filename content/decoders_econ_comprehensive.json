@@ -1,0 +1,72 @@
+[
+  {
+    "id": "econ_102_comprehensive_01",
+    "title": "Comprehensive GDP Analysis",
+    "original_question": "A country's economy in 2023: Consumption = $5000, Investment = $2000, Government Purchases = $1500, Exports = $800, Imports = $1000. Additionally, intermediate goods production was $3000, and used car sales totaled $500. Calculate GDP using the expenditure approach and explain why intermediate goods and used car sales are excluded.",
+    "segments": [
+      {
+        "text": "A country's economy in 2023: ",
+        "has_info": false
+      },
+      {
+        "text": "Consumption = $5000, Investment = $2000, Government Purchases = $1500, Exports = $800, Imports = $1000. ",
+        "has_info": true,
+        "highlight_text": "Consumption = $5000, Investment = $2000, Government Purchases = $1500, Exports = $800, Imports = $1000",
+        "condition": "C = $5000, I = $2000, G = $1500, X = $800, M = $1000",
+        "knowledge": "Expenditure Approach Components",
+        "explanation": "支出法 GDP 的各个组成部分。",
+        "is_trap": false
+      },
+      {
+        "text": "Additionally, intermediate goods production was $3000, ",
+        "has_info": true,
+        "highlight_text": "intermediate goods production was $3000",
+        "condition": "Intermediate Goods = $3000",
+        "knowledge": "Intermediate Goods Exclusion",
+        "explanation": "中间产品不计入 GDP，避免重复计算。",
+        "is_trap": true,
+        "highlight_color": "red"
+      },
+      {
+        "text": "and used car sales totaled $500. ",
+        "has_info": true,
+        "highlight_text": "used car sales totaled $500",
+        "condition": "Used Car Sales = $500",
+        "knowledge": "Resale - GDP amount is 0",
+        "explanation": "二手车交易不计入 GDP，因为不是新生产的产品。",
+        "is_trap": true,
+        "highlight_color": "red"
+      },
+      {
+        "text": "Calculate GDP using the expenditure approach and explain why intermediate goods and used car sales are excluded.",
+        "has_info": false
+      }
+    ],
+    "traps": [
+      {
+        "title": "GDP Exclusions",
+        "description": "GDP 不包括：中间产品（避免重复计算）、二手交易（不是新生产）。"
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "应用支出法公式",
+        "content": "$Y = C + I + G + (X - M) = 5000 + 2000 + 1500 + (800 - 1000) = 8300$",
+        "source_type": "prompt_info",
+        "source_label": "来自已知条件：各支出组成部分"
+      },
+      {
+        "step_desc": "解释中间产品排除",
+        "content": "中间产品（$3000$）不计入 GDP，因为它们的价值已经包含在最终产品的价格中，计入会导致重复计算。",
+        "source_type": "external_knowledge",
+        "source_label": "外部核心知识：避免重复计算原则"
+      },
+      {
+        "step_desc": "解释二手车排除",
+        "content": "二手车交易（$500$）不计入 GDP，因为 GDP 只计算新生产的产品和服务，二手车是已有资产的转移，不涉及新生产。",
+        "source_type": "external_knowledge",
+        "source_label": "外部核心知识：GDP 只计算新生产"
+      }
+    ]
+  }
+]

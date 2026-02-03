@@ -16,7 +16,19 @@
     "file": "economics_w1-3_vocabulary.json"
   },
   {
-    "name": "统计学 - 124",
-    "file": "stat_124.json"
+    "name": "统计学 - 第一周",
+    "file": "stat_w1.json"
+  },
+  {
+    "name": "统计学 - 第二周",
+    "file": "stat_w2.json"
+  },
+  {
+    "name": "统计学 - 第三周",
+    "file": "stat_w3.json"
+  },
+  {
+    "name": "统计学 - 1-3周重点词汇",
+    "file": "stat_w1-3_vocabulary.json"
   }
 ]

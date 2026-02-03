@@ -1,0 +1,52 @@
+[
+  {
+    "id": "econ_102_nominal_real_01",
+    "title": "Nominal vs Real GDP",
+    "original_question": "In 2020, a country produced 100 units of goods at $10 each. In 2021, it produced 110 units at $12 each. Calculate nominal GDP and real GDP (using 2020 as base year), and the GDP deflator.",
+    "segments": [
+      {
+        "text": "In 2020, a country produced 100 units of goods at $10 each. ",
+        "has_info": true,
+        "highlight_text": "100 units of goods at $10 each",
+        "condition": "2020: Quantity = 100, Price = $10",
+        "knowledge": "Base Year Data",
+        "explanation": "2020 年作为基年，用于计算实际 GDP。",
+        "is_trap": false
+      },
+      {
+        "text": "In 2021, it produced 110 units at $12 each. ",
+        "has_info": true,
+        "highlight_text": "110 units at $12 each",
+        "condition": "2021: Quantity = 110, Price = $12",
+        "knowledge": "Current Year Data",
+        "explanation": "2021 年的数量和价格数据。",
+        "is_trap": false
+      },
+      {
+        "text": "Calculate nominal GDP and real GDP (using 2020 as base year), and the GDP deflator.",
+        "has_info": false
+      }
+    ],
+    "traps": [],
+    "solution": [
+      {
+        "step_desc": "计算名义 GDP",
+        "content": "Nominal GDP 2021 = $110 \\times 12 = 1320$",
+        "source_type": "prompt_info",
+        "source_label": "来自已知条件：2021 年数量和价格"
+      },
+      {
+        "step_desc": "计算实际 GDP（使用基年价格）",
+        "content": "Real GDP 2021 = $110 \\times 10 = 1100$",
+        "source_type": "external_knowledge",
+        "source_label": "外部核心知识：实际 GDP 使用基年价格"
+      },
+      {
+        "step_desc": "计算 GDP 平减指数",
+        "content": "GDP Deflator = $\\frac{1320}{1100} \\times 100 = 120$",
+        "source_type": "external_knowledge",
+        "source_label": "外部核心知识：GDP 平减指数公式"
+      }
+    ]
+  }
+]

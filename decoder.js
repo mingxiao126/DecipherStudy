@@ -1,7 +1,10 @@
 // 难题拆解器主逻辑（重构版 - 严格三态逻辑）
 class LogicDecoder {
     constructor() {
-        this.problems = [];
+        this.topics = [];  // 主题列表
+        this.filteredTopics = [];  // 根据科目筛选后的主题
+        this.currentSubject = null;  // 当前选择的科目
+        this.problems = [];  // 当前加载的题目列表
         this.currentProblem = null;
         this.currentIndex = 0;  // 当前处理的片段索引
         this.isPausedForSync = false;  // 是否正在等待"同步数据"的点击
@@ -12,60 +15,98 @@ class LogicDecoder {
     }
 
     async init() {
-        await this.loadProblems();
+        await this.loadTopics();
         this.setupEventListeners();
         this.createStars();
     }
 
-    // 加载题目列表
-    async loadProblems() {
+    // 加载主题列表
+    async loadTopics() {
         try {
-            const response = await fetch('/content/decoders.json');
-            if (!response.ok) throw new Error('无法加载题目列表');
+            const response = await fetch('/content/decoder_topics.json');
+            if (!response.ok) throw new Error('无法加载主题列表');
             
-            const data = await response.json();
-            this.problems = Array.isArray(data) ? data : data.problems || [];
-            this.populateSelector();
+            this.topics = await response.json();
+            this.populateSubjectSelector();
         } catch (error) {
-            console.error('加载题目失败:', error);
-            document.getElementById('problemSelector').innerHTML = 
-                '<option value="">加载失败，请检查 decoders.json 文件</option>';
+            console.error('加载主题失败:', error);
+            document.getElementById('subjectSelector').innerHTML = 
+                '<option value="">加载失败，请检查 decoder_topics.json 文件</option>';
         }
     }
 
-    // 填充选择器
-    populateSelector() {
-        const selector = document.getElementById('problemSelector');
-        selector.innerHTML = '<option value="">请选择题目...</option>';
+    // 填充科目选择器
+    populateSubjectSelector() {
+        const selector = document.getElementById('subjectSelector');
+        selector.innerHTML = '<option value="">请选择科目...</option>';
         
-        this.problems.forEach(problem => {
+        // 获取所有唯一的科目
+        const subjects = [...new Set(this.topics.map(topic => topic.subject))];
+        subjects.forEach(subject => {
             const option = document.createElement('option');
-            option.value = problem.id;
-            option.textContent = problem.title || problem.id;
+            option.value = subject;
+            option.textContent = subject;
             selector.appendChild(option);
         });
     }
 
-    // 加载选中的题目
-    loadProblem(problemId) {
-        const problem = this.problems.find(p => p.id === problemId);
-        if (!problem) return;
+    // 填充题目选择器（根据选择的科目）
+    populateProblemSelector() {
+        const selector = document.getElementById('problemSelector');
+        selector.innerHTML = '<option value="">请选择题目...</option>';
+        
+        if (!this.currentSubject) {
+            selector.disabled = true;
+            return;
+        }
+        
+        // 筛选当前科目的主题
+        this.filteredTopics = this.topics.filter(topic => topic.subject === this.currentSubject);
+        
+        this.filteredTopics.forEach(topic => {
+            const option = document.createElement('option');
+            option.value = topic.file;
+            option.textContent = topic.name;
+            selector.appendChild(option);
+        });
+        
+        selector.disabled = false;
+    }
 
-        this.currentProblem = problem;
-        this.currentIndex = 0;
-        this.isPausedForSync = false;
-        this.highlightedSegments = [];
-        this.currentHighlightIndex = -1;
-        this.solutionStepIndex = 0;  // 详解步骤索引
+    // 加载选中的题目文件
+    async loadProblem(fileName) {
+        if (!fileName) return;
         
-        // 重置所有区域
-        this.resetAll();
-        
-        // 显示原题
-        this.displayOriginalQuestion();
-        
-        // 显示点击提示
-        document.getElementById('clickHint').classList.remove('hidden');
+        try {
+            const response = await fetch(`/content/${fileName}`);
+            if (!response.ok) throw new Error('无法加载题目文件');
+            
+            const data = await response.json();
+            // 支持单个题目对象或题目数组
+            this.problems = Array.isArray(data) ? data : [data];
+            
+            // 如果有多个题目，显示第一个
+            if (this.problems.length > 0) {
+                this.currentProblem = this.problems[0];
+                this.currentIndex = 0;
+                this.isPausedForSync = false;
+                this.highlightedSegments = [];
+                this.currentHighlightIndex = -1;
+                this.solutionStepIndex = 0;  // 详解步骤索引
+                
+                // 重置所有区域
+                this.resetAll();
+                
+                // 显示原题
+                this.displayOriginalQuestion();
+                
+                // 显示点击提示
+                document.getElementById('clickHint').classList.remove('hidden');
+            }
+        } catch (error) {
+            console.error('加载题目失败:', error);
+            alert('加载题目失败，请检查文件是否存在');
+        }
     }
 
     // 重置所有区域
@@ -747,7 +788,16 @@ class LogicDecoder {
 
     // 设置事件监听器
     setupEventListeners() {
-        // 题目选择
+        // 科目选择器
+        document.getElementById('subjectSelector').addEventListener('change', (e) => {
+            this.currentSubject = e.target.value;
+            this.populateProblemSelector();
+            // 清空当前题目
+            this.currentProblem = null;
+            this.resetAll();
+        });
+        
+        // 题目选择器
         document.getElementById('problemSelector').addEventListener('change', (e) => {
             if (e.target.value) {
                 this.loadProblem(e.target.value);

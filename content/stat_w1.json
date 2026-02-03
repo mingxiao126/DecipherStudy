@@ -1,0 +1,77 @@
+[
+    {
+      "question": "What are the three main **Data Collection Methods**?",
+      "answer": "1. **Sampling/Survey Sampling**: Surveying a sample to infer population traits. 2. **Design of Experiments**: Manipulating factors to prove **Causation**. 3. **Observational Study**: Recording data without interference, showing only **Association/Correlation**.",
+      "category": "数据收集",
+      "type": "分类题",
+      "signals": ["Sampling", "Experiment", "Observational"]
+    },
+    {
+      "question": "How do **Experiments** differ from **Observational Studies** regarding causation?",
+      "answer": "Only **Experiments** can prove **Causation** through randomization and control. **Observational Studies** only reveal **Association** because of potential **Confounding Variables**.",
+      "category": "研究方法",
+      "type": "对比题",
+      "signals": ["Causation", "Confounding variables", "Randomization"]
+    },
+    {
+      "question": "What is the difference between **Open** and **Closed Questions**?",
+      "answer": "**Open Questions**: Respondents answer in their own words; rich detail but hard to code. **Closed Questions**: Respondents choose from preset options (e.g., Multiple choice, Ranking); easy to analyze but limited depth.",
+      "category": "问卷设计",
+      "type": "对比题",
+      "signals": ["Coding", "Preset options", "Respondent burden"]
+    },
+    {
+      "question": "What are **Double-barrelled Questions** and why should they be avoided?",
+      "answer": "These are questions that ask **two different things** at once (e.g., 'Should we cut taxes and increase services?'). They should be avoided because they confuse respondents and produce unclear data.",
+      "category": "问卷陷阱",
+      "type": "概念题",
+      "signals": ["Two things at once", "Confusing"]
+    },
+    {
+      "question": "Define **Social Desirability Bias**.",
+      "answer": "The tendency of respondents to give answers that make them look 'good' or follow **social norms**, rather than being truthful, especially on sensitive topics.",
+      "category": "响应误差",
+      "type": "概念题",
+      "signals": ["Look good", "Social norms", "Sensitive topics"]
+    },
+    {
+      "question": "Explain **Telescoping Error** in the context of memory.",
+      "answer": "A recall error where a respondent **misremembers the timing** of an event, often remembering an old event as having happened more recently.",
+      "category": "响应误差",
+      "type": "概念题",
+      "signals": ["Timing", "Misremember", "Recent"]
+    },
+    {
+      "question": "What is the **Randomized Response** technique used for?",
+      "answer": "It is a privacy-protecting technique for **sensitive or illegal behaviors**. By introducing a random mechanism (like a coin flip), the interviewer cannot know if a 'Yes' refers to the sensitive question, protecting the respondent's privacy.",
+      "category": "特殊技术",
+      "type": "应用题",
+      "signals": ["Privacy", "Sensitive behavior", "Random mechanism"]
+    },
+    {
+      "question": "What is the formula for the **Capture-Recapture** method?",
+      "answer": "The population estimate is $N = (n \\times N_{2}) / n_{T}$.",
+      "category": "特殊技术",
+      "type": "计算题",
+      "signals": ["Population size", "Marked", "Recaptured"],
+      "steps": [
+        "Step 1: Capture and mark a batch (n)",
+        "Step 2: Release and let them mix",
+        "Step 3: Recapture a second batch (N2) and count marked individuals (nT)"
+      ]
+    },
+    {
+      "question": "What are the core principles of **Experimental Design**?",
+      "answer": "1. **Randomization**: Assigning subjects randomly to groups. 2. **Replication**: Using enough subjects to ensure results aren't accidental. 3. **Blocking**: Reducing the influence of known nuisance variables.",
+      "category": "数据收集",
+      "type": "概念题",
+      "signals": ["Randomization", "Replication", "Blocking"]
+    },
+    {
+      "question": "Where should **Sensitive** and **Demographic** questions be placed in a questionnaire?",
+      "answer": "**Sensitive Questions** should be in the middle or end after trust is built. **Demographic Questions** (like age or income) are typically placed at the very **end** of the survey.",
+      "category": "问卷结构",
+      "type": "规则题",
+      "signals": ["Sequencing", "Trust", "End of survey"]
+    }
+  ]

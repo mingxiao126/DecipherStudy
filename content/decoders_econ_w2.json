@@ -1,0 +1,82 @@
+[
+  {
+    "id": "econ_102_gdp_01",
+    "title": "GDP Calculation Example",
+    "original_question": "A country produces the following in a year: Final goods worth $1000, Intermediate goods worth $500, Used car sales worth $200, Government transfer payments worth $300. Calculate GDP.",
+    "segments": [
+      {
+        "text": "A country produces the following in a year: ",
+        "has_info": false
+      },
+      {
+        "text": "Final goods worth $1000, ",
+        "has_info": true,
+        "highlight_text": "Final goods worth $1000",
+        "condition": "Final Goods = $1000",
+        "knowledge": "Final Goods - 最终产品",
+        "explanation": "最终产品计入 GDP。",
+        "is_trap": false
+      },
+      {
+        "text": "Intermediate goods worth $500, ",
+        "has_info": true,
+        "highlight_text": "Intermediate goods worth $500",
+        "condition": "Intermediate Goods = $500",
+        "knowledge": "Intermediate Goods - 中间产品（不计入 GDP）",
+        "explanation": "中间产品不计入 GDP，避免重复计算。",
+        "is_trap": true,
+        "highlight_color": "red"
+      },
+      {
+        "text": "Used car sales worth $200, ",
+        "has_info": true,
+        "highlight_text": "Used car sales worth $200",
+        "condition": "Used Car Sales = $200",
+        "knowledge": "Resale - GDP amount is 0",
+        "explanation": "二手车交易不计入 GDP，因为不是新生产的产品。",
+        "is_trap": true,
+        "highlight_color": "red"
+      },
+      {
+        "text": "Government transfer payments worth $300. ",
+        "has_info": true,
+        "highlight_text": "Government transfer payments worth $300",
+        "condition": "Transfer Payments = $300",
+        "knowledge": "Transfer Payments - 转移支付（不计入 GDP）",
+        "explanation": "转移支付不计入 GDP，因为不涉及新生产的产品或服务。",
+        "is_trap": true,
+        "highlight_color": "red"
+      },
+      {
+        "text": "Calculate GDP.",
+        "has_info": false
+      }
+    ],
+    "traps": [
+      {
+        "title": "GDP Exclusions",
+        "description": "GDP 不包括：中间产品、二手交易、转移支付。"
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "识别应计入 GDP 的项目",
+        "content": "只有最终产品计入 GDP：$1000$",
+        "source_type": "prompt_info",
+        "source_label": "来自已知条件：最终产品"
+      },
+      {
+        "step_desc": "排除不应计入的项目",
+        "content": "中间产品（$500$）、二手车（$200$）、转移支付（$300$）均不计入。",
+        "source_type": "external_knowledge",
+        "source_label": "外部核心知识：GDP 核算原则"
+      },
+      {
+        "step_desc": "计算 GDP",
+        "content": "$GDP = 1000$",
+        "source_type": "prompt_info",
+        "source_label": "来自已知条件：最终产品价值"
+      }
+    ]
+  }
+]

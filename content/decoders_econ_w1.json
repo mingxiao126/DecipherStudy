@@ -1,61 +1,234 @@
 [
-  {
-    "id": "econ_102_va_01",
-    "title": "Cupcake Value Added Problem",
-    "original_question": "To make each vanilla cupcake that you sell at a bake sale, you use: $3/2$ cups flour: $0.07, 2 eggs: $0.86, $2/3$ cup sugar: $0.11. You price your cupcakes at $3.50. Calculate value added.",
-    "segments": [
-      {
-        "text": "To make each vanilla cupcake that you sell at a bake sale, ",
-        "has_info": false
-      },
-      {
-        "text": "you use: $3/2$ cups flour: $0.07, 2 eggs: $0.86, $2/3$ cup sugar: $0.11. ",
-        "has_info": true,
-        "highlight_text": "flour: $0.07, 2 eggs: $0.86, sugar: $0.11",
-        "condition": "Intermediate Inputs ($Cost = $1.04$)",
-        "knowledge": "Intermediate Goods - 中间投入",
-        "explanation": "原材料属于中间投入，计算增值时需剔除  [cite: 32, 1846-1854]。",
-        "is_trap": false
-      },
-      {
-        "text": "You price your cupcakes at $3.50. ",
-        "has_info": true,
-        "highlight_text": "price your cupcakes at $3.50",
-        "condition": "Final Sale Price ($P = $3.50$)",
-        "knowledge": "Market Value of Final Goods - 最终产品市场价值",
-        "explanation": "最终售价是计算的基础  [cite: 32, 1255-1257]。",
-        "is_trap": false
-      },
-      {
-        "text": "Calculate value added.",
-        "has_info": false
-      }
-    ],
-    "traps": [
-      {
-        "title": "Value Added $\\neq$ Profit",
-        "description": "增值不等于利润，因为它未扣除人工等成本。"
-      }
-    ],
-    "solution": [
-      {
-        "step_desc": "计算总中间投入 (Intermediate Inputs)",
-        "content": "$Cost = 0.07 + 0.86 + 0.11 = 1.04$",
-        "source_type": "prompt_info",
-        "source_label": "来自已知条件：原材料清单"
-      },
-      {
-        "step_desc": "应用增值核算原则",
-        "content": "Value Added $\\neq$ Profit",
-        "source_type": "external_knowledge",
-        "source_label": "外部核心知识：增值衡量产出贡献，不等于利润"
-      },
-      {
-        "step_desc": "计算增值",
-        "content": "$VA = P - Cost = 3.50 - 1.04 = 2.46$",
-        "source_type": "prompt_info",
-        "source_label": "来自已知条件：最终价格和中间投入"
-      }
-    ]
-  }
-]
+    {
+      "id": "stat_124_week1_01",
+      "title": "Koi Population Estimation (Capture-Recapture)",
+      "original_question": "To estimate the population of koi fish in a campus pond, student volunteers captured 120 koi on Monday morning using professional nets. They applied a non-toxic blue fluorescent dye to the side fins of these fish and released them back into the pond. To ensure data accuracy, volunteers also recorded the average pond depth (3.5m) and the temperature (22°C). On Friday, they returned and conducted a second capture at three different observation points, catching a total of 150 koi. Upon inspection, 30 of these fish were found to have the blue fluorescent markings. Estimate the total number of koi in the pond.",
+      "segments": [
+        {
+          "text": "To estimate the population of koi fish in a campus pond, student volunteers captured 120 koi on Monday morning.",
+          "has_info": true,
+          "highlight_text": "captured 120 koi",
+          "condition": "Initial Tagged Sample (M) = 120",
+          "knowledge": "Capture-Recapture Method",
+          "explanation": "This is the initial number of individuals tagged and released (M).",
+          "highlight_color": "green"
+        },
+        {
+          "text": "They applied a non-toxic blue fluorescent dye to the side fins and released them.",
+          "has_info": false
+        },
+        {
+          "text": "volunteers also recorded the average pond depth (3.5m) and the temperature (22°C).",
+          "has_info": true,
+          "highlight_text": "depth (3.5m) and the temperature (22°C)",
+          "is_trap": true,
+          "condition": "Environmental Noise",
+          "knowledge": "Irrelevant Variables",
+          "explanation": "Environmental conditions like depth or temperature are distractors and do not enter the population estimation formula.",
+          "highlight_color": "red"
+        },
+        {
+          "text": "On Friday, they conducted a second capture, catching a total of 150 koi.",
+          "has_info": true,
+          "highlight_text": "total of 150 koi",
+          "condition": "Second Sample Size (n) = 150",
+          "knowledge": "Capture-Recapture Method",
+          "explanation": "This is the total number of individuals caught in the second session (n).",
+          "highlight_color": "yellow"
+        },
+        {
+          "text": "Upon inspection, 30 of these fish were found to have the blue fluorescent markings.",
+          "has_info": true,
+          "highlight_text": "30 ... have the blue fluorescent markings",
+          "condition": "Recaptured Tagged (m) = 30",
+          "knowledge": "Recapture Ratio",
+          "explanation": "This represents the number of marked individuals found in the second sample (m).",
+          "highlight_color": "yellow"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Environmental Distraction",
+          "description": "Students often feel they must use all numbers provided. However, ecological variables like depth are irrelevant to the Lincoln-Petersen calculation."
+        }
+      ],
+      "solution": [
+        {
+          "step_desc": "Identify Parameters",
+          "content": "Initial marked $M = 120$, second sample $n = 150$, and recaptured marked $m = 30$.",
+          "source_type": "prompt_info",
+          "source_label": "From Question Data"
+        },
+        {
+          "step_desc": "Apply Lincoln-Petersen Index",
+          "content": "The formula is $N = (M \\cdot n) / m$. Calculation: $(120 \\cdot 150) / 30 = 18000 / 30 = 600$.",
+          "source_type": "external_knowledge",
+          "source_label": "Statistical Principle: Capture-Recapture"
+        },
+        {
+          "step_desc": "Final Conclusion",
+          "content": "The estimated total population of koi in the pond is 600.",
+          "source_type": "prompt_info",
+          "source_label": "Final Derivation"
+        }
+      ]
+    },
+    {
+      "id": "stat_124_week1_02",
+      "title": "Stanley Park Squirrel Study Distractors",
+      "original_question": "Vancouver Parks Board researchers designated a 5-hectare test area in the south side of Stanley Park to estimate the grey squirrel population. On Day 1, they captured and marked 65 squirrels. After a week of rain, they resumed on Wednesday by capturing 200 squirrels randomly across the entire park (approx. 400 hectares). Of these 200 squirrels, 10 had the Day 1 marks, and 5 others appeared weak and sluggish from the previous capture despite having no marks. Calculate the squirrel population estimate for Stanley Park and identify the distractor info.",
+      "segments": [
+        {
+          "text": "researchers designated a 5-hectare test area... in Stanley Park (approx. 400 hectares).",
+          "has_info": true,
+          "highlight_text": "5-hectare ... 400 hectares",
+          "is_trap": true,
+          "condition": "Areal Distractor",
+          "knowledge": "Sampling Frame vs. Area",
+          "explanation": "Area size is irrelevant if the second sample is representative of the whole population.",
+          "highlight_color": "red"
+        },
+        {
+          "text": "On Day 1, they captured and marked 65 squirrels.",
+          "has_info": true,
+          "highlight_text": "marked 65 squirrels",
+          "condition": "M = 65",
+          "knowledge": "Capture-Recapture",
+          "explanation": "Number of tagged individuals in the first session.",
+          "highlight_color": "green"
+        },
+        {
+          "text": "they resumed on Wednesday by capturing 200 squirrels randomly across the entire park.",
+          "has_info": true,
+          "highlight_text": "capturing 200 squirrels",
+          "condition": "n = 200",
+          "knowledge": "Capture-Recapture",
+          "explanation": "The total size of the second capture session.",
+          "highlight_color": "yellow"
+        },
+        {
+          "text": "Of these 200 squirrels, 10 had the Day 1 marks,",
+          "has_info": true,
+          "highlight_text": "10 had the Day 1 marks",
+          "condition": "m = 10",
+          "knowledge": "Capture-Recapture",
+          "explanation": "Number of recaptured marked individuals.",
+          "highlight_color": "yellow"
+        },
+        {
+          "text": "and 5 others appeared weak and sluggish from the previous capture.",
+          "has_info": true,
+          "highlight_text": "5 others appeared weak and sluggish",
+          "is_trap": true,
+          "condition": "Qualitative Distractor",
+          "knowledge": "Observation Bias",
+          "explanation": "Health status is a distractor and does not impact the numerical calculation of N.",
+          "highlight_color": "red"
+        }
+      ],
+      "traps": [
+        {
+          "title": "The Scaling Trap",
+          "description": "Do not attempt to scale the result by the ratio of 400/5 hectares. The mark-recapture ratio already estimates the total N for the area the squirrels roam."
+        }
+      ],
+      "solution": [
+        {
+          "step_desc": "Numerical Calculation",
+          "content": "$N = (65 \\cdot 200) / 10 = 13000 / 10 = 1300$.",
+          "source_type": "external_knowledge",
+          "source_label": "Calculation Formula"
+        },
+        {
+          "step_desc": "Identify Distractors",
+          "content": "The hectares (5 and 400), the weather (rain), and the physical condition (sluggish) are all distractors.",
+          "source_type": "prompt_info",
+          "source_label": "Conceptual Analysis"
+        }
+      ]
+    },
+    {
+      "id": "stat_124_week1_03",
+      "title": "Academic Integrity Randomized Response",
+      "original_question": "A university conducted a survey on whether students used search apps during online exams. Due to the sensitivity, they used Randomized Response. 1000 students were asked to flip a card: If Red (Hearts/Diamonds), answer truthfully: 'Did you use the app?'. If Black (Spades/Clubs), answer the filler: 'Was your birthday between January and June?'. Out of 1000 responses, 400 were 'Yes'. Records show 50% of students have birthdays in the first half of the year. Calculate the true proportion of cheaters.",
+      "segments": [
+        {
+          "text": "1000 students were asked to flip a card.",
+          "has_info": true,
+          "highlight_text": "1000 students",
+          "condition": "Total Sample (n) = 1000",
+          "knowledge": "Total Sample Size",
+          "explanation": "The denominator for the observed proportion.",
+          "highlight_color": "green"
+        },
+        {
+          "text": "If Red (Hearts/Diamonds), answer truthfully.",
+          "has_info": true,
+          "highlight_text": "Red (Hearts/Diamonds)",
+          "condition": "P(True Question) = 0.5",
+          "knowledge": "Randomization Probability",
+          "explanation": "Half the cards are red, so probability of the sensitive question is 0.5.",
+          "highlight_color": "yellow"
+        },
+        {
+          "text": "If Black (Spades/Clubs), answer the filler question.",
+          "has_info": true,
+          "highlight_text": "Black (Spades/Clubs)",
+          "condition": "P(Filler Question) = 0.5",
+          "knowledge": "Randomization Probability",
+          "explanation": "The other half of students answer the non-sensitive question.",
+          "highlight_color": "yellow"
+        },
+        {
+          "text": "Out of 1000 responses, 400 were 'Yes'.",
+          "has_info": true,
+          "highlight_text": "400 were 'Yes'",
+          "condition": "Observed Yes Proportion (P_obs) = 0.4",
+          "knowledge": "Total Probability",
+          "explanation": "The combined 'Yes' rate from both groups.",
+          "highlight_color": "yellow"
+        },
+        {
+          "text": "Records show 50% of students have birthdays in the first half of the year.",
+          "has_info": true,
+          "highlight_text": "birthdays in the first half ... 50%",
+          "condition": "P(Yes | Filler) = 0.5",
+          "knowledge": "Known Baseline",
+          "explanation": "The probability of saying 'Yes' for the filler question.",
+          "highlight_color": "green"
+        }
+      ],
+      "traps": [
+        {
+          "title": "The Half-Truth Trap",
+          "description": "Students often forget that 'Yes' answers come from two sources. You cannot assume all 400 'Yes' answers refer to cheating."
+        }
+      ],
+      "solution": [
+        {
+          "step_desc": "Set up Total Probability Equation",
+          "content": "$P(Yes) = [P(Red) \\cdot P(Cheated)] + [P(Black) \\cdot P(Birthday\\ Yes)]$.",
+          "source_type": "external_knowledge",
+          "source_label": "Law of Total Probability"
+        },
+        {
+          "step_desc": "Substitute Values",
+          "content": "$0.4 = (0.5 \\cdot p) + (0.5 \\cdot 0.5)$, where $p$ is the true cheating proportion.",
+          "source_type": "prompt_info",
+          "source_label": "Algebraic Setup"
+        },
+        {
+          "step_desc": "Solve for p",
+          "content": "$0.4 = 0.5p + 0.25 \\implies 0.15 = 0.5p \\implies p = 0.3$.",
+          "source_type": "external_knowledge",
+          "source_label": "Algebraic Solution"
+        },
+        {
+          "step_desc": "Final Answer",
+          "content": "The true proportion of students who cheated is 30%.",
+          "source_type": "prompt_info",
+          "source_label": "Conclusion"
+        }
+      ]
+    }
+  ]

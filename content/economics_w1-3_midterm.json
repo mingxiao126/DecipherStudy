@@ -1,0 +1,297 @@
+[
+    {
+      "id": 1,
+      "question": "Which item is a form of **consumption (C)** in GDP?",
+      "answer": "A new car purchased for personal use. Consumption refers to final goods and services bought by households. (陷阱：企业购买资产属于投资 I，而非消费 C。)",
+      "category": "GDP Components",
+      "type": "辨析题",
+      "signals": ["personal use", "households", "final good"],
+      "glossary": [
+        {"term": "Consumption", "definition": "住户购买的用于最终消费的商品和服务"},
+        {"term": "Investment", "definition": "企业购买的资本设备、库存或新住房"}
+      ]
+    },
+    {
+      "id": 2,
+      "question": "When **price** functions as a **message**, it primarily:",
+      "answer": "Aggregates information on the market in one measure. It summarizes scarcity and preferences into a single signal. (理解：区别于‘激励’功能，‘信息’强调的是汇总零散的市场情况。)",
+      "category": "Market Mechanism",
+      "type": "概念题",
+      "signals": ["message", "aggregate information", "signal"],
+      "glossary": [
+        {"term": "Price as a Message", "definition": "价格通过汇总供需信息为交易者提供参考"}
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Calculating **Value Added** and **GDP Contribution** for a cupcake.",
+      "answer": "Value Added = $0.35; GDP Contribution = $3.50. (计算点：GDP 计入最终售价 $3.50；增加值是售价减去原材料成本 $3.15。)",
+      "category": "GDP Calculation",
+      "type": "计算题",
+      "signals": ["value added", "final sale price", "intermediate goods"],
+      "steps": [
+        "Step 1: Sum all ingredient costs: 0.07+0.01+0.86+0.11+0.75+1.20+0.15 = $3.15 (Intermediate goods)",
+        "Step 2: Value Added = Selling Price ($3.50) - Cost ($3.15) = $0.35",
+        "Step 3: GDP adds the total value of the final product ($3.50)"
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Using the **Rational Rule**, how many cups of coffee should Cheryl buy if Price is $2.50 and MB starts at $8 (dropping by $2 per cup)?",
+      "answer": "Three cups. (必背：只要 Marginal Benefit ≥ Marginal Cost 就继续购买。)",
+      "category": "Rational Rule",
+      "type": "计算题",
+      "signals": ["Rational Rule", "Marginal Benefit", "Marginal Cost"],
+      "steps": [
+        "Step 1: 1st cup MB=$8, 2nd=$6, 3rd=$4, 4th=$2",
+        "Step 2: Compare with MC ($2.50)",
+        "Step 3: 8>2.5 (Buy), 6>2.5 (Buy), 4>2.5 (Buy), 2<2.5 (Stop). Total = 3"
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Relation between **Nominal GDP** and **Real GDP** growth.",
+      "answer": "If Nominal GDP rose 50% and Price Level also rose 50%, Real GDP stayed constant. (理解：Real GDP 剔除了价格变动的影响。)",
+      "category": "GDP Analysis",
+      "type": "理解题",
+      "signals": ["nominal", "real", "inflation"],
+      "steps": [
+        "Formula: Real GDP = Nominal GDP / (Price Level / 100)"
+      ]
+    },
+    {
+      "id": 6,
+      "question": "Who should perform which task to finish as quickly as possible?",
+      "answer": "The person with the **Comparative Advantage** in that task. (陷阱：分工依据是机会成本而非绝对生产速度。)",
+      "category": "Trade & Advantage",
+      "type": "原则题",
+      "signals": ["Comparative Advantage", "Specialization", "Efficiency"]
+    },
+    {
+      "id": 7,
+      "question": "Marginal Cost vs Benefit: How many cups of coffee to drink if Price is $6.50 and MB values are 8, 6, 4, 2, 0?",
+      "answer": "One cup. (陷阱：第 2 杯的 MB 是 $6，小于 MC 的 $6.50，所以只喝第 1 杯。)",
+      "category": "Rational Rule",
+      "type": "计算题",
+      "signals": ["Marginal Cost", "Marginal Benefit"],
+      "steps": [
+        "Step 1: Identify MC = $6.50 (price)",
+        "Step 2: Compare 1st MB ($8 > 6.50) and 2nd MB ($6 < 6.50)"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Prices provide all of these EXCEPT:",
+      "answer": "Productivity. Prices are signals and incentives; Productivity is a technical ratio of output to input. (理解：价格不直接改变生产率，它是协调市场的工具。)",
+      "category": "Price Functions",
+      "type": "概念题",
+      "signals": ["Messages", "Incentives", "Information"]
+    },
+    {
+      "id": 9,
+      "question": "Calculating **Nominal GDP** for Year 1 and Year 2 (Golf balls and Pizzas).",
+      "answer": "$1,200 and $1,455. (必背：Nominal GDP = 当年价格 × 当年产量。)",
+      "category": "GDP Calculation",
+      "type": "计算题",
+      "signals": ["nominal GDP", "total value"],
+      "steps": [
+        "Year 1: (200 * $3) + (75 * $8) = $1200",
+        "Year 2: (210 * $3.50) + (80 * $9) = $1455"
+      ]
+    },
+    {
+      "id": 10,
+      "question": "Messages conveyed by falling macadamia nut prices EXCEPT:",
+      "answer": "The price of almonds is rising. (理解：特定商品价格变动只反映其本身的市场情况，不代表互补品或替代品的价格动态。)",
+      "category": "Market Mechanism",
+      "type": "理解题",
+      "signals": ["price message", "supply and demand"]
+    },
+    {
+      "id": 11,
+      "question": "Who has the **Comparative Advantage** in cooking chicken curry? (Marla: 4h Lasagna/3h Curry; Jason: 3h Lasagna/1h Curry)",
+      "answer": "Jason, because he has a lower opportunity cost (1/3 < 3/4). (理解：单位机会成本是用‘放弃的东西’除以‘得到的东西’。)",
+      "category": "Comparative Advantage",
+      "type": "计算题",
+      "signals": ["Opportunity Cost", "Comparative Advantage"],
+      "steps": [
+        "Marla's OC of 1 Curry = 3/4 Lasagna",
+        "Jason's OC of 1 Curry = 1/3 Lasagna",
+        "Compare: 1/3 < 3/4"
+      ]
+    },
+    {
+      "id": 12,
+      "question": "Comparative advantage is in the task that you:",
+      "answer": "Are **least bad at doing**, relative to other tasks. (必背：即使你在所有方面都比别人差，你也一定在某一方面拥有比较优势。)",
+      "category": "Trade & Advantage",
+      "type": "概念题",
+      "signals": ["least bad", "relative", "opportunity cost"]
+    },
+    {
+      "id": 13,
+      "question": "A builder adds an addition to his own house. How is this recorded in GDP?",
+      "answer": "Not included, because it is not produced for the marketplace. (陷阱：家庭内部生产/非市场交易不计入 GDP。)",
+      "category": "GDP Boundaries",
+      "type": "辨析题",
+      "signals": ["non-market transaction", "household production"]
+    },
+    {
+      "id": 14,
+      "question": "If Cornell types faster and more accurately than Alice, he has an:",
+      "answer": "Absolute Advantage. (理解：绝对优势看的是纯粹的生产效率或速度。)",
+      "category": "Trade & Advantage",
+      "type": "概念题",
+      "signals": ["faster", "accurately", "Absolute Advantage"]
+    },
+    {
+      "id": 15,
+      "question": "Comparing inflation: US (Nom 4.1%, Real 2.3%) vs Japan (Nom 2.6%, Real -0.2%).",
+      "answer": "Inflation in Japan exceeded US by about 1 percentage point. (计算：日本通胀约为 2.8%，美国约为 1.8%。)",
+      "category": "Inflation Calculation",
+      "type": "计算题",
+      "signals": ["inflation rate", "nominal vs real growth"],
+      "steps": [
+        "US Inflation ≈ 4.1% - 2.3% = 1.8%",
+        "Japan Inflation ≈ 2.6% - (-0.2%) = 2.8%",
+        "Difference = 2.8 - 1.8 = 1.0"
+      ]
+    },
+    {
+      "id": 16,
+      "question": "What is the primary role of markets?",
+      "answer": "To facilitate **gains from trade**. (必背：市场通过交易让参与者都能从专门化生产中获益。)",
+      "category": "Market Mechanism",
+      "type": "概念题",
+      "signals": ["gains from trade", "coordination"]
+    },
+    {
+      "id": 17,
+      "question": "Comparative advantage calculation: Marius (40C or 20M) vs Jennifer (15C or 15M).",
+      "answer": "Marius has CA in cupcakes; Jennifer has CA in muffins. (步骤：计算每一单位的机会成本并对比。)",
+      "category": "Comparative Advantage",
+      "type": "计算题",
+      "signals": ["comparative advantage", "opportunity cost"],
+      "steps": [
+        "Marius: 1C costs 0.5M; 1M costs 2C",
+        "Jennifer: 1C costs 1M; 1M costs 1C",
+        "Compare: Marius 0.5 < 1 (CA in C); Jennifer 1 < 2 (CA in M)"
+      ]
+    },
+    {
+      "id": 18,
+      "question": "Markets within a company to buy and sell scarce resources are:",
+      "answer": "Internal markets. (理解：这是企业内部通过模拟市场机制分配资源的方式。)",
+      "category": "Market Mechanism",
+      "type": "概念题",
+      "signals": ["within the company", "scarce resources"]
+    },
+    {
+      "id": 19,
+      "question": "In the **circular flow diagram**, households:",
+      "answer": "Supply resources (like labor). (陷阱：住户提供生产要素/资源给企业，购买商品和服务。)",
+      "category": "Circular Flow",
+      "type": "模型题",
+      "signals": ["households", "supply resources", "labor market"],
+      "glossary": [
+        {"term": "Circular Flow", "definition": "描述经济中住户与企业之间资金和资源流动的简化模型"}
+      ]
+    },
+    {
+      "id": 20,
+      "question": "Calculate **Real GDP Growth** from 2016 ($3000, P=100) to 2019 ($8000, P=200).",
+      "answer": "33.3%. (步骤：先算 Real GDP，再算增长率。)",
+      "category": "GDP Calculation",
+      "type": "计算题",
+      "signals": ["growth rate", "real GDP"],
+      "steps": [
+        "Step 1: Real GDP 2016 = $3000 / (100/100) = $3000",
+        "Step 2: Real GDP 2019 = $8000 / (200/100) = $4000",
+        "Step 3: Growth = (4000 - 3000) / 3000 = 1/3 ≈ 33.3%"
+      ]
+    },
+    {
+      "id": 21,
+      "question": "Why do we have to make choices?",
+      "answer": "Because available resources are limited (Scarcity). (必背：稀缺性是经济学存在的根本原因。)",
+      "category": "Foundations",
+      "type": "概念题",
+      "signals": ["choices", "limited resources", "scarcity"]
+    },
+    {
+      "id": 22,
+      "question": "Willingness to pay is the _____ I am willing to pay to get a benefit.",
+      "answer": "Most. (理解：愿意支付的最高金额体现了你对该项收益的估值。)",
+      "category": "Foundations",
+      "type": "概念题",
+      "signals": ["Willingness to pay", "most"]
+    },
+    {
+      "id": 23,
+      "question": "Intermediate goods are NOT counted in GDP because:",
+      "answer": "Doing so would result in double counting. (必背：GDP 只计入最终产品价值，因为最终产品价值已包含了所有中间环节。)",
+      "category": "GDP Principles",
+      "type": "辨析题",
+      "signals": ["intermediate goods", "double counting"]
+    },
+    {
+      "id": 24,
+      "question": "The problem of determining what to produce exists because:",
+      "answer": "There are not enough resources to provide all goods people want. (理解：再次强调资源稀缺 vs 欲望无限。)",
+      "category": "Foundations",
+      "type": "概念题",
+      "signals": ["what to produce", "scarcity"]
+    },
+    {
+      "id": 25,
+      "question": "Example of an **intermediate good**:",
+      "answer": "Lumber used to build a house. (陷阱：如果木材是卖给家庭做 DIY 则是消费，但作为建房原材料则是中间产品。)",
+      "category": "GDP Components",
+      "type": "辨析题",
+      "signals": ["intermediate", "input"]
+    },
+    {
+      "id": 26,
+      "question": "Commuting time to a concert is a _____ cost in opportunity cost calculations.",
+      "answer": "Included; nonfinancial. (必背：机会成本必须包含显性金钱成本和隐性非金钱/时间成本。)",
+      "category": "Opportunity Cost",
+      "type": "辨析题",
+      "signals": ["commuting time", "nonfinancial cost"]
+    },
+    {
+      "id": 27,
+      "question": "Why is freshwater scarce despite many lakes?",
+      "answer": "Because there is not enough of it to meet all needs. (理解：稀缺性是相对概念，取决于需求。)",
+      "category": "Foundations",
+      "type": "理解题",
+      "signals": ["scarce", "freshwater", "needs"]
+    },
+    {
+      "id": 28,
+      "question": "You have an **Absolute Advantage** if you:",
+      "answer": "Can produce the product using the fewest inputs. (必背：绝对优势比较的是资源投入量或生产速度。)",
+      "category": "Trade & Advantage",
+      "type": "概念题",
+      "signals": ["Absolute Advantage", "fewest inputs"]
+    },
+    {
+      "id": 29,
+      "question": "Calculate OC of Salmon for Washington: (10 Tea or 10 Salmon).",
+      "answer": "1 matcha tea. (计算：10 Tea / 10 Salmon = 1 Tea per Salmon. 陷阱：注意看清是哪一个州。)",
+      "category": "Opportunity Cost",
+      "type": "计算题",
+      "signals": ["Washington", "Salmon", "Opportunity Cost"],
+      "steps": [
+        "OC of 1 Salmon = Amount of Tea given up / Amount of Salmon gained",
+        "WA: 10 Tea / 10 Salmon = 1 Tea"
+      ]
+    },
+    {
+      "id": 30,
+      "question": "A **trade-off** involves weighing:",
+      "answer": "Costs and benefits. (理解：权衡决策就是对比利弊。)",
+      "category": "Decision Making",
+      "type": "概念题",
+      "signals": ["trade-off", "costs and benefits"]
+    }
+  ]

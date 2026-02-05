@@ -1,83 +1,83 @@
 [
     {
       "question": "What is the formal definition of **Gross Domestic Product (GDP)**?",
-      "answer": "The **market value** of **all final goods and services** **produced** **within a country** in a **given year**.",
+      "answer": "一个国家在特定时期内生产的所有**最终商品和服务**的**市场价值**。例子：今年中国境内生产的所有手机、面包和理发服务的总价值。必须是‘新生产’的，二手货不算。",
       "category": "GDP基础",
       "type": "概念题",
+      "logic_memo": "关键词：最终（不重复算零件）、境内（不管哪国人造的）、当年（不买卖二手）。GDP 就像是一个国家的年度‘产值成绩单’。",
       "signals": ["Market Value", "Final Goods", "Produced", "Within a country"],
       "steps": [
-        "Step 1: Use market prices as a common unit (Market Value) [cite: 135]",
-        "Step 2: Include both private and government-provided goods (All) [cite: 136]",
-        "Step 3: Count only end-user products to avoid double counting (Final Goods) [cite: 137, 138]",
-        "Step 4: Only include newly produced items, excluding resales (Produced) ",
-        "Step 5: Ensure production happened inside the country's borders (Within a country) [cite: 140]"
+        "Step 1: 使用市场价格作为统一单位进行加总",
+        "Step 2: 包含私人和政府提供的所有商品",
+        "Step 3: 只计算最终用户产品，避免重复计算中间零件",
+        "Step 4: 只包括新生产的物品，剔除二手转卖",
+        "Step 5: 确保生产发生在国境线以内"
       ]
     },
     {
       "question": "State the **Expenditure Approach** formula for GDP.",
-      "answer": "**$Y = C + I + G + NX$**. This represents the total spending in an economy, where Y is the total GDP.",
+      "answer": "**$Y = C + I + G + NX$**。例子：你买衣服（C）、公司买机器（I）、政府修路（G）、外国买我们的茶叶（NX）。这四项加起来就是全社会的总支出。",
       "category": "计算公式",
       "type": "计算题",
+      "logic_memo": "记忆口诀：‘吃（C）投（I）政（G）外（NX）’。这是从‘谁花了钱’的角度来算 GDP。",
       "signals": ["Spending Perspective", "Y=C+I+G+NX"],
       "glossary": [
-        { "term": "C (Consumption)", "definition": "家庭购买的商品和服务 [cite: 147]" },
-        { "term": "I (Investment)", "definition": "企业资产支出及新房购买 (New housing) [cite: 148, 149]" },
-        { "term": "G (Government Purchases)", "definition": "政府在商品和服务上的支出 [cite: 152]" },
-        { "term": "NX (Net Exports)", "definition": "出口减进口 (Exports - Imports) [cite: 154]" }
+        { "term": "C (Consumption)", "definition": "家庭购买的商品和服务（GDP 中占比最大）" },
+        { "term": "I (Investment)", "definition": "企业资产支出、库存增加以及个人买新房" },
+        { "term": "G (Government Purchases)", "definition": "政府在商品和服务上的支出（不含养老金等转移支付）" },
+        { "term": "NX (Net Exports)", "definition": "出口减进口。买外国货算进口，要从总支出里扣除" }
       ]
     },
     {
       "question": "Why are **Transfer Payments** and **Intermediate Goods** excluded from GDP?",
-      "answer": "**Intermediate Goods** are excluded to avoid **double counting**[cite: 138]. **Transfer Payments** (e.g., pensions, unemployment benefits) are excluded because no new product or service is produced[cite: 153].",
+      "answer": "**中间产品**不算，是为了防止**重复计算**（如：面包算了 5 元，就不能再算里面的面粉 2 元）。**转移支付**（如养老金、失业金）不算，是因为**没有产生新的生产**。例子：政府发养老金只是把钱从口袋 A 换到口袋 B，并没有人造出新东西。",
       "category": "GDP核算",
       "type": "对比题",
+      "logic_memo": "GDP 只记录‘创造了什么’。中间产品是‘过程’，不算；转移支付是‘发红包’，不算。",
       "signals": ["Double counting", "Transfer Payments", "Intermediate"],
       "steps": [
-        "Check: Is it a raw material for another product? (Intermediate -> Exclude) [cite: 137]",
-        "Check: Is it just a redistribution of money like social security? (Transfer -> Exclude) "
+        "检查：它是为了做成别的东西的原材料吗？（中间产品 -> 剔除）",
+        "检查：它只是单纯的拿钱不干活/发福利吗？（转移支付 -> 剔除）"
       ]
     },
     {
       "question": "What is the difference between **Nominal GDP** and **Real GDP**?",
-      "answer": "**Nominal GDP** uses **current prices**, which may reflect inflation[cite: 163]. **Real GDP** uses **constant (base-year) prices** to remove the effects of price changes, showing only the growth in quantity[cite: 166, 167].",
+      "answer": "**Nominal GDP (名义)** 按**当年价格**算，容易受通胀误导。**Real GDP (真实)** 按**基期价格**算，剔除了物价涨幅。例子：去年卖 1 个苹果 $1，今年卖 1 个苹果 $2。名义 GDP 翻倍了，但真实 GDP 没变，因为你还是只产了 1 个苹果。",
       "category": "GDP进阶",
       "type": "概念题",
+      "logic_memo": "真实 GDP = 产量。想看一个国家是不是真的变富裕了，必须看 Real GDP，因为它不被涨价所迷惑。",
       "signals": ["Current prices", "Constant prices", "Inflation effects"],
       "steps": [
-        "Rule: Always use Real GDP to measure economic growth or living standards [cite: 168, 221]",
-        "Trick: %ΔReal GDP ≈ %ΔNominal GDP - %ΔPrices [cite: 170, 171]"
+        "原则：衡量经济增长或生活水平时，永远使用 Real GDP",
+        "口算技巧：真实增长率 ≈ 名义增长率 - 物价上涨率"
       ]
     },
     {
       "question": "What are the six **limitations** of GDP (what it misses)?",
-      "answer": "1. **Prices aren't values** (e.g., Wikipedia); 2. **Non-market activities** (e.g., housework); 3. **Shadow Economy** (illegal/untaxed); 4. **Environmental Degradation**; 5. **Leisure**; 6. **Distribution** (inequality).",
+      "answer": "1. **非市场活动**（你在家做饭）；2. **地下经济**（路边摊不交税）；3. **价格不等于价值**（维基百科免费但价值高）；4. **环保代价**；5. **闲暇时间**；6. **贫富差距**。例子：GDP 高并不代表每个人都幸福，可能环境污染严重或贫富极度悬殊。",
       "category": "批判性思维",
       "type": "简答题",
-      "signals": ["Limitations", "Misses", "Not perfect"],
-      "glossary": [
-        { "term": "Shadow Economy", "definition": "地下经济：逃税或非法的现金交易 [cite: 178, 212]" }
-      ]
+      "logic_memo": "GDP 是个‘物质产量指标’，它不衡量幸福、健康或公平。它是‘好用的工具’但不是‘完美的指标’。",
+      "signals": ["Limitations", "Misses", "Not perfect"]
     },
     {
       "question": "How do you use the **Rule of 70**?",
-      "answer": "To find the years it takes for a variable to **double**, divide 70 by the **annual growth rate**. Formula: **$Years\\ to\\ double \\approx 70 / Annual\\ Growth\\ Rate$**.",
+      "answer": "用来计算一个数值**翻倍**需要多少年。方法：**70 / 年增长率**。例子：如果你的工资每年涨 2%，那么需要 70 / 2 = 35 年，你的工资才会翻倍。",
       "category": "计算方法",
       "type": "计算题",
-      "signals": ["Double", "Rule of 70", "Growth rate"],
+      "logic_memo": "记住数字 70。注意：分母直接用百分比前的数字（如 2% 就用 2），不要写成 0.02。",
       "steps": [
-        "Step 1: Identify the annual growth rate (e.g., 2%) [cite: 191]",
-        "Step 2: Divide 70 by the rate number (70 / 2) [cite: 191]",
-        "Step 3: Result is the number of years (35 years) [cite: 191]"
+        "Step 1: 确定年增长率（例如 5%）",
+        "Step 2: 用 70 除以这个数字（70 / 5）",
+        "Step 3: 结果就是翻倍所需的年数（14 年）"
       ]
     },
     {
       "question": "Define **Value Added** in the Output Perspective.",
-      "answer": "It is the difference between total sales and the cost of intermediate inputs. **Value Added = Total Sales - Cost of Intermediate Inputs**.",
+      "answer": "**增加值 = 销售额 - 中间投入成本**。例子：面包店花 2 元买面粉，做成面包卖 5 元，面包店创造的增加值就是 3 元。GDP 就是各行各业增加值的总和。",
       "category": "计算公式",
       "type": "概念题",
-      "signals": ["Total Output", "Intermediate inputs", "Value Added"],
-      "steps": [
-        "Calculate: Each stage's contribution to the final price [cite: 156, 157]"
-      ]
+      "logic_memo": "增加值就是‘你给这个世界新贡献了多少’。它有效解决了重复计算的问题。",
+      "signals": ["Total Output", "Intermediate inputs", "Value Added"]
     }
   ]

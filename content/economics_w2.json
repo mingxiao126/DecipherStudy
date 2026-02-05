@@ -1,77 +1,79 @@
 [
     {
       "question": "What is the core difference between **Absolute Advantage** and **Comparative Advantage**?",
-      "answer": "**Absolute Advantage** is about efficiency (using **fewer inputs** or time)[cite: 78, 79]. **Comparative Advantage** is about trade-offs (having a **lower opportunity cost**)[cite: 82, 83]. Decisions should be based on comparative advantage[cite: 85].",
+      "answer": "**Absolute Advantage** 看的是效率（谁更快、更省资源）。例子：梅西踢球比你强，割草也比你快，他在两项上都有绝对优势。**Comparative Advantage** 看的是成本（谁放弃得更少）。例子：梅西割草一小时会损失几百万收入，而你只损失 20 元。虽然你慢，但你割草的成本低，所以你在割草上有比较优势。",
       "category": "贸易理论",
       "type": "对比题",
+      "logic_memo": "绝对优势 = 效率王（更快）；比较优势 = 成本王（更划算）。决策应该听‘比较优势’的，因为这样总收益最大。",
       "signals": ["Fewer inputs", "Lower opportunity cost", "Efficiency vs. Cost"],
       "glossary": [
         {
           "term": "Absolute Advantage",
-          "definition": "绝对优势：以更少投入完成任务的能力 [cite: 79]"
+          "definition": "绝对优势：使用更少时间或资源完成任务的能力"
         },
         {
           "term": "Comparative Advantage",
-          "definition": "比较优势：以更低机会成本完成任务的能力 [cite: 83]"
+          "definition": "比较优势：以更低的机会成本完成任务的能力"
         }
       ]
     },
     {
       "question": "How do you calculate the **Opportunity Cost** of a task?",
-      "answer": "Use the 'Recipe': Divide what you **give up** by what you **gain**[cite: 92, 125]. For example, if Natalia takes 30 mins to balance accounts and 10 mins to process payments, the cost of 1 account is 3 payments (30/10)[cite: 93].",
+      "answer": "使用‘配方’：**放弃的 / 得到的**。例子：Natalia 记账要 30 分钟，打扫要 10 分钟。Natalia 记 1 次账的时间，本可以打扫 3 次（30/10）。所以她记账的成本是 3 次打扫。",
       "category": "计算方法",
       "type": "计算题",
+      "logic_memo": "公式：OC = Give up / Gain。记住：分母是你‘正在做’的那件事，分子是你‘不得不放弃’的那件事。",
       "signals": ["Recipe", "Convert", "Give up / Gain"],
       "steps": [
-        "Step 1: List the productivity data for each person [cite: 90]",
-        "Step 2: Calculate how much of 'Task B' is sacrificed to do 'Task A' [cite: 92, 93]",
-        "Step 3: Compare results; the person with the lower cost has the comparative advantage [cite: 95, 96]"
+        "Step 1: 确定每个人的生产数据（时间或产量）",
+        "Step 2: 计算为了多做 A，必须牺牲多少 B",
+        "Step 3: 谁的数值小，谁就有比较优势，谁就该负责这项任务"
       ]
     },
     {
       "question": "What is **Specialization** and why is it beneficial?",
-      "answer": "Specialization is when individuals focus on tasks where they have a **comparative advantage**[cite: 75, 117]. It leads to **Gains from Trade** by reallocating resources to their best uses, making both parties better off[cite: 72, 74].",
+      "answer": "专业化分工就是‘各司其职’，只做自己最有比较优势的事。例子：医生专注于看病，请清洁工打扫卫生。虽然医生打扫可能更快（有绝对优势），但术业有专攻能让社会产生更多医疗服务和整洁环境。这就是**贸易收益（Gains from Trade）**。",
       "category": "贸易理论",
       "type": "概念题",
+      "logic_memo": "专业化 = 提高总产出。生活化理解：如果每个人都尝试自己种菜、织布、盖房，生活水平会极低；大家分工互换，生活会更富有。",
       "signals": ["Specialization", "Gains from trade", "Reallocating"],
       "glossary": [
         {
           "term": "Gains from Trade",
-          "definition": "贸易收益：通过重新分配资源到更好用途而获得的收益 [cite: 74]"
+          "definition": "贸易收益：通过把资源重新分配到它最擅长的地方而产生的额外财富"
         }
       ]
     },
     {
       "question": "What are the three functions of **Prices** in a market?",
-      "answer": "1. **Signal**: Reflects marginal cost to buyers and marginal benefit to sellers[cite: 100, 101, 102]. 2. **Incentive**: High prices encourage sellers to produce more and buyers to buy less[cite: 103, 104]. 3. **Information**: Aggregates scattered information from across the market[cite: 105, 106].",
+      "answer": "1. **信号 (Signal)**：告诉买家多贵，告诉卖家能赚多少。2. **激励 (Incentive)**：价格高了，卖家想多卖（胡萝卜），买家想少买（大棒）。3. **信息 (Information)**：汇总市场秘密。例子：油价涨了，说明某地可能在打仗或油田干涸，价格把这万千信息浓缩成了一个数字。",
       "category": "价格机制",
       "type": "分析题",
-      "signals": ["Signal", "Incentive", "Information", "Function of Price"]
+      "logic_memo": "价格是市场的‘交通信号灯’和‘情报员’。它让互不相识的人能高效协作。",
+      "signals": ["Signal", "Incentive", "Information"]
     },
     {
       "question": "What is the **Knowledge Problem** and how do **Internal Markets** solve it?",
-      "answer": "The **Knowledge Problem** occurs when central planners cannot know everyone's specific needs[cite: 108, 109]. **Internal Markets** solve this by using market mechanisms (like bidding) to let those with the highest marginal benefit obtain resources[cite: 110, 113].",
+      "answer": "**知识问题**指中央计划者无法知道几千人的具体需求（如：这家分行到底缺不缺复印纸）。**内部市场**让大家通过‘竞标’来解决。例子：总公司不分配资源，而是让各部门竞价，最需要的部门（收益最高的）会出最高价得到资源。",
       "category": "市场机制",
       "type": "案例题",
-      "signals": ["Knowledge Problem", "Central Planning", "Internal Markets", "Feeding America"],
-      "steps": [
-        "Step 1: Recognize that central planners lack local information [cite: 108]",
-        "Step 2: Implement a system where departments bid for resources [cite: 110, 113]",
-        "Step 3: Resources are naturally allocated to their highest-value use [cite: 113]"
-      ]
+      "logic_memo": "‘知识问题’是信息不对称。解决办法：不靠领导分配，靠价格‘听指挥’。谁出的钱多，说明谁最需要，资源就给谁。",
+      "signals": ["Knowledge Problem", "Central Planning", "Internal Markets"]
     },
     {
       "question": "Explain **Prediction Markets**.",
-      "answer": "Markets where people buy and sell based on the likelihood of future events (e.g., sports or elections)[cite: 106]. The market price reflects the aggregated judgment and information of all participants[cite: 106, 117].",
+      "answer": "预测市场是大家对未来（如谁会当选、谁会夺冠）下注的地方。例子：如果很多人买‘A队赢’的票，票价就会涨。现在的票价其实就反映了所有人对未来可能性的‘集体智慧’。",
       "category": "价格机制",
       "type": "概念题",
+      "logic_memo": "把猜测变成金钱交易。价格不再是钱，而是‘概率’。它是目前预测未来最准确的工具之一。",
       "signals": ["Prediction Markets", "Aggregated information", "Future events"]
     },
     {
       "question": "Summary: What are the exam 'short-cuts' for Chapter 2?",
-      "answer": "Identify **'Fewer inputs'** as Absolute Advantage. Identify **'Lower opportunity cost'** or **'Give up'** as Comparative Advantage. The logic chain is: Comparative Advantage → Specialization → Trade → Mutual Gain[cite: 126].",
+      "answer": "看到 **'Fewer inputs/Faster'** → Absolute Advantage。看到 **'Lower OC/Give up'** → Comparative Advantage。逻辑链条：比较优势 → 专业分工 → 贸易 → 大家都变好（Mutual Gain）。",
       "category": "考试技巧",
       "type": "记忆题",
+      "logic_memo": "考试时，只要看到题目让你选‘谁该做哪项任务’，99% 的情况都是根据‘比较优势’（机会成本最低）来选。",
       "signals": ["Keywords", "Logic Chain"]
     }
   ]

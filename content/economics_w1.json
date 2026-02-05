@@ -1,123 +1,254 @@
 [
     {
-      "question": "What is the **Cost-Benefit Principle**?",
-      "answer": "A decision should be made only if the **benefits** of that choice are at least as large as its **costs**. It is the core framework for individual decision-making.",
-      "category": "经济学原则",
-      "type": "概念题",
-      "signals": ["Cost", "Benefit", "At least as large"],
-      "steps": [
-        "Step 1: Identify all benefits of the choice",
-        "Step 2: Identify all costs of the choice",
-        "Step 3: Compare: If Benefits ≥ Costs, proceed with the choice"
-      ],
+      "question": "1. Which item is a form of **consumption (C)**?",
+      "answer": "A new car purchased for **personal use**. 例子：你给自己买了一辆代步车。如果是公司买来送货，那叫投资（I）。",
+      "category": "GDP Components",
+      "type": "辨析题",
+      "logic_memo": "看‘谁买’和‘干嘛用’。住户（Households）买来自己享受的才是消费。",
+      "signals": ["personal use", "households"],
       "glossary": [
-        {
-          "term": "Willingness to Pay",
-          "definition": "为了获得收益或避免成本愿意支付的最高金额，用于将非金钱收益货币化"
-        }
+        { "term": "Consumption", "definition": "住户购买的用于最终消费的商品和服务" }
       ]
     },
     {
-      "question": "How is **Economic Surplus** calculated and what is its goal?",
-      "answer": "**Total Benefits - Total Costs**. The goal of any good decision is to **maximize** this surplus, representing the net gain from a choice.",
-      "category": "基础概念",
+      "question": "2. When **price** functions as a **message**, what is its primary role?",
+      "answer": "It **aggregates information** on the market. 例子：超市里苹果涨价了，不需要农夫告诉你干旱，价格这个‘消息’已经告诉你苹果变稀缺了。",
+      "category": "Market Mechanism",
+      "type": "理解题",
+      "logic_memo": "价格像个‘信号灯’，它把千万人的需求和成本浓缩成一个简单的数字。不要选‘改变行为’，那是激励（Incentive）的功能。",
+      "signals": ["message", "aggregate information"]
+    },
+    {
+      "id": 3,
+      "question": "3. Calculate the **total cost** of ingredients for one cupcake.",
+      "answer": "$2.80. 例子：把面粉、蛋、奶油等所有的账单加起来。这是你的显性成本（Explicit Cost）。",
+      "category": "Cost Calculation",
       "type": "计算题",
-      "signals": ["Total Benefits", "Total Costs", "Maximize"],
-      "steps": [
-        "Step 1: Calculate total benefits (e.g., Willingness to Pay)",
-        "Step 2: Calculate total costs (actual expenditure)",
-        "Step 3: Subtract: Surplus = Benefits - Costs",
-        "Step 4: Choose the option that provides the highest surplus"
-      ]
+      "logic_memo": "考试时拿稳计算器，把列出的所有原材料金额加总，不要漏掉最后一项香草精。",
+      "steps": ["0.07 + 0.01 + 0.86 + 0.11 + 0.75 + 1.00 = 2.80"]
     },
     {
-      "question": "What is the **Framing Effect** and how should a rational person handle it?",
-      "answer": "The tendency for decisions to be influenced by how choices are **described or presented**. A good decision-maker should **ignore the frame** and focus only on actual costs and benefits.",
-      "category": "决策偏差",
+      "question": "4. If you sell cupcakes for $5.00 each, what is your **Benefit** per unit?",
+      "answer": "$5.00. 例子：你卖出一个蛋糕，兜里直接进账的钱就是你的收益。",
+      "category": "Cost-Benefit Principle",
       "type": "概念题",
-      "signals": ["Description", "Presentation", "Special labels"],
-      "glossary": [
-        {
-          "term": "Framing Effect",
-          "definition": "框架效应：决策受表达方式影响，而非实际内容"
-        }
-      ]
+      "logic_memo": "陷阱：收益（Benefit）不是利润（Profit）。不要去减成本，问你卖多少钱，收益就是多少。",
+      "signals": ["Benefit", "Price"]
     },
     {
-      "question": "Define **Opportunity Cost Principle**.",
-      "answer": "The true cost of something is the **next best alternative** (the single best option you give up) to get it. It arises because resources are **scarce**.",
-      "category": "经济学原则",
-      "type": "概念题",
-      "signals": ["Next best alternative", "Give up", "Or what?"],
-      "steps": [
-        "Step 1: Ask 'Or what?' to identify other options",
-        "Step 2: Rank the alternatives",
-        "Step 3: Identify the value of the #2 option (this is the Opportunity Cost)"
-      ]
+      "question": "5. According to the **Cost-Benefit Principle**, should you sell the cupcake ($5.00 price, $2.80 cost)?",
+      "answer": "Yes, because **Benefit ≥ Cost**. 例子：哪怕收益只比成本多 1 分钱，理性的经济人也会选择去做。",
+      "category": "Cost-Benefit Principle",
+      "type": "决策题",
+      "logic_memo": "只要不亏（或刚好保本），就值得做。经济学里的‘值得’就是 Benefits ≥ Costs。",
+      "steps": ["Compare $5.00 (Benefit) and $2.80 (Cost)", "Result: $5.00 > $2.80, so YES"]
     },
     {
-      "question": "What are the rules for **Sunk Costs**?",
-      "answer": "**Ignore them!** Sunk costs are past expenses that cannot be recovered. Rational decisions should only be based on **future** costs and benefits.",
-      "category": "成本概念",
+      "question": "6. You spent $250 on a suit for an interview. This $250 is a:",
+      "answer": "**Sunk Cost** (沉没成本). 例子：这笔钱已经花掉了，且不能退。无论你明天去不去面试，钱都不会回来。**决策时必须无视它。**",
+      "category": "Decision Making",
+      "type": "辨析题",
+      "logic_memo": "已经发生的、无法挽回的支出。记住：不要‘为了不浪费这身西装’而强迫自己去参加不喜欢的面试。",
+      "signals": ["Already spent", "Cannot be recovered"]
+    },
+    {
+      "question": "7. To maximize surplus when MB is decreasing, you should follow the **Rational Rule**:",
+      "answer": "Continue as long as **Marginal Benefit ≥ Marginal Cost**. 例子：喝第二杯咖啡的爽感（MB）比这杯咖啡的钱（MC）多，就喝；直到下一杯让你觉得不值那个钱为止。",
+      "category": "Marginal Principle",
+      "type": "分析题",
+      "logic_memo": "最优方案永远在 MB = MC 的那个点。少做一点会错过利润，多做一点会亏本。",
+      "signals": ["MB = MC", "one more"]
+    },
+    {
+      "question": "8. The **Rational Rule** for consumers says you should buy another unit if:",
+      "answer": "The **MB is at least as large as the price**. 例子：只要这件衣服带给你的快乐值 $100（MB），而它只卖 $99（MC），就买。",
+      "category": "Marginal Principle",
       "type": "决策规则",
-      "signals": ["Already occurred", "Cannot be recovered", "Non-refundable"],
-      "glossary": [
-        {
-          "term": "Sunk Cost",
-          "definition": "沉没成本：已发生且无法收回的成本，决策时不应考虑"
-        }
-      ]
+      "logic_memo": "这是第 7 题的简化版。Price（价格）就是你‘多买一个’的边际成本。",
+      "signals": ["at least as large as"]
     },
     {
-      "question": "Describe the **Production Possibilities Frontier (PPF)** points.",
-      "answer": "A graph showing output combinations. **On the line**: Efficient (max utilization). **Inside the line**: Inefficient (waste). **Outside the line**: Unattainable (given current productivity).",
-      "category": "经济模型",
-      "type": "对比题",
-      "signals": ["PPF", "Efficient", "Unattainable", "Trade-off"],
-      "steps": [
-        "On the line: Moving along the line shows Opportunity Cost",
-        "Inside: Resources are wasted",
-        "Outside: Impossible unless productivity increases"
-      ]
+      "question": "9. Which principle applies when you choose working over watching TV?",
+      "answer": "**Opportunity Cost Principle**. 例子：看电视的‘代价’不只是电费，而是你为了看电视而放弃的那一小时工资。",
+      "category": "Economic Principles",
+      "type": "辨析题",
+      "logic_memo": "看到‘替代方案’（Alternative）或‘放弃’（Trade-off）就找机会成本。",
+      "signals": ["instead of", "next best alternative"]
     },
     {
-      "question": "What is the **Marginal Principle** and its **Rational Rule**?",
-      "answer": "Break 'how many' decisions into smaller 'one more' steps. Keep doing something until **Marginal Benefit (MB) = Marginal Cost (MC)** to maximize surplus.",
-      "category": "经济学原则",
-      "type": "分析方法",
-      "signals": ["One more unit", "How many", "MB = MC"],
-      "steps": [
-        "Step 1: Calculate MB of one extra unit",
-        "Step 2: Calculate MC of one extra unit",
-        "Step 3: If MB ≥ MC, do it. If MB < MC, stop",
-        "Step 4: Optimal point is MB = MC"
-      ]
-    },
-    {
-      "question": "What is the **Interdependence Principle**?",
-      "answer": "Your best choice depends on other factors. Decisions are not isolated and are connected through: **Your other choices**, **Other people**, **Other markets**, and **Time**.",
-      "category": "经济学原则",
+      "question": "10. An **incentive** is something that:",
+      "answer": "Induces a person to act by changing costs or benefits. 例子：超市打折（降低成本）会诱使你买更多。这就是一种正向激励。",
+      "category": "Foundations",
       "type": "概念题",
-      "signals": ["Dependencies", "Others", "Future", "Market changes"],
-      "glossary": [
-        {
-          "term": "Interdependence",
-          "definition": "相互依存原则：决策受自身其他选择、他人行为、不同市场及时间预期的影响"
-        }
+      "logic_memo": "激励就是‘胡萝卜’或‘大棒’，通过改变收益或成本的天平，让你改变主意。",
+      "signals": ["Induces", "Incentive"]
+    },
+    {
+      "question": "11. Messages conveyed by a falling price of Macadamia nuts EXCEPT:",
+      "answer": "The price of almonds is rising. 例子：夏威夷果降价说明它本身供过于求，但不代表别的坚果（如杏仁）一定在涨价。",
+      "category": "Market Mechanism",
+      "type": "理解题",
+      "logic_memo": "价格只传递**该商品**的稀缺信息。除非题目明确说明它们是完全替代品，否则不要乱联想。",
+      "signals": ["EXCEPT", "Message"]
+    },
+    {
+      "question": "12. You have a **Comparative Advantage** in a task if:",
+      "answer": "You can do it at a **lower opportunity cost**. 例子：虽然你打字和修电脑都比我快，但你修电脑的时间成本极高，所以我修电脑有比较优势。",
+      "category": "Trade & Advantage",
+      "type": "概念题",
+      "logic_memo": "不是比谁更‘快’（那是绝对优势），而是比谁‘更不亏’。天生我材必有用，每个人都有比较优势。",
+      "signals": ["lower opportunity cost"]
+    },
+    {
+      "question": "13. A builder adds an addition to his own house. Is this in GDP?",
+      "answer": "No, it is a **non-market transaction**. 例子：你自己在家做饭、打扫卫生都不计入 GDP。只有你付钱请保姆做，才计入。",
+      "category": "GDP Boundaries",
+      "type": "辨析题",
+      "logic_memo": "GDP 只统计在‘市场上交易’的东西。‘自己动手’虽然产生了价值，但没通过市场，所以不统计。",
+      "signals": ["own house", "non-market"]
+    },
+    {
+      "question": "14. Cornell types faster and more accurately than Alice. Cornell has:",
+      "answer": "**Absolute Advantage**. 例子： Cornell 是‘六边形战士’，纯粹的生产率比别人高。",
+      "category": "Trade & Advantage",
+      "type": "概念题",
+      "logic_memo": "绝对优势 = 效率王。比较优势 = 成本王。考试看到‘Faster’或‘Fewest inputs’直接选绝对优势。",
+      "signals": ["faster", "Absolute Advantage"]
+    },
+    {
+      "question": "15. US Inflation vs Japan Inflation (US: Nom 4.1%, Real 2.3%; Japan: Nom 2.6%, Real -0.2%).",
+      "answer": "Japan's inflation is higher than the US. 例子：名义增长像你的工资条，真实增长是扣掉物价涨幅后的购买力。差值就是通胀。",
+      "category": "Inflation Calculation",
+      "type": "计算题",
+      "logic_memo": "通胀率 ≈ 名义增长率 - 真实增长率。日本：2.6 - (-0.2) = 2.8%；美国：4.1 - 2.3 = 1.8%。",
+      "steps": ["US: 4.1% - 2.3% = 1.8%", "Japan: 2.6% - (-0.2%) = 2.8%"]
+    },
+    {
+      "question": "16. The primary role of markets is to:",
+      "answer": "Facilitate **gains from trade**. 例子：我擅长做面包，你擅长种小麦，市场让我们交换，结果我们都有更多面包吃。大家都变好了。",
+      "category": "Market Mechanism",
+      "type": "概念题",
+      "logic_memo": "市场存在的终极目的：让每个人通过交换变得更富有（Surplus 增加）。",
+      "signals": ["gains from trade"]
+    },
+    {
+      "question": "17. Marius (40C or 20M) vs Jennifer (15C or 15M). Who has CA in what?",
+      "answer": "Marius in Cupcakes, Jennifer in Muffins. 例子： Marius 做一个 M 要放弃 2 个 C，而 Jennifer 只要放弃 1 个 C。所以 Jennifer 做 M 更划算。",
+      "category": "Comparative Advantage",
+      "type": "计算题",
+      "logic_memo": "计算 OC（机会成本）公式：放弃的 / 得到的。谁的数值小，谁就有 CA。",
+      "steps": [
+        "Marius 1M = 40/20 = 2C",
+        "Jennifer 1M = 15/15 = 1C",
+        "Compare: 1 < 2, so Jennifer has CA in Muffins."
       ]
     },
     {
-      "question": "What are the four types of **Dependencies**?",
-      "answer": "1. **Between your own choices** (limited resources); 2. **Between people** (others' actions); 3. **Between markets** (changes in one affect another); 4. **Through time** (future expectations affect today).",
-      "category": "分析方法",
-      "type": "分类题",
-      "signals": ["Scarcity", "Economic actors", "Interest rates", "Future expectations"]
+      "question": "18. Markets within a company used to allocate scarce resources are:",
+      "answer": "**Internal Markets**. 例子：大公司内部不同部门通过竞标来争取预算或广告位。",
+      "category": "Market Mechanism",
+      "type": "概念题",
+      "logic_memo": "名字里就有线索：‘Within a company’ 对应 ‘Internal’。",
+      "signals": ["Within a company"]
     },
     {
-      "question": "Summary: How to identify principles from exam keywords?",
-      "answer": "**'One more'** → Marginal; **'Give up/Next best'** → Opportunity Cost; **'Surplus/Incentive'** → Cost-Benefit; **'Others/Future'** → Interdependence.",
-      "category": "考试技巧",
-      "type": "记忆题",
-      "signals": ["Keywords", "Correspondence"]
+      "question": "19. In the **circular flow diagram**, households:",
+      "answer": "**Supply resources** (like labor). 例子：你每天去上班，就是在‘资源市场’（Factor Market）里卖出你的时间（劳动力）。",
+      "category": "Circular Flow",
+      "type": "模型题",
+      "logic_memo": "住户提供：劳动力（去上班）；住户购买：商品（去超市）。",
+      "signals": ["households", "supply"]
+    },
+    {
+      "question": "20. Calculate **Real GDP Growth** (2016: $3000, P=100; 2019: $8000, P=200).",
+      "answer": "33.3%. 例子：虽然账面数字（名义）翻了两倍多，但物价也翻倍了，所以实际只长了一点点。",
+      "category": "GDP Calculation",
+      "type": "计算题",
+      "logic_memo": "第一步：把 nominal 换成 real（除以价格指数）。第二步：用新 real 减旧 real 再除以旧 real。",
+      "steps": [
+        "Real 2016 = 3000 / 1 = 3000",
+        "Real 2019 = 8000 / 2 = 4000",
+        "Growth = (4000-3000)/3000 = 33.3%"
+      ]
+    },
+    {
+      "question": "21. Scarcity exists because:",
+      "answer": "Resources are limited, but wants are unlimited. 例子：全世界的土地就那么多，但每个人都想要一栋大别墅。",
+      "category": "Foundations",
+      "type": "概念题",
+      "logic_memo": "稀缺性（Scarcity）= 需求 > 供给。这是所有经济问题的根本原因。",
+      "signals": ["limited", "scarcity"]
+    },
+    {
+      "question": "22. **Willingness to pay** is the _____ amount you would pay for a benefit.",
+      "answer": "**Maximum** (最高). 例子：你口渴到极点时，愿意花 100 元买一瓶水，那 100 就是你的 WTP。实际只卖 2 元，你就赚了 98 的剩余。",
+      "category": "Foundations",
+      "type": "概念题",
+      "logic_memo": "WTP = 你的心理防线。只要价格低于这个数，你就会觉得‘值’。",
+      "signals": ["willingness to pay"]
+    },
+    {
+      "question": "23. Why are **intermediate goods** not counted in GDP?",
+      "answer": "To avoid **double counting**. 例子：GDP 计入面包的 5 元，这 5 元里已经包含了面粉和水的钱。如果再算一次面粉，就重了。",
+      "category": "GDP Principles",
+      "type": "辨析题",
+      "logic_memo": "最终产品已经包含了所有中间环节的价值。GDP 只看‘终点’。",
+      "signals": ["intermediate", "double counting"]
+    },
+    {
+      "question": "24. What to produce is a problem because:",
+      "answer": "Resources are scarce. 例子：土地用来种粮就不能盖楼，我们必须在有限的资源里做选择。",
+      "category": "Foundations",
+      "type": "概念题",
+      "logic_memo": "再次强调：稀缺性强迫我们做‘选择’（Choices）。",
+      "signals": ["not enough resources"]
+    },
+    {
+      "question": "25. Example of an **intermediate good**:",
+      "answer": "Lumber used to build a house. 例子：木材是‘半成品’，它最后变成了房子。房子的售价才是 GDP，木材只是过程。",
+      "category": "GDP Components",
+      "type": "辨析题",
+      "logic_memo": "看它是不是变成了另一个商品的一部分。如果是，它就是中间产品。",
+      "signals": ["used to build"]
+    },
+    {
+      "question": "26. Is **commuting time** included in Opportunity Cost?",
+      "answer": "Yes, it is a **nonfinancial cost**. 例子：去听音乐会，门票是钱（显性），路上花的两小时是你失去的生命/时间（隐性）。两者都是代价。",
+      "category": "Opportunity Cost",
+      "type": "理解题",
+      "logic_memo": "机会成本 = 钱 + 时间。即使票是免费的，只要花了时间，就有机会成本。",
+      "signals": ["commuting time", "nonfinancial"]
+    },
+    {
+      "question": "27. Freshwater is **scarce** because:",
+      "answer": "There is not enough to meet all needs. 例子：虽然五大湖水很多，但如果全世界人都想拿它洗澡、灌溉、工业用，水就不够了。",
+      "category": "Foundations",
+      "type": "理解题",
+      "logic_memo": "稀缺不是指‘绝对数量少’，而是指‘不够分’。",
+      "signals": ["not enough to meet all needs"]
+    },
+    {
+      "question": "28. You have an **Absolute Advantage** if you:",
+      "answer": "Can produce using the **fewest inputs**. 例子：同样的原料，你能出 10 个货，我只能出 5 个，你就是生产力之王。",
+      "category": "Trade & Advantage",
+      "type": "概念题",
+      "logic_memo": "绝对优势 = 效率。不考虑机会成本，只看谁更强、更快、更省料。",
+      "signals": ["fewest inputs"]
+    },
+    {
+      "question": "29. Table: OC of Salmon for Washington (10 Tea or 10 Salmon).",
+      "answer": "1 matcha tea. 例子：在华盛顿州，工人做一个三文鱼的时间刚好够做一个抹茶。所以代价是 1:1。",
+      "category": "Opportunity Cost",
+      "type": "计算题",
+      "logic_memo": "看清楚题目问的是 Washington。公式：放弃的 Tea / 得到的 Salmon = 10 / 10 = 1。",
+      "steps": ["OC = 10 Tea / 10 Salmon = 1 Tea"]
+    },
+    {
+      "question": "30. A **trade-off** involves weighing:",
+      "answer": "**Costs and benefits**. 例子：你决定今晚熬夜学习，收益是好成绩，成本是明天的黑眼圈和疲惫。这就是权衡。",
+      "category": "Decision Making",
+      "type": "概念题",
+      "logic_memo": "权衡（Trade-off）就是做一道‘利弊题’。没有免费的午餐，任何选择都有代价。",
+      "signals": ["trade-off", "costs and benefits"]
     }
   ]

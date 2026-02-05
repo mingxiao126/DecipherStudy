@@ -145,7 +145,7 @@
         .card-answer {
             font-size: 1.25rem;
             color: #f1f5f9;
-            text-align: center;
+            text-align: left;
             line-height: 1.8;
             width: 100%;
             margin-bottom: 1rem;
@@ -154,6 +154,73 @@
         .card-answer strong {
             color: #fbbf24;
             font-weight: 700;
+        }
+
+        /* 答案列表样式 */
+        .answer-list {
+            text-align: left;
+            margin: 1rem 0;
+        }
+
+        .answer-list-item {
+            margin: 0.75rem 0;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid rgba(139, 92, 246, 0.4);
+            border-radius: 6px;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            transition: background 0.2s ease;
+        }
+
+        .answer-list-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .answer-list-number {
+            color: #c4b5fd;
+            font-weight: 700;
+            font-size: 1.1rem;
+            min-width: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .answer-list-term {
+            color: #fbbf24;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .answer-list-def {
+            color: #e2e8f0;
+            flex: 1;
+        }
+
+        .answer-list-content {
+            color: #e2e8f0;
+            flex: 1;
+        }
+
+        /* 例子样式 */
+        .answer-example {
+            margin: 1rem 0;
+            padding: 0.875rem 1rem;
+            background: rgba(251, 191, 36, 0.08);
+            border-left: 3px solid rgba(251, 191, 36, 0.4);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .example-label {
+            color: #fbbf24;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .example-content {
+            color: #fde68a;
         }
 
         .card-category {
@@ -629,8 +696,8 @@
                         <div id="logicMemo" class="logic-memo" style="display: none;"></div>
                         <div id="logicSteps" class="logic-steps" style="display: none;"></div>
                         <div class="hint-text">点击卡片返回问题</div>
-                        <!-- 掌握度按钮 -->
-                        <div class="mastery-buttons">
+                        <!-- 掌握度按钮（已隐藏） -->
+                        <div class="mastery-buttons" style="display: none;">
                             <button class="mastery-btn mastery-red" data-status="red">🔴 需重练</button>
                             <button class="mastery-btn mastery-yellow" data-status="yellow">🟡 模糊</button>
                             <button class="mastery-btn mastery-green" data-status="green">🟢 已掌握</button>

@@ -175,10 +175,17 @@ class FlashCardApp {
             const questionText = card.question || '问题未设置';
             questionEl.innerHTML = this.renderWithKaTeX(questionText);
             
-            // 更新答案（支持 LaTeX）
+            // 更新答案（支持 LaTeX 和格式化）
             const answerEl = document.getElementById('cardAnswer');
             const answerText = this.formatAnswer(card.answer || '答案未设置');
             answerEl.innerHTML = this.renderWithKaTeX(answerText);
+            
+            // 如果答案包含列表，调整容器样式
+            if (answerEl.querySelector('.answer-list')) {
+                answerEl.style.textAlign = 'left';
+            } else {
+                answerEl.style.textAlign = 'center';
+            }
             
             // 更新逻辑记忆点
             this.updateLogicMemo(card.logic_memo);
@@ -473,13 +480,47 @@ class FlashCardApp {
         }
     }
 
-    // 格式化答案（支持加粗等格式，但不影响 LaTeX）
+    // 格式化答案（支持加粗、列表等格式，但不影响 LaTeX）
     formatAnswer(answer) {
         if (!answer) return '';
-        // 将 **文本** 转换为红色加粗的 <strong>文本</strong>
-        // 注意：要避免替换 LaTeX 中的 **（如果存在），但通常 LaTeX 中不会用 **）
-        // 先处理 Markdown 加粗，保留 LaTeX 公式不变
-        return answer.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #ef4444;">$1</strong>');
+        
+        let formatted = answer;
+        
+        // 1. 先处理 "例子：" 段落（在列表处理之前，避免干扰）
+        formatted = formatted.replace(/(例子[：:]\s*)(.+?)(?=\s+\d+\.|$)/g, '<div class="answer-example"><span class="example-label">$1</span><span class="example-content">$2</span></div>');
+        
+        // 2. 处理 Markdown 加粗：**文本** 转换为红色加粗
+        formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #ef4444;">$1</strong>');
+        
+        // 3. 检测并格式化编号列表（格式：1. ... 2. ... 3. ...）
+        // 匹配模式：数字 + 点 + 空格 + 内容（直到下一个数字点或结尾）
+        const numberedListPattern = /(\d+)\.\s+([^0-9]+?)(?=\s+\d+\.|$)/g;
+        const hasNumberedList = numberedListPattern.test(formatted);
+        
+        if (hasNumberedList) {
+            // 重置正则表达式
+            numberedListPattern.lastIndex = 0;
+            
+            // 将编号列表转换为 HTML 列表
+            formatted = formatted.replace(numberedListPattern, (match, num, content) => {
+                content = content.trim();
+                
+                // 检查是否包含冒号（定义格式：术语: 定义）
+                if (content.includes(':')) {
+                    const colonIndex = content.indexOf(':');
+                    const term = content.substring(0, colonIndex).trim();
+                    const definition = content.substring(colonIndex + 1).trim();
+                    return `<div class="answer-list-item"><span class="answer-list-number">${num}.</span><span class="answer-list-term">${term}:</span> <span class="answer-list-def">${definition}</span></div>`;
+                } else {
+                    return `<div class="answer-list-item"><span class="answer-list-number">${num}.</span><span class="answer-list-content">${content}</span></div>`;
+                }
+            });
+            
+            // 包装在列表容器中
+            formatted = `<div class="answer-list">${formatted}</div>`;
+        }
+        
+        return formatted;
     }
 
     // 更新关键词高亮（Signal Tags）

@@ -4,6 +4,7 @@
       "answer": "A **Population** is the full collection of individuals or objects of interest (fixed, but usually unknown in full). A **Sample** is the subset actually observed and used to make inferences about the population (it can vary from sample to sample).",
       "category": "Basic Concepts",
       "type": "Definition",
+      "logic_memo": "总体（Population）是‘全中国所有大学生’（太大，抓不完）；样本（Sample）是你随机找的100个大学生。我们通过研究这100人来猜全中国学生的情况。",
       "signals": ["Population", "Sample", "Subset", "Inference"]
     },
     {
@@ -11,6 +12,7 @@
       "answer": "A **Parameter** is a numerical summary of the population (a fixed constant, typically unknown). A **Statistic** is a numerical summary computed from a sample (it is random/variable across different samples).",
       "category": "Basic Concepts",
       "type": "Comparison",
+      "logic_memo": "参数（Parameter）是上帝视角下的真理（比如全国学生真实的平均身高，是个定值）；统计量（Statistic）是你量了那100人后算出的平均值（换一批人量，结果就会变）。",
       "signals": ["Parameter", "Statistic", "Constant", "Random Variable"]
     },
     {
@@ -18,6 +20,7 @@
       "answer": "Population (often Greek): Mean = $\\mu$, Proportion = $p$, Standard Deviation = $\\sigma$. Sample (often Roman/English): Mean = $\\bar{x}$, Proportion = $\\hat{p}$, Standard Deviation = $s$.",
       "category": "Notation",
       "type": "Identification",
+      "logic_memo": "记法窍门：希腊字母（\\mu, \\sigma）代表‘神’的参数，高大上但看不见；英文字母（\\bar{x}, s）代表‘人’算出来的统计量，平易近人。",
       "signals": ["$\\mu$", "$\\sigma$", "$\\bar{x}$", "$s$", "$\\hat{p}$"]
     },
     {
@@ -25,6 +28,7 @@
       "answer": "The median is resistant because it depends on the order of values, so extreme outliers have limited influence on it. The mean, in contrast, is pulled toward extreme values because it uses the actual magnitudes.",
       "category": "Measures of Center",
       "type": "Concept",
+      "logic_memo": "抗性（Resistant）就是‘不被带节奏’。一桌人吃饭，突然进来个亿万富翁，平均收入（Mean）瞬间飞上天，但中位数（Median）只是稍微挪动了一个位置，基本不受富翁影响。",
       "signals": ["Resistant", "Robust", "Median", "Mean", "Outliers"]
     },
     {
@@ -32,6 +36,7 @@
       "answer": "1. Symmetric: Mean is approximately equal to Median. 2. Right-skewed: Mean > Median (mean is pulled toward the long right tail). 3. Left-skewed: Mean < Median (mean is pulled toward the long left tail).",
       "category": "Measures of Center",
       "type": "Rule",
+      "logic_memo": "均值是个‘舔狗’，哪边有极端值（尾巴）它就往哪边跑。右偏（长尾在右），均值就被拉向右边，导致 Mean > Median。",
       "signals": ["Symmetric", "Right-skewed", "Left-skewed", "Tail"]
     },
     {
@@ -39,6 +44,7 @@
       "answer": "A sample proportion $\\hat{p}$ is the mean of a 0-1 indicator variable: code each observation as 1 (success/has the characteristic) or 0 (failure/does not have it), then the average equals the proportion of 1s.",
       "category": "Measures of Center",
       "type": "Interpretation",
+      "logic_memo": "比例其实就是‘0-1’的平均数。如果有10个人，3个投支持（1），7个投反对（0），那平均数就是0.3，也就是支持率。",
       "signals": ["Proportion", "Mean", "0 and 1"]
     },
     {
@@ -46,6 +52,7 @@
       "answer": "1. Range: Max - Min (very sensitive to outliers). 2. IQR (Interquartile Range): $Q3 - Q1$ (spread of the middle 50%, more resistant to outliers). 3. Standard Deviation: Typical distance of observations from the mean (uses squared deviations, so outliers can affect it).",
       "category": "Measures of Spread",
       "type": "Definition",
+      "logic_memo": "Range 只看头尾（极端）；IQR 只看中间的一半人（稳健）；标准差看所有人离平均值的距离（全面但怕极端值）。",
       "signals": ["Range", "IQR", "Standard Deviation", "Spread"]
     },
     {
@@ -53,6 +60,7 @@
       "answer": "Using $n-1$ (degrees of freedom) corrects the downward bias that occurs when we estimate population variability from a sample. This Bessel correction makes $s^2$ an unbiased estimator of the population variance $\\sigma^2$ under standard assumptions.",
       "category": "Measures of Spread",
       "type": "Technical Detail",
+      "logic_memo": "这是‘保守估计’。因为样本很难抓到总体的极端值，算出来的波动通常偏小。除以 $n-1$（比除以 $n$ 得到的数大一点）就是为了强行把这个波动‘补’回来，让结果更接近真相。",
       "signals": ["n-1", "Degrees of Freedom", "Unbiased Estimate", "Variability"]
     },
     {
@@ -60,6 +68,7 @@
       "answer": "Variance ($\\sigma^2$ or $s^2$) is the average of squared deviations from the mean (units squared). Standard deviation ($\\sigma$ or $s$) is the square root of variance, returning to the original units of the data.",
       "category": "Measures of Spread",
       "type": "Comparison",
+      "logic_memo": "方差算的时候带平方，单位很奇怪（比如‘平米平方’）；标准差开方回去了，单位就变回了正常的‘平米’，更好理解。",
       "signals": ["Variance", "Standard Deviation", "Square root", "Units"]
     },
     {
@@ -67,6 +76,7 @@
       "answer": "Robustness to outliers (most to least): IQR > Standard Deviation > Range. Range is least stable because it depends only on two extreme values; IQR is most stable because it focuses on the middle 50%.",
       "category": "Measures of Spread",
       "type": "Ranking",
+      "logic_memo": "谁最不容易被疯子（离群值）带偏？IQR 最稳（只看中间），标准差次之，全距（Range）最容易崩盘。",
       "signals": ["Stability", "Robustness", "Outliers"]
     },
     {
@@ -74,6 +84,7 @@
       "answer": "A Z-score is a standardized value that measures how many standard deviations an observation is above (positive) or below (negative) the mean. It enables comparisons across different scales or distributions (when standardization is appropriate).",
       "category": "Standardization",
       "type": "Definition",
+      "logic_memo": "Z-score 是统计界的‘统一汇率’。它可以让你比较‘数学考90分’和‘英语考80分’哪个更牛——看谁离各自班级的平均分更远（超出几个标准差）。",
       "signals": ["Z-score", "Standardized", "Standard Deviations"]
     },
     {
@@ -81,6 +92,7 @@
       "answer": "$z^*$ is a threshold determined by the confidence level or significance level (for example, 1.96 for a two-sided 95% confidence level under Normal assumptions). The test statistic $z$ is computed from sample data and measures how many standard errors the sample estimate is from the null value.",
       "category": "Inference",
       "type": "Comparison",
+      "logic_memo": "临界值 $z^*$ 是‘录取分数线’（提前定好的标准）；测试统计量 $z$ 是你的‘高考分数’（根据样本算出来的）。分数（$z$）过了线（$z^*$），才算显著。",
       "signals": ["Critical Value", "Test Statistic", "Threshold", "Sample Data"]
     },
     {
@@ -88,6 +100,7 @@
       "answer": "Standard deviation ($s$) measures the spread of individual observations in a dataset. Standard error (SE) measures the variability of a sample statistic (such as $\\bar{x}$ or $\\hat{p}$) across repeated samples and represents the sampling uncertainty of that statistic.",
       "category": "Inference",
       "type": "Concept",
+      "logic_memo": "标准差 $s$ 是看这一班人身高‘各不相同’；标准误 SE 是看‘如果我明天再抽一班人，平均分会有多大变动’。SE 衡量的是我们估算得‘准不准’。",
       "signals": ["Standard Error", "SE", "Uncertainty", "Statistic Variability"]
     },
     {
@@ -95,6 +108,7 @@
       "answer": "$SE = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$.",
       "category": "Inference",
       "type": "Formula",
+      "logic_memo": "算比例的误差：拿支持率乘反对率，再除以人数。人数 $n$ 越多，误差 SE 就越小。",
       "signals": ["SE", "Proportion", "n", "$\\hat{p}$"]
     },
     {
@@ -102,6 +116,7 @@
       "answer": "As $n$ increases, the standard error decreases at a rate proportional to $1/\\sqrt{n}$ (not linearly). Larger samples generally produce more precise (less variable) estimates.",
       "category": "Inference",
       "type": "Rule",
+      "logic_memo": "‘人多力量大（更准）’。你想让误差减半，人数得增加到原来的 4 倍（因为是开根号的关系）。",
       "signals": ["Sample Size", "Precision", "Inverse Relationship"]
     },
     {
@@ -109,6 +124,7 @@
       "answer": "Point estimate ± margin of error. For a proportion under common conditions: $\\hat{p} \\pm (z^* \\times SE)$.",
       "category": "Inference",
       "type": "Structure",
+      "logic_memo": "置信区间 = 估算值 ± 误差范围。就像预报天气：‘明天 25 度左右，上下浮动 2 度’。",
       "signals": ["Confidence Interval", "Point Estimate", "Margin of Error"]
     },
     {
@@ -116,6 +132,7 @@
       "answer": "The margin of error is the amount added and subtracted from the point estimate to form a confidence interval: $ME = z^* \\times SE$. It reflects the typical sampling uncertainty at the chosen confidence level (given the model conditions).",
       "category": "Inference",
       "type": "Definition",
+      "logic_memo": "ME 就是‘容错空间’。它是临界值（自信程度）和标准误（客观误差）的乘积。",
       "signals": ["Margin of Error", "ME", "Precision"]
     },
     {
@@ -123,6 +140,7 @@
       "answer": "For a two-sided 95% confidence level under the standard Normal model, $z^* = 1.96$.",
       "category": "Inference",
       "type": "Fact",
+      "logic_memo": "记住这个神奇的数字：1.96。它意味着在正态分布里，中间 95% 的面积对应的就是 ±1.96 个标准差。",
       "signals": ["95%", "1.96", "Critical Value"]
     },
     {
@@ -130,6 +148,7 @@
       "answer": "If we repeat the same sampling process many times, about 95% of the confidence intervals we construct will contain the true population parameter. It is not correct to say there is a 95% chance that the parameter lies in this particular computed interval.",
       "category": "Inference",
       "type": "Interpretation",
+      "logic_memo": "重点！不是‘参数有 95% 概率在里面’，而是‘如果你做 100 次这种实验，有 95 次画出来的圈能套中那个真理’。圈是动的，真理是死的。",
       "signals": ["Interpretation", "Repeated Sampling", "Contain Parameter"]
     },
     {
@@ -137,6 +156,7 @@
       "answer": "$H_0$ is the baseline claim (often no effect, no difference, or equality). $H_A$ is the competing claim that represents an effect, a difference, or a directional/ non-equality statement.",
       "category": "Hypothesis Testing",
       "type": "Definition",
+      "logic_memo": "$H_0$ 是‘无罪推定’（没啥特别的，纯属巧合）；$H_A$ 是‘你想证明的有罪结论’（真的有效果！不是巧合！）。",
       "signals": ["Null Hypothesis", "Alternative Hypothesis", "Status Quo"]
     },
     {
@@ -144,6 +164,7 @@
       "answer": "$z = \\frac{\\hat{p} - p_0}{SE_0}$, where $SE_0 = \\sqrt{\\frac{p_0(1-p_0)}{n}}$ is computed using the hypothesized proportion $p_0$ from $H_0$.",
       "category": "Hypothesis Testing",
       "type": "Formula",
+      "logic_memo": "看‘你的观察结果’离‘假设的真相’差了几个标准误。差得太远了，我们就不信 $H_0$ 了。",
       "signals": ["Z-statistic", "Observed", "Hypothesized", "SE0"]
     },
     {
@@ -151,6 +172,7 @@
       "answer": "Reject $H_0$ when the test statistic falls in the rejection region: for a two-sided test, reject if $|z| > z^*$ (equivalently, if the p-value is less than the significance level $\\alpha$).",
       "category": "Hypothesis Testing",
       "type": "Decision Rule",
+      "logic_memo": "当 $z$ 分数太极端（比如大于 1.96），说明在 $H_0$ 成立的情况下这种事几乎不可能发生，所以我们掀桌子不认 $H_0$ 了。",
       "signals": ["Reject", "Statistically Significant", "Critical Value"]
     },
     {
@@ -158,6 +180,7 @@
       "answer": "It tests whether an observed categorical frequency distribution differs significantly from an expected (theoretical) distribution across multiple categories.",
       "category": "Chi-square Test",
       "type": "Definition",
+      "logic_memo": "卡方检验用来对比‘买家秀’和‘卖家秀’。比如：转盘各颜色出现的次数（观察）是否符合理论上的均匀分布（预期）。",
       "signals": ["Chi-square", "Goodness-of-Fit", "Observed", "Expected"]
     },
     {
@@ -165,6 +188,7 @@
       "answer": "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{E_i}$, where $O_i$ is the observed count and $E_i$ is the expected count in category $i$.",
       "category": "Chi-square Test",
       "type": "Formula",
+      "logic_memo": "把每个类别的（观察 - 预期）平方后除以预期，最后全加起来。这个数越大，说明‘买家秀’和‘卖家秀’差得越离谱。",
       "signals": ["$\\chi^2$", "Observed", "Expected"]
     },
     {
@@ -172,6 +196,7 @@
       "answer": "For a basic goodness-of-fit test with $k$ categories and no parameters estimated from the data, $df = k - 1$.",
       "category": "Chi-square Test",
       "type": "Technical Detail",
+      "logic_memo": "自由度 $df$：如果有 3 种颜色，前 2 个颜色的次数定了，第 3 个也就定死了，所以自由度是 $3-1=2$。",
       "signals": ["Degrees of Freedom", "df", "Categories"]
     }
   ]

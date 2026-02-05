@@ -180,6 +180,9 @@ class FlashCardApp {
             const answerText = this.formatAnswer(card.answer || '答案未设置');
             answerEl.innerHTML = this.renderWithKaTeX(answerText);
             
+            // 更新逻辑记忆点
+            this.updateLogicMemo(card.logic_memo);
+            
             // 更新分类
             document.getElementById('cardCategory').textContent = card.category || '未分类';
             
@@ -339,6 +342,7 @@ class FlashCardApp {
         try {
             const questionEl = document.getElementById('cardQuestion');
             const answerEl = document.getElementById('cardAnswer');
+            const logicMemoEl = document.getElementById('logicMemo');
             const logicStepsEl = document.getElementById('logicSteps');
             
             // 渲染配置（优化版）
@@ -408,6 +412,34 @@ class FlashCardApp {
                 }
             }
             
+            // 渲染逻辑记忆点中的公式（带预处理）
+            if (logicMemoEl && logicMemoEl.style.display !== 'none') {
+                const memoHTML = logicMemoEl.innerHTML;
+                if (memoHTML.includes('$') && !memoHTML.includes('katex') && !memoHTML.includes('katex-display')) {
+                    try {
+                        const preprocessed = this.preprocessMathText(memoHTML);
+                        
+                        if (preprocessed.processed !== memoHTML) {
+                            logicMemoEl.innerHTML = preprocessed.processed;
+                        }
+                        
+                        renderMathInElement(logicMemoEl, renderOptions);
+                        
+                        if (preprocessed.currencyPlaceholders.length > 0 || preprocessed.percentPlaceholders.length > 0) {
+                            const renderedHTML = logicMemoEl.innerHTML;
+                            const restoredHTML = this.restorePlaceholders(
+                                renderedHTML,
+                                preprocessed.currencyPlaceholders,
+                                preprocessed.percentPlaceholders
+                            );
+                            logicMemoEl.innerHTML = restoredHTML;
+                        }
+                    } catch (e) {
+                        console.warn('逻辑记忆点公式渲染失败:', e);
+                    }
+                }
+            }
+            
             // 渲染分步逻辑中的公式（带预处理）
             if (logicStepsEl && logicStepsEl.style.display !== 'none') {
                 const stepsHTML = logicStepsEl.innerHTML;
@@ -462,6 +494,23 @@ class FlashCardApp {
                 tag.textContent = signal;
                 container.appendChild(tag);
             });
+        }
+    }
+
+    // 更新逻辑记忆点显示
+    updateLogicMemo(logicMemo) {
+        const container = document.getElementById('logicMemo');
+        
+        if (logicMemo && logicMemo.trim()) {
+            container.innerHTML = this.renderWithKaTeX(logicMemo);
+            container.style.display = 'block';
+            
+            // 延迟渲染 KaTeX（确保 DOM 已更新）
+            setTimeout(() => {
+                this.renderKaTeX();
+            }, 250);
+        } else {
+            container.style.display = 'none';
         }
     }
 

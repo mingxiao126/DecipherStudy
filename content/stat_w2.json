@@ -4,6 +4,7 @@
       "answer": "The main objective of EDA is to understand data through **visualizing** (plotting) and **describing** (numerical summaries). It focuses on identifying three key characteristics: **Shape**, **Center**, and **Spread (Variability)**.",
       "category": "EDA Fundamentals",
       "type": "Definition",
+      "logic_memo": "EDA 就像是在相亲前看对方的照片和资料：先看整体感觉（形状）、平均水平（中心）以及脾气波动的范围（离散程度），而不是直接陷入复杂的推断。",
       "signals": ["EDA", "Visualizing", "Shape", "Center", "Spread"]
     },
     {
@@ -11,6 +12,7 @@
       "answer": "**Bar Charts** are for **categorical** data; bars have spaces between them. **Histograms** are for **continuous numeric** data; bars are adjacent (no spaces) to show density across intervals called **Bins**.",
       "category": "Data Visualization",
       "type": "Comparison",
+      "logic_memo": "条形图（Bar）的柱子是分开的，因为‘苹果’和‘香梨’是独立的。直方图（Histogram）的柱子是粘在一起的，因为‘160-165cm’和‘165-170cm’的身高是连续不断的。",
       "signals": ["Bar Chart", "Histogram", "Categorical", "Continuous", "Bins"]
     },
     {
@@ -18,6 +20,7 @@
       "answer": "1. **Symmetric**: Mirror images. 2. **Right-skewed**: Tail extends to the right (higher values). 3. **Left-skewed**: Tail extends to the left. 4. **Bimodal**: Two distinct peaks.",
       "category": "Distribution Analysis",
       "type": "Classification",
+      "logic_memo": "右偏（Right-skewed）就像一只恐龙的尾巴向右拉得很长，大部分肉（数据）堆在左边；双峰（Bimodal）就像骆驼的背，说明数据里可能藏着两个不同的群体（比如男生身高和女生身高混合了）。",
       "signals": ["Symmetric", "Right-skewed", "Left-skewed", "Bimodal"]
     },
     {
@@ -25,6 +28,7 @@
       "answer": "It consists of: 1. **Minimum**, 2. **Lower Quartile (Q1)**, 3. **Median**, 4. **Upper Quartile (Q3)**, 5. **Maximum**. The box represents the **Interquartile Range (IQR = Q3 - Q1)**.",
       "category": "Numerical Summaries",
       "type": "Components",
+      "logic_memo": "把数据看成排队的人群，五数概括就是：排头、排在25%位置的人、正中间的人、排在75%的人、排尾。中间那个‘箱子’里关着最核心的50%人口。",
       "signals": ["Box Plot", "Median", "Quartiles", "IQR", "Five-number summary"]
     },
     {
@@ -32,6 +36,7 @@
       "answer": "Whiskers extend to the most extreme points within **1.5 × IQR** of the quartiles. Points beyond this range are **Outliers**, plotted individually.",
       "category": "Data Visualization",
       "type": "Technical Detail",
+      "logic_memo": "箱线图的‘胡须’是警戒线。如果某人的表现远超箱子高度的1.5倍，他就被判定为‘异类’（离群值），像星星一样被单独点出来。",
       "signals": ["Whiskers", "Outliers", "1.5 x IQR"]
     },
     {
@@ -39,6 +44,7 @@
       "answer": "A Pareto Chart combines **bars** (sorted descending) and a **line graph** (cumulative percentage). It helps identify the 'vital few' causes that account for 80% of the effects.",
       "category": "Specialized Charts",
       "type": "Definition",
+      "logic_memo": "帕累托图是老板最喜欢的图：柱子告诉你哪些问题最严重，折线告诉你解决前三个问题能不能搞定80%的麻烦。它帮你抓主要矛盾。",
       "signals": ["Pareto Chart", "80/20 Rule", "Cumulative Percentage"]
     },
     {
@@ -46,6 +52,7 @@
       "answer": "Humans are best at perceiving **Length** and **Position** (use Bar Charts/Scatterplots). We are poor at perceiving **Angles** and **Area** (avoid Pie Charts).",
       "category": "Visual Perception",
       "type": "Principles",
+      "logic_memo": "人眼是‘尺子’，看长短（条形图）和高低（散点图）很准；但人眼不是‘量角器’，饼图里的扇形稍微差几个百分点，我们根本看不出来。",
       "signals": ["Length", "Position", "Angle", "Area", "Pie Chart"]
     },
     {
@@ -53,6 +60,7 @@
       "answer": "Because we perceive both length and area in bars. Starting at zero ensures that the visual ratio matches the data ratio, preventing misleading interpretations.",
       "category": "Visual Perception",
       "type": "Principles",
+      "logic_memo": "如果不从0开始，原本只多出10%的数据看起来会像多出了3倍。这在新闻媒体里常被用来夸大差距，是统计学上的‘视觉欺诈’。",
       "signals": ["Zero Baseline", "Misleading", "Ratio"]
     },
     {
@@ -60,6 +68,7 @@
       "answer": "A **Dot Chart** is better when **zero is not a relevant value**. It focuses on the **Position** of the dot rather than the length of a bar.",
       "category": "Visual Perception",
       "type": "Comparison",
+      "logic_memo": "如果要比较选手的体温（比如37.1度和37.2度），条形图的长柱子会淹没细微差别，点图（Dot Chart）能让你一眼看出谁高谁低。",
       "signals": ["Dot Chart", "Position", "Zero not relevant"]
     },
     {
@@ -67,6 +76,7 @@
       "answer": "**Explanatory Variable** (X-axis) is the independent variable used to predict the **Response Variable** (Y-axis), which is the outcome being measured.",
       "category": "Bivariate Data",
       "type": "Definition",
+      "logic_memo": "解释变量（X）是‘因’，响应变量（Y）是‘果’。比如：复习时间（X）解释了考试分数（Y）的变化。",
       "signals": ["Scatterplot", "Explanatory", "Response", "X-axis", "Y-axis"]
     },
     {
@@ -74,6 +84,7 @@
       "answer": "For **small datasets**. It allows you to see the distribution shape while **preserving every original data value**.",
       "category": "Data Visualization",
       "type": "Usage",
+      "logic_memo": "茎叶图既是统计图也是原始账本。它能让你看到数据的形状，同时又不会像直方图那样把具体的数值给‘弄丢’了（比如你知道有个数是52，而不仅是‘50-60之间’）。",
       "signals": ["Stem-and-Leaf", "Small Dataset", "Raw Data"]
     },
     {
@@ -81,6 +92,7 @@
       "answer": "They are used to **compare the distribution** of a numerical variable across different **categories** (e.g., comparing scores between different classes).",
       "category": "Data Visualization",
       "type": "Comparison",
+      "logic_memo": "并排箱线图是‘对比神器’。把A班和B班的成绩箱子摆在一起，谁的中位数更高、谁的差生更多（离群值）、谁的水平更稳（箱子更扁），一目了然。",
       "signals": ["Side-by-side", "Comparison", "Categories"]
     },
     {
@@ -88,6 +100,7 @@
       "answer": "A numerical measure of the **Spread** or variability of a dataset, representing how far measurements typically fall from the mean.",
       "category": "Numerical Summaries",
       "type": "Definition",
+      "logic_memo": "标准差衡量的是‘平均离心力’。标准差大，说明数据像炸开的花一样散得远；标准差小，说明大家都紧紧团结在平均值周围。",
       "signals": ["Standard Deviation", "Spread", "Variability"]
     },
     {
@@ -95,6 +108,7 @@
       "answer": "1. **Sequential**: High to low (same color, different shades). 2. **Diverging**: Two colors diverging from a neutral center. 3. **Qualitative**: Different colors for unrelated categories.",
       "category": "Visual Perception",
       "type": "Technical Detail",
+      "logic_memo": "1. 顺序色：深蓝到浅蓝（表示浓度）。2. 发散色：红到白再到蓝（表示盈亏/冷热）。3. 定性色：红、绿、黄（表示苹果、梨、桃子，没高低之分）。",
       "signals": ["Sequential", "Diverging", "Qualitative", "Palettes"]
     },
     {
@@ -102,6 +116,7 @@
       "answer": "**Frequency** is the count of observations in a bin. **Relative Frequency (Density)** is the proportion (Frequency/Total), useful for comparing datasets of different sizes.",
       "category": "Data Visualization",
       "type": "Technical Detail",
+      "logic_memo": "频数是‘人数’，相对频数是‘百分比’。如果你要对比一个大省和一个小镇的收入分布，必须用百分比，否则大省的柱子永远比小镇高。",
       "signals": ["Frequency", "Relative Frequency", "Density"]
     },
     {
@@ -109,6 +124,7 @@
       "answer": "Changing the bin width can change the perceived shape of the distribution. Too many bins create 'noise'; too few bins hide the structure (oversmoothing).",
       "category": "Data Visualization",
       "type": "Technical Detail",
+      "logic_memo": "这就像相机的分辨率。分组太细（Bin宽太小），全是锯齿看不出规律；分组太粗，就成一个大方块了，看不出起伏。",
       "signals": ["Bin Width", "Noise", "Oversmoothing"]
     },
     {
@@ -116,6 +132,7 @@
       "answer": "In **Symmetric** distributions, Mean and Median are similar. In **Skewed** distributions, the **Mean** is pulled toward the tail, while the **Median** remains a more 'typical' middle value.",
       "category": "Numerical Summaries",
       "type": "Comparison",
+      "logic_memo": "如果你和马云坐一桌，平均工资（Mean）会让你瞬间暴富，但中位数（Median）能真实反映你的穷苦。平均数极易受‘尾巴’上的极端值拖累。",
       "signals": ["Mean", "Median", "Center", "Symmetric", "Skewed"]
     },
     {
@@ -123,6 +140,7 @@
       "answer": "An Outlier is a value significantly different from the rest. It should be investigated to determine if it's a **recording error** (correct it) or a **genuine extreme case**.",
       "category": "Data Cleaning",
       "type": "Definition",
+      "logic_memo": "离群值就像班里的奇葩。先查是不是写错分了（录入错误），如果是真的，那它可能就是研究中最有价值的‘特殊案例’。",
       "signals": ["Outlier", "Recording Error", "Extreme Case"]
     }
   ]

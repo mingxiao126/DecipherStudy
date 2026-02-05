@@ -4,6 +4,7 @@
     "answer": "1. Sampling/Survey Sampling: Surveying a sample to infer population traits. 2. Design of Experiments: Manipulating factors to establish causation (with randomization/control). 3. Observational Study: Recording data without intervention; shows association/correlation only (confounding may exist).",
     "category": "数据收集",
     "type": "分类题",
+    "logic_memo": "1. 抽样:像是在一锅汤里喝一勺来判断整锅咸淡。2. 实验:你为了减肥专门换了低脂餐(干预), 看体重是否下降。3. 观察:你只是看大街上健身的人是不是都比不健身的人精神(不干预), 但这不能证明是健身让人精神, 也可能是精神好的人才去健身。",
     "signals": ["Sampling", "Experiment", "Observational"]
   },
   {
@@ -11,6 +12,7 @@
     "answer": "Only experiments can support causal conclusions because they manipulate explanatory variables and use random assignment/control to reduce confounding. Observational studies do not assign treatments, so they typically support association/correlation only and may be affected by confounding variables.",
     "category": "研究方法",
     "type": "对比题",
+    "logic_memo": "如果你看到’喝咖啡的人长寿’(观察), 可能是因为喝咖啡的人通常更有钱、医疗条件更好(混杂因素)。只有通过’随机分配一组人喝, 一组人不喝’(实验), 才能排除财力干扰, 证明咖啡本身是否有用。",
     "signals": ["Causation", "Confounding variables", "Randomization"]
   },
   {
@@ -18,6 +20,7 @@
     "answer": "Open questions: Respondents answer in their own words; richer detail but harder to code/analyze. Closed questions: Respondents choose from preset options (e.g., multiple choice, rating); easier to analyze but less depth and may constrain responses.",
     "category": "问卷设计",
     "type": "对比题",
+    "logic_memo": "开放式:’你觉得这顿饭怎么样？’(可能得到长篇大论, 难总结)。封闭式:’请给这顿饭打1-5分’(直接出平均分, 但你不知道他为什么打低分)。",
     "signals": ["Coding", "Preset options", "Respondent burden"]
   },
   {
@@ -25,6 +28,7 @@
     "answer": "Double-barrelled questions ask two different things at once (e.g., \"Should we cut taxes and increase services?\"). They should be avoided because respondents may agree with one part but not the other, producing ambiguous and unreliable data.",
     "category": "问卷陷阱",
     "type": "概念题",
+    "logic_memo": "例子:’你是否支持远程办公且赞成降薪？’如果我支持办公但反对降薪, 我该选Yes还是No？这会让数据变成’垃圾数据’。",
     "signals": ["Two things at once", "Confusing"]
   },
   {
@@ -32,6 +36,7 @@
     "answer": "A response bias where respondents answer in ways that make them look good or align with social norms rather than telling the truth, especially on sensitive topics.",
     "category": "响应误差",
     "type": "概念题",
+    "logic_memo": "当被问到’你每周洗几次澡’或’你闯过红灯吗’, 很多人会为了显得’文明’而撒谎。在面试或相亲中这种偏差最常见。",
     "signals": ["Look good", "Social norms", "Sensitive topics"]
   },
   {
@@ -39,6 +44,7 @@
     "answer": "A recall error where a respondent misremembers when an event occurred, often reporting an older event as if it happened more recently.",
     "category": "响应误差",
     "type": "概念题",
+    "logic_memo": "’望远镜效应’。你觉得那场电影是上个月看的, 其实已经是半年前了。人的记忆会自动把大事件’拉近’到眼前。",
     "signals": ["Timing", "Misremember", "Recent"]
   },
   {
@@ -46,6 +52,7 @@
     "answer": "A privacy-protecting survey technique for sensitive or illegal behaviors. A random mechanism (e.g., coin flip) determines which question is answered, so the interviewer cannot know whether a \"Yes\" refers to the sensitive item, improving honesty while preserving anonymity.",
     "category": "特殊技术",
     "type": "应用题",
+    "logic_memo": "如果我问’你逃过税吗’, 你不敢答。但我让你先抛硬币:正面答’我是人’, 反面答’我逃过税’。我只记录Yes, 但我不知道你的Yes是因为硬币正面还是你真的逃税。这样你就敢说真话了。",
     "signals": ["Privacy", "Sensitive behavior", "Random mechanism"]
   },
   {
@@ -53,19 +60,15 @@
     "answer": "The population estimate is $N = (n \\times N_2) / n_T$.",
     "category": "特殊技术",
     "type": "计算题",
-    "signals": ["Population size", "Marked", "Recaptured"],
-    "steps": [
-      "Step 1: Capture and mark a first sample (n).",
-      "Step 2: Release and allow mixing back into the population.",
-      "Step 3: Capture a second sample (N2) and count how many are marked (nT).",
-      "Step 4: Estimate population size using $N = (n \\times N_2) / n_T$."
-    ]
+    "logic_memo": "想知道湖里有多少鱼？先抓100条涂上红漆放回去(n)。过几天再抓100条(N2), 发现里面有10条带红漆(nT)。说明带红漆的占1/10, 推测总数就是1000条。",
+    "signals": ["Population size", "Marked", "Recaptured"]
   },
   {
     "question": "What are the core principles of **Experimental Design**?",
     "answer": "1. Randomization: Randomly assign subjects to treatments. 2. Replication: Use enough subjects/units to reduce chance variation. 3. Blocking: Group similar units to control known nuisance variables before comparing treatments.",
     "category": "数据收集",
     "type": "概念题",
+    "logic_memo": "1. 随机:不分亲疏, 抽签决定。2. 重复:不能只试一个人, 万一那人天赋异禀呢？3. 区组:测护肤品效果时, 先把油皮和干皮分开(Blocking), 再分别在组内对比, 防止皮肤类型干扰结果。",
     "signals": ["Randomization", "Replication", "Blocking"]
   },
   {
@@ -73,20 +76,15 @@
     "answer": "Sensitive questions should generally appear after rapport/trust is built (middle or later). Demographic questions are typically placed at the end of the questionnaire.",
     "category": "问卷结构",
     "type": "规则题",
+    "logic_memo": "就像约会:先聊兴趣(Opening), 聊得开心了再问收入(Sensitive), 最后要个电话和住址(Demographic)。一上来就问收入, 对方可能直接离场。",
     "signals": ["Sequencing", "Trust", "End of survey"]
-  },
-  {
-    "question": "What are the three main **Data Collection Methods** and their key characteristics?",
-    "answer": "1. Survey Sampling: Drawing a sample from a population to infer characteristics. 2. Design of Experiments: Manipulating one or more factors to evaluate effects on a response variable; supports causal conclusions when random assignment/control is used. 3. Observational Study: Recording data without intervention; supports association/correlation only and may be affected by confounding variables.",
-    "category": "Data Collection",
-    "type": "Classification",
-    "signals": ["Sampling", "Experiment", "Observational", "Causation", "Confounding"]
   },
   {
     "question": "What are the three **Types of Research Questions**?",
     "answer": "1. Descriptive: Describe characteristics of a population (frequencies, averages, distributions). 2. Exploratory: Early-stage investigation to generate ideas/hypotheses and guide later studies. 3. Causal: Assess whether changes in one variable cause changes in another (X causes Y).",
     "category": "Research Types",
     "type": "Definition",
+    "logic_memo": "1. 描述性:统计班里有多少人穿白鞋(只看现状)。2. 探索性:发现大家突然都穿白鞋, 去问问是不是出了新款或某明星代言了(找方向)。3. 因果性:做个测试, 发一张白鞋优惠券, 看是否真的导致更多人买白鞋(定因果)。",
     "signals": ["Descriptive", "Exploratory", "Causal"]
   },
   {
@@ -94,6 +92,7 @@
     "answer": "1. Jargon/Abbreviations: Terms respondents may not understand. 2. Vagueness: Non-specific wording that different people interpret differently. 3. Double-barrelled Questions: Asking two things at once. 4. Leading/Loaded Questions: Wording that pushes respondents toward a particular answer.",
     "category": "Questionnaire Design",
     "type": "Practical Application",
+    "logic_memo": "1. 行话:问普通人’你的BMI是多少’(人家不懂)。2. 模糊:问’你经常运动吗’(’经常’是每天还是每月？)。3. 双管:’你喜欢苹果和梨吗？’(只喜欢苹果咋办？)。4. 诱导:’大家都说这款好, 你觉得呢？’(逼人说好)。",
     "signals": ["Jargon", "Vagueness", "Double-barrelled", "Leading"]
   },
   {
@@ -101,6 +100,7 @@
     "answer": "1. Introduction: Explain purpose and confidentiality. 2. Opening questions: Easy, interesting, and applicable to all. 3. Sensitive questions: Place later after trust is established. 4. Demographic questions: Typically at the end.",
     "category": "Questionnaire Structure",
     "type": "Ordering",
+    "logic_memo": "就像闯关:1. 规则说明。2. 简单的新手任务。3. 困难的高级关卡(建立信任后再问)。4. 通关后登记姓名领奖(人口统计资料放最后)。",
     "signals": ["Introduction", "Opening", "Sensitive", "Demographic"]
   },
   {
@@ -108,6 +108,7 @@
     "answer": "Likert scale: Respondents rate agreement on ordered categories (commonly 5 or 7 points). Thurstone scale: Respondents endorse/reject statements that represent different positions; scoring uses predetermined scale values for the endorsed items.",
     "category": "Measurement Scales",
     "type": "Comparison",
+    "logic_memo": "Likert 是让你在’非常不同意’到’非常同意’里选(打星级)。Thurstone 是给你一堆观点, 你只选你认同的, 每个观点背后其实藏着老师提前算好的’分值’。",
     "signals": ["Likert", "Thurstone", "Attitude"]
   },
   {
@@ -115,6 +116,7 @@
     "answer": "1. Social Desirability Bias: Answering to look good or follow social norms rather than being truthful. 2. Recall Error: Forgetting events/details or misreporting them from memory. 3. Telescoping Error: Misremembering timing, often reporting older events as more recent.",
     "category": "Response Errors",
     "type": "Error Analysis",
+    "logic_memo": "1. 社交期待:为了显得博学说天天看书。2. 回忆误差:记不清上周三中午吃了什么。3. 望远镜效应:觉得那件事就在’前阵子’, 其实已经过了一年。",
     "signals": ["Social Desirability", "Recall", "Telescoping"]
   },
   {
@@ -122,6 +124,7 @@
     "answer": "1. Understanding: Comprehend the question. 2. Retrieval: Pull relevant information from memory. 3. Judgment: Evaluate and form an answer. 4. Reporting: Communicate the answer to the researcher.",
     "category": "Cognitive Process",
     "type": "Process Flow",
+    "logic_memo": "大脑的流水线:1. 听懂问题。2. 翻找大脑里的记忆档案。3. 把搜到的资料整理成逻辑。4. 用嘴说出来。任何一个环节出错, 回答就会出错。",
     "signals": ["Understanding", "Retrieval", "Judging", "Communicating"]
   },
   {
@@ -129,6 +132,7 @@
     "answer": "A random mechanism determines whether the respondent answers the sensitive question or a harmless one, while the interviewer records only \"Yes/No\". Because the interviewer cannot know which question was answered, individual privacy is protected while allowing population-level estimation.",
     "category": "Survey Techniques",
     "type": "Methodology",
+    "logic_memo": "就像’真心话大冒险’加了硬币护身:收卷人不知道你回答的是’我是人’还是’我逃过税’, 即便你答了’是’, 他也无法确定你的秘密, 这给了受访者’安全感’。",
     "signals": ["Randomized Response", "Anonymity", "Sensitive Question"]
   },
   {
@@ -136,6 +140,7 @@
     "answer": "Purpose: Estimate the total population size. Formula: $N = (n \\times N_2) / n_T$, where $n$ is the number marked in the first sample, $N_2$ is the size of the second sample, and $n_T$ is the number of marked individuals found in the second sample.",
     "category": "Population Estimation",
     "type": "Calculation",
+    "logic_memo": "想象一袋黑色豆子:先抓一把染红(n)放回去摇匀。再抓一把(N2), 看里面有几颗红的(nT)。通过红豆在样本里的占比来反推全袋子豆子的总数。",
     "signals": ["Capture-Recapture", "Population Size", "Marking"]
   },
   {
@@ -143,6 +148,7 @@
     "answer": "Open-ended questions allow free-form answers in the respondent's own words; they provide richer information but are harder to code and analyze. Closed-ended questions provide fixed response options; they are quicker and easier to analyze but may limit nuance and force choices that do not perfectly fit the respondent.",
     "category": "Question Types",
     "type": "Comparison",
+    "logic_memo": "开放式:’你为什么喜欢他？’(答案五花八门, 难统计)。封闭式:’1.帅 2.有钱 3.温柔’(好统计, 但可能他喜欢的原因根本没在选项里)。",
     "signals": ["Open-ended", "Closed-ended", "Coding", "Response Burden"]
   }
 ]

@@ -1,114 +1,130 @@
 [
     {
       "question": "What are the three main **Data Collection Methods**?",
-      "answer": "1. **Sampling**: Surveying a subset to infer population traits[cite: 4, 5]. 2. **Experiments**: Manipulating factors to prove **Causation**[cite: 6]. 3. **Observational Study**: Recording data without interference, showing only **Association**[cite: 8].",
+      "answer": "1. **Sampling**: Surveying a subset to infer population traits. 2. **Experiments**: Manipulating factors to prove **Causation**. 3. **Observational Study**: Recording data without intervention, showing only **Association**.",
       "category": "Week 1: Research Design",
       "type": "分类题",
+      "logic_memo": "1. 抽样：喝一口汤（样本）猜一锅汤（总体）的味道。2. 实验：你往汤里加了盐（干预），发现汤确实变咸了（因果）。3. 观察：你发现爱喝汤的人通常皮肤好（不干预），但这只能说明‘汤’和‘皮肤’有关系，不一定是汤导致的。",
       "signals": ["Sampling", "Experiment", "Observational"]
     },
     {
       "question": "Explain the difference between **Open** and **Closed Questions**.",
-      "answer": "**Open Questions**: Respondents use their own words; rich detail but hard to code[cite: 17]. **Closed Questions**: Respondents choose from preset options; easy to analyze but limited depth[cite: 18, 19].",
+      "answer": "**Open Questions**: Respondents use their own words; rich detail but hard to code. **Closed Questions**: Respondents choose from preset options; easy to analyze but limited depth.",
       "category": "Week 1: Research Design",
       "type": "对比题",
+      "logic_memo": "开放式：‘你觉得现在的 AI 怎么样？’（让你写作文，难统计）。封闭式：‘你觉得 AI 怎么样？A. 好 B. 一般 C. 差’（直接看百分比，但没细节）。",
       "signals": ["Coding", "Preset options", "Respondent burden"]
     },
     {
       "question": "What are **Double-barrelled** and **Leading Questions**?",
-      "answer": "**Double-barrelled**: Asking two things at once[cite: 27]. **Leading**: Wording that suggests a specific 'correct' answer[cite: 28]. Both should be avoided for clean data[cite: 91, 92].",
+      "answer": "**Double-barrelled**: Asking two things at once. **Leading**: Wording that suggests a specific 'correct' answer. Both should be avoided for clean data.",
       "category": "Week 1: Research Design",
       "type": "概念题",
+      "logic_memo": "双管：‘你喜欢喝咖啡且赞成涨价吗？’（这让我怎么选？）。诱导：‘大家都觉得咖啡好喝，你也是吧？’（逼着你点头）。这都是问卷里的大忌。",
       "signals": ["Two-in-one", "Biased wording"]
     },
     {
       "question": "Define **Social Desirability Bias** and **Telescoping Error**.",
-      "answer": "**Social Desirability**: Giving answers to look 'good' rather than being truthful. **Telescoping Error**: Misremembering the timing of an event, usually as more recent[cite: 38, 77].",
+      "answer": "**Social Desirability**: Giving answers to look 'good' rather than being truthful. **Telescoping Error**: Misremembering the timing of an event, usually as more recent.",
       "category": "Week 1: Research Design",
       "type": "概念题",
+      "logic_memo": "社交期待：为了显得爱干净，明明两周没洗澡却说‘每天洗’。望远镜误差：总觉得上次去旅游是‘上个月’，其实翻翻相册发现已经是一年前了（记忆把远的事拉近了）。",
       "signals": ["Look good", "Timing memory"]
     },
     {
       "question": "What is the **Randomized Response** technique?",
-      "answer": "A privacy-protecting method for **sensitive/illegal** topics[cite: 40]. It uses a random mechanism (like a coin flip) so the interviewer doesn't know which question the 'Yes' refers to[cite: 102, 103].",
+      "answer": "A privacy-protecting method for **sensitive/illegal** topics. It uses a random mechanism (like a coin flip) so the interviewer doesn't know which question the 'Yes' refers to.",
       "category": "Week 1: Research Design",
       "type": "应用题",
+      "logic_memo": "‘硬币保命法’：硬币正面答‘我没偷钱’，反面答‘我偷过’。收卷人只看到 Yes，但他不知道你是真的偷了，还是只是硬币正面，所以你敢说真话。",
       "signals": ["Privacy", "Sensitive", "Coin flip"]
     },
     {
       "question": "What is the formula for **Capture-Recapture**?",
-      "answer": "Estimated Population $N = (n \\times N_{2}) / n_{T}$[cite: 43]. $n$ is the first marked batch, $N_2$ is the second batch, and $n_T$ is the number of marked individuals in the second batch[cite: 42, 104].",
+      "answer": "Estimated Population $N = (n \\times N_{2}) / n_{T}$. $n$ is the first marked batch, $N_2$ is the second batch, and $n_T$ is the number of marked individuals in the second batch.",
       "category": "Week 1: Research Design",
       "type": "计算题",
+      "logic_memo": "抓 50 条鱼染红（n），放回湖里。下次抓 50 条（N2），发现只有 5 条红的（nT）。红的只占样本的 1/10，说明湖里总共约有 500 条鱼。",
       "signals": ["Population size", "Marked", "Recaptured"]
     },
     {
       "question": "When should you use a **Stem-and-Leaf Plot**?",
-      "answer": "Best for **small datasets**[cite: 113]. It is unique because it displays the distribution shape while **preserving original numerical values**[cite: 114].",
+      "answer": "Best for **small datasets**. It is unique because it displays the distribution shape while **preserving original numerical values**.",
       "category": "Week 2: Visualization",
       "type": "规则题",
+      "logic_memo": "茎叶图就像是‘分类记账本’。比如 50, 52, 58，它写成 5 | 0 2 8。你既能看到 50 多岁的有 3 个人（形状），又能看到这 3 个人的精确年龄（原值）。",
       "signals": ["Small dataset", "Original values"]
     },
     {
       "question": "Compare **Histograms** and **Bar Charts**.",
-      "answer": "**Histograms**: For continuous numeric data; bars have no gaps[cite: 122, 124]. **Bar Charts**: For categorical data; bars have gaps[cite: 119, 120]. Y-axis should start at 0[cite: 121].",
+      "answer": "**Histograms**: For continuous numeric data; bars have no gaps. **Bar Charts**: For categorical data; bars have gaps. Y-axis should start at 0.",
       "category": "Week 2: Visualization",
       "type": "对比题",
+      "logic_memo": "直方图（Histogram）：柱子必须挨着，因为身高 160 和 161 之间是连着的。条形图（Bar）：柱子得分开，因为‘猫’和‘狗’是完全不同的两类。",
       "signals": ["Continuous vs Categorical", "Gaps vs No gaps"]
     },
     {
       "question": "Describe the **Distribution Shapes** (Skewness).",
-      "answer": "**Symmetric**: Sides are similar[cite: 140]. **Right-skewed**: Tail extends to the right (Mean > Median)[cite: 141, 207]. **Left-skewed**: Tail extends to the left (Mean < Median)[cite: 142, 208].",
+      "answer": "**Symmetric**: Sides are similar. **Right-skewed**: Tail extends to the right (Mean > Median). **Left-skewed**: Tail extends to the left (Mean < Median).",
       "category": "Week 2: Visualization",
       "type": "概念题",
+      "logic_memo": "哪边有尾巴就叫哪边偏。右偏（Right-skewed）就像恐龙尾巴在右侧，大部分人在左边（比如全国人民的财富分布）。均值总会被尾巴拉跑，所以均值 > 中位数。",
       "signals": ["Tail direction", "Skewed"]
     },
     {
       "question": "What is the **Five-number Summary** in a **Box Plot**?",
-      "answer": "Includes **Min, Q1, Median, Q3, and Max**[cite: 131]. The box height represents the **IQR (Q3-Q1)**[cite: 132]. Outliers are points > 1.5x IQR from the box[cite: 134].",
+      "answer": "Includes **Min, Q1, Median, Q3, and Max**. The box height represents the **IQR (Q3-Q1)**. Outliers are points > 1.5x IQR from the box.",
       "category": "Week 2: Visualization",
       "type": "计算题",
+      "logic_memo": "五数概括就像是把全班身高排队切成四段。箱子就是中间那 50% 的人。如果有人个子太离谱，超出箱子 1.5 倍高度，就成了‘离群值’。",
       "signals": ["Box height", "IQR", "Outliers"]
     },
     {
       "question": "What is a **Pareto Chart**?",
-      "answer": "A bar chart sorted in descending frequency plus a line showing cumulative percentage[cite: 137]. It highlights the **'important few' (80/20 rule)**[cite: 136].",
+      "answer": "A bar chart sorted in descending frequency plus a line showing cumulative percentage. It highlights the **'important few' (80/20 rule)**.",
       "category": "Week 2: Visualization",
       "type": "概念题",
+      "logic_memo": "这图能帮老板‘抓重点’。比如 20% 的产品贡献了 80% 的利润，帕累托图就把这 20% 的‘吸金王’优先排在最左边。",
       "signals": ["80/20 rule", "Cumulative percentage"]
     },
     {
       "question": "Explain the **Explanatory** and **Response** variables in a **Scatterplot**.",
-      "answer": "The **Explanatory Variable** (Independent) is on the **X-axis**[cite: 148]. The **Response Variable** (Dependent) is on the **Y-axis**[cite: 149]. Used to find **Association**[cite: 146].",
+      "answer": "The **Explanatory Variable** (Independent) is on the **X-axis**. The **Response Variable** (Dependent) is on the **Y-axis**. Used to find **Association**.",
       "category": "Week 2: Visualization",
       "type": "规则题",
+      "logic_memo": "X 解释 Y。比如 X 轴是‘学习时间’，Y 轴是‘成绩’。学习时间解释了成绩的变化。我们在散点图上看它们是否同步变化（相关性）。",
       "signals": ["X vs Y", "Association"]
     },
     {
       "question": "Distinguish between a **Parameter** and a **Statistic**.",
-      "answer": "**Parameter**: Describes the **Population** (fixed constant, Greek letters $\\mu, \\sigma$)[cite: 186, 187]. **Statistic**: Describes a **Sample** (random variable, English letters $\\bar{x}, s$)[cite: 189, 190].",
+      "answer": "**Parameter**: Describes the **Population** (fixed constant, Greek letters $\\mu, \\sigma$). **Statistic**: Describes a **Sample** (random variable, English letters $\\bar{x}, s$).",
       "category": "Week 3: Numerics",
       "type": "对比题",
+      "logic_memo": "神算参数（Parameter），希腊字母高大上；人算统计（Statistic），英文字母接地气。参数是唯一的，统计量是随抽样变化的。",
       "signals": ["Population vs Sample", "Greek vs English"]
     },
     {
       "question": "Why use **Median** and **IQR** for skewed data?",
-      "answer": "They are **Resistant (Robust)**. Unlike the Mean and SD, they are not heavily influenced by extreme **Outliers** or long tails[cite: 199, 204].",
+      "answer": "They are **Resistant (Robust)**. Unlike the Mean and SD, they are not heavily influenced by extreme **Outliers** or long tails.",
       "category": "Week 3: Numerics",
       "type": "决策规则",
+      "logic_memo": "中位数是个‘不带节奏’的老实人。不管你放进来几个亿万富翁，中位数还是原来那个位置。均值则是个‘舔狗’，富翁一来它就跟着变富了。",
       "signals": ["Resistant", "Robust", "Skewed data"]
     },
     {
       "question": "What is the relationship between **Variance** and **Standard Deviation**?",
-      "answer": "**Standard Deviation** is the square root of **Variance**[cite: 222]. We divide by **$n-1$** for sample variance to get an unbiased estimate of the population[cite: 223].",
+      "answer": "**Standard Deviation** is the square root of **Variance**. We divide by **$n-1$** for sample variance to get an unbiased estimate of the population.",
       "category": "Week 3: Numerics",
       "type": "原理题",
+      "logic_memo": "方差算的时候带了平方，单位很抽象（比如‘公斤的平方’）。开个根号变成标准差，单位就变回了正常的‘公斤’。n-1 是为了纠正样本容易低估波动的偏差。",
       "signals": ["Square root", "n - 1"]
     },
     {
       "question": "Summary: List the primary **Exam Keyword Mappings** for STAT 124.",
-      "answer": "**'Causation'** -> Experiment[cite: 86]; **'Sensitive'** -> Randomized Response[cite: 103]; **'Distribution'** -> Histogram/Box Plot[cite: 179]; **'Association'** -> Scatterplot[cite: 179].",
+      "answer": "**'Causation'** -> Experiment; **'Sensitive'** -> Randomized Response; **'Distribution'** -> Histogram/Box Plot; **'Association'** -> Scatterplot.",
       "category": "复习贴士",
       "type": "记忆题",
+      "logic_memo": "考试‘送分词’：看到‘因果’找实验，看到‘敏感话题’找抛硬币，看到‘比较分布’看箱线图，看到‘两变量关系’找散点图。",
       "signals": ["Exam intuition", "Key associations"]
     }
   ]

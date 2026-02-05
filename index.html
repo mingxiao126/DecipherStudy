@@ -363,6 +363,36 @@
             transform: scale(1.05);
         }
 
+        /* 逻辑记忆点 */
+        .logic-memo {
+            margin-top: 1.25rem;
+            margin-bottom: 1rem;
+            padding: 1rem 1.25rem;
+            background: rgba(59, 130, 246, 0.08);
+            border-left: 3px solid rgba(59, 130, 246, 0.4);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 100%;
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: #bfdbfe;
+            text-align: left;
+            font-style: italic;
+        }
+
+        .logic-memo::before {
+            content: "💡 ";
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+            font-style: normal;
+        }
+
+        .logic-memo strong {
+            color: #93c5fd;
+            font-weight: 600;
+            font-style: normal;
+        }
+
         /* 分步逻辑 */
         .logic-steps {
             margin-top: 1rem;
@@ -424,7 +454,7 @@
 
         /* 当类型标签和生词按钮同时存在时，调整生词按钮位置 */
         .card-front .card-type-tag:not([style*="display: none"]) ~ .glossary-btn:not([style*="display: none"]) {
-            top:4.3rem !important; /* 增加与上方标签的间距，使用 !important 确保覆盖内联样式 */
+            top:4.25rem !important; /* 增加与上方标签的间距，使用 !important 确保覆盖内联样式 */
         }
 
         .glossary-btn:hover {
@@ -596,6 +626,7 @@
                 <div class="card-face card-back glass-card">
                     <div class="card-content">
                         <div class="card-answer" id="cardAnswer">等待加载...</div>
+                        <div id="logicMemo" class="logic-memo" style="display: none;"></div>
                         <div id="logicSteps" class="logic-steps" style="display: none;"></div>
                         <div class="hint-text">点击卡片返回问题</div>
                         <!-- 掌握度按钮 -->

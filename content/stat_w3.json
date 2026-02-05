@@ -1,65 +1,177 @@
 [
     {
+      "question": "What is the fundamental difference between a **Population** and a **Sample**?",
+      "answer": "A **Population** is the full collection of individuals or objects of interest (fixed, but usually unknown in full). A **Sample** is the subset actually observed and used to make inferences about the population (it can vary from sample to sample).",
+      "category": "Basic Concepts",
+      "type": "Definition",
+      "signals": ["Population", "Sample", "Subset", "Inference"]
+    },
+    {
       "question": "Distinguish between a **Parameter** and a **Statistic**.",
-      "answer": "A **Parameter** is a fixed constant that describes a **Population** (e.g., $\\mu$, $p$, $\\sigma$). A **Statistic** is a random variable calculated from a **Sample** (e.g., $\\bar{x}$, $\\hat{p}$, $s$) and varies with each sample.",
-      "category": "基本概念",
-      "type": "对比题",
-      "signals": ["Population vs Sample", "Constant vs Random", "Greek vs English letters"]
+      "answer": "A **Parameter** is a numerical summary of the population (a fixed constant, typically unknown). A **Statistic** is a numerical summary computed from a sample (it is random/variable across different samples).",
+      "category": "Basic Concepts",
+      "type": "Comparison",
+      "signals": ["Parameter", "Statistic", "Constant", "Random Variable"]
     },
     {
-      "question": "Why is **Proportion** considered a special kind of **Mean**?",
-      "answer": "If you code 'Yes/Success' as **1** and 'No/Failure' as **0**, the average of these 0s and 1s is exactly the proportion ($p$ or $\\hat{p}$).",
-      "category": "均值理论",
-      "type": "概念题",
-      "signals": ["0 and 1", "Average of indicators"]
+      "question": "List the common symbols used for **Population Parameters** vs. **Sample Statistics**.",
+      "answer": "Population (often Greek): Mean = $\\mu$, Proportion = $p$, Standard Deviation = $\\sigma$. Sample (often Roman/English): Mean = $\\bar{x}$, Proportion = $\\hat{p}$, Standard Deviation = $s$.",
+      "category": "Notation",
+      "type": "Identification",
+      "signals": ["$\\mu$", "$\\sigma$", "$\\bar{x}$", "$s$", "$\\hat{p}$"]
     },
     {
-      "question": "Compare **Mean** and **Median** regarding **Outliers**.",
-      "answer": "The **Mean** is highly sensitive to outliers (a single large value pulls it up). The **Median** is **Resistant (Robust)**, meaning it is not affected by extreme values.",
-      "category": "中心衡量",
-      "type": "对比题",
-      "signals": ["Sensitive", "Resistant", "Robust"]
+      "question": "Why is the **Median** described as a **Resistant** (Robust) statistic?",
+      "answer": "The median is resistant because it depends on the order of values, so extreme outliers have limited influence on it. The mean, in contrast, is pulled toward extreme values because it uses the actual magnitudes.",
+      "category": "Measures of Center",
+      "type": "Concept",
+      "signals": ["Resistant", "Robust", "Median", "Mean", "Outliers"]
     },
     {
-      "question": "How do you determine **Distribution Shape** by comparing Mean and Median?",
-      "answer": "1. **Symmetric**: Mean $\\approx$ Median. 2. **Right-skewed**: Mean > Median (mean is pulled by the long right tail). 3. **Left-skewed**: Mean < Median.",
-      "category": "分布形状",
-      "type": "判断题",
-      "signals": ["Mean vs Median", "Tail direction"]
+      "question": "How do **Mean** and **Median** relate in different distribution shapes?",
+      "answer": "1. Symmetric: Mean is approximately equal to Median. 2. Right-skewed: Mean > Median (mean is pulled toward the long right tail). 3. Left-skewed: Mean < Median (mean is pulled toward the long left tail).",
+      "category": "Measures of Center",
+      "type": "Rule",
+      "signals": ["Symmetric", "Right-skewed", "Left-skewed", "Tail"]
     },
     {
-      "question": "What is the **Interquartile Range (IQR)** and its advantage?",
-      "answer": "**IQR = Q3 - Q1**. It represents the range of the **middle 50%** of the data. Like the median, it is a **Resistant** measure of spread, making it ideal for skewed data or data with outliers.",
-      "category": "离散程度",
-      "type": "计算题",
-      "signals": ["Q3 - Q1", "Middle 50%", "Resistant spread"]
+      "question": "Explain the concept of a **Proportion** as a **Mean**.",
+      "answer": "A sample proportion $\\hat{p}$ is the mean of a 0-1 indicator variable: code each observation as 1 (success/has the characteristic) or 0 (failure/does not have it), then the average equals the proportion of 1s.",
+      "category": "Measures of Center",
+      "type": "Interpretation",
+      "signals": ["Proportion", "Mean", "0 and 1"]
     },
     {
-      "question": "What is the relationship between **Variance** and **Standard Deviation**?",
-      "answer": "**Standard Deviation** is the square root of **Variance**. It is used to bring the units back to the same scale as the original data, measuring the average distance of data points from the mean.",
-      "category": "离散程度",
-      "type": "概念题",
-      "signals": ["Square root", "Units", "Distance from mean"]
+      "question": "Define **Range**, **IQR**, and **Standard Deviation** as measures of spread.",
+      "answer": "1. Range: Max - Min (very sensitive to outliers). 2. IQR (Interquartile Range): $Q3 - Q1$ (spread of the middle 50%, more resistant to outliers). 3. Standard Deviation: Typical distance of observations from the mean (uses squared deviations, so outliers can affect it).",
+      "category": "Measures of Spread",
+      "type": "Definition",
+      "signals": ["Range", "IQR", "Standard Deviation", "Spread"]
     },
     {
-      "question": "Why do we divide by **$n-1$** instead of $n$ when calculating **Sample Variance ($s^2$)**?",
-      "answer": "Dividing by **$n-1$** provides a better, unbiased estimate of the true **Population Variance ($\\sigma^2$)**.",
-      "category": "计算规则",
-      "type": "原理题",
-      "signals": ["n - 1", "Unbiased estimate"]
+      "question": "Why is the denominator **$n-1$** used in the formula for **Sample Standard Deviation ($s$)**?",
+      "answer": "Using $n-1$ (degrees of freedom) corrects the downward bias that occurs when we estimate population variability from a sample. This Bessel correction makes $s^2$ an unbiased estimator of the population variance $\\sigma^2$ under standard assumptions.",
+      "category": "Measures of Spread",
+      "type": "Technical Detail",
+      "signals": ["n-1", "Degrees of Freedom", "Unbiased Estimate", "Variability"]
     },
     {
-      "question": "Define **Quartiles** ($Q1$, $Q3$) and how to find them.",
-      "answer": "**Q1**: The 25th percentile (median of the lower half). **Q3**: The 75th percentile (median of the upper half). They split the ordered data into four equal parts.",
-      "category": "离散程度",
-      "type": "计算题",
-      "signals": ["25th/75th percentile", "Splitting data"]
+      "question": "Compare **Variance** and **Standard Deviation**.",
+      "answer": "Variance ($\\sigma^2$ or $s^2$) is the average of squared deviations from the mean (units squared). Standard deviation ($\\sigma$ or $s$) is the square root of variance, returning to the original units of the data.",
+      "category": "Measures of Spread",
+      "type": "Comparison",
+      "signals": ["Variance", "Standard Deviation", "Square root", "Units"]
     },
     {
-      "question": "Summary: What are the memory tips for notations and measures?",
-      "answer": "**Greek letters** ($\\mu, \\sigma$) $\\rightarrow$ Population; **English letters** ($\\bar{x}, s$) $\\rightarrow$ Sample. Use **Median/IQR** for skewed data; use **Mean/SD** for symmetric data.",
-      "category": "复习贴士",
-      "type": "记忆题",
-      "signals": ["Greek vs English", "Skewed vs Symmetric"]
+      "question": "Rank **Range**, **IQR**, and **Standard Deviation** in terms of stability/robustness.",
+      "answer": "Robustness to outliers (most to least): IQR > Standard Deviation > Range. Range is least stable because it depends only on two extreme values; IQR is most stable because it focuses on the middle 50%.",
+      "category": "Measures of Spread",
+      "type": "Ranking",
+      "signals": ["Stability", "Robustness", "Outliers"]
+    },
+    {
+      "question": "What is a **Z-score** and what does it measure?",
+      "answer": "A Z-score is a standardized value that measures how many standard deviations an observation is above (positive) or below (negative) the mean. It enables comparisons across different scales or distributions (when standardization is appropriate).",
+      "category": "Standardization",
+      "type": "Definition",
+      "signals": ["Z-score", "Standardized", "Standard Deviations"]
+    },
+    {
+      "question": "Distinguish between **Critical Value ($z^*$)** and **Test Statistic ($z$)**.",
+      "answer": "$z^*$ is a threshold determined by the confidence level or significance level (for example, 1.96 for a two-sided 95% confidence level under Normal assumptions). The test statistic $z$ is computed from sample data and measures how many standard errors the sample estimate is from the null value.",
+      "category": "Inference",
+      "type": "Comparison",
+      "signals": ["Critical Value", "Test Statistic", "Threshold", "Sample Data"]
+    },
+    {
+      "question": "What is **Standard Error (SE)** and how does it differ from Standard Deviation ($s$)?",
+      "answer": "Standard deviation ($s$) measures the spread of individual observations in a dataset. Standard error (SE) measures the variability of a sample statistic (such as $\\bar{x}$ or $\\hat{p}$) across repeated samples and represents the sampling uncertainty of that statistic.",
+      "category": "Inference",
+      "type": "Concept",
+      "signals": ["Standard Error", "SE", "Uncertainty", "Statistic Variability"]
+    },
+    {
+      "question": "What is the formula for the **Standard Error of a Proportion**?",
+      "answer": "$SE = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$.",
+      "category": "Inference",
+      "type": "Formula",
+      "signals": ["SE", "Proportion", "n", "$\\hat{p}$"]
+    },
+    {
+      "question": "How does **Sample Size ($n$)** affect the Standard Error?",
+      "answer": "As $n$ increases, the standard error decreases at a rate proportional to $1/\\sqrt{n}$ (not linearly). Larger samples generally produce more precise (less variable) estimates.",
+      "category": "Inference",
+      "type": "Rule",
+      "signals": ["Sample Size", "Precision", "Inverse Relationship"]
+    },
+    {
+      "question": "What is the general structure of a **Confidence Interval (CI)**?",
+      "answer": "Point estimate ± margin of error. For a proportion under common conditions: $\\hat{p} \\pm (z^* \\times SE)$.",
+      "category": "Inference",
+      "type": "Structure",
+      "signals": ["Confidence Interval", "Point Estimate", "Margin of Error"]
+    },
+    {
+      "question": "Define the **Margin of Error (ME)**.",
+      "answer": "The margin of error is the amount added and subtracted from the point estimate to form a confidence interval: $ME = z^* \\times SE$. It reflects the typical sampling uncertainty at the chosen confidence level (given the model conditions).",
+      "category": "Inference",
+      "type": "Definition",
+      "signals": ["Margin of Error", "ME", "Precision"]
+    },
+    {
+      "question": "What is the **Critical Value ($z^*$)** for a 95% Confidence Level?",
+      "answer": "For a two-sided 95% confidence level under the standard Normal model, $z^* = 1.96$.",
+      "category": "Inference",
+      "type": "Fact",
+      "signals": ["95%", "1.96", "Critical Value"]
+    },
+    {
+      "question": "What is the **correct interpretation** of a 95% Confidence Interval?",
+      "answer": "If we repeat the same sampling process many times, about 95% of the confidence intervals we construct will contain the true population parameter. It is not correct to say there is a 95% chance that the parameter lies in this particular computed interval.",
+      "category": "Inference",
+      "type": "Interpretation",
+      "signals": ["Interpretation", "Repeated Sampling", "Contain Parameter"]
+    },
+    {
+      "question": "What are the **Null Hypothesis ($H_0$)** and **Alternative Hypothesis ($H_A$)**?",
+      "answer": "$H_0$ is the baseline claim (often no effect, no difference, or equality). $H_A$ is the competing claim that represents an effect, a difference, or a directional/ non-equality statement.",
+      "category": "Hypothesis Testing",
+      "type": "Definition",
+      "signals": ["Null Hypothesis", "Alternative Hypothesis", "Status Quo"]
+    },
+    {
+      "question": "How is the **Z-test statistic** calculated for a proportion?",
+      "answer": "$z = \\frac{\\hat{p} - p_0}{SE_0}$, where $SE_0 = \\sqrt{\\frac{p_0(1-p_0)}{n}}$ is computed using the hypothesized proportion $p_0$ from $H_0$.",
+      "category": "Hypothesis Testing",
+      "type": "Formula",
+      "signals": ["Z-statistic", "Observed", "Hypothesized", "SE0"]
+    },
+    {
+      "question": "When should you **Reject $H_0$** based on the Z-statistic?",
+      "answer": "Reject $H_0$ when the test statistic falls in the rejection region: for a two-sided test, reject if $|z| > z^*$ (equivalently, if the p-value is less than the significance level $\\alpha$).",
+      "category": "Hypothesis Testing",
+      "type": "Decision Rule",
+      "signals": ["Reject", "Statistically Significant", "Critical Value"]
+    },
+    {
+      "question": "What is a **Chi-square Goodness-of-Fit Test** used for?",
+      "answer": "It tests whether an observed categorical frequency distribution differs significantly from an expected (theoretical) distribution across multiple categories.",
+      "category": "Chi-square Test",
+      "type": "Definition",
+      "signals": ["Chi-square", "Goodness-of-Fit", "Observed", "Expected"]
+    },
+    {
+      "question": "What is the formula for the **Chi-square ($\\chi^2$) statistic**?",
+      "answer": "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{E_i}$, where $O_i$ is the observed count and $E_i$ is the expected count in category $i$.",
+      "category": "Chi-square Test",
+      "type": "Formula",
+      "signals": ["$\\chi^2$", "Observed", "Expected"]
+    },
+    {
+      "question": "How do you calculate **Degrees of Freedom (df)** for a Chi-square Goodness-of-Fit test?",
+      "answer": "For a basic goodness-of-fit test with $k$ categories and no parameters estimated from the data, $df = k - 1$.",
+      "category": "Chi-square Test",
+      "type": "Technical Detail",
+      "signals": ["Degrees of Freedom", "df", "Categories"]
     }
   ]

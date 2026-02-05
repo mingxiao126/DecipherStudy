@@ -1,87 +1,114 @@
 [
     {
+      "question": "What are the three main **Data Collection Methods**?",
+      "answer": "1. **Sampling**: Surveying a subset to infer population traits[cite: 4, 5]. 2. **Experiments**: Manipulating factors to prove **Causation**[cite: 6]. 3. **Observational Study**: Recording data without interference, showing only **Association**[cite: 8].",
       "category": "Week 1: Research Design",
-      "topics": [
-        {
-          "term_en": "Causation vs. Association",
-          "term_cn": "因果关系 vs. 相关性",
-          "definition": "Only **Experiments** can prove causation[cite: 6, 88]; **Observational Studies** only show association due to **Confounding Variables**[cite: 8, 87]."
-        },
-        {
-          "term_en": "Randomized Response",
-          "term_cn": "随机化回答",
-          "definition": "A technique to protect privacy when asking **sensitive or illegal** questions by introducing a random mechanism (e.g., coin flip)[cite: 40, 103]."
-        },
-        {
-          "term_en": "Capture-Recapture",
-          "term_cn": "捕获-再捕获",
-          "definition": "Method to estimate population size ($N$) using the formula: $N = (n \\times N_{2}) / n_{T}$[cite: 43, 105]."
-        },
-        {
-          "term_en": "Questionnaire Pitfalls",
-          "term_cn": "问卷设计陷阱",
-          "definition": "Avoid **Double-barrelled** (two topics in one) [cite: 27, 70] and **Leading questions** (suggesting a 'correct' answer)[cite: 28, 72]."
-        }
-      ]
+      "type": "分类题",
+      "signals": ["Sampling", "Experiment", "Observational"]
     },
     {
-      "category": "Week 2: Data Visualization (EDA)",
-      "topics": [
-        {
-          "term_en": "Stem-and-Leaf vs. Dot Plot",
-          "term_cn": "茎叶图 vs. 点图",
-          "definition": "Both for small datasets; **Stem-and-leaf** is unique because it preserves **original numerical values**[cite: 114, 163]."
-        },
-        {
-          "term_en": "Histogram vs. Bar Chart",
-          "term_cn": "直方图 vs. 条形图",
-          "definition": "**Histogram** is for continuous data (no gaps)[cite: 124]; **Bar Chart** is for categorical data (has gaps)[cite: 120, 164]."
-        },
-        {
-          "term_en": "Skewness (Right vs. Left)",
-          "term_cn": "偏态 (右偏 vs. 左偏)",
-          "definition": "**Right-skewed**: Tail extends to the right (Mean > Median)[cite: 141, 265]; **Left-skewed**: Tail extends to the left (Mean < Median)[cite: 142, 268]."
-        },
-        {
-          "term_en": "Box Plot (Five-number summary)",
-          "term_cn": "箱线图 (五数概括)",
-          "definition": "Based on **Min, Q1, Median, Q3, Max**[cite: 131]. The box height is the **IQR** (Q3 - Q1)[cite: 132, 245]."
-        }
-      ]
+      "question": "Explain the difference between **Open** and **Closed Questions**.",
+      "answer": "**Open Questions**: Respondents use their own words; rich detail but hard to code[cite: 17]. **Closed Questions**: Respondents choose from preset options; easy to analyze but limited depth[cite: 18, 19].",
+      "category": "Week 1: Research Design",
+      "type": "对比题",
+      "signals": ["Coding", "Preset options", "Respondent burden"]
     },
     {
-      "category": "Week 3: Numerical Summaries",
-      "topics": [
-        {
-          "term_en": "Parameter vs. Statistic",
-          "term_cn": "参数 vs. 统计量",
-          "definition": "**Parameter**: Describes population (Greek letters like $\\mu, \\sigma$)[cite: 186, 226]. **Statistic**: Describes sample (English letters like $\\bar{x}, s$)[cite: 189, 226]."
-        },
-        {
-          "term_en": "Resistant / Robust",
-          "term_cn": "稳健性 / 抗干扰性",
-          "definition": "Measures not affected by outliers; **Median** and **IQR** are resistant[cite: 204, 218]; **Mean** and **SD** are not[cite: 199, 212]."
-        },
-        {
-          "term_en": "Standard Deviation (SD)",
-          "term_cn": "标准差",
-          "definition": "The square root of variance; measures the average distance of data points from the mean[cite: 222, 248]."
-        },
-        {
-          "term_en": "Sample Variance ($s^2$)",
-          "term_cn": "样本方差",
-          "definition": "Calculated by dividing by **$n-1$** (degrees of freedom) to provide an unbiased estimate of population variance[cite: 223]."
-        }
-      ]
+      "question": "What are **Double-barrelled** and **Leading Questions**?",
+      "answer": "**Double-barrelled**: Asking two things at once[cite: 27]. **Leading**: Wording that suggests a specific 'correct' answer[cite: 28]. Both should be avoided for clean data[cite: 91, 92].",
+      "category": "Week 1: Research Design",
+      "type": "概念题",
+      "signals": ["Two-in-one", "Biased wording"]
     },
     {
-      "category": "Exam Mapping Tips (关键词映射)",
-      "topics": [
-        {
-          "term_en": "Keywords",
-          "term_cn": "考试直觉",
-          "definition": "'Association' -> Scatterplot[cite: 150]; 'Sensitive' -> Randomized Response[cite: 40]; 'Skewed' -> Use Median/IQR[cite: 276]."
-        }
-      ]
+      "question": "Define **Social Desirability Bias** and **Telescoping Error**.",
+      "answer": "**Social Desirability**: Giving answers to look 'good' rather than being truthful. **Telescoping Error**: Misremembering the timing of an event, usually as more recent[cite: 38, 77].",
+      "category": "Week 1: Research Design",
+      "type": "概念题",
+      "signals": ["Look good", "Timing memory"]
+    },
+    {
+      "question": "What is the **Randomized Response** technique?",
+      "answer": "A privacy-protecting method for **sensitive/illegal** topics[cite: 40]. It uses a random mechanism (like a coin flip) so the interviewer doesn't know which question the 'Yes' refers to[cite: 102, 103].",
+      "category": "Week 1: Research Design",
+      "type": "应用题",
+      "signals": ["Privacy", "Sensitive", "Coin flip"]
+    },
+    {
+      "question": "What is the formula for **Capture-Recapture**?",
+      "answer": "Estimated Population $N = (n \\times N_{2}) / n_{T}$[cite: 43]. $n$ is the first marked batch, $N_2$ is the second batch, and $n_T$ is the number of marked individuals in the second batch[cite: 42, 104].",
+      "category": "Week 1: Research Design",
+      "type": "计算题",
+      "signals": ["Population size", "Marked", "Recaptured"]
+    },
+    {
+      "question": "When should you use a **Stem-and-Leaf Plot**?",
+      "answer": "Best for **small datasets**[cite: 113]. It is unique because it displays the distribution shape while **preserving original numerical values**[cite: 114].",
+      "category": "Week 2: Visualization",
+      "type": "规则题",
+      "signals": ["Small dataset", "Original values"]
+    },
+    {
+      "question": "Compare **Histograms** and **Bar Charts**.",
+      "answer": "**Histograms**: For continuous numeric data; bars have no gaps[cite: 122, 124]. **Bar Charts**: For categorical data; bars have gaps[cite: 119, 120]. Y-axis should start at 0[cite: 121].",
+      "category": "Week 2: Visualization",
+      "type": "对比题",
+      "signals": ["Continuous vs Categorical", "Gaps vs No gaps"]
+    },
+    {
+      "question": "Describe the **Distribution Shapes** (Skewness).",
+      "answer": "**Symmetric**: Sides are similar[cite: 140]. **Right-skewed**: Tail extends to the right (Mean > Median)[cite: 141, 207]. **Left-skewed**: Tail extends to the left (Mean < Median)[cite: 142, 208].",
+      "category": "Week 2: Visualization",
+      "type": "概念题",
+      "signals": ["Tail direction", "Skewed"]
+    },
+    {
+      "question": "What is the **Five-number Summary** in a **Box Plot**?",
+      "answer": "Includes **Min, Q1, Median, Q3, and Max**[cite: 131]. The box height represents the **IQR (Q3-Q1)**[cite: 132]. Outliers are points > 1.5x IQR from the box[cite: 134].",
+      "category": "Week 2: Visualization",
+      "type": "计算题",
+      "signals": ["Box height", "IQR", "Outliers"]
+    },
+    {
+      "question": "What is a **Pareto Chart**?",
+      "answer": "A bar chart sorted in descending frequency plus a line showing cumulative percentage[cite: 137]. It highlights the **'important few' (80/20 rule)**[cite: 136].",
+      "category": "Week 2: Visualization",
+      "type": "概念题",
+      "signals": ["80/20 rule", "Cumulative percentage"]
+    },
+    {
+      "question": "Explain the **Explanatory** and **Response** variables in a **Scatterplot**.",
+      "answer": "The **Explanatory Variable** (Independent) is on the **X-axis**[cite: 148]. The **Response Variable** (Dependent) is on the **Y-axis**[cite: 149]. Used to find **Association**[cite: 146].",
+      "category": "Week 2: Visualization",
+      "type": "规则题",
+      "signals": ["X vs Y", "Association"]
+    },
+    {
+      "question": "Distinguish between a **Parameter** and a **Statistic**.",
+      "answer": "**Parameter**: Describes the **Population** (fixed constant, Greek letters $\\mu, \\sigma$)[cite: 186, 187]. **Statistic**: Describes a **Sample** (random variable, English letters $\\bar{x}, s$)[cite: 189, 190].",
+      "category": "Week 3: Numerics",
+      "type": "对比题",
+      "signals": ["Population vs Sample", "Greek vs English"]
+    },
+    {
+      "question": "Why use **Median** and **IQR** for skewed data?",
+      "answer": "They are **Resistant (Robust)**. Unlike the Mean and SD, they are not heavily influenced by extreme **Outliers** or long tails[cite: 199, 204].",
+      "category": "Week 3: Numerics",
+      "type": "决策规则",
+      "signals": ["Resistant", "Robust", "Skewed data"]
+    },
+    {
+      "question": "What is the relationship between **Variance** and **Standard Deviation**?",
+      "answer": "**Standard Deviation** is the square root of **Variance**[cite: 222]. We divide by **$n-1$** for sample variance to get an unbiased estimate of the population[cite: 223].",
+      "category": "Week 3: Numerics",
+      "type": "原理题",
+      "signals": ["Square root", "n - 1"]
+    },
+    {
+      "question": "Summary: List the primary **Exam Keyword Mappings** for STAT 124.",
+      "answer": "**'Causation'** -> Experiment[cite: 86]; **'Sensitive'** -> Randomized Response[cite: 103]; **'Distribution'** -> Histogram/Box Plot[cite: 179]; **'Association'** -> Scatterplot[cite: 179].",
+      "category": "复习贴士",
+      "type": "记忆题",
+      "signals": ["Exam intuition", "Key associations"]
     }
   ]

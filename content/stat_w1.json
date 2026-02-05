@@ -1,77 +1,148 @@
 [
-    {
-      "question": "What are the three main **Data Collection Methods**?",
-      "answer": "1. **Sampling/Survey Sampling**: Surveying a sample to infer population traits. 2. **Design of Experiments**: Manipulating factors to prove **Causation**. 3. **Observational Study**: Recording data without interference, showing only **Association/Correlation**.",
-      "category": "数据收集",
-      "type": "分类题",
-      "signals": ["Sampling", "Experiment", "Observational"]
-    },
-    {
-      "question": "How do **Experiments** differ from **Observational Studies** regarding causation?",
-      "answer": "Only **Experiments** can prove **Causation** through randomization and control. **Observational Studies** only reveal **Association** because of potential **Confounding Variables**.",
-      "category": "研究方法",
-      "type": "对比题",
-      "signals": ["Causation", "Confounding variables", "Randomization"]
-    },
-    {
-      "question": "What is the difference between **Open** and **Closed Questions**?",
-      "answer": "**Open Questions**: Respondents answer in their own words; rich detail but hard to code. **Closed Questions**: Respondents choose from preset options (e.g., Multiple choice, Ranking); easy to analyze but limited depth.",
-      "category": "问卷设计",
-      "type": "对比题",
-      "signals": ["Coding", "Preset options", "Respondent burden"]
-    },
-    {
-      "question": "What are **Double-barrelled Questions** and why should they be avoided?",
-      "answer": "These are questions that ask **two different things** at once (e.g., 'Should we cut taxes and increase services?'). They should be avoided because they confuse respondents and produce unclear data.",
-      "category": "问卷陷阱",
-      "type": "概念题",
-      "signals": ["Two things at once", "Confusing"]
-    },
-    {
-      "question": "Define **Social Desirability Bias**.",
-      "answer": "The tendency of respondents to give answers that make them look 'good' or follow **social norms**, rather than being truthful, especially on sensitive topics.",
-      "category": "响应误差",
-      "type": "概念题",
-      "signals": ["Look good", "Social norms", "Sensitive topics"]
-    },
-    {
-      "question": "Explain **Telescoping Error** in the context of memory.",
-      "answer": "A recall error where a respondent **misremembers the timing** of an event, often remembering an old event as having happened more recently.",
-      "category": "响应误差",
-      "type": "概念题",
-      "signals": ["Timing", "Misremember", "Recent"]
-    },
-    {
-      "question": "What is the **Randomized Response** technique used for?",
-      "answer": "It is a privacy-protecting technique for **sensitive or illegal behaviors**. By introducing a random mechanism (like a coin flip), the interviewer cannot know if a 'Yes' refers to the sensitive question, protecting the respondent's privacy.",
-      "category": "特殊技术",
-      "type": "应用题",
-      "signals": ["Privacy", "Sensitive behavior", "Random mechanism"]
-    },
-    {
-      "question": "What is the formula for the **Capture-Recapture** method?",
-      "answer": "The population estimate is $N = (n \\times N_{2}) / n_{T}$.",
-      "category": "特殊技术",
-      "type": "计算题",
-      "signals": ["Population size", "Marked", "Recaptured"],
-      "steps": [
-        "Step 1: Capture and mark a batch (n)",
-        "Step 2: Release and let them mix",
-        "Step 3: Recapture a second batch (N2) and count marked individuals (nT)"
-      ]
-    },
-    {
-      "question": "What are the core principles of **Experimental Design**?",
-      "answer": "1. **Randomization**: Assigning subjects randomly to groups. 2. **Replication**: Using enough subjects to ensure results aren't accidental. 3. **Blocking**: Reducing the influence of known nuisance variables.",
-      "category": "数据收集",
-      "type": "概念题",
-      "signals": ["Randomization", "Replication", "Blocking"]
-    },
-    {
-      "question": "Where should **Sensitive** and **Demographic** questions be placed in a questionnaire?",
-      "answer": "**Sensitive Questions** should be in the middle or end after trust is built. **Demographic Questions** (like age or income) are typically placed at the very **end** of the survey.",
-      "category": "问卷结构",
-      "type": "规则题",
-      "signals": ["Sequencing", "Trust", "End of survey"]
-    }
-  ]
+  {
+    "question": "What are the three main **Data Collection Methods**?",
+    "answer": "1. Sampling/Survey Sampling: Surveying a sample to infer population traits. 2. Design of Experiments: Manipulating factors to establish causation (with randomization/control). 3. Observational Study: Recording data without intervention; shows association/correlation only (confounding may exist).",
+    "category": "数据收集",
+    "type": "分类题",
+    "signals": ["Sampling", "Experiment", "Observational"]
+  },
+  {
+    "question": "How do **Experiments** differ from **Observational Studies** regarding causation?",
+    "answer": "Only experiments can support causal conclusions because they manipulate explanatory variables and use random assignment/control to reduce confounding. Observational studies do not assign treatments, so they typically support association/correlation only and may be affected by confounding variables.",
+    "category": "研究方法",
+    "type": "对比题",
+    "signals": ["Causation", "Confounding variables", "Randomization"]
+  },
+  {
+    "question": "What is the difference between **Open** and **Closed Questions**?",
+    "answer": "Open questions: Respondents answer in their own words; richer detail but harder to code/analyze. Closed questions: Respondents choose from preset options (e.g., multiple choice, rating); easier to analyze but less depth and may constrain responses.",
+    "category": "问卷设计",
+    "type": "对比题",
+    "signals": ["Coding", "Preset options", "Respondent burden"]
+  },
+  {
+    "question": "What are **Double-barrelled Questions** and why should they be avoided?",
+    "answer": "Double-barrelled questions ask two different things at once (e.g., \"Should we cut taxes and increase services?\"). They should be avoided because respondents may agree with one part but not the other, producing ambiguous and unreliable data.",
+    "category": "问卷陷阱",
+    "type": "概念题",
+    "signals": ["Two things at once", "Confusing"]
+  },
+  {
+    "question": "Define **Social Desirability Bias**.",
+    "answer": "A response bias where respondents answer in ways that make them look good or align with social norms rather than telling the truth, especially on sensitive topics.",
+    "category": "响应误差",
+    "type": "概念题",
+    "signals": ["Look good", "Social norms", "Sensitive topics"]
+  },
+  {
+    "question": "Explain **Telescoping Error** in the context of memory.",
+    "answer": "A recall error where a respondent misremembers when an event occurred, often reporting an older event as if it happened more recently.",
+    "category": "响应误差",
+    "type": "概念题",
+    "signals": ["Timing", "Misremember", "Recent"]
+  },
+  {
+    "question": "What is the **Randomized Response** technique used for?",
+    "answer": "A privacy-protecting survey technique for sensitive or illegal behaviors. A random mechanism (e.g., coin flip) determines which question is answered, so the interviewer cannot know whether a \"Yes\" refers to the sensitive item, improving honesty while preserving anonymity.",
+    "category": "特殊技术",
+    "type": "应用题",
+    "signals": ["Privacy", "Sensitive behavior", "Random mechanism"]
+  },
+  {
+    "question": "What is the formula for the **Capture-Recapture** method?",
+    "answer": "The population estimate is $N = (n \\times N_2) / n_T$.",
+    "category": "特殊技术",
+    "type": "计算题",
+    "signals": ["Population size", "Marked", "Recaptured"],
+    "steps": [
+      "Step 1: Capture and mark a first sample (n).",
+      "Step 2: Release and allow mixing back into the population.",
+      "Step 3: Capture a second sample (N2) and count how many are marked (nT).",
+      "Step 4: Estimate population size using $N = (n \\times N_2) / n_T$."
+    ]
+  },
+  {
+    "question": "What are the core principles of **Experimental Design**?",
+    "answer": "1. Randomization: Randomly assign subjects to treatments. 2. Replication: Use enough subjects/units to reduce chance variation. 3. Blocking: Group similar units to control known nuisance variables before comparing treatments.",
+    "category": "数据收集",
+    "type": "概念题",
+    "signals": ["Randomization", "Replication", "Blocking"]
+  },
+  {
+    "question": "Where should **Sensitive** and **Demographic** questions be placed in a questionnaire?",
+    "answer": "Sensitive questions should generally appear after rapport/trust is built (middle or later). Demographic questions are typically placed at the end of the questionnaire.",
+    "category": "问卷结构",
+    "type": "规则题",
+    "signals": ["Sequencing", "Trust", "End of survey"]
+  },
+  {
+    "question": "What are the three main **Data Collection Methods** and their key characteristics?",
+    "answer": "1. Survey Sampling: Drawing a sample from a population to infer characteristics. 2. Design of Experiments: Manipulating one or more factors to evaluate effects on a response variable; supports causal conclusions when random assignment/control is used. 3. Observational Study: Recording data without intervention; supports association/correlation only and may be affected by confounding variables.",
+    "category": "Data Collection",
+    "type": "Classification",
+    "signals": ["Sampling", "Experiment", "Observational", "Causation", "Confounding"]
+  },
+  {
+    "question": "What are the three **Types of Research Questions**?",
+    "answer": "1. Descriptive: Describe characteristics of a population (frequencies, averages, distributions). 2. Exploratory: Early-stage investigation to generate ideas/hypotheses and guide later studies. 3. Causal: Assess whether changes in one variable cause changes in another (X causes Y).",
+    "category": "Research Types",
+    "type": "Definition",
+    "signals": ["Descriptive", "Exploratory", "Causal"]
+  },
+  {
+    "question": "What are the four common **Pitfalls** in questionnaire question design?",
+    "answer": "1. Jargon/Abbreviations: Terms respondents may not understand. 2. Vagueness: Non-specific wording that different people interpret differently. 3. Double-barrelled Questions: Asking two things at once. 4. Leading/Loaded Questions: Wording that pushes respondents toward a particular answer.",
+    "category": "Questionnaire Design",
+    "type": "Practical Application",
+    "signals": ["Jargon", "Vagueness", "Double-barrelled", "Leading"]
+  },
+  {
+    "question": "What is the recommended **Sequencing** for a questionnaire?",
+    "answer": "1. Introduction: Explain purpose and confidentiality. 2. Opening questions: Easy, interesting, and applicable to all. 3. Sensitive questions: Place later after trust is established. 4. Demographic questions: Typically at the end.",
+    "category": "Questionnaire Structure",
+    "type": "Ordering",
+    "signals": ["Introduction", "Opening", "Sensitive", "Demographic"]
+  },
+  {
+    "question": "Compare **Likert Scale** and **Thurstone Scale**.",
+    "answer": "Likert scale: Respondents rate agreement on ordered categories (commonly 5 or 7 points). Thurstone scale: Respondents endorse/reject statements that represent different positions; scoring uses predetermined scale values for the endorsed items.",
+    "category": "Measurement Scales",
+    "type": "Comparison",
+    "signals": ["Likert", "Thurstone", "Attitude"]
+  },
+  {
+    "question": "Explain **Social Desirability Bias**, **Recall Error**, and **Telescoping Error**.",
+    "answer": "1. Social Desirability Bias: Answering to look good or follow social norms rather than being truthful. 2. Recall Error: Forgetting events/details or misreporting them from memory. 3. Telescoping Error: Misremembering timing, often reporting older events as more recent.",
+    "category": "Response Errors",
+    "type": "Error Analysis",
+    "signals": ["Social Desirability", "Recall", "Telescoping"]
+  },
+  {
+    "question": "What are the four stages of the **Cognitive Process** of responding to a question?",
+    "answer": "1. Understanding: Comprehend the question. 2. Retrieval: Pull relevant information from memory. 3. Judgment: Evaluate and form an answer. 4. Reporting: Communicate the answer to the researcher.",
+    "category": "Cognitive Process",
+    "type": "Process Flow",
+    "signals": ["Understanding", "Retrieval", "Judging", "Communicating"]
+  },
+  {
+    "question": "How does the **Randomized Response** technique protect respondent privacy?",
+    "answer": "A random mechanism determines whether the respondent answers the sensitive question or a harmless one, while the interviewer records only \"Yes/No\". Because the interviewer cannot know which question was answered, individual privacy is protected while allowing population-level estimation.",
+    "category": "Survey Techniques",
+    "type": "Methodology",
+    "signals": ["Randomized Response", "Anonymity", "Sensitive Question"]
+  },
+  {
+    "question": "What is the formula and purpose of **Capture-Recapture**?",
+    "answer": "Purpose: Estimate the total population size. Formula: $N = (n \\times N_2) / n_T$, where $n$ is the number marked in the first sample, $N_2$ is the size of the second sample, and $n_T$ is the number of marked individuals found in the second sample.",
+    "category": "Population Estimation",
+    "type": "Calculation",
+    "signals": ["Capture-Recapture", "Population Size", "Marking"]
+  },
+  {
+    "question": "Contrast **Open-ended** and **Closed-ended** questions.",
+    "answer": "Open-ended questions allow free-form answers in the respondent's own words; they provide richer information but are harder to code and analyze. Closed-ended questions provide fixed response options; they are quicker and easier to analyze but may limit nuance and force choices that do not perfectly fit the respondent.",
+    "category": "Question Types",
+    "type": "Comparison",
+    "signals": ["Open-ended", "Closed-ended", "Coding", "Response Burden"]
+  }
+]

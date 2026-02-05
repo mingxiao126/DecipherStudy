@@ -1,72 +1,128 @@
 [
     {
-      "question": "What is the primary goal of **Exploratory Data Analysis (EDA)**?",
-      "answer": "The main purpose of EDA is to understand the data through **visualizing** (plotting) and **descriptive statistics** (numerical summaries) before performing formal analysis.",
-      "category": "EDA基础",
-      "type": "概念题",
-      "signals": ["Visualizing", "Descriptive Statistics", "Understand data"]
+      "question": "What are the primary goals of **Exploratory Data Analysis (EDA)**?",
+      "answer": "The main objective of EDA is to understand data through **visualizing** (plotting) and **describing** (numerical summaries). It focuses on identifying three key characteristics: **Shape**, **Center**, and **Spread (Variability)**.",
+      "category": "EDA Fundamentals",
+      "type": "Definition",
+      "signals": ["EDA", "Visualizing", "Shape", "Center", "Spread"]
     },
     {
-      "question": "When should you use a **Stem-and-Leaf Plot** versus a **Dot Plot**?",
-      "answer": "**Stem-and-Leaf Plot**: Best for **small datasets** because it preserves original numerical values. **Dot Plot**: Suitable for **small to medium** datasets, showing the density of distribution by stacking dots.",
-      "category": "单变量绘图",
-      "type": "对比题",
-      "signals": ["Small dataset", "Original values", "Density"]
+      "question": "Differentiate between a **Bar Chart** and a **Histogram**.",
+      "answer": "**Bar Charts** are for **categorical** data; bars have spaces between them. **Histograms** are for **continuous numeric** data; bars are adjacent (no spaces) to show density across intervals called **Bins**.",
+      "category": "Data Visualization",
+      "type": "Comparison",
+      "signals": ["Bar Chart", "Histogram", "Categorical", "Continuous", "Bins"]
     },
     {
-      "question": "What are the key design rules for a **Bar Chart**?",
-      "answer": "1. Used for **Categorical** or discrete data. 2. There should be **gaps** between bars. 3. The vertical axis (Y-axis) must **start from 0** because humans perceive value through length.",
-      "category": "单变量绘图",
-      "type": "规则题",
-      "signals": ["Categorical", "Gaps", "Start from 0"]
+      "question": "Describe the four common **Distribution Shapes**.",
+      "answer": "1. **Symmetric**: Mirror images. 2. **Right-skewed**: Tail extends to the right (higher values). 3. **Left-skewed**: Tail extends to the left. 4. **Bimodal**: Two distinct peaks.",
+      "category": "Distribution Analysis",
+      "type": "Classification",
+      "signals": ["Symmetric", "Right-skewed", "Left-skewed", "Bimodal"]
     },
     {
-      "question": "How do **Histograms** differ from Bar Charts, and what do they show?",
-      "answer": "**Histograms** are for **continuous numeric data** with no gaps between bars (bins). They allow us to identify the **Shape**, **Center**, and **Spread** of a distribution.",
-      "category": "单变量绘图",
-      "type": "对比题",
-      "signals": ["Continuous", "Bins", "Shape/Center/Spread"]
+      "question": "What is the **Five-Number Summary** in a Box Plot?",
+      "answer": "It consists of: 1. **Minimum**, 2. **Lower Quartile (Q1)**, 3. **Median**, 4. **Upper Quartile (Q3)**, 5. **Maximum**. The box represents the **Interquartile Range (IQR = Q3 - Q1)**.",
+      "category": "Numerical Summaries",
+      "type": "Components",
+      "signals": ["Box Plot", "Median", "Quartiles", "IQR", "Five-number summary"]
     },
     {
-      "question": "Explain the components of a **Box Plot** and the **Five-number Summary**.",
-      "answer": "A Box Plot is based on: **Min, Q1, Median, Q3, and Max**. The box height represents the **Interquartile Range (IQR)** (middle 50% of data). **Outliers** are points beyond 1.5 × IQR from the box.",
-      "category": "单变量绘图",
-      "type": "概念题",
-      "signals": ["Five-number summary", "IQR", "Outliers", "1.5 x IQR"]
+      "question": "How are **Whiskers** and **Outliers** calculated in a Box Plot?",
+      "answer": "Whiskers extend to the most extreme points within **1.5 × IQR** of the quartiles. Points beyond this range are **Outliers**, plotted individually.",
+      "category": "Data Visualization",
+      "type": "Technical Detail",
+      "signals": ["Whiskers", "Outliers", "1.5 x IQR"]
     },
     {
-      "question": "What is a **Pareto Chart**?",
-      "answer": "A combination of a **Bar Chart** (sorted in descending frequency) and a **Line Graph** (showing cumulative percentage). It highlights the 'important few' based on the **80/20 rule**.",
-      "category": "单变量绘图",
-      "type": "概念题",
-      "signals": ["80/20 rule", "Descending frequency", "Cumulative percentage"]
+      "question": "What is a **Pareto Chart** and the **80/20 Rule**?",
+      "answer": "A Pareto Chart combines **bars** (sorted descending) and a **line graph** (cumulative percentage). It helps identify the 'vital few' causes that account for 80% of the effects.",
+      "category": "Specialized Charts",
+      "type": "Definition",
+      "signals": ["Pareto Chart", "80/20 Rule", "Cumulative Percentage"]
     },
     {
-      "question": "Distinguish between **Right-skewed** and **Left-skewed** distributions.",
-      "answer": "**Right-skewed**: Data heaps on the left, with a **long tail extending to the right**. **Left-skewed**: Data heaps on the right, with a **long tail extending to the left**.",
-      "category": "分布形状",
-      "type": "对比题",
-      "signals": ["Tail direction", "Skewness"]
+      "question": "What are the best and worst attributes for **Visual Perception**?",
+      "answer": "Humans are best at perceiving **Length** and **Position** (use Bar Charts/Scatterplots). We are poor at perceiving **Angles** and **Area** (avoid Pie Charts).",
+      "category": "Visual Perception",
+      "type": "Principles",
+      "signals": ["Length", "Position", "Angle", "Area", "Pie Chart"]
     },
     {
-      "question": "In a **Scatterplot**, which variables go on which axes?",
-      "answer": "The **Explanatory Variable** (Independent/Predictor) goes on the **X-axis**, and the **Response Variable** (Dependent/Predicted) goes on the **Y-axis**.",
-      "category": "双变量绘图",
-      "type": "规则题",
-      "signals": ["X-axis vs Y-axis", "Explanatory", "Response"]
+      "question": "Why should **Bar Charts** usually start at a **Zero Baseline**?",
+      "answer": "Because we perceive both length and area in bars. Starting at zero ensures that the visual ratio matches the data ratio, preventing misleading interpretations.",
+      "category": "Visual Perception",
+      "type": "Principles",
+      "signals": ["Zero Baseline", "Misleading", "Ratio"]
     },
     {
-      "question": "According to **Visual Perception** principles, what should be avoided in charts?",
-      "answer": "Avoid **Pie Charts** because humans are poor at judging **Angles** and **Areas**. Instead, use Bar Charts or Scatterplots because humans are excellent at judging **Length** and **Position**.",
-      "category": "视觉感知",
-      "type": "决策建议",
-      "signals": ["Length/Position", "Angles/Areas", "Pie charts are bad"]
+      "question": "When is a **Dot Chart** better than a Bar Chart?",
+      "answer": "A **Dot Chart** is better when **zero is not a relevant value**. It focuses on the **Position** of the dot rather than the length of a bar.",
+      "category": "Visual Perception",
+      "type": "Comparison",
+      "signals": ["Dot Chart", "Position", "Zero not relevant"]
     },
     {
-      "question": "Summary: What are the primary exam keyword mappings for Week 2?",
-      "answer": "**'Distribution'** -> Histogram or Box Plot; **'Association/Relationship'** -> Scatterplot; **'Comparison of groups'** -> Side-by-side Box Plots.",
-      "category": "复习贴士",
-      "type": "记忆题",
-      "signals": ["Keyword mapping", "Exam tips"]
+      "question": "Define **Explanatory** and **Response** variables in a Scatterplot.",
+      "answer": "**Explanatory Variable** (X-axis) is the independent variable used to predict the **Response Variable** (Y-axis), which is the outcome being measured.",
+      "category": "Bivariate Data",
+      "type": "Definition",
+      "signals": ["Scatterplot", "Explanatory", "Response", "X-axis", "Y-axis"]
+    },
+    {
+      "question": "When should you use a **Stem-and-Leaf Plot**?",
+      "answer": "For **small datasets**. It allows you to see the distribution shape while **preserving every original data value**.",
+      "category": "Data Visualization",
+      "type": "Usage",
+      "signals": ["Stem-and-Leaf", "Small Dataset", "Raw Data"]
+    },
+    {
+      "question": "What is the purpose of **Side-by-side Box Plots**?",
+      "answer": "They are used to **compare the distribution** of a numerical variable across different **categories** (e.g., comparing scores between different classes).",
+      "category": "Data Visualization",
+      "type": "Comparison",
+      "signals": ["Side-by-side", "Comparison", "Categories"]
+    },
+    {
+      "question": "What is **Standard Deviation (s)**?",
+      "answer": "A numerical measure of the **Spread** or variability of a dataset, representing how far measurements typically fall from the mean.",
+      "category": "Numerical Summaries",
+      "type": "Definition",
+      "signals": ["Standard Deviation", "Spread", "Variability"]
+    },
+    {
+      "question": "What are the three types of **Color Palettes** in visualization?",
+      "answer": "1. **Sequential**: High to low (same color, different shades). 2. **Diverging**: Two colors diverging from a neutral center. 3. **Qualitative**: Different colors for unrelated categories.",
+      "category": "Visual Perception",
+      "type": "Technical Detail",
+      "signals": ["Sequential", "Diverging", "Qualitative", "Palettes"]
+    },
+    {
+      "question": "Explain **Frequency** vs. **Relative Frequency** in Histograms.",
+      "answer": "**Frequency** is the count of observations in a bin. **Relative Frequency (Density)** is the proportion (Frequency/Total), useful for comparing datasets of different sizes.",
+      "category": "Data Visualization",
+      "type": "Technical Detail",
+      "signals": ["Frequency", "Relative Frequency", "Density"]
+    },
+    {
+      "question": "How does **Bin Width** affect a Histogram?",
+      "answer": "Changing the bin width can change the perceived shape of the distribution. Too many bins create 'noise'; too few bins hide the structure (oversmoothing).",
+      "category": "Data Visualization",
+      "type": "Technical Detail",
+      "signals": ["Bin Width", "Noise", "Oversmoothing"]
+    },
+    {
+      "question": "Compare **Mean** vs. **Median** as measures of Center.",
+      "answer": "In **Symmetric** distributions, Mean and Median are similar. In **Skewed** distributions, the **Mean** is pulled toward the tail, while the **Median** remains a more 'typical' middle value.",
+      "category": "Numerical Summaries",
+      "type": "Comparison",
+      "signals": ["Mean", "Median", "Center", "Symmetric", "Skewed"]
+    },
+    {
+      "question": "What is an **Outlier** and how should it be handled?",
+      "answer": "An Outlier is a value significantly different from the rest. It should be investigated to determine if it's a **recording error** (correct it) or a **genuine extreme case**.",
+      "category": "Data Cleaning",
+      "type": "Definition",
+      "signals": ["Outlier", "Recording Error", "Extreme Case"]
     }
   ]

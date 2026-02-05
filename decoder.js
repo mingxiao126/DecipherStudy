@@ -4,7 +4,8 @@ class LogicDecoder {
         this.topics = [];  // 主题列表
         this.filteredTopics = [];  // 根据科目筛选后的主题
         this.currentSubject = null;  // 当前选择的科目
-        this.problems = [];  // 当前加载的题目列表
+        this.currentWeekFile = null;  // 当前选择的周次文件
+        this.problems = [];  // 当前加载的题目列表（从周次文件中加载）
         this.currentProblem = null;
         this.currentIndex = 0;  // 当前处理的片段索引
         this.isPausedForSync = false;  // 是否正在等待"同步数据"的点击
@@ -50,10 +51,10 @@ class LogicDecoder {
         });
     }
 
-    // 填充题目选择器（根据选择的科目）
-    populateProblemSelector() {
-        const selector = document.getElementById('problemSelector');
-        selector.innerHTML = '<option value="">请选择题目...</option>';
+    // 填充周次选择器（根据选择的科目）
+    populateWeekSelector() {
+        const selector = document.getElementById('weekSelector');
+        selector.innerHTML = '<option value="">请选择周次/综合大题...</option>';
         
         if (!this.currentSubject) {
             selector.disabled = true;
@@ -73,40 +74,79 @@ class LogicDecoder {
         selector.disabled = false;
     }
 
-    // 加载选中的题目文件
-    async loadProblem(fileName) {
+    // 填充题目选择器（根据选择的周次文件）
+    populateProblemSelector() {
+        const selector = document.getElementById('problemSelector');
+        selector.innerHTML = '<option value="">请选择具体题目...</option>';
+        
+        if (!this.problems || this.problems.length === 0) {
+            selector.disabled = true;
+            return;
+        }
+        
+        // 显示该周次文件中的所有题目
+        this.problems.forEach((problem, index) => {
+            const option = document.createElement('option');
+            option.value = index;  // 使用索引作为值
+            option.textContent = problem.title || problem.id || `题目 ${index + 1}`;
+            selector.appendChild(option);
+        });
+        
+        selector.disabled = false;
+    }
+
+    // 加载选中的周次文件（显示题目列表）
+    async loadWeekFile(fileName) {
         if (!fileName) return;
         
         try {
+            this.currentWeekFile = fileName;
             const response = await fetch(`/content/${fileName}`);
-            if (!response.ok) throw new Error('无法加载题目文件');
+            if (!response.ok) throw new Error('无法加载周次文件');
             
             const data = await response.json();
             // 支持单个题目对象或题目数组
             this.problems = Array.isArray(data) ? data : [data];
             
-            // 如果有多个题目，显示第一个
-            if (this.problems.length > 0) {
-                this.currentProblem = this.problems[0];
-                this.currentIndex = 0;
-                this.isPausedForSync = false;
-                this.highlightedSegments = [];
-                this.currentHighlightIndex = -1;
-                this.solutionStepIndex = 0;  // 详解步骤索引
-                
-                // 重置所有区域
-                this.resetAll();
-                
-                // 显示原题
-                this.displayOriginalQuestion();
-                
-                // 显示点击提示
-                document.getElementById('clickHint').classList.remove('hidden');
-            }
+            console.log(`加载了 ${this.problems.length} 道题目`);
+            
+            // 填充题目选择器
+            this.populateProblemSelector();
+            
+            // 清空当前题目，等待用户选择
+            this.currentProblem = null;
+            this.resetAll();
         } catch (error) {
-            console.error('加载题目失败:', error);
-            alert('加载题目失败，请检查文件是否存在');
+            console.error('加载周次文件失败:', error);
+            alert('加载周次文件失败，请检查文件是否存在');
         }
+    }
+
+    // 加载选中的具体题目
+    loadProblem(problemIndex) {
+        if (problemIndex === null || problemIndex === undefined || problemIndex === '') return;
+        
+        const index = parseInt(problemIndex);
+        if (isNaN(index) || index < 0 || index >= this.problems.length) {
+            console.error('无效的题目索引:', problemIndex);
+            return;
+        }
+        
+        this.currentProblem = this.problems[index];
+        this.currentIndex = 0;
+        this.isPausedForSync = false;
+        this.highlightedSegments = [];
+        this.currentHighlightIndex = -1;
+        this.solutionStepIndex = 0;  // 详解步骤索引
+        
+        // 重置所有区域
+        this.resetAll();
+        
+        // 显示原题
+        this.displayOriginalQuestion();
+        
+        // 显示点击提示
+        document.getElementById('clickHint').classList.remove('hidden');
     }
 
     // 重置所有区域
@@ -791,15 +831,32 @@ class LogicDecoder {
         // 科目选择器
         document.getElementById('subjectSelector').addEventListener('change', (e) => {
             this.currentSubject = e.target.value;
-            this.populateProblemSelector();
-            // 清空当前题目
+            this.populateWeekSelector();
+            // 清空周次和题目
+            this.currentWeekFile = null;
+            this.problems = [];
             this.currentProblem = null;
+            document.getElementById('problemSelector').innerHTML = '<option value="">请先选择周次...</option>';
+            document.getElementById('problemSelector').disabled = true;
             this.resetAll();
+        });
+        
+        // 周次选择器
+        document.getElementById('weekSelector').addEventListener('change', (e) => {
+            if (e.target.value) {
+                this.loadWeekFile(e.target.value);
+            } else {
+                this.problems = [];
+                this.currentProblem = null;
+                document.getElementById('problemSelector').innerHTML = '<option value="">请先选择周次...</option>';
+                document.getElementById('problemSelector').disabled = true;
+                this.resetAll();
+            }
         });
         
         // 题目选择器
         document.getElementById('problemSelector').addEventListener('change', (e) => {
-            if (e.target.value) {
+            if (e.target.value !== '') {
                 this.loadProblem(e.target.value);
             }
         });

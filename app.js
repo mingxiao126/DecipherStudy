@@ -175,20 +175,17 @@ class FlashCardApp {
             const questionText = card.question || '问题未设置';
             questionEl.innerHTML = this.renderWithKaTeX(questionText);
             
-            // 更新答案（支持 LaTeX 和格式化）
+            // 更新答案（支持新旧两种格式）
             const answerEl = document.getElementById('cardAnswer');
-            const answerText = this.formatAnswer(card.answer || '答案未设置');
-            answerEl.innerHTML = this.renderWithKaTeX(answerText);
+            const answerHTML = this.formatStructuredAnswer(card.answer || '答案未设置');
+            answerEl.innerHTML = answerHTML;
+            answerEl.style.textAlign = 'left'; // 结构化答案统一左对齐
             
-            // 如果答案包含列表，调整容器样式
-            if (answerEl.querySelector('.answer-list')) {
-                answerEl.style.textAlign = 'left';
-            } else {
-                answerEl.style.textAlign = 'center';
-            }
-            
-            // 更新逻辑记忆点
-            this.updateLogicMemo(card.logic_memo);
+            // 更新逻辑记忆点（优先使用 answer.logic_memo，否则使用顶层的）
+            const logicMemo = (card.answer && typeof card.answer === 'object' && card.answer.logic_memo) 
+                ? card.answer.logic_memo 
+                : card.logic_memo;
+            this.updateLogicMemo(logicMemo);
             
             // 更新分类
             document.getElementById('cardCategory').textContent = card.category || '未分类';
@@ -391,7 +388,7 @@ class FlashCardApp {
                 }
             }
             
-            // 渲染答案中的公式（带预处理）
+            // 渲染答案中的公式（带预处理，包括结构化答案）
             if (answerEl) {
                 const answerHTML = answerEl.innerHTML;
                 if (answerHTML.includes('$') && !answerHTML.includes('katex') && !answerHTML.includes('katex-display')) {
@@ -480,7 +477,55 @@ class FlashCardApp {
         }
     }
 
-    // 格式化答案（支持加粗、列表等格式，但不影响 LaTeX）
+    // 格式化结构化答案（支持新旧两种格式）
+    formatStructuredAnswer(answer) {
+        if (!answer) return '<div class="answer-empty">答案未设置</div>';
+        
+        // 判断是新格式（对象）还是旧格式（字符串）
+        if (typeof answer === 'object' && answer !== null) {
+            return this.formatNewAnswer(answer);
+        } else {
+            // 旧格式：字符串
+            return this.formatAnswer(answer);
+        }
+    }
+
+    // 格式化新格式答案（对象结构）
+    formatNewAnswer(answerObj) {
+        let html = '<div class="structured-answer">';
+        
+        // 1. 最终答案（主要答案）
+        if (answerObj.final_answer) {
+            html += `<div class="answer-final">${this.renderWithKaTeX(this.formatText(answerObj.final_answer))}</div>`;
+        }
+        
+        // 2. 关键点列表
+        if (answerObj.key_points && Array.isArray(answerObj.key_points) && answerObj.key_points.length > 0) {
+            html += '<div class="answer-section answer-key-points">';
+            html += '<div class="answer-section-title">📌 关键要点</div>';
+            html += '<ul class="answer-points-list">';
+            answerObj.key_points.forEach(point => {
+                html += `<li class="answer-point-item">${this.renderWithKaTeX(this.formatText(point))}</li>`;
+            });
+            html += '</ul></div>';
+        }
+        
+        // 3. 测试点（标签形式）
+        if (answerObj.tested_points && Array.isArray(answerObj.tested_points) && answerObj.tested_points.length > 0) {
+            html += '<div class="answer-section answer-tested-points">';
+            html += '<div class="answer-section-title">🎯 测试要点</div>';
+            html += '<div class="answer-tags">';
+            answerObj.tested_points.forEach(point => {
+                html += `<span class="answer-tag">${this.formatText(point)}</span>`;
+            });
+            html += '</div></div>';
+        }
+        
+        html += '</div>';
+        return html;
+    }
+
+    // 格式化旧格式答案（字符串，保持向后兼容）
     formatAnswer(answer) {
         if (!answer) return '';
         
@@ -493,19 +538,13 @@ class FlashCardApp {
         formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #ef4444;">$1</strong>');
         
         // 3. 检测并格式化编号列表（格式：1. ... 2. ... 3. ...）
-        // 匹配模式：数字 + 点 + 空格 + 内容（直到下一个数字点或结尾）
         const numberedListPattern = /(\d+)\.\s+([^0-9]+?)(?=\s+\d+\.|$)/g;
         const hasNumberedList = numberedListPattern.test(formatted);
         
         if (hasNumberedList) {
-            // 重置正则表达式
             numberedListPattern.lastIndex = 0;
-            
-            // 将编号列表转换为 HTML 列表
             formatted = formatted.replace(numberedListPattern, (match, num, content) => {
                 content = content.trim();
-                
-                // 检查是否包含冒号（定义格式：术语: 定义）
                 if (content.includes(':')) {
                     const colonIndex = content.indexOf(':');
                     const term = content.substring(0, colonIndex).trim();
@@ -515,12 +554,17 @@ class FlashCardApp {
                     return `<div class="answer-list-item"><span class="answer-list-number">${num}.</span><span class="answer-list-content">${content}</span></div>`;
                 }
             });
-            
-            // 包装在列表容器中
             formatted = `<div class="answer-list">${formatted}</div>`;
         }
         
         return formatted;
+    }
+
+    // 格式化文本（处理加粗等基本格式）
+    formatText(text) {
+        if (!text) return '';
+        // 处理 Markdown 加粗
+        return text.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #ef4444;">$1</strong>');
     }
 
     // 更新关键词高亮（Signal Tags）
@@ -543,7 +587,11 @@ class FlashCardApp {
         const container = document.getElementById('logicMemo');
         
         if (logicMemo && logicMemo.trim()) {
-            container.innerHTML = this.renderWithKaTeX(logicMemo);
+            // 添加标题和内容结构
+            container.innerHTML = `
+                <div class="logic-memo-title">生活化的例子</div>
+                <div class="logic-memo-content">${this.renderWithKaTeX(this.formatText(logicMemo))}</div>
+            `;
             container.style.display = 'block';
             
             // 延迟渲染 KaTeX（确保 DOM 已更新）

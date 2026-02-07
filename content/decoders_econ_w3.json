@@ -1,95 +1,123 @@
 [
-    {
-      "id": "stat_124_week3_07",
-      "title": "Mean vs Median in Skewed Income",
-      "original_question": "A community of 10 households has annual incomes (in $10k CAD): 4.5, 5.0, 5.2, 4.8, 6.0, 5.5, 4.9, 5.1, 5.8, 150.0. Calculate the mean and median. Explain why the median is more representative.",
-      "segments": [
-        {
-          "text": "annual incomes (in $10k CAD): 4.5, ... 150.0.",
-          "has_info": true,
-          "highlight_text": "150.0",
-          "condition": "Extreme Outlier",
-          "knowledge": "Resistance (Robustness)",
-          "explanation": "A single extremely high value will inflate the mean significantly.",
-          "highlight_color": "red"
-        }
-      ],
-      "traps": [
-        {
-          "title": "The Average Fallacy",
-          "description": "Policy makers often use 'mean' to suggest high wealth, but the median better reflects the reality of a 'typical' person."
-        }
-      ],
-      "solution": [
-        {
-          "step_desc": "Calculate Mean",
-          "content": "$Mean = (4.5 + ... + 150.0) / 10 = 196.8 / 10 = 19.68$ ($196,800 CAD).",
-          "source_type": "prompt_info",
-          "source_label": "Arithmetic Calculation"
-        },
-        {
-          "step_desc": "Calculate Median",
-          "content": "Sorted: 4.5, 4.8, 4.9, 5.0, 5.1, 5.2, 5.5, 5.8, 6.0, 150.0. $Median = (5.1 + 5.2) / 2 = 5.15$ ($51,500 CAD).",
-          "source_type": "external_knowledge",
-          "source_label": "Median Calculation"
-        },
-        {
-          "step_desc": "Conclusion",
-          "content": "The mean (19.68) is higher than 9 out of 10 households. The median (5.15) correctly centers the typical household experience.",
-          "source_type": "external_knowledge",
-          "source_label": "Measure of Center Choice"
-        }
-      ]
-    },
-    {
-      "id": "stat_124_week3_09",
-      "title": "Cross-Subject Performance (Z-Scores)",
-      "original_question": "Xiao Ming scored 85 in Statistics (Mean 75, SD 10) and 80 in Economics (Mean 70, SD 4). In which subject did he perform better relative to his class?",
-      "segments": [
-        {
-          "text": "Xiao Ming scored 85 in Statistics (Mean 75, SD 10)",
-          "has_info": true,
-          "highlight_text": "85 ... Mean 75, SD 10",
-          "condition": "Stat: x=85, mu=75, sigma=10",
-          "knowledge": "Standardization",
-          "explanation": "Needed to convert raw score to relative standing (Z-score).",
-          "highlight_color": "yellow"
-        },
-        {
-          "text": "scored 80 in Economics (Mean 70, SD 4)",
-          "has_info": true,
-          "highlight_text": "80 ... Mean 70, SD 4",
-          "condition": "Econ: x=80, mu=70, sigma=4",
-          "knowledge": "Standardization",
-          "explanation": "Needed to compare across different distributions.",
-          "highlight_color": "yellow"
-        }
-      ],
-      "traps": [
-        {
-          "title": "Raw Score Illusion",
-          "description": "Do not just compare 85 vs 80. A lower raw score in a harder test (low SD) can indicate higher relative excellence."
-        }
-      ],
-      "solution": [
-        {
-          "step_desc": "Calculate Stat Z-Score",
-          "content": "$Z_{stat} = (85 - 75) / 10 = 1.0$.",
-          "source_type": "external_knowledge",
-          "source_label": "Z-Score Formula"
-        },
-        {
-          "step_desc": "Calculate Econ Z-Score",
-          "content": "$Z_{econ} = (80 - 70) / 4 = 2.5$.",
-          "source_type": "external_knowledge",
-          "source_label": "Z-Score Formula"
-        },
-        {
-          "step_desc": "Final Comparison",
-          "content": "Since $2.5 > 1.0$, Xiao Ming performed better in Economics relative to his peers.",
-          "source_type": "prompt_info",
-          "source_label": "Relational Analysis"
-        }
-      ]
-    }
-  ]
+  {
+    "id": "stat_124_week3_07",
+    "title": "Mean vs Median in Skewed Income",
+    "original_question": "A community of 10 households has annual incomes (in $10k CAD): 4.5, 5.0, 5.2, 4.8, 6.0, 5.5, 4.9, 5.1, 5.8, 150.0. Calculate the mean and median. Explain why the median is more representative.",
+    "segments": [
+      {
+        "text": "A community of 10 households has annual incomes (in $10k CAD): 4.5, 5.0, 5.2, 4.8, 6.0, 5.5, 4.9, 5.1, 5.8, 150.0.",
+        "has_info": true,
+        "highlight_text": "150.0",
+        "condition": "Extreme Outlier Detection",
+        "knowledge": "Robustness of Estimators",
+        "explanation": "The value 150.0 is significantly larger than the rest of the set, acting as an outlier that will pull the mean upward.",
+        "highlight_color": "red",
+        "is_trap": true
+      },
+      {
+        "text": "Calculate the mean and median.",
+        "has_info": true,
+        "highlight_text": "mean and median",
+        "condition": "Calculation Task",
+        "knowledge": "Measures of Center",
+        "explanation": "Comparing these two measures reveals the impact of skewness on data interpretation.",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "Explain why the median is more representative.",
+        "has_info": true,
+        "highlight_text": "median is more representative",
+        "condition": "Analytical Conclusion",
+        "knowledge": "Skewed Distributions",
+        "explanation": "In highly skewed data, the median provides a more accurate reflection of the 'typical' experience than the mean.",
+        "highlight_color": "blue"
+      }
+    ],
+    "traps": [
+      {
+        "title": "The Average Fallacy",
+        "description": "Using the arithmetic mean for skewed data often suggests a level of wealth or performance that does not exist for the majority of the sample."
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Calculate the Arithmetic Mean.",
+        "content": "Sum = 196.8. $Mean = 196.8 / 10 = 19.68$ ($196,800 CAD).",
+        "source_type": "prompt_info",
+        "source_label": "4.5, ... 150.0"
+      },
+      {
+        "step_desc": "Calculate the Median by sorting the data.",
+        "content": "Sorted: 4.5, 4.8, 4.9, 5.0, 5.1, 5.2, 5.5, 5.8, 6.0, 150.0. $Median = (5.1 + 5.2) / 2 = 5.15$ ($51,500 CAD).",
+        "source_type": "external_knowledge",
+        "source_label": "Median Calculation"
+      },
+      {
+        "step_desc": "Evaluate representativeness.",
+        "content": "The mean (19.68) is higher than 90% of the households. The median (5.15) effectively ignores the outlier's magnitude to represent the center.",
+        "source_type": "external_knowledge",
+        "source_label": "Measure of Center Choice"
+      }
+    ]
+  },
+  {
+    "id": "stat_124_week3_09",
+    "title": "Cross-Subject Performance (Z-Scores)",
+    "original_question": "Xiao Ming scored 85 in Statistics (Mean 75, SD 10) and 80 in Economics (Mean 70, SD 4). In which subject did he perform better relative to his class?",
+    "segments": [
+      {
+        "text": "Xiao Ming scored 85 in Statistics (Mean 75, SD 10)",
+        "has_info": true,
+        "highlight_text": "85 in Statistics (Mean 75, SD 10)",
+        "condition": "Variable Set A",
+        "knowledge": "Standardized Scores",
+        "explanation": "Statistics score: $x = 85$, $\\mu = 75$, $\\sigma = 10$.",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "and 80 in Economics (Mean 70, SD 4).",
+        "has_info": true,
+        "highlight_text": "80 in Economics (Mean 70, SD 4)",
+        "condition": "Variable Set B",
+        "knowledge": "Relative Standing",
+        "explanation": "Economics score: $x = 80$, $\\mu = 70$, $\\sigma = 4$.",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "In which subject did he perform better relative to his class?",
+        "has_info": true,
+        "highlight_text": "better relative to his class",
+        "condition": "Comparison Goal",
+        "knowledge": "Z-score Comparison",
+        "explanation": "Directly comparing raw scores (85 vs 80) is misleading due to different scales and variability.",
+        "highlight_color": "blue"
+      }
+    ],
+    "traps": [
+      {
+        "title": "Raw Score Illusion",
+        "description": "Avoid simply choosing the highest numerical score (85). You must account for how far that score sits from the mean relative to the spread (SD)."
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Calculate the Z-score for Statistics.",
+        "content": "$Z_{stat} = (85 - 75) / 10 = 1.0$. This score is 1 standard deviation above the mean.",
+        "source_type": "external_knowledge",
+        "source_label": "Z-Score Formula"
+      },
+      {
+        "step_desc": "Calculate the Z-score for Economics.",
+        "content": "$Z_{econ} = (80 - 70) / 4 = 2.5$. This score is 2.5 standard deviations above the mean.",
+        "source_type": "external_knowledge",
+        "source_label": "Z-Score Formula"
+      },
+      {
+        "step_desc": "Determine relative performance.",
+        "content": "Comparing $Z_{econ} = 2.5$ and $Z_{stat} = 1.0$, Xiao Ming performed significantly better in Economics relative to his peers.",
+        "source_type": "prompt_info",
+        "source_label": "85 vs 80 comparative data"
+      }
+    ]
+  }
+]

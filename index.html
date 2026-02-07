@@ -143,10 +143,10 @@
         }
 
         .card-answer {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: #f1f5f9;
             text-align: left;
-            line-height: 1.8;
+            line-height: 1.75;
             width: 100%;
             margin-bottom: 1rem;
         }
@@ -221,6 +221,124 @@
 
         .example-content {
             color: #fde68a;
+        }
+
+        /* 结构化答案样式 */
+        .structured-answer {
+            width: 100%;
+            text-align: left;
+        }
+
+        /* 最终答案 */
+        .answer-final {
+            font-size: 1.25rem; /* 稍微减小，但保持突出 */
+            font-weight: 600;
+            color: #f1f5f9;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            padding: 1rem 1.25rem;
+            background: rgba(139, 92, 246, 0.1);
+            border-left: 4px solid rgba(139, 92, 246, 0.6);
+            border-radius: 8px;
+        }
+
+        .answer-final strong {
+            color: #fbbf24;
+            font-weight: 700;
+        }
+
+        /* 答案区块 */
+        .answer-section {
+            margin: 1.25rem 0;
+        }
+
+        .answer-section-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #c4b5fd;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* 关键点列表 */
+        .answer-points-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .answer-point-item {
+            margin: 0.75rem 0;
+            padding: 0.75rem 1rem;
+            padding-left: 2.5rem;
+            background: rgba(59, 130, 246, 0.08);
+            border-left: 3px solid rgba(59, 130, 246, 0.4);
+            border-radius: 6px;
+            color: #bfdbfe;
+            font-size: 0.95rem; /* 减小字体 */
+            line-height: 1.6;
+            position: relative;
+            transition: background 0.2s ease;
+        }
+
+        .answer-point-item:hover {
+            background: rgba(59, 130, 246, 0.12);
+        }
+
+        .answer-point-item::before {
+            content: "•";
+            position: absolute;
+            left: 1rem;
+            color: #60a5fa;
+            font-size: 1.2rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .answer-point-item strong {
+            color: #93c5fd;
+            font-weight: 600;
+            font-size: 1em; /* 保持与父元素一致 */
+        }
+
+        /* 测试点标签 */
+        .answer-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .answer-tag {
+            display: inline-block;
+            padding: 0.5rem 0.875rem;
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            color: #86efac;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .answer-tag:hover {
+            background: rgba(34, 197, 94, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(34, 197, 94, 0.2);
+        }
+
+        .answer-tag strong {
+            color: #4ade80;
+            font-weight: 600;
+        }
+
+        /* 空答案提示 */
+        .answer-empty {
+            color: rgba(226, 232, 240, 0.5);
+            font-style: italic;
+            text-align: center;
+            padding: 2rem;
         }
 
         .card-category {
@@ -434,27 +552,38 @@
         .logic-memo {
             margin-top: 1.25rem;
             margin-bottom: 1rem;
-            padding: 1rem 1.25rem;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .logic-memo-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #c4b5fd;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logic-memo-title::before {
+            content: "💡";
+            font-size: 1rem;
+        }
+
+        .logic-memo-content {
+            padding: 0.875rem 1rem;
             background: rgba(59, 130, 246, 0.08);
             border-left: 3px solid rgba(59, 130, 246, 0.4);
             border-radius: 8px;
-            width: 100%;
-            max-width: 100%;
-            font-size: 0.95rem;
-            line-height: 1.75;
+            font-size: 0.9rem;
+            line-height: 1.7;
             color: #bfdbfe;
             text-align: left;
             font-style: italic;
         }
 
-        .logic-memo::before {
-            content: "💡 ";
-            margin-right: 0.5rem;
-            font-size: 1.1rem;
-            font-style: normal;
-        }
-
-        .logic-memo strong {
+        .logic-memo-content strong {
             color: #93c5fd;
             font-weight: 600;
             font-style: normal;
@@ -477,6 +606,8 @@
             padding-left: 1.5rem;
             position: relative;
             color: #cbd5e1;
+            font-style: italic; /* 添加斜体 */
+            font-size: 0.95rem; /* 稍微减小字体 */
         }
 
         .logic-step::before {

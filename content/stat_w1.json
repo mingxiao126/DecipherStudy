@@ -1,154 +1,458 @@
 [
   {
-    "question": "What are the three main **Data Collection Methods**?",
-    "answer": "1. Sampling/Survey Sampling: Surveying a sample to infer population traits. 2. Design of Experiments: Manipulating factors to establish causation (with randomization/control). 3. Observational Study: Recording data without intervention; shows association/correlation only (confounding may exist).",
+    "question": "What are the three main Data Collection Methods?",
+    "answer": {
+      "final_answer": "三种主要的数据收集方法包括：抽样调查、实验设计和观察性研究。",
+      "key_points": [
+        "抽样调查通过样本推断总体特征",
+        "实验通过随机分配和控制变量来支持因果推断"
+      ],
+      "tested_points": ["区分数据收集方法的定义与用途"],
+      "logic_memo": "就像了解一锅汤：舀一勺尝味道是抽样；刻意加盐再尝是实验；只看别人喝汤的反应是观察。"
+    },
     "category": "数据收集",
     "type": "分类题",
-    "logic_memo": "1. 抽样:像是在一锅汤里喝一勺来判断整锅咸淡。2. 实验:你为了减肥专门换了低脂餐(干预), 看体重是否下降。3. 观察:你只是看大街上健身的人是不是都比不健身的人精神(不干预), 但这不能证明是健身让人精神, 也可能是精神好的人才去健身。",
-    "signals": ["Sampling", "Experiment", "Observational"]
+    "signals": ["Sampling", "Experiment", "Observational"],
+    "steps": [
+      "Step 1: 理解抽样调查是从总体中抽取部分样本",
+      "Step 2: 理解实验包含人为干预与随机分配",
+      "Step 3: 理解观察性研究不进行任何干预"
+    ],
+    "glossary": [
+      {
+        "term": "Sampling",
+        "definition": "从总体中抽取一部分个体进行研究的方法"
+      },
+      {
+        "term": "Observational Study",
+        "definition": "不对研究对象施加干预，仅记录其自然状态的数据收集方式"
+      }
+    ],
+    "source_reference": "Introductory Statistics Textbook"
   },
   {
-    "question": "How do **Experiments** differ from **Observational Studies** regarding causation?",
-    "answer": "Only experiments can support causal conclusions because they manipulate explanatory variables and use random assignment/control to reduce confounding. Observational studies do not assign treatments, so they typically support association/correlation only and may be affected by confounding variables.",
+    "question": "How do Experiments differ from Observational Studies regarding causation?",
+    "answer": {
+      "final_answer": "只有实验可以支持因果结论，而观察性研究通常只能说明相关性。",
+      "key_points": [
+        "实验包含对解释变量的操控",
+        "观察性研究容易受到混杂变量影响"
+      ],
+      "tested_points": ["因果关系与相关关系的区分"],
+      "logic_memo": "就像想知道是不是药治好了病：医生随机给药才算实验，只是观察谁吃了药谁好了并不可靠。"
+    },
     "category": "研究方法",
     "type": "对比题",
-    "logic_memo": "如果你看到’喝咖啡的人长寿’(观察), 可能是因为喝咖啡的人通常更有钱、医疗条件更好(混杂因素)。只有通过’随机分配一组人喝, 一组人不喝’(实验), 才能排除财力干扰, 证明咖啡本身是否有用。",
-    "signals": ["Causation", "Confounding variables", "Randomization"]
+    "signals": ["Causation", "Confounding", "Randomization"],
+    "steps": [
+      "Step 1: 判断是否存在人为干预",
+      "Step 2: 判断是否使用随机分配",
+      "Step 3: 根据设计判断是否可以推断因果"
+    ],
+    "glossary": [
+      {
+        "term": "Confounding Variable",
+        "definition": "同时影响解释变量和响应变量的隐藏因素"
+      }
+    ],
+    "source_reference": "Statistics: The Art and Science of Learning from Data"
   },
   {
-    "question": "What is the difference between **Open** and **Closed Questions**?",
-    "answer": "Open questions: Respondents answer in their own words; richer detail but harder to code/analyze. Closed questions: Respondents choose from preset options (e.g., multiple choice, rating); easier to analyze but less depth and may constrain responses.",
+    "question": "What is the difference between Open and Closed Questions?",
+    "answer": {
+      "final_answer": "开放式问题允许受访者自由作答，封闭式问题提供固定选项供选择。",
+      "key_points": [
+        "开放式问题信息丰富但难以编码",
+        "封闭式问题易分析但可能限制真实想法"
+      ],
+      "tested_points": ["问卷题型选择"],
+      "logic_memo": "一个让人自由发挥写作文，一个让人勾选选择题。"
+    },
     "category": "问卷设计",
     "type": "对比题",
-    "logic_memo": "开放式:’你觉得这顿饭怎么样？’(可能得到长篇大论, 难总结)。封闭式:’请给这顿饭打1-5分’(直接出平均分, 但你不知道他为什么打低分)。",
-    "signals": ["Coding", "Preset options", "Respondent burden"]
+    "signals": ["Open", "Closed", "Coding"],
+    "steps": [
+      "Step 1: 判断是否有固定选项",
+      "Step 2: 分析数据处理难易程度"
+    ],
+    "glossary": [
+      {
+        "term": "Open-ended Question",
+        "definition": "不提供固定答案选项的问题形式"
+      }
+    ],
+    "source_reference": "Survey Methodology Handbook"
   },
   {
-    "question": "What are **Double-barrelled Questions** and why should they be avoided?",
-    "answer": "Double-barrelled questions ask two different things at once (e.g., \"Should we cut taxes and increase services?\"). They should be avoided because respondents may agree with one part but not the other, producing ambiguous and unreliable data.",
+    "question": "What are Double-barrelled Questions and why should they be avoided?",
+    "answer": {
+      "final_answer": "双管问题是在一个问题中同时询问两个不同内容，应避免因为答案含义不清。",
+      "key_points": [
+        "一个问题包含两个判断点",
+        "会导致回答结果难以解释"
+      ],
+      "tested_points": ["问卷陷阱识别"],
+      "logic_memo": "就像被问“你喜欢数学并且喜欢英语吗”，只喜欢一个的人会很纠结。"
+    },
     "category": "问卷陷阱",
     "type": "概念题",
-    "logic_memo": "例子:’你是否支持远程办公且赞成降薪？’如果我支持办公但反对降薪, 我该选Yes还是No？这会让数据变成’垃圾数据’。",
-    "signals": ["Two things at once", "Confusing"]
+    "signals": ["Double-barrelled", "Ambiguous"],
+    "steps": [
+      "Step 1: 检查问题中是否出现“并且/和”",
+      "Step 2: 判断是否实际在问两个问题"
+    ],
+    "glossary": [
+      {
+        "term": "Double-barrelled Question",
+        "definition": "在同一个问题中同时询问两个不同概念的问题"
+      }
+    ],
+    "source_reference": "Questionnaire Design Guidelines"
   },
   {
-    "question": "Define **Social Desirability Bias**.",
-    "answer": "A response bias where respondents answer in ways that make them look good or align with social norms rather than telling the truth, especially on sensitive topics.",
+    "question": "Define Social Desirability Bias.",
+    "answer": {
+      "final_answer": "社会期望偏差是指受访者为了显得符合社会规范而不如实回答问题。",
+      "key_points": [
+        "多见于敏感话题",
+        "会系统性扭曲调查结果"
+      ],
+      "tested_points": ["响应偏差类型"],
+      "logic_memo": "就像面试时人人都说自己爱学习、很守时。"
+    },
     "category": "响应误差",
     "type": "概念题",
-    "logic_memo": "当被问到’你每周洗几次澡’或’你闯过红灯吗’, 很多人会为了显得’文明’而撒谎。在面试或相亲中这种偏差最常见。",
-    "signals": ["Look good", "Social norms", "Sensitive topics"]
+    "signals": ["Bias", "Social Norms"],
+    "steps": [
+      "Step 1: 判断问题是否涉及社会评价",
+      "Step 2: 判断回答是否可能被美化"
+    ],
+    "glossary": [
+      {
+        "term": "Social Desirability Bias",
+        "definition": "为了迎合社会期待而给出的非真实回答"
+      }
+    ],
+    "source_reference": "Survey Errors and Biases"
   },
   {
-    "question": "Explain **Telescoping Error** in the context of memory.",
-    "answer": "A recall error where a respondent misremembers when an event occurred, often reporting an older event as if it happened more recently.",
+    "question": "Explain Telescoping Error in the context of memory.",
+    "answer": {
+      "final_answer": "望远镜误差是指人们把较早发生的事件错误地记成最近发生。",
+      "key_points": [
+        "属于时间记忆错误",
+        "常见于回忆调查"
+      ],
+      "tested_points": ["记忆类误差"],
+      "logic_memo": "就像觉得一年前的事好像是上个月发生的。"
+    },
     "category": "响应误差",
     "type": "概念题",
-    "logic_memo": "’望远镜效应’。你觉得那场电影是上个月看的, 其实已经是半年前了。人的记忆会自动把大事件’拉近’到眼前。",
-    "signals": ["Timing", "Misremember", "Recent"]
+    "signals": ["Memory", "Timing"],
+    "steps": [
+      "Step 1: 回忆事件发生时间",
+      "Step 2: 对比真实时间与报告时间"
+    ],
+    "glossary": [
+      {
+        "term": "Telescoping Error",
+        "definition": "对事件发生时间的系统性记忆偏移"
+      }
+    ],
+    "source_reference": "Cognitive Aspects of Survey Methodology"
   },
   {
-    "question": "What is the **Randomized Response** technique used for?",
-    "answer": "A privacy-protecting survey technique for sensitive or illegal behaviors. A random mechanism (e.g., coin flip) determines which question is answered, so the interviewer cannot know whether a \"Yes\" refers to the sensitive item, improving honesty while preserving anonymity.",
-    "category": "特殊技术",
-    "type": "应用题",
-    "logic_memo": "如果我问’你逃过税吗’, 你不敢答。但我让你先抛硬币:正面答’我是人’, 反面答’我逃过税’。我只记录Yes, 但我不知道你的Yes是因为硬币正面还是你真的逃税。这样你就敢说真话了。",
-    "signals": ["Privacy", "Sensitive behavior", "Random mechanism"]
-  },
-  {
-    "question": "What is the formula for the **Capture-Recapture** method?",
-    "answer": "The population estimate is $N = (n \\times N_2) / n_T$.",
-    "category": "特殊技术",
+    "question": "What is the formula and purpose of Capture-Recapture?",
+    "answer": {
+      "final_answer": "捕获-再捕获法用于估计总体规模，其公式为 $N = \\frac{n_1 \\times n_2}{m_2}$。",
+      "key_points": [
+        "通过标记比例反推总体数量",
+        "常用于生态与隐性人群研究"
+      ],
+      "tested_points": ["总体规模估计"],
+      "logic_memo": "就像先染红一把豆子，再看第二次抓到的红豆比例来推算总数。"
+    },
+    "category": "总体估计",
     "type": "计算题",
-    "logic_memo": "想知道湖里有多少鱼？先抓100条涂上红漆放回去(n)。过几天再抓100条(N2), 发现里面有10条带红漆(nT)。说明带红漆的占1/10, 推测总数就是1000条。",
-    "signals": ["Population size", "Marked", "Recaptured"]
+    "signals": ["Capture-Recapture", "Population"],
+    "steps": [
+      "Step 1: 第一次捕获并标记 $n_1$ 个体",
+      "Step 2: 第二次捕获 $n_2$ 个体",
+      "Step 3: 记录其中被标记的数量 $m_2$",
+      "Step 4: 使用公式 $N = \\frac{n_1 \\times n_2}{m_2}$ 计算总体"
+    ],
+    "glossary": [
+      {
+        "term": "Capture-Recapture",
+        "definition": "通过重复抽样和标记比例估计总体规模的方法"
+      }
+    ],
+    "source_reference": "Ecological Statistics Methods"
   },
   {
-    "question": "What are the core principles of **Experimental Design**?",
-    "answer": "1. Randomization: Randomly assign subjects to treatments. 2. Replication: Use enough subjects/units to reduce chance variation. 3. Blocking: Group similar units to control known nuisance variables before comparing treatments.",
+    "question": "What are the core principles of Experimental Design?",
+    "answer": {
+      "final_answer": "实验设计的三大核心原则是随机化、重复和区组。",
+      "key_points": [
+        "随机化用于减少系统性偏差",
+        "区组用于控制已知干扰变量"
+      ],
+      "tested_points": ["实验设计三原则"],
+      "logic_memo": "就像做菜测试：随机请人试吃，不能只给一个人吃，还要把口味相近的人分组比较。"
+    },
     "category": "数据收集",
     "type": "概念题",
-    "logic_memo": "1. 随机:不分亲疏, 抽签决定。2. 重复:不能只试一个人, 万一那人天赋异禀呢？3. 区组:测护肤品效果时, 先把油皮和干皮分开(Blocking), 再分别在组内对比, 防止皮肤类型干扰结果。",
-    "signals": ["Randomization", "Replication", "Blocking"]
+    "signals": ["Randomization", "Replication", "Blocking"],
+    "steps": [
+      "Step 1: 随机分配实验单位到不同处理",
+      "Step 2: 使用足够样本进行重复实验",
+      "Step 3: 将相似实验单位先分组再比较"
+    ],
+    "glossary": [
+      {
+        "term": "Blocking",
+        "definition": "在实验中先将相似个体分组以控制干扰变量的方法"
+      }
+    ],
+    "source_reference": "Introductory Statistics"
   },
   {
-    "question": "Where should **Sensitive** and **Demographic** questions be placed in a questionnaire?",
-    "answer": "Sensitive questions should generally appear after rapport/trust is built (middle or later). Demographic questions are typically placed at the end of the questionnaire.",
+    "question": "Where should Sensitive and Demographic questions be placed in a questionnaire?",
+    "answer": {
+      "final_answer": "敏感问题应放在问卷后半部分，人口统计问题通常放在最后。",
+      "key_points": [
+        "先建立信任再问敏感内容",
+        "人口统计信息不应影响作答意愿"
+      ],
+      "tested_points": ["问卷问题顺序原则"],
+      "logic_memo": "聊天也是先熟络，再聊隐私，最后才留联系方式。"
+    },
     "category": "问卷结构",
     "type": "规则题",
-    "logic_memo": "就像约会:先聊兴趣(Opening), 聊得开心了再问收入(Sensitive), 最后要个电话和住址(Demographic)。一上来就问收入, 对方可能直接离场。",
-    "signals": ["Sequencing", "Trust", "End of survey"]
+    "signals": ["Sensitive", "Demographic", "Sequencing"],
+    "steps": [
+      "Step 1: 设计轻松的开场问题",
+      "Step 2: 中后段安排敏感问题",
+      "Step 3: 结尾收集人口统计信息"
+    ],
+    "glossary": [
+      {
+        "term": "Sensitive Question",
+        "definition": "可能引起受访者不适或防御心理的问题"
+      }
+    ],
+    "source_reference": "Survey Design Best Practices"
   },
   {
-    "question": "What are the three **Types of Research Questions**?",
-    "answer": "1. Descriptive: Describe characteristics of a population (frequencies, averages, distributions). 2. Exploratory: Early-stage investigation to generate ideas/hypotheses and guide later studies. 3. Causal: Assess whether changes in one variable cause changes in another (X causes Y).",
-    "category": "Research Types",
-    "type": "Definition",
-    "logic_memo": "1. 描述性:统计班里有多少人穿白鞋(只看现状)。2. 探索性:发现大家突然都穿白鞋, 去问问是不是出了新款或某明星代言了(找方向)。3. 因果性:做个测试, 发一张白鞋优惠券, 看是否真的导致更多人买白鞋(定因果)。",
-    "signals": ["Descriptive", "Exploratory", "Causal"]
+    "question": "What are the three Types of Research Questions?",
+    "answer": {
+      "final_answer": "研究问题分为描述性、探索性和因果性三类。",
+      "key_points": [
+        "描述性关注现状",
+        "因果性关注原因与结果"
+      ],
+      "tested_points": ["研究问题分类"],
+      "logic_memo": "先看发生了什么，再猜为什么，最后验证是不是这个原因。"
+    },
+    "category": "研究设计",
+    "type": "定义题",
+    "signals": ["Descriptive", "Exploratory", "Causal"],
+    "steps": [
+      "Step 1: 判断是否仅描述现象",
+      "Step 2: 判断是否用于生成假设",
+      "Step 3: 判断是否检验因果关系"
+    ],
+    "glossary": [
+      {
+        "term": "Causal Research",
+        "definition": "用于判断一个变量是否导致另一个变量变化的研究"
+      }
+    ],
+    "source_reference": "Research Methods Textbook"
   },
   {
-    "question": "What are the four common **Pitfalls** in questionnaire question design?",
-    "answer": "1. Jargon/Abbreviations: Terms respondents may not understand. 2. Vagueness: Non-specific wording that different people interpret differently. 3. Double-barrelled Questions: Asking two things at once. 4. Leading/Loaded Questions: Wording that pushes respondents toward a particular answer.",
-    "category": "Questionnaire Design",
-    "type": "Practical Application",
-    "logic_memo": "1. 行话:问普通人’你的BMI是多少’(人家不懂)。2. 模糊:问’你经常运动吗’(’经常’是每天还是每月？)。3. 双管:’你喜欢苹果和梨吗？’(只喜欢苹果咋办？)。4. 诱导:’大家都说这款好, 你觉得呢？’(逼人说好)。",
-    "signals": ["Jargon", "Vagueness", "Double-barrelled", "Leading"]
+    "question": "What are the four common Pitfalls in questionnaire question design?",
+    "answer": {
+      "final_answer": "常见陷阱包括行话、模糊表述、双管问题和诱导性问题。",
+      "key_points": [
+        "问题措辞会直接影响数据质量",
+        "诱导性问题会系统性偏向某答案"
+      ],
+      "tested_points": ["问卷设计错误识别"],
+      "logic_memo": "问题问歪了，答案再认真也没用。"
+    },
+    "category": "问卷设计",
+    "type": "应用题",
+    "signals": ["Jargon", "Vagueness", "Leading"],
+    "steps": [
+      "Step 1: 检查是否存在专业术语",
+      "Step 2: 检查是否存在模糊词",
+      "Step 3: 判断是否引导受访者"
+    ],
+    "glossary": [
+      {
+        "term": "Leading Question",
+        "definition": "在措辞上暗示或推动某种回答的问题"
+      }
+    ],
+    "source_reference": "Questionnaire Design Manual"
   },
   {
-    "question": "What is the recommended **Sequencing** for a questionnaire?",
-    "answer": "1. Introduction: Explain purpose and confidentiality. 2. Opening questions: Easy, interesting, and applicable to all. 3. Sensitive questions: Place later after trust is established. 4. Demographic questions: Typically at the end.",
-    "category": "Questionnaire Structure",
-    "type": "Ordering",
-    "logic_memo": "就像闯关:1. 规则说明。2. 简单的新手任务。3. 困难的高级关卡(建立信任后再问)。4. 通关后登记姓名领奖(人口统计资料放最后)。",
-    "signals": ["Introduction", "Opening", "Sensitive", "Demographic"]
+    "question": "What is the recommended Sequencing for a questionnaire?",
+    "answer": {
+      "final_answer": "推荐顺序是：介绍说明、开场问题、敏感问题、人口统计问题。",
+      "key_points": [
+        "循序渐进可降低拒答率",
+        "结构清晰有助于完成问卷"
+      ],
+      "tested_points": ["问卷结构设计"],
+      "logic_memo": "像打游戏：先新手教程，再进高难度关卡。"
+    },
+    "category": "问卷结构",
+    "type": "排序题",
+    "signals": ["Introduction", "Opening", "Sensitive"],
+    "steps": [
+      "Step 1: 提供问卷目的与保密说明",
+      "Step 2: 设置简单问题作为开场",
+      "Step 3: 后期安排敏感与统计问题"
+    ],
+    "glossary": [
+      {
+        "term": "Questionnaire Sequencing",
+        "definition": "问卷中问题排列顺序的设计原则"
+      }
+    ],
+    "source_reference": "Survey Methodology"
   },
   {
-    "question": "Compare **Likert Scale** and **Thurstone Scale**.",
-    "answer": "Likert scale: Respondents rate agreement on ordered categories (commonly 5 or 7 points). Thurstone scale: Respondents endorse/reject statements that represent different positions; scoring uses predetermined scale values for the endorsed items.",
-    "category": "Measurement Scales",
-    "type": "Comparison",
-    "logic_memo": "Likert 是让你在’非常不同意’到’非常同意’里选(打星级)。Thurstone 是给你一堆观点, 你只选你认同的, 每个观点背后其实藏着老师提前算好的’分值’。",
-    "signals": ["Likert", "Thurstone", "Attitude"]
+    "question": "Compare Likert Scale and Thurstone Scale.",
+    "answer": {
+      "final_answer": "Likert 量表让受访者对同一陈述打分，Thurstone 量表让受访者选择认同的陈述并按预设权重计分。",
+      "key_points": [
+        "Likert 易实施",
+        "Thurstone 设计成本高"
+      ],
+      "tested_points": ["态度量表比较"],
+      "logic_memo": "一个是直接打分，一个是选观点再算分。"
+    },
+    "category": "测量量表",
+    "type": "对比题",
+    "signals": ["Likert", "Thurstone"],
+    "steps": [
+      "Step 1: 判断是否对同一陈述评分",
+      "Step 2: 判断分值是否由研究者预先设定"
+    ],
+    "glossary": [
+      {
+        "term": "Likert Scale",
+        "definition": "基于同意程度的等级评分量表"
+      }
+    ],
+    "source_reference": "Measurement Theory"
   },
   {
-    "question": "Explain **Social Desirability Bias**, **Recall Error**, and **Telescoping Error**.",
-    "answer": "1. Social Desirability Bias: Answering to look good or follow social norms rather than being truthful. 2. Recall Error: Forgetting events/details or misreporting them from memory. 3. Telescoping Error: Misremembering timing, often reporting older events as more recent.",
-    "category": "Response Errors",
-    "type": "Error Analysis",
-    "logic_memo": "1. 社交期待:为了显得博学说天天看书。2. 回忆误差:记不清上周三中午吃了什么。3. 望远镜效应:觉得那件事就在’前阵子’, 其实已经过了一年。",
-    "signals": ["Social Desirability", "Recall", "Telescoping"]
+    "question": "Explain the Cognitive Process of responding to a question.",
+    "answer": {
+      "final_answer": "作答的认知过程包括理解、提取、判断和报告四个阶段。",
+      "key_points": [
+        "任何阶段出错都会影响答案",
+        "是调查误差的重要来源"
+      ],
+      "tested_points": ["认知作答模型"],
+      "logic_memo": "大脑像流水线，每一步都不能出错。"
+    },
+    "category": "认知过程",
+    "type": "流程题",
+    "signals": ["Understanding", "Retrieval", "Judgment"],
+    "steps": [
+      "Step 1: 理解问题含义",
+      "Step 2: 从记忆中提取信息",
+      "Step 3: 形成判断并作答"
+    ],
+    "glossary": [
+      {
+        "term": "Retrieval",
+        "definition": "从长期记忆中提取相关信息的过程"
+      }
+    ],
+    "source_reference": "Cognitive Survey Methodology"
   },
   {
-    "question": "What are the four stages of the **Cognitive Process** of responding to a question?",
-    "answer": "1. Understanding: Comprehend the question. 2. Retrieval: Pull relevant information from memory. 3. Judgment: Evaluate and form an answer. 4. Reporting: Communicate the answer to the researcher.",
-    "category": "Cognitive Process",
-    "type": "Process Flow",
-    "logic_memo": "大脑的流水线:1. 听懂问题。2. 翻找大脑里的记忆档案。3. 把搜到的资料整理成逻辑。4. 用嘴说出来。任何一个环节出错, 回答就会出错。",
-    "signals": ["Understanding", "Retrieval", "Judging", "Communicating"]
+    "question": "Explain Social Desirability Bias, Recall Error, and Telescoping Error.",
+    "answer": {
+      "final_answer": "三者分别是社会期望导致的美化回答、记忆遗漏或错误，以及时间记忆前移。",
+      "key_points": [
+        "都属于响应误差",
+        "会系统性影响数据真实性"
+      ],
+      "tested_points": ["响应误差分类"],
+      "logic_memo": "不是记不清，就是不好意思说真话。"
+    },
+    "category": "响应误差",
+    "type": "分析题",
+    "signals": ["Bias", "Recall", "Telescoping"],
+    "steps": [
+      "Step 1: 判断是否因社会压力而失真",
+      "Step 2: 判断是否因记忆问题而失真"
+    ],
+    "glossary": [
+      {
+        "term": "Recall Error",
+        "definition": "由于记忆不完整导致的回答错误"
+      }
+    ],
+    "source_reference": "Survey Error Framework"
   },
   {
-    "question": "How does the **Randomized Response** technique protect respondent privacy?",
-    "answer": "A random mechanism determines whether the respondent answers the sensitive question or a harmless one, while the interviewer records only \"Yes/No\". Because the interviewer cannot know which question was answered, individual privacy is protected while allowing population-level estimation.",
-    "category": "Survey Techniques",
-    "type": "Methodology",
-    "logic_memo": "就像’真心话大冒险’加了硬币护身:收卷人不知道你回答的是’我是人’还是’我逃过税’, 即便你答了’是’, 他也无法确定你的秘密, 这给了受访者’安全感’。",
-    "signals": ["Randomized Response", "Anonymity", "Sensitive Question"]
+    "question": "How does the Randomized Response technique protect respondent privacy?",
+    "answer": {
+      "final_answer": "通过随机机制决定回答内容，使调查者无法判断个体真实情况，从而保护隐私。",
+      "key_points": [
+        "调查者无法反推个人答案",
+        "提升敏感问题的真实性"
+      ],
+      "tested_points": ["隐私保护技术"],
+      "logic_memo": "有硬币做挡箭牌，说真话也不怕。"
+    },
+    "category": "调查技术",
+    "type": "方法题",
+    "signals": ["Randomized Response", "Privacy"],
+    "steps": [
+      "Step 1: 引入随机装置",
+      "Step 2: 根据随机结果决定回答内容"
+    ],
+    "glossary": [
+      {
+        "term": "Randomized Response",
+        "definition": "用于保护受访者隐私的随机回答技术"
+      }
+    ],
+    "source_reference": "Advanced Survey Techniques"
   },
   {
-    "question": "What is the formula and purpose of **Capture-Recapture**?",
-    "answer": "Purpose: Estimate the total population size. Formula: $N = (n \\times N_2) / n_T$, where $n$ is the number marked in the first sample, $N_2$ is the size of the second sample, and $n_T$ is the number of marked individuals found in the second sample.",
-    "category": "Population Estimation",
-    "type": "Calculation",
-    "logic_memo": "想象一袋黑色豆子:先抓一把染红(n)放回去摇匀。再抓一把(N2), 看里面有几颗红的(nT)。通过红豆在样本里的占比来反推全袋子豆子的总数。",
-    "signals": ["Capture-Recapture", "Population Size", "Marking"]
-  },
-  {
-    "question": "Contrast **Open-ended** and **Closed-ended** questions.",
-    "answer": "Open-ended questions allow free-form answers in the respondent's own words; they provide richer information but are harder to code and analyze. Closed-ended questions provide fixed response options; they are quicker and easier to analyze but may limit nuance and force choices that do not perfectly fit the respondent.",
-    "category": "Question Types",
-    "type": "Comparison",
-    "logic_memo": "开放式:’你为什么喜欢他？’(答案五花八门, 难统计)。封闭式:’1.帅 2.有钱 3.温柔’(好统计, 但可能他喜欢的原因根本没在选项里)。",
-    "signals": ["Open-ended", "Closed-ended", "Coding", "Response Burden"]
+    "question": "Contrast Open-ended and Closed-ended questions.",
+    "answer": {
+      "final_answer": "开放式问题信息丰富但难分析，封闭式问题易统计但限制表达。",
+      "key_points": [
+        "两者在信息深度与分析成本上权衡",
+        "选择取决于研究目的"
+      ],
+      "tested_points": ["题型比较"],
+      "logic_memo": "一个重内容，一个重效率。"
+    },
+    "category": "问题类型",
+    "type": "对比题",
+    "signals": ["Open-ended", "Closed-ended"],
+    "steps": [
+      "Step 1: 判断是否允许自由作答",
+      "Step 2: 判断分析方式"
+    ],
+    "glossary": [
+      {
+        "term": "Closed-ended Question",
+        "definition": "提供固定答案选项的问题"
+      }
+    ],
+    "source_reference": "Survey Question Design"
   }
 ]

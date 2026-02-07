@@ -5,51 +5,51 @@
     "original_question": "A researcher is constructing a 95% confidence interval for a proportion. With an initial sample size of $n = 400$, the Margin of Error (ME) was 0.05. The researcher wants to cut the ME in half (to 0.025) to make the estimate more precise. Her assistant suggests that they just need to double the sample size to $n = 800$. Evaluate the assistant's suggestion.",
     "segments": [
       {
-        "text": "With an initial sample size of $n = 400$, the Margin of Error (ME) was 0.05. ",
+        "text": "With an initial sample size of $n = 400$, the Margin of Error (ME) was 0.05.",
         "has_info": true,
         "highlight_text": "$n = 400$, the Margin of Error (ME) was 0.05",
-        "condition": "Initial: $n = 400$, ME = 0.05",
+        "condition": "Initial sample size and margin of error",
         "knowledge": "Standard Error & Margin of Error",
-        "explanation": "在比例置信区间中，ME 通常等于 $z^* \\times SE$，而 $SE$ 与 $n$ 有根号关系。",
+        "explanation": "在比例置信区间中，ME 与 $1/\\sqrt{n}$ 成反比。",
         "highlight_color": "green"
       },
       {
-        "text": "The researcher wants to cut the ME in half (to 0.025) to make the estimate more precise. ",
+        "text": "The researcher wants to cut the ME in half (to 0.025) to make the estimate more precise.",
         "has_info": true,
         "highlight_text": "cut the ME in half (to 0.025)",
-        "condition": "Target ME = 0.025",
+        "condition": "Target margin of error",
         "knowledge": "Margin of Error scaling",
-        "explanation": "要让 ME 变小，核心是让 $SE$ 变小，而 $SE$ 取决于样本量。",
+        "explanation": "要将 ME 减半，需要显著增加样本量。",
         "highlight_color": "yellow"
       },
       {
-        "text": "Her assistant suggests that they just need to double the sample size to $n = 800$. ",
+        "text": "Her assistant suggests that they just need to double the sample size to $n = 800$.",
         "has_info": true,
         "highlight_text": "double the sample size to $n = 800$",
-        "condition": "Assistant proposes $n \\to 2n$",
-        "knowledge": "Sample Size vs. Precision",
-        "explanation": "这是常见误区：由于 $n$ 在根号下，ME 不会随样本量线性变化。",
+        "condition": "Incorrect sample size scaling",
+        "knowledge": "Sample Size vs Precision",
+        "explanation": "由于平方根关系，样本量翻倍不足以让 ME 减半。",
         "highlight_color": "red"
       }
     ],
     "traps": [
       {
         "title": "The Square Root Relationship",
-        "description": "误差范围要减半，样本量需要扩大为原来的 4 倍，因为 $SE \\propto \\frac{1}{\\sqrt{n}}$。"
+        "description": "误差范围与 $1/\\sqrt{n}$ 成比例，不能线性缩放。"
       }
     ],
     "solution": [
       {
-        "step_desc": "应用根号关系",
-        "content": "对比例置信区间，$SE = \\sqrt{\\frac{p(1-p)}{n}}$，因此 $SE$（进而 ME）与 $\\frac{1}{\\sqrt{n}}$ 成正比。",
+        "step_desc": "Apply Square Root Rule",
+        "content": "因为 $ME \\propto 1/\\sqrt{n}$，要让 ME 减半，需要 $\\sqrt{n}$ 翻倍。",
         "source_type": "external_knowledge",
-        "source_label": "外部核心知识：比例的标准误公式"
+        "source_label": "比例置信区间误差规律"
       },
       {
-        "step_desc": "计算所需样本倍数",
-        "content": "若要 ME 减半，则需要 $\\sqrt{n}$ 变为原来的 2 倍，因此 $n$ 必须变为原来的 $2^2 = 4$ 倍：$400 \\to 1600$。助手的“翻倍到 800”不够。",
+        "step_desc": "Evaluate Assistant's Suggestion",
+        "content": "样本量需从 400 增加到 1600。将样本量翻倍到 800 不足以达到目标。",
         "source_type": "external_knowledge",
-        "source_label": "外部核心知识：缩放规律（根号）"
+        "source_label": "样本量缩放结论"
       }
     ]
   },
@@ -59,42 +59,42 @@
     "original_question": "A poll calculates a 95% confidence interval for the proportion of voters to be (0.48, 0.54). A report states: \"There is a 95% probability that the true proportion of voters is between 48% and 54%.\" Is this statement correct based on statistical principles?",
     "segments": [
       {
-        "text": "A poll calculates a 95% confidence interval for the proportion of voters to be (0.48, 0.54). ",
+        "text": "A poll calculates a 95% confidence interval for the proportion of voters to be (0.48, 0.54).",
         "has_info": true,
-        "highlight_text": "95% confidence interval ... (0.48, 0.54)",
-        "condition": "CI = (0.48, 0.54)",
-        "knowledge": "Confidence Interval Interpretation",
-        "explanation": "这是一个对总体比例参数的区间估计结果，区间端点来自样本与方法。",
+        "highlight_text": "a 95% confidence interval for the proportion of voters to be (0.48, 0.54)",
+        "condition": "Confidence interval result",
+        "knowledge": "Confidence Interval",
+        "explanation": "这是基于样本构造的比例置信区间。",
         "highlight_color": "green"
       },
       {
-        "text": "A report states: \"There is a 95% probability that the true proportion of voters is between 48% and 54%.\" ",
+        "text": "A report states: \"There is a 95% probability that the true proportion of voters is between 48% and 54%.\"",
         "has_info": true,
-        "highlight_text": "95% probability that the true proportion ... is between",
-        "condition": "Incorrect probability claim about a fixed parameter",
-        "knowledge": "Confidence Level Meaning",
-        "explanation": "经典误解：参数是固定常数，不能说“落在该区间的概率是 95%”。",
+        "highlight_text": "There is a 95% probability that the true proportion of voters is between 48% and 54%",
+        "condition": "Incorrect probability interpretation",
+        "knowledge": "CI Interpretation",
+        "explanation": "参数是固定的，不能赋予单一区间概率。",
         "highlight_color": "red"
       }
     ],
     "traps": [
       {
         "title": "The Probability Misconception",
-        "description": "置信度描述的是重复抽样下“构造出的区间覆盖真参数”的长期比例，而不是单个已算出的区间包含真值的概率。"
+        "description": "95% 描述的是方法的长期表现，而不是该区间本身的概率。"
       }
     ],
     "solution": [
       {
-        "step_desc": "指出表述错误点",
-        "content": "总体比例参数是固定的（要么在区间内，要么不在），因此对单次区间不能赋予 95% 的概率意义。",
+        "step_desc": "Identify the Error",
+        "content": "总体参数是固定值，不能说其以 95% 的概率落在某一区间内。",
         "source_type": "external_knowledge",
-        "source_label": "外部核心知识：参数固定，概率描述过程"
+        "source_label": "置信区间概念"
       },
       {
-        "step_desc": "给出正确解释",
-        "content": "正确表述：如果重复进行抽样并用同样方法构造置信区间，那么这些区间中约 95% 会包含真实比例参数。",
+        "step_desc": "Provide Correct Interpretation",
+        "content": "正确说法是：如果重复抽样并构造区间，约 95% 的区间会包含真实比例。",
         "source_type": "external_knowledge",
-        "source_label": "外部核心知识：95% 置信度的定义"
+        "source_label": "95% 置信度定义"
       }
     ]
   },
@@ -104,51 +104,51 @@
     "original_question": "A researcher tests a new drug. $H_0$ is that the drug has no effect. The resulting $Z$ statistic is 1.20. Since $|1.20| < 1.96$, the researcher concludes: \"We have proven that the drug has absolutely no effect ($H_0$ is true).\" Evaluate this conclusion.",
     "segments": [
       {
-        "text": "$H_0$ is that the drug has no effect. ",
+        "text": "$H_0$ is that the drug has no effect.",
         "has_info": true,
         "highlight_text": "$H_0$ is that the drug has no effect",
-        "condition": "Null Hypothesis $H_0$",
-        "knowledge": "Hypothesis Testing - $H_0$",
-        "explanation": "$H_0$ 通常表示现状/无效应/无差异等基准假设。",
+        "condition": "Null hypothesis",
+        "knowledge": "Hypothesis Testing",
+        "explanation": "$H_0$ 表示无效应的基准假设。",
         "highlight_color": "green"
       },
       {
-        "text": "The resulting $Z$ statistic is 1.20. Since $|1.20| < 1.96$, the researcher concludes... ",
+        "text": "The resulting $Z$ statistic is 1.20. Since $|1.20| < 1.96$",
         "has_info": true,
         "highlight_text": "$|1.20| < 1.96$",
-        "condition": "$|Z| < 1.96$",
+        "condition": "Fail to reject condition",
         "knowledge": "Decision Rule",
-        "explanation": "若采用 5% 显著性水平的双侧检验，$|Z| < 1.96$ 通常对应“不拒绝 $H_0$”。",
+        "explanation": "在常见 5% 双侧检验中，对应不拒绝 $H_0$。",
         "highlight_color": "yellow"
       },
       {
-        "text": "\"We have proven that the drug has absolutely no effect ($H_0$ is true).\" ",
+        "text": "We have proven that the drug has absolutely no effect ($H_0$ is true).",
         "has_info": true,
         "highlight_text": "proven that the drug has absolutely no effect ($H_0$ is true)",
-        "condition": "Misinterpretation of 'Fail to Reject'",
-        "knowledge": "Interpretation of Fail to Reject",
-        "explanation": "不拒绝 $H_0$ 只能说明证据不足，而不是“证明 $H_0$ 为真”。",
+        "condition": "Incorrect conclusion",
+        "knowledge": "Interpretation Error",
+        "explanation": "不拒绝 $H_0$ 不等于证明 $H_0$ 为真。",
         "highlight_color": "red"
       }
     ],
     "traps": [
       {
-        "title": "The 'Acceptance' Trap",
-        "description": "统计学中不说“接受 $H_0$”或证明其正确，只能说“未能拒绝 $H_0$”（证据不足）。"
+        "title": "The Acceptance Trap",
+        "description": "统计检验中不存在“证明 $H_0$ 为真”，只有证据不足。"
       }
     ],
     "solution": [
       {
-        "step_desc": "应用决策逻辑",
-        "content": "由于 $|Z| = 1.20 < 1.96$，统计决策应为 Fail to reject $H_0$（在该显著性水平下证据不足）。",
+        "step_desc": "Apply Decision Rule",
+        "content": "因为 $|Z| < 1.96$，结论应为未能拒绝 $H_0$。",
         "source_type": "prompt_info",
-        "source_label": "来自题干：给定 Z 值与阈值比较"
+        "source_label": "Z 值比较"
       },
       {
-        "step_desc": "修正结论表达",
-        "content": "正确表述应为：目前样本证据不足以支持“药物有效”，但也不能据此证明“药物绝对无效”。",
+        "step_desc": "Correct the Interpretation",
+        "content": "只能说证据不足以证明药物有效，而不能证明药物无效。",
         "source_type": "external_knowledge",
-        "source_label": "外部核心知识：统计推断语言规范"
+        "source_label": "统计推断语言规范"
       }
     ]
   },
@@ -158,42 +158,43 @@
     "original_question": "A small dataset $\\{2, 4, 6\\}$ is used to estimate the standard deviation of a population. A student calculates the variance by dividing the sum of squared deviations by $n = 3$. The professor says this will underestimate the true population spread. Why?",
     "segments": [
       {
-        "text": "A small dataset $\\{2, 4, 6\\}$ is used to estimate the standard deviation of a population. ",
+        "text": "A small dataset $\\{2, 4, 6\\}$ is used to estimate the standard deviation of a population.",
         "has_info": true,
         "highlight_text": "estimate the standard deviation of a population",
-        "condition": "Sample used for inference about population spread",
+        "condition": "Sample estimates population spread",
         "knowledge": "Sample Standard Deviation",
-        "explanation": "用样本去估计总体离散程度时，需要使用无偏（或更合理）的估计方式来避免系统性低估。",
+        "explanation": "样本用于估计总体离散程度。",
         "highlight_color": "green"
       },
       {
-        "text": "A student calculates the variance by dividing the sum of squared deviations by $n = 3$. ",
+        "text": "A student calculates the variance by dividing the sum of squared deviations by $n = 3$.",
         "has_info": true,
         "highlight_text": "dividing the sum of squared deviations by $n = 3$",
-        "condition": "Denominator uses $n$ instead of $n-1$",
-        "knowledge": "Bessel's Correction (n-1)",
-        "explanation": "样本方差用 $n$ 作分母会偏小；常用 $n-1$ 进行贝塞尔校正以减小低估。",
-        "highlight_color": "red"
+        "condition": "Incorrect denominator",
+        "knowledge": "Bessel's Correction",
+        "explanation": "使用 $n$ 会系统性低估总体方差。",
+        "highlight_color": "yellow"
       }
     ],
     "traps": [
       {
         "title": "The n vs n-1 Trap",
-        "description": "计算样本方差/标准差用于估计总体时，分母通常用 $n-1$ 而不是 $n$，否则会系统性低估离散程度。"
+        "description": "样本方差估计总体时应使用 $n-1$。",
+        "highlight_color": "red"
       }
     ],
     "solution": [
       {
-        "step_desc": "指出公式选择错误",
-        "content": "当用样本估计总体方差时，常用 $s^2 = \\frac{\\sum (x_i-\\bar{x})^2}{n-1}$ 而不是除以 $n$。",
+        "step_desc": "Identify the Issue",
+        "content": "用 $n$ 作分母会低估总体方差。",
         "source_type": "external_knowledge",
-        "source_label": "外部核心知识：样本方差公式"
+        "source_label": "样本方差定义"
       },
       {
-        "step_desc": "解释为什么会低估",
-        "content": "样本均值 $\\bar{x}$ 是由样本本身计算出来的，会让偏差平方和相对“更小”；用 $n-1$ 是为了补偿这种低估（贝塞尔校正）。",
+        "step_desc": "Explain the Correction",
+        "content": "使用 $n-1$（贝塞尔校正）可以补偿样本均值带来的低估。",
         "source_type": "external_knowledge",
-        "source_label": "外部核心知识：Bessel's correction 原理"
+        "source_label": "Bessel 校正原理"
       }
     ]
   }

@@ -1,4 +1,8 @@
-// 难题拆解器主逻辑（重构版 - 严格三态逻辑）
+/**
+ * 难题拆解器主逻辑（严格三态逻辑：点击逐行显示 + 暂停同步）
+ * JSON 格式与交互流程见：docs/Decipher-JSON-转换规范.md
+ * 类型与校验见：decoder-schema.js
+ */
 class LogicDecoder {
     constructor() {
         this.topics = [];  // 主题列表
@@ -105,9 +109,11 @@ class LogicDecoder {
             if (!response.ok) throw new Error('无法加载周次文件');
             
             const data = await response.json();
-            // 支持单个题目对象或题目数组
-            this.problems = Array.isArray(data) ? data : [data];
-            
+            // 规范：统一为 Array<Problem>，兼容单题对象
+            this.problems = (typeof window.normalizeDecoderProblems === 'function')
+                ? window.normalizeDecoderProblems(data)
+                : (Array.isArray(data) ? data : [data]);
+
             console.log(`加载了 ${this.problems.length} 道题目`);
             
             // 填充题目选择器
@@ -133,6 +139,11 @@ class LogicDecoder {
         }
         
         this.currentProblem = this.problems[index];
+        // 可选：开发时校验题目符合 Decipher 规范
+        if (typeof window.validateDecoderProblem === 'function') {
+            const { valid, errors } = window.validateDecoderProblem(this.currentProblem);
+            if (!valid) console.warn('题目校验未通过:', errors);
+        }
         this.currentIndex = 0;
         this.isPausedForSync = false;
         this.highlightedSegments = [];

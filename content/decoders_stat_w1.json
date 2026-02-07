@@ -5,7 +5,7 @@
     "original_question": "In a competitive midterm exam for STAT 124, the class average score was 72 points with a standard deviation of 8 points. A student named Alex received his result and found his Z-score was $Z = 2.0$. Alex's friend, Jordan, received a Z-score of $Z = -1.59$. Alex claims that since his Z-score is 2.0, he scored exactly 2 points higher than the average. Meanwhile, the professor notes that Jordan's score is considered \"unusual\" because it falls below a certain threshold. Evaluate Alex's claim and explain the meaning of Jordan's score.",
     "segments": [
       {
-        "text": "In a competitive midterm exam for STAT 124, the class average score was 72 points with a standard deviation of 8 points. ",
+        "text": "In a competitive midterm exam for STAT 124, the class average score was 72 points with a standard deviation of 8 points.",
         "has_info": true,
         "highlight_text": "average score was 72 points with a standard deviation of 8 points",
         "condition": "Mean = 72, SD = 8",
@@ -14,66 +14,66 @@
         "highlight_color": "green"
       },
       {
-        "text": "A student named Alex received his result and found his Z-score was $Z = 2.0$. ",
+        "text": "A student named Alex received his result and found his Z-score was $Z = 2.0$.",
         "has_info": true,
         "highlight_text": "$Z = 2.0$",
-        "condition": "Alex's Z = 2.0",
+        "condition": "Alex's Z-score",
         "knowledge": "Z-score (Standard Scale)",
-        "explanation": "Z 的本质是一个“标准刻度”，告诉我们数值偏离中心点（均值）多少个标准差。",
+        "explanation": "Z 分数表示该成绩高于或低于均值多少个标准差。",
         "highlight_color": "yellow"
       },
       {
-        "text": "Alex claims that since his Z-score is 2.0, he scored exactly 2 points higher than the average. ",
+        "text": "Alex claims that since his Z-score is 2.0, he scored exactly 2 points higher than the average.",
         "has_info": true,
-        "highlight_text": "scored exactly 2 points higher",
-        "condition": "Misinterpretation of Z-score units",
-        "knowledge": "Z-score Definition",
-        "explanation": "这是典型错误。$Z = 2.0$ 意味着比平均水平高出 2 个“标准差”，而不是 2 分。",
+        "highlight_text": "scored exactly 2 points higher than the average",
+        "condition": "Incorrect unit interpretation",
+        "knowledge": "Z-score Meaning",
+        "explanation": "Z 分数的单位是“标准差”，不是原始分数单位。",
         "highlight_color": "red"
       },
       {
-        "text": "Alex's friend, Jordan, received a Z-score of $Z = -1.59$. ",
+        "text": "Alex's friend, Jordan, received a Z-score of $Z = -1.59$.",
         "has_info": true,
         "highlight_text": "$Z = -1.59$",
-        "condition": "Jordan's Z = -1.59",
+        "condition": "Jordan's Z-score",
         "knowledge": "Z-score Interpretation",
-        "explanation": "负值意味着数值比平均水平低 1.59 个标准差。",
+        "explanation": "负的 Z 分数表示成绩低于平均水平。",
         "highlight_color": "yellow"
       },
       {
-        "text": "Meanwhile, the professor notes that Jordan's score is considered \"unusual\" because it falls below a certain threshold. ",
+        "text": "Meanwhile, the professor notes that Jordan's score is considered \"unusual\" because it falls below a certain threshold.",
         "has_info": true,
         "highlight_text": "considered \"unusual\"",
-        "condition": "Unusual threshold concept",
+        "condition": "Unusual value concept",
         "knowledge": "Unusual Values (Z-score rule)",
-        "explanation": "在标准化刻度下，通常用 $|Z| \\ge 2$（或接近 2）作为“异常/不寻常”的经验阈值来识别极端值。",
+        "explanation": "在实践中，接近或低于 −1.5 到 −2 的 Z 分数常被视为相对不寻常。",
         "highlight_color": "blue"
       }
     ],
     "traps": [
       {
         "title": "The Raw Units Trap",
-        "description": "学生常将 Z 分数（标准差单位）误认为原始数据单位。$Z = 2.0$ 代表高出 2 个标准差，而非 2 分。"
+        "description": "Z 分数表示偏离均值的标准差倍数，而不是原始分数的增减。"
       }
     ],
     "solution": [
       {
-        "step_desc": "识别 Z 分数本质",
-        "content": "Z 衡量的是偏离均值的标准差倍数：$Z = \\frac{x-\\mu}{\\sigma}$。",
+        "step_desc": "Clarify the Meaning of Z-score",
+        "content": "Z 分数定义为 $Z = \\frac{x-\\mu}{\\sigma}$，表示观测值距离均值多少个标准差。",
         "source_type": "external_knowledge",
         "source_label": "外部核心知识：Z-score 定义"
       },
       {
-        "step_desc": "纠正 Alex 的错误并计算原始分数",
-        "content": "若 $Z = 2.0$，则 $x = \\mu + Z\\sigma = 72 + 2 \\times 8 = 88$。Alex 不是高 2 分，而是高 16 分。",
+        "step_desc": "Evaluate Alex's Claim",
+        "content": "Alex 的 $Z = 2.0$ 表示他比平均水平高 $2 \\times 8 = 16$ 分，而不是高 2 分，因此他的说法是错误的。",
         "source_type": "prompt_info",
-        "source_label": "代入题干已知：Mean=72, SD=8, Z=2.0"
+        "source_label": "代入题干已知：Mean=72, SD=8"
       },
       {
-        "step_desc": "解释 Jordan 的分数含义",
-        "content": "Jordan 的 $Z = -1.59$ 表示他比平均分低 $1.59$ 个标准差：$x = 72 + (-1.59)\\times 8 = 59.28$（约 59.3 分）。是否“不寻常”取决于课程采用的阈值规则。",
+        "step_desc": "Interpret Jordan's Score",
+        "content": "Jordan 的 $Z = -1.59$ 表示他的成绩低于平均水平 1.59 个标准差，属于相对偏低的成绩，因此可能被视为“不寻常”。",
         "source_type": "prompt_info",
-        "source_label": "代入题干已知：Mean=72, SD=8, Z=-1.59"
+        "source_label": "Z 分数含义解释"
       }
     ]
   },
@@ -83,75 +83,75 @@
     "original_question": "A student group wants to investigate the satisfaction level of all 25,000 students at a large university regarding the campus cafe. Due to limited time, they randomly selected 500 students who were dining at the cafe between 12:00 PM and 1:00 PM on a Tuesday. The group calculated an average satisfaction score of 7.5. They used the symbol $\\mu = 7.5$ in their report and concluded that 75% of all students are satisfied. Identify the errors.",
     "segments": [
       {
-        "text": "A student group wants to investigate the satisfaction level of all 25,000 students at a large university regarding the campus cafe. ",
+        "text": "A student group wants to investigate the satisfaction level of all 25,000 students at a large university regarding the campus cafe.",
         "has_info": true,
         "highlight_text": "all 25,000 students",
-        "condition": "Population (N) = 25,000",
-        "knowledge": "Population vs. Sample",
-        "explanation": "总体（Population）是你真正关心的所有对象，这里是全校 25,000 名学生。",
+        "condition": "Population definition",
+        "knowledge": "Population vs Sample",
+        "explanation": "总体是研究中关注的全部对象。",
         "highlight_color": "green"
       },
       {
-        "text": "Due to limited time, they randomly selected 500 students who were dining at the cafe between 12:00 PM and 1:00 PM on a Tuesday. ",
+        "text": "Due to limited time, they randomly selected 500 students who were dining at the cafe between 12:00 PM and 1:00 PM on a Tuesday.",
         "has_info": true,
         "highlight_text": "500 students who were dining at the cafe between 12:00 PM and 1:00 PM on a Tuesday",
-        "condition": "Sample (n) = 500 from a restricted time/location",
+        "condition": "Biased sampling frame",
         "knowledge": "Selection Bias",
-        "explanation": "即使在该时间段内是随机抽取，也只覆盖“周二中午在咖啡馆就餐的人”，无法代表所有学生，存在覆盖不足/选择偏差风险。",
+        "explanation": "该样本仅覆盖特定时间和地点的学生，不能代表所有学生。",
         "highlight_color": "red"
       },
       {
-        "text": "The group calculated an average satisfaction score of 7.5. ",
+        "text": "The group calculated an average satisfaction score of 7.5.",
         "has_info": true,
         "highlight_text": "average satisfaction score of 7.5",
-        "condition": "Sample mean = 7.5",
-        "knowledge": "Statistic (Sample Summary)",
-        "explanation": "描述样本得到的数值称为统计量（statistic），不是总体参数。",
+        "condition": "Sample mean",
+        "knowledge": "Statistic",
+        "explanation": "这是从样本中计算得到的统计量。",
         "highlight_color": "yellow"
       },
       {
-        "text": "They used the symbol $\\mu = 7.5$ in their final report to describe this result. ",
+        "text": "They used the symbol $\\mu = 7.5$ in their report.",
         "has_info": true,
         "highlight_text": "symbol $\\mu = 7.5$",
-        "condition": "Notation Error: using $\\mu$ for a sample value",
-        "knowledge": "Parameter vs. Statistic Notation",
-        "explanation": "$\\mu$ 表示总体均值参数；样本均值应使用如 $\\bar{x}$ 之类的统计量符号。",
+        "condition": "Incorrect notation",
+        "knowledge": "Parameter vs Statistic Notation",
+        "explanation": "$\\mu$ 表示总体均值，不应用于样本结果。",
         "highlight_color": "red"
       },
       {
-        "text": "They concluded that 75% of all students are satisfied. ",
+        "text": "They concluded that 75% of all students are satisfied.",
         "has_info": true,
         "highlight_text": "75% of all students are satisfied",
-        "condition": "Unsupported inference from mean to proportion",
-        "knowledge": "Scope of Inference / Wrong Measure",
-        "explanation": "题干给的是“平均满意度 7.5”，却推断成“75% 满意”的比例结论，属于指标混用与过度推断。",
+        "condition": "Invalid inference",
+        "knowledge": "Incorrect inference from mean to proportion",
+        "explanation": "平均值不能直接转换为满意比例。",
         "highlight_color": "blue"
       }
     ],
     "traps": [
       {
         "title": "The Symbol Trap",
-        "description": "希腊字母（如 $\\mu$, $\\sigma$）代表总体参数，样本统计量通常用如 $\\bar{x}$、$s$ 表示。"
+        "description": "总体参数与样本统计量使用不同的符号表示。"
       }
     ],
     "solution": [
       {
-        "step_desc": "识别总体与样本",
-        "content": "总体是全校 25,000 名学生；样本是“周二 12:00-1:00 在咖啡馆就餐的 500 人”。样本框与总体不一致会引入选择偏差。",
+        "step_desc": "Identify Sampling Issue",
+        "content": "样本仅来自特定时间在咖啡馆就餐的学生，存在选择偏差。",
         "source_type": "prompt_info",
-        "source_label": "来自题干定义：总体/抽样方式"
+        "source_label": "来自题干抽样描述"
       },
       {
-        "step_desc": "修正符号表达",
-        "content": "7.5 是样本均值（统计量），不应写成 $\\mu = 7.5$；应使用如 $\\bar{x} = 7.5$。",
+        "step_desc": "Correct the Notation",
+        "content": "7.5 是样本均值，应表示为 $\\bar{x} = 7.5$，而不是 $\\mu = 7.5$。",
         "source_type": "external_knowledge",
-        "source_label": "外部核心知识：参数 vs 统计量符号"
+        "source_label": "统计符号规范"
       },
       {
-        "step_desc": "指出结论推断错误",
-        "content": "从“平均满意度 7.5”不能直接推出“75% 满意”。比例结论需要对“满意/不满意”二分类定义并计算样本比例。",
+        "step_desc": "Explain the Inference Error",
+        "content": "从平均满意度不能推出满意比例，比例结论需要二分类数据。",
         "source_type": "external_knowledge",
-        "source_label": "外部核心知识：指标一致性与推断范围"
+        "source_label": "推断范围与指标一致性"
       }
     ]
   }

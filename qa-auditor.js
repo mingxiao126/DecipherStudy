@@ -35,14 +35,27 @@
     return /(^|\n)\s*#\s|\/\*|\*\/|(^|\s)\/\/|\[\^\d+\]/.test(text);
   }
 
-  function hasSingleBackslash(text) {
+  // 仅将「不安全」的反斜杠判为问题：
+  // \ 后若不是常见 LaTeX 合法后继（命令字母、{}、()、[]、另一个 \ 等），则报错。
+  function hasUnsafeBackslash(text) {
     if (!isNonEmptyString(text)) return false;
-    return /(^|[^\\])\\([^\\])/g.test(text);
+    // 允许：\frac \sum \hat, \{ \}, \( \), \[ \], \\ 等
+    return /(^|[^\\])\\(?![a-zA-Z0-9_{}()[\]\\])/.test(text);
   }
 
   function hasPercentInMath(text) {
     if (!isNonEmptyString(text)) return false;
     return /\$[^$]*%[^$]*\$/.test(text);
+  }
+
+  // 检测同一字符串中“货币 $数字”与“LaTeX 公式 $...$”混用。
+  // 例如：Expected income is $120 \times ... = 240$.
+  function hasMoneyMathDollarMix(text) {
+    if (!isNonEmptyString(text)) return false;
+    const hasCurrencyDollar = /\$\d/.test(text);
+    const hasMathDollarPair = /\$[^$]*\$/.test(text);
+    const hasLatexSignal = /\\(times|cdot|sum|frac|sqrt|left|right|hat|sigma|mu|in|le|ge)\b/.test(text);
+    return hasCurrencyDollar && hasMathDollarPair && hasLatexSignal;
   }
 
   function collectAllStrings(obj, bucket) {
@@ -150,9 +163,17 @@
             }
           }
 
-          if (seg.highlight_color === 'green' && !includesAny(`${seg.text} ${seg.knowledge}`, ['sample', 'population', 'structure', 'design', 'option', 'alternative', '样本', '总体', '结构', '设计'])) {
-            addIssue(issues, 'Major', 'logic', 'QA_LOGIC_004', `${segLoc}.highlight_color`, 'green 语义通常用于结构/样本/设计信息。', '若是数值输入可改为 yellow。');
-          }
+            if (seg.highlight_color === 'green' && !includesAny(`${seg.text} ${seg.knowledge}`, ['sample', 'population', 'structure', 'design', 'option', 'alternative', '样本', '总体', '结构', '设计'])) {
+                addIssue(
+                  issues,
+                  'Major',
+                  'logic',
+                  'QA_LOGIC_004',
+                  `${segLoc}.highlight_color`,
+                  'green 语义通常用于结构/样本/设计信息。',
+                  `将 ${segLoc}.highlight_color 从 green 改为 yellow；若该段确为结构信息，请把 knowledge 改为含 sample/population/design/structure 的表述。`
+                );
+            }
 
           if (seg.text && seg.text.length > 220) {
             addIssue(issues, 'Minor', 'flow', 'QA_FLOW_002', segLoc, '单个 segment 过长，可能影响逐步阅读节奏。', '拆分为更细粒度的段落。');
@@ -243,11 +264,30 @@
 
     strings.forEach((s, sIndex) => {
       const strLoc = `${loc}.strings[${sIndex}]`;
-      if (hasSingleBackslash(s)) {
-        addIssue(issues, 'Blocker', 'latex', 'QA_LATEX_001', strLoc, '检测到未双转义反斜杠。', '将 \\ 写成 \\\\ 以满足 JSON 安全。');
+      if (hasUnsafeBackslash(s)) {
+        addIssue(
+          issues,
+          'Blocker',
+          'latex',
+          'QA_LATEX_001',
+          strLoc,
+          '检测到不安全反斜杠转义。',
+          '仅保留合法 LaTeX 写法（如 \\\\frac、\\\\hat、\\\\{、\\\\}、\\\\(、\\\\)）。'
+        );
       }
       if (hasPercentInMath(s)) {
         addIssue(issues, 'Minor', 'latex', 'QA_LATEX_002', strLoc, '百分号不应放在 LaTeX 数学环境中。', '将 $98%$ 改为 98%。');
+      }
+      if (hasMoneyMathDollarMix(s)) {
+        addIssue(
+          issues,
+          'Major',
+          'latex',
+          'QA_LATEX_003',
+          strLoc,
+          '检测到货币 $ 与公式 $...$ 混用，可能导致公式解析错位。',
+          '将金额写为纯文本（如 120 dollars），并改用 \\(...\\) 或独立 $...$ 承载公式。'
+        );
       }
       if (hasForbiddenToken(s)) {
         addIssue(issues, 'Blocker', 'json_safety', 'QA_JSON_002', strLoc, '检测到禁用 token（标题/注释/引用标记）。', '移除 Markdown 头、注释符或引用 token。');
@@ -271,8 +311,11 @@
     if (rules.has('QA_SOL_002') || rules.has('QA_SOL_003') || rules.has('QA_SOL_004')) {
       suggestions.push('solution 每步补齐来源归因，最后一步明确结论。');
     }
-    if (rules.has('QA_LATEX_001') || rules.has('QA_LATEX_002')) {
+    if (rules.has('QA_LATEX_001') || rules.has('QA_LATEX_002') || rules.has('QA_LATEX_003')) {
       suggestions.push('统一进行 LaTeX 安全清洗：反斜杠双转义、百分号不进入 $...$。');
+    }
+    if (rules.has('QA_LATEX_003')) {
+      suggestions.push('避免在同一字符串里同时使用货币 $120 与公式 $...$；金额改为文本，公式改用 \\(...\\)。');
     }
 
     if (suggestions.length === 0) {

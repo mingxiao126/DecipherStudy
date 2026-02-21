@@ -33,5 +33,10 @@
     "subject": "经济学",
     "name": "[自定义] 经济学 - 经济学-难题-1",
     "file": "decoder_经济学_经济学-难题-1.json"
+  },
+  {
+    "subject": "统计学",
+    "name": "[自定义] 统计学 - 难题-1",
+    "file": "decoder_统计学_难题-1.json"
   }
 ]

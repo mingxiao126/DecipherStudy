@@ -111,6 +111,73 @@ function validateDecoders(data) {
   return { ok: true, errors: [], normalized: problems, audit };
 }
 
+const LATEX_COMMANDS = [
+  'frac',
+  'sqrt',
+  'sum',
+  'hat',
+  'sigma',
+  'mu',
+  'times',
+  'approx',
+  'cdot',
+  'left',
+  'right',
+  'in',
+  'le',
+  'ge',
+  'alpha',
+  'beta',
+  'gamma',
+  'theta',
+  'pi',
+  'log',
+  'ln',
+  'bar',
+  'text'
+];
+
+// Normalize LaTeX for both over-escape and under-escape cases.
+// 1) "\\\\sqrt" -> "\\sqrt" (runtime single slash)
+// 2) "\frac" parsed as form-feed+"rac" -> "\\frac"
+// 3) "$rac{a}{b}$" -> "$\\frac{a}{b}$"
+function normalizeLatexString(str) {
+  if (typeof str !== 'string' || !str) return str;
+
+  let out = str
+    .replace(/\\{2,}([A-Za-z]+)/g, '\\$1')
+    .replace(/\\{2,}([{}])/g, '\\$1')
+    .replace(/\u000crac(?=\s*[{(])/g, '\\frac')
+    .replace(/\u0008egin(?=\s*[{(])/g, '\\begin')
+    .replace(/\u0009ext(?=\s*[{(])/g, '\\text');
+
+  const cmdPattern = LATEX_COMMANDS.join('|');
+  const restoreInMath = (content) => content
+    .replace(/(^|[^\\A-Za-z])rac(?=\s*[{(])/g, '$1\\frac')
+    .replace(new RegExp(`(^|[^\\\\A-Za-z])(${cmdPattern})(?=\\s*[{(])`, 'g'), '$1\\$2')
+    .replace(new RegExp(`(^|[^\\\\A-Za-z])(left|right)(?=\\s*[|()[\\]{}])`, 'g'), '$1\\$2')
+    .replace(new RegExp(`(^|[^\\\\A-Za-z])(times|cdot|approx|in|le|ge)(?=\\s|$|[0-9A-Za-z{}()\\[\\]])`, 'g'), '$1\\$2');
+
+  out = out.replace(/\$[^$]*\$/g, (block) => `$${restoreInMath(block.slice(1, -1))}$`);
+  out = out.replace(/\\\(([\s\S]*?)\\\)/g, (full, inner) => `\\(${restoreInMath(inner)}\\)`);
+  out = out.replace(/\\\[([\s\S]*?)\\\]/g, (full, inner) => `\\[${restoreInMath(inner)}\\]`);
+
+  return out;
+}
+
+function normalizeLatexPayload(value) {
+  if (typeof value === 'string') return normalizeLatexString(value);
+  if (Array.isArray(value)) return value.map(normalizeLatexPayload);
+  if (value && typeof value === 'object') {
+    const out = {};
+    Object.keys(value).forEach((k) => {
+      out[k] = normalizeLatexPayload(value[k]);
+    });
+    return out;
+  }
+  return value;
+}
+
 function updateTopicsFile(fileName, displayName) {
   const topicsPath = path.join(CONTENT_DIR, 'topics.json');
   const topics = readJsonFile(topicsPath);
@@ -149,7 +216,7 @@ function saveDatasetToContent(payload) {
   const type = payload.type;
   const subject = normalizeSubject(payload.subject);
   const name = String(payload.name || '').trim();
-  const data = payload.data;
+  const data = normalizeLatexPayload(payload.data);
 
   if (!['flashcard', 'decoder'].includes(type)) {
     return { ok: false, status: 400, errors: ['type 仅支持 flashcard 或 decoder'] };

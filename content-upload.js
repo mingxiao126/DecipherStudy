@@ -53,10 +53,14 @@
         if (window.DecipherQAAuditor && typeof window.DecipherQAAuditor.auditProblems === 'function') {
             const audit = window.DecipherQAAuditor.auditProblems(problems);
             if (!audit.overall_pass) {
-                const topIssues = (audit.issues || []).slice(0, 3).map(issue => `【${issue.rule_id}】${issue.description}`);
+                const allIssues = (audit.issues || []).map(issue => {
+                    const fix = issue.fix_suggestion ? ` 建议：${issue.fix_suggestion}` : '';
+                    const where = issue.location ? ` 位置：${issue.location}` : '';
+                    return `【${issue.rule_id}】${issue.description}${where}${fix}`;
+                });
                 return {
                     valid: false,
-                    errors: topIssues.length > 0 ? topIssues : ['难题 JSON 未通过 QA 审计'],
+                    errors: allIssues.length > 0 ? allIssues : ['难题 JSON 未通过 QA 审计'],
                     normalized: problems,
                     audit
                 };
@@ -135,6 +139,41 @@
 
     function hideRepairPanel() {
         const panel = document.getElementById('jsonRepairPanel');
+        if (panel) panel.classList.add('hidden');
+    }
+
+    function getOrCreateIssuesPanel() {
+        let panel = document.getElementById('validationIssuesPanel');
+        if (panel) return panel;
+
+        const statusEl = document.getElementById('uploadStatus');
+        if (!statusEl || !statusEl.parentElement || !statusEl.parentElement.parentElement) return null;
+
+        panel = document.createElement('div');
+        panel.id = 'validationIssuesPanel';
+        panel.className = 'mt-4 hidden';
+        panel.innerHTML = [
+            '<label class="block text-slate-300 mb-2 text-sm">校验问题清单（全部）</label>',
+            '<div id="validationIssuesList" class="w-full max-h-80 overflow-auto px-3 py-2 rounded-xl bg-slate-900/40 border border-slate-700 text-slate-200 text-sm font-mono whitespace-pre-wrap"></div>'
+        ].join('');
+
+        statusEl.parentElement.parentElement.appendChild(panel);
+        return panel;
+    }
+
+    function showIssuesPanel(lines) {
+        const panel = getOrCreateIssuesPanel();
+        if (!panel) return;
+        const list = panel.querySelector('#validationIssuesList');
+        if (list) {
+            const normalized = Array.isArray(lines) ? lines : [];
+            list.textContent = normalized.map((line, idx) => `${idx + 1}. ${line}`).join('\n');
+        }
+        panel.classList.remove('hidden');
+    }
+
+    function hideIssuesPanel() {
+        const panel = document.getElementById('validationIssuesPanel');
         if (panel) panel.classList.add('hidden');
     }
 
@@ -305,6 +344,7 @@
 
         clearPendingUpload();
         hideRepairPanel();
+        hideIssuesPanel();
 
         const type = typeEl.value;
         const subject = normalizeSubject(subjectEl.value);
@@ -342,7 +382,9 @@
         const result = type === 'flashcard' ? validateFlashcardData(data) : validateDecoderData(data);
 
         if (!result.valid) {
-            statusText(statusEl, `校验失败：${result.errors[0]}`, true);
+            const lines = Array.isArray(result.errors) ? result.errors : ['未知校验错误'];
+            showIssuesPanel(lines);
+            statusText(statusEl, `校验失败：共 ${lines.length} 项。请按下方清单逐条修改。`, true);
             return;
         }
 
@@ -354,6 +396,7 @@
         };
 
         if (confirmBtn) confirmBtn.classList.remove('hidden');
+        hideIssuesPanel();
         statusText(statusEl, `校验通过（来源：${inputSource === 'text' ? '文本框' : '文件'}）：你可以点击“确认上传”，或手动复制到已有文件后再提交。`, false);
     }
 
@@ -374,9 +417,14 @@
             statusText(statusEl, `上传成功并落盘：${saved.saved.fileName}`, false);
             clearPendingUpload();
             hideRepairPanel();
+            hideIssuesPanel();
             window.dispatchEvent(new CustomEvent('decipher:datasets-updated'));
         } catch (error) {
-            statusText(statusEl, `落盘失败：${error.message}（请先运行 node server.js）`, true);
+            const msg = String(error && error.message ? error.message : '未知错误');
+            const hint = /(Failed to fetch|NetworkError|ECONNREFUSED|HTTP 50\d|HTTP 404|HTTP 0)/i.test(msg)
+                ? '（请先运行 node server.js）'
+                : '';
+            statusText(statusEl, `落盘失败：${msg}${hint}`, true);
         }
     }
 
@@ -407,11 +455,13 @@
             el.addEventListener(eventName, () => {
                 clearPendingUpload();
                 hideRepairPanel();
+                hideIssuesPanel();
             });
             if (id !== 'datasetFile') {
                 el.addEventListener('change', () => {
                     clearPendingUpload();
                     hideRepairPanel();
+                    hideIssuesPanel();
                 });
             }
         });

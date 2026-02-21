@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecipherStudy - 题库上传（内部）</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+        .stars {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .star {
+            position: absolute;
+            width: 2px; height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            color: #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.5) 0%, rgba(139, 92, 246, 0.5) 100%);
+            border-color: rgba(139, 92, 246, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+        }
+        .btn-primary:active { transform: translateY(0); }
+    </style>
+</head>
+<body class="relative">
+    <div class="stars" id="stars"></div>
+
+    <nav class="relative z-20 glass-card rounded-b-2xl mb-6 border-b border-purple-500/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-6">
+                    <a href="/" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-300 hover:to-pink-300 transition-all">
+                        DecipherStudy
+                    </a>
+                    <div class="flex gap-2">
+                        <a href="/" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-500/20 transition-colors font-medium">
+                            📚 闪卡学习
+                        </a>
+                        <a href="/decoder.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-500/20 transition-colors font-medium">
+                            🔍 难题拆解
+                        </a>
+                        <a href="/upload.html" class="px-4 py-2 rounded-lg text-purple-300 hover:text-white hover:bg-purple-500/20 transition-colors font-semibold bg-purple-500/10">
+                            📤 题库上传（内部）
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="relative z-10 container mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">
+                题库上传（内部）
+            </h1>
+            <p class="text-slate-400">上传 JSON 题库后自动校验，并同步到闪卡 / 难题拆解下拉列表。</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 mb-8 max-w-4xl mx-auto">
+            <div class="mb-4">
+                <h3 class="text-slate-200 text-lg font-semibold">先校验，再决定是否上传</h3>
+                <p class="text-slate-400 text-sm mt-1">点击“先校验”后，若通过会显示“确认上传”。你也可以不上传，手动把题目并入已有 JSON 文件。</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">题型</label>
+                    <select id="datasetType" class="w-full px-3 py-2 rounded-xl bg-slate-800/50 border border-slate-700 text-slate-200">
+                        <option value="flashcard">闪卡</option>
+                        <option value="decoder">难题拆解</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">学科</label>
+                    <select id="datasetSubject" class="w-full px-3 py-2 rounded-xl bg-slate-800/50 border border-slate-700 text-slate-200">
+                        <option value="经济学">经济学</option>
+                        <option value="统计学">统计学</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">文件名（展示名）</label>
+                    <input id="datasetName" type="text" placeholder="例如：经济学-第4周" class="w-full px-3 py-2 rounded-xl bg-slate-800/50 border border-slate-700 text-slate-200 placeholder-slate-500">
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">JSON 文件</label>
+                    <input id="datasetFile" type="file" accept=".json,application/json" class="w-full px-3 py-2 rounded-xl bg-slate-800/50 border border-slate-700 text-slate-200 file:mr-3 file:px-3 file:py-1 file:rounded-lg file:border-0 file:bg-purple-500/30 file:text-slate-100">
+                </div>
+            </div>
+            <div class="mt-4 flex items-center gap-3">
+                <button id="datasetUploadBtn" class="btn-primary px-5 py-2 rounded-xl font-semibold">先校验</button>
+                <button id="datasetConfirmUploadBtn" class="btn-primary px-5 py-2 rounded-xl font-semibold hidden">确认上传</button>
+                <span id="uploadStatus" class="text-slate-400 text-sm">等待校验...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="decoder-schema.js"></script>
+    <script src="qa-auditor.js"></script>
+    <script src="content-upload.js"></script>
+    <script>
+        (function () {
+            var container = document.getElementById('stars');
+            if (container) {
+                for (var i = 0; i < 80; i++) {
+                    var star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.left = Math.random() * 100 + '%';
+                    star.style.top = Math.random() * 100 + '%';
+                    star.style.animationDelay = Math.random() * 3 + 's';
+                    star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    container.appendChild(star);
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

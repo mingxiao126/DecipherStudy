@@ -84,23 +84,43 @@ class FlashCardApp {
         return `card_${card.question.substring(0, 30).replace(/\s+/g, '_')}`;
     }
 
+    getCustomFlashcardTopics() {
+        if (!window.DecipherCustomDatasets || typeof window.DecipherCustomDatasets.list !== 'function') {
+            return [];
+        }
+
+        return window.DecipherCustomDatasets.list('flashcard').map(item => ({
+            name: `[自定义][${item.subject || '未分类'}] ${item.name}`,
+            file: `custom:${item.id}`,
+            isCustom: true
+        }));
+    }
+
     // 加载主题列表
     async loadTopics() {
+        const selector = document.getElementById('topicSelector');
+        const customTopics = this.getCustomFlashcardTopics();
+
         try {
-            // 添加时间戳避免缓存
             const timestamp = new Date().getTime();
             const response = await fetch(`/content/topics.json?t=${timestamp}`, {
                 cache: 'no-cache'
             });
             if (!response.ok) throw new Error('无法加载主题列表');
-            
-            this.topics = await response.json();
-            console.log('加载的主题列表:', this.topics);
+
+            const builtInTopics = await response.json();
+            this.topics = [...builtInTopics, ...customTopics];
+            console.log('加载主题成功，内置+自定义:', this.topics.length);
             this.populateTopicSelector();
         } catch (error) {
             console.error('加载主题失败:', error);
-            document.getElementById('topicSelector').innerHTML = 
-                '<option value="">加载失败，请检查 topics.json 文件</option>';
+            this.topics = [...customTopics];
+
+            if (this.topics.length > 0) {
+                this.populateTopicSelector();
+            } else if (selector) {
+                selector.innerHTML = '<option value="">加载失败，请检查 topics.json 文件</option>';
+            }
         }
     }
 
@@ -108,7 +128,7 @@ class FlashCardApp {
     populateTopicSelector() {
         const selector = document.getElementById('topicSelector');
         selector.innerHTML = '<option value="">请选择主题...</option>';
-        
+
         console.log('填充主题选择器，主题数量:', this.topics.length);
         this.topics.forEach(topic => {
             const option = document.createElement('option');
@@ -122,20 +142,32 @@ class FlashCardApp {
     // 加载选中的主题卡片
     async loadTopicCards(fileName) {
         try {
-            const response = await fetch(`/content/${fileName}`);
-            if (!response.ok) throw new Error('无法加载卡片数据');
-            
-            const data = await response.json();
+            let data = null;
+
+            if (fileName.startsWith('custom:')) {
+                const datasetId = fileName.replace('custom:', '');
+                const dataset = window.DecipherCustomDatasets && window.DecipherCustomDatasets.get
+                    ? window.DecipherCustomDatasets.get(datasetId)
+                    : null;
+
+                if (!dataset) throw new Error('未找到自定义题库');
+                data = dataset.data;
+                this.currentTopic = `custom_${dataset.id}`;
+            } else {
+                const response = await fetch(`/content/${fileName}`);
+                if (!response.ok) throw new Error('无法加载卡片数据');
+                data = await response.json();
+                this.currentTopic = fileName.replace('.json', '');
+            }
+
             this.originalCards = Array.isArray(data) ? data : data.cards || [];
-            this.currentTopic = fileName.replace('.json', '');
-            
-            // 为每张卡片添加唯一 ID（如果还没有）
+
             this.originalCards.forEach((card, index) => {
                 if (!card.id) {
                     card.id = `${this.currentTopic}_${index}`;
                 }
             });
-            
+
             this.applyFilter();
             this.updateCard();
             this.updateProgress();
@@ -933,6 +965,10 @@ class FlashCardApp {
                     this.shuffleCards();
                     break;
             }
+        });
+
+        window.addEventListener("decipher:datasets-updated", () => {
+            this.loadTopics();
         });
     }
 

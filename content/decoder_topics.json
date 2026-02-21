@@ -28,5 +28,10 @@
     "subject": "统计学",
     "name": "统计学 - 综合大题",
     "file": "decoders_stat_comprehensive.json"
+  },
+  {
+    "subject": "经济学",
+    "name": "[自定义] 经济学 - 经济学-难题-1",
+    "file": "decoder_经济学_经济学-难题-1.json"
   }
 ]

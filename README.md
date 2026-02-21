@@ -192,3 +192,125 @@ DecipherStudy/
   }
 }
 ```
+
+## 内容自动化第一步（已接入）
+
+新增脚本：`scripts/validate-content.js`
+
+用途：在题目进入系统前，自动校验内容完整性和解码题 schema。
+
+运行方式：
+
+```bash
+node scripts/validate-content.js
+```
+
+校验内容：
+- `content/topics.json` 引用文件是否存在
+- 闪卡题目是否包含 `question` 和 `answer`
+- `content/decoder_topics.json` 引用文件是否存在
+- 拆解题是否通过 `decoder-schema.js` 的 `validateDecoderProblem`
+
+## Decoder QA 审计（系统级）
+
+新增审计器：`qa-auditor.js`
+
+用途：将 Decipher JSON v1.0 的协议规则程序化，输出统一审计报告：
+
+```json
+{
+  "overall_pass": true,
+  "protocol_score": 100,
+  "teaching_score": 100,
+  "issues": [],
+  "improvement_suggestions": []
+}
+```
+
+### 页面内上传校验
+
+上传「难题拆解」JSON 时，会自动调用 `qa-auditor.js` 做协议审计。
+未通过则阻止入库，并显示规则编号与错误信息。
+
+### 命令行审计（推荐）
+
+```bash
+node scripts/audit-decoder-json.js content/decoders_econ_w1.json
+```
+
+- 退出码 `0`：通过
+- 退出码 `1`：未通过（可用于自动化流水线）
+
+## 半自动导入（剪贴板）
+
+用于流程：Gemini 出题 -> ChatGPT 校验修正 -> 系统最终校验。
+
+### 使用方式
+
+1. 复制“修正后的题目 JSON”到剪贴板（不是审计报告）。
+2. 执行：
+
+```bash
+./scripts/import-from-clipboard.sh decoder economics econ_week4_q1
+```
+
+或（闪卡）：
+
+```bash
+./scripts/import-from-clipboard.sh flashcard statistics stat_week4_cardset
+```
+
+### 输出结果
+
+- 导入文件：`content/inbox/<timestamp>_<type>_<subject>_<name>.json`
+- 若为 decoder，会额外生成：`content/inbox/<...>.qa-report.json`
+- 校验通过后可直接在页面上传该 JSON 文件。
+
+如果当前终端无法读取剪贴板，可使用文件回退模式：
+
+```bash
+./scripts/import-from-clipboard.sh decoder economics econ_week4_q1 --file content/decoders_econ_w1.json
+```
+
+### 分离脚本（推荐）
+
+- 难题拆解：
+
+```bash
+./scripts/import-decoder-from-clipboard.sh economics econ_week4_q1
+```
+
+- 闪卡：
+
+```bash
+./scripts/import-flashcard-from-clipboard.sh statistics stat_week4_set
+```
+
+### 双击运行（无需手输命令）
+
+- `/Users/ming/DecipherStudy/run-decoder-import.command`
+- `/Users/ming/DecipherStudy/run-flashcard-import.command`
+
+双击后按提示输入学科、展示名；可选输入文件路径（不填则读剪贴板）。
+
+## 落盘模式（推荐开发方式）
+
+为保证“不同设备/环境都能看到同样内容”，请使用本地 Node 服务：
+
+```bash
+cd /Users/ming/DecipherStudy
+node server.js
+```
+
+然后访问：`http://127.0.0.1:8000`
+
+### 落盘行为
+
+上传成功后会自动：
+- 将题库写入 `content/`（生成标准 JSON 文件）
+- 更新 `content/topics.json`（闪卡）或 `content/decoder_topics.json`（难题拆解）
+
+### 说明
+
+- 旧的 localStorage 自定义列表不再作为主数据源。
+- 如果页面提示“落盘失败”，通常是 `server.js` 未启动。

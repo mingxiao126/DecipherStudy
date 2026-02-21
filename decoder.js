@@ -26,17 +26,40 @@ class LogicDecoder {
     }
 
     // 加载主题列表
+    getCustomDecoderTopics() {
+        if (!window.DecipherCustomDatasets || typeof window.DecipherCustomDatasets.list !== 'function') {
+            return [];
+        }
+
+        return window.DecipherCustomDatasets.list('decoder').map(item => ({
+            subject: item.subject || '未分类',
+            name: '[自定义] ' + item.name,
+            file: 'custom:' + item.id,
+            isCustom: true
+        }));
+    }
+
+    // 加载主题列表
     async loadTopics() {
+        const selector = document.getElementById('subjectSelector');
+        const customTopics = this.getCustomDecoderTopics();
+
         try {
             const response = await fetch('/content/decoder_topics.json');
             if (!response.ok) throw new Error('无法加载主题列表');
-            
-            this.topics = await response.json();
+
+            const builtInTopics = await response.json();
+            this.topics = [...builtInTopics, ...customTopics];
             this.populateSubjectSelector();
         } catch (error) {
             console.error('加载主题失败:', error);
-            document.getElementById('subjectSelector').innerHTML = 
-                '<option value="">加载失败，请检查 decoder_topics.json 文件</option>';
+            this.topics = [...customTopics];
+
+            if (this.topics.length > 0) {
+                this.populateSubjectSelector();
+            } else if (selector) {
+                selector.innerHTML = '<option value="">加载失败，请检查 decoder_topics.json 文件</option>';
+            }
         }
     }
 
@@ -44,7 +67,7 @@ class LogicDecoder {
     populateSubjectSelector() {
         const selector = document.getElementById('subjectSelector');
         selector.innerHTML = '<option value="">请选择科目...</option>';
-        
+
         // 获取所有唯一的科目
         const subjects = [...new Set(this.topics.map(topic => topic.subject))];
         subjects.forEach(subject => {
@@ -59,22 +82,22 @@ class LogicDecoder {
     populateWeekSelector() {
         const selector = document.getElementById('weekSelector');
         selector.innerHTML = '<option value="">请选择周次/综合大题...</option>';
-        
+
         if (!this.currentSubject) {
             selector.disabled = true;
             return;
         }
-        
+
         // 筛选当前科目的主题
         this.filteredTopics = this.topics.filter(topic => topic.subject === this.currentSubject);
-        
+
         this.filteredTopics.forEach(topic => {
             const option = document.createElement('option');
             option.value = topic.file;
             option.textContent = topic.name;
             selector.appendChild(option);
         });
-        
+
         selector.disabled = false;
     }
 
@@ -82,49 +105,60 @@ class LogicDecoder {
     populateProblemSelector() {
         const selector = document.getElementById('problemSelector');
         selector.innerHTML = '<option value="">请选择具体题目...</option>';
-        
+
         if (!this.problems || this.problems.length === 0) {
             selector.disabled = true;
             return;
         }
-        
+
         // 显示该周次文件中的所有题目
         this.problems.forEach((problem, index) => {
             const option = document.createElement('option');
             option.value = index;  // 使用索引作为值
-            option.textContent = problem.title || problem.id || `题目 ${index + 1}`;
+            option.textContent = problem.title || problem.id || '题目 ' + (index + 1);
             selector.appendChild(option);
         });
-        
+
         selector.disabled = false;
     }
 
     // 加载选中的周次文件（显示题目列表）
     async loadWeekFile(fileName) {
         if (!fileName) return;
-        
+
         try {
             this.currentWeekFile = fileName;
-            const response = await fetch(`/content/${fileName}`);
-            if (!response.ok) throw new Error('无法加载周次文件');
-            
-            const data = await response.json();
-            // 规范：统一为 Array<Problem>，兼容单题对象
+            let data = null;
+
+            if (fileName.startsWith('custom:')) {
+                const datasetId = fileName.replace('custom:', '');
+                const dataset = window.DecipherCustomDatasets && window.DecipherCustomDatasets.get
+                    ? window.DecipherCustomDatasets.get(datasetId)
+                    : null;
+
+                if (!dataset) throw new Error('未找到自定义难题题库');
+                data = dataset.data;
+            } else {
+                const response = await fetch('/content/' + fileName);
+                if (!response.ok) throw new Error('无法加载周次文件');
+                data = await response.json();
+            }
+
             this.problems = (typeof window.normalizeDecoderProblems === 'function')
                 ? window.normalizeDecoderProblems(data)
                 : (Array.isArray(data) ? data : [data]);
 
-            console.log(`加载了 ${this.problems.length} 道题目`);
-            
+            console.log('加载了 ' + this.problems.length + ' 道题目');
+
             // 填充题目选择器
             this.populateProblemSelector();
-            
+
             // 清空当前题目，等待用户选择
             this.currentProblem = null;
             this.resetAll();
         } catch (error) {
             console.error('加载周次文件失败:', error);
-            alert('加载周次文件失败，请检查文件是否存在');
+            alert('加载周次文件失败，请检查文件是否存在或格式是否正确');
         }
     }
 
@@ -895,6 +929,19 @@ class LogicDecoder {
                 e.preventDefault();
                 this.handleClick();
             }
+        });
+
+        window.addEventListener("decipher:datasets-updated", () => {
+            this.currentSubject = null;
+            this.currentWeekFile = null;
+            this.problems = [];
+            this.currentProblem = null;
+            this.loadTopics();
+            this.resetAll();
+            document.getElementById('weekSelector').innerHTML = '<option value="">请先选择科目...</option>';
+            document.getElementById('weekSelector').disabled = true;
+            document.getElementById('problemSelector').innerHTML = '<option value="">请先选择周次...</option>';
+            document.getElementById("problemSelector").disabled = true;
         });
     }
 

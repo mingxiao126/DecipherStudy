@@ -700,6 +700,40 @@
             margin-top: 0.25rem;
         }
 
+        /* 背面：核心生词区块 */
+        .card-glossary-back {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(59, 130, 246, 0.08);
+            border-left: 3px solid rgba(59, 130, 246, 0.4);
+            border-radius: 8px;
+            width: 100%;
+        }
+        .card-glossary-back .glossary-back-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #93c5fd;
+            margin-bottom: 0.75rem;
+        }
+        .card-glossary-back .glossary-item {
+            margin: 0.5rem 0;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .card-glossary-back .glossary-item:last-child {
+            border-bottom: none;
+        }
+        /* 背面：出处 */
+        .card-source-ref {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: rgba(226, 232, 240, 0.7);
+        }
+        .card-source-ref .source-ref-label {
+            color: #94a3b8;
+            margin-right: 0.35rem;
+        }
+
         /* 题目类型标签 */
         .card-type-tag {
             position: absolute;
@@ -829,6 +863,8 @@
                         <div class="card-answer" id="cardAnswer">等待加载...</div>
                         <div id="logicMemo" class="logic-memo" style="display: none;"></div>
                         <div id="logicSteps" class="logic-steps" style="display: none;"></div>
+                        <div id="cardGlossaryBack" class="card-glossary-back" style="display: none;"></div>
+                        <div id="cardSourceRef" class="card-source-ref" style="display: none;"></div>
                         <div class="hint-text">点击卡片返回问题</div>
                         <!-- 掌握度按钮（已隐藏） -->
                         <div class="mastery-buttons" style="display: none;">

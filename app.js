@@ -239,8 +239,10 @@ class FlashCardApp {
             // 更新分步逻辑
             this.updateLogicSteps(card.steps || []);
             
-            // 更新内嵌词典
+            // 更新内嵌词典（正面按钮+弹窗 + 背面区块）
             this.updateGlossary(card.glossary || []);
+            // 更新背面出处
+            this.updateSourceReference(card.source_reference);
             
             // 如果类型标签和生词按钮同时显示，调整生词按钮位置
             // 移除内联样式，让 CSS 规则控制位置
@@ -322,7 +324,7 @@ class FlashCardApp {
         
         // 第二步：保护货币符号（单个 $ 后跟数字）
         let currencyIndex = 0;
-        processed = processed.replace(/\$(\d+(?:\.\d+)?)(?!\$)/g, (match, number, offset) => {
+        processed = processed.replace(/\$(\d+(?:\.\d+)?)(?=(?:\s|$|[,.!?;:，。！？；：]))/g, (match, number, offset) => {
             const before = processed.substring(0, offset);
             const dollarCount = (before.match(/\$/g) || []).length;
             
@@ -503,6 +505,25 @@ class FlashCardApp {
                     }
                 }
             }
+
+            // 渲染背面核心生词、出处中的公式
+            const glossaryBackEl = document.getElementById('cardGlossaryBack');
+            const sourceRefEl = document.getElementById('cardSourceRef');
+            [glossaryBackEl, sourceRefEl].forEach(el => {
+                if (!el || el.style.display === 'none') return;
+                const html = el.innerHTML;
+                if (!html.includes('$') || html.includes('katex')) return;
+                try {
+                    const preprocessed = this.preprocessMathText(html);
+                    if (preprocessed.processed !== html) el.innerHTML = preprocessed.processed;
+                    renderMathInElement(el, renderOptions);
+                    if (preprocessed.currencyPlaceholders.length > 0 || preprocessed.percentPlaceholders.length > 0) {
+                        el.innerHTML = this.restorePlaceholders(el.innerHTML, preprocessed.currencyPlaceholders, preprocessed.percentPlaceholders);
+                    }
+                } catch (e) {
+                    console.warn('背面区块公式渲染失败:', e);
+                }
+            });
         } catch (error) {
             console.error('KaTeX 渲染错误:', error);
             console.error('错误详情:', error.stack);
@@ -658,27 +679,66 @@ class FlashCardApp {
         }
     }
 
-    // 更新内嵌词典
+    // 更新内嵌词典（正面按钮+弹窗 + 背面展示区块）
     updateGlossary(glossary) {
         const btn = document.getElementById('glossaryBtn');
         const popup = document.getElementById('glossaryPopup');
-        
+        const backEl = document.getElementById('cardGlossaryBack');
+
         if (glossary && glossary.length > 0) {
             btn.style.display = 'block';
             popup.innerHTML = '';
-            
             glossary.forEach(item => {
                 const itemEl = document.createElement('div');
                 itemEl.className = 'glossary-item';
                 itemEl.innerHTML = `
-                    <div class="glossary-term">${item.term}</div>
-                    <div class="glossary-def">${item.definition}</div>
+                    <div class="glossary-term">${this.escapeHtml(item.term)}</div>
+                    <div class="glossary-def">${this.escapeHtml(item.definition || '')}</div>
                 `;
                 popup.appendChild(itemEl);
             });
+
+            // 背面：展示核心生词
+            if (backEl) {
+                backEl.style.display = 'block';
+                backEl.innerHTML = '<div class="glossary-back-title">📖 核心生词</div>';
+                glossary.forEach(item => {
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'glossary-item';
+                    itemEl.innerHTML = `
+                        <div class="glossary-term">${this.renderWithKaTeX(this.escapeHtml(item.term))}</div>
+                        <div class="glossary-def">${this.renderWithKaTeX(this.escapeHtml(item.definition || ''))}</div>
+                    `;
+                    backEl.appendChild(itemEl);
+                });
+            }
         } else {
             btn.style.display = 'none';
             popup.classList.remove('show');
+            if (backEl) {
+                backEl.style.display = 'none';
+                backEl.innerHTML = '';
+            }
+        }
+    }
+
+    escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    // 更新背面出处
+    updateSourceReference(ref) {
+        const el = document.getElementById('cardSourceRef');
+        if (!el) return;
+        if (ref && String(ref).trim()) {
+            el.style.display = 'block';
+            el.innerHTML = '<span class="source-ref-label">出处：</span>' + this.renderWithKaTeX(this.escapeHtml(ref.trim()));
+        } else {
+            el.style.display = 'none';
+            el.innerHTML = '';
         }
     }
 

@@ -73,6 +73,182 @@
         element.className = isError ? 'text-red-400 text-sm mt-3' : 'text-emerald-400 text-sm mt-3';
     }
 
+    function getOrCreateRepairPanel() {
+        let panel = document.getElementById('jsonRepairPanel');
+        if (panel) return panel;
+
+        const statusEl = document.getElementById('uploadStatus');
+        if (!statusEl || !statusEl.parentElement || !statusEl.parentElement.parentElement) return null;
+
+        panel = document.createElement('div');
+        panel.id = 'jsonRepairPanel';
+        panel.className = 'mt-4 hidden';
+        panel.innerHTML = [
+            '<label class="block text-slate-300 mb-2 text-sm">修复后 JSON（可复制）</label>',
+            '<textarea id="repairedJsonOutput" rows="8" class="w-full px-3 py-2 rounded-xl bg-slate-800/50 border border-slate-700 text-slate-200 font-mono text-sm"></textarea>',
+            '<div class="mt-3 flex items-center gap-3">',
+            '<button id="copyRepairedJsonBtn" class="btn-primary px-4 py-2 rounded-xl font-semibold" type="button">复制修复版</button>',
+            '<button id="useRepairedJsonBtn" class="btn-primary px-4 py-2 rounded-xl font-semibold" type="button">使用修复版重新校验</button>',
+            '</div>'
+        ].join('');
+
+        statusEl.parentElement.parentElement.appendChild(panel);
+
+        const copyBtn = panel.querySelector('#copyRepairedJsonBtn');
+        const useBtn = panel.querySelector('#useRepairedJsonBtn');
+        const outputEl = panel.querySelector('#repairedJsonOutput');
+
+        if (copyBtn && outputEl) {
+            copyBtn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(outputEl.value || '');
+                    copyBtn.textContent = '已复制';
+                    setTimeout(() => { copyBtn.textContent = '复制修复版'; }, 1200);
+                } catch (_e) {
+                    outputEl.select();
+                    document.execCommand('copy');
+                    copyBtn.textContent = '已复制';
+                    setTimeout(() => { copyBtn.textContent = '复制修复版'; }, 1200);
+                }
+            });
+        }
+
+        if (useBtn && outputEl) {
+            useBtn.addEventListener('click', () => {
+                const textEl = document.getElementById('datasetJsonText');
+                if (textEl) textEl.value = outputEl.value || '';
+                const validateBtn = document.getElementById('datasetUploadBtn');
+                if (validateBtn) validateBtn.click();
+            });
+        }
+
+        return panel;
+    }
+
+    function showRepairPanel(jsonText) {
+        const panel = getOrCreateRepairPanel();
+        if (!panel) return;
+        const outputEl = panel.querySelector('#repairedJsonOutput');
+        if (outputEl) outputEl.value = jsonText || '';
+        panel.classList.remove('hidden');
+    }
+
+    function hideRepairPanel() {
+        const panel = document.getElementById('jsonRepairPanel');
+        if (panel) panel.classList.add('hidden');
+    }
+
+    function smartCleanup(text) {
+        return String(text || '')
+            .replace(/[\u201C\u201D]/g, '"')
+            .replace(/[\u2018\u2019]/g, "'")
+            .replace(/\[cite_start\]/g, '')
+            .replace(/\[cite:\s*[^\]]+\]/g, '')
+            .replace(/,\s*([}\]])/g, '$1');
+    }
+
+    // 修复常见 LaTeX 转义错误：将 \frac/\hat/\sum 等单反斜杠补为双反斜杠
+    function normalizeLikelyLatexEscapes(text) {
+        return String(text || '')
+            // 常见 LaTeX 命令
+            .replace(/(^|[^\\])\\([A-Za-z]+)/g, '$1\\\\$2')
+            // 花括号转义
+            .replace(/(^|[^\\])\\([{}])/g, '$1\\\\$2');
+    }
+
+    function nextNonSpace(str, start) {
+        for (let i = start; i < str.length; i++) {
+            if (!/\s/.test(str[i])) return str[i];
+        }
+        return '';
+    }
+
+    function escapeLikelyJsonStringIssues(input) {
+        const str = normalizeLikelyLatexEscapes(smartCleanup(input));
+        let out = '';
+        let inString = false;
+        let escaped = false;
+
+        for (let i = 0; i < str.length; i++) {
+            const ch = str[i];
+            const next = str[i + 1] || '';
+
+            if (!inString) {
+                if (ch === '"') {
+                    inString = true;
+                }
+                out += ch;
+                continue;
+            }
+
+            if (escaped) {
+                out += ch;
+                escaped = false;
+                continue;
+            }
+
+            if (ch === '\\') {
+                const validEscape = ['"', '\\', '/', 'b', 'f', 'n', 'r', 't', 'u'];
+                if (!validEscape.includes(next)) {
+                    out += '\\\\';
+                } else {
+                    out += ch;
+                }
+                escaped = true;
+                continue;
+            }
+
+            if (ch === '"') {
+                const nextChar = nextNonSpace(str, i + 1);
+                const looksLikeClosing = [',', '}', ']', ':'].includes(nextChar) || nextChar === '';
+                if (looksLikeClosing) {
+                    inString = false;
+                    out += ch;
+                } else {
+                    out += '\\"';
+                }
+                continue;
+            }
+
+            out += ch;
+        }
+
+        return out;
+    }
+
+    function attemptRepairJson(rawText) {
+        try {
+            const cleaned = escapeLikelyJsonStringIssues(rawText);
+            const parsed = JSON.parse(cleaned);
+            return {
+                ok: true,
+                parsed,
+                repairedText: JSON.stringify(parsed, null, 2)
+            };
+        } catch (e) {
+            return {
+                ok: false,
+                error: e.message,
+                repairedText: escapeLikelyJsonStringIssues(rawText)
+            };
+        }
+    }
+
+    async function readInputJsonText(fileEl, textEl) {
+        const pastedText = textEl && typeof textEl.value === 'string' ? textEl.value.trim() : '';
+        if (pastedText) {
+            return { source: 'text', rawText: pastedText };
+        }
+
+        const file = fileEl && fileEl.files ? fileEl.files[0] : null;
+        if (!file) {
+            throw new Error('请先选择 JSON 文件，或在文本框粘贴 JSON');
+        }
+
+        const rawText = await file.text();
+        return { source: 'file', rawText };
+    }
+
     async function uploadToDiskApi(payload) {
         const response = await fetch('/api/upload-dataset', {
             method: 'POST',
@@ -121,30 +297,30 @@
         const subjectEl = document.getElementById('datasetSubject');
         const nameEl = document.getElementById('datasetName');
         const fileEl = document.getElementById('datasetFile');
+        const textEl = document.getElementById('datasetJsonText');
         const statusEl = document.getElementById('uploadStatus');
         const confirmBtn = getOrCreateConfirmUploadBtn();
 
         if (!typeEl || !subjectEl || !nameEl || !fileEl) return;
 
         clearPendingUpload();
+        hideRepairPanel();
 
         const type = typeEl.value;
         const subject = normalizeSubject(subjectEl.value);
         const name = (nameEl.value || '').trim();
         const file = fileEl.files && fileEl.files[0];
 
-        if (!file) {
-            statusText(statusEl, '请先选择 JSON 文件', true);
-            return;
-        }
-
-        const finalName = name || file.name.replace(/\.json$/i, '') || '未命名题库';
+        const finalName = name || (file ? file.name.replace(/\.json$/i, '') : '') || '未命名题库';
 
         let rawText = '';
+        let inputSource = 'file';
         try {
-            rawText = await file.text();
+            const payload = await readInputJsonText(fileEl, textEl);
+            rawText = payload.rawText;
+            inputSource = payload.source;
         } catch (error) {
-            statusText(statusEl, `读取文件失败: ${error.message}`, true);
+            statusText(statusEl, error.message, true);
             return;
         }
 
@@ -152,7 +328,14 @@
         try {
             data = JSON.parse(rawText);
         } catch (error) {
-            statusText(statusEl, `JSON 解析失败: ${error.message}`, true);
+            const repaired = attemptRepairJson(rawText);
+            if (repaired.ok) {
+                showRepairPanel(repaired.repairedText);
+                statusText(statusEl, `JSON 解析失败：${error.message}。已生成可复制修复版。`, true);
+            } else {
+                showRepairPanel(repaired.repairedText || rawText);
+                statusText(statusEl, `JSON 解析失败：${error.message}。修复建议生成失败：${repaired.error}`, true);
+            }
             return;
         }
 
@@ -171,12 +354,13 @@
         };
 
         if (confirmBtn) confirmBtn.classList.remove('hidden');
-        statusText(statusEl, '校验通过：你可以点击“确认上传”，或手动复制到已有文件后再提交。', false);
+        statusText(statusEl, `校验通过（来源：${inputSource === 'text' ? '文本框' : '文件'}）：你可以点击“确认上传”，或手动复制到已有文件后再提交。`, false);
     }
 
     async function confirmUpload() {
         const statusEl = document.getElementById('uploadStatus');
         const fileEl = document.getElementById('datasetFile');
+        const textEl = document.getElementById('datasetJsonText');
 
         if (!pendingUpload) {
             statusText(statusEl, '请先点击“先校验”，校验通过后再上传。', true);
@@ -186,8 +370,10 @@
         try {
             const saved = await uploadToDiskApi(pendingUpload);
             if (fileEl) fileEl.value = '';
+            if (textEl) textEl.value = '';
             statusText(statusEl, `上传成功并落盘：${saved.saved.fileName}`, false);
             clearPendingUpload();
+            hideRepairPanel();
             window.dispatchEvent(new CustomEvent('decipher:datasets-updated'));
         } catch (error) {
             statusText(statusEl, `落盘失败：${error.message}（请先运行 node server.js）`, true);
@@ -214,13 +400,20 @@
             });
         }
 
-        // 任何输入变更都清空待上传状态，避免“旧校验结果”误上传。
-        ['datasetType', 'datasetSubject', 'datasetName', 'datasetFile'].forEach((id) => {
+        ['datasetType', 'datasetSubject', 'datasetName', 'datasetFile', 'datasetJsonText'].forEach((id) => {
             const el = document.getElementById(id);
             if (!el) return;
             const eventName = id === 'datasetFile' ? 'change' : 'input';
-            el.addEventListener(eventName, clearPendingUpload);
-            if (id !== 'datasetFile') el.addEventListener('change', clearPendingUpload);
+            el.addEventListener(eventName, () => {
+                clearPendingUpload();
+                hideRepairPanel();
+            });
+            if (id !== 'datasetFile') {
+                el.addEventListener('change', () => {
+                    clearPendingUpload();
+                    hideRepairPanel();
+                });
+            }
         });
     }
 

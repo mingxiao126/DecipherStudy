@@ -34,5 +34,9 @@
   {
     "name": "统计学 - 1-3周重点词汇",
     "file": "stat_w1-3_vocabulary.json"
+  },
+  {
+    "name": "[自定义] 统计学 - 统计学-第四周",
+    "file": "flashcard_统计学_统计学-第四周.json"
   }
 ]

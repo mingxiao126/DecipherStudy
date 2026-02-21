@@ -783,7 +783,7 @@ class LogicDecoder {
         
         // 第二步：保护货币符号（单个 $ 后跟数字）
         let currencyIndex = 0;
-        processed = processed.replace(/\$(\d+(?:\.\d+)?)/g, (match, number, offset) => {
+        processed = processed.replace(/\$(\d+(?:\.\d+)?)(?!\$)/g, (match, number, offset) => {
             const before = processed.substring(0, offset);
             const dollarCount = (before.match(/\$/g) || []).length;
             

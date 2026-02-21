@@ -1,0 +1,216 @@
+[
+  {
+    "question": "Define a Bernoulli random variable and its possible outcomes, including the conventional numerical values assigned to \"Success\" and \"Failure\".",
+    "answer": {
+      "final_answer": "伯努利随机变量是只有两种可能结果（通常称为\"成功\"与\"失败\"）的离散随机变量，其数值映射通常为 $\\{0,1\\}$，其中成功记为 $1$，失败记为 $0$。",
+      "key_points": [
+        "随机变量 $X$ 只能取两个互斥的值：$0$ 或 $1$。",
+        "成功（Success）通常被赋予数值 $1$，失败（Failure）通常被赋予数值 $0$。"
+      ],
+      "tested_points": [
+        "伯努利随机变量的定义及其二元输出特性。",
+        "定性结果与数值映射之间的对应关系。"
+      ],
+      "logic_memo": "伯努利变量就像电路中的开关：$1$ 代表导通（成功），$0$ 代表断开（失败）。"
+    },
+    "category": "Bernoulli Random Variables",
+    "type": "概念题",
+    "signals": [
+      "Bernoulli random variable",
+      "outcomes",
+      "success",
+      "failure"
+    ],
+    "steps": [
+      "Step 1: 确认试验仅有两个互斥结果。",
+      "Step 2: 将\"成功\"定义为 $X=1$。",
+      "Step 3: 将\"失败\"定义为 $X=0$。"
+    ],
+    "glossary": [
+      {
+        "term": "Bernoulli random variable",
+        "definition": "只取两个可能数值（通常为 $0$ 和 $1$）的离散随机变量。"
+      },
+      {
+        "term": "Sample Space",
+        "definition": "所有可能结果的集合；伯努利试验中为 $\\{0,1\\}$。"
+      },
+      {
+        "term": "Discrete Variable",
+        "definition": "取值可以被逐一列举的随机变量。"
+      }
+    ],
+    "source_reference": "BernoulliCLT(1).pdf, page 2"
+  },
+  {
+    "question": "Write the Probability Mass Function (pmf) for a Bernoulli random variable $X$ with parameter $p$ in its standard power function form.",
+    "answer": {
+      "final_answer": "伯努利随机变量的概率质量函数为 $P(X=x)=p^x(1-p)^{1-x}$，其中 $x \\in \\{0,1\\}$。",
+      "key_points": [
+        "参数 $p$ 表示成功概率，即 $P(X=1)=p$。",
+        "失败概率为 $P(X=0)=1-p$。"
+      ],
+      "tested_points": [
+        "伯努利分布 pmf 的幂函数表达形式。",
+        "概率总和满足 $\\sum_{x \\in \\{0,1\\}} P(X=x)=p+(1-p)=1$。"
+      ],
+      "logic_memo": "表达式 $p^x(1-p)^{1-x}$ 会根据 $x$ 的取值自动选择 $p$ 或 $1-p$。"
+    },
+    "category": "Probability Mass Function",
+    "type": "公式题",
+    "signals": [
+      "pmf",
+      "parameter p",
+      "power function form"
+    ],
+    "steps": [
+      "Step 1: 设定 $P(X=1)=p$。",
+      "Step 2: 设定 $P(X=0)=1-p$。",
+      "Step 3: 构造统一形式 $P(X=x)=p^x(1-p)^{1-x}$，其中 $x \\in \\{0,1\\}$。"
+    ],
+    "glossary": [
+      {
+        "term": "Probability Mass Function (pmf)",
+        "definition": "离散随机变量取各个特定值的概率函数。"
+      },
+      {
+        "term": "Parameter $p$",
+        "definition": "表示成功（$X=1$）概率的分布参数。"
+      },
+      {
+        "term": "Exponents",
+        "definition": "幂指数结构，使函数根据 $x$ 的取值切换概率表达。"
+      }
+    ],
+    "source_reference": "BernoulliCLT(1).pdf, page 3-4"
+  },
+  {
+    "question": "State the formula for the Expected Value (Mean) of a Bernoulli random variable and show the complete summation derivation.",
+    "answer": {
+      "final_answer": "伯努利随机变量的期望为 $E(X)=p$。",
+      "key_points": [
+        "期望定义为 $E(X)=\\sum_{x \\in \\{0,1\\}} xP(X=x)$。",
+        "代入可得 $E(X)=0\\cdot(1-p)+1\\cdot p=p$。"
+      ],
+      "tested_points": [
+        "离散型随机变量期望的求和公式。",
+        "伯努利分布均值等于参数 $p$ 的结论。"
+      ],
+      "logic_memo": "因为 $0$ 与任何数相乘都为 $0$，均值只取决于 $1$ 出现的概率 $p$。"
+    },
+    "category": "Expected Value",
+    "type": "公式题",
+    "signals": [
+      "expected value",
+      "mean",
+      "summation derivation"
+    ],
+    "steps": [
+      "Step 1: 写出期望定义 $E(X)=\\sum_{x \\in \\{0,1\\}} xP(X=x)$。",
+      "Step 2: 列举两种取值：$0$ 和 $1$。",
+      "Step 3: 代入概率 $E(X)=0\\cdot(1-p)+1\\cdot p$。",
+      "Step 4: 化简得到 $E(X)=p$。"
+    ],
+    "glossary": [
+      {
+        "term": "Expected Value",
+        "definition": "随机变量所有可能取值按概率加权后的平均数。"
+      },
+      {
+        "term": "Random Variable",
+        "definition": "其数值由随机过程决定的变量。"
+      },
+      {
+        "term": "Mean",
+        "definition": "分布的中心位置测度，与期望值同义。"
+      }
+    ],
+    "source_reference": "BernoulliCLT(1).pdf, page 40-41"
+  },
+  {
+    "question": "Provide the formula for the Variance ($Var(B)$) of a Bernoulli random variable and show the derivation using $E[B^2]$.",
+    "answer": {
+      "final_answer": "伯努利随机变量的方差为 $Var(B)=p(1-p)$。",
+      "key_points": [
+        "方差公式为 $Var(B)=E[B^2]-(E[B])^2$。",
+        "由于 $B^2=B$，所以 $E[B^2]=p$。"
+      ],
+      "tested_points": [
+        "方差恒等式 $Var(X)=E[X^2]-\\mu^2$ 的应用。",
+        "伯努利变量满足 $B^2=B$ 的性质。"
+      ],
+      "logic_memo": "当 $p=0.5$ 时最不确定，此时 $Var(B)=0.25$ 达到最大值。"
+    },
+    "category": "Variance",
+    "type": "公式题",
+    "signals": [
+      "variance",
+      "derivation",
+      "second moment"
+    ],
+    "steps": [
+      "Step 1: 已知 $E(B)=p$。",
+      "Step 2: 计算 $E[B^2]=1^2\\cdot p+0^2\\cdot(1-p)=p$。",
+      "Step 3: 代入 $Var(B)=E[B^2]-(E[B])^2=p-p^2$。",
+      "Step 4: 因式分解得到 $Var(B)=p(1-p)$。"
+    ],
+    "glossary": [
+      {
+        "term": "Variance",
+        "definition": "衡量随机变量偏离其均值程度的期望平方差。"
+      },
+      {
+        "term": "Second Moment",
+        "definition": "随机变量平方的期望值，记为 $E[X^2]$。"
+      },
+      {
+        "term": "Standard Deviation",
+        "definition": "方差的平方根，表示数据波动程度。"
+      }
+    ],
+    "source_reference": "BernoulliCLT(1).pdf, page 53-54"
+  },
+  {
+    "question": "For a sample of $n$ independent trials, derive the formula for the variance of the sample proportion ($Var(\\hat{p})$).",
+    "answer": {
+      "final_answer": "样本比例的方差为 $Var(\\hat{p})=\\frac{p(1-p)}{n}$。",
+      "key_points": [
+        "样本比例定义为 $\\hat{p}=\\frac{1}{n}\\sum_{i=1}^n B_i$。",
+        "利用独立性与方差性质可得 $Var(\\hat{p})=\\frac{1}{n^2}Var\\left(\\sum_{i=1}^n B_i\\right)$。"
+      ],
+      "tested_points": [
+        "方差运算规则 $Var(cX)=c^2Var(X)$。",
+        "独立随机变量方差可加性。"
+      ],
+      "logic_memo": "分母含有 $n$，说明样本量越大，比例波动越小。"
+    },
+    "category": "Sampling Distribution",
+    "type": "公式题",
+    "signals": [
+      "variance of p-hat",
+      "sample proportion derivation",
+      "independence"
+    ],
+    "steps": [
+        "Step 1: 写出 $\\hat{p}=\\frac{1}{n}\\sum_{i=1}^n B_i$。",
+        "Step 2: 使用 $Var(cX)=c^2Var(X)$ 得 $Var(\\hat{p})=\\frac{1}{n^2}Var\\left(\\sum_{i=1}^n B_i\\right)$。",
+        "Step 3: 由于独立性，$Var\\left(\\sum_{i=1}^n B_i\\right)=\\sum_{i=1}^n Var(B_i)=np(1-p)$。",
+        "Step 4: 化简得到 $Var(\\hat{p})=\\frac{np(1-p)}{n^2}=\\frac{p(1-p)}{n}$。"
+    ],
+    "glossary": [
+      {
+        "term": "Sample Proportion ($\\hat{p}$)",
+        "definition": "样本中成功次数占总样本量 $n$ 的比率。"
+      },
+      {
+        "term": "Standard Error (SE)",
+        "definition": "统计量抽样分布的标准差，公式为 $\\sqrt{\frac{p(1-p)}{n}}$。"
+      },
+      {
+        "term": "Independence",
+        "definition": "各试验结果之间互不影响的统计性质。"
+      }
+    ],
+    "source_reference": "BernoulliCLT(1).pdf, page 59-64"
+  }
+]

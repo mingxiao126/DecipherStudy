@@ -20,7 +20,7 @@ class FlashCardApp {
         this.setupEventListeners();
         this.createStars();
         this.updateStats();
-        
+
         // 等待 KaTeX 库加载完成
         this.waitForKaTeX();
     }
@@ -102,13 +102,7 @@ class FlashCardApp {
         const customTopics = this.getCustomFlashcardTopics();
 
         try {
-            const timestamp = new Date().getTime();
-            const response = await fetch(`/content/topics.json?t=${timestamp}`, {
-                cache: 'no-cache'
-            });
-            if (!response.ok) throw new Error('无法加载主题列表');
-
-            const builtInTopics = await response.json();
+            const builtInTopics = await window.fetchUserTopics('flashcard');
             this.topics = [...builtInTopics, ...customTopics];
             console.log('加载主题成功，内置+自定义:', this.topics.length);
             this.populateTopicSelector();
@@ -154,9 +148,7 @@ class FlashCardApp {
                 data = dataset.data;
                 this.currentTopic = `custom_${dataset.id}`;
             } else {
-                const response = await fetch(`/content/${fileName}`);
-                if (!response.ok) throw new Error('无法加载卡片数据');
-                data = await response.json();
+                data = await window.fetchUserDataset(fileName);
                 this.currentTopic = fileName.replace('.json', '');
             }
 
@@ -197,53 +189,53 @@ class FlashCardApp {
 
         const card = this.cards[this.currentIndex];
         const flipCard = document.getElementById('flipCard');
-        
+
         // 添加淡入淡出动画
         flipCard.classList.add('fade-slide-exit');
-        
+
         setTimeout(() => {
             // 更新问题（支持 LaTeX）
             const questionEl = document.getElementById('cardQuestion');
             const questionText = card.question || '问题未设置';
             questionEl.innerHTML = this.renderWithKaTeX(questionText);
-            
+
             // 更新答案（支持新旧两种格式）
             const answerEl = document.getElementById('cardAnswer');
             const answerHTML = this.formatStructuredAnswer(card.answer || '答案未设置');
             answerEl.innerHTML = answerHTML;
             answerEl.style.textAlign = 'left'; // 结构化答案统一左对齐
-            
+
             // 更新逻辑记忆点（优先使用 answer.logic_memo，否则使用顶层的）
-            const logicMemo = (card.answer && typeof card.answer === 'object' && card.answer.logic_memo) 
-                ? card.answer.logic_memo 
+            const logicMemo = (card.answer && typeof card.answer === 'object' && card.answer.logic_memo)
+                ? card.answer.logic_memo
                 : card.logic_memo;
             this.updateLogicMemo(logicMemo);
-            
+
             // 更新分类
             document.getElementById('cardCategory').textContent = card.category || '未分类';
-            
+
             // 更新题目类型标签
             const typeTag = document.getElementById('cardTypeTag');
             const glossaryBtn = document.getElementById('glossaryBtn');
-            
+
             if (card.type) {
                 typeTag.textContent = card.type;
                 typeTag.style.display = 'block';
             } else {
                 typeTag.style.display = 'none';
             }
-            
+
             // 更新关键词高亮
             this.updateSignalTags(card.signals || []);
-            
+
             // 更新分步逻辑
             this.updateLogicSteps(card.steps || []);
-            
+
             // 更新内嵌词典（正面按钮+弹窗 + 背面区块）
             this.updateGlossary(card.glossary || []);
             // 更新背面出处
             this.updateSourceReference(card.source_reference);
-            
+
             // 如果类型标签和生词按钮同时显示，调整生词按钮位置
             // 移除内联样式，让 CSS 规则控制位置
             if (card.type && card.glossary && card.glossary.length > 0) {
@@ -252,31 +244,31 @@ class FlashCardApp {
             } else if (glossaryBtn.style.display !== 'none') {
                 glossaryBtn.style.top = '1.5rem';
             }
-            
+
             // 更新掌握度按钮状态
             this.updateMasteryButtons(card, this.currentIndex);
-            
+
             // 渲染 KaTeX（延迟渲染以确保 DOM 已更新和 KaTeX 库加载完成）
             // 使用更长的延迟，确保所有 DOM 更新完成
             setTimeout(() => {
                 this.renderKaTeX();
             }, 300);
-            
+
             // 额外延迟渲染，确保动画完成后也能渲染
             setTimeout(() => {
                 this.renderKaTeX();
             }, 600);
-            
+
             // 重置翻转状态
             if (this.isFlipped) {
                 flipCard.classList.remove('flipped');
                 this.isFlipped = false;
             }
-            
+
             // 添加进入动画
             flipCard.classList.remove('fade-slide-exit');
             flipCard.classList.add('fade-slide-enter');
-            
+
             setTimeout(() => {
                 flipCard.classList.remove('fade-slide-enter');
             }, 400);
@@ -296,38 +288,38 @@ class FlashCardApp {
     // 预处理文本：保护货币符号和百分比符号，并修复多余的转义
     preprocessMathText(text) {
         if (!text) return { processed: text, currencyPlaceholders: [], percentPlaceholders: [] };
-        
+
         let processed = text;
-        
+
         // 自动修复多余的转义：将 \\% 替换为 %
         processed = processed.replace(/\\%/g, '%');
-        
+
         const currencyPlaceholders = [];
         const percentPlaceholders = [];
-        
+
         // 第一步：保护百分比符号（在公式外的）
         let percentIndex = 0;
         processed = processed.replace(/(\d+(?:\.\d+)?)%/g, (match, number, offset) => {
             const before = processed.substring(0, offset);
             const dollarCount = (before.match(/\$/g) || []).length;
-            
+
             // 如果 $ 数量是奇数，说明在公式内，不保护
             if (dollarCount % 2 === 1) {
                 return match;
             }
-            
+
             const placeholder = `__PERCENT_${percentIndex}__`;
             percentPlaceholders.push({ placeholder, original: match });
             percentIndex++;
             return placeholder;
         });
-        
+
         // 第二步：保护货币符号（单个 $ 后跟数字）
         let currencyIndex = 0;
         processed = processed.replace(/\$(\d+(?:\.\d+)?)(?=(?:\s|$|[,.!?;:，。！？；：]))/g, (match, number, offset) => {
             const before = processed.substring(0, offset);
             const dollarCount = (before.match(/\$/g) || []).length;
-            
+
             // 如果 $ 数量是偶数，说明不在公式内，这是货币符号
             if (dollarCount % 2 === 0) {
                 const placeholder = `__CURRENCY_${currencyIndex}__`;
@@ -335,10 +327,10 @@ class FlashCardApp {
                 currencyIndex++;
                 return placeholder;
             }
-            
+
             return match; // 在公式内，不处理
         });
-        
+
         return {
             processed,
             currencyPlaceholders,
@@ -349,15 +341,15 @@ class FlashCardApp {
     // 恢复占位符为原始文本
     restorePlaceholders(text, currencyPlaceholders, percentPlaceholders) {
         let restored = text;
-        
+
         percentPlaceholders.forEach(({ placeholder, original }) => {
             restored = restored.replace(placeholder, original);
         });
-        
+
         currencyPlaceholders.forEach(({ placeholder, original }) => {
             restored = restored.replace(placeholder, original);
         });
-        
+
         return restored;
     }
 
@@ -382,31 +374,31 @@ class FlashCardApp {
             const answerEl = document.getElementById('cardAnswer');
             const logicMemoEl = document.getElementById('logicMemo');
             const logicStepsEl = document.getElementById('logicSteps');
-            
+
             // 渲染配置（优化版）
             const renderOptions = {
                 delimiters: [
-                    {left: '$$', right: '$$', display: true},   // 块级公式
-                    {left: '\\(', right: '\\)', display: false}, // 行内公式 (推荐 JSON 用这个)
-                    {left: '$', right: '$', display: false}      // 兼容旧的 $ 格式
+                    { left: '$$', right: '$$', display: true },   // 块级公式
+                    { left: '\\(', right: '\\)', display: false }, // 行内公式 (推荐 JSON 用这个)
+                    { left: '$', right: '$', display: false }      // 兼容旧的 $ 格式
                 ],
                 ignoredClasses: ['no-math'],
                 throwOnError: false
             };
-            
+
             // 渲染问题中的公式（带预处理）
             if (questionEl) {
                 const questionHTML = questionEl.innerHTML;
                 if (questionHTML.includes('$') && !questionHTML.includes('katex') && !questionHTML.includes('katex-display')) {
                     try {
                         const preprocessed = this.preprocessMathText(questionHTML);
-                        
+
                         if (preprocessed.processed !== questionHTML) {
                             questionEl.innerHTML = preprocessed.processed;
                         }
-                        
+
                         renderMathInElement(questionEl, renderOptions);
-                        
+
                         if (preprocessed.currencyPlaceholders.length > 0 || preprocessed.percentPlaceholders.length > 0) {
                             const renderedHTML = questionEl.innerHTML;
                             const restoredHTML = this.restorePlaceholders(
@@ -421,20 +413,20 @@ class FlashCardApp {
                     }
                 }
             }
-            
+
             // 渲染答案中的公式（带预处理，包括结构化答案）
             if (answerEl) {
                 const answerHTML = answerEl.innerHTML;
                 if (answerHTML.includes('$') && !answerHTML.includes('katex') && !answerHTML.includes('katex-display')) {
                     try {
                         const preprocessed = this.preprocessMathText(answerHTML);
-                        
+
                         if (preprocessed.processed !== answerHTML) {
                             answerEl.innerHTML = preprocessed.processed;
                         }
-                        
+
                         renderMathInElement(answerEl, renderOptions);
-                        
+
                         if (preprocessed.currencyPlaceholders.length > 0 || preprocessed.percentPlaceholders.length > 0) {
                             const renderedHTML = answerEl.innerHTML;
                             const restoredHTML = this.restorePlaceholders(
@@ -449,20 +441,20 @@ class FlashCardApp {
                     }
                 }
             }
-            
+
             // 渲染逻辑记忆点中的公式（带预处理）
             if (logicMemoEl && logicMemoEl.style.display !== 'none') {
                 const memoHTML = logicMemoEl.innerHTML;
                 if (memoHTML.includes('$') && !memoHTML.includes('katex') && !memoHTML.includes('katex-display')) {
                     try {
                         const preprocessed = this.preprocessMathText(memoHTML);
-                        
+
                         if (preprocessed.processed !== memoHTML) {
                             logicMemoEl.innerHTML = preprocessed.processed;
                         }
-                        
+
                         renderMathInElement(logicMemoEl, renderOptions);
-                        
+
                         if (preprocessed.currencyPlaceholders.length > 0 || preprocessed.percentPlaceholders.length > 0) {
                             const renderedHTML = logicMemoEl.innerHTML;
                             const restoredHTML = this.restorePlaceholders(
@@ -477,20 +469,20 @@ class FlashCardApp {
                     }
                 }
             }
-            
+
             // 渲染分步逻辑中的公式（带预处理）
             if (logicStepsEl && logicStepsEl.style.display !== 'none') {
                 const stepsHTML = logicStepsEl.innerHTML;
                 if (stepsHTML.includes('$') && !stepsHTML.includes('katex') && !stepsHTML.includes('katex-display')) {
                     try {
                         const preprocessed = this.preprocessMathText(stepsHTML);
-                        
+
                         if (preprocessed.processed !== stepsHTML) {
                             logicStepsEl.innerHTML = preprocessed.processed;
                         }
-                        
+
                         renderMathInElement(logicStepsEl, renderOptions);
-                        
+
                         if (preprocessed.currencyPlaceholders.length > 0 || preprocessed.percentPlaceholders.length > 0) {
                             const renderedHTML = logicStepsEl.innerHTML;
                             const restoredHTML = this.restorePlaceholders(
@@ -533,7 +525,7 @@ class FlashCardApp {
     // 格式化结构化答案（支持新旧两种格式）
     formatStructuredAnswer(answer) {
         if (!answer) return '<div class="answer-empty">答案未设置</div>';
-        
+
         // 判断是新格式（对象）还是旧格式（字符串）
         if (typeof answer === 'object' && answer !== null) {
             return this.formatNewAnswer(answer);
@@ -546,12 +538,12 @@ class FlashCardApp {
     // 格式化新格式答案（对象结构）
     formatNewAnswer(answerObj) {
         let html = '<div class="structured-answer">';
-        
+
         // 1. 最终答案（主要答案）
         if (answerObj.final_answer) {
             html += `<div class="answer-final">${this.renderWithKaTeX(this.formatText(answerObj.final_answer))}</div>`;
         }
-        
+
         // 2. 关键点列表
         if (answerObj.key_points && Array.isArray(answerObj.key_points) && answerObj.key_points.length > 0) {
             html += '<div class="answer-section answer-key-points">';
@@ -562,7 +554,7 @@ class FlashCardApp {
             });
             html += '</ul></div>';
         }
-        
+
         // 3. 测试点（标签形式）
         if (answerObj.tested_points && Array.isArray(answerObj.tested_points) && answerObj.tested_points.length > 0) {
             html += '<div class="answer-section answer-tested-points">';
@@ -573,7 +565,7 @@ class FlashCardApp {
             });
             html += '</div></div>';
         }
-        
+
         html += '</div>';
         return html;
     }
@@ -581,19 +573,19 @@ class FlashCardApp {
     // 格式化旧格式答案（字符串，保持向后兼容）
     formatAnswer(answer) {
         if (!answer) return '';
-        
+
         let formatted = answer;
-        
+
         // 1. 先处理 "例子：" 段落（在列表处理之前，避免干扰）
         formatted = formatted.replace(/(例子[：:]\s*)(.+?)(?=\s+\d+\.|$)/g, '<div class="answer-example"><span class="example-label">$1</span><span class="example-content">$2</span></div>');
-        
+
         // 2. 处理 Markdown 加粗：**文本** 转换为红色加粗
         formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #ef4444;">$1</strong>');
-        
+
         // 3. 检测并格式化编号列表（格式：1. ... 2. ... 3. ...）
         const numberedListPattern = /(\d+)\.\s+([^0-9]+?)(?=\s+\d+\.|$)/g;
         const hasNumberedList = numberedListPattern.test(formatted);
-        
+
         if (hasNumberedList) {
             numberedListPattern.lastIndex = 0;
             formatted = formatted.replace(numberedListPattern, (match, num, content) => {
@@ -609,7 +601,7 @@ class FlashCardApp {
             });
             formatted = `<div class="answer-list">${formatted}</div>`;
         }
-        
+
         return formatted;
     }
 
@@ -624,7 +616,7 @@ class FlashCardApp {
     updateSignalTags(signals) {
         const container = document.getElementById('signalTags');
         container.innerHTML = '';
-        
+
         if (signals && signals.length > 0) {
             signals.forEach(signal => {
                 const tag = document.createElement('span');
@@ -638,7 +630,7 @@ class FlashCardApp {
     // 更新逻辑记忆点显示
     updateLogicMemo(logicMemo) {
         const container = document.getElementById('logicMemo');
-        
+
         if (logicMemo && logicMemo.trim()) {
             // 添加标题和内容结构
             container.innerHTML = `
@@ -646,7 +638,7 @@ class FlashCardApp {
                 <div class="logic-memo-content">${this.renderWithKaTeX(this.formatText(logicMemo))}</div>
             `;
             container.style.display = 'block';
-            
+
             // 延迟渲染 KaTeX（确保 DOM 已更新）
             setTimeout(() => {
                 this.renderKaTeX();
@@ -659,7 +651,7 @@ class FlashCardApp {
     // 更新分步逻辑显示
     updateLogicSteps(steps) {
         const container = document.getElementById('logicSteps');
-        
+
         if (steps && steps.length > 0) {
             container.innerHTML = '';
             steps.forEach(step => {
@@ -669,7 +661,7 @@ class FlashCardApp {
                 container.appendChild(stepEl);
             });
             container.style.display = 'block';
-            
+
             // 延迟渲染 KaTeX（确保 DOM 已更新）
             setTimeout(() => {
                 this.renderKaTeX();
@@ -746,7 +738,7 @@ class FlashCardApp {
     updateMasteryButtons(card, index) {
         const cardId = this.getCardId(card, index);
         const status = this.masteryData[cardId] || null;
-        
+
         const buttons = document.querySelectorAll('.mastery-btn');
         buttons.forEach(btn => {
             const btnStatus = btn.getAttribute('data-status');
@@ -763,16 +755,16 @@ class FlashCardApp {
     // 设置掌握度
     setMastery(status) {
         if (this.cards.length === 0) return;
-        
+
         const card = this.cards[this.currentIndex];
         const cardId = this.getCardId(card, this.currentIndex);
-        
+
         if (status === null) {
             delete this.masteryData[cardId];
         } else {
             this.masteryData[cardId] = status;
         }
-        
+
         this.saveMasteryData();
         this.updateMasteryButtons(card, this.currentIndex);
         this.updateStats();
@@ -781,17 +773,17 @@ class FlashCardApp {
     // 更新错题统计
     updateStats() {
         let redCount = 0;
-        
+
         // 统计所有主题中的需重练题目
         Object.keys(this.masteryData).forEach(key => {
             if (this.masteryData[key] === 'red') {
                 redCount++;
             }
         });
-        
+
         const statsBadge = document.getElementById('statsBadge');
         const redCountEl = document.getElementById('redCount');
-        
+
         if (redCount > 0) {
             statsBadge.classList.remove('hidden');
             redCountEl.textContent = redCount;
@@ -826,17 +818,17 @@ class FlashCardApp {
     // 随机乱序
     shuffleCards() {
         if (this.cards.length === 0) return;
-        
+
         // Fisher-Yates 洗牌算法
         for (let i = this.cards.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
         }
-        
+
         this.currentIndex = 0;
         this.updateCard();
         this.updateProgress();
-        
+
         // 视觉反馈
         const shuffleBtn = document.getElementById('shuffleBtn');
         shuffleBtn.style.transform = 'rotate(360deg)';
@@ -855,7 +847,7 @@ class FlashCardApp {
     updateButtons() {
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        
+
         prevBtn.disabled = this.cards.length === 0;
         nextBtn.disabled = this.cards.length === 0;
     }
@@ -864,7 +856,7 @@ class FlashCardApp {
     toggleTimer() {
         const timerDisplay = document.getElementById('timerDisplay');
         const timerBtn = document.getElementById('timerBtn');
-        
+
         if (this.timerInterval) {
             // 停止计时
             clearInterval(this.timerInterval);
@@ -878,11 +870,11 @@ class FlashCardApp {
             timerBtn.textContent = '⏱️ 停止计时';
             this.timerSeconds = 10;
             this.updateTimerDisplay();
-            
+
             this.timerInterval = setInterval(() => {
                 this.timerSeconds--;
                 this.updateTimerDisplay();
-                
+
                 if (this.timerSeconds <= 0) {
                     this.stopTimer();
                     // 自动翻转到下一题
@@ -909,7 +901,7 @@ class FlashCardApp {
     updateTimerDisplay() {
         const timerValue = document.getElementById('timerValue');
         timerValue.textContent = this.timerSeconds;
-        
+
         if (this.timerSeconds <= 3) {
             timerValue.classList.add('timer-warning');
         } else {
@@ -930,8 +922,8 @@ class FlashCardApp {
         // 卡片翻转（点击卡片主体，但不包括按钮）
         document.getElementById('flipCard').addEventListener('click', (e) => {
             // 如果点击的是按钮或交互元素，不翻转
-            if (e.target.closest('.mastery-btn') || 
-                e.target.closest('.glossary-btn') || 
+            if (e.target.closest('.mastery-btn') ||
+                e.target.closest('.glossary-btn') ||
                 e.target.closest('.glossary-popup')) {
                 return;
             }
@@ -1006,7 +998,7 @@ class FlashCardApp {
                 return;
             }
 
-            switch(e.key) {
+            switch (e.key) {
                 case ' ':
                     e.preventDefault();
                     this.flipCard();
@@ -1036,7 +1028,7 @@ class FlashCardApp {
     createStars() {
         const starsContainer = document.getElementById('stars');
         const starCount = 100;
-        
+
         for (let i = 0; i < starCount; i++) {
             const star = document.createElement('div');
             star.className = 'star';

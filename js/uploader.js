@@ -215,69 +215,125 @@
     function hideIssuesPanel() {
         const panel = document.getElementById('validationIssuesPanel');
         if (panel) panel.classList.add('hidden');
-        const gptPanel = document.getElementById('gptPromptPanel');
-        if (gptPanel) gptPanel.classList.add('hidden');
+        const smartPanel = document.getElementById('smartFixPanel');
+        if (smartPanel) smartPanel.classList.add('hidden');
     }
 
-    function generateGptPrompt(audit) {
-        if (!audit || !audit.issues || audit.issues.length === 0) return '';
+    function performAutoFix(data) {
+        if (!data) return data;
 
-        const issuesText = audit.issues.map((issue, idx) => {
-            const loc = issue.location ? ` (位置: ${issue.location})` : '';
-            const fix = issue.fix_suggestion ? ` 建议: ${issue.fix_suggestion}` : '';
-            return `${idx + 1}. [${issue.rule_id}] ${issue.description}${loc}${fix}`;
-        }).join('\n');
+        const traverse = (obj) => {
+            if (typeof obj === 'string') {
+                let fixed = obj;
+                // 1. 修复所有不安全的单反斜杠 (针对 PRAC_LAT_001)
+                // 规则：只要反斜杠后面不是安全的 LaTeX 字符集或另一个反斜杠，就补齐为双反斜杠
+                fixed = fixed.replace(/(^|[^\\])\\([^a-zA-Z0-9_{}()[\]\\]|$)/g, '$1\\\\$2');
 
-        return [
-            '你之前提供的 JSON 存在以下协议违规项，请严格根据建议修正后，重新输出完整的、符合 Decipher 协议的 JSON。',
-            '不要解释，输出纯 JSON（不要 Markdown 代码块，不要前后缀文本）：',
-            '',
-            issuesText
-        ].join('\n');
+                // 2. 修复常见的 LaTeX 命令丢失双反斜杠的情况 (针对 PRAC_LAT_001 漏网之鱼)
+                fixed = fixed.replace(/(^|[^\\])\\([A-Za-z]+)/g, (match, p1, p2) => {
+                    const knownCmds = ['frac', 'sqrt', 'sum', 'hat', 'sigma', 'mu', 'times', 'approx', 'cdot', 'left', 'right', 'in', 'le', 'ge', 'alpha', 'beta', 'gamma', 'theta', 'pi', 'log', 'ln', 'bar', 'text'];
+                    if (knownCmds.includes(p2)) return p1 + '\\\\' + p2;
+                    return match;
+                });
+
+                // 3. 修复 $ 环境内的百分号 (针对 PRAC_LAT_002)
+                fixed = fixed.replace(/\$([^$]*%[^$]*)\$/g, (match, p1) => {
+                    return p1.replace(/%/g, '') + '%';
+                });
+
+                // 4. 修复货币 $ 冲突 (针对 PRAC_LAT_003 启发式)
+                fixed = fixed.replace(/\$([0-9.,]+)(?!\$)/g, '$1 $');
+
+                return fixed;
+            }
+            if (Array.isArray(obj)) return obj.map(traverse);
+            if (obj && typeof obj === 'object') {
+                const out = {};
+                Object.keys(obj).forEach(k => { out[k] = traverse(obj[k]); });
+                return out;
+            }
+            return obj;
+        };
+
+        return traverse(data);
     }
 
-    function getOrCreateGptPromptPanel() {
-        let panel = document.getElementById('gptPromptPanel');
+    function getOrCreateSmartFixPanel() {
+        let panel = document.getElementById('smartFixPanel');
         if (panel) return panel;
 
         const statusEl = document.getElementById('uploadStatus');
         if (!statusEl || !statusEl.parentElement || !statusEl.parentElement.parentElement) return null;
 
         panel = document.createElement('div');
-        panel.id = 'gptPromptPanel';
+        panel.id = 'smartFixPanel';
         panel.className = 'mt-4 hidden';
         panel.innerHTML = [
-            '<label class="block text-slate-300 mb-2 text-sm">AI 修正指令（发送给 ChatGPT）</label>',
-            '<div class="flex gap-2 mb-2">',
-            '<button id="copyGptPromptBtn" class="btn-primary px-4 py-2 rounded-xl text-xs font-semibold" type="button">复制修正指令</button>',
+            '<div class="flex items-center gap-2 p-3 rounded-xl bg-purple-500/10 border border-purple-500/20">',
+            '<div class="flex-1">',
+            '<p class="text-purple-200 text-sm font-semibold">检测到可自动修复的问题</p>',
+            '<p class="text-purple-400/80 text-xs">点击下方按钮将自动修正 LaTeX 语法、反斜杠及符号冲突。</p>',
             '</div>',
-            '<div id="gptPromptText" class="w-full max-h-40 overflow-auto px-3 py-2 rounded-xl bg-purple-900/20 border border-purple-500/30 text-purple-200 text-xs font-mono whitespace-pre-wrap"></div>'
+            '<button id="runSmartFixBtn" class="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-lg transition-all shrink-0">立即自动修复</button>',
+            '</div>'
         ].join('');
 
         statusEl.parentElement.parentElement.appendChild(panel);
-
-        const btn = panel.querySelector('#copyGptPromptBtn');
-        const textEl = panel.querySelector('#gptPromptText');
-        if (btn && textEl) {
-            btn.addEventListener('click', async () => {
-                try {
-                    await navigator.clipboard.writeText(textEl.textContent || '');
-                    btn.textContent = '已复制 Prompt';
-                    setTimeout(() => { btn.textContent = '复制修正指令'; }, 1500);
-                } catch (e) {
-                    console.error('复制失败', e);
-                }
-            });
-        }
         return panel;
     }
 
-    function showGptPromptPanel(prompt) {
-        const panel = getOrCreateGptPromptPanel();
+    function showSmartFixPanel(data) {
+        const panel = getOrCreateSmartFixPanel();
         if (!panel) return;
-        const textEl = panel.querySelector('#gptPromptText');
-        if (textEl) textEl.textContent = prompt || '';
+
+        const btn = panel.querySelector('#runSmartFixBtn');
+        btn.onclick = (e) => {
+            e.preventDefault();
+            console.log('[Uploader] Running Smart Fix on data...');
+            const fixedData = performAutoFix(data);
+            const textEl = document.getElementById('datasetJsonText');
+            if (textEl) {
+                const newJson = JSON.stringify(fixedData, null, 2);
+                if (textEl.value === newJson) {
+                    console.warn('[Uploader] Smart Fix made no changes. Broadening search...');
+                    // 如果普通修复没变，尝试进一步全量反斜杠转义
+                    const finalData = forceEscapeAllBackslashes(data);
+                    textEl.value = JSON.stringify(finalData, null, 2);
+                } else {
+                    textEl.value = newJson;
+                }
+
+                // UI 反馈
+                const originalText = btn.textContent;
+                btn.textContent = '已修复并重新校验...';
+                btn.classList.replace('bg-purple-600', 'bg-emerald-600');
+
+                setTimeout(() => {
+                    const validateBtn = document.getElementById('datasetUploadBtn');
+                    if (validateBtn) validateBtn.click();
+                    btn.textContent = originalText;
+                    btn.classList.replace('bg-emerald-600', 'bg-purple-600');
+                }, 500);
+            }
+        };
         panel.classList.remove('hidden');
+    }
+
+    // 最后的保底方案：将所有单独的反斜杠（且不是转义字符的）都双倍化
+    function forceEscapeAllBackslashes(data) {
+        const traverse = (obj) => {
+            if (typeof obj === 'string') {
+                return obj.replace(/(^|[^\\])\\(?!\\)/g, '$1\\\\');
+            }
+            if (Array.isArray(obj)) return obj.map(traverse);
+            if (obj && typeof obj === 'object') {
+                const out = {};
+                Object.keys(obj).forEach(k => { out[k] = traverse(obj[k]); });
+                return out;
+            }
+            return obj;
+        };
+        return traverse(data);
     }
 
     function smartCleanup(text) {
@@ -503,11 +559,14 @@
             });
             showIssuesPanel(issues);
 
-            const prompt = generateGptPrompt(result.audit);
-            showGptPromptPanel(prompt);
+            // 如果存在可自动修复的 LaTeX/语法问题，显示智能修复面板
+            const fixable = issues.some(msg => msg.includes('PRAC_LAT_001') || msg.includes('PRAC_LAT_002'));
+            if (fixable) {
+                showSmartFixPanel(data);
+            }
 
             if (!result.valid) {
-                statusText(statusEl, `校验失败：共 ${issues.length} 项。请按下方清单或使用 AI 修正指令进行调整。`, true);
+                statusText(statusEl, `校验失败：共 ${issues.length} 项。请参考下方清单或使用“立即自动修复”进行调整。`, true);
                 return;
             } else {
                 statusText(statusEl, `注意：通过严重错误校验，但存在 ${issues.length} 项优化建议（警告）。`, false);
@@ -523,7 +582,8 @@
             type,
             subject,
             name: finalName,
-            data: result.normalized
+            data: result.normalized,
+            userId: window.DecipherUser ? window.DecipherUser.id : null
         };
 
         if (confirmBtn) confirmBtn.classList.remove('hidden');

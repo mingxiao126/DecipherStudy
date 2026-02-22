@@ -1,0 +1,807 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "Which of the following is the largest component of a typical household's spending in the Canadian CPI basket?",
+    "options": [
+      "Food",
+      "Transportation",
+      "Housing",
+      "Recreation"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "住房（Housing）在加拿大典型家庭支出篮子中占比最高，约为44.9%。",
+      "decoding": [
+        "题干询问 CPI 篮子中占比最大的组成部分 → 对应讲义中关于典型家庭支出份额的统计图表。"
+      ],
+      "conditions": [
+        {
+          "title": "CPI 篮子权重",
+          "content": "Housing 在 CPI 权重中通常占比最高；其他项目按支出份额加权计入总体指数。",
+          "description": "CPI 以代表性家庭支出为基础，权重反映不同项目占总支出的比例。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "直觉误导",
+          "description": "学生可能根据出现场次频率（如食品）误判为最大项，而 CPI 权重按金额而非次数计算。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "查阅数据",
+          "content": "参考 Statistics Canada 的家庭支出构成表：Housing ≈ 44.9%，Food ≈ 16.2%，Transportation ≈ 16.0%。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "比较得出结论",
+          "content": "直接比较各项权重，Housing 明显最大，因此选择 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "Food 占比约 16.2%，显著低于 Housing。"
+        },
+        {
+          "label": "B",
+          "reason": "Transportation 占比约 16.0%，低于 Housing。"
+        },
+        {
+          "label": "D",
+          "reason": "Recreation 占比通常较小，不是最大项。"
+        }
+      ],
+      "knowledge_points": [
+        "Consumer Price Index",
+        "CPI Basket Weight"
+      ],
+      "source": "Lecture"
+    }
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "What does 'Substitution Bias' in the CPI refer to?",
+    "options": [
+      "The tendency of consumers to buy more of a good when its price increases.",
+      "The overestimate of the cost of living because people switch to cheaper goods.",
+      "The underestimate of inflation due to unmeasured quality improvements.",
+      "The error caused by the introduction of new products like the iPhone."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "替代偏差（Substitution Bias）指 CPI 高估了生活成本变化，因为固定篮子未反映消费者转向更便宜替代品的行为。",
+      "decoding": [
+        "题干涉及 CPI 测量偏差中的 'Substitution Bias' → 关联消费者在相对价格变化时替代行为的逻辑。"
+      ],
+      "conditions": [
+        {
+          "title": "替代偏差定义",
+          "content": "固定篮子模型忽略了消费者在价格变化时调整消费组合的行为。",
+          "description": "当某商品价格上涨时，消费者可能转向相对便宜的替代品，从而降低实际生活成本增速，但固定篮子不会体现这一点。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "高估与低估混淆",
+          "description": "替代偏差会导致 CPI 高估成本上升（overestimate），非低估。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别概念",
+          "content": "确认题干指向消费者改换商品（替代），而不是质量或新产品问题。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "评估影响",
+          "content": "固定篮子计算的是在旧消费组合下的成本，忽略替代行为导致的成本节约，从而高估生活成本。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "A 描述与需求法则冲突，且与替代偏差逻辑相反。"
+        },
+        {
+          "label": "C",
+          "reason": "质量改进问题属于质量偏差，不等同于替代偏差。"
+        },
+        {
+          "label": "D",
+          "reason": "新产品引入是独立问题（新产品偏差），不是替代偏差。"
+        }
+      ],
+      "knowledge_points": [
+        "Substitution Bias",
+        "Cost of Living"
+      ],
+      "source": "Textbook"
+    }
+  },
+  {
+    "id": "q-03",
+    "type": "choice",
+    "question": "If you put $100 in a savings account with a 5% nominal interest rate and the inflation rate is 3%, what is the real interest rate?",
+    "options": [
+      "8%",
+      "5%",
+      "3%",
+      "2%"
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "$r\\approx i-\\pi$；名义利率 i = 5%，通胀率 π = 3%，因此实际利率 r ≈ 2%。",
+      "decoding": [
+        "已知名义利率 5% 与通胀率 3% → 要求购买力意义上的实际利率。"
+      ],
+      "conditions": [
+        {
+          "title": "费雪方程式（近似）",
+          "content": "$r\\approx i-\\pi$",
+          "description": "在低通胀环境下，实际利率 r 可近似用名义利率 i 减去通胀率 π 表示（后续以百分比形式书写）。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "加减法错误",
+          "description": "一些学生会错误把通胀与利率相加或混淆名义/实际概念。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "公式代入",
+          "content": "代入 $r\\approx i-\\pi$，代入已知值 i = 5%, π = 3%。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算结论",
+          "content": "计算得到 r ≈ 5% - 3% = 2%，表示净购买力增长 2%。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误地把通胀视为额外收益（相加），不合逻辑。"
+        },
+        {
+          "label": "B",
+          "reason": "B 为名义利率，未扣除通胀影响。"
+        },
+        {
+          "label": "C",
+          "reason": "C 为通胀率本身，而非实际利率。"
+        }
+      ],
+      "knowledge_points": [
+        "Real Interest Rate",
+        "Nominal Interest Rate",
+        "Inflation Rate"
+      ],
+      "source": "Lecture"
+    }
+  },
+  {
+    "id": "q-04",
+    "type": "choice",
+    "question": "When an individual decides to work harder because their nominal wage increased, while forgetting that prices have risen even more, they are suffering from:",
+    "options": [
+      "Substitution bias",
+      "Menu costs",
+      "Money illusion",
+      "The inflation fallacy"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "货币幻觉（Money illusion）指关注名义数额而忽视通胀调整后的实际数额，题干描述即为货币幻觉。",
+      "decoding": [
+        "题干描述：个体看重名义工资上涨，却忽视物价涨幅更大 → 对应 Money illusion。"
+      ],
+      "conditions": [
+        {
+          "title": "货币幻觉定义",
+          "content": "Mistaken tendency to focus on nominal dollar amounts instead of inflation-adjusted amounts.",
+          "description": "在通胀情形中，若只看名义增长而忽略购买力变化，易发生错误判断。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "概念混淆",
+          "description": "不要将该心理偏差与统计/价格指数相关的概念（如 substitution bias）混淆。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "行为识别",
+          "content": "确认题中主体以名义工资为依据进行行为改变，而非实际购买力指标。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配定义",
+          "content": "该行为符合货币幻觉的核心定义，因此选择 Money illusion。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "Substitution bias 属于 CPI 测量偏差，非心理判断偏差。"
+        },
+        {
+          "label": "B",
+          "reason": "Menu costs 涉及企业更改价格表的成本，不适用此处。"
+        },
+        {
+          "label": "D",
+          "reason": "Inflation fallacy 是另一种认知错误，侧重于误判通胀对总体购买力的影响。"
+        }
+      ],
+      "knowledge_points": [
+        "Money Illusion",
+        "Real vs Nominal"
+      ],
+      "source": "Lecture"
+    }
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "Which measure of inflation tracks the prices of inputs into the production process?",
+    "options": [
+      "Consumer Price Index (CPI)",
+      "Producer Price Index (PPI)",
+      "GDP Deflator",
+      "Core Inflation"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "生产者价格指数（PPI）追踪生产过程中投入品的价格变化，符合题干描述。",
+      "decoding": [
+        "关键词：'prices of inputs into the production process' → 指向 PPI 定义。"
+      ],
+      "conditions": [
+        {
+          "title": "PPI 定义",
+          "content": "PPI tracks prices received by producers for their outputs and often reflects input cost changes.",
+          "description": "PPI 更关注生产端成本，通常被视为 CPI 的领先指标。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "CPI 与 PPI 混淆",
+          "description": "CPI 关注消费者支付的价格（消费端），而 PPI 关注生产投入或出厂价格（生产端）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "区分指数覆盖范围",
+          "content": "说明 CPI、PPI 与 GDP Deflator 的覆盖对象与差异。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配题意",
+          "content": "题干明确指出 'inputs'，因此应选择 PPI。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "CPI 反映消费者侧的价格变化，不是生产投入。"
+        },
+        {
+          "label": "C",
+          "reason": "GDP Deflator 覆盖所有最终产品，与题意不符。"
+        },
+        {
+          "label": "D",
+          "reason": "Core Inflation 是 CPI 的一个剔除项概念，不是输入价格指标。"
+        }
+      ],
+      "knowledge_points": [
+        "Producer Price Index",
+        "Price Measures"
+      ],
+      "source": "Notes"
+    }
+  },
+  {
+    "id": "q-06",
+    "type": "choice",
+    "question": "If money is used to express the price of an apple as $4.50 and an orange as $3.75, which function of money is being highlighted?",
+    "options": [
+      "Medium of exchange",
+      "Unit of account",
+      "Store of value",
+      "Liquidity source"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "该场景突出货币的计价单位功能（Unit of account），用于比较和记录不同商品的价值。",
+      "decoding": [
+        "题干通过用货币表示价格并便于比较 → 对应 'Unit of account'。"
+      ],
+      "conditions": [
+        {
+          "title": "货币的职能",
+          "content": "主要职能包括：1) Medium of exchange，2) Unit of account，3) Store of value。",
+          "description": "Unit of account 允许用同一单位衡量并比较不同商品的价值。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "职能混淆",
+          "description": "避免将计价单位与交换媒介或价值储藏混淆。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别用途",
+          "content": "题干并非描述交易支付行为（exchange），而是描述标价比较，故为计价功能。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配结论",
+          "content": "由此判断为 Unit of account。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "Medium of exchange 强调在交易中作为支付手段被接受。"
+        },
+        {
+          "label": "C",
+          "reason": "Store of value 指货币保存购买力的能力。"
+        },
+        {
+          "label": "D",
+          "reason": "Liquidity source 不是标准三大职能术语。"
+        }
+      ],
+      "knowledge_points": [
+        "Functions of Money",
+        "Unit of Account"
+      ],
+      "source": "Lecture"
+    }
+  },
+  {
+    "id": "q-07",
+    "type": "choice",
+    "question": "Shoe-leather costs of inflation refer to:",
+    "options": [
+      "The cost to firms of reprinting price tags.",
+      "The redistribution of wealth from lenders to borrowers.",
+      "The resources wasted when people try to avoid holding cash.",
+      "The confusion caused by prices sending incorrect signals."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "皮鞋成本指人们为避免持有贬值的现金而增加的交易成本与时间消耗，例如频繁去银行，属资源浪费。",
+      "decoding": [
+        "术语解析：'Shoe-leather costs' 比喻人们频繁移动以保护购买力导致的额外成本。"
+      ],
+      "conditions": [
+        {
+          "title": "通胀的不同成本",
+          "content": "常见成本包括 Menu costs（调整价格标签成本）与 Shoe-leather costs（避免持有现金的交易成本）。",
+          "description": "二者分别主要影响卖方和买方的行为与成本。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "菜单成本混淆",
+          "description": "不要把 Shoe-leather costs 与 Menu costs 混淆，后者是企业端的调整成本。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "定义解析",
+          "content": "在高通胀下现金迅速贬值，人们减少现金持有并频繁转换资产或去银行，产生时间与资源成本。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配结论",
+          "content": "因此选项 C 正确。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "A 描述为菜单成本的情形，不是皮鞋成本。"
+        },
+        {
+          "label": "B",
+          "reason": "B 描述的是通胀再分配效果，不是皮鞋成本。"
+        },
+        {
+          "label": "D",
+          "reason": "D 属于价格信号混淆造成的效率问题，不是皮鞋成本的定义。"
+        }
+      ],
+      "knowledge_points": [
+        "Shoe-leather Costs",
+        "Costs of Inflation"
+      ],
+      "source": "Textbook"
+    }
+  },
+  {
+    "id": "q-08",
+    "type": "choice",
+    "question": "According to the inflation adjustment formula, if a movie grossed 327 million in 1977 when the CPI was 33.6, what is its revenue in 2020 dollars (CPI = 137.0)?",
+    "options": [
+      "$80 million",
+      "$327 million",
+      "$1,333 million",
+      "$2,450 million"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "按物价指数换算：327 × (137.0 / 33.6) ≈ 1333.2 million，约为 1,333 million。",
+      "decoding": [
+        "已知 1977 年名义收入为 327 million，1977 CPI = 33.6，2020 CPI = 137.0 → 使用 CPI 比值换算到 2020 年的购买力等值。"
+      ],
+      "conditions": [
+        {
+          "title": "跨期价值调整公式",
+          "content": "$M_{target}=M_{orig}\\times\\dfrac{CPI_{target}}{CPI_{orig}}$",
+          "description": "用 CPI 比值将不同时期的名义值转换为目标年份的购买力等值。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "比例颠倒",
+          "description": "不能把分子分母颠倒（即误用 CPI_{orig}/CPI_{target}），否则会低估结果。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "列出已知量并写出公式",
+          "content": "已知 M_{orig} = 327 (million)，CPI_{orig} = 33.6，CPI_{target} = 137.0。使用公式 $M_{target}=M_{orig}\\times\\dfrac{CPI_{target}}{CPI_{orig}}$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入计算并得出结论",
+          "content": "计算 327 × (137.0 / 33.6) = 327 × 4.07738 ≈ 1333.2 million，四舍五入约为 1,333 million，故选 C。",
+          "tag": "计算"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "显著偏小，未按 CPI 比例放大。"
+        },
+        {
+          "label": "B",
+          "reason": "B 为原始名义收入，未进行通胀调整。"
+        },
+        {
+          "label": "D",
+          "reason": "数值过大，与 CPI 比值不符。"
+        }
+      ],
+      "knowledge_points": [
+        "Inflation Adjustment",
+        "CPI"
+      ],
+      "source": "Mixed"
+    }
+  },
+  {
+    "id": "q-09",
+    "type": "bool",
+    "question": "Deflation is defined as a generalized increase in the overall level of prices.",
+    "answer": false,
+    "analysis": {
+      "solution": "错误。通货紧缩（Deflation）定义为整体价格水平的普遍下降，而非上升。",
+      "decoding": [
+        "题干声称 Deflation = 价格水平普遍 'increase'，需判断方向正确性。"
+      ],
+      "conditions": [
+        {
+          "title": "通货紧缩定义",
+          "content": "Deflation: a generalized decrease in the overall level of prices.",
+          "description": "Deflation 与 Inflation 方向相反，表现为价格总体下降。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "反义词混淆",
+          "description": "学生常将 Inflation 与 Deflation 的方向记混，导致判断错误。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "对比定义",
+          "content": "将 Inflation（price level ↑）与 Deflation（price level ↓）并列比较，确认题干描述错误。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "确认结论",
+          "content": "因此题目陈述为假（false），选择 false 并给出简要说明以巩固记忆。",
+          "tag": "结论"
+        }
+      ],
+      "knowledge_points": [
+        "Deflation",
+        "Inflation"
+      ],
+      "source": "Lecture"
+    }
+  },
+  {
+    "id": "q-10",
+    "type": "bool",
+    "question": "The GDP deflator tracks the prices of all goods and services produced domestically and is used to convert nominal GDP to real GDP.",
+    "answer": true,
+    "analysis": {
+      "solution": "正确。GDP 平减指数覆盖国内生产的所有最终产品价格，常用于将名义 GDP 转换为实际 GDP。",
+      "decoding": [
+        "题干陈述 GDP Deflator 的覆盖范围和用途，需核对定义。"
+      ],
+      "conditions": [
+        {
+          "title": "GDP Deflator 定义",
+          "content": "GDP Deflator = \\dfrac{Nominal\\ GDP}{Real\\ GDP} \\times 100",
+          "description": "它反映了所有国内生产最终产品与劳务的价格变动。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "进口排除误解",
+          "description": "GDP Deflator 不包括进口，区别于 CPI（后者包含消费者购买的进口商品的价格影响）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "验证公式与覆盖面",
+          "content": "核对教材中 GDP Deflator 的定义与公式，确认其用于将名义 GDP 调整为实际 GDP。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "应用判断",
+          "content": "因为题中同时提到覆盖国内生产与转换名义/实际 GDP，两项均成立，结论为 true。",
+          "tag": "结论"
+        }
+      ],
+      "knowledge_points": [
+        "GDP Deflator",
+        "Real GDP"
+      ],
+      "source": "Notes"
+    }
+  },
+  {
+    "id": "q-11",
+    "type": "bool",
+    "question": "Core inflation excludes food and energy prices because these prices are relatively stable over time.",
+    "answer": false,
+    "analysis": {
+      "solution": "错误。核心通胀剔除食品和能源是因为它们价格波动剧烈（volatile），不是因为稳定。",
+      "decoding": [
+        "题干断言排除原因为 'stable'，需判断描述与事实是否一致。"
+      ],
+      "conditions": [
+        {
+          "title": "Core Inflation 定义",
+          "content": "Core inflation excludes volatile items (typically food and energy) to reveal underlying trend.",
+          "description": "剔除高波动部分以更好地观察长期通胀趋势。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "因果逻辑陷阱",
+          "description": "排除某项通常因为它波动太大导致干扰，而非因其稳定。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "查阅定义",
+          "content": "确认教材/讲义指出食品和能源价格通常具有较大季节性和波动性，故被剔除以观测潜在趋势。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "下结论",
+          "content": "题干陈述错误，因此选择 false，并说明原因以巩固记忆。",
+          "tag": "结论"
+        }
+      ],
+      "knowledge_points": [
+        "Core Inflation",
+        "Volatile Prices"
+      ],
+      "source": "Lecture"
+    }
+  },
+  {
+    "id": "q-12",
+    "type": "bool",
+    "question": "Unexpected inflation redistributes wealth from borrowers toward lenders.",
+    "answer": false,
+    "analysis": {
+      "solution": "错误。非预期通胀通常将财富从贷款人（lenders）转移到借款人（borrowers），因为借款人在固定名义合同下以较贬值的货币偿还。",
+      "decoding": [
+        "需判断非预期通胀的再分配方向：借款人或贷款人受益。"
+      ],
+      "conditions": [
+        {
+          "title": "通胀再分配效应",
+          "content": "If inflation > expected, real value of fixed nominal payments falls → lenders lose, borrowers gain.",
+          "description": "在固定利率合同下，超预期通胀会降低实际偿还价值。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "方向记反",
+          "description": "学生常把受益者记反；记住 '钱不值钱了，欠钱的人还起来更轻松'。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "模型推演",
+          "content": "在固定利率合同下，超预期通胀导致实际利率下降，借款人成本下降，贷款人实际收益下降。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "结论确认",
+          "content": "因此题干方向与事实相反，正确答案为 false。",
+          "tag": "结论"
+        }
+      ],
+      "knowledge_points": [
+        "Redistribution Cost",
+        "Unexpected Inflation"
+      ],
+      "source": "Textbook"
+    }
+  },
+  {
+    "id": "q-13",
+    "type": "bool",
+    "question": "The inflation fallacy is the mistaken belief that inflation destroyed purchasing power for the overall population.",
+    "answer": true,
+    "analysis": {
+      "solution": "正确。通胀谬误是指错误地认为物价上涨必然破坏总体购买力，忽视收入通常也会上升的事实。",
+      "decoding": [
+        "判断题考查对 'inflation fallacy' 概念的理解。"
+      ],
+      "conditions": [
+        {
+          "title": "Inflation Fallacy 定义",
+          "content": "The mistaken belief that inflation destroys purchasing power (ignoring concomitant increases in nominal incomes).",
+          "description": "如果工资与物价同步上涨，总体购买力可能不会下降。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "心理偏差",
+          "description": "人们直观看到物价上涨容易忽视名义收入的调整，导致通胀谬误。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "验证定义",
+          "content": "对照教材定义，确认题干描述与概念相符。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "归纳说明",
+          "content": "因此题干为真（true），并补充解释帮助记忆该概念的判断要点。",
+          "tag": "结论"
+        }
+      ],
+      "knowledge_points": [
+        "Inflation Fallacy",
+        "Purchasing Power"
+      ],
+      "source": "Lecture"
+    }
+  },
+  {
+    "id": "q-14",
+    "type": "essay",
+    "question": "In 2017, CN Railway's annual revenue was 13.0 billion with a CPI of 130.4. In 2020, its revenue rose to 13.8 billion with a CPI of 137.0. Using 2012 as the base year (CPI = 121.7), calculate the real revenue for both years and the percentage growth in real revenue.",
+    "answer": "2017 Real Revenue: 12.13 billion; 2020 Real Revenue: 12.26 billion; Growth: 1.04%.",
+    "analysis": {
+      "decoding": [
+        "1) 将 2017 和 2020 的名义收入转换为以 2012 年为基准的实际收入；2) 计算两年实际收入变化的百分比。"
+      ],
+      "conditions": [
+        {
+          "title": "实际值换算公式",
+          "content": "$Real_{year}=Nominal_{year}\\times\\dfrac{CPI_{base}}{CPI_{year}}$",
+          "description": "用基年 CPI 将名义值折算为基年价格下的实际值。"
+        },
+        {
+          "title": "增长率公式",
+          "content": "$Growth=\\dfrac{Real_{2020}-Real_{2017}}{Real_{2017}}\\times100$",
+          "description": "计算结果以百分比表示（注意百分号应写在公式外部说明）。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "基准年使用错误",
+          "description": "错误使用不同基年会导致无法比较，必须统一按 2012 年基准换算。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第一步：计算 2017 年实际收入",
+          "content": "$Real_{2017}=13.0\\times\\dfrac{121.7}{130.4}=13.0\\times0.93174\\approx12.1327$ billion。",
+          "tag": "计算"
+        },
+        {
+          "title": "第二步：计算 2020 年实际收入",
+          "content": "$Real_{2020}=13.8\\times\\dfrac{121.7}{137.0}=13.8\\times0.88832\\approx12.2588$ billion。",
+          "tag": "计算"
+        },
+        {
+          "title": "第三步：计算实际收入增长率并解释",
+          "content": "Growth = (12.2588 - 12.1327) / 12.1327 ≈ 0.010399 → 表示约 1.04%。",
+          "tag": "结论"
+        }
+      ],
+      "knowledge_points": [
+        "Real Variable",
+        "Nominal to Real Conversion",
+        "Economic Growth"
+      ],
+      "source": "Textbook"
+    }
+  },
+  {
+    "id": "q-15",
+    "type": "essay",
+    "question": "A pet owner tracks the spending on cat food. In 2021, the owner bought 730 cans at 0.79 each and 4 bags of dry food at 14 each. In 2022, the prices rose to (provide 2022 prices for cans and bags). Calculate the inflation rate for this basket from 2021 to 2022 and explain the steps.",
+    "answer": "Missing 2022 per-unit prices — cannot compute numeric inflation rate until 2022 prices are provided.",
+    "analysis": {
+      "decoding": [
+        "1) 识别 2021 年的消费篮子数量与单价；2) 使用 2022 年给定的单价计算 2022 年篮子总支出；3) 计算两年篮子支出的百分比变化作为该篮子的通胀率。"
+      ],
+      "conditions": [
+        {
+          "title": "篮子通胀率计算公式",
+          "content": "$Inflation\\ rate=\\dfrac{Cost_{2022}-Cost_{2021}}{Cost_{2021}}\\times100$",
+          "description": "在固定篮子的前提下，比较同一篮子两年的名义成本以得到篮子层面的通胀率（百分号写在公式外部说明）。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "数量与单价混淆",
+          "description": "确保使用相同数量（2021 年篮子数量）乘以 2022 年单价来比较，而不是用 2022 年的数量。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第一步：计算 2021 年总支出",
+          "content": "Cost_{2021} = 730 × 0.79 + 4 × 14 = 576.7 + 56 = 632.7（units: currency）。",
+          "tag": "计算"
+        },
+        {
+          "title": "第二步：计算 2022 年总支出（需要 2022 单价）",
+          "content": "提供 2022 单价后计算 Cost_{2022} = 730 × Price_{can,2022} + 4 × Price_{bag,2022}。",
+          "tag": "计算"
+        },
+        {
+          "title": "第三步：计算通胀率并解释意义",
+          "content": "Inflation rate = (Cost_{2022} - Cost_{2021}) / Cost_{2021} × 100 → 结果为百分比，解释价格变动对该固定篮子的影响。",
+          "tag": "结论"
+        }
+      ],
+      "knowledge_points": [
+        "Inflation Rate Calculation",
+        "Basket of Goods"
+      ],
+      "source": "Lecture"
+    }
+  }
+]

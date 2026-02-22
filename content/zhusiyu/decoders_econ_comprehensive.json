@@ -1,0 +1,399 @@
+[
+  {
+    "id": "stat_124_sampling_capture_01",
+    "title": "The Vancouver Campus Squirrel Census",
+    "original_question": "To study the ecological scale of Eastern Gray Squirrels on the UBC campus, volunteers placed 50 traps with peanut bait near Main Mall on a Monday morning in October. They captured 45 squirrels, and marked each on the back of the right ear with a blue non-toxic dye (lasting 14 days). The temperature was 12℃ with 80% humidity. Due to heavy rain, the second capture was delayed until Wednesday of the following week (9 days later). Volunteers set 100 traps across campus and captured 150 squirrels. They found 12 squirrels with the blue mark. Additionally, 3 unmarked squirrels appeared weak due to the rain. Historical records show an average of 500 squirrels. Estimate the current population and identify the distractors.",
+    "segments": [
+      {
+        "text": "They captured 45 squirrels, and marked each on the back of the right ear with a blue non-toxic dye (lasting 14 days).",
+        "has_info": true,
+        "highlight_text": "captured 45 squirrels, and marked each",
+        "condition": "Initial Sample (M) = 45",
+        "knowledge": "Capture-Recapture Method",
+        "explanation": "这是第一阶段捕获并标记的数量，即公式中的 M。",
+        "highlight_color": "green"
+      },
+      {
+        "text": "The temperature was 12℃ with 80% humidity.",
+        "has_info": true,
+        "highlight_text": "12℃ with 80% humidity",
+        "condition": "Environmental Distractor",
+        "knowledge": "Irrelevant Data",
+        "explanation": "环境温度和湿度与捕获-再捕获法的数学估算无关，属于干扰项。",
+        "highlight_color": "red"
+      },
+      {
+        "text": "Volunteers set 100 traps across campus and captured 150 squirrels.",
+        "has_info": true,
+        "highlight_text": "captured 150 squirrels",
+        "condition": "Second Sample (n) = 150",
+        "knowledge": "Capture-Recapture Method",
+        "explanation": "这是第二阶段总共捕获的数量，即公式中的 n。",
+        "highlight_color": "green"
+      },
+      {
+        "text": "They found 12 squirrels with the blue mark.",
+        "has_info": true,
+        "highlight_text": "12 squirrels with the blue mark",
+        "condition": "Recaptured Marked (x) = 12",
+        "knowledge": "Capture-Recapture Method",
+        "explanation": "这是在第二次捕获中发现的带有标记的数量，即公式中的 x。",
+        "highlight_color": "green"
+      },
+      {
+        "text": "Additionally, 3 unmarked squirrels appeared weak due to the rain. Historical records show an average of 500 squirrels.",
+        "has_info": true,
+        "highlight_text": "average of 500 squirrels",
+        "condition": "Historical Distractor",
+        "knowledge": "Irrelevant Data",
+        "explanation": "历史平均值和松鼠的健康状况不影响基于当前数据的公式计算。",
+        "highlight_color": "red"
+      }
+    ],
+    "traps": [
+      {
+        "title": "The Distractor Trap",
+        "description": "学生容易尝试将温度、湿度或历史平均值代入公式。在捕获-再捕获法中，只需关注 M、n 和 x。"
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Identify Variables",
+        "content": "From the prompt: Marked $M = 45$, Second sample $n = 150$, Recaptured with marks $x = 12$.",
+        "source_type": "prompt_info",
+        "source_label": "来自题干提取"
+      },
+      {
+        "step_desc": "Apply Formula",
+        "content": "Use the Lincoln-Petersen Index: $\\hat{N} = (M \\times n) / x = (45 \\times 150) / 12 = 562.5$.",
+        "source_type": "external_knowledge",
+        "source_label": "外部核心知识：捕获-再捕获估算公式"
+      },
+      {
+        "step_desc": "Final Conclusion",
+        "content": "The estimated population is approximately 563 squirrels. Distractors include temperature, humidity, squirrel health, and historical averages.",
+        "source_type": "prompt_info",
+        "source_label": "计算结果与逻辑分析"
+      }
+    ]
+  },
+
+  {
+    "id": "stat_124_descriptive_outliers_03",
+    "title": "Coffee Shop Morning Rush Experiment",
+    "original_question": "A manager recorded 12 waiting times (minutes): 3.2, 4.5, 2.8, 15.0, 3.5, 4.0, 3.8, 4.1, 2.5, 3.9, 4.2, 28.5. The 15.0 was due to a machine glitch, and 28.5 was because a customer was on a call and didn't pick up their ready coffee. The manager sees the Mean > 7 minutes and decides to hire more staff. Calculate the five-number summary and determine if the manager's decision is misled by outliers.",
+    "segments": [
+      {
+        "text": "12 waiting times (minutes): 3.2, 4.5, 2.8, 15.0, 3.5, 4.0, 3.8, 4.1, 2.5, 3.9, 4.2, 28.5.",
+        "has_info": true,
+        "highlight_text": "3.2, 4.5, 2.8, 15.0, 3.5, 4.0, 3.8, 4.1, 2.5, 3.9, 4.2, 28.5",
+        "condition": "Dataset (n=12)",
+        "knowledge": "Descriptive Statistics",
+        "explanation": "原始数据，需要排序后才能计算分位数。",
+        "highlight_color": "green"
+      },
+      {
+        "text": "The 15.0 was due to a machine glitch, and 28.5 was because a customer was on a call and didn't pick up their ready coffee.",
+        "has_info": true,
+        "highlight_text": "15.0 was due to a machine glitch, and 28.5 was because a customer was on a call",
+        "condition": "Potential Outliers",
+        "knowledge": "Outlier Detection",
+        "explanation": "这些异常大的数值是识别离群值的核心分析信息。",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "The manager sees the Mean > 7 minutes and decides to hire more staff.",
+        "has_info": true,
+        "highlight_text": "Mean > 7 minutes",
+        "condition": "Mean Sensitivity",
+        "knowledge": "Robustness of Mean vs Median",
+        "explanation": "均值对离群值非常敏感，可能误导决策。",
+        "highlight_color": "blue"
+      }
+    ],
+    "traps": [
+      {
+        "title": "Mean Sensitivity Trap",
+        "description": "在存在离群值时，均值会被极端值拉高，不能代表典型水平。"
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Five-Number Summary",
+        "content": "Sorted data: 2.5, 2.8, 3.2, 3.5, 3.8, 3.9, 4.0, 4.1, 4.2, 4.5, 15.0, 28.5. Min=2.5, $Q_1=3.2$, Median=3.95, $Q_3=4.35$, Max=28.5.",
+        "source_type": "prompt_info",
+        "source_label": "排序与分位数"
+      },
+      {
+        "step_desc": "Outlier Check",
+        "content": "$IQR = 4.35 - 3.2 = 1.15$. Upper Fence = $6.075$. Both 15.0 and 28.5 exceed this fence.",
+        "source_type": "external_knowledge",
+        "source_label": "1.5×IQR 法则"
+      },
+      {
+        "step_desc": "Decision Evaluation",
+        "content": "Correct mean ≈ 6.5 minutes. The manager is misled because the average is inflated by rare events rather than typical service time.",
+        "source_type": "prompt_info",
+        "source_label": "修正后结论"
+      }
+    ]
+  },
+  {
+    "id": "stat_124_randomized_response_02",
+    "title": "Anonymous Academic Integrity Challenge",
+    "original_question": "A professor suspects students used unauthorized AI tools on a midterm. To find the true proportion, he used a 'Randomized Response' technique with 800 students. Each student flipped a fair coin in private: If Heads, they answer the true question: 'Did you use AI to cheat?' If Tails, they answer an irrelevant question: 'Were you born in an even-numbered month?' The survey showed 320 'Yes' responses out of 800. Registrar data shows that 48% of students were born in even-numbered months. Estimate the proportion of AI users ($\\hat{p}$).",
+    "segments": [
+      {
+        "text": "he used a 'Randomized Response' technique with 800 students.",
+        "has_info": true,
+        "highlight_text": "800 students",
+        "condition": "Sample Size (n) = 800",
+        "knowledge": "Sampling Basics",
+        "explanation": "样本总量 n 是计算比例的基础分母。",
+        "highlight_color": "green"
+      },
+      {
+        "text": "Each student flipped a fair coin in private:",
+        "has_info": true,
+        "highlight_text": "fair coin",
+        "condition": "Probability of Head/Tail = 0.5",
+        "knowledge": "Probability Rules",
+        "explanation": "公平硬币意味着进入真实问题或无关问题的概率各为 0.5。",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "The survey showed 320 'Yes' responses out of 800.",
+        "has_info": true,
+        "highlight_text": "320 'Yes' responses out of 800",
+        "condition": "Observed Yes Rate = 320/800 = 0.4",
+        "knowledge": "Observed Proportion",
+        "explanation": "这是观察到的混合回答总比例。",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "Registrar data shows that 48% of students were born in even-numbered months.",
+        "has_info": true,
+        "highlight_text": "48% of students were born in even-numbered months",
+        "condition": "Irrelevant Question 'Yes' Rate = 0.48",
+        "knowledge": "Conditional Probability",
+        "explanation": "这是当硬币为反面时，回答为 'Yes' 的已知概率。",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "Estimate the proportion of AI users ($\\hat{p}$).",
+        "has_info": true,
+        "highlight_text": "Estimate the proportion of AI users ($\\hat{p}$)",
+        "condition": "Target Parameter",
+        "knowledge": "Inference Target",
+        "explanation": "题目要求估计的目标比例参数。",
+        "highlight_color": "blue"
+      }
+    ],
+    "traps": [
+      {
+        "title": "Social Desirability Bias",
+        "description": "直接询问敏感问题（如作弊）会导致学生撒谎。随机化回答技术通过引入‘噪声’保护隐私，从而获取更真实的统计数据。"
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Set Up Probability Equation",
+        "content": "$P(Yes) = P(Heads) \\times P(Cheat) + P(Tails) \\times P(Even Month)$.",
+        "source_type": "external_knowledge",
+        "source_label": "外部核心知识：全概率公式应用"
+      },
+      {
+        "step_desc": "Plug in Values",
+        "content": "$0.40 = 0.5 \\times \\hat{p} + 0.5 \\times 0.48$. Solving for $\\hat{p}$: $0.40 = 0.5\\hat{p} + 0.24 \\Rightarrow 0.16 = 0.5\\hat{p}$.",
+        "source_type": "prompt_info",
+        "source_label": "代入题干已知数值"
+      },
+      {
+        "step_desc": "Final Calculation",
+        "content": "$\\hat{p} = 0.16 / 0.5 = 0.32$. The estimated proportion of students who cheated is 32%.",
+        "source_type": "prompt_info",
+        "source_label": "逻辑计算结论"
+      }
+    ]
+  },
+  {
+    "id": "stat_124_zscore_comparison_04",
+    "title": "Gym Challenge: Squat vs. Deadlift",
+    "original_question": "Xiao Ming lifted 120kg in Squats (Mean=100kg, SD=10kg) and 145kg in Deadlifts (Mean=130kg, SD=12kg). His friend says he is better at Squats because he is 20kg above average, while only 15kg above in Deadlifts. Squat scores are right-skewed, while Deadlifts are normal. Calculate Z-scores and determine where he performed better relatively.",
+    "segments": [
+      {
+        "text": "Xiao Ming lifted 120kg in Squats (Mean=100kg, SD=10kg)",
+        "has_info": true,
+        "highlight_text": "120kg in Squats (Mean=100kg, SD=10kg)",
+        "condition": "Squat: x=120, mu=100, sigma=10",
+        "knowledge": "Z-score Calculation",
+        "explanation": "计算深蹲相对于群体位置的标准分。",
+        "highlight_color": "green"
+      },
+      {
+        "text": "and 145kg in Deadlifts (Mean=130kg, SD=12kg).",
+        "has_info": true,
+        "highlight_text": "145kg in Deadlifts (Mean=130kg, SD=12kg)",
+        "condition": "Deadlift: x=145, mu=130, sigma=12",
+        "knowledge": "Z-score Calculation",
+        "explanation": "计算硬拉相对于群体位置的标准分。",
+        "highlight_color": "green"
+      },
+      {
+        "text": "Squat scores are right-skewed, while Deadlifts are normal.",
+        "has_info": true,
+        "highlight_text": "Squat scores are right-skewed, while Deadlifts are normal.",
+        "condition": "Distribution Shape",
+        "knowledge": "Standardizing Non-Normal Data",
+        "explanation": "虽然 Z 分数可计算，但在非正态分布中其百分位含义会有所不同。",
+        "highlight_color": "yellow"
+      }
+    ],
+    "traps": [
+      {
+        "title": "Raw Difference Trap",
+        "description": "不能直接比较绝对值差（20kg vs 15kg），因为不同项目的变异程度（标准差）不同。必须转化为无单位的 Z-score 进行公平对比。"
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Calculate Squat Z-score",
+        "content": "$Z_{squat} = (120 - 100) / 10 = 2.0$.",
+        "source_type": "external_knowledge",
+        "source_label": "外部核心知识：Z-score 公式"
+      },
+      {
+        "step_desc": "Calculate Deadlift Z-score",
+        "content": "$Z_{deadlift} = (145 - 130) / 12 = 1.25$.",
+        "source_type": "external_knowledge",
+        "source_label": "外部核心知识：Z-score 公式"
+      },
+      {
+        "step_desc": "Comparative Analysis",
+        "content": "Since $2.0 > 1.25$, he performed relatively better in Squats (2 standard deviations above mean).",
+        "source_type": "prompt_info",
+        "source_label": "逻辑对比结果"
+      }
+    ]
+  },
+  {
+    "id": "stat_124_inference_sampling_bias_05",
+    "title": "Delivery Rider Tip Estimation",
+    "original_question": "A platform estimates the average tip by interviewing 400 riders Downtown on a Friday night. Results: Mean = $5.20, SD = $2.00. There are 5000 total riders. The platform claims: 'We are 95% sure the true average tip for all Vancouver riders is between $5.00 and $5.40.' Calculate SE and identify two major errors.",
+    "segments": [
+      {
+        "text": "A platform estimates the average tip by interviewing 400 riders Downtown on a Friday night.",
+        "has_info": true,
+        "highlight_text": "Downtown on a Friday night",
+        "condition": "Convenience Sampling Bias",
+        "knowledge": "Sampling Bias",
+        "explanation": "周五晚上的市中心不能代表全温哥华、全时段的骑手情况。",
+        "highlight_color": "green"
+      },
+      {
+        "text": "Results: Mean = $5.20, SD = $2.00.",
+        "has_info": true,
+        "highlight_text": "Mean = $5.20, SD = $2.00",
+        "condition": "Sample Statistics",
+        "knowledge": "Point Estimate & Spread",
+        "explanation": "构造置信区间所需的样本核心数值。",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "The platform claims: 'We are 95% sure the true average tip for all Vancouver riders is between $5.00 and $5.40.'",
+        "has_info": true,
+        "highlight_text": "We are 95% sure the true average tip for all Vancouver riders is between $5.00 and $5.40.",
+        "condition": "Confidence Interval Interpretation",
+        "knowledge": "Interpretation of CI",
+        "explanation": "常见误区：把置信度当作‘这个区间包含真值的概率’。",
+        "highlight_color": "blue"
+      }
+    ],
+    "traps": [
+      {
+        "title": "The Probability Misconception",
+        "description": "一旦区间被算出来，总体均值要么在里面，要么不在。95% 指的是如果重复抽样，95% 的区间会包含真实均值，而不是当前这个区间有 95% 的概率包含它。"
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Calculate Standard Error (SE)",
+        "content": "$SE = s / \\sqrt{n} = 2.00 / \\sqrt{400} = 2.00 / 20 = 0.10$.",
+        "source_type": "external_knowledge",
+        "source_label": "外部核心知识：均值标准误公式"
+      },
+      {
+        "step_desc": "Construct 95% Confidence Interval",
+        "content": "$CI = \\bar{x} \\pm z^* \\times SE = 5.20 \\pm 1.96 \\times 0.10 = [5.004, 5.396]$. Rounds to [$5.00, $5.40].",
+        "source_type": "external_knowledge",
+        "source_label": "外部核心知识：置信区间公式"
+      },
+      {
+        "step_desc": "Identify Errors",
+        "content": "Error 1: Selection Bias (Downtown Friday is not representative). Error 2: Interpretation error (Confusing confidence level with probability of a specific interval).",
+        "source_type": "prompt_info",
+        "source_label": "逻辑批判结论"
+      }
+    ]
+  },
+  {
+    "id": "stat_124_distribution_inference_06",
+    "title": "Smartwatch Health Data Monitoring",
+    "original_question": "A watch recorded 200 days of steps: Mean=10,500, Median=8,200, SD=4,000, $Q_1$=6,500, $Q_3$=11,000. Five days had >35,000 steps. Determine the shape, check for outliers, and evaluate if using a Z-score for future probability (step > 12,000) is appropriate.",
+    "segments": [
+      {
+        "text": "A watch recorded 200 days of steps: Mean=10,500, Median=8,200, SD=4,000, $Q_1$=6,500, $Q_3$=11,000.",
+        "has_info": true,
+        "highlight_text": "Mean=10,500, Median=8,200",
+        "condition": "Mean > Median",
+        "knowledge": "Distribution Shape",
+        "explanation": "均值大于中位数通常意味着分布是右偏的（Right-skewed）。",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "A watch recorded 200 days of steps: Mean=10,500, Median=8,200, SD=4,000, $Q_1$=6,500, $Q_3$=11,000.",
+        "has_info": true,
+        "highlight_text": "$Q_1$=6,500, $Q_3$=11,000",
+        "condition": "Quartiles for IQR",
+        "knowledge": "Spread Measurement",
+        "explanation": "用于计算 IQR 并判定离群值。",
+        "highlight_color": "green"
+      },
+      {
+        "text": "Five days had >35,000 steps.",
+        "has_info": true,
+        "highlight_text": ">35,000 steps",
+        "condition": "Extreme Observations",
+        "knowledge": "Outlier Detection",
+        "explanation": "这些极端天数用于离群值检验，是分析必需信息。",
+        "highlight_color": "yellow"
+      }
+    ],
+    "traps": [
+      {
+        "title": "The Normality Assumption Trap",
+        "description": "在高度偏态（Skewed）的分布中，使用基于正态分布的 Z 分数来预测概率会产生巨大偏差，因为 Z 分数假设对称分布。"
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Determine Shape",
+        "content": "Since Mean (10,500) > Median (8,200), the distribution is right-skewed.",
+        "source_type": "prompt_info",
+        "source_label": "均值中位数对比"
+      },
+      {
+        "step_desc": "Calculate IQR and Outliers",
+        "content": "$IQR = 11,000 - 6,500 = 4,500$. Upper Fence = $11,000 + 1.5 \\times 4,500 = 17,750$. 35,000 is much greater than 17,750, so those 5 days are extreme outliers.",
+        "source_type": "external_knowledge",
+        "source_label": "外部核心知识：离群值公式"
+      },
+      {
+        "step_desc": "Evaluate Probability Method",
+        "content": "Using Z-score/Normal model is NOT appropriate because the distribution is highly skewed and contains extreme outliers. Empirically, at least 25% of data is already above 11,000 ($Q_3$).",
+        "source_type": "prompt_info",
+        "source_label": "综合逻辑判定"
+      }
+    ]
+  }
+]

@@ -1,0 +1,111 @@
+[
+  {
+    "question": "What is the fundamental difference between **nominal values** and **real values** in economic measures?",
+    "answer": {
+      "final_answer": "名义值（Nominal）按当前价格计算，受通胀影响；实际值（Real）按基年价格计算，剔除了价格变动。",
+      "key_points": [
+        "Nominal values: 随价格水平（通胀或通缩）的变化而变化。",
+        "Real values: 针对价格变化进行了调整，假设价格较基年未发生改变。",
+        "Purpose: 实际值用于隔离产出变化，衡量真实的短期经济增长。"
+      ],
+      "tested_points": [
+        "名义与实际变量的定义区别",
+        "价格指数（Price indices）在转换中的作用"
+      ],
+      "logic_memo": "名义值包含“水分”（价格上涨），实际值则是剔除水分后的“干货”（真实产量）。"
+    },
+    "category": "Macroeconomics",
+    "type": "概念题",
+    "signals": [
+      "Nominal vs Real",
+      "Price level changes",
+      "Output isolation"
+    ],
+    "steps": [
+      "Step 1: Identify that nominal values are denominated in current dollars.",
+      "Step 2: Recognize that price level changes (inflation/deflation) affect nominal values.",
+      "Step 3: Understand that real values take out the effects of price changes to measure output."
+    ],
+    "glossary": [
+      {
+        "term": "Nominal values",
+        "definition": "Values that increase or decrease with price level."
+      },
+      {
+        "term": "Real values",
+        "definition": "Values adjusted for price changes to measure fluctuations in output."
+      }
+    ],
+    "source_reference": "User material (Section: Real verse Nominal Values)"
+  },
+  {
+    "question": "How do you compute **Real GDP** using the **GDP Deflator**?",
+    "answer": {
+      "final_answer": "$$Real\\ GDP = \\frac{Nominal\\ GDP}{GDP\\ deflator} \\times 100$$",
+      "key_points": [
+        "Nominal GDP: 某一年的产出以当前价格衡量的货币价值。",
+        "GDP Deflator: 一种追踪商品价值变化的物价指数，定义为名义GDP与实际GDP比率的100倍。",
+        "Conversion: 通过公式将名义值转换为调整后的实际值。"
+      ],
+      "tested_points": [
+        "GDP平减指数的公式推导",
+        "名义GDP向实际GDP的定量转换"
+      ],
+      "logic_memo": "将名义GDP除以它缩减的“倍数”（平减指数）再还原，就能得到真实的产量。"
+    },
+    "category": "Economic Calculation",
+    "type": "公式题",
+    "signals": [
+      "GDP Deflator",
+      "Real GDP Formula",
+      "Nominal to Real"
+    ],
+    "steps": [
+      "Step 1: Identify Nominal GDP for the given year.",
+      "Step 2: Identify the GDP deflator as a form of measurement for price changes.",
+      "Step 3: Apply the formula: (Nominal GDP / GDP deflator) * 100."
+    ],
+    "glossary": [
+      {
+        "term": "GDP deflator",
+        "definition": "100 times the ratio of nominal GDP to real GDP in a given year."
+      }
+    ],
+    "source_reference": "User material (Section: Converting Nominal GDP to Real GDP)"
+  },
+  {
+    "question": "According to the material, why is **Real GDP per capita** used to understand the impact of output changes?",
+    "answer": {
+      "final_answer": "它通过将实际GDP除以平均人口，来衡量产出增长中有多少反映了生活水平的提高，而非仅仅是人口增加。",
+      "key_points": [
+        "Calculation: $\\text{Real GDP per capita} = \\frac{\\text{Real GDP}}{\\text{Average Population}}$.",
+        "Standard of Living: 该指标决定了增长是否转化为整个人口生活质量的改善。",
+        "Population Offset: 即使产出正增长，如果人口增长更快，人均水平也会下降。"
+      ],
+      "tested_points": [
+        "人均实际GDP的计算方法",
+        "人口增长对经济增长成果的影响"
+      ],
+      "logic_memo": "蛋糕做大了不代表每个人分得多了，还得看吃蛋糕的人（人口）增加了多少。"
+    },
+    "category": "Economic Performance",
+    "type": "分析题",
+    "signals": [
+      "Real GDP per capita",
+      "Standard of living",
+      "Population growth"
+    ],
+    "steps": [
+      "Step 1: Divide the real GDP of any period by the country's average population.",
+      "Step 2: Determine if output growth simply supplied the increase in population.",
+      "Step 3: Compare results between years to see changes in individual living standards."
+    ],
+    "glossary": [
+      {
+        "term": "Real GDP per capita",
+        "definition": "Real GDP divided by average population to determine standard of living improvements."
+      }
+    ],
+    "source_reference": "User material (Section: Real GDP per capita)"
+  }
+]

@@ -1,0 +1,239 @@
+[
+    {
+      "question": "What is the formal definition of Gross Domestic Product (GDP)?",
+      "answer": {
+        "final_answer": "国内生产总值（GDP）是指一个国家在特定时期内，在其国境内生产的所有最终商品和服务的市场价值。",
+        "key_points": [
+          "GDP 只统计最终商品和服务，避免重复计算。",
+          "GDP 使用市场价格作为统一的加总标准。",
+          "GDP 只包括在本国境内、当期新生产的产出。"
+        ],
+        "tested_points": [
+          "GDP 的正式定义",
+          "GDP 的统计边界"
+        ],
+        "logic_memo": "GDP 就像国家的年度“产值成绩单”：只看最终成果、只算今年的、只算境内造的。"
+      },
+      "category": "GDP Foundations",
+      "type": "概念题",
+      "signals": ["final goods", "market value", "within a country"],
+      "steps": [
+        "Step 1: 使用市场价格对不同商品和服务进行加总。",
+        "Step 2: 仅包含最终商品和服务，排除中间产品。",
+        "Step 3: 只统计当期新生产的产出。",
+        "Step 4: 确认生产活动发生在国境线以内。"
+      ],
+      "glossary": [
+        {
+          "term": "Gross Domestic Product (GDP)",
+          "definition": "在一定时期内，一个国家境内生产的所有最终商品和服务的市场价值。"
+        }
+      ],
+      "source_reference": "GDP / Definition"
+    },
+    {
+      "question": "State the expenditure approach formula for GDP.",
+      "answer": {
+        "final_answer": "支出法计算 GDP 的公式为：Y = C + I + G + NX。",
+        "key_points": [
+          "C 表示消费支出。",
+          "I 表示投资支出。",
+          "G 表示政府购买。",
+          "NX 表示净出口（出口减进口）。"
+        ],
+        "tested_points": [
+          "GDP 的支出法公式"
+        ],
+        "logic_memo": "从‘谁花了钱’的角度看社会：吃、投、政、外，加起来就是 GDP。"
+      },
+      "category": "GDP Calculation",
+      "type": "计算题",
+      "signals": ["expenditure approach", "Y=C+I+G+NX"],
+      "steps": [
+        "Step 1: 计算居民消费支出（C）。",
+        "Step 2: 计算企业投资支出（I）。",
+        "Step 3: 计算政府在商品和服务上的购买（G）。",
+        "Step 4: 计算净出口（NX = 出口 − 进口）。",
+        "Step 5: 将四项加总得到 GDP。"
+      ],
+      "glossary": [
+        {
+          "term": "Consumption (C)",
+          "definition": "家庭购买的商品和服务支出。"
+        },
+        {
+          "term": "Investment (I)",
+          "definition": "企业资本支出、库存变化以及居民购买新房。"
+        },
+        {
+          "term": "Government Purchases (G)",
+          "definition": "政府对商品和服务的购买支出，不包括转移支付。"
+        },
+        {
+          "term": "Net Exports (NX)",
+          "definition": "出口减去进口。"
+        }
+      ],
+      "source_reference": "GDP / Expenditure Approach"
+    },
+    {
+      "question": "Why are transfer payments and intermediate goods excluded from GDP?",
+      "answer": {
+        "final_answer": "中间产品被排除是为了避免重复计算，而转移支付被排除是因为它们不对应新的生产活动。",
+        "key_points": [
+          "中间产品的价值已包含在最终产品中。",
+          "转移支付只是资金再分配，不产生新产出。",
+          "GDP 只记录新增的生产价值。"
+        ],
+        "tested_points": [
+          "中间产品不计入 GDP 的原因",
+          "转移支付不计入 GDP 的原因"
+        ],
+        "logic_memo": "GDP 只看‘新造了什么’：原材料是过程，福利金是换口袋，都不算。"
+      },
+      "category": "GDP Accounting",
+      "type": "对比题",
+      "signals": ["double counting", "transfer payments"],
+      "steps": [
+        "Step 1: 判断该项目是否为生产其他商品的投入。",
+        "Step 2: 若是中间产品，则排除以避免重复计算。",
+        "Step 3: 判断是否只是资金转移而无生产。",
+        "Step 4: 若是转移支付，则排除。"
+      ],
+      "glossary": [
+        {
+          "term": "Intermediate Goods",
+          "definition": "用于生产其他商品或服务的投入品。"
+        },
+        {
+          "term": "Transfer Payments",
+          "definition": "政府或个人之间不对应商品或服务生产的资金转移。"
+        }
+      ],
+      "source_reference": "GDP / Accounting Rules"
+    },
+    {
+      "question": "What is the difference between nominal GDP and real GDP?",
+      "answer": {
+        "final_answer": "名义 GDP 按当年价格计算，而真实 GDP 按固定基期价格计算，剔除了通货膨胀的影响。",
+        "key_points": [
+          "名义 GDP 同时反映产量和价格变化。",
+          "真实 GDP 只反映产量变化。",
+          "衡量经济增长应使用真实 GDP。"
+        ],
+        "tested_points": [
+          "名义 GDP 与真实 GDP 的区别"
+        ],
+        "logic_memo": "名义 GDP 看账面，真实 GDP 看实力；想知道有没有真的变富，只看 Real GDP。"
+      },
+      "category": "GDP Measurement",
+      "type": "概念题",
+      "signals": ["nominal", "real", "inflation"],
+      "steps": [
+        "Step 1: 用当年价格计算名义 GDP。",
+        "Step 2: 用基期价格计算真实 GDP。",
+        "Step 3: 用真实 GDP 比较不同年份的经济规模。"
+      ],
+      "glossary": [
+        {
+          "term": "Nominal GDP",
+          "definition": "按当年价格计算的国内生产总值。"
+        },
+        {
+          "term": "Real GDP",
+          "definition": "按固定基期价格计算、剔除通胀影响的 GDP。"
+        }
+      ],
+      "source_reference": "GDP / Nominal vs Real"
+    },
+    {
+      "question": "What are the six main limitations of GDP?",
+      "answer": {
+        "final_answer": "GDP 无法衡量非市场活动、地下经济、价值与价格差异、环境成本、闲暇时间以及收入分配情况。",
+        "key_points": [
+          "GDP 不包含家庭生产和地下经济。",
+          "GDP 不反映环境和生活质量。",
+          "GDP 不衡量贫富差距。"
+        ],
+        "tested_points": [
+          "GDP 的局限性"
+        ],
+        "logic_memo": "GDP 是产量表，不是幸福指数；好用，但不完美。"
+      },
+      "category": "GDP Limitations",
+      "type": "简答题",
+      "signals": ["limitations", "misses"],
+      "steps": [
+        "Step 1: 识别 GDP 未通过市场的活动。",
+        "Step 2: 认识 GDP 无法衡量非物质福利。",
+        "Step 3: 理解 GDP 与幸福和公平并不等价。"
+      ],
+      "glossary": [
+        {
+          "term": "Non-market Activity",
+          "definition": "未通过市场交易产生的经济活动。"
+        }
+      ],
+      "source_reference": "GDP / Limitations"
+    },
+    {
+      "question": "How do you use the Rule of 70?",
+      "answer": {
+        "final_answer": "70 法则用于估算一个变量在给定增长率下翻倍所需的时间，方法是用 70 除以年增长率。",
+        "key_points": [
+          "适用于近似计算。",
+          "增长率以百分比形式使用。",
+          "常用于收入、人口或 GDP 增长。"
+        ],
+        "tested_points": [
+          "70 法则的应用"
+        ],
+        "logic_memo": "记住 70，直接除，快速判断多久翻倍。"
+      },
+      "category": "Growth Calculation",
+      "type": "计算题",
+      "signals": ["rule of 70", "doubling time"],
+      "steps": [
+        "Step 1: 确定年增长率（如 5）。",
+        "Step 2: 用 70 除以该数值。",
+        "Step 3: 得到翻倍所需年数。"
+      ],
+      "glossary": [
+        {
+          "term": "Rule of 70",
+          "definition": "用 70 除以年增长率来估算翻倍时间的经验法则。"
+        }
+      ],
+      "source_reference": "Economic Growth / Rule of 70"
+    },
+    {
+      "question": "Define value added in the output approach to GDP.",
+      "answer": {
+        "final_answer": "增加值等于企业的销售收入减去其购买的中间投入成本。",
+        "key_points": [
+          "增加值衡量企业对最终产出的新增贡献。",
+          "各阶段增加值相加等于 GDP。",
+          "该方法避免重复计算。"
+        ],
+        "tested_points": [
+          "增加值的定义"
+        ],
+        "logic_memo": "增加值就是你真正给社会‘新创造’了多少。"
+      },
+      "category": "GDP Calculation",
+      "type": "概念题",
+      "signals": ["value added", "intermediate inputs"],
+      "steps": [
+        "Step 1: 计算企业的销售收入。",
+        "Step 2: 减去购买的中间投入成本。",
+        "Step 3: 得到该企业的增加值。"
+      ],
+      "glossary": [
+        {
+          "term": "Value Added",
+          "definition": "销售额减去中间投入成本后所增加的价值。"
+        }
+      ],
+      "source_reference": "GDP / Output Approach"
+    }
+  ]

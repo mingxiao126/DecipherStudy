@@ -7,11 +7,14 @@ const { normalizeDecoderProblems, validateDecoderProblem } = require('./js/core/
 const { auditProblems } = require('./js/core/qa-auditor.js');
 const { normalizePracticeQuestions, validatePracticeQuestion } = require('./js/core/practice-schema.js');
 const { auditQuestions: auditPracticeQuestions } = require('./js/core/practice-auditor.js');
+const FileStore = require('./storage/file-store');
 
 const HOST = '127.0.0.1';
 const PORT = Number(process.env.PORT || 8000);
 const ROOT = __dirname;
 const CONTENT_DIR = path.join(ROOT, 'content');
+
+const fileStore = new FileStore(CONTENT_DIR);
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -31,12 +34,33 @@ function sendJson(res, statusCode, body) {
   res.end(JSON.stringify(body));
 }
 
-function readJsonFile(filePath) {
-  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
-}
+/**
+ * 校验并解析工作区上下文
+ * 1. 严格正则校验 ID 格式 (防止路径穿越)
+ * 2. 验证工作区元数据及状态
+ */
+function resolveWorkspaceContext(userId) {
+  if (!userId || typeof userId !== 'string') return null;
 
-function writeJsonFile(filePath, data) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  // 仅允许字母、数字、下划线和连字符
+  if (!/^[a-z0-9_-]+$/.test(userId)) {
+    console.warn(`[Security] Blocked invalid userId pattern: ${userId}`);
+    return null;
+  }
+
+  try {
+    const metaPath = path.join(CONTENT_DIR, userId, 'meta.json');
+    if (!fs.existsSync(metaPath)) return null;
+
+    const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
+    if (meta.status !== 'active' || meta.isSystem) {
+      console.warn(`[Security] Blocked access to inactive/system workspace: ${userId}`);
+      return null;
+    }
+    return meta;
+  } catch (e) {
+    return null;
+  }
 }
 
 function sanitizePart(value) {
@@ -207,63 +231,19 @@ function normalizeLatexPayload(value) {
   return value;
 }
 
-function updateTopicsFile(fileName, displayName) {
-  const topicsPath = path.join(CONTENT_DIR, 'topics.json');
-  const topics = readJsonFile(topicsPath);
-  const next = Array.isArray(topics) ? topics : [];
-
-  const index = next.findIndex(item => item && item.file === fileName);
-  const entry = { name: displayName, file: fileName };
-
-  if (index >= 0) {
-    next[index] = entry;
-  } else {
-    next.push(entry);
-  }
-
-  writeJsonFile(topicsPath, next);
-}
-
-function updateDecoderTopicsFile(fileName, subject, displayName) {
-  const decoderTopicsPath = path.join(CONTENT_DIR, 'decoder_topics.json');
-  const topics = readJsonFile(decoderTopicsPath);
-  const next = Array.isArray(topics) ? topics : [];
-
-  const index = next.findIndex(item => item && item.file === fileName);
-  const entry = { subject, name: displayName, file: fileName };
-
-  if (index >= 0) {
-    next[index] = entry;
-  } else {
-    next.push(entry);
-  }
-
-  writeJsonFile(decoderTopicsPath, next);
-}
-
-function updatePracticeTopicsFile(fileName, displayName) {
-  const practiceTopicsPath = path.join(CONTENT_DIR, 'practice_topics.json');
-  const topics = readJsonFile(practiceTopicsPath);
-  const next = Array.isArray(topics) ? topics : [];
-
-  const index = next.findIndex(item => item && item.file === fileName);
-  const entry = { name: displayName, file: fileName };
-
-  if (index >= 0) {
-    next[index] = entry;
-  } else {
-    next.push(entry);
-  }
-
-  writeJsonFile(practiceTopicsPath, next);
-}
 
 function saveDatasetToContent(payload) {
   const type = payload.type;
   const subject = normalizeSubject(payload.subject);
   const name = String(payload.name || '').trim();
+  const userId = String(payload.userId || '').trim();
   const data = normalizeLatexPayload(payload.data);
 
+  // 1. 严格工作区校验
+  const workspace = resolveWorkspaceContext(userId);
+  if (!workspace) {
+    return { ok: false, status: 403, errors: [`无效或已停用的工作区 ID: ${userId}`] };
+  }
   if (!['flashcard', 'decoder', 'practice'].includes(type)) {
     return { ok: false, status: 400, errors: ['type 仅支持 flashcard, decoder 或 practice'] };
   }
@@ -275,7 +255,6 @@ function saveDatasetToContent(payload) {
   const subjectPart = sanitizePart(subject);
   const namePart = sanitizePart(name);
   const fileName = `${typePart}_${subjectPart}_${namePart}.json`;
-  const filePath = path.join(CONTENT_DIR, fileName);
 
   let validated;
   if (type === 'flashcard') {
@@ -295,30 +274,32 @@ function saveDatasetToContent(payload) {
     };
   }
 
-  writeJsonFile(filePath, validated.normalized);
-
-  const displayName = `[自定义] ${subject} - ${name}`;
-  if (type === 'flashcard') {
-    updateTopicsFile(fileName, displayName);
-  } else if (type === 'decoder') {
-    updateDecoderTopicsFile(fileName, subject, displayName);
-  } else {
-    updatePracticeTopicsFile(fileName, displayName);
-  }
-
-  return {
-    ok: true,
-    status: 200,
-    saved: {
-      fileName,
-      filePath,
+  try {
+    const displayName = `[自定义] ${subject} - ${name}`;
+    fileStore.saveDataset(userId, {
       type,
       subject,
-      name,
-      displayName
-    },
-    audit: validated.audit || null
-  };
+      name: displayName,
+      data: validated.normalized,
+      fileName
+    });
+
+    return {
+      ok: true,
+      status: 200,
+      saved: {
+        fileName,
+        type,
+        subject,
+        name,
+        displayName,
+        userId
+      },
+      audit: validated.audit || null
+    };
+  } catch (error) {
+    return { ok: false, status: 500, errors: [error.message] };
+  }
 }
 
 function parseRequestBody(req) {
@@ -353,9 +334,12 @@ function resolveStaticPath(urlPath) {
 
 function handleStatic(req, res) {
   const absPath = resolveStaticPath(req.url || '/');
-  if (!absPath) {
-    res.writeHead(403);
-    res.end('Forbidden');
+
+  // 安全限制：禁止直接通过静态服务读 content 目录
+  if (!absPath || absPath.startsWith(CONTENT_DIR)) {
+    console.warn(`[Security] Blocked direct static access to content: ${req.url}`);
+    res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end('Forbidden: 请使用 API 访问题库数据');
     return;
   }
 
@@ -379,17 +363,100 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  if (req.method === 'GET' && req.url.startsWith('/api/health')) {
-    sendJson(res, 200, {
-      ok: true,
-      mode: 'disk',
-      contentDir: CONTENT_DIR,
-      now: new Date().toISOString()
-    });
+  // Health check
+  if (req.method === 'GET' && req.url === '/api/health') {
+    sendJson(res, 200, { ok: true, now: new Date().toISOString() });
     return;
   }
 
-  if (req.method === 'POST' && req.url.startsWith('/api/upload-dataset')) {
+  // 1. List Users (Workspaces)
+  if (req.method === 'GET' && req.url === '/api/users') {
+    try {
+      const users = fileStore.listUsers();
+      sendJson(res, 200, users);
+    } catch (e) {
+      sendJson(res, 500, { ok: false, errors: ['无法读取用户列表'] });
+    }
+    return;
+  }
+
+  // 2. Create User (Workspace)
+  if (req.method === 'POST' && req.url === '/api/create-user') {
+    try {
+      const { id, name } = await parseRequestBody(req);
+      if (!id || !name) {
+        sendJson(res, 400, { ok: false, errors: ['id 和 name 必填'] });
+        return;
+      }
+      const userId = sanitizePart(id);
+      const meta = fileStore.createWorkspace(userId, name);
+      sendJson(res, 200, { ok: true, user: meta });
+    } catch (error) {
+      sendJson(res, 400, { ok: false, errors: [error.message] });
+    }
+    return;
+  }
+
+  // 3. Workspace APIs
+  // 3. Workspace APIs
+  if (req.method === 'GET' && req.url.startsWith('/api/workspaces/')) {
+    const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+    const pathname = url.pathname;
+    const parts = pathname.split('/');
+    // /api/workspaces/:userId/topics OR /api/workspaces/:userId/datasets/:fileName
+    const userId = parts[3];
+    const action = parts[4];
+
+    // 严格解析并校验工作区上下文
+    const workspace = resolveWorkspaceContext(userId);
+    if (!workspace) {
+      console.warn(`[API] Blocked request to unauthorized/invalid workspace: ${userId}`);
+      sendJson(res, 403, { ok: false, errors: ['无权访问或工作区不存在'] });
+      return;
+    }
+
+    console.log(`[API] Authorized Workspace Request: ${userId} -> ${action}`);
+
+    if (action === 'topics') {
+      const type = url.searchParams.get('type') || 'flashcard';
+
+      // 严格校验题库类型
+      if (!['flashcard', 'decoder', 'practice'].includes(type)) {
+        console.warn(`[API] Invalid topic type requested: ${type}`);
+        sendJson(res, 400, { ok: false, errors: [`不合法的题库类型 type: ${type}`] });
+        return;
+      }
+
+      try {
+        const meta = fileStore.listDatasetMeta(userId, type);
+        sendJson(res, 200, meta);
+      } catch (e) {
+        sendJson(res, 404, { ok: false, errors: [e.message] });
+      }
+      return;
+    }
+
+    if (action === 'datasets') {
+      const fileName = decodeURIComponent(parts[5] || '');
+      // 安全补丁：放宽正则以支持中文、短横线、下划线及圆括号，并强制 .json 后缀
+      if (!/^[a-zA-Z0-9\u4e00-\u9fa5_\-()（）]+\.json$/.test(fileName)) {
+        sendJson(res, 400, { ok: false, errors: ['不合法的文件名格式'] });
+        return;
+      }
+      try {
+        const content = fileStore.getDatasetContent(userId, fileName);
+        sendJson(res, 200, content);
+      } catch (e) {
+        sendJson(res, 404, { ok: false, errors: [e.message] });
+      }
+      return;
+    }
+
+    console.warn(`[API] Unmatched workspace action: ${action} for URL: ${req.url}`);
+  }
+
+  // 5. Upload Dataset
+  if (req.method === 'POST' && req.url === '/api/upload-dataset') {
     try {
       const body = await parseRequestBody(req);
       const result = saveDatasetToContent(body);

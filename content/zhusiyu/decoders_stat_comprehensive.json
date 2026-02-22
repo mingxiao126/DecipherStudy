@@ -1,0 +1,201 @@
+[
+  {
+    "id": "stat_124_se_me_03",
+    "title": "The Sample Size Precision Paradox",
+    "original_question": "A researcher is constructing a 95% confidence interval for a proportion. With an initial sample size of $n = 400$, the Margin of Error (ME) was 0.05. The researcher wants to cut the ME in half (to 0.025) to make the estimate more precise. Her assistant suggests that they just need to double the sample size to $n = 800$. Evaluate the assistant's suggestion.",
+    "segments": [
+      {
+        "text": "With an initial sample size of $n = 400$, the Margin of Error (ME) was 0.05.",
+        "has_info": true,
+        "highlight_text": "$n = 400$, the Margin of Error (ME) was 0.05",
+        "condition": "Initial sample size and margin of error",
+        "knowledge": "Standard Error & Margin of Error",
+        "explanation": "在比例置信区间中，ME 与 $1/\\sqrt{n}$ 成反比。",
+        "highlight_color": "green"
+      },
+      {
+        "text": "The researcher wants to cut the ME in half (to 0.025) to make the estimate more precise.",
+        "has_info": true,
+        "highlight_text": "cut the ME in half (to 0.025)",
+        "condition": "Target margin of error",
+        "knowledge": "Margin of Error scaling",
+        "explanation": "要将 ME 减半，需要显著增加样本量。",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "Her assistant suggests that they just need to double the sample size to $n = 800$.",
+        "has_info": true,
+        "highlight_text": "double the sample size to $n = 800$",
+        "condition": "Incorrect sample size scaling",
+        "knowledge": "Sample Size vs Precision",
+        "explanation": "由于平方根关系，样本量翻倍不足以让 ME 减半。",
+        "highlight_color": "red"
+      }
+    ],
+    "traps": [
+      {
+        "title": "The Square Root Relationship",
+        "description": "误差范围与 $1/\\sqrt{n}$ 成比例，不能线性缩放。"
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Apply Square Root Rule",
+        "content": "因为 $ME \\propto 1/\\sqrt{n}$，要让 ME 减半，需要 $\\sqrt{n}$ 翻倍。",
+        "source_type": "external_knowledge",
+        "source_label": "比例置信区间误差规律"
+      },
+      {
+        "step_desc": "Evaluate Assistant's Suggestion",
+        "content": "样本量需从 400 增加到 1600。将样本量翻倍到 800 不足以达到目标。",
+        "source_type": "external_knowledge",
+        "source_label": "样本量缩放结论"
+      }
+    ]
+  },
+  {
+    "id": "stat_124_ci_meaning_04",
+    "title": "The Misinterpreted Confidence Interval",
+    "original_question": "A poll calculates a 95% confidence interval for the proportion of voters to be (0.48, 0.54). A report states: \"There is a 95% probability that the true proportion of voters is between 48% and 54%.\" Is this statement correct based on statistical principles?",
+    "segments": [
+      {
+        "text": "A poll calculates a 95% confidence interval for the proportion of voters to be (0.48, 0.54).",
+        "has_info": true,
+        "highlight_text": "a 95% confidence interval for the proportion of voters to be (0.48, 0.54)",
+        "condition": "Confidence interval result",
+        "knowledge": "Confidence Interval",
+        "explanation": "这是基于样本构造的比例置信区间。",
+        "highlight_color": "green"
+      },
+      {
+        "text": "A report states: \"There is a 95% probability that the true proportion of voters is between 48% and 54%.\"",
+        "has_info": true,
+        "highlight_text": "There is a 95% probability that the true proportion of voters is between 48% and 54%",
+        "condition": "Incorrect probability interpretation",
+        "knowledge": "CI Interpretation",
+        "explanation": "参数是固定的，不能赋予单一区间概率。",
+        "highlight_color": "red"
+      }
+    ],
+    "traps": [
+      {
+        "title": "The Probability Misconception",
+        "description": "95% 描述的是方法的长期表现，而不是该区间本身的概率。"
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Identify the Error",
+        "content": "总体参数是固定值，不能说其以 95% 的概率落在某一区间内。",
+        "source_type": "external_knowledge",
+        "source_label": "置信区间概念"
+      },
+      {
+        "step_desc": "Provide Correct Interpretation",
+        "content": "正确说法是：如果重复抽样并构造区间，约 95% 的区间会包含真实比例。",
+        "source_type": "external_knowledge",
+        "source_label": "95% 置信度定义"
+      }
+    ]
+  },
+  {
+    "id": "stat_124_ht_logic_05",
+    "title": "The \"Not Guilty\" Verdict in Statistics",
+    "original_question": "A researcher tests a new drug. $H_0$ is that the drug has no effect. The resulting $Z$ statistic is 1.20. Since $|1.20| < 1.96$, the researcher concludes: \"We have proven that the drug has absolutely no effect ($H_0$ is true).\" Evaluate this conclusion.",
+    "segments": [
+      {
+        "text": "$H_0$ is that the drug has no effect.",
+        "has_info": true,
+        "highlight_text": "$H_0$ is that the drug has no effect",
+        "condition": "Null hypothesis",
+        "knowledge": "Hypothesis Testing",
+        "explanation": "$H_0$ 表示无效应的基准假设。",
+        "highlight_color": "green"
+      },
+      {
+        "text": "The resulting $Z$ statistic is 1.20. Since $|1.20| < 1.96$",
+        "has_info": true,
+        "highlight_text": "$|1.20| < 1.96$",
+        "condition": "Fail to reject condition",
+        "knowledge": "Decision Rule",
+        "explanation": "在常见 5% 双侧检验中，对应不拒绝 $H_0$。",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "We have proven that the drug has absolutely no effect ($H_0$ is true).",
+        "has_info": true,
+        "highlight_text": "proven that the drug has absolutely no effect ($H_0$ is true)",
+        "condition": "Incorrect conclusion",
+        "knowledge": "Interpretation Error",
+        "explanation": "不拒绝 $H_0$ 不等于证明 $H_0$ 为真。",
+        "highlight_color": "red"
+      }
+    ],
+    "traps": [
+      {
+        "title": "The Acceptance Trap",
+        "description": "统计检验中不存在“证明 $H_0$ 为真”，只有证据不足。"
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Apply Decision Rule",
+        "content": "因为 $|Z| < 1.96$，结论应为未能拒绝 $H_0$。",
+        "source_type": "prompt_info",
+        "source_label": "Z 值比较"
+      },
+      {
+        "step_desc": "Correct the Interpretation",
+        "content": "只能说证据不足以证明药物有效，而不能证明药物无效。",
+        "source_type": "external_knowledge",
+        "source_label": "统计推断语言规范"
+      }
+    ]
+  },
+  {
+    "id": "stat_124_variance_06",
+    "title": "The Sample Spread Calculation",
+    "original_question": "A small dataset $\\{2, 4, 6\\}$ is used to estimate the standard deviation of a population. A student calculates the variance by dividing the sum of squared deviations by $n = 3$. The professor says this will underestimate the true population spread. Why?",
+    "segments": [
+      {
+        "text": "A small dataset $\\{2, 4, 6\\}$ is used to estimate the standard deviation of a population.",
+        "has_info": true,
+        "highlight_text": "estimate the standard deviation of a population",
+        "condition": "Sample estimates population spread",
+        "knowledge": "Sample Standard Deviation",
+        "explanation": "样本用于估计总体离散程度。",
+        "highlight_color": "green"
+      },
+      {
+        "text": "A student calculates the variance by dividing the sum of squared deviations by $n = 3$.",
+        "has_info": true,
+        "highlight_text": "dividing the sum of squared deviations by $n = 3$",
+        "condition": "Incorrect denominator",
+        "knowledge": "Bessel's Correction",
+        "explanation": "使用 $n$ 会系统性低估总体方差。",
+        "highlight_color": "yellow"
+      }
+    ],
+    "traps": [
+      {
+        "title": "The n vs n-1 Trap",
+        "description": "样本方差估计总体时应使用 $n-1$。",
+        "highlight_color": "red"
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Identify the Issue",
+        "content": "用 $n$ 作分母会低估总体方差。",
+        "source_type": "external_knowledge",
+        "source_label": "样本方差定义"
+      },
+      {
+        "step_desc": "Explain the Correction",
+        "content": "使用 $n-1$（贝塞尔校正）可以补偿样本均值带来的低估。",
+        "source_type": "external_knowledge",
+        "source_label": "Bessel 校正原理"
+      }
+    ]
+  }
+]

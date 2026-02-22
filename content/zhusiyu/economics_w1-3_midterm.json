@@ -1,0 +1,740 @@
+[
+  {
+    "question": "Which item is a form of consumption (C) in GDP?",
+    "answer": {
+      "final_answer": "个人购买一辆自用新车属于 GDP 中的消费（$C$），因为它是住户购买的最终产品。",
+      "key_points": [
+        "消费 $C$ 指住户购买的最终商品与服务",
+        "企业购买资本品通常计入投资 $I$，不是消费"
+      ],
+      "tested_points": ["GDP 构成项：$C/I/G/NX$ 的辨析"],
+      "logic_memo": "家里买来“用”的算消费，公司买来“生产”的多半算投资。"
+    },
+    "category": "GDP 组成",
+    "type": "辨析题",
+    "signals": ["consumption", "households", "final good"],
+    "steps": [
+      "Step 1: 判断购买者是否为住户（households）",
+      "Step 2: 判断是否为最终用途（final good/service）",
+      "Step 3: 若为住户最终消费，则归入 $C$；若为资本品/库存/新住房，多归入 $I$"
+    ],
+    "glossary": [
+      { "term": "Consumption (C)", "definition": "住户购买的用于最终消费的商品和服务" },
+      { "term": "Investment (I)", "definition": "企业购买的资本设备、库存或新住房（含住房投资）" }
+    ],
+    "source_reference": "Principles of Economics (GDP components chapter)"
+  },
+  {
+    "question": "When price functions as a message, it primarily:",
+    "answer": {
+      "final_answer": "当价格作为“信息/消息（message）”时，它主要是在一个数字中汇总市场供需与稀缺性的分散信息，向买卖双方发出信号。",
+      "key_points": [
+        "价格把稀缺性与偏好等信息“压缩”成一个可观察信号",
+        "“信息功能”强调汇总与传递，不等同于“激励功能”"
+      ],
+      "tested_points": ["价格的功能：信息（message）vs 激励（incentive）"],
+      "logic_memo": "价格像路况 APP：把很多车的速度汇总成一个“拥堵指数”。"
+    },
+    "category": "市场机制",
+    "type": "概念题",
+    "signals": ["message", "aggregate information", "signal"],
+    "steps": [
+      "Step 1: 识别题干关键词 message（信息功能）",
+      "Step 2: 回忆价格把供给、需求、稀缺性等信息汇总为一个信号",
+      "Step 3: 选择“汇总市场信息”的表述而非“激励人行动”的表述"
+    ],
+    "glossary": [
+      { "term": "Price as a Message", "definition": "价格通过汇总供需信息为交易者提供参考与信号" }
+    ],
+    "source_reference": "Principles of Economics (price system section)"
+  },
+  {
+    "question": "Calculating value added and GDP contribution for a cupcake.",
+    "answer": {
+      "final_answer": "杯子蛋糕的最终售价为 $3.50$，因此其对 GDP 的贡献为 $3.50$；该环节的增加值为 $3.50-3.15=0.35$。",
+      "key_points": [
+        "GDP 计入最终产品价值，避免中间品重复计算",
+        "增加值定义为产出价值减去中间投入成本：$VA=\\text{Output}-\\text{Intermediate}$"
+      ],
+      "tested_points": ["增加值与 GDP 的避免重复计算逻辑"],
+      "logic_memo": "最后卖出价已经“打包”了所有原料价值，所以 GDP 直接记最终价。"
+    },
+    "category": "GDP 计算",
+    "type": "计算题",
+    "signals": ["value added", "final sale price", "intermediate goods"],
+    "steps": [
+      "Step 1: 计算中间投入成本 $\\text{Cost}=0.07+0.01+0.86+0.11+0.75+1.20+0.15=3.15$",
+      "Step 2: 计算增加值 $VA=3.50-3.15=0.35$",
+      "Step 3: GDP 计入最终产品价值 $=3.50$（若多环节生产，则 $\\sum VA$ 等于最终售价）"
+    ],
+    "glossary": [
+      { "term": "Intermediate Good", "definition": "用于进一步生产、会被计入最终产品价值的中间投入" },
+      { "term": "Value Added", "definition": "增加值，$VA=\\text{产出价值}-\\text{中间投入成本}$" }
+    ],
+    "source_reference": "Principles of Economics (GDP and value added section)"
+  },
+  {
+    "question": "Using the rational rule, how many cups of coffee should Cheryl buy if price is $2.50 and MB starts at $8 (dropping by $2 per cup)?",
+    "answer": {
+      "final_answer": "应购买 3 杯。因为当且仅当边际收益满足 $MB\\ge MC$（此处 $MC$ 为价格 $2.50$）时继续购买，直到第 4 杯出现 $MB<MC$ 为止。",
+      "key_points": [
+        "理性规则：继续行动直到 $MB\\ge MC$",
+        "价格在此题中可视为每杯的边际成本 $MC$"
+      ],
+      "tested_points": ["理性规则与边际分析"],
+      "logic_memo": "买到“下一杯不划算”为止：不亏才继续。"
+    },
+    "category": "理性规则",
+    "type": "计算题",
+    "signals": ["Rational Rule", "Marginal Benefit", "Marginal Cost"],
+    "steps": [
+      "Step 1: 列出边际收益：$MB_1=8,\\;MB_2=6,\\;MB_3=4,\\;MB_4=2$",
+      "Step 2: 设边际成本为价格 $MC=2.50$",
+      "Step 3: 比较：$8\\ge 2.5$ 买，$6\\ge 2.5$ 买，$4\\ge 2.5$ 买，$2<2.5$ 停止",
+      "Step 4: 因此前 3 杯购买，共 3 杯"
+    ],
+    "glossary": [
+      { "term": "Marginal Benefit (MB)", "definition": "多消费一单位带来的额外收益" },
+      { "term": "Marginal Cost (MC)", "definition": "多消费一单位带来的额外成本" }
+    ],
+    "source_reference": "Principles of Economics (marginal analysis section)"
+  },
+  {
+    "question": "Relation between nominal GDP and real GDP growth.",
+    "answer": {
+      "final_answer": "若名义 GDP 增长为 $50\\%$ 且价格水平也增长为 $50\\%$，则实际 GDP 基本不变（实际增长约为 $0\\%$），因为实际 GDP 剔除了价格变动影响。",
+      "key_points": [
+        "名义增长包含数量与价格两部分变化",
+        "近似关系：$g_R\\approx g_N-\\pi$（当变动不大时）"
+      ],
+      "tested_points": ["名义与实际增长、通胀的关系"],
+      "logic_memo": "钱看起来多了，但如果物价同样涨了，买到的“东西数量”没变。"
+    },
+    "category": "GDP 分析",
+    "type": "理解题",
+    "signals": ["nominal", "real", "inflation"],
+    "steps": [
+      "Step 1: 写出实际 GDP 定义：$\\text{Real GDP}=\\frac{\\text{Nominal GDP}}{\\text{Price Level}/100}$",
+      "Step 2: 名义涨 $50\\%$、价格也涨 $50\\%$，两者相互抵消",
+      "Step 3: 得到实际 GDP 近似不变，实际增长约为 $0\\%$"
+    ],
+    "glossary": [
+      { "term": "Nominal GDP", "definition": "用当年价格计算的 GDP" },
+      { "term": "Real GDP", "definition": "用基期价格（或经价格水平调整）计算的 GDP" }
+    ],
+    "source_reference": "Principles of Economics (nominal vs real GDP section)"
+  },
+  {
+    "question": "Who should perform which task to finish as quickly as possible?",
+    "answer": {
+      "final_answer": "应由在该任务上具有比较优势（comparative advantage）的人来做，即机会成本更低的人负责该任务，以实现分工后的更高效率。",
+      "key_points": [
+        "比较优势取决于机会成本，而非绝对速度",
+        "分工依据：让每个人做机会成本最低的事"
+      ],
+      "tested_points": ["比较优势与分工原则"],
+      "logic_memo": "别看谁跑得快，看谁“放弃得最少”。"
+    },
+    "category": "贸易与分工",
+    "type": "原则题",
+    "signals": ["Comparative Advantage", "Opportunity Cost", "Specialization"],
+    "steps": [
+      "Step 1: 为每个人计算做某任务的机会成本",
+      "Step 2: 机会成本更低者拥有该任务的比较优势",
+      "Step 3: 按比较优势分工以提高总产出/节省总时间"
+    ],
+    "glossary": [
+      { "term": "Comparative Advantage", "definition": "在某活动上机会成本更低的一方拥有比较优势" },
+      { "term": "Opportunity Cost", "definition": "选择某方案所放弃的最佳替代方案价值" }
+    ],
+    "source_reference": "Principles of Economics (comparative advantage section)"
+  },
+  {
+    "question": "Marginal cost vs benefit: How many cups of coffee to drink if price is $6.50 and MB values are 8, 6, 4, 2, 0?",
+    "answer": {
+      "final_answer": "只喝 1 杯。因为第 1 杯满足 $MB_1=8\\ge 6.50$，但第 2 杯 $MB_2=6<6.50$，因此应在 1 杯处停止。",
+      "key_points": [
+        "购买规则：继续直到 $MB\\ge MC$，一旦 $MB<MC$ 就停止",
+        "价格可视为边际成本 $MC$"
+      ],
+      "tested_points": ["边际比较与停止条件"],
+      "logic_memo": "第二杯开始亏，就别硬喝。"
+    },
+    "category": "理性规则",
+    "type": "计算题",
+    "signals": ["Marginal Cost", "Marginal Benefit"],
+    "steps": [
+      "Step 1: 确定边际成本 $MC=6.50$",
+      "Step 2: 比较：$MB_1=8\\ge 6.5$（买/喝）",
+      "Step 3: 下一杯：$MB_2=6<6.5$（停止），因此总量为 1"
+    ],
+    "glossary": [
+      { "term": "Stopping Rule", "definition": "当 $MB<MC$ 时停止增加消费/产出" }
+    ],
+    "source_reference": "Principles of Economics (marginal analysis section)"
+  },
+  {
+    "question": "Prices provide all of these EXCEPT:",
+    "answer": {
+      "final_answer": "“生产率（Productivity）”不是价格直接提供的功能。价格主要提供信息（信号）与激励，而生产率是产出与投入的技术性比率。",
+      "key_points": [
+        "价格功能：信息/信号与激励",
+        "生产率定义：$\\text{Productivity}=\\frac{\\text{Output}}{\\text{Input}}$"
+      ],
+      "tested_points": ["价格功能 vs 生产率概念"],
+      "logic_memo": "价格像指挥棒，生产率像发动机性能，二者不是一回事。"
+    },
+    "category": "价格机制",
+    "type": "概念题",
+    "signals": ["Messages", "Incentives", "Productivity"],
+    "steps": [
+      "Step 1: 回忆价格的两大作用：传递信息与提供激励",
+      "Step 2: 识别不属于价格作用的选项",
+      "Step 3: 用定义区分：生产率是技术指标而非价格的直接功能"
+    ],
+    "glossary": [
+      { "term": "Productivity", "definition": "生产率，$\\frac{\\text{产出}}{\\text{投入}}$" }
+    ],
+    "source_reference": "Principles of Economics (price system and productivity section)"
+  },
+  {
+    "question": "Calculating nominal GDP for Year 1 and Year 2 (Golf balls and Pizzas).",
+    "answer": {
+      "final_answer": "名义 GDP：第 1 年为 $1200$，第 2 年为 $1455$。名义 GDP 的计算是“当年价格 $\\times$ 当年产量”并求和。",
+      "key_points": [
+        "名义 GDP 用当年价格计价",
+        "公式：$\\text{NGDP}=\\sum_i P_i\\times Q_i$"
+      ],
+      "tested_points": ["名义 GDP 计算"],
+      "logic_memo": "当年卖多少钱、卖多少件，乘起来再加总。"
+    },
+    "category": "GDP 计算",
+    "type": "计算题",
+    "signals": ["nominal GDP", "price times quantity"],
+    "steps": [
+      "Step 1: 第 1 年：$\\text{NGDP}_1=200\\times 3+75\\times 8=600+600=1200$",
+      "Step 2: 第 2 年：$\\text{NGDP}_2=210\\times 3.5+80\\times 9=735+720=1455$",
+      "Step 3: 报告两年的名义 GDP 值"
+    ],
+    "glossary": [
+      { "term": "Nominal GDP", "definition": "用当年价格计算的 GDP：$\\sum P_iQ_i$" }
+    ],
+    "source_reference": "Principles of Economics (GDP measurement section)"
+  },
+  {
+    "question": "Messages conveyed by falling macadamia nut prices EXCEPT:",
+    "answer": {
+      "final_answer": "“杏仁价格在上升”不是夏威夷果价格下降必然传递的信息。单个商品价格变化主要反映其自身供需与稀缺性变化，不必然推断其他商品价格方向。",
+      "key_points": [
+        "某商品价格变化直接反映其自身市场条件",
+        "其他相关商品（替代品/互补品）可能受影响，但方向不确定"
+      ],
+      "tested_points": ["价格作为信息：能推断什么、不能推断什么"],
+      "logic_memo": "A 的降价最多说明 A 市场变了，不等于 B 一定涨。"
+    },
+    "category": "市场机制",
+    "type": "理解题",
+    "signals": ["price message", "supply and demand"],
+    "steps": [
+      "Step 1: 确定信息来源仅为“夏威夷果价格下降”",
+      "Step 2: 直接可推断的是其供需或稀缺性变化",
+      "Step 3: 识别“杏仁价格上升”属于超出直接信息的推断，因此为 EXCEPT"
+    ],
+    "glossary": [
+      { "term": "Substitute", "definition": "替代品，价格变化可能影响需求但方向依赖具体情形" },
+      { "term": "Complement", "definition": "互补品，价格变化可能影响需求但方向依赖具体情形" }
+    ],
+    "source_reference": "Principles of Economics (demand and supply section)"
+  },
+  {
+    "question": "Who has the comparative advantage in cooking chicken curry? (Marla: 4h Lasagna/3h Curry; Jason: 3h Lasagna/1h Curry)",
+    "answer": {
+      "final_answer": "Jason 在做咖喱鸡（chicken curry）上具有比较优势，因为他的机会成本更低：$\\frac{1}{3}<\\frac{3}{4}$（以放弃的千层面计）。",
+      "key_points": [
+        "比较优势取决于机会成本比较",
+        "机会成本可用“放弃的另一种产出/获得的产出”表示"
+      ],
+      "tested_points": ["比较优势计算（机会成本法）"],
+      "logic_memo": "做同样一道咖喱，谁少牺牲别的菜，谁更适合做。"
+    },
+    "category": "比较优势",
+    "type": "计算题",
+    "signals": ["Opportunity Cost", "Comparative Advantage"],
+    "steps": [
+      "Step 1: Marla：做 1 份咖喱的机会成本 $=\\frac{3}{4}$ 份千层面",
+      "Step 2: Jason：做 1 份咖喱的机会成本 $=\\frac{1}{3}$ 份千层面",
+      "Step 3: 比较：$\\frac{1}{3}<\\frac{3}{4}$，因此 Jason 具有咖喱的比较优势"
+    ],
+    "glossary": [
+      { "term": "Opportunity Cost", "definition": "选择一种活动所放弃的最佳替代活动的价值" },
+      { "term": "Comparative Advantage", "definition": "在某活动上机会成本更低的一方" }
+    ],
+    "source_reference": "Principles of Economics (comparative advantage exercises)"
+  },
+  {
+    "question": "Comparative advantage is in the task that you:",
+    "answer": {
+      "final_answer": "比较优势在于你相对“最不吃亏”的那项任务：即在该任务上你的机会成本相对更低（哪怕你绝对速度都比别人慢）。",
+      "key_points": [
+        "比较优势看相对机会成本，不看绝对效率",
+        "即使绝对劣势，也一定在某项上有比较优势"
+      ],
+      "tested_points": ["比较优势的直观理解"],
+      "logic_memo": "不一定最强，但一定有一项“最不亏”。"
+    },
+    "category": "贸易与分工",
+    "type": "概念题",
+    "signals": ["least bad", "relative", "opportunity cost"],
+    "steps": [
+      "Step 1: 明确比较优势定义：机会成本更低",
+      "Step 2: 解释“least bad”指相对放弃更少",
+      "Step 3: 推出分工依据是机会成本而非绝对速度"
+    ],
+    "glossary": [
+      { "term": "Absolute Advantage", "definition": "用更少投入或更快速度生产的能力" },
+      { "term": "Comparative Advantage", "definition": "机会成本更低的生产能力" }
+    ],
+    "source_reference": "Principles of Economics (absolute vs comparative advantage)"
+  },
+  {
+    "question": "A builder adds an addition to his own house. How is this recorded in GDP?",
+    "answer": {
+      "final_answer": "在常见“课堂简化口径”下，自己为自家房屋扩建属于非市场家庭生产，通常不计入 GDP；但在国民账户更细口径中，与住房相关的自有住房服务常以“估算租金”等方式计入，因此需明确口径。",
+      "key_points": [
+        "简化规则：非市场家庭劳动通常不计入 GDP",
+        "严谨口径：国民账户对住房服务存在估算计入的处理"
+      ],
+      "tested_points": ["GDP 边界：市场交易 vs 非市场生产（口径意识）"],
+      "logic_memo": "家里自己做饭不算 GDP，但如果你去餐馆买饭就算——住房有时还有“估算”规则。"
+    },
+    "category": "GDP 边界",
+    "type": "辨析题",
+    "signals": ["non-market", "household production", "imputed"],
+    "steps": [
+      "Step 1: 判断是否为市场交易（是否有市场价格与交易）",
+      "Step 2: 课堂简化：非市场家庭生产不计入 GDP",
+      "Step 3: 补充：住房相关在国民账户中可能用“估算”方式处理，避免绝对化表述"
+    ],
+    "glossary": [
+      { "term": "Non-market Production", "definition": "不通过市场交易产生的产出（通常难以定价）" },
+      { "term": "Imputed Value", "definition": "对未发生市场交易但有经济价值的活动进行的估算计入" }
+    ],
+    "source_reference": "Principles of Economics (GDP boundaries and measurement caveats)"
+  },
+  {
+    "question": "If Cornell types faster and more accurately than Alice, he has an:",
+    "answer": {
+      "final_answer": "Cornell 拥有绝对优势（absolute advantage），因为他在该任务上生产效率更高（更快且更准确）。",
+      "key_points": [
+        "绝对优势比较的是同一任务的产出效率/投入更少",
+        "不涉及机会成本比较（那是比较优势）"
+      ],
+      "tested_points": ["绝对优势定义识别"],
+      "logic_memo": "谁“干得更快更好”，谁就绝对优势。"
+    },
+    "category": "贸易与分工",
+    "type": "概念题",
+    "signals": ["faster", "accurately", "Absolute Advantage"],
+    "steps": [
+      "Step 1: 识别“更快、更准确”描述的是效率差异",
+      "Step 2: 效率更高即绝对优势",
+      "Step 3: 注意与比较优势（机会成本）区分"
+    ],
+    "glossary": [
+      { "term": "Absolute Advantage", "definition": "在某任务上用更少投入或更短时间获得更多产出" }
+    ],
+    "source_reference": "Principles of Economics (absolute advantage concept)"
+  },
+  {
+    "question": "Comparing inflation: US (Nom 4.1%, Real 2.3%) vs Japan (Nom 2.6%, Real -0.2%).",
+    "answer": {
+      "final_answer": "日本通胀率约比美国高 $1.0\\%$：美国约为 $4.1\\%-2.3\\%=1.8\\%$，日本约为 $2.6\\%-(-0.2\\%)=2.8\\%$，差为 $2.8\\%-1.8\\%=1.0\\%$。",
+      "key_points": [
+        "近似关系：通胀 $\\pi\\approx g_N-g_R$",
+        "比较通胀时统一用同一近似公式计算"
+      ],
+      "tested_points": ["名义增长、实际增长与通胀的近似关系"],
+      "logic_memo": "名义像“钱的增长”，实际像“量的增长”，差出来的就是“涨价”。"
+    },
+    "category": "通胀计算",
+    "type": "计算题",
+    "signals": ["inflation", "nominal vs real", "difference"],
+    "steps": [
+      "Step 1: 美国：$\\pi_{US}\\approx 4.1\\%-2.3\\%=1.8\\%$",
+      "Step 2: 日本：$\\pi_{JP}\\approx 2.6\\%-(-0.2\\%)=2.8\\%$",
+      "Step 3: 差值：$2.8\\%-1.8\\%=1.0\\%$"
+    ],
+    "glossary": [
+      { "term": "Inflation", "definition": "总体价格水平持续上升的现象" },
+      { "term": "Nominal Growth", "definition": "包含价格与数量变化的增长率" }
+    ],
+    "source_reference": "Principles of Economics (real vs nominal and inflation approximation)"
+  },
+  {
+    "question": "What is the primary role of markets?",
+    "answer": {
+      "final_answer": "市场的主要作用是促进贸易带来的收益（gains from trade）：通过交换与分工，使参与者在相同资源下获得更高的总体福祉或产出。",
+      "key_points": [
+        "市场通过价格与交易协调资源配置",
+        "分工与专业化是贸易收益的来源"
+      ],
+      "tested_points": ["市场的核心功能：促进交易与分工"],
+      "logic_memo": "市场像撮合平台：让每个人做擅长的事，再交换得到更好的结果。"
+    },
+    "category": "市场机制",
+    "type": "概念题",
+    "signals": ["gains from trade", "coordination"],
+    "steps": [
+      "Step 1: 回忆市场的定义：买卖双方通过价格交易",
+      "Step 2: 连接分工与专业化：比较优势带来更高总产出",
+      "Step 3: 得出市场促进 trade gains 的核心结论"
+    ],
+    "glossary": [
+      { "term": "Gains from Trade", "definition": "通过交换与分工使双方都能变得更好的收益" }
+    ],
+    "source_reference": "Principles of Economics (markets and trade gains)"
+  },
+  {
+    "question": "Comparative advantage calculation: Marius (40C or 20M) vs Jennifer (15C or 15M).",
+    "answer": {
+      "final_answer": "Marius 在杯子蛋糕（cupcakes）上有比较优势，Jennifer 在松饼（muffins）上有比较优势：Marius 的 $OC(1C)=0.5M<1M$，Jennifer 的 $OC(1M)=1C<2C$。",
+      "key_points": [
+        "比较优势通过机会成本比较确定",
+        "分别计算两种产品的机会成本再对比"
+      ],
+      "tested_points": ["比较优势（产能表转机会成本）"],
+      "logic_memo": "谁做某物时放弃得更少，谁就更适合专门做它。"
+    },
+    "category": "比较优势",
+    "type": "计算题",
+    "signals": ["opportunity cost", "comparative advantage"],
+    "steps": [
+      "Step 1: Marius：$40C\\leftrightarrow 20M$，所以 $OC(1C)=\\frac{20}{40}M=0.5M$，$OC(1M)=\\frac{40}{20}C=2C$",
+      "Step 2: Jennifer：$15C\\leftrightarrow 15M$，所以 $OC(1C)=\\frac{15}{15}M=1M$，$OC(1M)=\\frac{15}{15}C=1C$",
+      "Step 3: 比较：$0.5<1$，Marius 有 $C$ 的比较优势；$1<2$，Jennifer 有 $M$ 的比较优势"
+    ],
+    "glossary": [
+      { "term": "Production Possibilities", "definition": "在给定资源下可生产的不同组合" },
+      { "term": "Opportunity Cost", "definition": "生产一种产品所放弃的另一种产品数量" }
+    ],
+    "source_reference": "Principles of Economics (comparative advantage practice)"
+  },
+  {
+    "question": "Markets within a company to buy and sell scarce resources are:",
+    "answer": {
+      "final_answer": "公司内部用于买卖稀缺资源的机制称为内部市场（internal markets），它通过“模拟价格与交易”来分配资源与激励部门。",
+      "key_points": [
+        "内部市场用类似市场机制协调资源配置",
+        "核心仍是稀缺资源的有效分配与激励"
+      ],
+      "tested_points": ["内部市场概念识别"],
+      "logic_memo": "公司里也会“内部竞价”，用市场思维分资源。"
+    },
+    "category": "市场机制",
+    "type": "概念题",
+    "signals": ["internal markets", "scarce resources"],
+    "steps": [
+      "Step 1: 识别题干“within a company”与“buy and sell resources”",
+      "Step 2: 对应概念为 internal markets",
+      "Step 3: 说明其作用：资源配置与激励"
+    ],
+    "glossary": [
+      { "term": "Internal Market", "definition": "企业内部用价格/交易规则模拟市场来配置资源的机制" }
+    ],
+    "source_reference": "Principles of Economics (institutions and market mechanisms)"
+  },
+  {
+    "question": "In the circular flow diagram, households:",
+    "answer": {
+      "final_answer": "在循环流量图中，住户向企业提供生产要素（如劳动、土地、资本）并从企业购买商品与服务，同时在要素市场获得收入（工资、租金、利息等）。",
+      "key_points": [
+        "住户提供资源/要素给企业（要素市场）",
+        "住户购买商品与服务（产品市场）"
+      ],
+      "tested_points": ["循环流量图：住户与企业的角色"],
+      "logic_memo": "住户“卖要素赚收入”，再“花收入买产品”。"
+    },
+    "category": "循环流量",
+    "type": "模型题",
+    "signals": ["households", "resources", "labor"],
+    "steps": [
+      "Step 1: 区分两条市场：要素市场与产品市场",
+      "Step 2: 住户在要素市场供给劳动等资源并获得收入",
+      "Step 3: 住户在产品市场需求商品与服务并支付支出"
+    ],
+    "glossary": [
+      { "term": "Circular Flow", "definition": "描述住户与企业之间资源与货币流动的简化模型" },
+      { "term": "Factor Market", "definition": "劳动、土地、资本等要素买卖发生的市场" }
+    ],
+    "source_reference": "Principles of Economics (circular flow model)"
+  },
+  {
+    "question": "Calculate real GDP growth from 2016 ($3000, P=100) to 2019 ($8000, P=200).",
+    "answer": {
+      "final_answer": "实际 GDP 从 $3000$ 增至 $4000$，实际增长率为 $\\frac{4000-3000}{3000}=\\frac{1}{3}\\approx 33.3\\%$。",
+      "key_points": [
+        "先用价格水平调整：$\\text{Real} = \\frac{\\text{Nominal}}{P/100}$",
+        "增长率公式：$g=\\frac{\\text{New}-\\text{Old}}{\\text{Old}}$"
+      ],
+      "tested_points": ["实际 GDP 与增长率计算"],
+      "logic_memo": "先把名义“除掉物价”，再算涨了多少“数量”。"
+    },
+    "category": "GDP 计算",
+    "type": "计算题",
+    "signals": ["real GDP", "price level", "growth"],
+    "steps": [
+      "Step 1: 2016 实际 GDP：$\\text{Real}_{2016}=\\frac{3000}{100/100}=3000$",
+      "Step 2: 2019 实际 GDP：$\\text{Real}_{2019}=\\frac{8000}{200/100}=4000$",
+      "Step 3: 增长率：$g=\\frac{4000-3000}{3000}=\\frac{1}{3}\\approx 33.3\\%$"
+    ],
+    "glossary": [
+      { "term": "Price Level", "definition": "价格水平指数 $P$，用于将名义量转换为实际量" },
+      { "term": "Real GDP Growth", "definition": "实际 GDP 的增长率，衡量产出数量变化" }
+    ],
+    "source_reference": "Principles of Economics (real vs nominal GDP exercises)"
+  },
+  {
+    "question": "Why do we have to make choices?",
+    "answer": {
+      "final_answer": "因为稀缺性（scarcity）：可用资源有限，而人类欲望与需求在给定时点相对无限，因此必须在备选方案之间做选择。",
+      "key_points": [
+        "稀缺性意味着资源不足以满足所有想要",
+        "选择必然伴随机会成本"
+      ],
+      "tested_points": ["稀缺性与选择的根本原因"],
+      "logic_memo": "钱包和时间都有限，只能二选一或多选一。"
+    },
+    "category": "经济学基础",
+    "type": "概念题",
+    "signals": ["scarcity", "choices", "limited resources"],
+    "steps": [
+      "Step 1: 定义稀缺性：资源有限、欲望较多",
+      "Step 2: 推出必须做取舍",
+      "Step 3: 连接机会成本：选择一种就放弃另一种"
+    ],
+    "glossary": [
+      { "term": "Scarcity", "definition": "资源有限，无法满足所有需求与欲望" },
+      { "term": "Choice", "definition": "在稀缺条件下对备选方案进行取舍的行为" }
+    ],
+    "source_reference": "Principles of Economics (scarcity and choice)"
+  },
+  {
+    "question": "Willingness to pay is the _____ I am willing to pay to get a benefit.",
+    "answer": {
+      "final_answer": "Willingness to pay 指为了获得某项收益，我愿意支付的最高金额（the most）。",
+      "key_points": [
+        "愿付价格是最高可接受支付额",
+        "它反映个人对收益的主观价值评估"
+      ],
+      "tested_points": ["愿意支付（WTP）的定义"],
+      "logic_memo": "你心里给它标了一个“最多出到这儿”的上限价。"
+    },
+    "category": "经济学基础",
+    "type": "概念题",
+    "signals": ["Willingness to pay", "most"],
+    "steps": [
+      "Step 1: 识别填空语义：为了得到收益愿意付到什么程度",
+      "Step 2: 对应概念为最高金额（most）",
+      "Step 3: 用一句话复述定义加深记忆"
+    ],
+    "glossary": [
+      { "term": "Willingness to Pay", "definition": "个体为获得某收益愿意支付的最高金额" }
+    ],
+    "source_reference": "Principles of Economics (benefits, costs, and WTP)"
+  },
+  {
+    "question": "Intermediate goods are NOT counted in GDP because:",
+    "answer": {
+      "final_answer": "中间品不计入 GDP 是为了避免重复计算（double counting），因为最终产品的价格已经包含了中间品的价值。",
+      "key_points": [
+        "GDP 计入最终产品价值",
+        "中间品价值已内含于最终产品中"
+      ],
+      "tested_points": ["GDP 避免重复计算原则"],
+      "logic_memo": "面粉算一次、面包再算一次就重复了。"
+    },
+    "category": "GDP 原理",
+    "type": "辨析题",
+    "signals": ["intermediate goods", "double counting"],
+    "steps": [
+      "Step 1: 回忆 GDP 口径：计入最终产品与服务",
+      "Step 2: 中间品被用于生产最终品，其价值已被最终价包含",
+      "Step 3: 若再计入中间品将造成 double counting"
+    ],
+    "glossary": [
+      { "term": "Double Counting", "definition": "同一价值在 GDP 中被重复计入的错误" }
+    ],
+    "source_reference": "Principles of Economics (GDP measurement section)"
+  },
+  {
+    "question": "The problem of determining what to produce exists because:",
+    "answer": {
+      "final_answer": "因为稀缺性：资源不足以生产人们想要的所有商品与服务，所以必须决定“生产什么”。",
+      "key_points": [
+        "稀缺导致必须在商品与服务之间分配资源",
+        "任何生产选择都伴随机会成本"
+      ],
+      "tested_points": ["稀缺性导致的三大基本问题之一：生产什么"],
+      "logic_memo": "材料不够，只能先做更想要的那几样。"
+    },
+    "category": "经济学基础",
+    "type": "概念题",
+    "signals": ["what to produce", "scarcity"],
+    "steps": [
+      "Step 1: 明确“生产什么”是资源配置问题",
+      "Step 2: 根本原因是资源有限而需求多",
+      "Step 3: 推出必须做取舍与优先级排序"
+    ],
+    "glossary": [
+      { "term": "Resource Allocation", "definition": "在不同用途之间分配稀缺资源的过程" }
+    ],
+    "source_reference": "Principles of Economics (scarcity and allocation)"
+  },
+  {
+    "question": "Example of an intermediate good:",
+    "answer": {
+      "final_answer": "用于建造房屋的木材（lumber）是中间品，因为它作为投入进入最终产品“房屋”的价值中（在该情境下）。",
+      "key_points": [
+        "中间品是用于进一步生产的投入",
+        "同一商品在不同用途下可能是中间品或最终品"
+      ],
+      "tested_points": ["中间品的情境判断"],
+      "logic_memo": "木材给建筑商是原料（中间品），卖给家庭直接用可能变最终品。"
+    },
+    "category": "GDP 组成",
+    "type": "辨析题",
+    "signals": ["intermediate", "input"],
+    "steps": [
+      "Step 1: 判断该商品是否用于进一步生产",
+      "Step 2: 若用于生产最终品（房屋），则为中间品",
+      "Step 3: 强调情境：若直接卖给最终消费者使用，则可能为最终品"
+    ],
+    "glossary": [
+      { "term": "Final Good", "definition": "直接被最终使用者消费或投资的商品与服务" },
+      { "term": "Intermediate Good", "definition": "用于生产最终品的投入品" }
+    ],
+    "source_reference": "Principles of Economics (GDP and intermediate goods)"
+  },
+  {
+    "question": "Commuting time to a concert is a _____ cost in opportunity cost calculations.",
+    "answer": {
+      "final_answer": "通勤时间属于机会成本中应计入的非金钱成本（nonfinancial cost），因为时间本身是稀缺资源并有替代用途。",
+      "key_points": [
+        "机会成本包含显性成本与隐性（时间/精力）成本",
+        "时间成本是典型的非金钱机会成本"
+      ],
+      "tested_points": ["机会成本的构成：显性 vs 隐性"],
+      "logic_memo": "路上花的时间也是“付出”，不是免费。"
+    },
+    "category": "机会成本",
+    "type": "辨析题",
+    "signals": ["commuting time", "nonfinancial cost"],
+    "steps": [
+      "Step 1: 回忆机会成本定义：放弃的最佳替代用途价值",
+      "Step 2: 通勤时间占用了可用于工作/休息的时间",
+      "Step 3: 因此应计入机会成本（隐性非金钱成本）"
+    ],
+    "glossary": [
+      { "term": "Explicit Cost", "definition": "需要实际支付货币的成本" },
+      { "term": "Implicit Cost", "definition": "不直接支付货币但真实存在的成本（如时间）" }
+    ],
+    "source_reference": "Principles of Economics (opportunity cost section)"
+  },
+  {
+    "question": "Why is freshwater scarce despite many lakes?",
+    "answer": {
+      "final_answer": "因为稀缺性是相对概念：即使有很多湖泊，淡水在可用性、可获取性与需求规模上仍可能不足以满足所有用途与需求，因此仍然稀缺。",
+      "key_points": [
+        "稀缺取决于“需求相对于可用供给”",
+        "可用供给受地理、净化成本与分配限制影响"
+      ],
+      "tested_points": ["稀缺性的相对性理解"],
+      "logic_memo": "不是“有没有”，而是“够不够、拿不拿得到”。"
+    },
+    "category": "经济学基础",
+    "type": "理解题",
+    "signals": ["scarce", "freshwater", "needs"],
+    "steps": [
+      "Step 1: 定义稀缺：不足以满足所有需求",
+      "Step 2: 说明淡水的可用供给并不等于水体总量（受成本与可达性限制）",
+      "Step 3: 需求相对更大时仍会稀缺"
+    ],
+    "glossary": [
+      { "term": "Scarcity (Relative)", "definition": "相对于需求而言的不足，而非绝对数量为零" }
+    ],
+    "source_reference": "Principles of Economics (scarcity examples)"
+  },
+  {
+    "question": "You have an absolute advantage if you:",
+    "answer": {
+      "final_answer": "当你能用最少投入（或最短时间）生产某产品时，你就拥有绝对优势（absolute advantage）。",
+      "key_points": [
+        "绝对优势比较的是效率：投入更少/产出更多",
+        "不涉及机会成本比较（那是比较优势）"
+      ],
+      "tested_points": ["绝对优势定义"],
+      "logic_memo": "谁省料省时，谁绝对优势。"
+    },
+    "category": "贸易与分工",
+    "type": "概念题",
+    "signals": ["Absolute Advantage", "fewest inputs"],
+    "steps": [
+      "Step 1: 识别关键词“fewest inputs”",
+      "Step 2: 对应概念为 absolute advantage",
+      "Step 3: 补充对比：comparative advantage 看机会成本"
+    ],
+    "glossary": [
+      { "term": "Absolute Advantage", "definition": "用更少投入生产同等产出的能力" }
+    ],
+    "source_reference": "Principles of Economics (absolute vs comparative advantage)"
+  },
+  {
+    "question": "Calculate opportunity cost of salmon for Washington: (10 tea or 10 salmon).",
+    "answer": {
+      "final_answer": "华盛顿州生产 1 单位三文鱼的机会成本为 1 单位抹茶茶（tea）：$OC(1\\;Salmon)=\\frac{10\\;Tea}{10\\;Salmon}=1\\;Tea$。",
+      "key_points": [
+        "机会成本按“放弃的另一种产出/获得的产出”计算",
+        "在生产可能性边界上用比率直接求单位机会成本"
+      ],
+      "tested_points": ["机会成本计算（单位比率）"],
+      "logic_memo": "做一条鱼，就少喝一杯茶。"
+    },
+    "category": "机会成本",
+    "type": "计算题",
+    "signals": ["Washington", "Salmon", "Opportunity Cost"],
+    "steps": [
+      "Step 1: 写出定义：$OC=\\frac{\\text{Tea given up}}{\\text{Salmon gained}}$",
+      "Step 2: 代入：$OC(1\\;Salmon)=\\frac{10}{10}=1\\;Tea$",
+      "Step 3: 用单位表达清楚：每 1 Salmon 代价为 1 Tea"
+    ],
+    "glossary": [
+      { "term": "Opportunity Cost", "definition": "为得到某物所放弃的最佳替代品数量或价值" }
+    ],
+    "source_reference": "Principles of Economics (opportunity cost exercises)"
+  },
+  {
+    "question": "A trade-off involves weighing:",
+    "answer": {
+      "final_answer": "权衡（trade-off）就是比较并取舍成本与收益（costs and benefits）。",
+      "key_points": [
+        "任何选择都涉及放弃某些东西（成本）以获得某些好处（收益）",
+        "权衡是经济决策的核心思维"
+      ],
+      "tested_points": ["权衡与决策的基本逻辑"],
+      "logic_memo": "想要 A 通常就得少要点 B。"
+    },
+    "category": "决策方法",
+    "type": "概念题",
+    "signals": ["trade-off", "costs and benefits"],
+    "steps": [
+      "Step 1: 明确 trade-off 的含义是取舍",
+      "Step 2: 取舍的依据是比较 costs 与 benefits",
+      "Step 3: 选择“costs and benefits”作为正确填空"
+    ],
+    "glossary": [
+      { "term": "Trade-off", "definition": "在备选方案之间进行取舍的过程" },
+      { "term": "Cost-Benefit Analysis", "definition": "系统比较成本与收益以辅助决策的方法" }
+    ],
+    "source_reference": "Principles of Economics (decision making chapter)"
+  }
+]

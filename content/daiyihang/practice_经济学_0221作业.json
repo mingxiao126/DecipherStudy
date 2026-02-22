@@ -1,0 +1,319 @@
+[
+  {
+    "id": "q-01",
+    "type": "essay",
+    "question": "A marginally attached worker is an individual who is not currently employed and has not actively looked for work in the past four weeks, but wants a job, is available for work, and has searched for employment sometime in the last 12 months. They are not counted in official unemployment statistics. Explain the rationale for this exclusion and its implications for measuring labor market slack.",
+    "answer": "Marginally attached workers are excluded from official unemployment (U-3) because they do not meet the 'active search' criterion within the last four weeks; their exclusion leads to an underestimation of the actual number of people available and willing to work.",
+    "analysis": {
+      "decoding": [
+        "题干给出“边际劳动力”的定义：想工作、有能力工作、过去12个月找过工作，但过去4周未找工作。",
+        "核心规则：官方失业率（U-3）仅统计过去4周内有“积极求职行为”（Active Search）的人。",
+        "统计分类：由于不满足4周求职条件，该类人群在统计上被分类为“非劳动力”（Not in labor force），而非“失业者”。"
+      ],
+      "conditions": [
+        {
+          "title": "官方失业率定义 (U-3)",
+          "content": "$U\\\\text{-}3 = \\\\frac{\\\\text{Unemployed}}{\\\\text{Labor Force}}$",
+          "description": "其中失业者必须满足在过去4周内积极寻找工作。$LF = E + U$。"
+        },
+        {
+          "title": "劳动力分类逻辑",
+          "content": "$\\\\text{Marginally Attached} \\notin \\\\text{Labor Force}_{official}$",
+          "description": "因为求职间隔超过4周，被判定为对劳动力市场附着力较弱，不计入分母。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "工作意愿误区",
+          "description": "学生容易误以为“只要想工作就是失业”。官方统计更看重“即时行动”而非仅仅是“意愿”。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "逻辑拆解：判定求职行为",
+          "content": "根据题干，该群体在过去4周内“没有积极找工作”，因此不符合官方定义的 $Unemployed$ 范畴。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "逻辑拆解：统计分类归属",
+          "content": "由于不属于 $Employed$ 也不属于 $Unemployed$，根据公式 $Population = LF + Not\\\\ in\\\\ LF$，该群体被归入 $Not\\\\ in\\\\ labor\\\\ force$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "结论：对指标的影响",
+          "content": "这种分类方法会导致 $U\\\\text{-}3$ 低估了劳动力市场的利用不足程度。如果考虑该群体，需使用更广义的指标，如 $U\\\\text{-}5 = \\\\frac{U + MA}{LF + MA}$，此时数值会显著上升。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Marginally Attached Worker",
+      "U-3 Unemployment Rate",
+      "Active Search Criterion",
+      "Labor Force Participation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "essay",
+    "question": "Suppose an economy has 1,000 employed people, 80 people who actively looked for work last week, and 20 people who want a job and searched 3 months ago but not in the last month. Calculate the official unemployment rate and explain how the inclusion of the latter group would change the rate.",
+    "answer": "The official unemployment rate (U-3) is 7.41%. Including the 20 marginally attached workers would increase the rate to 9.09%.",
+    "analysis": {
+      "decoding": [
+        "已知：就业人数 $E = 1000$；积极求职者 $U = 80$；边际劳动力 $MA = 20$（过去12个月找过但过去4周没找）。",
+        "任务：计算 $U\\\\text{-}3$ 以及包含 $MA$ 后的变化。"
+      ],
+      "conditions": [
+        {
+          "title": "劳动力总量公式",
+          "content": "$LF = E + U$",
+          "description": "官方劳动力仅包含就业者和过去4周积极求职的失业者。"
+        },
+        {
+          "title": "失业率计算公式",
+          "content": "\\\\text{Rate} = \\\\frac{\\\\text{Numerator}}{\\\\text{Denominator}} \\\\times 100\\\\%",
+          "description": "分子为目标失业群体，分母为对应的劳动力总量。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "分母遗漏陷阱",
+          "description": "在计算包含边际劳动力的失业率时，不仅分子要加 2 $0$，分母（劳动力总量）也必须增加 2 $0$。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算官方指标",
+          "content": "$LF = 1000 + 80 = 1080$。官方失业率 U\\\\text{-}3 = \\\\frac{80}{1080} \\\\approx 7.41\\\\%。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算广义指标",
+          "content": "包含 $MA$ 后，总人数为 1080 $ + 20 = 1100$，总失业人数为 80 $ + 20 = 100$。广义失业率 = \\\\frac{100}{1100} \\\\approx 9.09\\\\%。",
+          "tag": "计算"
+        },
+        {
+          "title": "结论：数值对比",
+          "content": "由于 $\\\\frac{100}{1100} > \\\\frac{80}{1080}$，可以得出包含边际劳动力会推高失业率数值，反映出更多的劳动力闲置。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Unemployment Calculation",
+      "Marginally Attached Worker",
+      "Labor Force",
+      "Labor Market Slack"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "essay",
+    "question": "Compare and contrast 'discouraged workers' and 'marginally attached workers' in terms of their definition and their specific effect on the labor force participation rate.",
+    "answer": "Discouraged workers are a subset of marginally attached workers who specifically cite economic/market reasons for not searching; both groups are excluded from the labor force, thereby lowering the labor force participation rate.",
+    "analysis": {
+      "decoding": [
+        "比较对象：丧失信心的工人（Discouraged Workers）与边际劳动力（Marginally Attached）。",
+        "核心联系：丧失信心者是边际劳动力的子集。",
+        "指标影响：分析对劳动力参与率的影响。"
+      ],
+      "conditions": [
+        {
+          "title": "劳动力参与率公式",
+          "content": "$\\\\text{LFPR} = \\\\frac{LF}{\\\\text{Adult Population}} = \\\\frac{E+U}{\\\\text{Adult Population}}$",
+          "description": "任何被划分为 $Not\\\\ in\\\\ labor\\\\ force$ 的人都会降低该比率。"
+        },
+        {
+          "title": "包含关系模型",
+          "content": "$\\\\text{Discouraged} \\subset \\\\text{Marginally Attached} \\subset \\\\text{Not in Labor Force}$",
+          "description": "层级包含关系决定了它们在统计中的地位一致。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "概念混淆陷阱",
+          "description": "不要认为丧失信心者是失业者，他们在官方口径下同样属于“非劳动力”。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "逻辑拆解：定义对比",
+          "content": "边际劳动力包含所有因各种原因（学业、家庭、丧失信心）而停止求职的人；而丧失信心者特指因为觉得“找不到工作”而停止求职。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "公式代入：分析 LFPR",
+          "content": "当一名失业者变为边际劳动力（或丧失信心者）时，$U$ 减少，$LF$ 减少。由于分母不变（总人口），$\\\\text{LFPR}$ 会下降。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "结论：宏观经济意义",
+          "content": "在经济衰退期，大量失业者转化为丧失信心者，会导致失业率看似下降，但劳动力参与率同步下降，掩盖了真实的失业痛苦。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Discouraged Workers",
+      "Marginally Attached Worker",
+      "Labor Force Participation Rate",
+      "Economic Cycle"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "essay",
+    "question": "Marginally attached workers are people not in the labor force who want and are available for work, and have looked for a job within the last 12 months, but not in the past 4 weeks. Discouraged workers are a specific subset of this group who have stopped searching specifically because they believe no jobs are available or for which they qualify. Explain why these individuals are excluded from the official unemployment rate (U-3) and how their existence reflects the 'hidden' underutilization of labor.",
+    "answer": "Marginally attached and discouraged workers are excluded from U-3 because they lack 'active' search activity in the past 4 weeks; they represent hidden underutilization as they are willing to work but are not captured in the headline unemployment figure.",
+    "analysis": {
+      "decoding": [
+        "题干定义了“边际劳动力”：想工作、符合条件、过去12个月找过工作但过去4周未找。",
+        "题干定义了“丧失信心者”：边际劳动力的子集，因认为没岗位或不达标而停止求职。",
+        "核心逻辑：官方失业率 (U-3) 仅包含在过去4周内“积极求职”的人。"
+      ],
+      "conditions": [
+        {
+          "title": "官方失业率 (U-3) 公式",
+          "content": "$U\\\\text{-}3 = \\\\frac{U}{LF} = \\\\frac{U}{E + U}$",
+          "description": "$U$ 必须满足过去4周内有积极求职行为。边际劳动力因不满足此条件被归为 $Not\\\\ in\\\\ Labor\\\\ Force$。"
+        },
+        {
+          "title": "包含关系模型",
+          "content": "$\\\\text{Discouraged} \\subset \\\\text{Marginally Attached} \\subset \\\\text{Not in Labor Force}$",
+          "description": "丧失信心者是边际劳动力的特殊子集，两者在官方统计中均不属于劳动力。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "失业身份误区",
+          "description": "学生常误认为“想工作的人”就是“失业者”。必须理解 U-3 建立在“近期求职行动”而非“主观意愿”上。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "逻辑拆解：判定求职频率",
+          "content": "根据定义，边际劳动力在过去4周内没有求职行为。依据官方标准，他们被排除在劳动力 (Labor Force) 之外。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "公式代入：分析统计偏误",
+          "content": "由于 $U\\\\text{-}3$ 的分母不含这些潜在劳动力，当大量失业者因经济差转为丧失信心者时，$U$ 和 $LF$ 同时减少，导致失业率看起来在下降，但实际就业形势并未好转。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "结论：解读劳动力利用不足",
+          "content": "这种排除机制掩盖了“隐形失业”。包含这类人群的广义指标（如 $U\\\\text{-}5$ 或 $U\\\\text{-}6$）能更真实地反映劳动力闲置状况。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Marginally Attached Worker",
+      "Discouraged Worker",
+      "U-3 Unemployment Rate",
+      "Labor Force Participation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "essay",
+    "question": "An economy has 500 employed persons and 50 persons actively seeking work. Additionally, 10 people want a job but haven't looked in 2 months because they believe no positions exist, and 5 people haven't looked because of family responsibilities despite wanting a job. Calculate the official unemployment rate and identify the number of discouraged workers.",
+    "answer": "The official unemployment rate is 9.09%; the number of discouraged workers is 10.",
+    "analysis": {
+      "decoding": [
+        "已知：就业者 $E=500$，积极求职者 $U=50$。",
+        "边际劳动力：10人（因市场原因不找）+ 5人（因家庭原因不找）= 15人。",
+        "丧失信心者：仅包含因市场原因（Believe no jobs exist）停止求职的 10 人。"
+      ],
+      "conditions": [
+        {
+          "title": "官方劳动力公式",
+          "content": "$LF = E + U$",
+          "description": "仅包含当前就业和过去4周积极求职的人。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "子集归类错误",
+          "description": "容易将所有边际劳动力（15人）都算作丧失信心者。注意：只有基于“市场因素”放弃的才是丧失信心者。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算官方劳动力",
+          "content": "$LF = 500 + 50 = 550$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算官方失业率",
+          "content": "U\\\\text{-}3 = \\\\frac{50}{550} \\\\approx 9.09\\\\%。",
+          "tag": "计算"
+        },
+        {
+          "title": "识别子集人群",
+          "content": "根据定义，10人因“相信无工作”停止求职，符合 $Discouraged\\\\ Workers$ 定义；另外5人虽是 $Marginally\\\\ Attached$，但不是 $Discouraged$。",
+          "tag": "逻辑拆解"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Unemployment Calculation",
+      "Discouraged Worker Subset",
+      "Labor Market Classification"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "essay",
+    "question": "Compare the impact on the labor force participation rate (LFPR) when an unemployed person becomes a discouraged worker versus when they find a part-time job.",
+    "answer": "Becoming a discouraged worker decreases the LFPR by removing the individual from the labor force; finding a part-time job keeps them in the labor force, maintaining the LFPR.",
+    "analysis": {
+      "decoding": [
+        "场景一：失业者 $\\to$ 丧失信心者（停止求职）。",
+        "场景二：失业者 $\\to$ 兼职就业者。"
+      ],
+      "conditions": [
+        {
+          "title": "劳动力参与率公式",
+          "content": "$\\\\text{LFPR} = \\\\frac{E + U}{\\\\text{Working-age Population}}$",
+          "description": "分子为劳动力总量。任何退出求职且未就业的人都会导致分子减小。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "兼职状态误解",
+          "description": "容易认为兼职不算完全就业。在官方统计中，只要有工作（不论时长）都计入 $E$，属于劳动力。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "逻辑拆解：退出劳动力",
+          "content": "当失业者变为丧失信心者，他们从 $U$ 变为 $Not\\\\ in\\\\ labor\\\\ force$。$LF$ 减小，$\\\\text{LFPR}$ 下降。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "逻辑拆解：留在劳动力",
+          "content": "当失业者找到兼职，他们从 $U$ 变为 $E$。$LF$ 总量不变，$\\\\text{LFPR}$ 保持稳定。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "结论：经济指标偏差",
+          "content": "丧失信心者的增加会导致劳动力市场“萎缩”，这在失业率数据中可能表现为虚假的改善，但 $\\\\text{LFPR}$ 会暴露真实的人才流失。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Labor Force Participation Rate",
+      "Discouraged Workers",
+      "Employment Status",
+      "Economic Reporting"
+    ],
+    "source": "Mixed"
+  }
+]

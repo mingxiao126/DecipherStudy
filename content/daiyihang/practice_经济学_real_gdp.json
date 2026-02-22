@@ -1,0 +1,169 @@
+[
+  {
+    "id": "q-01",
+    "type": "essay",
+    "question": "Use the following data for Years 3 and 4 to answer the sub-questions:\\n\n- Year 3: Nominal GDP = 5,000 $; GDP deflator = 125; Population = 11\\n- Year 4: Nominal GDP = 6,600 $; GDP deflator = 150; Population = 12\\n\n1. What is the real GDP in Year 3? \\n2. What is the real GDP in Year 4? \\n3. What is the real GDP per capita in Year 3? \\n4. What is the real GDP per capita in Year 4? \\n5. What is the rate of real output growth between Years 3 and 4? \\n6. What is the rate of real output growth per capita between Years 3 and 4? ",
+    "answer": "1. Real GDP Y3: 4,000 $; 2. Real GDP Y4: 4,400 $; 3. Real GDP per capita Y3: 364 $; 4. Real GDP per capita Y4: 367 $; 5. Output growth: 10%; 6. Output growth per capita: 0.82%. ",
+    "analysis": {
+      "decoding": [
+        "题干提供了名义GDP、平减指数和人口数据，要求进行实际值转换及增长率分析 。",
+        "核心逻辑在于剔除价格变动影响（Real GDP）以及剔除人口变动影响（Per Capita） 。"
+      ],
+      "conditions": [
+        {
+          "title": "实际GDP转换公式",
+          "content": "$Real~GDP = \\\\frac{Nominal~GDP}{GDP~deflator} \\\\times 100$",
+          "description": "名义GDP包含价格变动，实际GDP通过平减指数调整，反映了产出的真实物理量变化 。"
+        },
+        {
+          "title": "人均实际GDP公式",
+          "content": "$Real~GDP~per~capita = \\\\frac{Real~GDP}{Population}$",
+          "description": "该指标衡量一个国家在一定时期内人均产出的平均份额，反映生活水平的改善 。"
+        },
+        {
+          "title": "实际产出增长率公式",
+          "content": "$Output~growth = \\\\frac{Real~GDP_{Y2} - Real~GDP_{Y1}}{Real~GDP_{Y1}} \\\\times 100$",
+          "description": "衡量连续年份间实际经济规模的百分比扩张 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "名义值干扰",
+          "description": "计算增长率时不能直接使用名义GDP，因为物价上涨（Year 3到4平减指数从125升至150）会夸大增长率 。"
+        },
+        {
+          "title": "人口增长的抵消作用",
+          "description": "若人口增速快于产出增速，即便产出增长率为正，人均福利也可能下降 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第一步：计算实际GDP (Year 3 & 4)",
+          "content": "Year 3: $\\\\frac{5,000}{125} \\\\times 100 = 4,000$; Year 4: $\\\\frac{6,600}{150} \\\\times 100 = 4,400$ 。",
+          "tag": "计算"
+        },
+        {
+          "title": "第二步：计算人均实际GDP",
+          "content": "Year 3: $\\\\frac{4,000}{11} \\\\approx 364$; Year 4: $\\\\frac{4,400}{12} \\\\approx 367$ 。",
+          "tag": "计算"
+        },
+        {
+          "title": "第三步：计算实际产出增长率",
+          "content": "\\\\frac{4,400 - 4,000}{4,000} \\\\times 100 = 10\\\\% 。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "第四步：计算人均产出增长率",
+          "content": "\\\\frac{367 - 364}{364} \\\\times 100 \\\\approx 0.82\\\\% 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real GDP",
+      "Nominal GDP",
+      "GDP Deflator",
+      "Real GDP per Capita",
+      "Output Growth Rate"
+    ],
+    "source": "Textbook"
+  },
+  {
+    "id": "q-02",
+    "type": "essay",
+    "question": "An economy reports the following data for Year 5 and Year 6:\\n\n- Year 5: Nominal GDP = 10,000 $; GDP deflator = 200; Population = 50\\n- Year 6: Nominal GDP = 12,000 $; GDP deflator = 220; Population = 55\\n\n1. What is the real GDP in Year 5?\\n2. What is the real GDP in Year 6?\\n3. Calculate the rate of real output growth and the rate of real output growth per capita between Years 5 and 6.",
+    "answer": "1. Real GDP Y5: 5,000 $; 2. Real GDP Y6: 5,454.55 $; 3. Output growth: 9.09%; Output growth per capita: -0.91%.",
+    "analysis": {
+      "decoding": [
+        "已知两年的名义值、物价指数和人口，需通过公式剥离通胀和人口因素。",
+        "对比总量增长与人均增长的差异是解题核心。"
+      ],
+      "conditions": [
+        {
+          "title": "实际值调整模型",
+          "content": "$Real~GDP = \\\\frac{Nominal~GDP}{GDP~deflator} \\\\times 100$",
+          "description": "通过物价指数将名义美元价值转换为固定基年价格的价值 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "虚假繁荣陷阱",
+          "description": "名义GDP从10,000增至12,000（增长20%），但由于平减指数和人口同步上涨，实际人均水平并未改善。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "实际GDP计算",
+          "content": "Year 5: $\\\\frac{10,000}{200} \\\\times 100 = 5,000$; Year 6: $\\\\frac{12,000}{220} \\\\times 100 \\\\approx 5,454.55$。",
+          "tag": "计算"
+        },
+        {
+          "title": "人均值计算",
+          "content": "Year 5: $\\\\frac{5,000}{50} = 100$; Year 6: $\\\\frac{5,454.55}{55} \\\\approx 99.17$。",
+          "tag": "计算"
+        },
+        {
+          "title": "增长率对比结论",
+          "content": "实际产出增长率 = \\\\frac{5,454.55 - 5,000}{5,000} \\\\times 100 \\\\approx 9.09\\\\%；人均增长率 = \\\\frac{99.17 - 100}{100} = -0.83\\\\%（存在微弱负增长）。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real GDP Calculation",
+      "Inflation Adjustment",
+      "Per Capita Growth",
+      "Standard of Living"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "essay",
+    "question": "Examine an economy with the following characteristics for two consecutive periods:\\n\n- Period 1: Real GDP = 2,000 $; Population = 100\\n- Period 2: Nominal GDP = 3,000 $; GDP deflator = 125; Population = 120\\n\n1. Calculate the real GDP for Period 2.\\n2. Determine the rate of real output growth from Period 1 to Period 2.\\n3. Identify whether the standard of living has improved based on the real GDP per capita growth.",
+    "answer": "1. Real GDP P2: 2,400; 2. Output growth: 20; 3. Standard of living improved (Per capita grew from %20 to 20.00, $ stagnant but positive growth compared to previous scenarios).",
+    "analysis": {
+      "decoding": [
+        "第一期直接给出实际值，第二期给出名义值和平减指数。",
+        "需要统一数据口径后进行跨期对比。"
+      ],
+      "conditions": [
+        {
+          "title": "实际产出测度",
+          "content": "$Real~Value = \\\\frac{Nominal~Value}{Price~Index} \\\\times 100$",
+          "description": "这是衡量短期经济增长和表现的最佳手段 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "数据口径不一致",
+          "description": "注意Period 1给的是Real GDP，直接可用；Period 2必须先转换，不能直接用3,000进行计算。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Period 2 实际值转换",
+          "content": "$Real~GDP_{P2} = \\\\frac{3,000}{125} \\\\times 100 = 2,400$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算实际增长率",
+          "content": "\\\\frac{2,400 - 2,000}{2,000} \\\\times 100 = 20\\\\%。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "人均生活水平判定",
+          "content": "P1 Per capita: $\\\\frac{2,000}{100} = 20$; P2 Per capita: $\\\\frac{2,400}{120} = 20$。人均实际产出保持不变，说明产出增长刚好被人口增长抵消 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Economic Growth Comparison",
+      "Price Index Adjustment",
+      "Real GDP per Capita",
+      "Standard of Living Analysis"
+    ],
+    "source": "Mixed"
+  }
+]

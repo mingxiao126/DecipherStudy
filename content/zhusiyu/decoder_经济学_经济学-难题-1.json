@@ -1,0 +1,192 @@
+[
+  {
+    "id": "econ_macro_unemployment_01",
+    "title": "Calculating the Unemployment Rate from Labor Force Categories",
+    "original_question": "The table describes hypothetical employment statistics in a given year. The labour force is the sum of those that are employed plus the unemployed. Labour force: 165 million. Full-time workers and voluntary part-workers: 140 million. Underemployed workers: 7 million. Marginally attached workers: 5 million. Based on the information, what is the unemployment rate? Specify your answer to one decimal place.",
+    "segments": [
+      {
+        "text": "The table describes hypothetical employment statistics in a given year.",
+        "has_info": false
+      },
+      {
+        "text": "The labour force is the sum of those that are employed plus the unemployed.",
+        "has_info": true,
+        "highlight_text": "labour force is the sum of those that are employed plus the unemployed",
+        "condition": "Labor Force Definition",
+        "knowledge": "Labor Force = Employed + Unemployed",
+        "explanation": "This defines the relationship between the three main categories of the working population.",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "Labour force: 165 million.",
+        "has_info": true,
+        "highlight_text": "165 million",
+        "condition": "Total Labor Force",
+        "knowledge": "Total Labor Force (LF)",
+        "explanation": "The denominator for calculating the unemployment rate.",
+        "highlight_color": "green"
+      },
+      {
+        "text": "Full-time workers and voluntary part-workers: 140 million. Underemployed workers: 7 million.",
+        "has_info": true,
+        "highlight_text": "Full-time workers and voluntary part-workers: 140 million. Underemployed workers: 7 million.",
+        "condition": "Components of Employed",
+        "knowledge": "Employed = Full-time/Voluntary Part-time + Underemployed",
+        "explanation": "Underemployed workers are counted as fully employed in the official (U-3) unemployment rate.",
+        "highlight_color": "green"
+      },
+      {
+        "text": "Marginally attached workers: 5 million.",
+        "has_info": true,
+        "highlight_text": "Marginally attached workers: 5 million",
+        "condition": "Non-Labor Force Category",
+        "knowledge": "Marginally Attached Exclusion",
+        "explanation": "Marginally attached workers are NOT part of the labor force and should not be included in the calculation of the standard unemployment rate.",
+        "highlight_color": "red"
+      },
+      {
+        "text": "Based on the information, what is the unemployment rate? Specify your answer to one decimal place.",
+        "has_info": true,
+        "highlight_text": "unemployment rate",
+        "condition": "Objective",
+        "knowledge": "Unemployment Rate Calculation",
+        "explanation": "The goal is to find the ratio of unemployed persons to the labor force.",
+        "highlight_color": "blue"
+      }
+    ],
+    "traps": [
+      {
+        "title": "The Marginally Attached Distractor",
+        "description": "Students often mistakenly add marginally attached workers to the unemployed count or the labor force. However, they are officially outside the labor force."
+      },
+      {
+        "title": "Underemployment Misclassification",
+        "description": "Underemployed workers (those working part-time but wanting full-time) are still counted as 'Employed'. Do not group them with the 'Unemployed'."
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Identify the total number of employed persons.",
+        "content": "Employed = Full-time and Voluntary Part-time + Underemployed = 140 million + 7 million = 147 million.",
+        "source_type": "prompt_info",
+        "source_label": "Employment Data"
+      },
+      {
+        "step_desc": "Calculate the number of unemployed persons using the labor force formula.",
+        "content": "Unemployed = Labor Force - Employed = 165 million - 147 million = 18 million.",
+        "source_type": "prompt_info",
+        "source_label": "Labor Force Definition"
+      },
+      {
+        "step_desc": "Apply the unemployment rate formula.",
+        "content": "Unemployment Rate = (Unemployed / Labor Force) * 100 = (18 / 165) * 100.",
+        "source_type": "external_knowledge",
+        "source_label": "Unemployment Rate Formula"
+      },
+      {
+        "step_desc": "Determine the final result rounded to one decimal place.",
+        "content": "The result is approximately 10.909...%, which rounds to 10.9%.",
+        "source_type": "prompt_info",
+        "source_label": "Final Calculation"
+      }
+    ]
+  },
+  {
+    "id": "econ_macro_labor_stats_02",
+    "title": "Calculating Unemployment and Participation Rates",
+    "original_question": "The country of Otter Island reports employment statistics shown in the table. Use these numbers to calculate the unemployment rate and the labour force participation rate. Working-age population: 300,000. Labour force: 175,000. Employed: 140,000. Enter your calculations as percentages rounded to two decimal places.",
+    "segments": [
+      {
+        "text": "The country of Otter Island reports employment statistics shown in the table.",
+        "has_info": false
+      },
+      {
+        "text": "Use these numbers to calculate the unemployment rate and the labour force participation rate.",
+        "has_info": true,
+        "highlight_text": "unemployment rate and the labour force participation rate",
+        "condition": "Decision Goal",
+        "knowledge": "Labor Market Indicators",
+        "explanation": "The objective is to calculate two distinct statistical ratios based on the provided population data.",
+        "highlight_color": "blue"
+      },
+      {
+        "text": "Working-age population: 300,000.",
+        "has_info": true,
+        "highlight_text": "Working-age population: 300,000",
+        "condition": "Total Potential Labor Pool",
+        "knowledge": "Working-age Population (WAP)",
+        "explanation": "This represents the denominator used to calculate the labor force participation rate.",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "Labour force: 175,000.",
+        "has_info": true,
+        "highlight_text": "Labour force: 175,000",
+        "condition": "Current Labor Supply",
+        "knowledge": "Labor Force (LF)",
+        "explanation": "The total number of people either working or actively seeking work. This is the denominator for the unemployment rate and the numerator for the participation rate.",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "Employed: 140,000.",
+        "has_info": true,
+        "highlight_text": "Employed: 140,000",
+        "condition": "Active Workers",
+        "knowledge": "Employed Population (E)",
+        "explanation": "The number of individuals currently holding jobs.",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "Enter your calculations as percentages rounded to two decimal places.",
+        "has_info": true,
+        "highlight_text": "rounded to two decimal places",
+        "condition": "Formatting Requirement",
+        "knowledge": "Rounding Precision",
+        "explanation": "The final answers must be converted to percentages and rounded to the hundredths place.",
+        "highlight_color": "yellow"
+      }
+    ],
+    "traps": [
+      {
+        "title": "Denominator Confusion",
+        "description": "A common error is using the 'Working-age population' as the denominator for the unemployment rate. The unemployment rate is always calculated as a percentage of the 'Labor Force' only."
+      },
+      {
+        "title": "Implicit Variable Omission",
+        "description": "The number of unemployed people is not explicitly given. Students must derive it from the Labor Force and Employed figures before proceeding to the rate calculation."
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Identify the relationship between labor force components.",
+        "content": "Unemployed = Labour force - Employed.",
+        "source_type": "external_knowledge",
+        "source_label": "Labor Force Identity"
+      },
+      {
+        "step_desc": "Calculate the number of unemployed individuals.",
+        "content": "Unemployed = 175,000 - 140,000 = 35,000.",
+        "source_type": "prompt_info",
+        "source_label": "Labor Market Data"
+      },
+      {
+        "step_desc": "Calculate the unemployment rate.",
+        "content": "Unemployment Rate = (Unemployed / Labour force) * 100% = (35,000 / 175,000) * 100% = 20.00%.",
+        "source_type": "external_knowledge",
+        "source_label": "Unemployment Rate Formula"
+      },
+      {
+        "step_desc": "Calculate the labour force participation rate.",
+        "content": "Participation Rate = (Labour force / Working-age population) * 100% = (175,000 / 300,000) * 100% = 58.33%.",
+        "source_type": "external_knowledge",
+        "source_label": "Participation Rate Formula"
+      },
+      {
+        "step_desc": "Final Conclusion.",
+        "content": "The unemployment rate is 20.00% and the labour force participation rate is 58.33%.",
+        "source_type": "prompt_info",
+        "source_label": "Final Calculation"
+      }
+    ]
+  }
+]

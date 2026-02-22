@@ -19,9 +19,8 @@ class PracticeApp {
 
     async loadTopics() {
         try {
-            const response = await fetch('content/practice_topics.json');
-            if (!response.ok) throw new Error('Failed to load practice topics');
-            this.topics = await response.json();
+            const builtInTopics = await window.fetchUserTopics('practice');
+            this.topics = builtInTopics;
 
             this.topicSelector.innerHTML = '<option value="">选择习题集...</option>';
             this.topics.forEach(topic => {
@@ -44,9 +43,7 @@ class PracticeApp {
 
         try {
             this.container.innerHTML = '<div class="text-center py-20 text-slate-400">正在加载题目...</div>';
-            const response = await fetch(`content/${file}`);
-            if (!response.ok) throw new Error('Failed to load questions');
-            const data = await response.json();
+            const data = await window.fetchUserDataset(file);
             this.questions = typeof window.normalizePracticeQuestions === 'function'
                 ? window.normalizePracticeQuestions(data)
                 : (Array.isArray(data) ? data : []);
@@ -332,18 +329,23 @@ class PracticeApp {
             `;
         }
 
+        const kpList = Array.isArray(q.analysis.knowledge_points) ? q.analysis.knowledge_points : (Array.isArray(q.knowledge_points) ? q.knowledge_points : []);
+        const sourceText = q.analysis.source || q.source || '';
+
         html += `
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 pt-8 border-t border-slate-700/50">
+                ${kpList.length > 0 ? `
                 <div>
                     <div class="text-emerald-400 font-bold mb-3 text-sm uppercase tracking-wider">考察知识点</div>
                     <div class="flex flex-wrap gap-2">
-                        ${q.analysis.knowledge_points.map(kp => `<span class="px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-semibold">${kp}</span>`).join('')}
+                        ${kpList.map(kp => `<span class="px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-semibold">${kp}</span>`).join('')}
                     </div>
                 </div>
-                ${q.analysis.source ? `
+                ` : '<div></div>'}
+                ${sourceText ? `
                 <div class="md:text-right">
                     <div class="text-orange-400 font-bold mb-3 text-sm uppercase tracking-wider">题目出处</div>
-                    <div class="text-slate-400 text-sm italic">“${q.analysis.source}”</div>
+                    <div class="text-slate-400 text-sm italic">“${sourceText}”</div>
                 </div>
                 ` : ''}
             </div>

@@ -1,6 +1,7 @@
 (function () {
     const MODE = 'disk';
     let pendingUpload = null;
+    let canUploadToServer = null;
 
     function normalizeSubject(subject) {
         if (!subject) return '未分类';
@@ -448,6 +449,13 @@
     }
 
     async function uploadToDiskApi(payload) {
+        if (window.DecipherRuntime && typeof window.DecipherRuntime.ensureApiMode === 'function') {
+            const apiMode = await window.DecipherRuntime.ensureApiMode();
+            if (!apiMode) {
+                throw new Error('当前为静态部署模式（Netlify），不支持落盘上传。请在本地运行 node server.js。');
+            }
+        }
+
         const response = await fetch('/api/upload-dataset', {
             method: 'POST',
             headers: {
@@ -586,9 +594,16 @@
             userId: window.DecipherUser ? window.DecipherUser.id : null
         };
 
-        if (confirmBtn) confirmBtn.classList.remove('hidden');
+        if (confirmBtn) {
+            if (canUploadToServer === false) {
+                confirmBtn.classList.add('hidden');
+                statusText(statusEl, '校验通过：当前为静态部署模式（Netlify），仅支持校验与复制，不支持上传落盘。', false);
+            } else {
+                confirmBtn.classList.remove('hidden');
+            }
+        }
         if (!hasAuditIssues) hideIssuesPanel();
-        if (!hasAuditIssues) {
+        if (!hasAuditIssues && canUploadToServer !== false) {
             statusText(statusEl, `校验通过（来源：${inputSource === 'text' ? '文本框' : '文件'}）：你可以点击“确认上传”，或手动复制到已有文件后再提交。`, false);
         }
     }
@@ -639,6 +654,22 @@
                 e.preventDefault();
                 confirmUpload();
             });
+        }
+
+        if (window.DecipherRuntime && typeof window.DecipherRuntime.ensureApiMode === 'function') {
+            window.DecipherRuntime.ensureApiMode()
+                .then((apiMode) => {
+                    canUploadToServer = !!apiMode;
+                    if (!apiMode) {
+                        const statusEl = document.getElementById('uploadStatus');
+                        const confirmBtnLocal = getOrCreateConfirmUploadBtn();
+                        if (confirmBtnLocal) confirmBtnLocal.classList.add('hidden');
+                        statusText(statusEl, '静态部署模式（Netlify）：支持校验与修复，不支持创建/上传到服务器。', false);
+                    }
+                })
+                .catch(() => {
+                    canUploadToServer = false;
+                });
         }
 
         ['datasetType', 'datasetSubject', 'datasetName', 'datasetFile', 'datasetJsonText'].forEach((id) => {

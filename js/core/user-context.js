@@ -22,6 +22,33 @@
         localStorage.setItem('decipher_user_name', userName);
     }
 
+    const TOPIC_INDEX_MAP = {
+        flashcard: 'topics.json',
+        decoder: 'decoder_topics.json',
+        practice: 'practice_topics.json'
+    };
+
+    let apiModeCache = null; // true = local server API available, false = static fallback (e.g. Netlify)
+
+    async function checkApiMode() {
+        if (apiModeCache !== null) return apiModeCache;
+        try {
+            const res = await fetch('/api/health', { cache: 'no-store' });
+            apiModeCache = !!res.ok;
+        } catch (_e) {
+            apiModeCache = false;
+        }
+        return apiModeCache;
+    }
+
+    async function fetchJson(url) {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) {
+            throw new Error(`HTTP ${res.status}: ${url}`);
+        }
+        return res.json();
+    }
+
     window.DecipherUser = {
         id: userId,
         name: userName,
@@ -36,6 +63,14 @@
         },
         getTopicsUrl: function (type = 'flashcard') {
             return `/api/workspaces/${userId}/topics?type=${type}`;
+        },
+        // Static fallback helpers (Netlify)
+        getStaticDatasetUrl: function (fileName) {
+            return `/content/${userId}/${encodeURIComponent(fileName)}`;
+        },
+        getStaticTopicsUrl: function (type = 'flashcard') {
+            const file = TOPIC_INDEX_MAP[type] || TOPIC_INDEX_MAP.flashcard;
+            return `/content/${userId}/${file}`;
         },
         // Helper to append user suffix to any URL
         withContext: function (url) {
@@ -93,11 +128,67 @@
         }
     });
 
-    // Unified API fetch helpers
-    window.fetchUserTopics = function (type) {
-        return fetch(window.DecipherUser.getTopicsUrl(type)).then(r => r.json());
+    window.DecipherRuntime = {
+        ensureApiMode: checkApiMode,
+        isApiModeSync: function () { return apiModeCache; }
     };
-    window.fetchUserDataset = function (fileName) {
-        return fetch(window.DecipherUser.getDatasetUrl(fileName)).then(r => r.json());
+
+    // Unified data helpers: prefer API, fallback to static content for Netlify static hosting
+    window.fetchUsersList = async function () {
+        const apiMode = await checkApiMode();
+        if (apiMode) {
+            return fetchJson('/api/users');
+        }
+        const users = await fetchJson('/content/users.json');
+        return (Array.isArray(users) ? users : []).filter(u => u && u.status === 'active' && !u.isSystem);
+    };
+
+    window.createUserWorkspace = async function (payload) {
+        const apiMode = await checkApiMode();
+        if (!apiMode) {
+            throw new Error('当前为静态部署模式（Netlify），不支持创建工作区。请在本地运行 node server.js。');
+        }
+        const res = await fetch('/api/create-user', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload || {})
+        });
+        const result = await res.json().catch(() => ({}));
+        if (!res.ok || !result.ok) {
+            const msg = Array.isArray(result.errors) && result.errors[0] ? result.errors[0] : `HTTP ${res.status}`;
+            throw new Error(msg);
+        }
+        return result;
+    };
+
+    window.fetchUserTopics = async function (type) {
+        const apiMode = await checkApiMode();
+        try {
+            return apiMode
+                ? await fetchJson(window.DecipherUser.getTopicsUrl(type))
+                : await fetchJson(window.DecipherUser.getStaticTopicsUrl(type));
+        } catch (err) {
+            // If API probe was a false positive or API unavailable on static host, fallback once.
+            if (apiMode) {
+                apiModeCache = false;
+                return fetchJson(window.DecipherUser.getStaticTopicsUrl(type));
+            }
+            throw err;
+        }
+    };
+
+    window.fetchUserDataset = async function (fileName) {
+        const apiMode = await checkApiMode();
+        try {
+            return apiMode
+                ? await fetchJson(window.DecipherUser.getDatasetUrl(fileName))
+                : await fetchJson(window.DecipherUser.getStaticDatasetUrl(fileName));
+        } catch (err) {
+            if (apiMode) {
+                apiModeCache = false;
+                return fetchJson(window.DecipherUser.getStaticDatasetUrl(fileName));
+            }
+            throw err;
+        }
     };
 })();

@@ -91,8 +91,7 @@
     <script>
         async function loadUsers() {
             try {
-                const res = await fetch('/api/users');
-                const users = await res.json();
+                const users = await (window.fetchUsersList ? window.fetchUsersList() : fetch('/content/users.json').then(r => r.json()));
                 const grid = document.getElementById('userGrid');
                 grid.innerHTML = '';
 
@@ -140,6 +139,10 @@
                 });
             } catch (e) {
                 console.error('Failed to load users:', e);
+                const grid = document.getElementById('userGrid');
+                if (grid) {
+                    grid.innerHTML = '<div class="col-span-full py-12 text-center text-rose-300">用户列表加载失败，请稍后重试。</div>';
+                }
             }
         }
 
@@ -168,24 +171,36 @@
             }
 
             try {
-                const res = await fetch('/api/create-user', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id, name })
-                });
-                const result = await res.json();
-                if (result.ok) {
+                const result = await (window.createUserWorkspace
+                    ? window.createUserWorkspace({ id, name })
+                    : Promise.reject(new Error('当前环境不支持创建工作区')));
+                if (result && result.ok) {
                     closeModal();
                     loadUsers();
                 } else {
                     alert(result.errors.join('\n'));
                 }
             } catch (e) {
-                alert('请求失败');
+                alert(e && e.message ? e.message : '请求失败');
             }
         }
 
-        loadUsers();
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const apiMode = window.DecipherRuntime && typeof window.DecipherRuntime.ensureApiMode === 'function'
+                    ? await window.DecipherRuntime.ensureApiMode()
+                    : false;
+                if (!apiMode) {
+                    const createBtn = document.querySelector('button[onclick="openModal()"]');
+                    if (createBtn) {
+                        createBtn.disabled = true;
+                        createBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                        createBtn.title = '静态部署模式不支持创建工作区，请在本地运行 node server.js';
+                    }
+                }
+            } catch (_e) {}
+            loadUsers();
+        });
     </script>
 </body>
 

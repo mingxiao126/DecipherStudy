@@ -1,0 +1,166 @@
+[
+  {
+    "id": "stat_124_bernoulli_misjudgment_01",
+    "title": "Bernoulli Parameter Identification & PMF Construction",
+    "original_question": "A biased die is rolled where the outcome is recorded as $S=1$ if a 'six' appears and $S=0$ otherwise. The probability of rolling a 'six' is $1/8$. A student mistakenly assumes all dice have a $1/2$ success rate. Calculate the Probability Mass Function (pmf) for $S$ and verify that the sum of the probabilities equals 1. Then, calculate the expected value $E[S]$ using the definition $\\sum x \\cdot p(x)$. An observer notes the room's humidity was 45% during the roll.",
+    "segments": [
+      {
+        "text": "A biased die is rolled where the outcome is recorded as $S=1$ if a 'six' appears and $S=0$ otherwise. The probability of rolling a 'six' is $1/8$.",
+        "has_info": true,
+        "highlight_text": "probability of rolling a 'six' is $1/8$",
+        "condition": "p = 1/8",
+        "knowledge": "Bernoulli Parameter p",
+        "explanation": "In a Bernoulli trial, $p$ is the probability of success ($S=1$). It is not always $1/2$.",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "A student mistakenly assumes all dice have a $1/2$ success rate.",
+        "has_info": true,
+        "is_trap": true,
+        "highlight_text": "assumes all dice have a $1/2$ success rate",
+        "condition": "p_wrong = 1/2",
+        "knowledge": "Common Misconception",
+        "explanation": "Students often default to $p=1/2$ (coin flip logic) even when the problem specifies a different rate like $1/8$ or $1/6$.",
+        "highlight_color": "red"
+      },
+      {
+        "text": "Calculate the Probability Mass Function (pmf) for $S$ and verify that the sum of the probabilities equals 1.",
+        "has_info": true,
+        "highlight_text": "Calculate the Probability Mass Function (pmf) for $S$",
+        "condition": "Construct pmf of S",
+        "knowledge": "PMF Construction",
+        "explanation": "Constructing the pmf identifies $P(S=0)$ and $P(S=1)$ using the given Bernoulli parameter.",
+        "highlight_color": "green"
+      },
+      {
+        "text": "Then, calculate the expected value $E[S]$ using the definition $\\sum x \\cdot p(x)$.",
+        "has_info": true,
+        "highlight_text": "calculate the expected value $E[S]$",
+        "condition": "Find E[S]",
+        "knowledge": "Expected Value Target",
+        "explanation": "The final inferential goal is to compute the expected value of $S$ using its pmf.",
+        "highlight_color": "blue"
+      },
+      {
+        "text": "An observer notes the room's humidity was 45% during the roll.",
+        "has_info": true,
+        "is_trap": true,
+        "highlight_text": "humidity was 45%",
+        "condition": "Humidity = 0.45",
+        "knowledge": "Irrelevant Data",
+        "explanation": "Environmental factors are distractors and do not enter the probability calculation.",
+        "highlight_color": "red"
+      }
+    ],
+    "traps": [
+      {
+        "title": "Default Probability Trap",
+        "description": "Falling into the trap of setting $p=0.5$ instead of using the given $p=1/8$ from the text."
+      },
+      {
+        "title": "PMF Summation Error",
+        "description": "Failing to calculate $P(S=0)$ as $1-p$, which leads to a pmf sum that does not equal 1."
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Define the PMF table",
+        "content": "For $x=1, p(1)=1/8$. For $x=0, p(0)=1 - 1/8 = 7/8$.",
+        "source_type": "prompt_info",
+        "source_label": "p = 1/8"
+      },
+      {
+        "step_desc": "Verify PMF Sum",
+        "content": "$\\sum P(X=x) = P(0) + P(1) = 7/8 + 1/8 = 8/8 = 1$.",
+        "source_type": "external_knowledge",
+        "source_label": "Sum of probabilities"
+      },
+      {
+        "step_desc": "Apply Expectation Definition",
+        "content": "$E[S] = (0 \\times 7/8) + (1 \\times 1/8) = 1/8 = 0.125$.",
+        "source_type": "external_knowledge",
+        "source_label": "E[X] = sum(xp(x))"
+      }
+    ]
+  },
+  {
+    "id": "stat_124_multi_step_expectation_02",
+    "title": "Combined Bernoulli Outcomes & Expectation Sums",
+    "original_question": "You flip two independent coins. Coin A is fair ($p=1/2$), but Coin B is biased with $P(Heads)=0.7$. Let $X_1$ be the outcome of Coin A and $X_2$ be the outcome of Coin B (Heads=1, Tails=0). A student calculates the pmf of $Y = X_1 + X_2$ but forgets to account for the different probabilities of each coin. What is the expected value $E[X_1 + X_2]$? Also, if you receive 100 dollars for every Head on Coin A and 50 dollars for every Head on Coin B, calculate your total expected income. Note: The coins were flipped by a person wearing a blue shirt.",
+    "segments": [
+      {
+        "text": "Coin A is fair ($p=1/2$), but Coin B is biased with $P(Heads)=0.7$.",
+        "has_info": true,
+        "highlight_text": "Coin A is fair ($p=1/2$), but Coin B is biased with $P(Heads)=0.7$",
+        "condition": "p1=0.5, p2=0.7",
+        "knowledge": "Heterogeneous Bernoulli Trials",
+        "explanation": "Independent Bernoulli variables can have different parameters $p$.",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "A student calculates the pmf of $Y = X_1 + X_2$ but forgets to account for the different probabilities of each coin.",
+        "has_info": true,
+        "is_trap": true,
+        "highlight_text": "forgets to account for the different probabilities",
+        "condition": "p1 != p2",
+        "knowledge": "Independence and PMF calculation",
+        "explanation": "To find $P(X_1+X_2=1)$, you must sum $P(1,0)$ and $P(0,1)$ using their specific $p$ values.",
+        "highlight_color": "red"
+      },
+      {
+        "text": "What is the expected value $E[X_1 + X_2]$?",
+        "has_info": true,
+        "highlight_text": "expected value $E[X_1 + X_2]$",
+        "condition": "E[X1+X2] = E[X1] + E[X2]",
+        "knowledge": "Linearity of Expectation",
+        "explanation": "The expectation of a sum is the sum of expectations.",
+        "highlight_color": "blue"
+      },
+      {
+        "text": "Also, if you receive 100 dollars for every Head on Coin A and 50 dollars for every Head on Coin B, calculate your total expected income.",
+        "has_info": true,
+        "highlight_text": "100 dollars for every Head on Coin A and 50 dollars for every Head on Coin B",
+        "condition": "Income = 100X1 + 50*X2",
+        "knowledge": "Linear Transformation",
+        "explanation": "Expected income equals 100 \\cdot E[X_1] + 50 \\cdot E[X_2].",
+        "highlight_color": "yellow"
+      },
+      {
+        "text": "Note: The coins were flipped by a person wearing a blue shirt.",
+        "has_info": true,
+        "is_trap": true,
+        "highlight_text": "person wearing a blue shirt",
+        "condition": "blue_shirt = true",
+        "knowledge": "Irrelevant Data",
+        "explanation": "The flipper's clothing does not affect the probabilities or expectations.",
+        "highlight_color": "red"
+      }
+    ],
+    "traps": [
+      {
+        "title": "The 'Average p' Error",
+        "description": "Students sometimes average the probabilities (0.5+0.7)/2 before calculating expectation, which is unnecessary."
+      }
+    ],
+    "solution": [
+      {
+        "step_desc": "Calculate individual expectations",
+        "content": "$E[X_1] = 0.5$ and $E[X_2] = 0.7$.",
+        "source_type": "prompt_info",
+        "source_label": "p1=0.5, p2=0.7"
+      },
+      {
+        "step_desc": "Sum the expectations",
+        "content": "$E[X_1 + X_2] = 0.5 + 0.7 = 1.2$.",
+        "source_type": "external_knowledge",
+        "source_label": "Linearity of expectation"
+      },
+      {
+        "step_desc": "Calculate total expected income",
+        "content": "$E[100X_1 + 50X_2] = 100(0.5) + 50(0.7) = 50 + 35 = 85$ dollars.",
+        "source_type": "external_knowledge",
+        "source_label": "Linear transformation of expectation"
+      }
+    ]
+  }
+]

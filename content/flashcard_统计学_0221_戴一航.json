@@ -1,0 +1,167 @@
+[
+  {
+    "question": "In a Bernoulli trial where we roll a single die and define 'Success' as rolling a '6', why is the parameter $p$ not equal to $1/2$?",
+    "answer": {
+      "final_answer": "因为参数 $p$ 是基于试验所有可能结果的概率定义的，掷骰子出现 '6' 的概率是 $\\frac{1}{6}$，而非 $\\frac{1}{2}$。",
+      "key_points": [
+        "伯努利参数 $p$ 代表成功（$X=1$）的实际概率。",
+        "在掷骰子试验中，样本空间有 $6$ 个等可能结果，目标结果仅占 $1$ 个，因此 $p = \\frac{1}{6}$。",
+        "二元结果（成功/失败）不意味着概率各占一半，必须依据具体样本空间计算。"
+      ],
+      "tested_points": [
+        "伯努利试验中参数 $p$ 的定义与背景依赖性。"
+      ],
+      "logic_memo": "虽然结果只有'是'或'否'两种，但它们的发生机会并不一定均等。骰子有 $6$ 面，只有 $1$ 面是'6'，所以成功概率是 $\\frac{1}{6}$。"
+    },
+    "category": "Parameter Identification",
+    "type": "概念题",
+    "signals": [
+      "Bernoulli parameter p",
+      "die roll example",
+      "probability of success"
+    ],
+    "steps": [
+      "Step 1: 列出样本空间大小，共 $6$ 个等可能结果。",
+      "Step 2: 确定成功事件数量，仅 $1$ 个结果满足条件。",
+      "Step 3: 计算比例 $p = \\frac{\\text{成功结果数}}{\\text{总结果数}} = \\frac{1}{6}$。"
+    ],
+    "glossary": [
+      {
+        "term": "Parameter $p$",
+        "definition": "伯努利试验中成功（$X=1$）发生的概率。"
+      },
+      {
+        "term": "Sample Space",
+        "definition": "随机试验所有可能结果的集合。"
+      },
+      {
+        "term": "Equally Likely Outcomes",
+        "definition": "样本空间中每个基本结果发生的概率都相同。"
+      }
+    ],
+    "source_reference": "BernoulliCLT(1).pdf, page 18, 40"
+  },
+  {
+    "question": "Given a Bernoulli random variable $H$ with $P(H=1) = 0.2$, use the PMF notation $p(x) = P(H=x)$ to list all possible values of $p(x)$ for $x \\in \\{0, 1\\}$.",
+    "answer": {
+      "final_answer": "$p(1) = 0.2$ 且 $p(0) = 0.8$。",
+      "key_points": [
+        "$p(1)$ 表示成功概率，即 $P(H=1) = p = 0.2$。",
+        "失败概率为补余概率：$p(0) = 1 - p = 1 - 0.2 = 0.8$。",
+        "PMF 必须满足 $p(0) + p(1) = 1$。"
+      ],
+      "tested_points": [
+        "PMF 表达与补余概率法则的应用。"
+      ],
+      "logic_memo": "PMF 就像一个查表函数，输入 $x$ 输出对应的概率。已知成功概率为 $0.2$，失败自然是剩下的 $0.8$。"
+    },
+    "category": "PMF Proficiency",
+    "type": "计算题",
+    "signals": [
+      "PMF notation",
+      "p(x)",
+      "complementary probability"
+    ],
+    "steps": [
+      "Step 1: 已知成功概率 $p = 0.2$。",
+      "Step 2: 写出 $p(1) = 0.2$。",
+      "Step 3: 使用补余公式 $p(0) = 1 - p = 1 - 0.2 = 0.8$。"
+    ],
+    "glossary": [
+      {
+        "term": "PMF ($p(x)$)",
+        "definition": "概率质量函数，用于描述离散随机变量取特定值的概率。"
+      },
+      {
+        "term": "Complementary Probability",
+        "definition": "若事件概率为 $p$，其对立事件概率为 $1-p$。"
+      }
+    ],
+    "source_reference": "BernoulliCLT(1).pdf, page 2, 3"
+  },
+  {
+    "question": "Apply the expected value definition $E(X) = \\sum x p(x)$ to calculate the mean of a Bernoulli trial where $P(X=1) = 0.75$.",
+    "answer": {
+      "final_answer": "$E(X) = 0.75$。",
+      "key_points": [
+        "列出所有取值：$x=0$ 与 $x=1$，对应概率分别为 $0.25$ 与 $0.75$。",
+        "代入公式 $E(X) = \\sum x p(x) = 0 \\cdot 0.25 + 1 \\cdot 0.75$。",
+        "计算结果为 $0.75$，说明伯努利分布的均值等于参数 $p$。"
+      ],
+      "tested_points": [
+        "离散随机变量期望值定义公式的应用。"
+      ],
+      "logic_memo": "期望值是加权平均。因为失败时取值为 $0$，它对总和没有贡献，所以平均值完全由成功概率决定。"
+    },
+    "category": "Expected Value Definition",
+    "type": "公式题",
+    "signals": [
+      "expectation summation",
+      "definition of E(X)",
+      "weighted average"
+    ],
+    "steps": [
+      "Step 1: 写出定义式 $E(X) = \\sum x p(x)$。",
+      "Step 2: 展开为 $E(X) = 0 \\cdot P(0) + 1 \\cdot P(1)$。",
+      "Step 3: 代入数值 $0 \\cdot 0.25 + 1 \\cdot 0.75 = 0.75$。"
+    ],
+    "glossary": [
+      {
+        "term": "Expected Value",
+        "definition": "随机变量取值的加权平均数。"
+      },
+      {
+        "term": "Summation ($\\sum$)",
+        "definition": "表示对一组数值进行累加的符号。"
+      },
+      {
+        "term": "Bernoulli Distribution",
+        "definition": "只取 $0$ 与 $1$ 两个值，且成功概率为 $p$ 的离散分布。"
+      }
+    ],
+    "source_reference": "BernoulliCLT(1).pdf, page 40, 41, 53"
+  },
+  {
+    "question": "If you roll a die $24$ times and count the number of sixes ($S_i = 1$ if roll is '6'), calculate the expected total count $E[\\sum_{i=1}^{24} S_i]$ and explain why the answer is not $1$.",
+    "answer": {
+      "final_answer": "期望总次数为 $4$，因为 $E\\left[\\sum_{i=1}^{24} S_i\\right] = 24 \\cdot \\frac{1}{6} = 4$。",
+      "key_points": [
+        "单次试验的期望为 $E(S_i) = p = \\frac{1}{6}$。",
+        "利用期望的线性性质：$E\\left[\\sum_{i=1}^{24} S_i\\right] = \\sum_{i=1}^{24} E(S_i)$。",
+        "计算得到 $24 \\times \\frac{1}{6} = 4$。",
+        "不要将期望与概率总和混淆；概率之和为 $1$，但期望和为 $np$。"
+      ],
+      "tested_points": [
+        "期望的线性性质与 $np$ 公式的应用。"
+      ],
+      "logic_memo": "掷 $6$ 次骰子平均会出现 $1$ 次六点；掷 $24$ 次相当于做了 $4$ 组这样的实验，所以平均会出现 $4$ 次。"
+    },
+    "category": "Expectation of Sums",
+    "type": "对比题",
+    "signals": [
+      "sum of expectations",
+      "expected total count",
+      "np formula"
+    ],
+    "steps": [
+      "Step 1: 确定单次期望 $E(S_i) = \\frac{1}{6}$。",
+      "Step 2: 总试验次数 $n = 24$。",
+      "Step 3: 使用公式 $E\\left[\\sum_{i=1}^{24} S_i\\right] = n p = 24 \\cdot \\frac{1}{6} = 4$。"
+    ],
+    "glossary": [
+      {
+        "term": "Linearity of Expectation",
+        "definition": "随机变量和的期望等于各自期望之和。"
+      },
+      {
+        "term": "Binomial Mean ($np$)",
+        "definition": "在 $n$ 次独立伯努利试验中，成功次数的期望为 $np$。"
+      },
+      {
+        "term": "Probability Axiom",
+        "definition": "所有互斥基本事件的概率之和等于 $1$。"
+      }
+    ],
+    "source_reference": "BernoulliCLT(1).pdf, page 44, 46, 47"
+  }
+]

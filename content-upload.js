@@ -175,6 +175,69 @@
     function hideIssuesPanel() {
         const panel = document.getElementById('validationIssuesPanel');
         if (panel) panel.classList.add('hidden');
+        const gptPanel = document.getElementById('gptPromptPanel');
+        if (gptPanel) gptPanel.classList.add('hidden');
+    }
+
+    function generateGptPrompt(audit) {
+        if (!audit || !audit.issues || audit.issues.length === 0) return '';
+
+        const issuesText = audit.issues.map((issue, idx) => {
+            const loc = issue.location ? ` (位置: ${issue.location})` : '';
+            const fix = issue.fix_suggestion ? ` 建议: ${issue.fix_suggestion}` : '';
+            return `${idx + 1}. [${issue.rule_id}] ${issue.description}${loc}${fix}`;
+        }).join('\n');
+
+        return [
+            '你之前提供的 JSON 存在以下协议违规项，请严格根据建议修正后，重新输出完整的、符合 Decipher 协议的 JSON。',
+            '不要解释，输出纯 JSON（不要 Markdown 代码块，不要前后缀文本）：',
+            '',
+            issuesText
+        ].join('\n');
+    }
+
+    function getOrCreateGptPromptPanel() {
+        let panel = document.getElementById('gptPromptPanel');
+        if (panel) return panel;
+
+        const statusEl = document.getElementById('uploadStatus');
+        if (!statusEl || !statusEl.parentElement || !statusEl.parentElement.parentElement) return null;
+
+        panel = document.createElement('div');
+        panel.id = 'gptPromptPanel';
+        panel.className = 'mt-4 hidden';
+        panel.innerHTML = [
+            '<label class="block text-slate-300 mb-2 text-sm">AI 修正指令（发送给 ChatGPT）</label>',
+            '<div class="flex gap-2 mb-2">',
+            '<button id="copyGptPromptBtn" class="btn-primary px-4 py-2 rounded-xl text-xs font-semibold" type="button">复制修正指令</button>',
+            '</div>',
+            '<div id="gptPromptText" class="w-full max-h-40 overflow-auto px-3 py-2 rounded-xl bg-purple-900/20 border border-purple-500/30 text-purple-200 text-xs font-mono whitespace-pre-wrap"></div>'
+        ].join('');
+
+        statusEl.parentElement.parentElement.appendChild(panel);
+
+        const btn = panel.querySelector('#copyGptPromptBtn');
+        const textEl = panel.querySelector('#gptPromptText');
+        if (btn && textEl) {
+            btn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(textEl.textContent || '');
+                    btn.textContent = '已复制 Prompt';
+                    setTimeout(() => { btn.textContent = '复制修正指令'; }, 1500);
+                } catch (e) {
+                    console.error('复制失败', e);
+                }
+            });
+        }
+        return panel;
+    }
+
+    function showGptPromptPanel(prompt) {
+        const panel = getOrCreateGptPromptPanel();
+        if (!panel) return;
+        const textEl = panel.querySelector('#gptPromptText');
+        if (textEl) textEl.textContent = prompt || '';
+        panel.classList.remove('hidden');
     }
 
     function smartCleanup(text) {
@@ -368,6 +431,7 @@
         try {
             data = JSON.parse(rawText);
         } catch (error) {
+            // 解析失败时，我们尝试“修复版”仅供参考，不应自动应用于原始流程
             const repaired = attemptRepairJson(rawText);
             if (repaired.ok) {
                 showRepairPanel(repaired.repairedText);
@@ -381,10 +445,30 @@
 
         const result = type === 'flashcard' ? validateFlashcardData(data) : validateDecoderData(data);
 
-        if (!result.valid) {
+        // 如果存在审计结果，哪怕不是 Blocker（即 valid 为 true），也显示警告面板
+        const hasAuditIssues = !!(result.audit && result.audit.issues && result.audit.issues.length > 0);
+
+        if (hasAuditIssues) {
+            const issues = (result.audit.issues || []).map(issue => {
+                const fix = issue.fix_suggestion ? ` 建议：${issue.fix_suggestion}` : '';
+                const where = issue.location ? ` 位置：${issue.location}` : '';
+                return `【${issue.rule_id}】${issue.description}${where}${fix}`;
+            });
+            showIssuesPanel(issues);
+
+            const prompt = generateGptPrompt(result.audit);
+            showGptPromptPanel(prompt);
+
+            if (!result.valid) {
+                statusText(statusEl, `校验失败：共 ${issues.length} 项。请按下方清单或使用 AI 修正指令进行调整。`, true);
+                return;
+            } else {
+                statusText(statusEl, `注意：通过严重错误校验，但存在 ${issues.length} 项优化建议（警告）。`, false);
+            }
+        } else if (!result.valid) {
             const lines = Array.isArray(result.errors) ? result.errors : ['未知校验错误'];
             showIssuesPanel(lines);
-            statusText(statusEl, `校验失败：共 ${lines.length} 项。请按下方清单逐条修改。`, true);
+            statusText(statusEl, `校验失败：共 ${lines.length} 项。`, true);
             return;
         }
 
@@ -396,8 +480,10 @@
         };
 
         if (confirmBtn) confirmBtn.classList.remove('hidden');
-        hideIssuesPanel();
-        statusText(statusEl, `校验通过（来源：${inputSource === 'text' ? '文本框' : '文件'}）：你可以点击“确认上传”，或手动复制到已有文件后再提交。`, false);
+        if (!hasAuditIssues) hideIssuesPanel();
+        if (!hasAuditIssues) {
+            statusText(statusEl, `校验通过（来源：${inputSource === 'text' ? '文本框' : '文件'}）：你可以点击“确认上传”，或手动复制到已有文件后再提交。`, false);
+        }
     }
 
     async function confirmUpload() {

@@ -163,17 +163,17 @@
             }
           }
 
-            if (seg.highlight_color === 'green' && !includesAny(`${seg.text} ${seg.knowledge}`, ['sample', 'population', 'structure', 'design', 'option', 'alternative', '样本', '总体', '结构', '设计'])) {
-                addIssue(
-                  issues,
-                  'Major',
-                  'logic',
-                  'QA_LOGIC_004',
-                  `${segLoc}.highlight_color`,
-                  'green 语义通常用于结构/样本/设计信息。',
-                  `将 ${segLoc}.highlight_color 从 green 改为 yellow；若该段确为结构信息，请把 knowledge 改为含 sample/population/design/structure 的表述。`
-                );
-            }
+          if (seg.highlight_color === 'green' && !includesAny(`${seg.text} ${seg.knowledge}`, ['sample', 'population', 'structure', 'design', 'option', 'alternative', '样本', '总体', '结构', '设计'])) {
+            addIssue(
+              issues,
+              'Major',
+              'logic',
+              'QA_LOGIC_004',
+              `${segLoc}.highlight_color`,
+              'green 语义通常用于结构/样本/设计信息。',
+              `将 ${segLoc}.highlight_color 从 green 改为 yellow；若该段确为结构信息，请把 knowledge 改为含 sample/population/design/structure 的表述。`
+            );
+          }
 
           if (seg.text && seg.text.length > 220) {
             addIssue(issues, 'Minor', 'flow', 'QA_FLOW_002', segLoc, '单个 segment 过长，可能影响逐步阅读节奏。', '拆分为更细粒度的段落。');

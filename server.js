@@ -3,8 +3,10 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { normalizeDecoderProblems, validateDecoderProblem } = require('./decoder-schema.js');
-const { auditProblems } = require('./qa-auditor.js');
+const { normalizeDecoderProblems, validateDecoderProblem } = require('./js/core/decoder-schema.js');
+const { auditProblems } = require('./js/core/qa-auditor.js');
+const { normalizePracticeQuestions, validatePracticeQuestion } = require('./js/core/practice-schema.js');
+const { auditQuestions: auditPracticeQuestions } = require('./js/core/practice-auditor.js');
 
 const HOST = '127.0.0.1';
 const PORT = Number(process.env.PORT || 8000);
@@ -111,6 +113,33 @@ function validateDecoders(data) {
   return { ok: true, errors: [], normalized: problems, audit };
 }
 
+function validatePractices(data) {
+  const questions = normalizePracticeQuestions(data);
+  if (!Array.isArray(questions) || questions.length === 0) {
+    return { ok: false, errors: ['考题 JSON 必须是非空题目数组。'] };
+  }
+
+  const schemaErrors = [];
+  questions.forEach((q, i) => {
+    const result = validatePracticeQuestion(q);
+    if (!result.valid) {
+      schemaErrors.push(`第 ${i + 1} 题: ${result.errors.join('；')}`);
+    }
+  });
+
+  if (schemaErrors.length > 0) {
+    return { ok: false, errors: schemaErrors };
+  }
+
+  const audit = auditPracticeQuestions(questions);
+  if (!audit.overall_pass) {
+    const qaErrors = (audit.issues || []).slice(0, 5).map(issue => `【${issue.rule_id}】${issue.description}`);
+    return { ok: false, errors: qaErrors, audit };
+  }
+
+  return { ok: true, errors: [], normalized: questions, audit };
+}
+
 const LATEX_COMMANDS = [
   'frac',
   'sqrt',
@@ -212,26 +241,51 @@ function updateDecoderTopicsFile(fileName, subject, displayName) {
   writeJsonFile(decoderTopicsPath, next);
 }
 
+function updatePracticeTopicsFile(fileName, displayName) {
+  const practiceTopicsPath = path.join(CONTENT_DIR, 'practice_topics.json');
+  const topics = readJsonFile(practiceTopicsPath);
+  const next = Array.isArray(topics) ? topics : [];
+
+  const index = next.findIndex(item => item && item.file === fileName);
+  const entry = { name: displayName, file: fileName };
+
+  if (index >= 0) {
+    next[index] = entry;
+  } else {
+    next.push(entry);
+  }
+
+  writeJsonFile(practiceTopicsPath, next);
+}
+
 function saveDatasetToContent(payload) {
   const type = payload.type;
   const subject = normalizeSubject(payload.subject);
   const name = String(payload.name || '').trim();
   const data = normalizeLatexPayload(payload.data);
 
-  if (!['flashcard', 'decoder'].includes(type)) {
-    return { ok: false, status: 400, errors: ['type 仅支持 flashcard 或 decoder'] };
+  if (!['flashcard', 'decoder', 'practice'].includes(type)) {
+    return { ok: false, status: 400, errors: ['type 仅支持 flashcard, decoder 或 practice'] };
   }
   if (!name) {
     return { ok: false, status: 400, errors: ['name 必填'] };
   }
 
-  const typePart = type === 'flashcard' ? 'flashcard' : 'decoder';
+  const typePart = type === 'flashcard' ? 'flashcard' : (type === 'decoder' ? 'decoder' : 'practice');
   const subjectPart = sanitizePart(subject);
   const namePart = sanitizePart(name);
   const fileName = `${typePart}_${subjectPart}_${namePart}.json`;
   const filePath = path.join(CONTENT_DIR, fileName);
 
-  const validated = type === 'flashcard' ? validateFlashcards(data) : validateDecoders(data);
+  let validated;
+  if (type === 'flashcard') {
+    validated = validateFlashcards(data);
+  } else if (type === 'decoder') {
+    validated = validateDecoders(data);
+  } else {
+    validated = validatePractices(data);
+  }
+
   if (!validated.ok) {
     return {
       ok: false,
@@ -246,8 +300,10 @@ function saveDatasetToContent(payload) {
   const displayName = `[自定义] ${subject} - ${name}`;
   if (type === 'flashcard') {
     updateTopicsFile(fileName, displayName);
-  } else {
+  } else if (type === 'decoder') {
     updateDecoderTopicsFile(fileName, subject, displayName);
+  } else {
+    updatePracticeTopicsFile(fileName, displayName);
   }
 
   return {

@@ -1,0 +1,22 @@
+{
+  "name": "decipher-study",
+  "version": "1.0.0",
+  "description": "AI-powered academic preparation platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "validate": "node scripts/validate-content.js",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "keywords": [
+    "education",
+    "flashcards",
+    "study",
+    "ai"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "katex": "^0.16.9"
+  }
+}

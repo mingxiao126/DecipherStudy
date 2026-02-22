@@ -7,18 +7,22 @@ Decipher AI is a next-generation, AI-powered academic preparation platform desig
 ```
 DecipherStudy/
 ├── README.md              # 项目说明文档
+├── walkthrough.md         # 迁移与整理说明（2026-02-22）
 ├── index.html             # 主页面（3D 闪卡界面）
-├── app.js                 # 闪卡应用核心逻辑
 ├── decoder.html           # 难题拆解器页面
-├── decoder.js             # 拆解器核心逻辑
-├── content/               # 学习内容数据目录
-│   ├── topics.json        # 主题列表配置
-│   ├── decoders.json      # 难题拆解数据
-│   ├── economics_w1.json  # 经济学第一周闪卡数据
-│   ├── economics_w2.json  # 经济学第二周闪卡数据
-│   ├── economics_w3.json  # 经济学第三周闪卡数据
-│   └── stat_124.json      # 统计学 124 闪卡数据
-└── .git/                  # Git 版本控制目录
+├── upload.html            # 题库上传管理
+├── server.js              # 本地落盘模式服务
+├── package.json           # 项目配置与脚本
+├── js/                    # 业务逻辑目录
+│   ├── flashcards.js      # 闪卡页面核心逻辑
+│   ├── decoder.js         # 拆解器核心逻辑
+│   ├── uploader.js        # 分支上传逻辑
+│   └── core/              # 核心标准与协议
+│       ├── decoder-schema.js
+│       └── qa-auditor.js
+├── scripts/               # 维护与自动化脚本
+├── tools/                 # 快捷工具包 (.command)
+└── content/               # 学习内容数据目录
 ```
 
 ## 功能特性
@@ -209,11 +213,11 @@ node scripts/validate-content.js
 - `content/topics.json` 引用文件是否存在
 - 闪卡题目是否包含 `question` 和 `answer`
 - `content/decoder_topics.json` 引用文件是否存在
-- 拆解题是否通过 `decoder-schema.js` 的 `validateDecoderProblem`
+- 拆解题是否通过 `js/core/decoder-schema.js` 的 `validateDecoderProblem`
 
 ## Decoder QA 审计（系统级）
 
-新增审计器：`qa-auditor.js`
+审计内核位于：`js/core/qa-auditor.js`
 
 用途：将 Decipher JSON v1.0 的协议规则程序化，输出统一审计报告：
 
@@ -288,8 +292,8 @@ node scripts/audit-decoder-json.js content/decoders_econ_w1.json
 
 ### 双击运行（无需手输命令）
 
-- `/Users/ming/DecipherStudy/run-decoder-import.command`
-- `/Users/ming/DecipherStudy/run-flashcard-import.command`
+- `tools/run-decoder-import.command`
+- `tools/run-flashcard-import.command`
 
 双击后按提示输入学科、展示名；可选输入文件路径（不填则读剪贴板）。
 

@@ -5,7 +5,8 @@ const path = require('path');
 
 const projectRoot = path.resolve(__dirname, '..');
 const contentDir = path.join(projectRoot, 'content');
-const decoderSchemaPath = path.join(projectRoot, 'decoder-schema.js');
+const decoderSchemaPath = path.join(projectRoot, 'js', 'core', 'decoder-schema.js');
+const practiceSchemaPath = path.join(projectRoot, 'js', 'core', 'practice-schema.js');
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -152,11 +153,56 @@ function validateDecoders() {
   return { fileCount, problemCount };
 }
 
+function validatePractices() {
+  const practiceTopicsPath = path.join(contentDir, 'practice_topics.json');
+  if (!fs.existsSync(practiceTopicsPath)) return { fileCount: 0, questionCount: 0 };
+
+  const practiceTopics = readJson(practiceTopicsPath);
+  if (!Array.isArray(practiceTopics)) {
+    fail('content/practice_topics.json must be an array.');
+    return;
+  }
+
+  const { normalizePracticeQuestions, validatePracticeQuestion } = require(practiceSchemaPath);
+
+  let fileCount = 0;
+  let questionCount = 0;
+
+  practiceTopics.forEach((topic, topicIndex) => {
+    const context = `practice_topics[${topicIndex}]`;
+    if (!topic || typeof topic.file !== 'string') {
+      fail(`${context}.file is required.`);
+      return;
+    }
+
+    const dataPath = path.join(contentDir, topic.file);
+    if (!fs.existsSync(dataPath)) {
+      fail(`${context}.file not found: ${topic.file}`);
+      return;
+    }
+
+    fileCount += 1;
+    const raw = readJson(dataPath);
+    const questions = normalizePracticeQuestions(raw);
+
+    questions.forEach((q, qIndex) => {
+      questionCount += 1;
+      const res = validatePracticeQuestion(q);
+      if (!res.valid) {
+        fail(`${topic.file}[${qIndex}] schema errors: ${res.errors.join(' | ')}`);
+      }
+    });
+  });
+
+  return { fileCount, questionCount };
+}
+
 function main() {
   console.log('Running content validation...');
 
   const flashcard = validateFlashcards();
   const decoder = validateDecoders();
+  const practice = validatePractices();
 
   if (process.exitCode && process.exitCode !== 0) {
     console.error('Validation finished with errors.');
@@ -165,6 +211,7 @@ function main() {
 
   console.log(`OK: flashcard topics=${flashcard.topicCount}, cards=${flashcard.cardCount}`);
   console.log(`OK: decoder files=${decoder.fileCount}, problems=${decoder.problemCount}`);
+  console.log(`OK: practice files=${practice.fileCount}, questions=${practice.questionCount}`);
   console.log('All content checks passed.');
 }
 

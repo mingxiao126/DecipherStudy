@@ -2,8 +2,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const { auditProblems } = require('../qa-auditor.js');
-const { normalizeDecoderProblems } = require('../decoder-schema.js');
+const { auditProblems } = require('../js/core/qa-auditor.js');
+const { normalizeDecoderProblems } = require('../js/core/decoder-schema.js');
 
 function usage() {
   console.error('Usage: node scripts/audit-decoder-json.js <path-to-json>');

@@ -71,6 +71,46 @@
         return { valid: true, errors: [], normalized: problems };
     }
 
+    function validatePracticeData(data) {
+        const questions = typeof window.normalizePracticeQuestions === 'function'
+            ? window.normalizePracticeQuestions(data)
+            : (Array.isArray(data) ? data : []);
+
+        if (!Array.isArray(questions) || questions.length === 0) {
+            return { valid: false, errors: ['考题 JSON 不能为空'] };
+        }
+
+        const errors = [];
+        questions.forEach((q, index) => {
+            const res = typeof window.validatePracticeQuestion === 'function'
+                ? window.validatePracticeQuestion(q)
+                : { valid: true, errors: [] };
+            if (!res.valid) {
+                errors.push(`[Schema] 第 ${index + 1} 题: ${res.errors.join(', ')}`);
+            }
+        });
+
+        if (window.DecipherPracticeAuditor && typeof window.DecipherPracticeAuditor.auditQuestions === 'function') {
+            const audit = window.DecipherPracticeAuditor.auditQuestions(questions);
+            if (!audit.overall_pass) {
+                const auditIssues = (audit.issues || []).map(issue => {
+                    const fix = issue.fix_suggestion ? ` 建议：${issue.fix_suggestion}` : '';
+                    const where = issue.location ? ` 位置：${issue.location}` : '';
+                    return `【${issue.rule_id}】${issue.description}${where}${fix}`;
+                });
+                return {
+                    valid: false,
+                    errors: [...errors, ...auditIssues],
+                    normalized: questions,
+                    audit
+                };
+            }
+            return { valid: errors.length === 0, errors, normalized: questions, audit };
+        }
+
+        return { valid: errors.length === 0, errors, normalized: questions };
+    }
+
     function statusText(element, message, isError) {
         if (!element) return;
         element.textContent = message;
@@ -443,7 +483,14 @@
             return;
         }
 
-        const result = type === 'flashcard' ? validateFlashcardData(data) : validateDecoderData(data);
+        let result;
+        if (type === 'flashcard') {
+            result = validateFlashcardData(data);
+        } else if (type === 'decoder') {
+            result = validateDecoderData(data);
+        } else {
+            result = validatePracticeData(data);
+        }
 
         // 如果存在审计结果，哪怕不是 Blocker（即 valid 为 true），也显示警告面板
         const hasAuditIssues = !!(result.audit && result.audit.issues && result.audit.issues.length > 0);
@@ -558,7 +605,8 @@
         list: function () { return []; },
         get: function () { return null; },
         validateFlashcardData,
-        validateDecoderData
+        validateDecoderData,
+        validatePracticeData
     };
 
     if (document.readyState === 'loading') {

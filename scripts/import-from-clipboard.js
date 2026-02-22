@@ -3,8 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
-const { auditProblems } = require('../qa-auditor.js');
-const { normalizeDecoderProblems } = require('../decoder-schema.js');
+const { auditProblems } = require('../js/core/qa-auditor.js');
+const { normalizeDecoderProblems } = require('../js/core/decoder-schema.js');
 
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'content', 'inbox');

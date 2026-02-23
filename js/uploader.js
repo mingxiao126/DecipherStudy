@@ -230,19 +230,12 @@
                 // 规则：只要反斜杠后面不是安全的 LaTeX 字符集或另一个反斜杠，就补齐为双反斜杠
                 fixed = fixed.replace(/(^|[^\\])\\([^a-zA-Z0-9_{}()[\]\\]|$)/g, '$1\\\\$2');
 
-                // 2. 修复常见的 LaTeX 命令丢失双反斜杠的情况 (针对 PRAC_LAT_001 漏网之鱼)
-                fixed = fixed.replace(/(^|[^\\])\\([A-Za-z]+)/g, (match, p1, p2) => {
-                    const knownCmds = ['frac', 'sqrt', 'sum', 'hat', 'sigma', 'mu', 'times', 'approx', 'cdot', 'left', 'right', 'in', 'le', 'ge', 'alpha', 'beta', 'gamma', 'theta', 'pi', 'log', 'ln', 'bar', 'text'];
-                    if (knownCmds.includes(p2)) return p1 + '\\\\' + p2;
-                    return match;
-                });
-
-                // 3. 修复 $ 环境内的百分号 (针对 PRAC_LAT_002)
+                // 2. 修复 $ 环境内的百分号 (针对 PRAC_LAT_002)
                 fixed = fixed.replace(/\$([^$]*%[^$]*)\$/g, (match, p1) => {
                     return p1.replace(/%/g, '') + '%';
                 });
 
-                // 4. 修复货币 $ 冲突 (针对 PRAC_LAT_003 启发式)
+                // 3. 修复货币 $ 冲突 (针对 PRAC_LAT_003 启发式)
                 fixed = fixed.replace(/\$([0-9.,]+)(?!\$)/g, '$1 $');
 
                 return fixed;

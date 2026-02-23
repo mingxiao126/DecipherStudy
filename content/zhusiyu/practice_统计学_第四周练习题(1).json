@@ -1,0 +1,978 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "A researcher constructs a 95% confidence interval for the proportion of consumers who prefer a new product and obtains (0.42, 0.48). Which of the following is a correct interpretation of this result?",
+    "options": [
+      "There is a 95% probability that the true population proportion is between 0.42 and 0.48.",
+      "If we repeated this sampling process many times, approximately 95% of the resulting intervals would contain the true population proportion.",
+      "We are 95% confident that the sample proportion p-hat falls between 0.42 and 0.48.",
+      "95% of the people in the population have a preference rate between 0.42 and 0.48."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "正确解读是：在重复抽样并用同一方法构造区间时，大约 95% 的区间会覆盖真实总体比例 $p$。总体参数 $p$ 是固定常数，不应被赋予“概率在区间内”的随机性表述。",
+      "decoding": [
+        "Given a 95% confidence interval (0.42, 0.48), interpret what 95% confidence means.",
+        "Distinguish a fixed population parameter p from random intervals produced by sampling."
+      ],
+      "conditions": [
+        {
+          "title": "Parameter vs Random Interval",
+          "content": "$p$ is fixed; $(L,U)$ is random across repeated samples.",
+          "description": "置信区间的随机性来自抽样，因此“95%”描述的是方法在长期重复中的覆盖率，而不是参数本身的概率。"
+        },
+        {
+          "title": "Correct CI Interpretation",
+          "content": "About 95% of intervals constructed this way contain $p. $",
+          "description": "对一次具体区间，不能说“$p$ 以 0.95 的概率落在该区间”。只能说我们对该方法产生的区间覆盖 $p$ 有 95% 的信心。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Probability Trap",
+          "description": "把“置信度”误说成“参数在区间内的概率”，是最常见的概念性错误。"
+        },
+        {
+          "title": "Misplacing the Target",
+          "description": "把区间解释为样本比例 $\\hat p$ 的范围或个体分布范围，混淆了估计对象。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Identify what is random",
+          "content": "在重复抽样下，区间端点 $L,U$ 会变化，而总体参数 $p$ 不随抽样改变。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Connect confidence level to long-run coverage",
+          "content": "95% 置信水平表示：若重复该抽样与建区间过程，约 95% 的区间包含真实 $p$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Match to option wording",
+          "content": "只有选项 B 采用“重复抽样—区间覆盖率”的正确表述。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。$p$ 是固定常数，不能对其“落入该区间”的事件赋概率 0.95；0.95 描述的是方法的长期覆盖率。"
+        },
+        {
+          "label": "C",
+          "reason": "错误。区间用于估计总体 $p$，不是用于描述样本比例 $\\hat p$ 的不确定性区间；$\\hat p$ 已由样本确定。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。置信区间不是在描述“人群中 95% 个体”的范围，而是在估计一个总体比例参数。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval Interpretation",
+      "Population Parameter",
+      "Long-run Coverage"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "To reduce the Standard Error (SE) of a sample proportion by half, how much should the sample size n be changed?",
+    "options": [
+      "The sample size n should be doubled.",
+      "The sample size n should be halved.",
+      "The sample size n should be increased to 4 times its original size.",
+      "The sample size n should be increased to 1.96 times its original size."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "比例的标准误 $SE=\\sqrt{\\frac{p(1-p)}{n}}$ 与 $\\sqrt{n}$ 成反比。要让 $SE$ 减半，需要让 $\\sqrt{n}$ 变为原来的 2 倍，因此 $n$ 需变为原来的 2 $^2=4$ 倍。",
+      "decoding": [
+        "SE for a proportion scales like 1 $/\\sqrt{n}. $",
+        "Halving SE requires solving a ratio equation in n."
+      ],
+      "conditions": [
+        {
+          "title": "Standard Error Formula",
+          "content": "$SE=\\sqrt{\\frac{p(1-p)}{n}}$",
+          "description": "在 $p$ 固定时，$SE\\ropto 1/\\sqrt{n}$，样本量进入根号。"
+        },
+        {
+          "title": "Scaling Relationship",
+          "content": "$\\frac{SE_{new}}{SE_{old}}=\\sqrt{\\frac{n_{old}}{n_{new}}}$",
+          "description": "用比例式能最快判断样本量需要放大多少倍。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Linear-thinking Trap",
+          "description": "把“减半”直觉对应为“样本量翻倍”，忽略了 $\\sqrt{n}$ 的非线性关系。"
+        },
+        {
+          "title": "Irrelevant 1.96 Trap",
+          "description": "1.96 是 95% 置信水平的临界值，与 SE 随样本量变化的倍数无关。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Set the target ratio",
+          "content": "设 $SE_{new}=\\frac{1}{2}SE_{old}$，代入比例关系：$\\frac{1}{2}=\\sqrt{\\frac{n_{old}}{n_{new}}}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "Square both sides",
+          "content": "两边平方：$\\frac{1}{4}=\\frac{n_{old}}{n_{new}}$。",
+          "tag": "计算"
+        },
+        {
+          "title": "Solve for n_new",
+          "content": "得到 $n_{new}=4n_{old}$，对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。若 $n$ 翻倍，则 $SE$ 变为 1 $/\\sqrt{2}\\approx0.707$ 倍，不是 0.5 倍。"
+        },
+        {
+          "label": "B",
+          "reason": "错误。$n$ 减半会让 $SE$ 变大：$SE$ 会乘以 $\\sqrt{2}$。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。把临界值 1.96 和样本量倍数混为一谈，概念不相干。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Error",
+      "Sample Size Effect",
+      "Inverse Square Root Law"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-03",
+    "type": "choice",
+    "question": "A researcher is comparing three different brands of coffee (Starbucks, Tims, and Second Cup) to see if customer preference is evenly distributed. Which statistical test is most appropriate?",
+    "options": [
+      "One-sample Z-test for proportions",
+      "Two-sample Z-test for proportions",
+      "Chi-Square Goodness-of-Fit Test",
+      "Summation Notation Test"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "这是多分类（3 类）下检验观测分布是否符合“均匀分布”这一理论分布的问题，应使用卡方拟合优度检验（Chi-Square Goodness-of-Fit）。",
+      "decoding": [
+        "There are more than two categories and we test whether observed counts match expected proportions.",
+        "Goodness-of-fit compares an observed categorical distribution to a hypothesized distribution."
+      ],
+      "conditions": [
+        {
+          "title": "Categorical Count Setting",
+          "content": "Counts across $k>2$ categories",
+          "description": "当分类数超过 2 时，Z 检验（两类比例）不适用整体分布比较。"
+        },
+        {
+          "title": "Goodness-of-Fit Hypotheses",
+          "content": "$H_0: (p_1,\\ots,p_k)=(p_1^0,\\ots,p_k^0)$",
+          "description": "拟合优度检验关注整体分布是否与给定理论比例一致（如均匀分布）。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Proportion-to-Z Trap",
+          "description": "看到“比例”就选 Z 检验会忽视：这里需要比较的是三分类的整体分布，而不是单一比例或两比例差。"
+        },
+        {
+          "title": "Non-test Option Trap",
+          "description": "“Summation Notation Test”并非统计检验，只是符号工具。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Count the number of categories",
+          "content": "品牌有 3 类，属于多分类变量。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Clarify the goal",
+          "content": "目标是检验是否“均匀分布”，即观测频数与期望频数是否一致。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Select the test",
+          "content": "使用 $\\chi^2$ 拟合优度检验来衡量偏离程度。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。单样本 Z 检验通常用于二分类比例与某一 $p_0$ 的比较，不适合三分类整体分布。"
+        },
+        {
+          "label": "B",
+          "reason": "错误。两样本 Z 检验用于两组（二分类）比例差异，不适合三分类分布检验。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。求和符号不是检验方法，无法给出显著性结论。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Chi-Square Goodness-of-Fit Test",
+      "Categorical Data",
+      "Hypothesis Test Selection"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-04",
+    "type": "choice",
+    "question": "What happens to the width of a confidence interval if the confidence level is increased from 90% to 99%, assuming the sample size remains constant?",
+    "options": [
+      "The interval becomes narrower.",
+      "The interval becomes wider.",
+      "The width of the interval remains the same.",
+      "The interval shifts its center but the width stays the same."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "置信水平提高会使临界值 $z^*$ 变大，误差边界 $ME=z^*\\cdot SE$ 增大，从而区间宽度变宽；区间中心由样本统计量决定，不随置信水平改变。",
+      "decoding": [
+        "CI width depends on the critical value $z^*$ and SE.",
+        "Higher confidence requires a larger critical value, increasing margin of error."
+      ],
+      "conditions": [
+        {
+          "title": "Width Relationship",
+          "content": "$Width=2\\times ME=2\\times(z^*\\cdot SE)$",
+          "description": "样本量固定意味着 $SE$ 固定；置信水平上升导致 $z^*$ 上升，进而使宽度上升。"
+        },
+        {
+          "title": "Center of the Interval",
+          "content": "Center is the point estimate (e.g., $\\hat p$ or $\\ar x$).",
+          "description": "改变置信水平不会改变样本点估计，因此不会“平移中心”。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Confidence vs Precision Trap",
+          "description": "更高置信度并不等于更精确；为了更有把握覆盖真值，必须付出更宽区间的代价。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Hold SE constant",
+          "content": "样本量不变，$SE$ 不变。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Increase the critical value",
+          "content": "从 90% 到 99%，$z^*$ 增加，导致 $ME$ 增加。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Conclude width change",
+          "content": "宽度 2 $ME$ 增大，因此区间更宽，选 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。更高置信水平会增大 $z^*$，一般会让区间更宽而非更窄。"
+        },
+        {
+          "label": "C",
+          "reason": "错误。置信水平变化会改变 $z^*$，从而改变宽度。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。中心由点估计决定，置信水平变化主要影响宽度而非中心位置。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Level",
+      "Critical Value",
+      "Margin of Error"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "Given a dataset x1 = 5, x2 = -3, calculate the value of sum(x_i^2).",
+    "options": [
+      "4",
+      "16",
+      "34",
+      "8"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "$\\sum x_i^2$ 表示“先平方再求和”。因此 5 $^2+(-3)^2=25+9=34$，选 C。",
+      "decoding": [
+        "Interpret summation notation: square each term before summing.",
+        "Handle negative values correctly when squaring."
+      ],
+      "conditions": [
+        {
+          "title": "Summation Rule",
+          "content": "$\\sum x_i^2=x_1^2+x_2^2+\\cdots+x_n^2$",
+          "description": "必须区分 $\\sum x_i^2$（平方和）与 $(\\sum x_i)^2$（和的平方）。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Order-of-Operations Trap",
+          "description": "把 $\\sum x_i^2$ 误算成 $(\\sum x_i)^2$ 会得到 $(5+(-3))^2=4$。"
+        },
+        {
+          "title": "Negative Squaring Trap",
+          "description": "把 $(-3)^2$ 误算成 $-9$ 会导致错误结果。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Square each value",
+          "content": "计算 5 $^2=25$，$(-3)^2=9$。",
+          "tag": "计算"
+        },
+        {
+          "title": "Add the squared values",
+          "content": "求和：25 $+9=34$。",
+          "tag": "计算"
+        },
+        {
+          "title": "Select the matching option",
+          "content": "结果为 34，对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。4 是 $(\\sum x_i)^2=(5-3)^2$ 的结果，而非 $\\sum x_i^2$。"
+        },
+        {
+          "label": "B",
+          "reason": "错误。16 不对应任何合理的运算路径（常见于误把某一步写错或漏项）。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。8 可能来自未平方直接求和 5 $+(-3)=2$ 的变形或其他计算混乱。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Summation Notation",
+      "Order of Operations",
+      "Squares of Negative Numbers"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-06",
+    "type": "choice",
+    "question": "In a hypothesis test for a proportion, if the calculated Z-statistic is 1.59 and the critical value is 1.96, what is the statistical decision at the 5% significance level (two-tailed)?",
+    "options": [
+      "Reject the null hypothesis (H0).",
+      "Fail to reject the null hypothesis (H0).",
+      "Accept the alternative hypothesis (Ha).",
+      "Increase the sample size until it becomes significant."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "在双侧检验、显著性水平 $\\lpha=0.05$ 下，临界值为 $\\m1.96$。由于 $|z|=|1.59|<1.96$，统计量未落入拒绝域，因此结论是“无法拒绝 $H_0$”。",
+      "decoding": [
+        "Compare |z| to the critical value in a two-tailed Z-test.",
+        "Decision rule: reject only if the test statistic is in the rejection region."
+      ],
+      "conditions": [
+        {
+          "title": "Two-tailed Decision Rule",
+          "content": "Reject $H_0$ if $|z|>z_{\\lpha/2}. $",
+          "description": "双侧检验要看绝对值；只有跨过临界值才拒绝 $H_0$。"
+        },
+        {
+          "title": "Critical Value at 5%",
+          "content": "$z_{0.025}=1.96$",
+          "description": "当 $\\lpha=0.05$ 且双侧时，每侧 0.025，对应临界值约 1.96。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Significance Overinterpretation Trap",
+          "description": "看到 $z>0$ 就认为“有差异”而拒绝 $H_0$，忽略“差异是否足够大”。"
+        },
+        {
+          "title": "Accept-Ha Trap",
+          "description": "统计学通常表述为“拒绝/无法拒绝 $H_0$”，而不是“接受 $H_a$”。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Compute the absolute value",
+          "content": "取绝对值：$|z|=|1.59|=1.59$。",
+          "tag": "计算"
+        },
+        {
+          "title": "Compare to the critical value",
+          "content": "比较：1.59 $<1.96$，未进入拒绝域。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "State the decision",
+          "content": "因此无法拒绝 $H_0$，选择 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。拒绝 $H_0$ 需要 $|z|>1.96$；本题不满足。"
+        },
+        {
+          "label": "C",
+          "reason": "错误。标准表述是“无法拒绝 $H_0$”，且当前证据不足以支持转向 $H_a$。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。样本量影响显著性是另一个问题，但本题问的是在已给定统计量与临界值时的决策。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Z-Test",
+      "Critical Value",
+      "Hypothesis Test Decision Rule"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-07",
+    "type": "choice",
+    "question": "Which expression correctly represents the square of the sum of two observations x1 and x2?",
+    "options": [
+      "sum(x_i^2)",
+      "(x1 + x2)^2",
+      "x1^2 + x2",
+      "x1 + x2^2"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "“和的平方”指先求和再平方，即 $(x_1+x_2)^2$。需要与“平方和”$\\sum x_i^2=x_1^2+x_2^2$ 区分开。",
+      "decoding": [
+        "Differentiate between 'sum of squares' and 'square of the sum'.",
+        "Translate wording into algebraic notation."
+      ],
+      "conditions": [
+        {
+          "title": "Square of the Sum",
+          "content": "$(x_1+x_2)^2$",
+          "description": "关键词是“the square of the sum”：先算 $x_1+x_2$，再整体平方。"
+        },
+        {
+          "title": "Sum of Squares",
+          "content": "$\\sum x_i^2=x_1^2+x_2^2$",
+          "description": "关键词是“sum of squares”：分别平方再相加。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Notation Swap Trap",
+          "description": "把 $\\sum x_i^2$ 误当作 $(\\sum x_i)^2$，是统计与代数中常见符号混淆。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Parse the phrase",
+          "content": "“square of the sum”=“(sum) then square”。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Write the algebra",
+          "content": "对两个数：先得 $x_1+x_2$，再平方得 $(x_1+x_2)^2$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "Match to the options",
+          "content": "只有选项 B 与该表达一致。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。这是“平方和”，不是“和的平方”。"
+        },
+        {
+          "label": "C",
+          "reason": "错误。该式既不是和的平方也不是平方和，且维度不一致。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。该式混合了加法与平方位置，不对应“整体平方”。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Summation Notation",
+      "Square of a Sum",
+      "Common Algebraic Pitfalls"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-08",
+    "type": "choice",
+    "question": "When constructing a confidence interval for a population proportion p (with p unknown), which standard error formula is typically used?",
+    "options": [
+      "SE = sqrt(p(1-p)/n) using the unknown p directly",
+      "SE = sqrt(p0(1-p0)/n) where p0 is the null-hypothesis value",
+      "SE = sqrt(p-hat(1-p-hat)/n) using the sample proportion",
+      "SE = sqrt(n/(p-hat(1-p-hat))) using the sample proportion"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "构造总体比例的置信区间时，因真实 $p$ 未知，用点估计 $\\hat p$ 代替 $p$ 来估计标准误：$SE\\approx\\sqrt{\\frac{\\hat p(1-\\hat p)}{n}}$。使用 $p_0$ 计算 SE 通常是比例假设检验（Z 检验）场景。",
+      "decoding": [
+        "For a CI, estimate SE with the sample proportion p-hat because p is unknown.",
+        "Distinguish CI SE from hypothesis-test SE that uses p0."
+      ],
+      "conditions": [
+        {
+          "title": "CI Standard Error for Proportion",
+          "content": "$SE\\approx\\sqrt{\\frac{\\hat p(1-\\hat p)}{n}}$",
+          "description": "置信区间用样本信息估计未知总体参数的不确定性，因此用 $\\hat p$。"
+        },
+        {
+          "title": "Hypothesis Test Standard Error",
+          "content": "$SE_0=\\sqrt{\\frac{p_0(1-p_0)}{n}}$",
+          "description": "在检验 $H_0:p=p_0$ 时，按零假设计算标准误以构造检验统计量。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "CI vs Test Mix-up Trap",
+          "description": "把检验用的 $p_0$ 误用于置信区间，会导致区间宽度和中心解释出现偏差。"
+        },
+        {
+          "title": "Formula Inversion Trap",
+          "description": "把分子分母颠倒会得到错误量纲，导致 SE 随 n 增大反而变大等荒谬结论。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Identify the task",
+          "content": "题目明确是“constructing a confidence interval”，不是“testing a claim”。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Choose the estimator",
+          "content": "因为 $p$ 未知，用 $\\hat p$ 作为点估计替代进入 SE 公式。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Select the matching formula",
+          "content": "与 $\\sqrt{\\hat p(1-\\hat p)/n}$ 匹配的是选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。$p$ 未知，不能“直接用未知量计算数值 SE”，需要用估计量替代。"
+        },
+        {
+          "label": "B",
+          "reason": "错误。$p_0$ 主要用于比例假设检验构造 Z 统计量，不是典型 CI 的 SE 公式。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。该式将分子分母颠倒，随 $n$ 增大 SE 会增大，违背基本性质。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Error",
+      "Confidence Interval",
+      "Point Estimate"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-09",
+    "type": "bool",
+    "question": "A statistically non-significant result always means that the difference being studied has no practical value in a business context.",
+    "answer": false,
+    "analysis": {
+      "solution": "统计不显著不等于“没有实际价值”。统计显著性强烈依赖样本量与波动水平；差异可能对业务很重要但因样本不足而不显著，或差异很小但因样本极大而显著。",
+      "decoding": [
+        "Non-significant does not imply zero effect or no practical importance.",
+        "Statistical significance depends on sample size and variability."
+      ],
+      "conditions": [
+        {
+          "title": "Two Types of Significance",
+          "content": "$Statistical\\significance\\neq Practical\\significance$",
+          "description": "统计显著性关注证据强弱（如 p 值），实际显著性关注效应大小及其业务影响。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Absolute-word Trap",
+          "description": "题干用“always”是典型陷阱：统计结论很少能用绝对化词汇一刀切。"
+        },
+        {
+          "title": "Low-power Trap",
+          "description": "不显著可能来自检验力不足（小样本/高噪声），并非差异为零。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Check the logical claim",
+          "content": "题干把“统计不显著”推到“无实际价值”，属于错误的逻辑跳跃。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Explain dependence on n",
+          "content": "在 $n$ 小时，标准误较大，差异难以达到显著；但业务上可能仍值得行动或进一步收集数据。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Conclude truth value",
+          "content": "因此该命题为假。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Statistical vs Practical Significance",
+      "Power of a Test",
+      "P-value Interpretation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-10",
+    "type": "bool",
+    "question": "If the population proportion p is unknown, the Standard Error (SE) for a confidence interval is estimated using the sample proportion p-hat.",
+    "answer": true,
+    "analysis": {
+      "solution": "在构造比例的置信区间时，总体比例 $p$ 未知，通常用样本比例 $\\hat p$ 作为点估计来代入 $SE\\approx\\sqrt{\\frac{\\hat p(1-\\hat p)}{n}}$。",
+      "decoding": [
+        "In CI construction, plug in p-hat to estimate the unknown p in SE.",
+        "Recognize p-hat as a point estimate of p."
+      ],
+      "conditions": [
+        {
+          "title": "Plug-in Estimator",
+          "content": "$SE\\approx\\sqrt{\\frac{\\hat p(1-\\hat p)}{n}}$",
+          "description": "用估计量替代未知参数是推断统计中常用做法，称为 plug-in 估计。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "CI vs Test Trap",
+          "description": "在假设检验中常用 $p_0$ 计算 $SE_0$；但题目明确是置信区间场景，应使用 $\\hat p$。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Identify the unknown parameter",
+          "content": "总体比例 $p$ 未知，无法直接计算 $\\sqrt{p(1-p)/n}$ 的数值。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Use the point estimate",
+          "content": "用 $\\hat p$ 近似 $p$，得到可计算的 $SE$ 估计。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "Conclude",
+          "content": "该表述符合标准置信区间构造流程，因此为真。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Error",
+      "Point Estimate",
+      "Confidence Interval"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-11",
+    "type": "bool",
+    "question": "In a two-tailed Z-test at the 5% significance level, any Z-statistic greater than 1.96 (including 1.97) leads to rejecting the null hypothesis.",
+    "answer": false,
+    "analysis": {
+      "solution": "该命题是“半真半假”的陷阱：双侧检验的拒绝规则是 $|z|>1.96$，不仅看“z 是否大于 1.96”，还必须考虑负方向。仅说“greater than 1.96”遗漏了 $z<-1.96$ 也应拒绝的情况，因此表述不完整而为假。",
+      "decoding": [
+        "Two-tailed rejection uses absolute value: reject if |z| exceeds the critical value.",
+        "A statement that ignores the negative tail is incomplete."
+      ],
+      "conditions": [
+        {
+          "title": "Two-tailed Rejection Region",
+          "content": "Reject $H_0$ if $|z|>1.96$ (for $\\lpha=0.05$).",
+          "description": "双侧检验包含左右两侧拒绝域：$z>1.96$ 或 $z<-1.96$。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "One-sided Wording Trap",
+          "description": "题干用“greater than 1.96”只覆盖右尾，容易把双侧检验误读成单侧检验。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Recall the correct rule",
+          "content": "双侧检验在 $\\lpha=0.05$ 下，拒绝域由 $|z|>1.96$ 给出。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Check completeness of the statement",
+          "content": "命题只提到 $z>1.96$，没提 $z<-1.96$ 的拒绝情况，因此不是正确完整规则。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Decide truth value",
+          "content": "表述不完整导致命题为假。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Two-tailed Test",
+      "Critical Value",
+      "Rejection Region"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-12",
+    "type": "bool",
+    "question": "For a fixed sample size, increasing the confidence level always decreases the margin of error.",
+    "answer": false,
+    "analysis": {
+      "solution": "在样本量固定时，提高置信水平会增大临界值（如 $z^*$），从而使误差边界 $ME=z^*\\cdot SE$ 增大，而不是减小。",
+      "decoding": [
+        "Margin of error depends on the critical value and SE.",
+        "Higher confidence corresponds to a larger critical value."
+      ],
+      "conditions": [
+        {
+          "title": "Margin of Error Formula",
+          "content": "$ME=z^*\\cdot SE$",
+          "description": "当 $n$ 固定时，$SE$ 固定；置信水平越高，$z^*$ 越大。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Confidence-Precision Confusion",
+          "description": "把“更高置信”误当作“更精确（更小误差）”。实际上更高置信需要更宽区间。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Hold SE constant",
+          "content": "样本量不变意味着 $SE$ 不变。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Increase z-star",
+          "content": "置信水平上升使 $z^*$ 上升。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Conclude ME change",
+          "content": "$ME=z^*\\cdot SE$ 增大，因此命题为假。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Confidence Level",
+      "Critical Value"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-13",
+    "type": "bool",
+    "question": "In a chi-square goodness-of-fit test with three categories, the degrees of freedom is 3.",
+    "answer": false,
+    "analysis": {
+      "solution": "拟合优度检验的自由度一般为 $df=k-1$（当理论比例不需要从数据中额外估计参数时）。三分类时 $k=3$，因此 $df=2$，不是 3。",
+      "decoding": [
+        "Degrees of freedom for goodness-of-fit is typically k-1.",
+        "For k=3 categories, compute df by substitution."
+      ],
+      "conditions": [
+        {
+          "title": "Goodness-of-Fit Degrees of Freedom",
+          "content": "$df=k-1$",
+          "description": "因为各分类频数之和固定为 $n$，只剩下 $k-1$ 个独立信息量。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Counting Categories Trap",
+          "description": "把“类别数”直接当自由度，忽略总和约束导致自由度减少 1。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Identify k",
+          "content": "本题有 3 个分类，因此 $k=3$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "Apply df formula",
+          "content": "代入 $df=k-1$ 得 $df=3-1=2$。",
+          "tag": "计算"
+        },
+        {
+          "title": "Conclude",
+          "content": "命题把自由度写成 3，错误，因此为假。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Chi-Square Goodness-of-Fit",
+      "Degrees of Freedom",
+      "Categorical Data"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-14",
+    "type": "essay",
+    "question": "A marketing team believes that the preference for three soda flavors (A, B, C) is equally distributed in the population (H0: pA = pB = pC = 1/3). They collect a sample of 300 people. (1) Calculate the expected frequency (Ei) for each flavor. (2) If the observed frequencies are OA = 120, OB = 100, OC = 80, calculate the total chi-square (chi^2) statistic.",
+    "answer": "Each expected frequency is 100, and the chi-square statistic is 8.0.",
+    "analysis": {
+      "solution": "在 $H_0$ 下三类等概率为 1 $/3$，所以期望频数均为 300 $\\times\\frac{1}{3}=100$。卡方统计量为 $\\chi^2=\\sum\\frac{(O_i-E_i)^2}{E_i}=\\frac{(120-100)^2}{100}+\\frac{(100-100)^2}{100}+\\frac{(80-100)^2}{100}=4+0+4=8.0$。",
+      "decoding": [
+        "Use H0 proportions to compute expected frequencies: Ei = n * pi.",
+        "Compute chi-square contributions and sum them."
+      ],
+      "conditions": [
+        {
+          "title": "Expected Frequency",
+          "content": "$E_i=n\\cdot p_i$",
+          "description": "期望频数来自零假设给出的理论比例。"
+        },
+        {
+          "title": "Chi-Square Statistic",
+          "content": "$\\chi^2=\\sum\\frac{(O_i-E_i)^2}{E_i}$",
+          "description": "每一项用“偏差平方/期望值”衡量相对偏离，再对所有分类求和。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Sum Check Trap",
+          "description": "计算完期望频数要检查 $\\sum E_i=n$，否则通常是比例或乘法出错。"
+        },
+        {
+          "title": "Wrong Denominator Trap",
+          "description": "分母必须是 $E_i$ 而不是 $O_i$；用 $O_i$ 会改变统计量定义。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Compute expected counts",
+          "content": "在均分假设下：$E_A=E_B=E_C=300\\times\\frac{1}{3}=100$。",
+          "tag": "计算"
+        },
+        {
+          "title": "Compute each chi-square term",
+          "content": "A 类：$\\frac{(120-100)^2}{100}=\\frac{400}{100}=4$；B 类：$\\frac{(100-100)^2}{100}=0$；C 类：$\\frac{(80-100)^2}{100}=4$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "Sum the terms",
+          "content": "总计：$\\chi^2=4+0+4=8.0$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Expected Frequency",
+      "Chi-Square Statistic",
+      "Goodness-of-Fit"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-15",
+    "type": "essay",
+    "question": "An online store claims that 20% of its visitors make a purchase (p0 = 0.20). In a random sample of n = 400 visitors, the store finds that 100 people made a purchase (p-hat = 0.25). (1) Calculate the Standard Error (SE) using the claimed proportion p0. (2) Calculate the Z-statistic to test the claim.",
+    "answer": "SE = 0.02 and z = 2.5.",
+    "analysis": {
+      "solution": "检验比例主张时，按零假设比例 $p_0$ 计算标准误：$SE=\\sqrt{\\frac{p_0(1-p_0)}{n}}=\\sqrt{\\frac{0.2\\times0.8}{400}}=\\sqrt{0.0004}=0.02$。Z 统计量为 $z=\\frac{\\hat p-p_0}{SE}=\\frac{0.25-0.20}{0.02}=2.5$。",
+      "decoding": [
+        "For a Z-test on a proportion, compute SE using p0 under H0.",
+        "Compute z by standardizing (p-hat - p0) using that SE."
+      ],
+      "conditions": [
+        {
+          "title": "Test SE Under H0",
+          "content": "$SE_0=\\sqrt{\\frac{p_0(1-p_0)}{n}}$",
+          "description": "比例假设检验用零假设规定的比例来刻画在 $H_0$ 为真时的抽样波动。"
+        },
+        {
+          "title": "Z-statistic",
+          "content": "$z=\\frac{\\hat p-p_0}{SE_0}$",
+          "description": "该值表示样本比例偏离 $p_0$ 的程度，相当于偏离了多少个标准误。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "Using p-hat for Test SE Trap",
+          "description": "把置信区间的做法（用 $\\hat p$ 估 SE）套到检验中，会得到不同的 z 值，导致决策偏差。"
+        },
+        {
+          "title": "Arithmetic Slip Trap",
+          "description": "常见错误是把 0.2 $\\times0.8$ 算错或忽略根号，导致 SE 数量级错误。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Compute SE under H0",
+          "content": "计算：$SE_0=\\sqrt{\\frac{0.2\\cdot0.8}{400}}=\\sqrt{\\frac{0.16}{400}}=\\sqrt{0.0004}=0.02$。",
+          "tag": "计算"
+        },
+        {
+          "title": "Compute the difference",
+          "content": "差值：$\\hat p-p_0=0.25-0.20=0.05$。",
+          "tag": "计算"
+        },
+        {
+          "title": "Standardize to get z",
+          "content": "标准化：$z=\\frac{0.05}{0.02}=2.5$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Hypothesis Testing for Proportions",
+      "Standard Error Under H0",
+      "Z-statistic"
+    ],
+    "source": "Lecture"
+  }
+]

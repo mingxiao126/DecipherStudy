@@ -124,7 +124,62 @@ class PracticeApp {
 
     preprocessMath(text) {
         if (!text) return '';
-        return text.replace(/\\/g, '\\\\');
+        let processed = String(text)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+
+        // 1. Protect currency signs that shouldn't trigger math mode
+        // Matches number followed by optional space and $
+        processed = processed.replace(/(\d+(?:,\d+)*(?:\.\d+)?)\s*\$(?!\S)/g, '$1 &#36;');
+        processed = processed.replace(/(^|\s)\$(\d+(?:,\d+)*(?:\.\d+)?)/g, '$1&#36;$2');
+
+        // 2. Fix double-escaped latex commands (e.g. \\frac -> \frac)
+        // This commonly occurs when JSON contains "\\\\frac" which parses to "\\frac" in JS
+        processed = processed.replace(/\\\\(?=[a-zA-Z])/g, '\\');
+
+        // 3. Handle inline lists separated by semicolons (e.g. "1. Ans1; 2. Ans2")
+        processed = processed.replace(/;\s+(?=\d+\.\s)/g, '\n');
+
+        // 4. Fix accidentally evaluated newlines in latex commands (e.g. \notin)
+        // This converts literal newline+otin back to \notin (backslash+notin)
+        processed = processed.replace(/\notin/g, '\\notin');
+
+        // Protect \\notin from being split by the next step's \\n matching
+        processed = processed.replace(/\\notin/g, '__NOTIN__');
+
+        // 5. Handle literal \n or actual newlines -> array of lines
+        // We split by \n or actual \n, but ignore \\n (escaped newline)
+        let lines = processed.split(/(?<!\\)\\n|\n/);
+
+        let html = '';
+        let inUl = false;
+        let inOl = false;
+
+        for (let i = 0; i < lines.length; i++) {
+            let line = lines[i].trim();
+            if (!line) continue;
+
+            if (line.match(/^- /)) {
+                if (inOl) { html += '</ol>'; inOl = false; }
+                if (!inUl) { html += '<ul class="list-disc pl-6 my-3 space-y-1 text-slate-300">'; inUl = true; }
+                html += '<li>' + line.substring(2) + '</li>';
+            } else if (line.match(/^\d+\.\s/)) {
+                if (inUl) { html += '</ul>'; inUl = false; }
+                if (!inOl) { html += '<ol class="list-decimal pl-6 my-3 space-y-1 text-slate-300">'; inOl = true; }
+                html += '<li>' + line.replace(/^\d+\.\s+/, '') + '</li>';
+            } else {
+                if (inUl) { html += '</ul>'; inUl = false; }
+                if (inOl) { html += '</ol>'; inOl = false; }
+                html += '<div class="mb-2">' + line + '</div>';
+            }
+        }
+
+        if (inUl) html += '</ul>';
+        if (inOl) html += '</ol>';
+
+        html = html.replace(/__NOTIN__/g, "\\\\notin");
+        return html;
     }
 
     applyMath(element = this.container) {
@@ -350,9 +405,9 @@ class PracticeApp {
                 ` : ''}
             </div>
             
-            <div class="mt-10 p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 text-center">
-                <span class="text-slate-400 text-sm mr-2">参考答案:</span>
-                <span class="text-emerald-400 text-xl font-black">${q.answer === true ? '正确' : (q.answer === false ? '错误' : q.answer)}</span>
+            <div class="mt-10 p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 text-left">
+                <div class="text-slate-400 text-sm mb-3">参考答案:</div>
+                <div class="text-emerald-400 text-lg font-bold">${q.answer === true ? '正确' : (q.answer === false ? '错误' : this.preprocessMath(q.answer))}</div>
             </div>
         `;
 

@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jsdom": "^28.1.0",
     "katex": "^0.16.9"
   }
 }

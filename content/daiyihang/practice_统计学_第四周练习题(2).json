@@ -1,0 +1,1845 @@
+[
+  {
+    "id": "q-11",
+    "type": "choice",
+    "question": "A researcher observes that as the sample size n increases, the width of the 95% confidence interval for a proportion decreases. What is the mathematical reason for this change?",
+    "options": [
+      "The critical value z decreases as n increases.",
+      "The sample proportion p-hat always moves closer to 0.5.",
+      "The Standard Error (SE) decreases because n is in the denominator of the SE formula.",
+      "The confidence level naturally drops when the sample size is too large."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "在比例的置信区间中，误差边界为 ME=z\\times SE。当置信水平固定（95）时，z% 固定；而 $SE=\\sqrt{\\hat p(1-\\hat p)/n}$ 中 $n$ 在分母并且在根号内，$n$ 增大使 $SE$ 变小，因此 $ME$ 变小，区间宽度随之变窄。",
+      "decoding": [
+        "现象：样本量 n 增加，置信区间变窄",
+        "目标：解释数学原因（区间宽度由哪些量决定）"
+      ],
+      "conditions": [
+        {
+          "title": "比例置信区间结构",
+          "content": "$CI=\\hat p\\m z\\times SE$",
+          "description": "在置信水平固定时，$z$ 是常数；区间宽度主要由 $SE$ 控制。"
+        },
+        {
+          "title": "标准误公式",
+          "content": "$SE=\\sqrt{\\frac{\\hat p(1-\\hat p)}{n}}$",
+          "description": "$n$ 在分母且位于根号内，$n$ 增大会使 $SE$ 按 1 $/\\sqrt{n}$ 速度下降。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "把 z 当作随 n 变化",
+          "description": "很多人误以为样本量越大 $z$ 越小；实际上 $z$ 只由置信水平决定（如 95% 对应固定临界值）。"
+        },
+        {
+          "title": "把 \\hat p 的变化当作主因",
+          "description": "即使 $\\hat p$ 会波动，区间宽度变化的稳定主因仍是 $SE$ 随 $n$ 的缩放关系。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "拆出区间宽度来源",
+          "content": "区间宽度与误差边界成正比，$Width=2\\times ME=2z\\times SE$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "固定置信水平",
+          "content": "95% 置信水平下 $z$ 固定，因此只需观察 $SE$ 的变化。",
+          "tag": "条件锁定"
+        },
+        {
+          "title": "代入 SE 与 n 的关系",
+          "content": "由 $SE=\\sqrt{\\hat p(1-\\hat p)/n}$ 可知 $n$ 增大使 $SE$ 变小，从而区间变窄。",
+          "tag": "公式代入"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。z 由置信水平决定，95 时为固定临界值，不随 n% 改变。"
+        },
+        {
+          "label": "B",
+          "reason": "错误。$\\hat p$ 期望趋向总体比例 $p$，不必然趋向 0.5。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。置信水平是研究者预设的，不会因样本量变大而自动下降。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Error",
+      "Confidence Interval",
+      "Margin of Error"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-12",
+    "type": "choice",
+    "question": "In a Chi-Square Goodness-of-Fit test with 3 categories, if the calculated Chi-Square value is 26.66 and the critical value is 5.99, what is the correct interpretation?",
+    "options": [
+      "The distribution is random and follows the null hypothesis.",
+      "The observed frequencies are significantly different from the expected frequencies.",
+      "The sample size is too small to make a decision.",
+      "The null hypothesis should be accepted because the Chi-Square value is large."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "卡方拟合优度检验的决策规则是：若 $\\chi^2_{calc}>\\chi^2_{crit}$，则拒绝 $H_0$。这里 26.66 $>5.99$，因此拒绝零假设，说明观察频数与期望频数之间存在显著差异。",
+      "decoding": [
+        "比较统计量与临界值：26.66 vs 5.99",
+        "将比较结果翻译为对 H0 的决策与含义"
+      ],
+      "conditions": [
+        {
+          "title": "卡方检验决策准则",
+          "content": "$\\chi^2_{calc}>\\chi^2_{crit}\\rightarrow Reject\\H_0$",
+          "description": "右尾拒绝域：统计量越大代表偏离期望分布越明显。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "把\"大\"误解为\"更符合\"",
+          "description": "卡方值越大代表偏离越大，不是\"更支持零假设\"。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "做数值比较",
+          "content": "比较 $\\chi^2_{calc}=26.66$ 与 $\\chi^2_{crit}=5.99$，得到 26.66 $>5.99$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "应用决策规则",
+          "content": "由于落入拒绝域，拒绝 $H_0$。",
+          "tag": "规则应用"
+        },
+        {
+          "title": "解释统计含义",
+          "content": "拒绝 $H_0$ 表示观察频数与期望频数差异显著，样本分布不符合零假设设定的分布。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。若支持 $H_0$ 应当是 $\\chi^2_{calc}\\e \\chi^2_{crit}$，而这里明显更大。"
+        },
+        {
+          "label": "C",
+          "reason": "错误。已给出统计量与临界值，足以做出决策；样本量是否小不能替代决策规则。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。卡方值大通常意味着拒绝而非\"接受\"零假设。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Chi-Square Goodness-of-Fit",
+      "Critical Value",
+      "Reject Null Hypothesis"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-13",
+    "type": "choice",
+    "question": "Which of the following describes 'Practical Significance' in the context of hypothesis testing?",
+    "options": [
+      "It is achieved whenever the p-value is less than 0.05.",
+      "It refers to whether the observed difference is large enough to be important in the real world.",
+      "It is only possible when the sample size n is extremely large.",
+      "It is the same as statistical significance and is determined by the Z-score."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "实际显著性（practical significance）强调差异在现实场景中的重要性与影响大小，而不仅仅是统计显著性（例如 $p<0.05$）。统计显著可能来自大样本导致的微小差异，但这些差异未必具有现实价值。",
+      "decoding": [
+        "概念识别：Practical significance",
+        "对比：Practical vs Statistical significance"
+      ],
+      "conditions": [
+        {
+          "title": "统计显著性的判定",
+          "content": "$p<\\lpha$",
+          "description": "统计显著性回答\"是否可能由随机波动导致\"，但不直接回答\"是否重要\"。"
+        },
+        {
+          "title": "实际显著性的关注点",
+          "content": "$|\\elta|$ and real-world impact",
+          "description": "关注效应大小与业务/医学/工程意义，而非仅看 p 值或 Z 值。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "把 p 值当作\"重要性\"",
+          "description": "常见误区是认为 $p<0.05$ 就代表结果很重要；实际上它只代表在统计意义上不太像随机噪声。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "先界定统计显著性问题",
+          "content": "统计检验主要判断样本结果在 $H_0$ 下是否罕见（用 p 值衡量）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "再界定实际显著性问题",
+          "content": "实际显著性判断差异是否足以影响现实决策（看效应大小、成本收益等）。",
+          "tag": "概念对比"
+        },
+        {
+          "title": "对应选项",
+          "content": "因此\"是否足够大以在现实中重要\"是正确描述。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。这是统计显著性的常见阈值判断，不等同于实际显著性。"
+        },
+        {
+          "label": "C",
+          "reason": "错误。大样本更容易得到统计显著，但实际显著性并不要求样本必须极大。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。实际显著性与统计显著性不同，不由 Z-score 单独决定。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Practical Significance",
+      "Statistical Significance",
+      "Effect Size"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-14",
+    "type": "choice",
+    "question": "Using summation notation rules, which expression is equivalent to calculating the average of the squared values of x1, x2, …, xn?",
+    "options": [
+      "(sum xi / n)^2",
+      "sum xi^2 / n",
+      "(sum xi^2) / n^2",
+      "sum (xi / n)^2"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "\"平方值的平均\"是先对每个 $x_i$ 平方，再把平方项求和，最后除以 $n$，即 $\\frac{\\sum x_i^2}{n}$。",
+      "decoding": [
+        "目标：Average of squared values",
+        "顺序：square -> sum -> divide by n"
+      ],
+      "conditions": [
+        {
+          "title": "平方和展开",
+          "content": "$\\sum_{i=1}^n x_i^2=x_1^2+x_2^2+\\cdots+x_n^2$",
+          "description": "对每个观测值平方后再求和。"
+        },
+        {
+          "title": "平均的定义",
+          "content": "$\\text{Average} = \\frac{\\text{Total}}{n}$",
+          "description": "总和除以项数 $n$。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "把\"均值的平方\"和\"平方的均值\"混淆",
+          "description": "$(\\sum x_i/n)^2$ 是\"先平均再平方\"，一般不等于 $\\sum x_i^2/n$。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "对每项平方",
+          "content": "把 $x_i$ 变为 $x_i^2$。",
+          "tag": "计算"
+        },
+        {
+          "title": "对平方项求和",
+          "content": "得到 $\\sum x_i^2$。",
+          "tag": "计算"
+        },
+        {
+          "title": "除以 n 得到平均",
+          "content": "得到 $\\frac{\\sum x_i^2}{n}$。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。这是\"均值的平方\" $(\\ar x)^2$，不等同于平方的均值。"
+        },
+        {
+          "label": "C",
+          "reason": "错误。平均时分母应是 $n$ 而不是 $n^2$。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。$\\sum (x_i/n)^2=\\frac{1}{n^2}\\sum x_i^2$，分母变成了 $n^2$。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Summation Notation",
+      "Order of Operations",
+      "Averaging"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-15",
+    "type": "choice",
+    "question": "If you are conducting a head-to-head comparison between exactly two brands of coffee (e.g., Starbucks vs Tims), which test is the most direct choice?",
+    "options": [
+      "Chi-Square Goodness-of-Fit Test",
+      "Z-Test for proportions",
+      "Summation Notation Test",
+      "Standard Error Estimate"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "当比较两个品牌的偏好比例（两类比例差异）时，最直接的方法是两比例的 Z 检验（Z-test for proportions）。卡方也可用于两类，但在\"头对头的两比例比较\"语境下，Z 检验更直接。",
+      "decoding": [
+        "关键词：head-to-head comparison",
+        "对象：exactly two groups/brands"
+      ],
+      "conditions": [
+        {
+          "title": "两比例比较场景",
+          "content": "$H_0:p_1=p_2$",
+          "description": "两组对比最自然的设定是检验两比例是否相等。"
+        },
+        {
+          "title": "Z 检验统计量形式",
+          "content": "$z=\\frac{\\hat p_1-\\hat p_2}{SE}$",
+          "description": "用标准误对两比例差进行标准化，得到 Z 值并据此求 p 值。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "把卡方当成唯一选择",
+          "description": "卡方适合多类别整体分布检验；两类别头对头比较时，Z 检验更贴近\"差异的方向与大小\"的表达。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别比较的组数",
+          "content": "题目明确只有两个品牌，即两组比例比较。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配最直接的检验",
+          "content": "两组比例差异的标准检验是两比例 Z 检验。",
+          "tag": "方法匹配"
+        },
+        {
+          "title": "得到答案",
+          "content": "选择 Z-Test for proportions。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。拟合优度检验更常用于多类别与某个理论分布的匹配，不是最直接的两组对比。"
+        },
+        {
+          "label": "C",
+          "reason": "错误。求和符号不是一种假设检验方法。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。标准误是量，不是检验。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Z-Test",
+      "Two-Proportion Test",
+      "Hypothesis Testing"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-16",
+    "type": "choice",
+    "question": "What is the relationship between the sample size n and the Standard Error (SE) when a researcher wants to reduce the SE to 1/3 of its original value?",
+    "options": [
+      "The sample size n must be 3 times larger.",
+      "The sample size n must be 6 times larger.",
+      "The sample size n must be 9 times larger.",
+      "The sample size n must be squared."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "标准误与样本量满足 $SE\\ropto 1/\\sqrt{n}$。若 $SE_{new}=\\frac{1}{3}SE_{old}$，则需要 $\\frac{1}{\\sqrt{n_{new}}}=\\frac{1}{3}\\cdot\\frac{1}{\\sqrt{n_{old}}}$，两边平方得 $n_{new}=9n_{old}$，因此样本量需变为 9 倍。",
+      "decoding": [
+        "目标：把 SE 降到原来的 1/3",
+        "关键关系：SE 与 sqrt(n) 的反比关系"
+      ],
+      "conditions": [
+        {
+          "title": "标准误缩放规律",
+          "content": "$SE\\ropto \\frac{1}{\\sqrt{n}}$",
+          "description": "当其他因素不变时，样本量按平方关系决定标准误的缩小倍数。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "线性直觉陷阱",
+          "description": "把\"变为 1/3\"误当作\"样本量乘 3\"即可，忽略了根号导致的平方关系。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "写出比例关系",
+          "content": "$\\frac{SE_{new}}{SE_{old}}=\\sqrt{\\frac{n_{old}}{n_{new}}}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "代入目标缩放",
+          "content": "令 $\\frac{SE_{new}}{SE_{old}}=\\frac{1}{3}$，得到 $\\frac{1}{3}=\\sqrt{\\frac{n_{old}}{n_{new}}}$。",
+          "tag": "计算"
+        },
+        {
+          "title": "平方求解 n 的倍数",
+          "content": "两边平方：$\\frac{1}{9}=\\frac{n_{old}}{n_{new}}\\rightarrow n_{new}=9n_{old}$。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。3 倍样本量只会把 SE 缩到 1 $/\\sqrt{3}$，不是 1 $/3$。"
+        },
+        {
+          "label": "B",
+          "reason": "错误。没有对应的平方根缩放依据。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。表述含糊且不对应具体倍数；正确结论是样本量变为 9 倍。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Error",
+      "Sample Size Scaling",
+      "Inverse Square Root Law"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-17",
+    "type": "bool",
+    "question": "In a 95% confidence interval, the interval center is always the population proportion p.",
+    "answer": false,
+    "analysis": {
+      "solution": "置信区间的中心是样本比例 $\\hat p$（点估计），不是未知的总体比例 $p$。总体参数 $p$ 是被估计的目标，通常未知且不用于直接构造中心点。",
+      "decoding": [
+        "命题：区间中心等于总体参数 p",
+        "核对：比例置信区间的中心项是什么"
+      ],
+      "conditions": [
+        {
+          "title": "比例置信区间中心",
+          "content": "$CI=\\hat p\\m z\\times SE$",
+          "description": "中心项是 $\\hat p$，因为区间是围绕样本点估计构造的。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "把\"估计目标\"当作\"已知中心\"",
+          "description": "很多人误以为区间围绕真实参数；实际上真实参数未知，区间是围绕样本估计量构造。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "写出置信区间公式",
+          "content": "比例区间通常写为 $\\hat p\\m z\\times SE$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "识别中心项",
+          "content": "中心项是 $\\hat p$ 而非 $p$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "判断命题真假",
+          "content": "因此命题为假。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval",
+      "Point Estimate",
+      "Population Proportion"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-18",
+    "type": "bool",
+    "question": "A smaller p-value provides stronger evidence against the null hypothesis H0.",
+    "answer": true,
+    "analysis": {
+      "solution": "p 值表示在 $H_0$ 成立时，得到\"至少同样极端\"结果的概率。p 值越小，说明在零假设下出现该结果越不可能，因此反对 $H_0$ 的证据越强。",
+      "decoding": [
+        "命题：p 值越小，反对 H0 的证据越强",
+        "理解 p 值的概率含义与证据强度关系"
+      ],
+      "conditions": [
+        {
+          "title": "p 值含义",
+          "content": "$p=\\Pr(\\text{data as or more extreme}\\mid H_0)$",
+          "description": "p 值越小表示\"在 $H_0$ 下更罕见\"。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "把 p 值当作 H0 为真的概率",
+          "description": "p 值不是 $\\Pr(H_0\\mid \\text{data})$，而是以 $H_0$ 为前提的尾部概率。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "回忆 p 值定义",
+          "content": "p 值是在 $H_0$ 下观察到当前或更极端结果的概率。",
+          "tag": "概念"
+        },
+        {
+          "title": "连接\"罕见\"与\"证据\"",
+          "content": "若该概率很小，说明数据与 $H_0$ 不一致性更强。",
+          "tag": "逻辑推理"
+        },
+        {
+          "title": "得出真假判断",
+          "content": "因此命题为真。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "P-value",
+      "Null Hypothesis",
+      "Evidence Strength"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-19",
+    "type": "essay",
+    "question": "Explain how the Margin of Error (ME) changes when both the sample size n is quadrupled (multiplied by 4) and the confidence level is kept the same. Show the logic using the SE formula.",
+    "answer": "If the sample size is quadrupled while the confidence level stays the same, the Margin of Error is halved.",
+    "analysis": {
+      "solution": "在置信水平不变时 $z$ 不变，而 $ME=z\\times SE$。由于 $SE\\ropto 1/\\sqrt{n}$，当 $n$ 变为 4 倍时，$SE$ 变为原来的 1 $/\\sqrt{4}=1/2$，因此 $ME$ 也变为原来的 1/2。",
+      "decoding": [
+        "已知：$n_{new}=4n_{old}$",
+        "固定：置信水平不变，因此 $z$ 固定",
+        "目标：推导 $ME_{new}$ 相对 $ME_{old}$ 的倍数"
+      ],
+      "conditions": [
+        {
+          "title": "误差边界与标准误",
+          "content": "$ME=z\\times SE$",
+          "description": "在相同置信水平下，$z$ 是常数，因此 $ME$ 的变化由 $SE$ 决定。"
+        },
+        {
+          "title": "标准误与样本量",
+          "content": "$SE=\\sqrt{\\frac{\\hat p(1-\\hat p)}{n}}$",
+          "description": "其他因素固定时，$SE\\ropto 1/\\sqrt{n}$。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "忽略平方根关系",
+          "description": "把样本量乘 4 误认为误差边界除以 4；正确是 $\\sqrt{4}=2$，所以除以 2。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "代入新样本量到 SE",
+          "content": "$SE_{new}=\\sqrt{\\frac{\\hat p(1-\\hat p)}{4n_{old}}}=\\frac{1}{2}\\sqrt{\\frac{\\hat p(1-\\hat p)}{n_{old}}}=\\frac{1}{2}SE_{old}$。",
+          "tag": "计算"
+        },
+        {
+          "title": "利用 ME 与 SE 的关系",
+          "content": "因为 $ME=z\\times SE$ 且 $z$ 不变，所以 $ME_{new}=z\\times SE_{new}=\\frac{1}{2}z\\times SE_{old}=\\frac{1}{2}ME_{old}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "给出结论",
+          "content": "样本量变为 4 倍会使误差边界减半，置信区间宽度也随之减半。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Standard Error",
+      "Sample Size Effect"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-20",
+    "type": "essay",
+    "question": "A researcher wants to compare customer preferences for 4 types of tea. (1) State the Null Hypothesis (H0) for a Chi-Square Goodness-of-Fit test. (2) If the total sample size is 200, calculate the Expected Frequency (Ei) for each tea type under H0.",
+    "answer": "H0: Preferences are equally distributed across the 4 tea types (p1=p2=p3=p4=0.25). With n=200, each expected frequency is Ei=200/4=50.",
+    "analysis": {
+      "solution": "拟合优度检验的零假设通常声明\"观察分布符合某个给定比例\"。若题目未给出特定比例，常用均匀分布：$H_0:p_1=p_2=p_3=p_4=1/4$。在 $n=200$ 下，各类期望频数为 $E_i=n\\times p_i=200\\times 0.25=50$。",
+      "decoding": [
+        "场景：4 类别偏好分布检验（GOF）",
+        "任务1：写出零假设（分布比例）",
+        "任务2：用 n 与比例计算期望频数"
+      ],
+      "conditions": [
+        {
+          "title": "零假设形式",
+          "content": "$H_0:(p_1,\\ots,p_k)=(p_1^0,\\ots,p_k^0)$",
+          "description": "拟合优度检验检验\"总体分布是否等于给定分布\"。"
+        },
+        {
+          "title": "期望频数计算",
+          "content": "$E_i=n\\times p_i^0$",
+          "description": "每类期望频数等于总样本量乘以该类在 $H_0$ 下的比例。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "把期望频数写成 n/k 但没说明均匀分布",
+          "description": "只有在 $H_0$ 假设均匀分布（各类比例相等）时，才可用 $E_i=n/k$。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "明确检验类型与类别数",
+          "content": "这是 4 类别的卡方拟合优度检验（Goodness-of-Fit）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "写出零假设分布",
+          "content": "未给定目标比例时，设 $H_0:p_1=p_2=p_3=p_4=0.25$。",
+          "tag": "建模"
+        },
+        {
+          "title": "计算每类期望频数",
+          "content": "用 $E_i=n\\times p_i=200\\times 0.25=50$，四类均为 50。",
+          "tag": "计算"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Chi-Square Goodness-of-Fit",
+      "Null Hypothesis",
+      "Expected Frequency"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-21",
+    "type": "choice",
+    "question": "For a 95% confidence interval for a population proportion, which expression correctly represents the Margin of Error (ME)?",
+    "options": [
+      "ME = SE / z",
+      "ME = z + SE",
+      "ME = z * SE",
+      "ME = (z * SE)^2"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "比例置信区间写为 $\\hat p\\m z\\times SE$，因此误差边界（Margin of Error）就是乘积 $ME=z\\times SE$，而不是加法、除法或平方。",
+      "decoding": [
+        "识别：比例置信区间的标准形式",
+        "提取：误差边界 ME 的定义"
+      ],
+      "conditions": [
+        {
+          "title": "比例置信区间形式",
+          "content": "$CI=\\hat p\\m z\\times SE$",
+          "description": "中心为 $\\hat p$，两侧偏移量就是 $ME$。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "把 z 与 SE 当作可加",
+          "description": "z 是无量纲临界值，SE 是比例的标准误，二者通过乘法形成同量纲的偏移量。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "写出区间表达式",
+          "content": "从 $CI=\\hat p\\m z\\times SE$ 出发。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "识别偏移项",
+          "content": "区间中心到端点的距离就是 $z\\times SE$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出 ME",
+          "content": "因此 $ME=z\\times SE$。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。ME 不是 $SE$ 除以 $z$；除法会使量纲与区间偏移不匹配。"
+        },
+        {
+          "label": "B",
+          "reason": "错误。ME 来自乘积而非加法。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。ME 是线性距离，不需要平方。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Critical Value",
+      "Confidence Interval Formula"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-22",
+    "type": "choice",
+    "question": "In a Chi-Square Goodness-of-Fit test with 4 categories and a total sample size of 200, under a uniform null hypothesis, what is the expected frequency for each category?",
+    "options": [
+      "25",
+      "40",
+      "50",
+      "100"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "均匀分布的零假设下，每类比例为 1 $/4$。期望频数 $E_i=n\\times(1/4)=200\\times 0.25=50$，因此每类期望频数为 50。",
+      "decoding": [
+        "已知：k=4 类，n=200",
+        "零假设：uniform => 每类概率 1/4",
+        "目标：计算 Ei"
+      ],
+      "conditions": [
+        {
+          "title": "均匀零假设",
+          "content": "$p_i=1/k$",
+          "description": "当假设各类别相等时，每类概率相同。"
+        },
+        {
+          "title": "期望频数",
+          "content": "$E_i=n\\times p_i$",
+          "description": "期望频数等于样本量乘以该类概率。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "把 Ei 当成 n/k 但算错",
+          "description": "这里 $n/k=200/4=50$，常见错误是把 200/4 误算为 25 或 40。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "确定每类概率",
+          "content": "均匀分布下每类概率 $p_i=1/4=0.25$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算期望频数",
+          "content": "$E_i=200\\times 0.25=50$。",
+          "tag": "计算"
+        },
+        {
+          "title": "匹配选项",
+          "content": "因此选 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。25 是把 200/8 或把 0.125 当成比例导致的误算。"
+        },
+        {
+          "label": "B",
+          "reason": "错误。40 对应 0.2 的比例，不是均匀的 0.25。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。100 会导致四类总和 400，与 n=200 不一致。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Expected Frequency",
+      "Uniform Distribution",
+      "Chi-Square Goodness-of-Fit"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-23",
+    "type": "bool",
+    "question": "If the confidence level increases (for example from 90% to 95%) while the sample size n stays the same, the confidence interval becomes narrower.",
+    "answer": false,
+    "analysis": {
+      "solution": "当样本量固定时，提高置信水平会使临界值 $z$ 变大，从而误差边界 $ME=z\\times SE$ 变大，因此置信区间会变宽而不是变窄。",
+      "decoding": [
+        "变量变化：confidence level 上升，n 不变",
+        "关键：z 随置信水平上升而上升",
+        "判断：区间宽度如何变化"
+      ],
+      "conditions": [
+        {
+          "title": "误差边界公式",
+          "content": "$ME=z\\times SE$",
+          "description": "在 $n$ 不变时，$SE$ 固定；区间宽度由 $z$ 的变化决定。"
+        },
+        {
+          "title": "z 与置信水平关系",
+          "content": "$\\text{Higher confidence}\\rightarrow \\text{larger } z$",
+          "description": "更高置信水平需要覆盖更大概率质量，因此临界值更大。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "把\"更有把握\"误当作\"更精确\"",
+          "description": "更高置信水平意味着更保守、更宽的区间；精确度提升通常依赖更大的样本量或更小的波动。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "锁定 SE 不变",
+          "content": "n 不变则 $SE$ 不变。",
+          "tag": "条件锁定"
+        },
+        {
+          "title": "分析 z 的变化",
+          "content": "置信水平上升使 $z$ 增大。",
+          "tag": "逻辑推理"
+        },
+        {
+          "title": "推导区间宽度方向",
+          "content": "$ME=z\\times SE$ 变大，所以区间更宽，命题为假。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Level",
+      "Critical Value",
+      "Interval Width"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-24",
+    "type": "bool",
+    "question": "For the same confidence level, increasing the sample size n will always reduce the Margin of Error (ME), regardless of the value of p-hat.",
+    "answer": true,
+    "analysis": {
+      "solution": "在置信水平固定时 $z$ 固定，且 $ME=z\\times \\sqrt{\\hat p(1-\\hat p)/n}$。对任意给定的 $\\hat p\\n[0,1]$，当 $n$ 增大时，1 $/\\sqrt{n}$ 变小，所以 $ME$ 会减小。",
+      "decoding": [
+        "条件：confidence level 固定 => z 固定",
+        "公式：ME 与 1/sqrt(n) 成正比",
+        "判断：是否不依赖 p-hat 也成立"
+      ],
+      "conditions": [
+        {
+          "title": "ME 的函数形式",
+          "content": "$ME=z\\times \\sqrt{\\frac{\\hat p(1-\\hat p)}{n}}$",
+          "description": "把 $\\hat p(1-\\hat p)$ 看作常数因子时，ME 随 $n$ 按 1 $/\\sqrt{n}$ 单调下降。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "把 \\hat p 的影响误当作\"可能反转方向\"",
+          "description": "$\\hat p$ 会影响 ME 的大小，但在 $\\hat p$ 固定时，增大 $n$ 不会让 $ME$ 变大。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "固定 z",
+          "content": "同一置信水平下 $z$ 不变。",
+          "tag": "条件锁定"
+        },
+        {
+          "title": "比较 n 前后",
+          "content": "当 $n$ 增大时，$\\sqrt{1/n}$ 变小。",
+          "tag": "逻辑推理"
+        },
+        {
+          "title": "推出 ME 单调下降",
+          "content": "因此 $ME=z\\times\\sqrt{\\hat p(1-\\hat p)/n}$ 会减小，命题为真。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Standard Error",
+      "Monotonicity in n"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-25",
+    "type": "bool",
+    "question": "Practical significance is determined solely by whether the p-value is below 0.05.",
+    "answer": false,
+    "analysis": {
+      "solution": "实际显著性不由 $p<0.05$ 单独决定。p 值衡量统计显著性（与随机波动的一致性），而实际显著性强调效应大小与现实影响（如成本收益、临床意义）。因此仅凭 p 值无法判定实际显著性。",
+      "decoding": [
+        "命题：实际显著性只看 p<0.05",
+        "区分：统计显著性 vs 实际显著性",
+        "判断该命题是否混淆概念"
+      ],
+      "conditions": [
+        {
+          "title": "统计显著性判定",
+          "content": "$p<\\lpha$",
+          "description": "这是统计层面的阈值判断，与样本量、方差等因素相关。"
+        },
+        {
+          "title": "实际显著性的依据",
+          "content": "Effect size + context",
+          "description": "需要结合效应大小、业务/临床阈值、风险与收益等背景。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "大样本陷阱（半真半假）",
+          "description": "大样本可能让极小差异也出现 $p<0.05$，但这种差异可能在现实中不重要；因此该命题为假。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "明确 p 值作用",
+          "content": "p 值回答\"在 $H_0$ 下是否罕见\"，属于统计显著性。",
+          "tag": "概念"
+        },
+        {
+          "title": "明确实际显著性要素",
+          "content": "实际显著性要看效应大小及其现实价值，不是单一阈值。",
+          "tag": "概念对比"
+        },
+        {
+          "title": "判断命题",
+          "content": "因此\"仅由 p<0.05 决定\"是错误的。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Practical Significance",
+      "P-value",
+      "Effect Size"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-21",
+    "type": "choice",
+    "question": "A researcher is studying two different data sets. For Set A, they calculate $\\sum x_i^2, $ and for Set B, they calculate $(\\sum x_i)^2. $ If both sets contain the same positive values, which statement is mathematically guaranteed?",
+    "options": [
+      "$\\sum x_i^2$ will always be greater than or equal to $(\\sum x_i)^2 / n. $",
+      "$(\\sum x_i)^2$ will always be smaller than $\\sum x_i^2. $",
+      "The two expressions will always yield the same numerical result.",
+      "$\\sum x_i^2$ is equivalent to first summing the values and then squaring the total."
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "由均值平方不等式（或 Cauchy-Schwarz）：$\\eft(\\sum_{i=1}^n x_i\\ight)^2 \\e n\\sum_{i=1}^n x_i^2$，两边除以 $n$ 得 $\\sum x_i^2 \\e \\frac{(\\sum x_i)^2}{n}$，因此 A 必然成立。",
+      "decoding": [
+        "识别 $\\sum x_i^2$ 与 $(\\sum x_i)^2$ 的运算顺序差异。",
+        "判断哪些关系对任意实数（尤其是正数）都恒成立。",
+        "将问题转化为经典不等式：$\\eft(\\sum x_i\\ight)^2$ 与 $\\sum x_i^2$ 的比较。"
+      ],
+      "conditions": [
+        {
+          "title": "Cauchy-Schwarz 不等式形式",
+          "content": "$\\eft(\\sum_{i=1}^n x_i\\cdot 1\\ight)^2 \\e \\eft(\\sum_{i=1}^n x_i^2\\ight)\\eft(\\sum_{i=1}^n 1^2\\ight)=n\\sum_{i=1}^n x_i^2$",
+          "description": "令向量 $\\hathbf{x}=(x_1,\\ots,x_n)$，$\\hathbf{1}=(1,\\ots,1)$，由 $\\angle \\hathbf{x},\\hathbf{1}\\angle^2\\e \\|\\hathbf{x}\\|^2\\|\\hathbf{1}\\|^2$ 得到。"
+        }
+      ],
+      "traps": [
+        "把 $\\sum x_i^2$ 误认为等于 $(\\sum x_i)^2$（忽略交叉项 2 $x_ix_j$）。",
+        "看到\"正数\"就误断 $(\\sum x_i)^2$ 一定更大或一定更小，但其实要区分是否除以 $n$。"
+      ],
+      "steps": [
+        {
+          "title": "写出目标不等式",
+          "content": "需要证明 $\\sum x_i^2 \\e \\frac{(\\sum x_i)^2}{n}$。",
+          "tag": "建模"
+        },
+        {
+          "title": "应用 Cauchy-Schwarz",
+          "content": "由 $\\eft(\\sum x_i\\ight)^2 \\e n\\sum x_i^2$，两边同时除以 $n$。",
+          "tag": "推导"
+        },
+        {
+          "title": "得到结论并对应选项",
+          "content": "得到 $\\sum x_i^2 \\e \\frac{(\\sum x_i)^2}{n}$，因此选 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误。一般情况下 $(\\sum x_i)^2$ 可能远大于 $\\sum x_i^2$（例如 $x_1=x_2=1$ 时，4 $>2$），不存在恒小关系。"
+        },
+        {
+          "label": "C",
+          "reason": "错误。只有在非常特殊的情形才可能相等（例如 $n=1$），一般不相等。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。该描述对应的是 $(\\sum x_i)^2$ 的运算顺序，不是 $\\sum x_i^2$。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Cauchy-Schwarz Inequality",
+      "Summation Notation",
+      "Mean Square Inequality"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-22",
+    "type": "choice",
+    "question": "An environmental agency wants to estimate the proportion of electric vehicles (EVs) in a city. They require a Margin of Error (ME) of no more than 0.05 at a 95% confidence level ($z=1.96$). If they assume the proportion $p$ is 0.5 to get the most conservative sample size, what is the minimum $n$ required?",
+    "options": [
+      "100",
+      "385",
+      "1537",
+      "400"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "由比例的误差边界 $ME=z\\sqrt{\\frac{p(1-p)}{n}}$，解得 $n=\\frac{z^2p(1-p)}{ME^2}=\\frac{1.96^2\\cdot 0.5\\cdot 0.5}{0.05^2}=384.16$，向上取整为 38 $5$。",
+      "decoding": [
+        "把 ME 与 $n$ 的关系写成公式并变形求 $n$。",
+        "识别\"最保守\"即使 $p(1-p)$ 最大，取 $p=0.5$。",
+        "注意样本量必须向上取整以保证误差不超过要求。"
+      ],
+      "conditions": [
+        {
+          "title": "比例样本量公式",
+          "content": "$n=\\frac{z^2p(1-p)}{ME^2}$",
+          "description": "由 $ME=z\\sqrt{\\frac{p(1-p)}{n}}$ 两边平方并移项得到。"
+        }
+      ],
+      "traps": [
+        "忘记向上取整导致 $ME$ 可能略大于 0.05。",
+        "把 $ME$ 当成 5% 直接乘除而不平方，导致数量级错误。"
+      ],
+      "steps": [
+        {
+          "title": "代入参数",
+          "content": "$n=\\frac{1.96^2\\cdot 0.25}{0.05^2}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算",
+          "content": "1.96 $^2=3.8416$，所以 $n=\\frac{3.8416\\cdot 0.25}{0.0025}=\\frac{0.9604}{0.0025}=384.16$。",
+          "tag": "计算"
+        },
+        {
+          "title": "取整得到最小整数",
+          "content": "最小满足条件的整数为 38 $5$。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。$n=100$ 时 $ME=1.96\\sqrt{\\frac{0.25}{100}}=1.96\\cdot 0.05=0.098$，明显大于 0.05。"
+        },
+        {
+          "label": "C",
+          "reason": "错误。该数值对应更严格的误差要求（例如把 $ME$ 减半会使 $n$ 约变为 4 倍）。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。40 $0$ 虽然可行，但不是\"最小\"样本量。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Sample Size Determination",
+      "Confidence Level"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-23",
+    "type": "bool",
+    "question": "The summation expression $\\sum_{i=1}^n (x_i - 2)$ is mathematically identical to $(\\sum_{i=1}^n x_i) - 2. $",
+    "answer": false,
+    "analysis": {
+      "solution": "不相同。因为常数 $-2$ 在求和中被累加 $n$ 次：$\\sum (x_i-2)=\\sum x_i-\\sum 2=\\sum x_i-2n$，并非 $\\sum x_i-2$。",
+      "decoding": [
+        "检查求和对加减常数的分配性质。",
+        "将 $\\sum (x_i-2)$ 展开为 $n$ 项后合并同类项。",
+        "识别常数项在求和中出现的次数是 $n$。"
+      ],
+      "conditions": [
+        {
+          "title": "求和的线性性质",
+          "content": "$\\sum_{i=1}^n (a_i+b_i)=\\sum_{i=1}^n a_i+\\sum_{i=1}^n b_i$",
+          "description": "利用线性性把括号拆开，常数项也会被求和。"
+        }
+      ],
+      "traps": [
+        "把 $\\sum c$ 误当成 $c$，忽略了 $\\sum_{i=1}^n c=nc$。",
+        "只对 $x_i$ 求和，却漏掉对常数项的重复累加。"
+      ],
+      "steps": [
+        {
+          "title": "拆分求和",
+          "content": "$\\sum (x_i-2)=\\sum x_i-\\sum 2$。",
+          "tag": "推导"
+        },
+        {
+          "title": "计算常数求和",
+          "content": "$\\sum_{i=1}^n 2=2n$。",
+          "tag": "计算"
+        },
+        {
+          "title": "合并得到结论",
+          "content": "$\\sum (x_i-2)=\\sum x_i-2n\\e \\sum x_i-2$（当 $n\\e 1$）。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Summation Linearity",
+      "Constant Summation",
+      "Algebraic Manipulation"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-24",
+    "type": "essay",
+    "question": "A retail store finds that out of $n=500$ randomly selected customers, 150 used a coupon. (1) Calculate the sample proportion \\hat{p} and the Standard Error (SE) for this estimate. (2) Construct the 95 Confidence Interval (z=1.96%).",
+    "answer": "Compute $\\hat{p}=150/500=0.30, $ then SE=\\sqrt{\\hat{p}(1-\\hat{p})/n}\\approx 0.0205, and the 95 CI is 0.30\\m 1.96\\times 0.0205\\approx (0.26,0.34). %",
+    "analysis": {
+      "solution": "先算比例点估计 $\\hat{p}=\\frac{x}{n}$，再算标准误 $SE=\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$，最后用 $\\hat{p}\\m z\\cdot SE$ 构建 95% 置信区间。",
+      "decoding": [
+        "从样本计数 $x$ 与样本量 $n$ 得到样本比例 $\\hat{p}$。",
+        "用 $\\hat{p}$ 代入比例标准误公式得到 $SE$。",
+        "用正态近似置信区间公式得到上下限。"
+      ],
+      "conditions": [
+        {
+          "title": "样本比例与标准误",
+          "content": "$\\hat{p}=\\frac{x}{n},\\quad SE=\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$",
+          "description": "比例的抽样分布近似正态时，可用该标准误来衡量点估计波动。"
+        },
+        {
+          "title": "95% 置信区间（正态近似）",
+          "content": "$CI=\\hat{p}\\m z\\cdot SE$（此处 $z=1.96$）",
+          "description": "将误差边界 $ME=z\\cdot SE$ 加减到点估计上得到区间。"
+        }
+      ],
+      "traps": [
+        "把 $p$ 当成已知总体比例而不用 $\\hat{p}$ 计算 SE。",
+        "计算过程中四舍五入过早导致区间端点偏差。",
+        "忽略置信区间端点必须落在 $[0,1]$（本题不触发但要注意）。"
+      ],
+      "steps": [
+        {
+          "title": "计算样本比例",
+          "content": "$\\hat{p}=\\frac{150}{500}=0.30$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算标准误",
+          "content": "$SE=\\sqrt{\\frac{0.30\\cdot 0.70}{500}}=\\sqrt{\\frac{0.21}{500}}=\\sqrt{0.00042}\\approx 0.02049$。",
+          "tag": "计算"
+        },
+        {
+          "title": "构建 95% 置信区间",
+          "content": "$ME=1.96\\times 0.02049\\approx 0.04016$，因此 $CI=(0.30-0.04016,\\0.30+0.04016)\\approx (0.26,0.34)$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sample Proportion",
+      "Standard Error",
+      "Confidence Interval"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-25",
+    "type": "choice",
+    "question": "Which expression correctly expands $(\\sum_{i=1}^n x_i)^2$?",
+    "options": [
+      "$\\sum_{i=1}^n x_i^2$",
+      "$\\sum_{i=1}^n x_i^2 + 2\\sum_{1\\e i<j\\e n} x_ix_j$",
+      "$\\sum_{i=1}^n x_i^2 - 2\\sum_{1\\e i<j\\e n} x_ix_j$",
+      "$\\eft(\\sum_{i=1}^n x_i\\ight)\\eft(\\sum_{i=1}^n 1\\ight)$"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "平方展开会出现交叉项：$(x_1+\\cdots+x_n)^2=\\sum x_i^2+2\\sum_{i<j}x_ix_j$，因此选 B。",
+      "decoding": [
+        "把 $\\eft(\\sum x_i\\ight)^2$ 看作 $(x_1+\\cdots+x_n)^2$。",
+        "记住平方展开包含所有 $x_i^2$ 与成对乘积 2 $x_ix_j$。",
+        "用 $\\sum_{i<j}$ 统一表示所有交叉项。"
+      ],
+      "conditions": [
+        {
+          "title": "平方展开恒等式",
+          "content": "$(\\sum_{i=1}^n x_i)^2=\\sum_{i=1}^n x_i^2+2\\sum_{1\\e i<j\\e n}x_ix_j$",
+          "description": "交叉项来自 $(x_i)(x_j)$ 与 $(x_j)(x_i)$ 的两次出现，因此系数为 2。"
+        }
+      ],
+      "traps": [
+        "把 $(\\sum x_i)^2$ 错写成 $\\sum x_i^2$（漏掉交叉项）。",
+        "把交叉项符号写成负号或漏掉系数 2。"
+      ],
+      "steps": [
+        {
+          "title": "把求和写成普通和",
+          "content": "令 $S=x_1+\\cdots+x_n$，则 $S^2=(x_1+\\cdots+x_n)^2$。",
+          "tag": "建模"
+        },
+        {
+          "title": "展开平方",
+          "content": "展开得到所有平方项 $x_i^2$ 以及所有两两乘积项 2 $x_ix_j$。",
+          "tag": "推导"
+        },
+        {
+          "title": "用求和符号整理",
+          "content": "整理为 $\\sum x_i^2+2\\sum_{i<j}x_ix_j$，对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。该式漏掉了所有交叉项 2 $x_ix_j$，除非只有一个非零项才可能巧合相等。"
+        },
+        {
+          "label": "C",
+          "reason": "错误。交叉项应为加号而非减号。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。$\\eft(\\sum x_i\\ight)\\eft(\\sum 1\\ight)=n\\sum x_i$，不是平方展开。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Algebraic Expansion",
+      "Cross Terms",
+      "Summation Notation"
+    ],
+    "source": "Textbook"
+  },
+  {
+    "id": "q-26",
+    "type": "choice",
+    "question": "For real numbers $x_1,\\ots,x_n, $ which statement is always true?",
+    "options": [
+      "$(\\sum_{i=1}^n x_i)^2 \\e \\sum_{i=1}^n x_i^2$",
+      "$\\sum_{i=1}^n x_i^2 \\e \\frac{(\\sum_{i=1}^n x_i)^2}{n}$",
+      "$(\\sum_{i=1}^n x_i)^2 \\e n\\sum_{i=1}^n x_i^2$",
+      "$\\sum_{i=1}^n x_i^2 = \\frac{(\\sum_{i=1}^n x_i)^2}{n}$ for all vectors"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "由 Cauchy-Schwarz：$\\eft(\\sum x_i\\cdot 1\\ight)^2\\e (\\sum x_i^2)(\\sum 1^2)=n\\sum x_i^2$，因此 C 恒成立。",
+      "decoding": [
+        "识别这是对 $\\sum x_i$ 与 $\\sum x_i^2$ 的通用不等式判断。",
+        "用向量内积形式匹配 Cauchy-Schwarz。",
+        "注意不等式方向与是否包含 $n$。"
+      ],
+      "conditions": [
+        {
+          "title": "Cauchy-Schwarz 适用条件",
+          "content": "$\\angle \\hathbf{x},\\hathbf{y}\\angle^2\\e \\|\\hathbf{x}\\|^2\\|\\hathbf{y}\\|^2$",
+          "description": "对任意实向量都成立，不需要正数条件。"
+        }
+      ],
+      "traps": [
+        "把 $n$ 漏掉导致不等式变成错误版本。",
+        "把\"总是相等\"误当成\"总是不等\"。"
+      ],
+      "steps": [
+        {
+          "title": "构造向量",
+          "content": "取 $\\hathbf{x}=(x_1,\\ots,x_n)$，$\\hathbf{1}=(1,\\ots,1)$。",
+          "tag": "建模"
+        },
+        {
+          "title": "套用不等式",
+          "content": "$\\angle \\hathbf{x},\\hathbf{1}\\angle^2=(\\sum x_i)^2\\e \\|\\hathbf{x}\\|^2\\|\\hathbf{1}\\|^2=(\\sum x_i^2)\\cdot n$。",
+          "tag": "推导"
+        },
+        {
+          "title": "对应选项",
+          "content": "得到 $(\\sum x_i)^2\\e n\\sum x_i^2$，选 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。反例：$n=2$，$x_1=x_2=1$，则 $(\\sum x_i)^2=4$，$\\sum x_i^2=2$，不满足。"
+        },
+        {
+          "label": "B",
+          "reason": "错误。该式方向与正确结论相反；正确应为 $\\sum x_i^2\\e \\frac{(\\sum x_i)^2}{n}$。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。只有当所有 $x_i$ 相等时才取等号，不可能对所有向量恒等。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Cauchy-Schwarz Inequality",
+      "Vector Inner Product",
+      "Inequality Reasoning"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-27",
+    "type": "choice",
+    "question": "Which choice correctly simplifies $\\sum_{i=1}^n (3x_i + 5)$?",
+    "options": [
+      "3 $\\sum_{i=1}^n x_i + 5$",
+      "$\\sum_{i=1}^n 3x_i + 5n$",
+      "3 $\\sum_{i=1}^n x_i + 5n$",
+      "$\\sum_{i=1}^n x_i + 15$"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "利用求和线性性：$\\sum(3x_i+5)=3\\sum x_i+\\sum 5=3\\sum x_i+5n$，因此选 C。",
+      "decoding": [
+        "识别求和的线性性：常数可提出，和可拆分。",
+        "常数项 5 在求和中出现 $n$ 次。",
+        "把每一步都写成 $\\sum$ 的形式避免漏项。"
+      ],
+      "conditions": [
+        {
+          "title": "求和线性性",
+          "content": "$\\sum (ax_i+b)=a\\sum x_i+b\\sum 1$",
+          "description": "其中 $\\sum 1=n$，因此常数项会乘以 $n$。"
+        }
+      ],
+      "traps": [
+        "把 $\\sum 5$ 错写成 5 而不是 5 $n$。",
+        "把 $\\sum 3x_i$ 误写成 $\\sum x_i$ 或者漏掉系数 3。"
+      ],
+      "steps": [
+        {
+          "title": "拆分求和",
+          "content": "$\\sum(3x_i+5)=\\sum 3x_i+\\sum 5$。",
+          "tag": "推导"
+        },
+        {
+          "title": "提出常数并计算常数和",
+          "content": "$\\sum 3x_i=3\\sum x_i$，且 $\\sum 5=5n$。",
+          "tag": "计算"
+        },
+        {
+          "title": "合并得到最终式",
+          "content": "得到 3 $\\sum x_i+5n$，选 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。常数项被求和 $n$ 次，应为 5 $n$ 而不是 5。"
+        },
+        {
+          "label": "B",
+          "reason": "错误。$\\sum 3x_i$ 可以化为 3 $\\sum x_i$，该选项表达不完整且与标准化简不一致。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。既漏掉了系数 3，也错误处理了常数项。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Summation Linearity",
+      "Algebraic Simplification",
+      "Constants in Summation"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-28",
+    "type": "choice",
+    "question": "A poll reports a 95% confidence interval for a proportion as $(0.42, 0.52). $ Assuming the interval is symmetric around $\\hat{p}, $ what is the Margin of Error (ME)?",
+    "options": [
+      "0.05",
+      "0.10",
+      "0.47",
+      "Cannot be determined without $n$"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "对称置信区间满足 $CI=(\\hat{p}-ME,\\hat{p}+ME)$，因此 $ME$ 等于半宽：$ME=\\frac{0.52-0.42}{2}=0.05$。",
+      "decoding": [
+        "识别 ME 是置信区间的半宽度。",
+        "利用区间端点差的一半计算 ME。",
+        "不需要样本量也能从给定区间求 ME。"
+      ],
+      "conditions": [
+        {
+          "title": "对称置信区间结构",
+          "content": "$CI=(\\hat{p}-ME,\\hat{p}+ME)$",
+          "description": "在常见的正态近似方法中，置信区间通常以点估计为中心对称。"
+        }
+      ],
+      "traps": [
+        "把区间宽度 0.52 $-0.42=0.10$ 误当成 ME。",
+        "以为必须知道 $n$ 才能求 ME，但题目已给出区间端点。"
+      ],
+      "steps": [
+        {
+          "title": "计算区间宽度",
+          "content": "宽度为 0.52 $-0.42=0.10$。",
+          "tag": "计算"
+        },
+        {
+          "title": "取半宽得到 ME",
+          "content": "$ME=0.10/2=0.05$。",
+          "tag": "计算"
+        },
+        {
+          "title": "对应选项",
+          "content": "因此选择 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误。0.10 是区间全宽，不是半宽（ME）。"
+        },
+        {
+          "label": "C",
+          "reason": "错误。0.47 是区间中心 $\\hat{p}=\\frac{0.42+0.52}{2}=0.47$，不是 ME。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。已知区间端点即可求 ME，无需 $n$。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Confidence Interval Interpretation",
+      "Proportion Estimation"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-29",
+    "type": "choice",
+    "question": "When designing a conservative sample size for estimating a population proportion with unknown $p, $ which value of $p$ maximizes $p(1-p)$?",
+    "options": [
+      "$p=0.1$",
+      "$p=0.3$",
+      "$p=0.5$",
+      "$p=0.9$"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "函数 $f(p)=p(1-p)=p-p^2$ 是开口向下的抛物线，其顶点在 $p=\\frac{1}{2}$，最大值为 $\\frac{1}{4}$，因此选 C。",
+      "decoding": [
+        "把\"最保守\"转化为最大化方差项 $p(1-p)$。",
+        "将 $p(1-p)$ 视为二次函数求最大值。",
+        "利用顶点或求导法确定最大点。"
+      ],
+      "conditions": [
+        {
+          "title": "二次函数最大值",
+          "content": "$f(p)=p-p^2=-(p-\\frac{1}{2})^2+\\frac{1}{4}$",
+          "description": "改写成完全平方即可直接读出最大值点 $p=\\frac{1}{2}$。"
+        }
+      ],
+      "traps": [
+        "误以为越接近 0 或 1 越保守，但此时 $p(1-p)$ 反而更小。",
+        "把最大值点记成 $p=0.25$（把最大值 1 $/4$ 当成位置）。"
+      ],
+      "steps": [
+        {
+          "title": "写出目标函数",
+          "content": "令 $f(p)=p(1-p)=p-p^2$。",
+          "tag": "建模"
+        },
+        {
+          "title": "完成平方求最大",
+          "content": "$f(p)=-(p-\\frac{1}{2})^2+\\frac{1}{4}$，最大在 $p=\\frac{1}{2}$。",
+          "tag": "推导"
+        },
+        {
+          "title": "对应选项",
+          "content": "因此选择 $p=0.5$（选 C）。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误。0.1 $(0.9)=0.09<0.25$。"
+        },
+        {
+          "label": "B",
+          "reason": "错误。0.3 $(0.7)=0.21<0.25$。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。0.9 $(0.1)=0.09<0.25$。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Bernoulli Variance",
+      "Quadratic Maximization",
+      "Conservative Design"
+    ],
+    "source": "Textbook"
+  },
+  {
+    "id": "q-30",
+    "type": "choice",
+    "question": "Suppose $n=400$ and the sample proportion is $\\hat{p}=0.60. $ Using $z=1.96, $ which is the correct 95% confidence interval (rounded to three decimals)?",
+    "options": [
+      "$(0.552, 0.648)$",
+      "$(0.560, 0.640)$",
+      "$(0.500, 0.700)$",
+      "$(0.570, 0.630)$"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "先算 $SE=\\sqrt{\\frac{0.6\\cdot 0.4}{400}}=\\sqrt{0.0006}\\approx 0.024495$，再算 $ME=1.96\\times 0.024495\\approx 0.04801$，区间为 0.6 $\\m 0.04801\\approx (0.552,0.648)$，选 A。",
+      "decoding": [
+        "使用比例置信区间公式 $\\hat{p}\\m z\\sqrt{\\hat{p}(1-\\hat{p})/n}$。",
+        "先求标准误再求误差边界。",
+        "最后对端点按指定精度取整并匹配选项。"
+      ],
+      "conditions": [
+        {
+          "title": "95% 比例置信区间",
+          "content": "$CI=\\hat{p}\\m z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$",
+          "description": "题目给定 $z=1.96$，直接代入计算即可。"
+        }
+      ],
+      "traps": [
+        "把 $SE$ 误写成 $\\sqrt{\\hat{p}/n}$（漏掉 1 $-\\hat{p}$）。",
+        "把 $ME$ 误当成 $SE$（漏乘 $z$）。",
+        "四舍五入过早导致端点偏离正确选项。"
+      ],
+      "steps": [
+        {
+          "title": "计算标准误",
+          "content": "$SE=\\sqrt{\\frac{0.6\\cdot 0.4}{400}}=\\sqrt{0.0006}\\approx 0.024495$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算误差边界",
+          "content": "$ME=1.96\\times 0.024495\\approx 0.04801$。",
+          "tag": "计算"
+        },
+        {
+          "title": "构建区间并取整",
+          "content": "$CI=(0.6-0.04801,\\0.6+0.04801)\\approx (0.552,0.648)$，选 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误。该区间对应较小的 $ME=0.04$，与计算结果 $\\approx 0.048$ 不符。"
+        },
+        {
+          "label": "C",
+          "reason": "错误。区间过宽，等价于极大的 $ME=0.10$。"
+        },
+        {
+          "label": "D",
+          "reason": "错误。区间过窄，$ME=0.03$ 明显偏小。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Error",
+      "Confidence Interval",
+      "Normal Approximation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-31",
+    "type": "bool",
+    "question": "If all $x_i$ are equal, then $\\sum_{i=1}^n x_i^2 = \\frac{(\\sum_{i=1}^n x_i)^2}{n}. $",
+    "answer": true,
+    "analysis": {
+      "solution": "成立。若 $x_i=c$，则左边为 $\\sum c^2=nc^2$；右边为 $\\frac{(\\sum c)^2}{n}=\\frac{(nc)^2}{n}=nc^2$，两边相等。",
+      "decoding": [
+        "利用\"所有 $x_i$ 相等\"设为同一常数 $c$。",
+        "分别计算两边并化简。",
+        "验证两边是否相同。"
+      ],
+      "conditions": [
+        {
+          "title": "等号成立条件（均值平方不等式）",
+          "content": "$(\\sum x_i)^2 \\e n\\sum x_i^2$ 且当且仅当 $x_1=\\cdots=x_n$ 取等",
+          "description": "当所有分量相同，Cauchy-Schwarz 取等号，因此等式成立。"
+        }
+      ],
+      "traps": [
+        "把\"相等\"误解为\"都为 1\"而不做一般化设定。",
+        "计算右边时忘记除以 $n$ 或者把 $(nc)^2$ 误算成 $nc^2$。"
+      ],
+      "steps": [
+        {
+          "title": "设定同一常数",
+          "content": "令 $x_i=c$（对所有 $i$）。",
+          "tag": "建模"
+        },
+        {
+          "title": "计算两边",
+          "content": "左边 $=nc^2$；右边 $=\\frac{(nc)^2}{n}=nc^2$。",
+          "tag": "计算"
+        },
+        {
+          "title": "给出判断",
+          "content": "两边相等，因此命题为真。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Equality Condition",
+      "Cauchy-Schwarz Inequality",
+      "Algebraic Verification"
+    ],
+    "source": "Textbook"
+  },
+  {
+    "id": "q-32",
+    "type": "bool",
+    "question": "For estimating a population proportion, using $p=0.5$ in the sample size formula always produces the smallest required sample size.",
+    "answer": false,
+    "analysis": {
+      "solution": "不成立。$p=0.5$ 会使 $p(1-p)$ 最大，从而使所需样本量 $n=\\frac{z^2p(1-p)}{ME^2}$ 最大（最保守），不是最小。",
+      "decoding": [
+        "将\"样本量大小\"与公式中的 $p(1-p)$ 联系起来。",
+        "判断 $p=0.5$ 是最大化还是最小化 $p(1-p)$。",
+        "据此判断样本量是变大还是变小。"
+      ],
+      "conditions": [
+        {
+          "title": "样本量与方差项关系",
+          "content": "$n\\ropto p(1-p)$",
+          "description": "在 $z$ 与 $ME$ 固定时，$n$ 随 $p(1-p)$ 单调变化。"
+        }
+      ],
+      "traps": [
+        "把\"保守\"误理解为\"更省样本\"。",
+        "只记住 $p=0.5$ 这一结论却不知道它对应\"最大方差\"。"
+      ],
+      "steps": [
+        {
+          "title": "写出样本量公式",
+          "content": "$n=\\frac{z^2p(1-p)}{ME^2}$。",
+          "tag": "建模"
+        },
+        {
+          "title": "分析 $p(1-p)$ 的最大值",
+          "content": "$p(1-p)$ 在 $p=0.5$ 取得最大 0.2 $5$。",
+          "tag": "推导"
+        },
+        {
+          "title": "推出对 $n$ 的影响",
+          "content": "$p(1-p)$ 最大使 $n$ 最大，因此命题为假。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sample Size Determination",
+      "Variance of Proportion",
+      "Conservative Assumption"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-33",
+    "type": "bool",
+    "question": "The Margin of Error for a 95% confidence interval of a proportion decreases by half if the sample size $n$ is doubled (all else fixed).",
+    "answer": false,
+    "analysis": {
+      "solution": "不成立。$ME=z\\sqrt{\\frac{p(1-p)}{n}}$，若 $n$ 翻倍，则 $ME$ 变为原来的 $\\frac{1}{\\sqrt{2}}$，不是减半。",
+      "decoding": [
+        "识别 $ME$ 与 $n$ 的函数关系是 1 $/\\sqrt{n}$。",
+        "将 $n\\o 2n$ 代入比较新旧 ME。",
+        "判断比例因子是 1 $/2$ 还是 1 $/\\sqrt{2}$。"
+      ],
+      "conditions": [
+        {
+          "title": "误差边界的尺度律",
+          "content": "$ME\\ropto \\frac{1}{\\sqrt{n}}$",
+          "description": "当 $z$ 与 $p$ 固定时，误差边界随样本量的平方根反比缩放。"
+        }
+      ],
+      "traps": [
+        "把 1 $/\\sqrt{n}$ 误记成 1 $/n$，导致\"翻倍减半\"的错误直觉。",
+        "忽略\"all else fixed\"意味着 $p$ 与 $z$ 不变。"
+      ],
+      "steps": [
+        {
+          "title": "写出 ME 公式",
+          "content": "$ME=z\\sqrt{\\frac{p(1-p)}{n}}$。",
+          "tag": "建模"
+        },
+        {
+          "title": "替换样本量并比较",
+          "content": "$ME_{new}=z\\sqrt{\\frac{p(1-p)}{2n}}=\\frac{1}{\\sqrt{2}}ME_{old}$。",
+          "tag": "推导"
+        },
+        {
+          "title": "给出判断",
+          "content": "缩放因子为 1 $/\\sqrt{2}$，不是 1 $/2$，因此命题为假。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Square Root Law",
+      "Sampling Error"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-34",
+    "type": "bool",
+    "question": "For any constant $c, $ the identity $\\sum_{i=1}^n (x_i + c) = \\sum_{i=1}^n x_i + c$ always holds.",
+    "answer": false,
+    "analysis": {
+      "solution": "不成立。常数项会被加 $n$ 次：$\\sum (x_i+c)=\\sum x_i+\\sum c=\\sum x_i+nc$，不是 $\\sum x_i+c$。",
+      "decoding": [
+        "检查常数项在求和中的重复次数。",
+        "利用求和线性性拆分 $\\sum (x_i+c)$。",
+        "比较 $nc$ 与 $c$ 的差异。"
+      ],
+      "conditions": [
+        {
+          "title": "常数求和规则",
+          "content": "$\\sum_{i=1}^n c=nc$",
+          "description": "因为 $c$ 被重复累加 $n$ 次。"
+        }
+      ],
+      "traps": [
+        "把 $\\sum$ 当成\"只对 $x_i$ 有效\"的符号，忽略括号内常数也会被求和。",
+        "在 $n=1$ 的特例下成立而误认为总成立。"
+      ],
+      "steps": [
+        {
+          "title": "利用线性性拆分",
+          "content": "$\\sum (x_i+c)=\\sum x_i+\\sum c$。",
+          "tag": "推导"
+        },
+        {
+          "title": "计算常数和",
+          "content": "$\\sum c=nc$。",
+          "tag": "计算"
+        },
+        {
+          "title": "比较并判断",
+          "content": "应为 $\\sum x_i+nc$，不是 $\\sum x_i+c$，因此命题为假。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Summation Rules",
+      "Linearity",
+      "Common Algebra Mistakes"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-35",
+    "type": "essay",
+    "question": "Explain why choosing $p=0.5$ is considered a conservative assumption when planning the sample size for estimating a population proportion. Your explanation should include the role of $p(1-p)$ in the Margin of Error formula and a brief mathematical justification.",
+    "answer": "Because the Margin of Error is proportional to $\\sqrt{p(1-p)/n}, $ the term $p(1-p)$ is maximized at $p=0.5, $ which yields the largest required $n$ for any fixed confidence level and ME target.",
+    "analysis": {
+      "solution": "保守估计的核心是\"宁可样本量大一点也要保证误差满足要求\"。由于 $ME=z\\sqrt{\\frac{p(1-p)}{n}}$，在 $z$ 与目标 $ME$ 固定时，所需样本量 $n=\\frac{z^2p(1-p)}{ME^2}$ 与 $p(1-p)$ 成正比。$p(1-p)$ 在 $p=0.5$ 取得最大值 0.2 $5$，因此选择 $p=0.5$ 会给出最大的（最安全的）样本量。",
+      "decoding": [
+        "指出 $ME$ 与 $p(1-p)$ 的关系：$ME\\ropto \\sqrt{p(1-p)}$。",
+        "把样本量规划转化为求 $n$ 的表达式：$n=\\frac{z^2p(1-p)}{ME^2}$。",
+        "证明 $p(1-p)$ 在 $p=0.5$ 最大，从而 $n$ 最大。"
+      ],
+      "conditions": [
+        {
+          "title": "误差边界与样本量公式",
+          "content": "$ME=z\\sqrt{\\frac{p(1-p)}{n}},\\quad n=\\frac{z^2p(1-p)}{ME^2}$",
+          "description": "在置信水平（$z$）与目标误差（$ME$）固定的情况下，$n$ 的变化只由 $p(1-p)$ 决定。"
+        },
+        {
+          "title": "最大化 $p(1-p)$",
+          "content": "$p(1-p)=-(p-\\frac{1}{2})^2+\\frac{1}{4}$",
+          "description": "完全平方表明最大值为 $\\frac{1}{4}$，最大点为 $p=\\frac{1}{2}$。"
+        }
+      ],
+      "traps": [
+        "把\"保守\"误认为\"样本量最小\"，实际上是保证在最不利情况下仍满足误差要求。",
+        "只背结论 $p=0.5$，但说不清它为何对应最大方差与最大样本量。",
+        "忽略 $ME$ 公式中的平方根，导致对缩放关系理解错误。"
+      ],
+      "steps": [
+        {
+          "title": "从 ME 公式出发",
+          "content": "写出 $ME=z\\sqrt{\\frac{p(1-p)}{n}}$，明确误差受 $p(1-p)$ 影响。",
+          "tag": "建模"
+        },
+        {
+          "title": "解出样本量并定位关键项",
+          "content": "变形得 $n=\\frac{z^2p(1-p)}{ME^2}$，因此在固定 $z,ME$ 下要考虑 $p(1-p)$ 的最大可能值。",
+          "tag": "推导"
+        },
+        {
+          "title": "证明最大点并解释\"保守\"含义",
+          "content": "由 $p(1-p)=-(p-\\frac{1}{2})^2+\\frac{1}{4}$，最大在 $p=0.5$，使 $n$ 最大，从而覆盖任何未知真实比例，属于保守设计。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Conservative Sample Size",
+      "Bernoulli Variance",
+      "Margin of Error Formula"
+    ],
+    "source": "Textbook"
+  }
+]

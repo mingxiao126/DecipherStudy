@@ -1,1 +1,38 @@
-[{"name": "微观经济学练习", "file": "practice_micro_econ.json"}]
+[
+    {
+        "name": "微观经济学练习",
+        "file": "practice_micro_econ.json"
+    },
+    {
+        "id": "ds_1771753367037",
+        "name": "[自定义] 经济学 - 0221作业",
+        "file": "practice_经济学_0221作业.json",
+        "subject": "经济学",
+        "createdAt": "2026-02-22T09:42:47.037Z",
+        "updatedAt": "2026-02-22T09:42:47.037Z"
+    },
+    {
+        "id": "ds_1771757402311",
+        "name": "[自定义] 经济学 - Real GDP",
+        "file": "practice_经济学_real_gdp.json",
+        "subject": "经济学",
+        "createdAt": "2026-02-22T10:50:02.311Z",
+        "updatedAt": "2026-02-22T10:50:02.311Z"
+    },
+    {
+        "id": "ds_1771808630445",
+        "name": "[自定义] 统计学 - 第四周练习题(1)",
+        "file": "practice_统计学_第四周练习题(1).json",
+        "subject": "统计学",
+        "createdAt": "2026-02-23T01:03:50.445Z",
+        "updatedAt": "2026-02-23T01:03:50.445Z"
+    },
+    {
+        "id": "ds_1771810273435",
+        "name": "[自定义] 统计学 - 第四周练习题(2)",
+        "file": "practice_统计学_第四周练习题(2).json",
+        "subject": "统计学",
+        "createdAt": "2026-02-23T01:31:13.435Z",
+        "updatedAt": "2026-02-23T01:31:13.435Z"
+    }
+]

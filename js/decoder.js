@@ -742,10 +742,58 @@ class LogicDecoder {
         console.warn('检测到旧格式的 JSON，请更新为 segments 格式');
     }
 
-    // 渲染 KaTeX 公式
+    // 渲染 KaTeX 公式，并处理基础 Markdown 列表与货币符号
     renderWithKaTeX(text) {
         if (!text) return '';
-        return text;
+        let processed = String(text);
+
+        // 1. 保护作为货币使用的 $ 符号，防止其被误认为 LaTeX 界定符
+        processed = processed.replace(/(\d+(?:,\d+)*(?:\.\d+)?)\s*\$(?!\S)/g, '$1 &#36;');
+        processed = processed.replace(/(^|\s)\$(\d+(?:,\d+)*(?:\.\d+)?)/g, '$1&#36;$2');
+
+        // 2. 修复双重转义的 LaTeX 命令 (例如 \\frac -> \frac)
+        // 这是因为 JSON 文件中常出现 "\\\\frac" ，被 JS 解析为 "\\frac" 
+        processed = processed.replace(/\\\\(?=[a-zA-Z])/g, '\\');
+
+        // 3. 处理由分号隔开的内联列表 (如 "1. A; 2. B")
+        processed = processed.replace(/;\s+(?=\d+\.\s)/g, '\n');
+
+        // 4. 修复被 JS 误解析的特殊 LaTeX 指令 (当原 JSON 使用 \notin 而不是 \\notin 时，会被解析成真实的换行符 + otin)
+        // 并且为了防止下一步的 \\n 匹配规则把真正的 \\notin 中的 \\n 给匹配切分掉，先临时替换
+        processed = processed.replace(/\notin/g, '\\notin');
+        processed = processed.replace(/\\notin/g, '__NOTIN__');
+
+        // 5. 将 \n 转换为列表或换行（忽略已被转义的 \\n）
+        let lines = processed.split(/(?<!\\)\\n|\n/);
+
+        let html = '';
+        let inUl = false;
+        let inOl = false;
+
+        for (let i = 0; i < lines.length; i++) {
+            let line = lines[i].trim();
+            if (!line) continue;
+
+            if (line.match(/^- /)) {
+                if (inOl) { html += '</ol>'; inOl = false; }
+                if (!inUl) { html += '<ul class="list-disc pl-6 my-2 space-y-1 text-slate-200 text-left">'; inUl = true; }
+                html += '<li>' + line.substring(2) + '</li>';
+            } else if (line.match(/^\d+\.\s/)) {
+                if (inUl) { html += '</ul>'; inUl = false; }
+                if (!inOl) { html += '<ol class="list-decimal pl-6 my-2 space-y-1 text-slate-200 text-left">'; inOl = true; }
+                html += '<li>' + line.replace(/^\d+\.\s+/, '') + '</li>';
+            } else {
+                if (inUl) { html += '</ul>'; inUl = false; }
+                if (inOl) { html += '</ol>'; inOl = false; }
+                html += '<div>' + line + '</div>';
+            }
+        }
+
+        if (inUl) html += '</ul>';
+        if (inOl) html += '</ol>';
+
+        html = html.replace(/__NOTIN__/g, "\\\\notin");
+        return html;
     }
 
     // 预处理文本：保护货币符号和百分比符号，并修复多余的转义

@@ -1,0 +1,616 @@
+[
+  {
+    "question": "Define a Bernoulli Random Variable and its key properties. Provide an example from a business context.",
+    "answer": {
+      "final_answer": "伯努利变量是只能取两个值（通常为0和1）的随机变量，其期望为 $E(X)=p$，方差为 $Var(X)=p(1-p)$。",
+      "key_points": [
+        "定义：成功概率 $P(X=1)=p$，失败概率 $P(X=0)=1-p$。",
+        "期望值：$E(X)=p$。",
+        "方差：$Var(X)=p(1-p)$，标准差 $\\sigma=\\sqrt{p(1-p)}$。",
+        "商业实例：客户是否购买产品（买=1，不买=0）。"
+      ],
+      "tested_points": [
+        "伯努利分布的定义",
+        "期望与方差公式应用"
+      ],
+      "logic_memo": "伯努利变量就像一个开关，要么开(1)，要么关(0)，平均值就是开关打开的概率。"
+    },
+    "category": "Probability & Distributions",
+    "type": "概念题",
+    "signals": [
+      "Bernoulli Variable",
+      "p(1-p)",
+      "Expectation"
+    ],
+    "steps": [
+      "Step 1: 确认随机变量只有两个可能取值。",
+      "Step 2: 设成功概率为 $p$。",
+      "Step 3: 使用 $E(X)=p$ 与 $Var(X)=p(1-p)$ 计算性质。"
+    ],
+    "glossary": [
+      {
+        "term": "Bernoulli Random Variable",
+        "definition": "A discrete random variable that takes value 1 with probability p and 0 with probability 1-p."
+      }
+    ],
+    "source_reference": "统计学第五周 P1, P2"
+  },
+  {
+    "question": "What are the three core conclusions of the Central Limit Theorem (CLT) as sample size (n) increases?",
+    "answer": {
+      "final_answer": "随着样本量增加，抽样分布趋向正态分布，中心为总体均值 $\\mu$，标准误 $SE=\\frac{\\sigma}{\\sqrt{n}}$ 逐渐减小。",
+      "key_points": [
+        "形态：分布趋近正态分布。",
+        "中心：抽样均值的期望为 $\\mu$。",
+        "离散程度：$SE=\\frac{\\sigma}{\\sqrt{n}}$ 随 $n$ 增大而减小。"
+      ],
+      "tested_points": [
+        "中心极限定理的三要素"
+      ],
+      "logic_memo": "样本越多，数据越整齐，最后都会排成钟形。"
+    },
+    "category": "Sampling Distributions",
+    "type": "概念题",
+    "signals": [
+      "CLT",
+      "Bell-shaped",
+      "Standard Error"
+    ],
+    "steps": [
+      "Step 1: 分析样本量 $n$ 的变化。",
+      "Step 2: 判断分布形态变化。",
+      "Step 3: 使用 $SE=\\frac{\\sigma}{\\sqrt{n}}$ 分析离散度。"
+    ],
+    "glossary": [
+      {
+        "term": "Central Limit Theorem",
+        "definition": "As sample size increases, the sampling distribution of the mean approaches a normal distribution."
+      }
+    ],
+    "source_reference": "统计学第六周 P1"
+  },
+  {
+    "question": "A business game costs $15 per play. A die is rolled, and if a 6 appears, the player wins $120. Calculate the Expected Profit for 10 plays.",
+    "answer": {
+      "final_answer": "预期利润为 $50$。",
+      "key_points": [
+        "单次成功概率为 $\\frac{1}{6}$。",
+        "总期望收入为 $120 \\times 10 \\times \\frac{1}{6}=200$。",
+        "总成本为 $15 \\times 10=150$，利润 $=200-150=50$。"
+      ],
+      "tested_points": [
+        "期望值计算",
+        "利润模型构建"
+      ],
+      "logic_memo": "先算平均能赚多少钱，再减去成本才是真利润。"
+    },
+    "category": "Probability & Distributions",
+    "type": "计算题",
+    "signals": [
+      "Expected Profit",
+      "Expected Value"
+    ],
+    "steps": [
+      "Step 1: 计算单次期望收益 $120 \\times \\frac{1}{6}$。",
+      "Step 2: 乘以 10 得总期望收入。",
+      "Step 3: 减去总成本 $15 \\times 10$。"
+    ],
+    "glossary": [
+      {
+        "term": "Expected Value",
+        "definition": "The weighted average of all possible outcomes of a random variable."
+      }
+    ],
+    "source_reference": "统计学第五周 P1"
+  },
+  {
+    "question": "How do you identify the sample size (n) from multiple histograms of sample proportions?",
+    "answer": {
+      "final_answer": "图形越窄且越接近正态分布的直方图，其对应的样本量 $n$ 越大，因为标准误 $SE=\\sqrt{\\frac{p(1-p)}{n}}$ 随 $n$ 增大而减小。",
+      "key_points": [
+        "小样本：$n$ 小时，$SE$ 大，图形较宽且可能偏斜。",
+        "大样本：$n$ 大时，$SE$ 小，图形更窄更集中。",
+        "判断依据：分布宽度与 $\\frac{1}{\\sqrt{n}}$ 成反比。"
+      ],
+      "tested_points": [
+        "抽样分布离散度判断",
+        "标准误与样本量关系"
+      ],
+      "logic_memo": "样本越多，平均值越稳定，图形就越瘦越集中。"
+    },
+    "category": "Sampling Distributions",
+    "type": "对比题",
+    "signals": [
+      "Histogram Interpretation",
+      "Spread vs n"
+    ],
+    "steps": [
+      "Step 1: 观察直方图的宽度。",
+      "Step 2: 判断是否接近正态分布。",
+      "Step 3: 利用 $SE=\\sqrt{\\frac{p(1-p)}{n}}$ 判断样本量大小。"
+    ],
+    "glossary": [
+      {
+        "term": "Sample Proportion",
+        "definition": "The proportion of successes in a sample, often denoted as $\\hat{p}$."
+      }
+    ],
+    "source_reference": "统计学第五周 P2"
+  },
+  {
+    "question": "What is the specific rule for the denominator when calculating the standard error of a Bernoulli sample?",
+    "answer": {
+      "final_answer": "伯努利样本比例的标准误公式为 $SE=\\sqrt{\\frac{p(1-p)}{n}}$，分母使用 $n$ 而不是 $n-1$。",
+      "key_points": [
+        "比例数据直接使用 $n$ 作为分母。",
+        "公式：$SE=\\sqrt{\\frac{p(1-p)}{n}}$。"
+      ],
+      "tested_points": [
+        "比例标准误公式识别"
+      ],
+      "logic_memo": "算比例时不用减1，直接用全部样本数。"
+    },
+    "category": "Sampling Distributions",
+    "type": "概念题",
+    "signals": [
+      "Standard Error",
+      "n vs n-1"
+    ],
+    "steps": [
+      "Step 1: 写出比例标准误公式。",
+      "Step 2: 检查分母是否为 $n$。",
+      "Step 3: 避免误用 $n-1$。"
+    ],
+    "glossary": [
+      {
+        "term": "Standard Error",
+        "definition": "The standard deviation of a sampling distribution."
+      }
+    ],
+    "source_reference": "统计学第五周 P2"
+  },
+  {
+    "question": "If you want to reduce the Standard Error (SE) by half, how many times must you increase the sample size (n)?",
+    "answer": {
+      "final_answer": "若 $SE=\\frac{\\sigma}{\\sqrt{n}}$，要使 $SE$ 减半，则 $\\sqrt{n}$ 需变为原来的 2 倍，因此样本量需增加为原来的 4 倍。",
+      "key_points": [
+        "标准误与 $\\frac{1}{\\sqrt{n}}$ 成反比。",
+        "因为 $\\sqrt{4n}=2\\sqrt{n}$，所以样本量需乘以 4。"
+      ],
+      "tested_points": [
+        "平方根关系理解"
+      ],
+      "logic_memo": "想更精确一倍，就得付出四倍样本量的成本。"
+    },
+    "category": "Inference Statistics",
+    "type": "计算题",
+    "signals": [
+      "SE reduction",
+      "Sample size relationship"
+    ],
+    "steps": [
+      "Step 1: 写出 $SE=\\frac{\\sigma}{\\sqrt{n}}$。",
+      "Step 2: 设新标准误为原来的一半。",
+      "Step 3: 解方程得 $n$ 需乘以 4。"
+    ],
+    "glossary": [
+      {
+        "term": "Law of Large Numbers",
+        "definition": "As sample size increases, sample statistics converge to population parameters."
+      }
+    ],
+    "source_reference": "统计学第四周 P1"
+  },
+  {
+    "question": "Contrast the use of Z-distribution and t-distribution. When is the t-distribution required?",
+    "answer": {
+      "final_answer": "当总体标准差 $\\sigma$ 未知且用样本标准差 $s$ 代替时，需要使用 t-分布；其自由度为 $df=n-1$，尾部更厚以反映额外不确定性。",
+      "key_points": [
+        "Z-分布：适用于 $\\sigma$ 已知（或样本足够大且用正态近似）时的均值推断。",
+        "t-分布：当 $\\sigma$ 未知，用 $s$ 估计标准误时使用。",
+        "自由度：t-分布依赖 $df=n-1$，样本越小尾部越厚。"
+      ],
+      "tested_points": [
+        "Z 与 t 的适用条件",
+        "自由度概念"
+      ],
+      "logic_memo": "不知道真实波动有多大，只能用样本去猜时，就得用更保守的 t 来留余地。"
+    },
+    "category": "Inference Statistics",
+    "type": "对比题",
+    "signals": [
+      "t-distribution",
+      "Degrees of Freedom",
+      "Sigma unknown"
+    ],
+    "steps": [
+      "Step 1: 判断 $\\sigma$ 是否已知。",
+      "Step 2: 若未知则用 $s$ 估计并选择 t-分布。",
+      "Step 3: 计算自由度 $df=n-1$ 并查 t 临界值。"
+    ],
+    "glossary": [
+      {
+        "term": "t-distribution",
+        "definition": "A distribution used for inference about a mean when $\\sigma$ is unknown and estimated by $s$."
+      }
+    ],
+    "source_reference": "统计学第六周 P1, P3"
+  },
+  {
+    "question": "Identify the standard multipliers for 90%, 95%, and 99% confidence levels.",
+    "answer": {
+      "final_answer": "常用快速近似乘数：90% 约为 1.65，95% 约为 1.96（常口算近似为 2），99% 约为 2.58（有时口算近似为 2.64）。",
+      "key_points": [
+        "90%：$z^\\approx 1.645$。",
+        "95%：$z^\\approx 1.96$（常近似为 2）。",
+        "99%：$z^\\approx 2.576$（有时课堂用 2.58 或近似 2.64）。"
+      ],
+      "tested_points": [
+        "常见置信水平与临界值对应"
+      ],
+      "logic_memo": "越想更有把握，乘数就越大，区间就越宽。"
+    },
+    "category": "Inference Statistics",
+    "type": "概念题",
+    "signals": [
+      "Confidence Multipliers",
+      "90%",
+      "95%",
+      "99%"
+    ],
+    "steps": [
+      "Step 1: 确定置信水平 $1-\\alpha$。",
+      "Step 2: 查标准正态分布的临界值 $z^$。",
+      "Step 3: 用 $ME=z^\\times SE$ 形成区间。"
+    ],
+    "glossary": [
+      {
+        "term": "Critical Value",
+        "definition": "A cutoff value (e.g., $z^$) that determines the width of a confidence interval."
+      }
+    ],
+    "source_reference": "统计学第六周 P1"
+  },
+  {
+    "question": "What happens to the width of a Confidence Interval (CI) when (a) the confidence level increases, and (b) the sample size increases?",
+    "answer": {
+      "final_answer": "(a) 置信水平提高会使乘数变大，从而区间变宽；(b) 样本量增大会使标准误变小，从而区间变窄，因为 $CI=\\text{estimate}\\pm (\\text{multiplier}\\times SE)$。",
+      "key_points": [
+        "置信水平提高：乘数（如 $z^$ 或 $t^$）增大，$ME=\\text{multiplier}\\times SE$ 变大，CI 变宽。",
+        "样本量提高：$SE\\propto \\frac{1}{\\sqrt{n}}$，$SE$ 变小，$ME$ 变小，CI 变窄。"
+      ],
+      "tested_points": [
+        "CI 宽度的权衡关系"
+      ],
+      "logic_memo": "想更自信就得说得更宽泛；想更精准就得多采样让 SE 变小。"
+    },
+    "category": "Inference Statistics",
+    "type": "对比题",
+    "signals": [
+      "CI Width",
+      "Trade-offs",
+      "Confidence Level vs n"
+    ],
+    "steps": [
+      "Step 1: 写出 $CI=\\hat{\\theta}\\pm ME$。",
+      "Step 2: 用 $ME=\\text{multiplier}\\times SE$ 分析置信水平变化。",
+      "Step 3: 用 $SE\\propto \\frac{1}{\\sqrt{n}}$ 分析样本量变化。"
+    ],
+    "glossary": [
+      {
+        "term": "Confidence Interval",
+        "definition": "An interval estimate constructed as point estimate plus/minus a margin of error."
+      }
+    ],
+    "source_reference": "统计学第六周 P2, 第四周 P1"
+  },
+  {
+    "question": "Why is it incorrect to say 'there is a 95% probability that the true population mean falls in this interval'?",
+    "answer": {
+      "final_answer": "因为总体参数 $\\mu$ 是固定常数而非随机变量，它要么在区间内要么不在；95% 描述的是构造方法的长期成功率，而不是该区间的概率。",
+      "key_points": [
+        "参数固定：$\\mu$ 是未知但固定的常数，不具有概率分布。",
+        "区间随机：区间端点依赖样本，因此是随机的。",
+        "正确表述：按此方法重复抽样构造的区间中，约有 95% 会包含 $\\mu$。"
+      ],
+      "tested_points": [
+        "置信区间的频率学解释"
+      ],
+      "logic_memo": "目标是不动的，随机的是你每次画的区间；95% 说的是方法的命中率。"
+    },
+    "category": "Inference Statistics",
+    "type": "概念题",
+    "signals": [
+      "Confidence Interpretation",
+      "Fixed parameter",
+      "Frequentist view"
+    ],
+    "steps": [
+      "Step 1: 区分固定参数与随机样本。",
+      "Step 2: 理解区间公式 $\\hat{\\theta}\\pm ME$ 的随机性来源。",
+      "Step 3: 用长期频率解释 95% 的含义。"
+    ],
+    "glossary": [
+      {
+        "term": "Population Mean",
+        "definition": "The fixed true average of a population, often denoted as $\\mu$."
+      }
+    ],
+    "source_reference": "统计学第六周 P2"
+  },
+  {
+    "question": "How do you calculate the Z-statistic for a point estimate in hypothesis testing?",
+    "answer": {
+      "final_answer": "Z 统计量计算公式为 $z=\\frac{\\hat{p}-p_0}{\\sqrt{\\frac{p_0(1-p_0)}{n}}}$，表示样本比例距离零假设比例有多少个标准误。",
+      "key_points": [
+        "核心结构：统计量 = 差值 ÷ 标准误。",
+        "比例检验公式：$z=\\frac{\\hat{p}-p_0}{\\sqrt{\\frac{p_0(1-p_0)}{n}}}$。",
+        "决策规则：若 $|z|>z^*$，则拒绝零假设。"
+      ],
+      "tested_points": [
+        "Z 检验公式应用"
+      ],
+      "logic_memo": "Z 值就是看你离假设中心有多远，用标准误做刻度尺。"
+    },
+    "category": "Hypothesis Testing",
+    "type": "计算题",
+    "signals": [
+      "Z-statistic",
+      "Hypothesis test",
+      "p0"
+    ],
+    "steps": [
+      "Step 1: 写出零假设比例 $p_0$。",
+      "Step 2: 计算标准误 $\\sqrt{\\frac{p_0(1-p_0)}{n}}$。",
+      "Step 3: 用差值除以标准误得到 $z$。"
+    ],
+    "glossary": [
+      {
+        "term": "Z-statistic",
+        "definition": "A standardized test statistic measuring distance in units of standard error."
+      }
+    ],
+    "source_reference": "统计学第四周 P1"
+  },
+  {
+    "question": "Distinguish between Statistical Significance and Practical Significance.",
+    "answer": {
+      "final_answer": "统计显著性关注结果是否由随机波动产生，通常基于 $p$ 值；实际显著性关注差异在现实中的重要程度，两者并不等同。",
+      "key_points": [
+        "统计显著：当 $p<\\alpha$ 时拒绝零假设。",
+        "样本量影响：大样本下微小差异也可能显著。",
+        "实际显著：关注效应大小是否具有业务或现实意义。"
+      ],
+      "tested_points": [
+        "p 值局限性",
+        "效应大小概念"
+      ],
+      "logic_memo": "统计显著说明差异存在，实际显著说明差异值不值得在现实中行动。"
+    },
+    "category": "Hypothesis Testing",
+    "type": "对比题",
+    "signals": [
+      "Statistical vs Practical",
+      "Effect size",
+      "p-value"
+    ],
+    "steps": [
+      "Step 1: 判断 $p$ 值是否小于显著性水平 $\\alpha$。",
+      "Step 2: 评估差异的实际大小。",
+      "Step 3: 结合统计结果与现实背景做决策。"
+    ],
+    "glossary": [
+      {
+        "term": "p-value",
+        "definition": "The probability of observing data as extreme as the sample result under the null hypothesis."
+      }
+    ],
+    "source_reference": "统计学第四周 P2"
+  },
+  {
+    "question": "When should a Chi-Square Goodness-of-Fit Test be used instead of a Z-Test?",
+    "answer": {
+      "final_answer": "当数据为两个以上类别的频数数据，且需要检验观测频数是否符合某一理论分布时，应使用卡方适配度检验，其统计量为 $\\chi^2=\\sum \\frac{(O_i-E_i)^2}{E_i}$。",
+      "key_points": [
+        "Z 检验通常用于单一比例或两比例比较。",
+        "卡方检验适用于多分类频数数据。",
+        "核心统计量：$\\chi^2=\\sum \\frac{(O_i-E_i)^2}{E_i}$。"
+      ],
+      "tested_points": [
+        "检验方法选择",
+        "卡方统计量结构"
+      ],
+      "logic_memo": "两类比例比拼用 Z，多类别整体匹配看卡方。"
+    },
+    "category": "Hypothesis Testing",
+    "type": "对比题",
+    "signals": [
+      "Chi-Square",
+      "Goodness-of-Fit",
+      "Multicategory data"
+    ],
+    "steps": [
+      "Step 1: 判断类别数量是否大于 2。",
+      "Step 2: 计算期望频数 $E_i=n p_i$。",
+      "Step 3: 使用 $\\chi^2=\\sum \\frac{(O_i-E_i)^2}{E_i}$ 计算统计量。"
+    ],
+    "glossary": [
+      {
+        "term": "Chi-Square Statistic",
+        "definition": "A test statistic measuring deviation between observed and expected frequencies."
+      }
+    ],
+    "source_reference": "统计学第四周 P1, P2"
+  },
+  {
+    "question": "How do you calculate the Expected Frequency (Ei) in a Chi-Square test?",
+    "answer": {
+      "final_answer": "期望频数计算公式为 $E_i=n p_i$，即总样本量乘以零假设下该类别的理论概率。",
+      "key_points": [
+        "定义：若零假设成立时理论应出现的频数。",
+        "公式：$E_i=n p_i$。",
+        "示例：若 $n=100$ 且三类均等 $p_i=\\frac{1}{3}$，则 $E_i=\\frac{100}{3}\\approx 33.33$。"
+      ],
+      "tested_points": [
+        "期望频数计算"
+      ],
+      "logic_memo": "期望频数就是按理论比例分蛋糕，每类分到 $n p_i$。"
+    },
+    "category": "Hypothesis Testing",
+    "type": "计算题",
+    "signals": [
+      "Expected Frequency",
+      "Ei calculation"
+    ],
+    "steps": [
+      "Step 1: 写出零假设概率 $p_i$。",
+      "Step 2: 计算 $E_i=n p_i$。",
+      "Step 3: 与观测频数 $O_i$ 比较。"
+    ],
+    "glossary": [
+      {
+        "term": "Expected Frequency",
+        "definition": "The theoretical frequency for a category under the null hypothesis."
+      }
+    ],
+    "source_reference": "统计学第四周 P2"
+  },
+  {
+    "question": "Differentiate between the following summation notations: Σ(xi), Σ(xi^2), and (Σxi)^2.",
+    "answer": {
+      "final_answer": "$\\sum x_i$ 表示直接求和；$\\sum x_i^2$ 表示先平方再求和；$(\\sum x_i)^2$ 表示先求和再整体平方，两者一般不相等。",
+      "key_points": [
+        "$\\sum x_i^2=\\sum (x_i^2)$。",
+        "$(\\sum x_i)^2$ 是整体平方，通常不等于 $\\sum x_i^2$。",
+        "二者区别在方差公式中至关重要。"
+      ],
+      "tested_points": [
+        "求和符号理解",
+        "代数运算顺序"
+      ],
+      "logic_memo": "先平方再加和，和先加和再平方，顺序不同结果完全不同。"
+    },
+    "category": "Mathematical Foundations",
+    "type": "对比题",
+    "signals": [
+      "Summation Notation",
+      "Sigma calculation"
+    ],
+    "steps": [
+      "Step 1: 明确平方位置。",
+      "Step 2: 分别展开示例进行对比。",
+      "Step 3: 说明其在方差公式中的作用。"
+    ],
+    "glossary": [
+      {
+        "term": "Summation Notation",
+        "definition": "The symbol $\\sum$ indicates the sum of a sequence of terms."
+      }
+    ],
+    "source_reference": "统计学第四周 P2"
+  },
+  {
+    "question": "What happens to the distribution spread as we move from n=1, n=2, to n=8 in a die-roll experiment?",
+    "answer": {
+      "final_answer": "随着样本量从 $n=1$ 增加到 $n=8$，样本均值的分布中心保持在 $\\mu=3.5$，但标准误 $SE=\\frac{\\sigma}{\\sqrt{n}}$ 逐渐减小，分布越来越窄并趋近正态分布。",
+      "key_points": [
+        "中心不变：公平骰子的总体均值为 $\\mu=\\frac{1+2+3+4+5+6}{6}=3.5$。",
+        "离散减小：$SE=\\frac{\\sigma}{\\sqrt{n}}$，$n$ 越大，$SE$ 越小。",
+        "形态变化：由均匀分布逐渐过渡为近似钟形分布。"
+      ],
+      "tested_points": [
+        "中心极限定理动态理解",
+        "标准误随样本量变化"
+      ],
+      "logic_memo": "掷得越多，平均值越稳定，不再大起大落，而是聚在 3.5 附近。"
+    },
+    "category": "Sampling Distributions",
+    "type": "流程题",
+    "signals": [
+      "Die roll",
+      "Spread narrowing",
+      "CLT demonstration"
+    ],
+    "steps": [
+      "Step 1: 计算总体均值 $\\mu=3.5$。",
+      "Step 2: 写出 $SE=\\frac{\\sigma}{\\sqrt{n}}$。",
+      "Step 3: 比较 $n=1,2,8$ 时 $SE$ 的变化趋势。"
+    ],
+    "glossary": [
+      {
+        "term": "Standard Error",
+        "definition": "The standard deviation of the sampling distribution, equal to $\\frac{\\sigma}{\\sqrt{n}}$ for sample means."
+      }
+    ],
+    "source_reference": "统计学第六周 P1, P2"
+  },
+  {
+    "question": "Define the Margin of Error (ME) and explain its relationship with Standard Error (SE).",
+    "answer": {
+      "final_answer": "误差边界定义为 $ME=z^* \\times SE$（或 $t^* \\times SE$），它决定了置信区间 $\\hat{\\theta} \\pm ME$ 的半径。",
+      "key_points": [
+        "核心公式：$ME=\\text{multiplier} \\times SE$。",
+        "置信区间结构：$\\hat{\\theta} \\pm ME$。",
+        "样本量影响：$SE\\propto \\frac{1}{\\sqrt{n}}$，因此 $n$ 增大时 $ME$ 减小。"
+      ],
+      "tested_points": [
+        "置信区间构成",
+        "误差来源理解"
+      ],
+      "logic_memo": "SE 是波动大小，ME 是为这份波动预留的安全缓冲带。"
+    },
+    "category": "Inference Statistics",
+    "type": "概念题",
+    "signals": [
+      "Margin of Error",
+      "ME formula",
+      "Confidence Interval"
+    ],
+    "steps": [
+      "Step 1: 写出置信区间形式 $\\hat{\\theta} \\pm ME$。",
+      "Step 2: 代入 $ME=z^* \\times SE$。",
+      "Step 3: 分析 $SE=\\frac{\\sigma}{\\sqrt{n}}$ 对 $ME$ 的影响。"
+    ],
+    "glossary": [
+      {
+        "term": "Margin of Error",
+        "definition": "The amount added and subtracted from a point estimate to form a confidence interval."
+      }
+    ],
+    "source_reference": "统计学第六周 P1"
+  },
+  {
+    "question": "Under what circumstance would the Law of Large Numbers be visually represented as convergence in a proportion graph?",
+    "answer": {
+      "final_answer": "当样本量 $n$ 不断增加时，样本比例 $\\hat{p}$ 会逐渐趋近总体概率 $p$，表现为图中比例曲线向 $p$ 收敛，这体现了大数定律。",
+      "key_points": [
+        "比例定义：$\\hat{p}=\\frac{X}{n}$。",
+        "收敛性质：当 $n\\to\\infty$ 时，$\\hat{p}\\to p$。",
+        "图形特征：波动幅度随 $n$ 增大而减小。"
+      ],
+      "tested_points": [
+        "大数定律的图形理解"
+      ],
+      "logic_memo": "做的次数越多，算出来的比例越接近真实概率，曲线就越贴近中心线。"
+    },
+    "category": "Sampling Distributions",
+    "type": "概念题",
+    "signals": [
+      "Law of Large Numbers",
+      "Convergence",
+      "Proportion graph"
+    ],
+    "steps": [
+      "Step 1: 写出样本比例 $\\hat{p}=\\frac{X}{n}$。",
+      "Step 2: 理解极限关系 $\\hat{p}\\to p$。",
+      "Step 3: 结合图形说明波动收敛现象。"
+    ],
+    "glossary": [
+      {
+        "term": "Law of Large Numbers",
+        "definition": "A theorem stating that sample averages converge to the population mean as sample size increases."
+      }
+    ],
+    "source_reference": "统计学第五周 P1"
+  }
+]

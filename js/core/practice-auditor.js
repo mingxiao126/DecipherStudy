@@ -64,6 +64,34 @@
             }
         });
 
+        if (q.question && typeof q.question !== 'string') {
+            addIssue(issues, 'Blocker', 'struct', 'PRAC_STR_002', `${loc}.question`, 'question 必须为字符串。', '将 question 字段转为字符串。');
+        }
+
+        if (q.question_table) {
+            const qt = q.question_table;
+            const qtLoc = `${loc}.question_table`;
+            if (typeof qt !== 'object' || Array.isArray(qt)) {
+                addIssue(issues, 'Blocker', 'struct', 'QA_TABLE_001', qtLoc, 'question_table 必须是对象。', '使用对象结构 {columns, rows}。');
+            } else {
+                if (!Array.isArray(qt.columns) || qt.columns.length === 0) {
+                    addIssue(issues, 'Blocker', 'struct', 'QA_TABLE_001', `${qtLoc}.columns`, 'columns 必须是非空数组。', '提供表格列名数组。');
+                }
+                if (!Array.isArray(qt.rows)) {
+                    addIssue(issues, 'Blocker', 'struct', 'QA_TABLE_001', `${qtLoc}.rows`, 'rows 必须是二维数组。', '提供行数据数组。');
+                } else if (Array.isArray(qt.columns)) {
+                    const expectedCols = qt.columns.length;
+                    qt.rows.forEach((row, rIdx) => {
+                        if (!Array.isArray(row)) {
+                            addIssue(issues, 'Blocker', 'struct', 'QA_TABLE_001', `${qtLoc}.rows[${rIdx}]`, '每一行必须是数组。', '使用数组表示行数据。');
+                        } else if (row.length !== expectedCols) {
+                            addIssue(issues, 'Blocker', 'struct', 'QA_TABLE_001', `${qtLoc}.rows[${rIdx}]`, `列数 ${row.length} 与表头 ${expectedCols} 不符。`, '对齐每行的列数。');
+                        }
+                    });
+                }
+            }
+        }
+
         const hasAnswer = q.answer !== undefined && q.answer !== null && q.answer !== '';
         if (!hasAnswer) {
             addIssue(issues, 'Blocker', 'struct', 'PRAC_STR_002', `${loc}.answer`, '缺少答案或答案为空。', '补齐 answer 字段。');

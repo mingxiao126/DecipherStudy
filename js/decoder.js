@@ -47,6 +47,27 @@ class LogicDecoder {
         try {
             const builtInTopics = await window.fetchUserTopics('decoder');
             this.topics = [...builtInTopics, ...customTopics];
+
+            // Infer missing subjects
+            this.topics.forEach(t => {
+                if (!t.subject && t.name) {
+                    const match = t.name.match(/^([^-\s]+)\s*-/);
+                    if (match) {
+                        t.subject = match[1].trim();
+                    } else if (t.name.includes('经济学') || t.file.includes('经济学')) {
+                        t.subject = '经济学';
+                    } else if (t.name.includes('统计学') || t.file.includes('统计学')) {
+                        t.subject = '统计学';
+                    } else {
+                        t.subject = '未分类';
+                    }
+                }
+
+                if (t.subject) {
+                    t.subject = t.subject.replace(/\[.*?\]\s*/g, '').trim();
+                }
+            });
+
             this.populateSubjectSelector();
         } catch (error) {
             console.error('加载主题失败:', error);
@@ -331,10 +352,10 @@ class LogicDecoder {
             wrapperClass = 'current-info-highlight trap-highlight';
         }
 
-        // 构建HTML，如果有信息则包裹在高亮span中
+        // 构建HTML，如果有信息则包裹在高亮div中
         let innerHTML = this.renderWithKaTeX(segment.text);
         if (wrapperClass) {
-            innerHTML = `<span class="${wrapperClass} bg-yellow-400/30 px-1 rounded">${innerHTML}</span>`;
+            innerHTML = `<div class="inline-block ${wrapperClass} bg-yellow-400/30 px-1 rounded">${innerHTML}</div>`;
         }
 
         textEl.innerHTML = `

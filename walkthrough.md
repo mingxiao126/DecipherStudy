@@ -57,3 +57,16 @@
 
 ---
 *整理人：Antigravity AI*
+
+## 2026-02-23: 表格题 (question_table) 支持
+为解答某些含有数据表的经济学问题，我们在 Practice 的数据结构里引入了 `question_table` 这一可选数据结构，主要应用于题干下方。
+
+### 添加的功能
+1. **渲染器 `js/practice.js`**:
+   - 新增 `renderQuestionTable` 函数利用纯原生 table 和 Tailwind (针对 `overflow-x-auto` 提供滚动支持) 快速渲染。
+   - `question_table` 结构中允许含 `title` (顶注) 与 `note` (底注)。
+2. **校验规范 `js/core/qa-auditor.js` / `practice-auditor.js`**:
+   - 新增 `QA_TABLE_001` 校验码。
+   - 规定 `question_table` 字段若存在，则主体 `columns` 必须是非空一维数组，而 `rows` 必须为行列对齐的严格二维数组。
+3. **架构兼容**:
+   - 如果题目不含 `question_table`，仍走正常渲染路径；此字段完全按需增加。

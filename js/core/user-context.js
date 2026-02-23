@@ -23,7 +23,7 @@
     }
 
     const TOPIC_INDEX_MAP = {
-        flashcard: 'topics.json',
+        flashcard: 'flashcard_topics.json',
         decoder: 'decoder_topics.json',
         practice: 'practice_topics.json'
     };

@@ -23,10 +23,26 @@ class PracticeApp {
             const builtInTopics = await window.fetchUserTopics('practice');
             this.topics = builtInTopics;
 
-            // Extract unique subjects
+            // Extract unique subjects and infer missing ones
             const subjects = new Set();
             this.topics.forEach(t => {
-                if (t.subject) subjects.add(t.subject);
+                if (!t.subject && t.name) {
+                    const match = t.name.match(/^([^-\s]+)\s*-/);
+                    if (match) {
+                        t.subject = match[1].trim();
+                    } else if (t.name.includes('经济学') || t.file.includes('经济学')) {
+                        t.subject = '经济学';
+                    } else if (t.name.includes('统计学') || t.file.includes('统计学')) {
+                        t.subject = '统计学';
+                    } else {
+                        t.subject = '未分类';
+                    }
+                }
+
+                if (t.subject) {
+                    t.subject = t.subject.replace(/\[.*?\]\s*/g, '').trim();
+                    subjects.add(t.subject);
+                }
             });
 
             if (subjects.size > 0) {
@@ -120,6 +136,11 @@ class PracticeApp {
                 </div>
                 <div class="text-lg text-white mb-6 leading-relaxed">${this.preprocessMath(q.question)}</div>
             `;
+
+            if (q.question_table) {
+                html += this.renderQuestionTable(q.question_table);
+            }
+
 
             if (q.type === 'choice') {
                 html += `<div class="options-list grid gap-3" data-q-idx="${index}">
@@ -237,6 +258,44 @@ class PracticeApp {
                 throwOnError: false
             });
         }
+    }
+
+    renderQuestionTable(tableData) {
+        if (!tableData || typeof tableData !== 'object') return '';
+        if (!Array.isArray(tableData.columns) || !Array.isArray(tableData.rows)) return '';
+
+        const escapeHtml = (unsafe) => String(unsafe || '').replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+        let html = '<div class="question-table-container mt-2 mb-6 overflow-x-auto rounded border border-slate-700 bg-slate-800/40 p-3 shadow-inner">';
+
+        if (tableData.title) {
+            html += `<div class="text-sm font-semibold text-slate-300 mb-3 px-1 border-b border-slate-700/50 pb-2">${escapeHtml(tableData.title)}</div>`;
+        }
+
+        html += '<table class="w-full text-left border-collapse text-sm text-slate-200 min-w-max">';
+        html += '<thead><tr class="bg-slate-700/60">';
+        tableData.columns.forEach(col => {
+            html += `<th class="p-3 border border-slate-600 font-medium whitespace-nowrap">${this.preprocessMath(col)}</th>`;
+        });
+        html += '</tr></thead>';
+
+        html += '<tbody>';
+        tableData.rows.forEach(row => {
+            if (!Array.isArray(row)) return;
+            html += '<tr class="hover:bg-slate-700/30 transition-colors">';
+            row.forEach(cell => {
+                html += `<td class="p-3 border border-slate-700/80 whitespace-nowrap">${this.preprocessMath(cell)}</td>`;
+            });
+            html += '</tr>';
+        });
+        html += '</tbody></table>';
+
+        if (tableData.note) {
+            html += `<div class="text-xs text-slate-400 mt-2 px-1 italic">* ${escapeHtml(tableData.note)}</div>`;
+        }
+
+        html += '</div>';
+        return html;
     }
 
     setupEventListeners() {

@@ -9,8 +9,12 @@ class FlashCardApp {
         this.isFlipped = false;
         this.timer = null;
         this.timerSeconds = 10;
+        this.timerSeconds = 10;
         this.timerInterval = null;
         this.masteryData = this.loadMasteryData(); // 从 LocalStorage 加载掌握度数据
+
+        this.subjectFilter = document.getElementById('subjectFilter');
+        this.topicSelector = document.getElementById('topicSelector');
 
         this.init();
     }
@@ -98,39 +102,97 @@ class FlashCardApp {
 
     // 加载主题列表
     async loadTopics() {
-        const selector = document.getElementById('topicSelector');
         const customTopics = this.getCustomFlashcardTopics();
 
         try {
             const builtInTopics = await window.fetchUserTopics('flashcard');
             this.topics = [...builtInTopics, ...customTopics];
             console.log('加载主题成功，内置+自定义:', this.topics.length);
-            this.populateTopicSelector();
         } catch (error) {
             console.error('加载主题失败:', error);
             this.topics = [...customTopics];
+        }
 
-            if (this.topics.length > 0) {
-                this.populateTopicSelector();
-            } else if (selector) {
-                selector.innerHTML = '<option value="">加载失败，请检查 topics.json 文件</option>';
+        // Extract unique subjects and infer missing ones
+        const subjects = new Set();
+        this.topics.forEach(t => {
+            if (!t.subject && t.name) {
+                // Try to infer subject from name like "经济学 - 第一周"
+                const match = t.name.match(/^([^-\s]+)\s*-/);
+                if (match) {
+                    t.subject = match[1].trim();
+                } else if (t.name.includes('经济学') || t.file.includes('经济学')) {
+                    t.subject = '经济学';
+                } else if (t.name.includes('统计学') || t.file.includes('统计学')) {
+                    t.subject = '统计学';
+                } else {
+                    t.subject = '未分类';
+                }
+            }
+
+            if (t.subject) {
+                t.subject = t.subject.replace(/\[.*?\]\s*/g, '').trim();
+                subjects.add(t.subject);
+            }
+        });
+
+        if (this.subjectFilter) {
+            if (subjects.size > 0) {
+                this.subjectFilter.classList.remove('hidden');
+                this.subjectFilter.innerHTML = '<option value="" disabled selected>请选择学科...</option>';
+                [...subjects].sort().forEach(sub => {
+                    const opt = document.createElement('option');
+                    opt.value = opt.textContent = sub;
+                    this.subjectFilter.appendChild(opt);
+                });
+            } else {
+                this.subjectFilter.classList.add('hidden');
             }
         }
+
+        this.renderTopicOptions();
     }
 
-    // 填充主题选择器
-    populateTopicSelector() {
-        const selector = document.getElementById('topicSelector');
-        selector.innerHTML = '<option value="">请选择主题...</option>';
+    // 渲染主题选项（带学科过滤）
+    renderTopicOptions() {
+        if (!this.topicSelector) return;
 
-        console.log('填充主题选择器，主题数量:', this.topics.length);
-        this.topics.forEach(topic => {
-            const option = document.createElement('option');
-            option.value = topic.file;
-            option.textContent = topic.name;
-            selector.appendChild(option);
-            console.log('添加主题选项:', topic.name, topic.file);
-        });
+        const selectedSubject = this.subjectFilter ? this.subjectFilter.value : '';
+
+        if (this.subjectFilter && !this.subjectFilter.classList.contains('hidden') && !selectedSubject) {
+            this.topicSelector.innerHTML = '<option value="">请先在左边选择学科</option>';
+            this.topicSelector.disabled = true;
+            this.topicSelector.classList.add('opacity-50', 'cursor-not-allowed');
+        } else {
+            this.topicSelector.innerHTML = '<option value="">请选择主题...</option>';
+            this.topicSelector.disabled = false;
+            this.topicSelector.classList.remove('opacity-50', 'cursor-not-allowed');
+
+            const filteredTopics = selectedSubject
+                ? this.topics.filter(t => t.subject === selectedSubject)
+                : this.topics;
+
+            filteredTopics.forEach(topic => {
+                const opt = document.createElement('option');
+                opt.value = topic.file;
+                opt.textContent = topic.name;
+                this.topicSelector.appendChild(opt);
+            });
+        }
+
+        if (this.topics.length === 0) {
+            this.topicSelector.innerHTML = '<option value="">加载失败或暂无内容</option>';
+            this.topicSelector.disabled = true;
+        }
+
+        // 清除旧的闪卡
+        const currentFile = this.topicSelector.value;
+        if (!currentFile && this.cards.length > 0) {
+            this.cards = [];
+            this.updateCard();
+            this.updateProgress();
+            this.updateStats();
+        }
     }
 
     // 加载选中的主题卡片
@@ -279,8 +341,9 @@ class FlashCardApp {
     // 渲染 KaTeX 公式，并处理基础 Markdown 列表与货币符号
     renderWithKaTeX(text) {
         if (!text) return '';
+        let processed = String(text);
         // 处理 Markdown 加粗格式：**文本** 转换为红色加粗
-        let processed = text.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #ef4444;">$1</strong>');
+        processed = processed.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #ef4444;">$1</strong>');
 
         // 1. 保护作为货币使用的 $ 符号，防止其被误认为 LaTeX 界定符
         processed = processed.replace(/(\d+(?:,\d+)*(?:\.\d+)?)\s*\$(?!\S)/g, '$1 &#36;');
@@ -339,7 +402,7 @@ class FlashCardApp {
     preprocessMathText(text) {
         if (!text) return { processed: text, currencyPlaceholders: [], percentPlaceholders: [] };
 
-        let processed = text;
+        let processed = String(text);
 
         // 自动修复多余的转义：将 \\% 替换为 %
         processed = processed.replace(/\\%/g, '%');
@@ -961,12 +1024,21 @@ class FlashCardApp {
 
     // 设置事件监听器
     setupEventListeners() {
+        // 学科筛选
+        if (this.subjectFilter) {
+            this.subjectFilter.addEventListener('change', () => {
+                this.renderTopicOptions();
+            });
+        }
+
         // 主题选择
-        document.getElementById('topicSelector').addEventListener('change', (e) => {
-            if (e.target.value) {
-                this.loadTopicCards(e.target.value);
-            }
-        });
+        if (this.topicSelector) {
+            this.topicSelector.addEventListener('change', (e) => {
+                if (e.target.value) {
+                    this.loadTopicCards(e.target.value);
+                }
+            });
+        }
 
 
         // 卡片翻转（点击卡片主体，但不包括按钮）

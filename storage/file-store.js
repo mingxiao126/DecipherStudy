@@ -68,7 +68,7 @@ class FileStore {
         fs.mkdirSync(userDir, { recursive: true });
 
         // 2. 初始化索引文件 (模拟建表)
-        this.writeJsonAtomic(path.join(userDir, 'topics.json'), []);
+        this.writeJsonAtomic(path.join(userDir, 'flashcard_topics.json'), []);
         this.writeJsonAtomic(path.join(userDir, 'decoder_topics.json'), []);
         this.writeJsonAtomic(path.join(userDir, 'practice_topics.json'), []);
 
@@ -104,7 +104,7 @@ class FileStore {
         const userDir = path.join(this.contentDir, userId);
         if (!fs.existsSync(userDir)) return [];
 
-        let indexFile = 'topics.json';
+        let indexFile = 'flashcard_topics.json';
         if (type === 'decoder') indexFile = 'decoder_topics.json';
         if (type === 'practice') indexFile = 'practice_topics.json';
 
@@ -140,7 +140,7 @@ class FileStore {
         this.writeJsonAtomic(targetPath, data);
 
         // 2. 更新索引元数据
-        let indexName = 'topics.json';
+        let indexName = 'flashcard_topics.json';
         if (type === 'decoder') indexName = 'decoder_topics.json';
         if (type === 'practice') indexName = 'practice_topics.json';
 

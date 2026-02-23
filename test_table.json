@@ -1,0 +1,43 @@
+[
+  {
+    "id": "test-table-001",
+    "type": "choice",
+    "question": "This is a test question with a table.",
+    "question_table": {
+      "title": "A Test Table with Math",
+      "columns": ["Country", "GDP (\\$ billions)"],
+      "rows": [
+        ["USA", "$100$"],
+        ["China", "$80$"]
+      ],
+      "note": "Note: Fake data"
+    },
+    "options": ["A", "B", "C", "D"],
+    "answer": "A",
+    "analysis": {
+      "solution": "Test solution",
+      "steps": [
+        { "title": "Step 1", "content": "Content", "tag": "Logic" }
+      ],
+      "knowledge_points": ["Testing"]
+    }
+  },
+  {
+    "id": "test-table-002",
+    "type": "choice",
+    "question": "This is a malformed table.",
+    "question_table": {
+      "columns": ["Col A", "Col B"],
+      "rows": [
+        ["A", "B"],
+        ["C"] 
+      ]
+    },
+    "options": ["A", "B"],
+    "answer": "A",
+    "analysis": {
+      "solution": "a",
+      "steps": [{"title": "s", "content": "c"}]
+    }
+  }
+]

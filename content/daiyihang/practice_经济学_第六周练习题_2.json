@@ -570,7 +570,7 @@
       "conditions": [
         {
           "title": "边际效用递减与平滑消费",
-          "content": "$MB(C) \\text{ is diminishing as } C \\text{ \\increases}$",
+          "content": "$MB(C) \\text{ is diminishing as } C \\text{ increases}$",
           "description": "随着当期消费增加，每一单位新增消费带来的效用在降低。"
         },
         {

@@ -1,0 +1,2094 @@
+[
+  {
+    "id": "econ102-m1-q1",
+    "type": "choice",
+    "question": "Which item is a form of consumption?",
+    "options": [
+      "a new computer purchased by Federal Express for one of its corporate executives",
+      "a storage facility for a moving company",
+      "a new car purchased for personal use",
+      "a dump truck purchased by a demolition company"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "个人购买的新车属于家庭消费支出（C），而其他选项均为企业的投资支出（I）。",
+      "decoding": [
+        "题干要求识别 GDP 支出法中的“消费（Consumption）”项。",
+        "消费通常指由住户（家庭）购买的用于最终使用的商品和服务。"
+      ],
+      "conditions": [
+        {
+          "title": "GDP 支出法组成",
+          "content": "$Y = C + I + G + NX$",
+          "description": "$C$ 代表消费，$I$ 代表投资，$G$ 代表政府购买，$NX$ 代表净出口。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "购买者身份误判",
+          "description": "学生容易忽略购买者的身份。识别方法：检查商品是用于家庭生活（消费）还是用于企业生产运营（投资）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别选项 A/B/D 的性质",
+          "content": "联邦快递、搬家公司和拆除公司购买的设备和设施属于企业投资支出 $I$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "识别选项 C 的性质",
+          "content": "个人购买新车属于住户部门的最终消费支出 $C$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "只有 C 选项符合消费的定义。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：企业购买的设备。正确概念：企业购买的耐用品属于固定资产投资 $I$。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：商业用途的设施。正确概念：用于经营的仓储设施属于投资 $I$。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：企业生产工具。正确概念：工业用车辆属于生产资料投资 $I$。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "GDP Components",
+      "Consumption (C)",
+      "Investment (I)"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q2",
+    "type": "choice",
+    "question": "When price functions as a message, it:",
+    "options": [
+      "inspires buyers and sellers to change behavior.",
+      "aggregates information on the market in one measure.",
+      "strengthens a buyer's or seller's position in the market.",
+      "creates a line of communication between buyers and sellers."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "价格作为“信息/消息”的功能是将市场中复杂的供需信息浓缩并聚合成一个统一的衡量指标。",
+      "decoding": [
+        "题干考察价格的三大功能之一：信息功能（Messages）。",
+        "核心任务是区分“信息（Message）”功能与“激励（Incentive）”功能。"
+      ],
+      "conditions": [
+        {
+          "title": "价格的信息功能",
+          "content": "$\\text{Price} = \\text{Market Information Aggregator}$",
+          "description": "价格反映了资源的稀缺程度和消费者的偏好。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "功能混淆陷阱",
+          "description": "学生容易把“改变行为（激励）”与“传达信息（消息）”混淆。识别方法：看选项侧重于“信号告知”还是“行为驱动”。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "理解价格作为消息",
+          "content": "价格的变化向参与者传达了市场盈余或短缺的信号。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "排除激励选项",
+          "content": "选项 A 描述的是激励功能，即促使人们做出反应。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "确认信息聚合性质",
+          "content": "选项 B 准确描述了价格将海量市场数据浓缩成一个数字的过程。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：描述的是行为改变。正确概念：这是价格的激励（Incentive）功能。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：市场地位。正确概念：价格反映市场均衡，不直接决定买卖双方的议价强弱地位。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：沟通渠道。正确概念：虽然价格起到了沟通媒介作用，但在经济学中其核心是信息的聚合。选项 B 更为精准。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Functions of Price",
+      "Price as a Message",
+      "Market Coordination"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q3",
+    "type": "choice",
+    "question": "To make each vanilla cupcake you sell at a bake sale, you use ingredients totaling 1.57 $ (flour 0.07, $ salt 0.01, $ eggs 0.86, $ sugar 0.11, $ butter 0.75, $ vanilla 1.20, $ milk 0.15 $ - note: sum is 3.15). You price your cupcakes at 3.50. $ Your value added is ____ per cupcake and each cupcake adds ____ to GDP.",
+    "options": [
+      "0.35 $; 3.50 $",
+      "3.15 $; 3.15 $",
+      "0 $; 3.50 $",
+      "3.15 $; 3.50 $"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "增加值等于销售价格减去中间投入成本（3.50 $ - 3.15 = 0.35$），而对 GDP 的贡献等于最终产品的市场价值（3.5 $0$）。",
+      "decoding": [
+        "已知中间投入成本为 0.07 $+0.01+0.86+0.11+0.75+1.20+0.15 = 3.15$ 美元。",
+        "已知最终售价为 3.50 美元。",
+        "任务：计算 Value Added 和 GDP Contribution。"
+      ],
+      "conditions": [
+        {
+          "title": "增加值公式",
+          "content": "$\\text{Value Added} = \\text{Price} - \\text{Intermediate Inputs}$",
+          "description": "生产过程中新创造的价值。"
+        },
+        {
+          "title": "GDP 贡献值",
+          "content": "$\\text{GDP Contribution} = \\text{Market Value of Final Good}$",
+          "description": "最终产品或服务的销售价格。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "计算失误陷阱",
+          "description": "学生可能会在加总原材料成本时出错。识别方法：仔细核对各项成本并累加。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算总成本",
+          "content": "中间投入总额为 0.07 $+0.01+0.86+0.11+0.75+1.20+0.15 = 3.15$ 美元。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算增加值",
+          "content": "$\\text{Value Added} = 3.50 - 3.15 = 0.35$ 美元。",
+          "tag": "计算"
+        },
+        {
+          "title": "确定 GDP 贡献",
+          "content": "根据定义，GDP 计入最终产品价值，即 3.50 美元。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：将成本误认为增加值。正确概念：增加值是售价与成本之差。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：增加值为零。正确概念：只要售价高于投入成本，就有正的增加值。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：将总成本误认为增加值。正确概念：增加值不包含中间投入价值。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Value Added",
+      "GDP Calculation",
+      "Intermediate Goods"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q4",
+    "type": "choice",
+    "question": "The price of coffee is 2.50. $ Cheryl's marginal benefit for the first cup is 8, $ and it falls by 2 $ for each additional cup. How many cups should Cheryl purchase?",
+    "options": [
+      "one",
+      "two",
+      "three",
+      "four"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "Cheryl 应该购买咖啡直到边际收益（MB）大于或等于边际成本（MC=2.50）。第三杯的 MB 为 4，高于 2.50；第四杯的 MB 为 2，低于 2.50，因此应购买三杯。",
+      "decoding": [
+        "已知价格（边际成本 $MC$）为 2.50 美元。",
+        "已知第一杯 $MB = 8$，此后每杯递减 2。",
+        "目标：寻找最优购买量，满足 $MB \\ge MC$。"
+      ],
+      "conditions": [
+        {
+          "title": "理性决策原则",
+          "content": "$MB \\ge MC$",
+          "description": "只要边际收益大于或等于边际成本，就应该继续该行为。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "停止条件陷阱",
+          "description": "学生容易在 MB 刚低于 MC 时停下，或者计算总收益。识别方法：逐个检查每一单位的 MB 是否仍覆盖价格。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "列出边际收益表",
+          "content": "第一杯：$MB=8$；第二杯：$MB=6$；第三杯：$MB=4$；第四杯：$MB=2$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "对比边际成本",
+          "content": "前三杯的 $MB$ 分别为 8, 6, 4，均大于 $MC=2.50$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "判定最优数量",
+          "content": "第四杯 $MB=2 < 2.50$，因此不应购买第四杯，最优为三杯。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：只购买第一杯。正确概念：只要后续杯数的 MB 仍高于价格，就应继续购买以最大化净收益。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：停止太早。正确概念：第三杯的 MB (4) 依然远高于价格 (2.50)。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：购买过多。正确概念：第四杯会导致边际净收益为负（2 $ - 2.50 = -0.50$）。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Marginal Analysis",
+      "Rational Decision Making",
+      "Marginal Benefit and Cost"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q5",
+    "type": "choice",
+    "question": "Suppose that nominal GDP is 1,000 $ \\in 2018 and 1,500 $ in 2019. If the overall price level increased by 50% between 2018 and 2019, we could say that real GDP:",
+    "options": [
+      "50%; stayed constant",
+      "less than 50%; decreased",
+      "more than 50%; increased",
+      "50%; increased"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "名义 GDP 增长了 50%（从 1000 到 1500），由于价格水平也增长了 50%，这意味着产量的实际增长为零，即实际 GDP 保持不变。",
+      "decoding": [
+        "2018 名义 GDP ($NGDP_{2018}$) = 1000。",
+        "2019 名义 GDP ($NGDP_{2019}$) = 1500。",
+        "物价增长率 (Inflation) = 50%。"
+      ],
+      "conditions": [
+        {
+          "title": "实际 GDP 与名义 GDP 关系",
+          "content": "$\\text{Real GDP} = \\frac{\\text{Nominal GDP}}{\\text{Price Level Index}}$",
+          "description": "实际 GDP 剔除了价格变动的影响，反映纯产量变动。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "名义与实际混淆陷阱",
+          "description": "学生可能直接看到名义 GDP 增加就认为实际 GDP 也增加了。识别方法：计算名义 GDP 的增长百分比，并与价格增长百分比对比。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算名义 GDP 增长率",
+          "content": "增长率 = $\\frac{1500 - 1000}{1000} = 50$%。",
+          "tag": "计算"
+        },
+        {
+          "title": "对比价格增长",
+          "content": "名义增长 (50%) 等于 价格增长 (50%)。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "推导产量变动",
+          "content": "由于 1 + \\Delta NGDP \\approx (1 + \\Delta RGDP) \\times (1 + \\Delta P)%，得出实际 GDP 增长为 0%。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：认为实际 GDP 减少。正确概念：只有当价格涨幅超过名义 GDP 涨幅时，实际 GDP 才会减少。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：认为实际 GDP 增加。正确概念：只有当名义 GDP 涨幅超过价格涨幅时，实际 GDP 才会增加。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：逻辑矛盾。正确概念：若名义增长刚好被价格增长抵消，产量并没有实际增加。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Nominal vs Real GDP",
+      "GDP Deflator",
+      "Growth Rate Calculation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q6",
+    "type": "choice",
+    "question": "Samara and Zendaya are hosting a party. To finish both tasks (snacks and decorations) as quickly as possible, they should determine which roommate:",
+    "options": [
+      "has the absolute advantage in preparing snacks.",
+      "has the comparative advantage in preparing snacks.",
+      "can make the most snacks in a given amount of time.",
+      "can make all the snacks in the least amount of time."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "为了实现分工效率最大化，应根据比较优势（Comparative Advantage）进行分配，即谁在某项任务上的机会成本更低。",
+      "decoding": [
+        "任务：在两人之间分配两项任务以实现效率最高。",
+        "核心概念：贸易/分工获益的源泉。"
+      ],
+      "conditions": [
+        {
+          "title": "比较优势法则",
+          "content": "$\\text{Gains from Trade} \\leftarrow \\text{Comparative Advantage}$",
+          "description": "个人应专注于机会成本较低的活动。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "绝对优势误区",
+          "description": "学生容易认为“做得快”的人就该做。识别方法：检查是否有其他任务，并比较放弃另一项任务的成本。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别分工目标",
+          "content": "目标是总产出最大化或总时间最小化。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "应用经济学原则",
+          "content": "比较优势决定了专业化方向，即便某人在所有事上都更快（有绝对优势）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "应根据比较优势（机会成本）来分配。选项 B 正确。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：混淆绝对优势。正确概念：绝对优势描述的是生产率，而分工由比较优势决定。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这定义了绝对优势。正确概念：单项效率高并不代表其在该项上具有比较优势。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：只看时间绝对值。正确概念：必须考虑为了做这项工作而放弃的另一项工作的价值。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Comparative Advantage",
+      "Opportunity Cost",
+      "Specialization"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q7",
+    "type": "choice",
+    "question": "The cost of coffee is 6.50. $ MB of the 1st cup is 8, $ 2nd is 6, $ 3rd is 4, $ 4th is 2. $ The marginal cost of each cup is ____ and you should drink ____.",
+    "options": [
+      "6.50 $; one cup",
+      "0 $; five cups",
+      "1 $; six cups",
+      "1 $; five cups"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "边际成本就是每增加一杯咖啡需要支付的价格（6.5 $0$）。只有第一杯的边际收益（$8$）大于成本，因此应只喝一杯。",
+      "decoding": [
+        "已知价格 $P = 6.50$ 美元。",
+        "已知 $MB$ 序列：8, 6, 4, 2, 0。",
+        "任务：识别 $MC$ 并找出满足 $MB \\ge MC$ 的数量。"
+      ],
+      "conditions": [
+        {
+          "title": "边际成本定义",
+          "content": "$MC = \\text{Price of the next unit}$",
+          "description": "多消费单位商品所增加的成本。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "成本识别陷阱",
+          "description": "部分学生可能误以为成本是 0 或 1。识别方法：明确在市场交易中，每一单位的边际成本即为其市场价格。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别边际成本",
+          "content": "在咖啡店买每一杯都要付 6.50 美元，故 $MC = 6.50$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "对比收益与成本",
+          "content": "第1杯：$MB=8 > MC=6.50$（喝）；第2杯：$MB=6 < MC=6.50$（不喝）。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "应只喝一杯，且边际成本为 6.50 美元。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：误认为边际成本为 0。正确概念：即使第一杯已买，追加购买仍有成本。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：数值计算错误。正确概念：$MC$ 应等于价格 6.5 $0$。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：错误理解 MC 和最优数量。正确概念：理性决策不应导致 MB 小于 MC。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Marginal Cost",
+      "Marginal Benefit",
+      "Optimal Consumption"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q8",
+    "type": "choice",
+    "question": "In markets, prices provide all of these EXCEPT:",
+    "options": [
+      "incentives.",
+      "messages.",
+      "productivity.",
+      "information."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "价格在市场中起到激励、传达信息/消息的作用，但价格本身并不提供“生产率”。生产率是关于投入产出效率的技术指标。",
+      "decoding": [
+        "考察价格在市场机制中的核心功能。",
+        "排除法：识别哪个词不属于价格的功能范畴。"
+      ],
+      "conditions": [
+        {
+          "title": "价格的功能",
+          "content": "$\\text{Function} \\in \\{\\text{Incentive, Message/Information}\\}$",
+          "description": "价格协调资源分配的两大核心途径。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "词汇关联陷阱",
+          "description": "学生可能认为高价格能提高生产动力（生产率）。识别方法：区分“激励（想做）”与“生产率（能做多少）”。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "审核价格功能清单",
+          "content": "价格引导买卖双方行为（激励），并反映稀缺性（信息/消息）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "识别不属于的项",
+          "content": "生产率（Productivity）取决于技术、资本和劳动力素质，而非价格本身。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "选项 C 不属于价格的功能。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：价格确实提供激励。正确概念：高价激励供应，低价激励消费。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：价格确实是消息。正确概念：它向全球市场参与者广播资源状况。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：信息与消息同义。正确概念：价格聚合了成千上万个人的私人信息。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Market Mechanisms",
+      "Price Signals",
+      "Productivity Definitions"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q9",
+    "type": "choice",
+    "question": "Year 1: 200 golf balls at 3, $ 75 pizzas at 8. $ Year 2: 210 golf balls at 3.50, $ 80 pizzas at 9. $ Nominal GDP in years 1 and 2 are:",
+    "options": [
+      "1,200 $ and 1,455. $",
+      "1,455 $ and 1,200. $",
+      "12,000 $ and 14,550. $",
+      "275 $ and 290. $"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "第一年：$(200 \\times 3) + (75 \\times 8) = 600 + 600 = 1200$。第二年：$(210 \\times 3.50) + (80 \\times 9) = 735 + 720 = 1455$。",
+      "decoding": [
+        "Year 1: $Q_{g1}=200, P_{g1}=3, Q_{p1}=75, P_{p1}=8$。",
+        "Year 2: $Q_{g2}=210, P_{g2}=3.5, Q_{p2}=80, P_{p2}=9$。"
+      ],
+      "conditions": [
+        {
+          "title": "名义 GDP 公式",
+          "content": "$NGDP = \\sum (P_i \\times Q_i)$",
+          "description": "用当年的价格乘以当年的产量并加总。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "计算粗心陷阱",
+          "description": "学生容易在乘法或最后的加法上出错。识别方法：分项计算后再合并。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算 Year 1 名义 GDP",
+          "content": "$NGDP_1 = (200 \\times 3) + (75 \\times 8) = 600 + 600 = 1200$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算 Year 2 名义 GDP",
+          "content": "$NGDP_2 = (210 \\times 3.50) + (80 \\times 9) = 735 + 720 = 1455$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "对应数值为 1200 和 1455。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：顺序颠倒。正确概念：题目要求按 Year 1 和 Year 2 的顺序排列。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：数量级错误。正确概念：计算结果应为千位级别。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：错误加总。正确概念：不能直接加总产量而忽略价格。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Nominal GDP",
+      "GDP Calculation",
+      "Market Value"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q10",
+    "type": "choice",
+    "question": "The price of macadamia nuts falls. This conveys all of these messages EXCEPT that:",
+    "options": [
+      "macadamia nuts are in plentiful supply, so consumers should buy more.",
+      "demand for macadamia nuts is relatively low, so producers should produce less.",
+      "the price change will be understood in every language and helps coordinate the macadamia market.",
+      "the price of almonds is rising."
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "夏威夷果价格下跌传达了其自身供需关系的信息，但并不直接意味着另一种商品（如杏仁）的价格正在上涨。",
+      "decoding": [
+        "考察“价格作为消息”传达的具体内容。",
+        "寻找与该商品价格变动无必然逻辑联系的选项。"
+      ],
+      "conditions": [
+        {
+          "title": "价格信号内容",
+          "content": "$P \\downarrow \\implies \\text{Abundant Supply or Weak Demand}$",
+          "description": "价格下降反映了该商品相对不再那么稀缺。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "相关商品混淆",
+          "description": "学生可能认为所有坚果价格联动。识别方法：价格变动通常只直接反映该特定市场的消息。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析价格下跌的消息",
+          "content": "低价意味着供应充足（选项 A）或需求疲软（选项 B）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析价格的协调作用",
+          "content": "价格是跨语言的协调工具，无需解释（选项 C）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "识别逻辑断裂项",
+          "content": "夏威夷果价格降不代表杏仁价格升，两者无此必然因果关系。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是正确的描述。正确概念：价格下跌通常是供应增加的信号。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：这是正确的描述。正确概念：价格下跌也可能是由于需求减少。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这是正确的描述。正确概念：价格是市场的通用语。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Price Signals",
+      "Market Coordination",
+      "Supply and Demand Information"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q11",
+    "type": "choice",
+    "question": "The following table provides data on how long it takes Marla and Jason to cook lasagna and chicken curry. Which statement explains who has a comparative advantage in cooking chicken curry?\\n\\n| | Lasagna (Hours) | Chicken Curry (Hours) |\\n| :--- | :---: | :---: |\\n| Marla | 4 | 3 |\\n| Jason | 3 | 1 |",
+    "options": [
+      "Marla, because she has a lower opportunity cost than Jason",
+      "Jason, because he has a lower opportunity cost than Marla",
+      "Marla, because she can cook chicken curry faster than Jason",
+      "Jason, because he can cook chicken curry faster than Marla"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "Jason 在烹饪咖喱鸡上的机会成本为 $\\frac{1}{3}$ 个意大利面，而 Marla 的机会成本为 $\\frac{3}{4}$ 个意大利面。因为 Jason 的机会成本更低，所以他在烹饪咖喱鸡上具有比较优势。",
+      "decoding": [
+        "题干提供了两位生产者在两项任务上的耗时数据 。",
+        "任务是识别谁在\"咖喱鸡（Chicken curry）\"上具有比较优势 。"
+      ],
+      "conditions": [
+        {
+          "title": "比较优势定义",
+          "content": "$\\text{Comparative Advantage} = \\min(\\text{Opportunity Cost})$",
+          "description": "比较优势属于机会成本最低的生产者 。"
+        },
+        {
+          "title": "时间成本下的机会成本公式",
+          "content": "$OC_A = \\frac{\\text{Time}_A}{\\text{Time}_B}$",
+          "description": "当数据为完成单位任务所需时间时，生产 A 的机会成本是 $Time_A / Time_B$ 单位的 B。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "绝对优势混淆",
+          "description": "学生容易根据\"谁做得快\"来判定比较优势。识别方法：检查选项是否将\"速度快（绝对优势）\"错误地等同于比较优势 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算 Marla 的机会成本",
+          "content": "Marla 做 1 份咖喱鸡需要 3 小时，这段时间她能做 $\\frac{3}{4}$ 份意大利面。$OC_{\\text{Marla}} = \\frac{3}{4} = 0.75$ 。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算 Jason 的机会成本",
+          "content": "Jason 做 1 份咖喱鸡需要 1 小时，这段时间他能做 $\\frac{1}{3}$ 份意大利面。$OC_{\\text{Jason}} = \\frac{1}{3} \\approx 0.33$ 。",
+          "tag": "计算"
+        },
+        {
+          "title": "比较并得出结论",
+          "content": "因为 0.33 $ < 0.75$，Jason 在咖喱鸡上具有比较优势，因为他的机会成本更低 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：Marla 的机会成本 (0.75) 高于 Jason (0.33)。正确概念：比较优势属于机会成本较低的一方 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：Marla 并不比 Jason 快（3h vs 1h），且\"快\"是绝对优势。正确概念：比较优势看相对成本而非绝对速度 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：虽然 Jason 确实更快，但这解释的是绝对优势而非比较优势。正确概念：比较优势的判定理由必须是机会成本 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Comparative Advantage",
+      "Opportunity Cost",
+      "Absolute Advantage"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q12",
+    "type": "choice",
+    "question": "People can complete many different tasks. Each person's comparative advantage is in the task that they:",
+    "options": [
+      "can do better than anyone else.",
+      "enjoy doing the most.",
+      "can produce more of than any other task.",
+      "are least bad at doing, relative to other tasks."
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "比较优势是指一个人在某项任务上的机会成本低于其他人。这意味着在相对意义上，他们在该任务上\"最不擅长的程度最小\" 。",
+      "decoding": [
+        "考察比较优势（Comparative Advantage）的核心定义 。",
+        "需要区分绝对生产力、个人喜好与相对机会成本。"
+      ],
+      "conditions": [
+        {
+          "title": "机会成本与比较优势",
+          "content": "$OC = \\text{What is sacrificed}$",
+          "description": "比较优势是指放弃其他任务的代价最小 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "绝对优势陷阱",
+          "description": "学生常将\"做得最好（Absolute Advantage）\"误认为比较优势。识别方法：检查定义是否基于\"相对\"关系 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "排除绝对生产力",
+          "content": "即便某人在所有任务上都比别人差，他依然在机会成本最低的那项任务上具有比较优势 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "定义相对优势",
+          "content": "比较优势本质上是寻找相对而言最具有效率（或最不低效）的领域 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "选项 D 准确表达了这种\"相对于其他任务而言\"的相对优势 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：描述的是绝对优势（Absolute Advantage）。正确概念：比较优势可以在没有绝对优势的情况下存在 。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：主观喜好。正确概念：经济学上的优势取决于生产效率和成本，而非情感 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：产量最大不代表成本最低。正确概念：必须考虑为了获得这些产量所放弃的其他东西 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Comparative Advantage",
+      "Relative Efficiency",
+      "Opportunity Cost"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q13",
+    "type": "choice",
+    "question": "Don is a builder, and in his free time, he has built an addition to his own house. This transaction will:",
+    "options": [
+      "not be included in GDP because it is not produced for the marketplace.",
+      "be included in GDP because Don is a professional builder.",
+      "not be included in GDP because it is an intermediate good.",
+      "be included in GDP because building is Don's hobby."
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "GDP 只计算通过市场交易的最终商品和服务。由于 Don 是在业余时间为自己建房，没有发生市场交易，因此不计入 GDP 。",
+      "decoding": [
+        "题干描述了一个非市场化的生产行为：为自己工作 。",
+        "核心矛盾：专业身份 vs 交易性质 。"
+      ],
+      "conditions": [
+        {
+          "title": "GDP 包含范围",
+          "content": "$\\text{GDP} = \\sum \\text{Market Value of Final Goods}$",
+          "description": "必须具有\"市场价值\"且在\"市场中流通\" 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "专业身份误导",
+          "description": "学生容易因为 Don 是\"专业建筑师\"就认为其行为应计入。识别方法：检查是否有市场报酬交换 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别非市场活动",
+          "content": "自给自足的生产（如家务、为自己建房）不经过市场，无法准确估价 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "判定 GDP 归属",
+          "content": "由于该扩建没有销售行为，不产生可统计的市场价值流 。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "因此该行为不计入 GDP 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：身份不决定计入规则。正确概念：GDP 统计的是市场活动，而非个人能力 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：属性判定错误。正确概念：房屋扩建是最终产品，不计入的原因是缺乏市场化而非它是中间品 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：爱好与 GDP 无关。正确概念：只有当爱好转化为市场交易的商品时才计入 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "GDP Exclusions",
+      "Non-market Transactions",
+      "Final Goods"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q14",
+    "type": "choice",
+    "question": "Cornell can type reports faster and more accurately than Alice, so Cornell has a(n) ________ in typing reports.",
+    "options": [
+      "comparative advantage",
+      "absolute advantage",
+      "opportunity cost",
+      "specialization"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "绝对优势是指用比别人更少的投入（或更快的速度）生产出产品的能力。Cornell 打字更快更准，符合绝对优势的定义 。",
+      "decoding": [
+        "题干描述了效率的直接对比：Cornell > Alice 。",
+        "关键词：Faster (时间投入少), More accurately (质量/产出高) 。"
+      ],
+      "conditions": [
+        {
+          "title": "绝对优势定义",
+          "content": "$\\text{Absolute Advantage} \\implies \\text{Higher Productivity}$",
+          "description": "在相同投入下产出更多，或生产单位产出投入更少 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "术语混淆",
+          "description": "学生容易把\"做得好\"直接说成\"比较优势\"。识别方法：检查是否提到了另一项任务及放弃的代价 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别效率描述",
+          "content": "\"Faster and more accurately\" 描述的是生产率的绝对水平 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配经济学术语",
+          "content": "对生产率绝对水平的领先被定义为\"绝对优势\" 。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "排除比较优势",
+          "content": "题干未提及 Alice 和 Cornell 在其他任务上的效率，无法计算机会成本 。",
+          "tag": "逻辑拆解"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：数据不足。正确概念：比较优势需要通过两项任务的机会成本对比得出 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：词性不符。正确概念：机会成本是一个具体的代价数值，不是一种\"优势\"描述 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：概念混淆。正确概念：专业化（Specialization）是基于优势而产生的一种行为选择，不是优势本身 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Absolute Advantage",
+      "Productivity",
+      "Comparative vs Absolute Advantage"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q15",
+    "type": "choice",
+    "question": "In the United States, nominal GDP grew by 4.1% from 2018 to 2019, while real GDP grew by 2.3%. In Japan, nominal GDP grew by 2.6% from 2018 to 2019, while real GDP grew by -0.2%. How does inflation in these two countries compare?",
+    "options": [
+      "Inflation in Japan exceeded that in the United States by about a percentage point.",
+      "Although the United States experienced relatively low inflation, of a little less than 2%, Japan experienced deflation.",
+      "Whereas Japan experienced relatively high inflation, of nearly 3%, the United States experienced deflation.",
+      "Inflation in the United States exceeded that in Japan by about a percentage point."
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "通胀率约为名义增长率减去实际增长率。美国通胀约为 4.1\\\\ - 2.3\\\\ = 1.8\\\\%，日本通胀约为 2.6\\\\ - (-0.2\\\\) = 2.8\\\\%。因此日本通胀比美国高约 1 个百分点 。",
+      "decoding": [
+        "美国 (US): \\\\\\Delta NGDP = 4.1\\\\%, \\\\\\Delta RGDP = 2.3\\\\% 。",
+        "日本 (JP): \\\\\\Delta NGDP = 2.6\\\\%, \\\\\\Delta RGDP = -0.2\\\\% 。"
+      ],
+      "conditions": [
+        {
+          "title": "通胀率近似公式",
+          "content": "\\pi \\approx \\\\\\Delta NGDP - \\\\\\Delta RGDP%",
+          "description": "名义增长率由实际产量增长和价格增长共同组成。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "负增长符号陷阱",
+          "description": "学生容易忽略日本实际 GDP 增长为负号 (-0.2\\\\%)。识别方法：减去负数等于加上正数 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算美国通胀率",
+          "content": "\\pi_{US} \\approx 4.1\\\\ - 2.3\\\\ = 1.8\\\\% 。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算日本通胀率",
+          "content": "\\pi_{JP} \\approx 2.6\\\\ - (-0.2\\\\) = 2.8\\\\% 。",
+          "tag": "计算"
+        },
+        {
+          "title": "对比结果",
+          "content": "2.8\\\\ - 1.8\\\\ = 1.0\\\\%。日本的通胀率比美国高出约 1 个百分点 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：判定日本通缩。正确概念：名义增长高于实际增长表示存在正通胀 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：判定美国通缩。正确概念：美国名义增长高于实际增长，通胀为正 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：大小关系颠倒。正确概念：通过计算可知日本通胀更高 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Inflation Calculation",
+      "Nominal vs Real GDP",
+      "Macroeconomic Indicators"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q16",
+    "type": "choice",
+    "question": "What is the role of markets?",
+    "options": [
+      "Markets create demand to earn profits.",
+      "Markets sell goods to make use of inputs.",
+      "Markets produce output to cover costs.",
+      "Markets facilitate gains from trade."
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "市场的基本经济作用是提供一个平台，通过交换让买卖双方都能获益，从而促进贸易收益 。",
+      "decoding": [
+        "考察市场（Markets）在经济系统中的基本职能 。",
+        "侧重于制度性功能而非单个企业的经营目标。"
+      ],
+      "conditions": [
+        {
+          "title": "贸易获益原则",
+          "content": "$\\text{Market} \\implies \\text{Specialization} + \\text{Exchange} = \\text{Efficiency}$",
+          "description": "市场通过资源重新配置产生额外价值 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "视角偏差陷阱",
+          "description": "学生容易从单一\"公司\"的视角看问题（如赚利润、补成本）。识别方法：寻找描述\"交易参与者共同利益\"的宏观职能 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "理解交换的本质",
+          "content": "个人或企业在市场中通过交换不具优势的物品来换取更具优势的物品 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "定义核心职能",
+          "content": "市场降低了搜寻和契约成本，使互利的交换得以实现 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "市场的核心角色是促进贸易带来的收益（Gains from trade） 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：因果倒置。正确概念：需求源于消费者的偏好和效用，市场是连接需求与供给的场所，不负责\"创造\"它来牟利 。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：本末倒置。正确概念：投入（Inputs）是生产手段，目标是满足消费需求，而非为了用掉投入而去卖货 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这只是企业的盈亏平衡点，不是\"市场\"存在的目的 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Role of Markets",
+      "Gains from Trade",
+      "Market Efficiency"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q17",
+    "type": "choice",
+    "question": "Marius and Jennifer are going to sell cupcakes and muffins at their annual fundraiser bake sale. In one day, Marius can make 40 cupcakes or 20 muffins, and Jennifer can make 15 cupcakes or 15 muffins. Based on this information, ________ has the comparative advantage in cupcakes, and ________ has the comparative advantage in muffins.",
+    "options": [
+      "Marius; Jennifer",
+      "Marius; Marius",
+      "Jennifer; Marius",
+      "Jennifer; Jennifer"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "Marius 做 1 个蛋糕的机会成本是 0.5 个玛芬，而 Jennifer 是 1 个。Marius 在蛋糕上更有优势；Jennifer 在玛芬上的机会成本是 1 个蛋糕，低于 Marius 的 2 个，故 Jennifer 在玛芬上更有优势 。",
+      "decoding": [
+        "Marius: 40 C 或 20 M 。",
+        "Jennifer: 15 C 或 15 M 。",
+        "任务：分别找出蛋糕 (C) 和玛芬 (M) 的比较优势者 。"
+      ],
+      "conditions": [
+        {
+          "title": "产量型机会成本公式",
+          "content": "$OC_A = \\frac{\\text{Quantity}_B}{\\text{Quantity}_A}$",
+          "description": "生产 A 的机会成本是放弃的 B 的数量。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "双重优势误判",
+          "description": "学生可能因为 Marius 做得都多就认为他有双重比较优势。识别方法：检查交叉对比的机会成本，一个人不可能在两项互补任务上都具有比较优势 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算蛋糕 (C) 的机会成本",
+          "content": "$OC_{Marius, C} = 20/40 = 0.5 M$; $OC_{Jennifer, C} = 15/15 = 1 M$。Marius 在蛋糕上有优势 。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算玛芬 (M) 的机会成本",
+          "content": "$OC_{Marius, M} = 40/20 = 2 C$; $OC_{Jennifer, M} = 15/15 = 1 C$。Jennifer 在玛芬上有优势 。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "蛋糕优势者是 Marius，玛芬优势者是 Jennifer 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：一个人在两项任务上都有比较优势是不可能的。正确概念：机会成本互为倒数，优势必有分工 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：角色颠倒。正确概念：Marius 生产蛋糕的代价更小 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：判定 Jennifer 具有双重优势。正确概念：她只在相对成本较低的玛芬上具有优势 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Comparative Advantage",
+      "Opportunity Cost Calculation",
+      "Specialization"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q18",
+    "type": "choice",
+    "question": "When a manager sets up markets within the company to buy and sell scarce resources, these markets are called:",
+    "options": [
+      "internal markets.",
+      "domestic markets.",
+      "company towns.",
+      "closed corporate markets."
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "在公司组织内部建立的市场机制，用于分配稀缺资源（如部门间的预算或人力），被称为\"内部市场\" 。",
+      "decoding": [
+        "识别公司组织内部的资源配置方式 。",
+        "关键词：Within the company, buy and sell scarce resources 。"
+      ],
+      "conditions": [
+        {
+          "title": "内部市场定义",
+          "content": "$\\text{Mechanism} = \\text{Internal Market}$",
+          "description": "利用市场价格信号在大型组织内部模拟竞争与效率 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "近义词干扰",
+          "description": "学生可能被\"封闭市场\"等看似专业的词汇迷惑。识别方法：寻找经济学中针对\"企业内部管理市场化\"的标准称谓 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "区分内外环境",
+          "content": "该机制运作于公司边界内部，而非跨国或跨企业 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "确定学术称谓",
+          "content": "经济学将这种在科层组织中引入的市场化手段统称为\"Internal Markets\" 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "验证选项",
+          "content": "选项 A 匹配标准定义 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：指代国家内部。正确概念：国内市场（Domestic Markets）是指相对于国际市场的一国疆域内的市场 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：指的是历史上的社区形式。正确概念：公司镇（Company towns）是指几乎所有商店和服务都由单一公司拥有的居住地 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：非标准术语。正确概念：虽然意思相近，但并非经济学通用的专业称呼 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Internal Markets",
+      "Resource Allocation",
+      "Organizational Economics"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q19",
+    "type": "choice",
+    "question": "In the circular flow diagram, households:",
+    "options": [
+      "supply goods.",
+      "supply services.",
+      "supply resources.",
+      "buy resources."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "在经济循环图中，住户是生产要素（资源）的拥有者，他们在要素市场中向企业提供劳动力、资本和土地 。",
+      "decoding": [
+        "考察经济循环图（Circular Flow Diagram）中住户（Households）的角色 。",
+        "需要区分产品市场（Goods Market）和要素市场（Factor/Resource Market）。"
+      ],
+      "conditions": [
+        {
+          "title": "循环流向模型",
+          "content": "$\\text{Households} \\xrightarrow{\\text{Resources}} \\text{Factor Market} \\xrightarrow{\\text{Resources}} \\text{Firms}$",
+          "description": "住户提供资源（要素），获得收入；企业购买资源，提供商品 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "市场定位误区",
+          "description": "学生容易把\"服务（如工作）\"与\"商品（如面包）\"混淆。识别方法：在循环图中，住户是劳动力等资源的\"供应方\" 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "定位要素市场",
+          "content": "住户拥有劳动力、土地和资本等资源 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析流向",
+          "content": "这些资源从住户流向企业，用于生产 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "住户扮演了资源供应者的角色 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：角色颠倒。正确概念：企业才是商品的供应方 。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：不准确。正确概念：虽然住户提供劳动服务，但在循环图中被归类为\"要素（Resources/Factors）\"的供应 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：角色错位。正确概念：企业才是资源（要素）的购买者 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Circular Flow Diagram",
+      "Factor Markets",
+      "Role of Households"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q20",
+    "type": "choice",
+    "question": "Use the following table to answer the question: \\n| Year | Nominal GDP | Price Level | Population |\\n| :--- | :---: | :---: | :---: |\\n| 2016 | 3,000 $ | 100 | 5 |\\n| 2019 | 8,000 $ | 200 | 10 |\\n\\nBased on 2016's prices, the growth rate of real GDP from 2016 to 2019 was:",
+    "options": [
+      "10%.",
+      "20%.",
+      "25%.",
+      "33%."
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "2016 年实际 GDP 为 3000。2019 年实际 GDP（以 2016 年价格计）为 8000 $ / (200/100) = 4000$。增长率为 (4000-3000)/3000 = 33.3\\\\% 。",
+      "decoding": [
+        "2016: $NGDP=3000, P=100$ 。",
+        "2019: $NGDP=8000, P=200$ 。",
+        "基期为 2016 。任务：计算实际 GDP 增长率 。"
+      ],
+      "conditions": [
+        {
+          "title": "实际 GDP 计算公式",
+          "content": "$\\text{RGDP}_t = \\frac{\\text{NGDP}_t}{\\text{Price Level}_t / 100}$",
+          "description": "消除价格因素，反映真实产量。"
+        },
+        {
+          "title": "增长率公式",
+          "content": "$\\text{Growth Rate} = \\frac{\\text{RGDP}_{new} - \\text{RGDP}_{old}}{\\text{RGDP}_{old}}$",
+          "description": "两个时期产出的百分比变动。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "人均数据干扰",
+          "description": "学生可能会试图计算\"人均 GDP\"。识别方法：题目问的是\"实际 GDP 增长率\"，不是\"人均实际 GDP 增长率\" 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算 2016 实际 GDP",
+          "content": "$RGDP_{2016} = 3000 / (100/100) = 3000$ 。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算 2019 实际 GDP",
+          "content": "$RGDP_{2019} = 8000 / (200/100) = 4000$ 。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算增长率",
+          "content": "\\text{Growth Rate} = \\frac{4000 - 3000}{3000} = \\frac{1000}{3000} \\approx 33.3\\\\% 。",
+          "tag": "计算"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：数值计算错误。可能误用了人口数据进行错误加权 。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：可能计算的是人均实际 GDP 的增长（从 600 到 400 是负增长）。正确概念：应关注总产量增长 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：分母选用错误。正确概念：增长率的分母必须是基期数值 3000 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real GDP Calculation",
+      "GDP Growth Rate",
+      "Price Level Index"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q21",
+    "type": "choice",
+    "question": "We have to make choices because:",
+    "options": [
+      "we have unlimited income and must decide what to purchase.",
+      "the resources available to us are limited.",
+      "the resources we would like to use in production are infinite.",
+      "with good planning, trade-offs can be avoided."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "由于资源是稀缺的（有限的），而人的欲望是无限的，因此我们必须做出选择 。",
+      "decoding": [
+        "本题考察经济学的核心定义：稀缺性与选择 。",
+        "任务是识别导致\"必须做出选择\"的根本原因 。"
+      ],
+      "conditions": [
+        {
+          "title": "稀缺性原则",
+          "content": "$\\text{Scarcity} \\implies \\text{Choice}$",
+          "description": "资源相对于需求而言总是不足的，这构成了经济学研究的基础 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "理想化误区",
+          "description": "学生可能会认为通过\"良好规划\"可以消除权衡。识别方法：只要资源有限，权衡（Trade-offs）就是不可避免的 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别基本事实",
+          "content": "我们的资源（时间、金钱、自然资源）是有限的 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "推导必然结果",
+          "content": "因为无法拥有一切，所以必须决定如何分配这些有限资源 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "资源有限是做出选择的根本驱动力 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：收入是无限的。正确概念：收入通常是有限的 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：资源是无限的。正确概念：生产资源（土地、劳动、资本）在特定时间内是有限的 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：可以避免权衡。正确概念：选择意味着放弃，权衡永远存在 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Scarcity",
+      "Choice",
+      "Trade-offs"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q22",
+    "type": "choice",
+    "question": "________ is assessed by asking: \"What is the ________ I am willing to pay to get this benefit, or avoid that cost?\"",
+    "options": [
+      "Willingness to pay; least",
+      "Willingness to pay; most",
+      "Opportunity cost; least",
+      "Opportunity cost; most"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "支付意愿（Willingness to pay）衡量的是一个人为了获得某种收益或避免某种成本所愿意支付的最高（most）金额 。",
+      "decoding": [
+        "本题考察\"支付意愿\"的定义及其衡量标准 。",
+        "关键点在于区分\"最高\"还是\"最低\"意愿 。"
+      ],
+      "conditions": [
+        {
+          "title": "支付意愿公式",
+          "content": "$WTP = \\max(\\text{Price someone is willing to pay})$",
+          "description": "反映了消费者对商品或服务的边际估值 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "极限方向混淆",
+          "description": "学生容易混淆最高愿意支付（买方视角）和最低愿意接受（卖方视角）。识别方法：获取收益时看\"最高（most）\" 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "定义概念",
+          "content": "支付意愿是指一个人对特定利益的货币化评价 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "确定临界值",
+          "content": "该评价通过一个人愿意拿出的最大（most）代价来衡量 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配选项",
+          "content": "符合描述的组合是 Willingness to pay 和 most 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：使用 least。正确概念：支付意愿关注上限而非下限 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：概念错位。正确概念：机会成本是放弃的次优选择的价值，不是主动报价的衡量方式 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：概念与描述不匹配。正确概念：虽然机会成本也是一种代价，但该问句模式是支付意愿的标准定义 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Willingness to Pay",
+      "Marginal Benefit",
+      "Consumer Evaluation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q23",
+    "type": "choice",
+    "question": "Intermediate goods are NOT counted in GDP because:",
+    "options": [
+      "doing so would result in double counting.",
+      "these goods are not produced for the market.",
+      "these goods are produced in the underground economy.",
+      "these goods involve financial transactions."
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "GDP 只计入最终产品，因为中间产品的价值已经包含在最终产品中，重复计算会导致 GDP 被虚增 。",
+      "decoding": [
+        "考察 GDP 的核算原则：避免重复计算（Double counting）。",
+        "理解\"最终产品\"与\"中间产品\"在价值链上的关系 。"
+      ],
+      "conditions": [
+        {
+          "title": "GDP 增加值核算",
+          "content": "$\\text{GDP} = \\sum \\text{Value Added} = \\text{Final Goods Value}$",
+          "description": "通过只计算最终产品或各阶段增加值来避免重复 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "属性误判陷阱",
+          "description": "学生可能认为中间品不计入是因为它们不在市场销售。识别方法：中间品（如面粉卖给面包店）通常有市场交易，但不作为核算的\"终点\" 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别产品性质",
+          "content": "中间产品是用于生产其他产品的投入品 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析价值构成",
+          "content": "最终产品的价格（如面包的 $3.50$）已经包含了所有原材料成本 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "为了准确反映经济产出，必须剔除中间环节的重复计入 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：事实不符。正确概念：许多中间品在 B2B 市场中大规模交易 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：定义混淆。正确概念：地下经济是指未申报的非法或合法活动，与中间品属性无关 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：逻辑不通。正确概念：金融交易（如股票）不计入 GDP 是因为没有生产新产出，而中间品涉及生产 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Double Counting",
+      "Intermediate Goods",
+      "Final Goods"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q24",
+    "type": "choice",
+    "question": "The problem of determining what goods and services society should produce:",
+    "options": [
+      "exists because we can produce any amount of a good we need or want, making choice difficult.",
+      "exists because there are not enough resources to provide all the goods and services that people want.",
+      "would not exist if all levels of government would agree to supply goods and services to those who do not have enough.",
+      "would not exist if a central planning bureau were to decide how to allocate resources."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "由于资源稀缺，社会无法满足所有人所有的需求，因此必须决定生产什么 。",
+      "decoding": [
+        "考察\"生产什么\"这一基本经济问题产生的原因 。",
+        "核心在于理解资源稀缺性对社会决策的约束 。"
+      ],
+      "conditions": [
+        {
+          "title": "基本经济问题",
+          "content": "$\\text{Scarcity} \\rightarrow \\text{What to produce?}$",
+          "description": "资源稀缺决定了社会必须在不同产品间进行权衡 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "制度性误区",
+          "description": "学生可能认为政府分配或中央计划可以消除该问题。识别方法：无论哪种体制，只要资源有限，配置问题就永远存在 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别矛盾点",
+          "content": "人类的需求是多样的且趋于无限，但可用的劳动力、资本等是有限的 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "推导社会困境",
+          "content": "生产一种商品意味着放弃生产另一种商品的机会 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "资源的稀缺性是该问题的根本来源 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：产量无限。正确概念：受资源限制，产量是有上限的 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：认为政府供应可解决。正确概念：政府供应只是改变了分配方式，并未增加总资源 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：认为计划可以消除问题。正确概念：中央计划只是解决该问题的手段之一，并不能消除由于资源短缺带来的权衡需求 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Three Economic Questions",
+      "Scarcity",
+      "Allocation of Resources"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q25",
+    "type": "choice",
+    "question": "An intermediate good would be:",
+    "options": [
+      "a new boat to be used for vacations.",
+      "lumber used to build a house.",
+      "payments to military personnel.",
+      "a professor's salary."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "中间产品是用于进一步加工并包含在最终产品中的商品。木材被用于建造房屋，属于典型的中间品 。",
+      "decoding": [
+        "识别中间产品（Intermediate good）的实例 。",
+        "区分最终消费品、服务投入与原材料 。"
+      ],
+      "conditions": [
+        {
+          "title": "中间产品特征",
+          "content": "$\\text{Input} \\to \\text{Process} \\to \\text{Final Product}$",
+          "description": "在生产周期内被完全消耗或转化为新产品一部分的商品 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "服务与商品混淆",
+          "description": "学生可能将\"工资\"视为中间投入。识别方法：在 GDP 核算中，政府和私人服务通常作为最终服务计入，而非中间品 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "审核选项 A",
+          "content": "新船用于度假，是住户购买的最终消费品 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "审核选项 B",
+          "content": "木材是建造房屋这一最终产品所需的原材料投入 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "木材符合中间产品的定义 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是最终产品。正确概念：住户购买用于个人使用的商品是最终产品 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这是政府支出。正确概念：政府对雇员的支付通常计入 GDP 的政府购买项 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：这是劳务报酬。正确概念：教授提供的教学服务是最终服务 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Intermediate Goods",
+      "Final Goods",
+      "GDP Calculation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q26",
+    "type": "choice",
+    "question": "Jonathan is deciding whether to study for his economics exam at a café down the street or go to a concert a few cities over. The time spent commuting to the concert is ________ in his opportunity cost calculations and represents a ________ cost.",
+    "options": [
+      "included; financial",
+      "included; nonfinancial",
+      "not included; financial",
+      "not included; sunk"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "机会成本必须包含为了某项选择而放弃的所有资源。通勤时间虽然不是直接的金钱支出，但它消耗了可用于学习的时间，因此应包含在内，且属于非财务成本 。",
+      "decoding": [
+        "考察机会成本（Opportunity cost）的构成要素 。",
+        "区分财务成本（金钱支出）与非财务成本（如时间）。"
+      ],
+      "conditions": [
+        {
+          "title": "全口径机会成本",
+          "content": "$OC = \\text{Explicit Costs} + \\text{Implicit Costs}$",
+          "description": "既包括金钱支出，也包括时间的价值 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "沉没成本混淆",
+          "description": "学生可能将通勤时间误认为\"沉没成本\"。识别方法：沉没成本是已发生且无法收回的，而这里的通勤时间是尚未发生、随着\"去音乐会\"这一决定才产生的必然代价 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别放弃的价值",
+          "content": "去音乐会意味着必须放弃这段路途原本可以用于复习经济学的时间 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "判定成本性质",
+          "content": "时间不是金钱，但具有价值，属于隐性或非财务成本 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "该项应包含在机会成本中，且为非财务成本 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：时间本身不是财务支出。正确概念：财务成本特指金钱上的开销 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：认为不应包含。正确概念：忽略时间的代价会低估真实的决策成本 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：误认为沉没成本。正确概念：通勤时间是决策后的增量成本，而非不可收回的历史成本 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Opportunity Cost",
+      "Implicit Costs",
+      "Nonfinancial Costs"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q27",
+    "type": "choice",
+    "question": "There are many freshwater lakes in the United States. However, freshwater is scarce because:",
+    "options": [
+      "it has no alternative uses.",
+      "there is not enough of it to meet all needs.",
+      "the government limits its use through regulations.",
+      "it has a high opportunity cost."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "稀缺性在经济学中的定义是某种资源的供应量不足以满足人类所有的需求 。",
+      "decoding": [
+        "理解\"稀缺性（Scarcity）\"的科学定义 。",
+        "区分\"总量大\"与\"相对于需求而言不足\"这两个概念 。"
+      ],
+      "conditions": [
+        {
+          "title": "稀缺性公式",
+          "content": "$\\text{Scarcity} \\iff \\text{Supply} < \\text{Total Wants}$",
+          "description": "即便数量庞大，只要不能满足全部需求，它就是稀缺的 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "原因与结果混淆",
+          "description": "学生容易把\"有高机会成本\"当作稀缺的原因。识别方法：机会成本是稀缺造成的\"结果\"，而非\"原因\" 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "对比资源与需求",
+          "content": "淡水有工业、农业、居民等多种用途，总需求量极大 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析有限性",
+          "content": "虽然湖泊多，但相对于灌溉、发电和饮用等所有需求之和，供应依然有限 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "定义匹配",
+          "content": "符合稀缺性核心定义的描述是\"不足以满足所有需求\" 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：事实不符。正确概念：正是因为有多种替代用途（Alternative uses），竞争才更激烈 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：本末倒置。正确概念：政府监管往往是为了管理稀缺，而非造成稀缺的原因 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：因果倒置。正确概念：资源稀缺导致了使用它需要付出高昂的机会成本 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Scarcity",
+      "Needs vs Wants",
+      "Natural Resources"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q28",
+    "type": "choice",
+    "question": "You have an absolute advantage in producing a product if you:",
+    "options": [
+      "can produce the product using the fewest inputs.",
+      "can produce the product at the lowest opportunity cost.",
+      "have the most training in producing it.",
+      "have the most resources available to you."
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "绝对优势衡量的是生产率，即在生产相同产品时使用更少的投入（或在相同投入下产出更多）。",
+      "decoding": [
+        "识别\"绝对优势（Absolute advantage）\"的判定标准 。",
+        "与\"比较优势（Comparative advantage）\"进行严格区分 。"
+      ],
+      "conditions": [
+        {
+          "title": "绝对优势判定",
+          "content": "$\\text{Absolute Advantage} \\iff \\text{Least Inputs per Unit}$",
+          "description": "仅关注自身的生产效率，不考虑替代任务 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "核心术语混淆",
+          "description": "学生极易将绝对优势与\"最低机会成本\"混淆。识别方法：看到\"机会成本\"应联想到\"比较\"优势 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "理解生产效率",
+          "content": "如果 A 用 1 小时做一件衣服，B 用 2 小时，A 在生产率上有绝对领先 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "定义匹配",
+          "content": "这种利用最少投入（Fewest inputs）获得产出的能力就是绝对优势 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "选项 A 完美描述了该概念 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：这是比较优势的定义。正确概念：比较优势关注的是相对放弃的代价 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：描述的是技能背景。正确概念：优势是基于实际产出效率的评估，而非培训时长 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：描述的是资源禀赋。正确概念：拥有更多资源不代表生产率更高 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Absolute Advantage",
+      "Productivity",
+      "Input Efficiency"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q29",
+    "type": "choice",
+    "question": "Use the following table to answer the question:\\n\n| | Matcha Tea | Coho Salmon |\\n| :--- | :---: | :---: |\\n| Oregon | 40 | 20 |\\n| Washington | 10 | 10 |\\n\nThe table shows the maximum amounts Oregon and Washington can produce if each produces just one good. The opportunity cost of producing one unit of Coho salmon for Washington is:",
+    "options": [
+      "2",
+      "0.25",
+      "1",
+      "0.5"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "对于华盛顿州，生产 10 单位三文鱼意味着放弃 10 单位抹茶。因此，生产 1 单位三文鱼的机会成本是 $10 / 10 = 1$ 单位抹茶 。",
+      "decoding": [
+        "已知华盛顿州（Washington）的生产可能性 。",
+        "最大抹茶产量为 10，最大三文鱼产量为 10 。",
+        "任务：计算生产 1 单位三文鱼放弃的抹茶数量 。"
+      ],
+      "conditions": [
+        {
+          "title": "机会成本（产量法）",
+          "content": "$OC_{\\text{salmon}} = \\frac{\\text{Max Matcha}}{\\text{Max Salmon}}$",
+          "description": "在资源总量一定的情况下，两种产品产量的互换比率 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "主体识别错误",
+          "description": "学生可能计算了俄勒冈州（Oregon）的数据。识别方法：明确题目要求的是 Washington 州的数据 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取关键数据",
+          "content": "华盛顿州：抹茶 ($M$) = 10，三文鱼 ($S$) = 10 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "执行除法计算",
+          "content": "$OC_{1S} = \\frac{10 M}{10 S} = 1$ 单位抹茶 。",
+          "tag": "计算"
+        },
+        {
+          "title": "验证单位",
+          "content": "机会成本以另一种商品的单位表示 。",
+          "tag": "逻辑拆解"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是俄勒冈州生产三文鱼的机会成本（$40/20 = 2$）。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：这可能是错误地将两州数据相除（$10/40$）。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：这是俄勒冈州生产抹茶的机会成本（$20/40 = 0.5$）。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Opportunity Cost",
+      "Production Possibilities",
+      "Specialization"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-m1-q30",
+    "type": "choice",
+    "question": "A trade-off involves weighing:",
+    "options": [
+      "social costs.",
+      "private costs.",
+      "external costs.",
+      "costs and benefits."
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "权衡（Trade-off）是指在做决策时，综合考虑不同选择所带来的成本与收益，以便选出最优方案 。",
+      "decoding": [
+        "理解经济决策的核心过程 。",
+        "识别\"权衡\"在实际操作中到底在衡量什么 。"
+      ],
+      "conditions": [
+        {
+          "title": "成本收益原则",
+          "content": "$\\text{Action} \\iff \\text{Benefit} > \\text{Cost}$",
+          "description": "只有当增加的收益超过增加的成本时，理性的行为才会被采纳 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "范畴过窄陷阱",
+          "description": "学生可能只关注\"社会成本\"等特定类型的成本。识别方法：权衡是一个通用的决策工具，涵盖了广义的所有成本和收益 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析决策要素",
+          "content": "每一个决定都会带来积极的后果（收益）和消极的代价（成本）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "执行权衡过程",
+          "content": "决策者通过比较这些正面和负面因素来判断一项活动是否值得 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出定义结论",
+          "content": "因此权衡本质上就是成本与收益的博弈 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：范畴有限。正确概念：权衡不仅涉及社会成本，也涉及个人层面的利弊 。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：单方面衡量。正确概念：权衡必须同时考虑收益，不能只看成本 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：过于专业化。正确概念：外部性成本是特定场景下的分析，不是权衡的通用定义 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Trade-offs",
+      "Cost-Benefit Analysis",
+      "Rationality"
+    ],
+    "source": "Mixed"
+  }
+]

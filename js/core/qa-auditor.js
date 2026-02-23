@@ -1,5 +1,6 @@
 (function () {
-  const ALLOWED_TOP_KEYS = ['id', 'title', 'original_question', 'segments', 'traps', 'solution'];
+  const REQUIRED_TOP_KEYS = ['id', 'title', 'original_question', 'segments', 'traps', 'solution'];
+  const ALLOWED_TOP_KEYS = [...REQUIRED_TOP_KEYS, 'question_table'];
   const ALLOWED_HIGHLIGHT_COLORS = ['green', 'yellow', 'red', 'blue'];
   const ALLOWED_SOURCE_TYPES = ['prompt_info', 'external_knowledge'];
 
@@ -92,7 +93,7 @@
 
     const keys = Object.keys(problem);
 
-    ALLOWED_TOP_KEYS.forEach((k) => {
+    REQUIRED_TOP_KEYS.forEach((k) => {
       const value = problem[k];
       const missing = value === undefined || value === null || (typeof value === 'string' && value.trim() === '');
       if (missing) {
@@ -102,7 +103,31 @@
 
     const extraKeys = keys.filter(k => !ALLOWED_TOP_KEYS.includes(k));
     if (extraKeys.length > 0) {
-      addIssue(issues, 'Blocker', 'structure', 'QA_STRUCT_001', loc, `存在未允许的顶层字段: ${extraKeys.join(', ')}`, '仅保留 id/title/original_question/segments/traps/solution。');
+      addIssue(issues, 'Blocker', 'structure', 'QA_STRUCT_001', loc, `存在未允许的顶层字段: ${extraKeys.join(', ')}`, '仅保留允许的顶层字段。');
+    }
+
+    if (problem.question_table) {
+      const qt = problem.question_table;
+      const qtLoc = `${loc}.question_table`;
+      if (typeof qt !== 'object' || Array.isArray(qt)) {
+        addIssue(issues, 'Blocker', 'structure', 'QA_TABLE_001', qtLoc, 'question_table 必须是对象。', '使用对象结构 {columns, rows}。');
+      } else {
+        if (!Array.isArray(qt.columns) || qt.columns.length === 0) {
+          addIssue(issues, 'Blocker', 'structure', 'QA_TABLE_001', `${qtLoc}.columns`, 'columns 必须是非空数组。', '提供表格列名数组。');
+        }
+        if (!Array.isArray(qt.rows)) {
+          addIssue(issues, 'Blocker', 'structure', 'QA_TABLE_001', `${qtLoc}.rows`, 'rows 必须是数组（二维）。', '提供行数据数组。');
+        } else if (Array.isArray(qt.columns)) {
+          const expectedCols = qt.columns.length;
+          qt.rows.forEach((row, rIdx) => {
+            if (!Array.isArray(row)) {
+              addIssue(issues, 'Blocker', 'structure', 'QA_TABLE_001', `${qtLoc}.rows[${rIdx}]`, '每一行必须是数组。', '使用数组表示行数据。');
+            } else if (row.length !== expectedCols) {
+              addIssue(issues, 'Blocker', 'structure', 'QA_TABLE_001', `${qtLoc}.rows[${rIdx}]`, `该行列数为 ${row.length}，与 columns 列数 (${expectedCols}) 不等。`, '对齐每行的列数。');
+            }
+          });
+        }
+      }
     }
 
     const originalQuestion = problem.original_question;

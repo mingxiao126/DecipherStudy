@@ -3,6 +3,11 @@
  * @property {string} id - 题目唯一 ID
  * @property {('choice'|'bool'|'essay')} type - 题目类型：选择题、判断题、大题
  * @property {string} question - 题目内容
+ * @property {Object} [question_table] - 表格数据（可选）
+ * @property {string} [question_table.title] - 表格标题
+ * @property {string[]} question_table.columns - 表格列名
+ * @property {string[][]} question_table.rows - 表格主体数据（二维）
+ * @property {string} [question_table.note] - 表格底注
  * @property {string[]} [options] - 选项列表（仅限选择题）
  * @property {string|number|boolean} answer - 正确答案
  * @property {Object} analysis - 详解信息

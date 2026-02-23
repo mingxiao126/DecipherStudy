@@ -1,0 +1,47 @@
+DecipherStudy disk-mode server running at http://127.0.0.1:8000
+Serving root: /Users/ming/DecipherStudy
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> datasets
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> datasets
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> datasets
+[API] Authorized Workspace Request: daiyihang -> datasets
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> datasets
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> datasets
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> datasets
+Read JSON failed from /Users/ming/DecipherStudy/content/daiyihang/flashcard_经济学_4-6周知识点.json: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at FileStore.readJson (/Users/ming/DecipherStudy/storage/file-store.js:36:25)
+    at FileStore.getDatasetContent (/Users/ming/DecipherStudy/storage/file-store.js:126:21)
+    at Server.<anonymous> (/Users/ming/DecipherStudy/server.js:447:35)
+    at Server.emit (node:events:508:28)
+    at parserOnIncoming (node:_http_server:1212:12)
+    at HTTPParser.parserOnHeadersComplete (node:_http_common:123:17)
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> datasets
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> datasets
+Read JSON failed from /Users/ming/DecipherStudy/content/daiyihang/flashcard_经济学_4-6周知识点.json: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at FileStore.readJson (/Users/ming/DecipherStudy/storage/file-store.js:36:25)
+    at FileStore.getDatasetContent (/Users/ming/DecipherStudy/storage/file-store.js:126:21)
+    at Server.<anonymous> (/Users/ming/DecipherStudy/server.js:447:35)
+    at Server.emit (node:events:508:28)
+    at parserOnIncoming (node:_http_server:1212:12)
+    at HTTPParser.parserOnHeadersComplete (node:_http_common:123:17)
+[API] Authorized Workspace Request: daiyihang -> datasets
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> datasets
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> datasets
+[API] Authorized Workspace Request: daiyihang -> topics
+[API] Authorized Workspace Request: daiyihang -> datasets

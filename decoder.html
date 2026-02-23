@@ -18,6 +18,17 @@
             box-sizing: border-box;
         }
 
+        /* 防止 KaTeX 数学公式自动换行打断阅读 */
+        .katex,
+        .katex-display {
+            white-space: nowrap !important;
+        }
+
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
         body {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
             min-height: 100vh;

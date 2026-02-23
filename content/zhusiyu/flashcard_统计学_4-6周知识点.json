@@ -241,9 +241,9 @@
     "answer": {
       "final_answer": "常用快速近似乘数：90% 约为 1.65，95% 约为 1.96（常口算近似为 2），99% 约为 2.58（有时口算近似为 2.64）。",
       "key_points": [
-        "90%：$z^\\approx 1.645$。",
-        "95%：$z^\\approx 1.96$（常近似为 2）。",
-        "99%：$z^\\approx 2.576$（有时课堂用 2.58 或近似 2.64）。"
+        "90%：$z^*\\approx 1.645$。",
+        "95%：$z^*\\approx 1.96$（常近似为 2）。",
+        "99%：$z^*\\approx 2.576$（有时课堂用 2.58 或近似 2.64）。"
       ],
       "tested_points": [
         "常见置信水平与临界值对应"
@@ -260,13 +260,13 @@
     ],
     "steps": [
       "Step 1: 确定置信水平 $1-\\alpha$。",
-      "Step 2: 查标准正态分布的临界值 $z^$。",
+      "Step 2: 查标准正态分布的临界值 $z^*$。",
       "Step 3: 用 $ME=z^\\times SE$ 形成区间。"
     ],
     "glossary": [
       {
         "term": "Critical Value",
-        "definition": "A cutoff value (e.g., $z^$) that determines the width of a confidence interval."
+        "definition": "A cutoff value (e.g., $z^*$) that determines the width of a confidence interval."
       }
     ],
     "source_reference": "统计学第六周 P1"
@@ -276,7 +276,7 @@
     "answer": {
       "final_answer": "(a) 置信水平提高会使乘数变大，从而区间变宽；(b) 样本量增大会使标准误变小，从而区间变窄，因为 $CI=\\text{estimate}\\pm (\\text{multiplier}\\times SE)$。",
       "key_points": [
-        "置信水平提高：乘数（如 $z^$ 或 $t^$）增大，$ME=\\text{multiplier}\\times SE$ 变大，CI 变宽。",
+        "置信水平提高：乘数（如 $z^*$ 或 $t^*$）增大，$ME=\\text{multiplier}\\times SE$ 变大，CI 变宽。",
         "样本量提高：$SE\\propto \\frac{1}{\\sqrt{n}}$，$SE$ 变小，$ME$ 变小，CI 变窄。"
       ],
       "tested_points": [

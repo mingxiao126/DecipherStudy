@@ -215,8 +215,9 @@ class PracticeApp {
         processed = processed.replace(/\\\\notin/g, '__NOTIN__');
 
         // 5. Handle literal \n or actual newlines -> array of lines
-        // Use negative lookahead (?![a-zA-Z]) to prevent splitting LaTeX commands like \\neq, \\nabla
-        let lines = processed.split(/(?<!\\\\)\\\\n(?![a-zA-Z])|\n/);
+        // We use negative lookahead (?![a-zA-Z]) to prevent splitting LaTeX commands like \neq, \nabla, \nu
+        // We avoid lookbehinds like (?<!\\\\) to ensure support for older Safari browsers.
+        let lines = processed.split(/\\n(?![a-zA-Z])|\n/);
 
         let html = '';
         let inUl = false;

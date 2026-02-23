@@ -1,0 +1,107 @@
+[
+  {
+    "id": "q-07-to-11-combined",
+    "type": "essay",
+    "question": "The economy of Grossmania produces three goods: Widgets, Gizmos, and Thingamajigs. The accompanying table shows the output and prices for years 2006 and 2007. (Hint: GDP, in its most basic form, is P x Q. You take the quantity of output and multiply by the price of output.)\\n\\n7. Calculate the nominal GDP for: a. 2006 b. 2007\\n8. Compute the percentage of growth in nominal GDP from 2006 to 2007.\\n9. Using 2006 as the base year, calculate the real GDP for 2007.\\n10. What is the GDP deflator for 2007? What was the inflation rate between 2006 and 2007?\\n11. Compute the real rate of output growth from 2006 to 2007.",
+    "question_table": {
+      "columns": [
+        "Year",
+        "Widgets Price",
+        "Widgets Quantity",
+        "Gizmos Price",
+        "Gizmos Quantity",
+        "Thingamajigs Price",
+        "Thingamajigs Quantity"
+      ],
+      "rows": [
+        [
+          "2006",
+          "$100",
+          "1",
+          "$10",
+          "8",
+          "$5",
+          "4"
+        ],
+        [
+          "2007",
+          "$110",
+          "1",
+          "$12",
+          "10",
+          "$4",
+          "5"
+        ]
+      ]
+    },
+    "answer": "7. 2006 Nominal GDP: 200 dollars, 2007 Nominal GDP: 250 dollars; 8. Nominal GDP growth: 25%; 9. 2007 Real GDP: 225 dollars; 10. GDP Deflator: 111.11, Inflation rate: 11.11%; 11. Real rate of output growth: 12.5%.",
+    "analysis": {
+      "decoding": [
+        "这是一道包含 5 个子问题的综合解答题，核心考点为宏观经济学中的 GDP 相关指标计算。",
+        "需要从表格中提取 2006 年与 2007 年三种商品的价格 (Price) 与数量 (Quantity)，依次计算名义 GDP、实际 GDP、GDP 平减指数、通货膨胀率以及实际增长率。"
+      ],
+      "conditions": [
+        {
+          "title": "名义 GDP 与实际 GDP 公式",
+          "content": "$\\text{Nominal GDP}_{t} = \\sum (P_{t} \\times Q_{t})$，$\\text{Real GDP}_{t} = \\sum (P_{\\text{base}} \\times Q_{t})$",
+          "description": "名义GDP使用当期价格，实际GDP使用基期价格以剔除价格波动影响。"
+        },
+        {
+          "title": "平减指数与通货膨胀率公式",
+          "content": "$\\text{Deflator} = \\frac{\\text{Nominal GDP}}{\\text{Real GDP}} \\times 100$，$\\pi = \\frac{\\text{Deflator}_{t} - \\text{Deflator}_{t-1}}{\\text{Deflator}_{t-1}} \\times 100$",
+          "description": "平减指数反映综合物价水平，其跨期变动率即为通胀率。"
+        },
+        {
+          "title": "一般增长率公式",
+          "content": "$\\text{Growth Rate} = \\frac{\\text{Value}_{t} - \\text{Value}_{t-1}}{\\text{Value}_{t-1}} \\times 100$",
+          "description": "用于计算名义GDP增长率或实际产出增长率。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "基期价格混淆陷阱",
+          "description": "在计算实际 GDP 时，学生极易误用当年价格；在计算通货膨胀率和实际增长率时，容易将名义增长率直接当作实际增长率。"
+        },
+        {
+          "title": "基年平减指数陷阱",
+          "description": "计算通胀率时，常常忘记基年 (2006年) 的 GDP Deflator 默认是 100。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取数据与名义 GDP 计算 (第 7 题)",
+          "content": "分别用当期价格乘以当期产量。\\n2006年：$100 \\times 1 + 10 \\times 8 + 5 \\times 4 = 100 + 80 + 20 = 200$。\\n2007年：$110 \\times 1 + 12 \\times 10 + 4 \\times 5 = 110 + 120 + 20 = 250$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算名义 GDP 增长率 (第 8 题)",
+          "content": "代入增长率公式计算名义 GDP 变动：$\\frac{250 - 200}{200} = 0.25$，即 25%。",
+          "tag": "计算"
+        },
+        {
+          "title": "代入实际 GDP 模型计算 (第 9 题)",
+          "content": "使用 2006 年基期价格和 2007 年当期数量：$100 \\times 1 + 10 \\times 10 + 5 \\times 5 = 100 + 100 + 25 = 225$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "求解 GDP 平减指数与通胀率 (第 10 题)",
+          "content": "2007 年平减指数：$\\frac{250}{225} \\times 100 \\approx 111.11$。2006 年为基年，平减指数为 100。通货膨胀率：$\\frac{111.11 - 100}{100} \\approx 0.1111$，即 11.11%。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算实际产出增长率 (第 11 题) 并得出最终结论",
+          "content": "2006 年实际 GDP (等于名义 GDP) 为 200，2007 年实际 GDP 为 225。实际增长率为：$\\frac{225 - 200}{200} = 0.125$，即 12.5%。至此完成所有子问题的计算与解答。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Nominal GDP",
+      "Real GDP",
+      "GDP Deflator",
+      "Inflation Rate",
+      "Economic Growth Rate"
+    ],
+    "source": "Mixed"
+  }
+]

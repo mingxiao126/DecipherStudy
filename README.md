@@ -7,6 +7,7 @@ Decipher AI is a next-generation, AI-powered academic preparation platform desig
 ```
 DecipherStudy/
 ├── README.md              # 项目说明文档
+├── practice_data_guide.md # AI 出题与文本排版渲染规范
 ├── walkthrough.md         # 迁移与整理说明（2026-02-22）
 ├── index.html             # 主页面（3D 闪卡界面）
 ├── decoder.html           # 难题拆解器页面

@@ -296,10 +296,12 @@ class FlashCardApp {
         // 4. 修复被 JS 误解析的特殊 LaTeX 指令 (当原 JSON 使用 \notin 而不是 \\notin 时，会被解析成真实的换行符 + otin)
         // 并且为了防止下一步的 \\n 匹配规则把真正的 \\notin 中的 \\n 给匹配切分掉，先临时替换
         processed = processed.replace(/\notin/g, '\\notin');
-        processed = processed.replace(/\\notin/g, '__NOTIN__');
+        processed = processed.replace(/\neq/g, '\\neq');
+        processed = processed.replace(/\\\\notin/g, '__NOTIN__');
 
         // 5. 将 \n 转换为列表或换行（忽略已被转义的 \\n）
-        let lines = processed.split(/(?<!\\)\\n|\n/);
+        // 使用负向预查 (?![a-zA-Z]) 来防止切断类似 \\neq, \\nabla 这样的 LaTeX 指令
+        let lines = processed.split(/(?<!\\\\)\\\\n(?![a-zA-Z])|\n/);
 
         let html = '';
         let inUl = false;

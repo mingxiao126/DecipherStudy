@@ -1,0 +1,616 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "If a researcher increases the confidence level of a study from 95% to 99% while keeping the sample size constant, how will the margin of error (ME) and the width of the confidence interval change?",
+    "options": [
+      "ME decreases and the interval becomes narrower",
+      "ME increases and the interval becomes wider",
+      "ME remains constant and the interval width is unchanged",
+      "ME increases but the interval becomes narrower"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "提升置信水平会导致乘数变大，从而增加误差边界，使区间变宽。",
+      "decoding": [
+        "题干探讨“置信水平从 95% 提升到 99%”对“误差边界（ME）”和“区间宽度（Width）”的影响。",
+        "核心考点是置信水平与乘数（Multiplier）的正相关关系。"
+      ],
+      "conditions": [
+        {
+          "title": "乘数规律",
+          "content": "95% Multiplier $\\approx 2, 99 Multiplier %\\approx 2.64$",
+          "description": "随着置信水平提升，对应的临界值（乘数）会变大。"
+        },
+        {
+          "title": "误差边界公式",
+          "content": "$ME = \\text{Multiplier} \\times SE$",
+          "description": "误差边界由乘数和标准误共同决定。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "精度与信心的权衡",
+          "description": "学生容易误认为更高的信心意味着更好的精度。实际上，为了提高信心，必须包含更多可能的值，因此区间变宽，精度反而降低。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "确定乘数变化",
+          "content": "从 95% 提升到 99% 时，乘数从 2 增加到 2.64。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算 ME 趋势",
+          "content": "由于 $ME = \\text{Multiplier} \\times SE$，当乘数变大且 $SE$ 不变时，$ME$ 随之增大。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "误差边界变大意味着区间左右跨度增加，即区间变宽（Wider）。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：描述的是降低置信水平或增加样本量的结果。正确概念：置信水平提升会使 $ME$ 变大。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：忽略了乘数随置信水平变化的特性。正确概念：乘数是置信水平的函数。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：逻辑矛盾。正确概念：$ME$ 与区间宽度是正相关的，不能一个变大一个变窄。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Level",
+      "Margin of Error",
+      "Trade-offs of Confidence Intervals"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "When calculating the standard error for a continuous variable such as profit, why is the sample standard deviation ($s$) often used instead of the population standard deviation ($\\sigma$)?",
+    "options": [
+      "Because $s$ is always smaller than $\\sigma$",
+      "Because the true population standard deviation is typically unknown",
+      "Because $s$ eliminates the need for a t-distribution",
+      "Because $s$ is only used when the sample size is small"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "在实际研究中，总体的真实标准差通常是未知的，因此我们使用样本标准差作为替代。",
+      "decoding": [
+        "题干询问为何在计算连续变量（均值型）标准误时使用样本标准差 $s$。",
+        "核心在于区分总体参数与样本统计量的实际获取性。"
+      ],
+      "conditions": [
+        {
+          "title": "均值标准误估算",
+          "content": "$SE = \\frac{s}{\\sqrt{n}}$",
+          "description": "当 $\\sigma$ 未知时，使用 $s$ 进行估算。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "分布类型误判",
+          "description": "学生容易认为 $s$ 简化了计算。实际上使用 $s$ 引入了额外的不确定性，反而需要改用 t 分布。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别数据属性",
+          "content": "利润是连续数据，对应的统计推断属于均值（Means）范畴。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "评估参数可用性",
+          "content": "在大多数现实场景中，总体的真实参数 $\\sigma$ 无法获得。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出替代结论",
+          "content": "基于可用性，必须使用样本提供的 $s$ 来估算标准误。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：$s$ 是对 $\\sigma$ 的估计，不一定更小。正确概念：$s$ 是随机变量，其期望值接近 $\\sigma$。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：恰恰相反。正确概念：使用 $s$ 代替 $\\sigma$ 是必须使用 t 分布的原因。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：无论样本量大小，只要 $\\sigma$ 未知就需要使用 $s$。正确概念：样本量仅影响分布的近似程度。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Error",
+      "Sample Standard Deviation",
+      "Means vs Proportions"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-03",
+    "type": "choice",
+    "question": "Which of the following descriptions accurately characterizes the distribution of sample means as the sample size $n$ increases from 1 to 8 in a die-rolling experiment?",
+    "options": [
+      "The distribution stays perfectly flat and uniform",
+      "The distribution becomes wider because more dice are used",
+      "The distribution becomes more bell-shaped and centered at 3.5",
+      "The center of the distribution shifts from 3.5 to a higher value"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "根据中心极限定理（CLT），随着样本量增加，均值分布会趋于正态（钟形），且中心保持在总体均值处。",
+      "decoding": [
+        "通过掷骰子例子考察 CLT 的三大核心结论：形态、中心和离散程度。"
+      ],
+      "conditions": [
+        {
+          "title": "中心极限定理 (CLT)",
+          "content": "$\\mu_{\\bar{x}} = \\mu$",
+          "description": "样本均值的分布中心始终等于总体均值（掷骰子为 3.5）。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "宽度误解",
+          "description": "学生可能认为更多骰子会导致结果更“乱”从而变宽。实际上，“平均值”会因为抵消效应而变得更集中（变窄）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析形态变化",
+          "content": "当 $n=1$ 时是均匀分布；随着 $n$ 增大，根据 CLT，分布趋向钟形（Bell-shaped）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "确定中心位置",
+          "content": "分布中心始终保持在总体均值 $\\mu = 3.5$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析离散程度",
+          "content": "因为 $SE = \\frac{\\sigma}{\\sqrt{n}}$，随着 $n$ 增大，分布会越来越窄。",
+          "tag": "计算"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是 $n=1$ 时的形态。正确概念：增加 $n$ 会改变分布形状。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：宽度描述错误。正确概念：标准误随 $n$ 增大而减小，分布变窄。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：中心移动错误。正确概念：根据 CLT，样本均值的期望值等于总体均值，保持不变。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Central Limit Theorem",
+      "Sampling Distribution",
+      "Normal Approximation"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-04",
+    "type": "choice",
+    "question": "An analyst construct a 95% confidence interval for the proportion of defected products and obtains [0.08, 0.12]. What is the correct interpretation of this interval?",
+    "options": [
+      "There is a 95% probability that the true proportion is between 0.08 and 0.12",
+      "95% of the products in the population are defected",
+      "We are 95% confident that the true population proportion of defected products is between 0.08 and 0.12",
+      "If we take another sample, there is a 95% chance its mean will be 0.10"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "正确的解读应使用“信心”表述，针对的是总体参数而非单个样本或概率。",
+      "decoding": [
+        "考察置信区间的标准话术及其背后的统计含义。"
+      ],
+      "conditions": [
+        {
+          "title": "解读规则",
+          "content": "$\\text{Confidence} \\neq \\text{Probability}$",
+          "description": "总体参数是固定的，区间才是随抽样变动的随机项。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "概率词汇陷阱",
+          "description": "选项中一旦说“真实值落在区间内的概率是 95%”，在统计学严格定义下是错误的。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别解读对象",
+          "content": "置信区间是用来估计总体参数（Population parameter）的。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "排除错误表述",
+          "content": "排除包含 “Probability” 和针对单个数据点的选项。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "选择标准用语",
+          "content": "选用 “We are 95% confident...” 这一标准学术表达。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：使用了 Probability。正确概念：参数固定，不能描述其落入固定区间的概率。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：混淆了区间含义。正确概念：CI 是对比例的估计，不是说 95% 的产品如何。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：描述的是单次抽样结果的预测。正确概念：CI 关注的是捕获真实参数的能力。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Interpretation of Confidence Intervals",
+      "Confidence vs Probability"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "A t-distribution with $df = n-1$ is preferred over a Z-distribution when constructing a confidence interval for the mean if which condition is met?",
+    "options": [
+      "The population is normally distributed and $\\sigma$ is known",
+      "The sample size $n$ is greater than 1000",
+      "The population standard deviation $\\sigma$ is unknown",
+      "The data follows a Bernoulli distribution with $p=0.5$"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "当总体标准差未知时，由于使用 $s$ 估算引入了额外的不确定性，必须使用 t 分布。",
+      "decoding": [
+        "考察 t 分布与 Z 分布的选择边界。"
+      ],
+      "conditions": [
+        {
+          "title": "t-分布引入条件",
+          "content": "$\\text{If } \\sigma \\text{ is unknown } \\rightarrow t\\text{-distribution}$",
+          "description": "样本量较小时尤为关键，此时 t 分布比 Z 分布尾部更厚。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "大样本误区",
+          "description": "学生可能认为只有小样本才用 t。实际上理论上只要 $\\sigma$ 未知就该用 t，只是大样本下 t 接近 Z。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "定位估计量",
+          "content": "题目背景是针对“均值（Mean）”构建区间。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "判断已知条件",
+          "content": "检查总体标准差 $\\sigma$ 是否已知。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "选择分布",
+          "content": "若 $\\sigma$ 未知，则必须通过自由度 $df=n-1$ 使用 t 分布。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：$\\sigma$ 已知时应使用 Z 分布。正确概念：t 分布是为了弥补未知 $\\sigma$ 带来的误差。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：样本量大通常使 Z 成为好的近似，但不是使用 t 的理由。正确概念：使用 t 的核心理由是参数未知性。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：伯努利分布对应比例，通常直接使用 Z 近似。正确概念：t 分布常用于均值推断。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "t-distribution",
+      "Degrees of Freedom",
+      "Standard Deviation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "choice",
+    "question": "If you are shown a histogram that is perfectly flat and another that is peaked and bell-shaped, which one represents the average of 8 dice rolls ($n=8$)?",
+    "options": [
+      "The flat histogram",
+      "The bell-shaped histogram",
+      "Neither, as both represent $n=1$",
+      "Both, depending on the scale"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "根据 CLT，大样本量（如 $n=8$）的均值分布呈现出最接近完美的钟形形态。",
+      "decoding": [
+        "通过读图特征识别样本量 $n$ 的大小。"
+      ],
+      "conditions": [
+        {
+          "title": "形态与样本量关系",
+          "content": "$n=1 \\rightarrow \\text{Flat (Uniform)}, n=8 \\rightarrow \\text{Peaked (Normal)}$",
+          "description": "样本量越大，均值的分布越集中且趋于正态。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "单次试验混淆",
+          "description": "容易将单次掷骰子（每个面概率相等，图形平坦）与多次试验均值混淆。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别 $n=1$ 特征",
+          "content": "单次掷骰子结果是均匀的，表现为平坦的长方形图。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "应用 CLT 结论",
+          "content": "随着 $n$ 增加到 8，均值分布会变得中间高、两边低。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配图形",
+          "content": "钟形图代表了样本量较大的 $n=8$ 情况。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是 $n=1$ 的特征。正确概念：单次试验每个面概率一致。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：分类错误。正确概念：$n$ 不同会导致分布形态发生剧变。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：忽略了分布性质的本质变化。正确概念：形态变化是由 CLT 驱动的，而非比例尺。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Histograms",
+      "Central Limit Theorem",
+      "Sample Size Effect"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-07",
+    "type": "bool",
+    "question": "A 90% confidence interval is narrower than a 95% confidence interval, assuming the sample size and standard deviation remain the same.",
+    "answer": true,
+    "analysis": {
+      "solution": "正确。较低的置信水平对应较小的乘数，因此区间更窄。",
+      "decoding": [
+        "考察置信水平与区间宽度的权衡关系。"
+      ],
+      "conditions": [
+        {
+          "title": "乘数对比",
+          "content": "Multiplier(90%) $\\approx 1.65 < Multiplier(95) %\\approx 2$",
+          "description": "置信度降低，乘数减小。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "方向性误判",
+          "description": "容易记混“窄”和“宽”与置信度的关系。记住：要更确信，范围就要给得更宽。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "核对乘数",
+          "content": "90% 水平对应的乘数是 1.65，而 95% 是 2。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算宽度趋势",
+          "content": "由于 $ME = \\text{Multiplier} \\times SE$，较小的乘数导致较小的 $ME$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "更小的 $ME$ 意味着区间更窄（Narrower），陈述正确。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Level",
+      "Confidence Interval Width"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-08",
+    "type": "bool",
+    "question": "According to the central limit theorem, the spread of the distribution of sample means increases as the sample size $n$ increases.",
+    "answer": false,
+    "analysis": {
+      "solution": "错误。随着样本量增大，标准误减小，分布会变得更窄（更集中）。",
+      "decoding": [
+        "考察样本量对分布离散程度（Spread）的影响。"
+      ],
+      "conditions": [
+        {
+          "title": "标准误公式",
+          "content": "$SE = \\frac{\\sigma}{\\sqrt{n}}$",
+          "description": "$n$ 在分母，与 $SE$ 成反比。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "直觉误导",
+          "description": "学生可能直觉认为“数据多则分布广”。实际上均值的分布会因为平均化效应而更趋向中心。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析公式结构",
+          "content": "查看 $SE$ 公式，发现 $n$ 位于分母根号下。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "推导变化规律",
+          "content": "当 $n$ 增大时，整个分式的值 $SE$ 会减小。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出判断",
+          "content": "离散程度（Spread）应该是减小（Narrower）而非增加，故命题错误。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Central Limit Theorem",
+      "Standard Error",
+      "Sample Size"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-09",
+    "type": "essay",
+    "question": "Suppose you are estimating the proportion of residents who support a new policy. You take a sample of 400 people and find a sample proportion of $\\hat{p} = 0.6. $ Calculate the 95% confidence interval using the common multiplier provided in the lecture notes.",
+    "answer": "The 95% confidence interval is [0.551, 0.649] (using Multiplier=2: [0.551, 0.649]).",
+    "analysis": {
+      "decoding": [
+        "已知条件：$n=400, \\hat{p}=0.6$。要求计算 95% 置信区间。",
+        "需使用比例（Proportions）的标准误公式。"
+      ],
+      "conditions": [
+        {
+          "title": "比例标准误公式",
+          "content": "$SE = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$",
+          "description": "代入样本比例进行计算。"
+        },
+        {
+          "title": "误差边界公式",
+          "content": "$ME = \\text{Multiplier} \\times SE$",
+          "description": "95% 水平下的近似乘数为 2。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "公式混淆陷阱",
+          "description": "不要错误使用均值的 $SE = \\frac{s}{\\sqrt{n}}$。此处变量是比例（Support vs Not support）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算标准误",
+          "content": "$SE = \\sqrt{\\frac{0.6 \\times (1 - 0.6)}{400}} = \\sqrt{\\frac{0.24}{400}} = \\sqrt{0.0006} \\approx 0.0245$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算误差边界",
+          "content": "使用 95% 乘数 2，得 $ME = 2 \\times 0.0245 = 0.049$。",
+          "tag": "计算"
+        },
+        {
+          "title": "构建区间",
+          "content": "$CI = [0.6 - 0.049, 0.6 + 0.049] = [0.551, 0.649]$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval for Proportions",
+      "Standard Error Calculation",
+      "Margin of Error"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-10",
+    "type": "essay",
+    "question": "Explain how the concept of 'Degrees of Freedom' relates to the t-distribution when the population standard deviation is unknown. If the sample size is 25, calculate the specific degrees of freedom and state the effect on the confidence interval width if $n$ were to increase.",
+    "answer": "The degrees of freedom is $df = n - 1. $ For $n=25, $ $df=24. $ As $n$ increases, the interval becomes narrower.",
+    "analysis": {
+      "decoding": [
+        "核心任务：解释自由度定义、计算给定 $n$ 的自由度、预测 $n$ 增大对宽度的影响。"
+      ],
+      "conditions": [
+        {
+          "title": "自由度公式",
+          "content": "$df = n - 1$",
+          "description": "反映了样本中可以自由变动的数据个数。"
+        },
+        {
+          "title": "样本量对宽度的影响",
+          "content": "$n \\uparrow \\rightarrow SE \\downarrow \\rightarrow Width \\downarrow$",
+          "description": "样本量越大，估计的精度越高，区间越窄。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "自由度计算错误",
+          "description": "常有学生记成 $df=n$。必须减 1 以补偿使用样本均值造成的限制。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算当前自由度",
+          "content": "根据 $df = n - 1$，代入 $n=25$，得 $df = 25 - 1 = 24$。",
+          "tag": "计算"
+        },
+        {
+          "title": "分析 $n$ 增大的理论影响",
+          "content": "当 $n$ 增大时，标准误 $SE = \\frac{s}{\\sqrt{n}}$ 会随之减小。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出最终推导",
+          "content": "由于 $ME$ 变小，置信区间将变得更加窄（Narrower），从而提高了估计的精确度。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Degrees of Freedom",
+      "t-distribution",
+      "Sample Size Effect"
+    ],
+    "source": "Lecture"
+  }
+]

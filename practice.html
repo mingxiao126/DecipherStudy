@@ -311,12 +311,18 @@
 
     <!-- Main Content -->
     <div class="relative z-10 container mx-auto px-4 max-w-4xl pb-12">
-        <div class="flex items-center justify-between mb-8">
-            <h1 class="text-2xl font-bold text-white">考题练习</h1>
-            <select id="topicSelector"
-                class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-200 outline-none focus:border-purple-500 transition-colors">
-                <option value="">选择习题集...</option>
-            </select>
+        <div class="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4">
+            <h1 class="text-2xl font-bold text-white w-full sm:w-auto">考题练习</h1>
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+                <select id="subjectFilter"
+                    class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-200 outline-none focus:border-purple-500 transition-colors hidden max-w-[140px]">
+                    <option value="">所有学科</option>
+                </select>
+                <select id="topicSelector"
+                    class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-200 outline-none focus:border-purple-500 transition-colors shrink-0">
+                    <option value="">选择习题集...</option>
+                </select>
+            </div>
         </div>
 
         <div id="questionsContainer" class="space-y-6">

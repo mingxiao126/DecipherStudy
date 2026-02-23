@@ -1,0 +1,582 @@
+[
+  {
+    "id": "econ102-w4-q01",
+    "type": "choice",
+    "question": "An individual is 100 years old, not institutionalized, and is currently actively seeking a job. According to official definitions, this person is classified as: ",
+    "options": [
+      "Not in the labour force",
+      "Unemployed",
+      "Employed",
+      "Institutionalized"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "该老人被分类为失业者 (Unemployed) 。",
+      "decoding": [
+        "题干指出该个体年满15岁且非机构化，属于适龄劳动人口范围 。",
+        "关键在于该个体目前没有工作但正在\"积极寻找工作\"，满足失业的核心判定条件 。"
+      ],
+      "conditions": [
+        {
+          "title": "失业者判定条件",
+          "content": "$\\text{Unemployed} = \\text{Age} \\ge 15 + \\text{No Job} + \\text{Active Search}$",
+          "description": "失业者必须满足属于适龄劳动人口、目前没有工作、正在积极寻找工作且能立即接受工作这四个条件 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "年龄误导陷阱",
+          "description": "学生容易认为高龄老人自动属于退休或非劳动力 。但资料明确指出，100岁的老人也包含在适龄劳动人口内 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "核对适龄人口身份",
+          "content": "个体年满15岁且非收容，符合 Working-age population 定义 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析寻职行为",
+          "content": "题干强调其\"积极寻找工作\"，这使其从\"非劳动力\"转为\"失业者\" 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "根据官方分类口径，该个体应被归类为 Unemployed 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：忽略了积极寻职行为。正确概念：只有不找工作的适龄人口才归为非劳动力 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：该个体目前没有工作。正确概念：就业者必须在一周内至少工作一小时以获取报酬 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：题干已明确其非机构化。正确概念：被收容者不计入适龄劳动人口 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Working-age Population",
+      "Unemployment Definition",
+      "Labour Force Categories"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "econ102-w4-q02",
+    "type": "choice",
+    "question": "A full-time university student works 5 hours a week as a paid tutor. How is this person classified in the official labour statistics? ",
+    "options": [
+      "Employed",
+      "Unemployed",
+      "Not in the labour force",
+      "Underemployed"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "该学生被分类为就业者 (Employed) 。",
+      "decoding": [
+        "学生在一周内工作了5小时并获取报酬 。",
+        "判定标准是是否满足\"一周内至少工作一小时以获取报酬\" 。"
+      ],
+      "conditions": [
+        {
+          "title": "就业者判定标准",
+          "content": "$Work \\ge 1 \\text{ hour/week for pay}$",
+          "description": "只要满足报酬和最低时长要求，无论其主业是否为学习，均计入就业者 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "身份优先级陷阱",
+          "description": "学生常误认为\"全职学生\"身份会使其自动属于\"非劳动力\" 。但在统计中，带薪工作状态优先判定 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "核对工作时间",
+          "content": "该学生每周工作5小时，满足 $\\ge 1$ 小时的就业标准 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出分类结论",
+          "content": "根据定义，该学生被分类为 Employed 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：失业者要求目前没有工作。正确概念：该学生已有报酬工作，属于就业 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：认为学生不计入劳动力。正确概念：只要有带薪工作，就属于劳动力中的就业者 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：就业不足是描述就业质量。正确概念：在基本分类中，其首先属于\"就业者\" 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Employment Definition",
+      "Labour Force Classification"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "econ102-w4-q03",
+    "type": "choice",
+    "question": "Which of the following is most directly associated with 'Structural Unemployment'? ",
+    "options": [
+      "A worker quit their job to find a better match",
+      "The government increasing the legal minimum wage above equilibrium",
+      "A temporary recession leading to layoffs",
+      "A student graduating and starting to look for their first job"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "政府提高最低工资会导致结构性失业增加 。",
+      "decoding": [
+        "结构性失业源于工资无法下降到劳动力供需均衡水平 。",
+        "最低工资法是提高雇佣成本、创造失业差距的制度性原因之一 。"
+      ],
+      "conditions": [
+        {
+          "title": "结构性失业成因",
+          "content": "$W_{min} > W_{equilibrium}$",
+          "description": "当最低工资、工会或效率工资使市场工资高于均衡水平时，会产生结构性失业 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "失业类型混淆",
+          "description": "容易将由于寻找工作时间导致的失业（摩擦性）与由于工资刚性导致的失业（结构性）混淆 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析最低工资影响",
+          "content": "最低工资法使得雇主减少招聘意愿，劳动力供给超过需求 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "这种由于工资制度性刚性导致的失业属于结构性失业 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：描述的是匹配过程。正确概念：这属于摩擦性失业 (Frictional unemployment) 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：由经济暂时性衰退引起。正确概念：这属于周期性失业 (Cyclical unemployment) 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：进入劳动力市场的寻找过程。正确概念：这属于摩擦性失业 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Structural Unemployment",
+      "Minimum Wage Law",
+      "Wage Rigidity"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "econ102-w4-q04",
+    "type": "choice",
+    "question": "The efficiency wage theory suggests that firms pay higher-than-equilibrium wages to increase worker productivity. This causes: ",
+    "options": [
+      "Frictional unemployment",
+      "Structural unemployment",
+      "Cyclical unemployment",
+      "Full employment"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "效率工资会导致结构性失业 (Structural unemployment) 。",
+      "decoding": [
+        "雇主为了提高生产力而支付高于均衡水平的工资 。",
+        "这种行为使想要获得该职位的人多于实际提供的职位 。"
+      ],
+      "conditions": [
+        {
+          "title": "效率工资后果",
+          "content": "$W_{eff} > W_{equilibrium} \\rightarrow \\text{Labour Supply} > \\text{Labour Demand}$",
+          "description": "工资被人为维持在均衡以上，导致劳动力市场无法出清，产生结构性失业 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "动机误解",
+          "description": "容易认为效率工资是为了减少失业。实际上它是雇主主动支付的，但其副作用是创造了失业差距 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别工资类型",
+          "content": "效率工资是一种使市场工资维持在均衡水平以上的制度性因素 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "由工资刚性（无法降至均衡）引起的失业属于结构性失业 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：摩擦性失业源于寻找时间。正确概念：效率工资涉及的是工资水平而非匹配时间 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：周期性失业源于经济衰退。正确概念：效率工资是即使经济景气也会存在的制度性现象 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：效率工资不仅不能达到充分就业，反而创造了失业。正确概念：充分就业不包含结构性失业中的工资溢出部分。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Efficiency Wages",
+      "Structural Unemployment",
+      "Wage Rigidity"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "econ102-w4-q05",
+    "type": "choice",
+    "question": "If an economy enters a recession and firms begin laying off workers due to decreased demand, what type of unemployment is increasing? ",
+    "options": [
+      "Frictional unemployment",
+      "Structural unemployment",
+      "Cyclical unemployment",
+      "Natural unemployment"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "这种失业属于周期性失业 (Cyclical unemployment) 。",
+      "decoding": [
+        "题干明确提到了\"经济的暂时性衰退\" (recession) 。",
+        "周期性失业是由经济危机或衰退引起的失业 。"
+      ],
+      "conditions": [
+        {
+          "title": "周期性失业特征",
+          "content": "$U_{cyclical} \\propto \\text{Economic Recession}$",
+          "description": "由于总需求不足、经济增长放缓而产生的暂时性失业 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "持续时间误判",
+          "description": "周期性失业是暂时的，随经济复苏而消失；而摩擦和结构性失业在长期中依然存在 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别失业诱因",
+          "content": "失业的原因源于宏观经济的周期性下行（Recession） 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出分类结论",
+          "content": "符合周期性失业 (Cyclical unemployment) 的定义 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：摩擦性失业源于正常的寻找时间。正确概念：这与经济周期的波动无关 。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：结构性失业涉及制度性原因或技能错配。正确概念：这通常不是由临时的需求不足引起的 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：自然失业是长期均衡水平。正确概念：自然失业中明确排除了周期性失业部分 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Cyclical Unemployment",
+      "Business Cycle"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "econ102-w4-q06",
+    "type": "choice",
+    "question": "If 100,000 'discouraged searchers' start actively looking for jobs again but have not found work yet, what is the immediate effect on the official unemployment rate? ",
+    "options": [
+      "The unemployment rate increases",
+      "The unemployment rate decreases",
+      "The unemployment rate stays the same",
+      "The labor force participation rate stays the same"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "官方失业率会上升 。",
+      "decoding": [
+        "气馁的寻职者 (Discouraged searchers) 原本属于\"非劳动力\" 。",
+        "当他们开始\"积极寻找\"时，身份转变为\"失业者\" 。"
+      ],
+      "conditions": [
+        {
+          "title": "失业率计算动态",
+          "content": "$UR = \\frac{U}{E + U} \\times 100$%",
+          "description": "当非劳动力转为失业者时，分子 $U$ 和分母 $LF$ 同时增加相同的数值，由于原本 $U < LF$，比值会上升 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "初始分类陷阱",
+          "description": "容易忘记气馁者在官方统计中不计入劳动力。一旦他们找工作，劳动力总量 $LF$ 也会变大 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析身份转变",
+          "content": "气馁者从非劳动力转为失业者，使失业人数 $U$ 增加 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出指标变动",
+          "content": "由于失业人数增加，官方失业率 $UR$ 相应提高 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：认为更多人找工作会降低失业率。正确概念：只有当他们找到工作变为 $E$ 时，失业率才下降 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：忽略了分类状态的改变。正确概念：从非劳动力进入劳动力池子会改变统计比率 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：认为参与率不变。正确概念：劳动力总量增加，参与率会上升 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Discouraged Searchers",
+      "Unemployment Rate Dynamics",
+      "Labour Force Participation Rate"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "econ102-w4-q07",
+    "type": "bool",
+    "question": "The denominator for calculating the official unemployment rate is the total working-age population. ",
+    "answer": false,
+    "analysis": {
+      "solution": "错误。官方失业率的分母是劳动力 (Labour force) 。",
+      "decoding": [
+        "题干陈述了失业率公式的分母为适龄劳动人口 。",
+        "需要区分失业率与劳动力参与率的不同分母定义 。"
+      ],
+      "conditions": [
+        {
+          "title": "指标公式对比",
+          "content": "$UR = \\frac{U}{LF}$ vs $LFPR = \\frac{LF}{WAP}$",
+          "description": "失业率的分母是劳动力 (LF)，而劳动力参与率的分母才是适龄总人口 (WAP) 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "分母混淆陷阱",
+          "description": "学生最常将参与率的分母误用于失业率计算，忽略了非劳动力部分不应在失业率分母中 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "核对官方公式",
+          "content": "失业率衡量的是失业人数占劳动力的百分比 。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "对比题干条件",
+          "content": "Working-age population 包含了非劳动力，不能直接作为失业率分母 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "因此该陈述为错误 (False) 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Unemployment Rate Formula",
+      "Labour Force vs Working-age Population"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "econ102-w4-q08",
+    "type": "bool",
+    "question": "A discouraged worker is counted as part of the official labor force because they want a job and have looked for one in the past year. ",
+    "answer": false,
+    "analysis": {
+      "solution": "错误。气馁的寻职者不属于官方劳动力 。",
+      "decoding": [
+        "气馁者虽然想要工作且过去找过，但目前没有\"积极寻找\" 。",
+        "官方劳动力定义要求失业者必须正在积极寻找工作 。"
+      ],
+      "conditions": [
+        {
+          "title": "官方失业认定",
+          "content": "$U \\in LF \\iff \\text{Active Search}$",
+          "description": "只有在参考周内积极寻职的人才被归入失业者并计入劳动力 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "主观意愿陷阱",
+          "description": "\"想要工作\"不等于\"在找工作\"。官方统计以\"积极寻找\"的行为作为区分失业和非劳动力的关键 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别当前状态",
+          "content": "气馁者因停止寻找而被归类为\"非劳动力\" (Not in the labour force) 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "对比官方口径",
+          "content": "官方 U-3 失业率不包含这类边缘附着者，因此他们不在官方劳动力池内 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "命题陈述不符合官方分类准则，故为 False 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Discouraged Searchers",
+      "Labour Force Definition",
+      "U-3 Unemployment Rate"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "econ102-w4-q09",
+    "type": "essay",
+    "question": "Consider an economy with the following population data: \\n- Employed: 600 \\n- Unemployed: 100 \\n- Working-age Population: 1,000 \\n1. Calculate the official unemployment rate and the labour force participation rate. \\n2. If 50 unemployed workers stop looking for work because they become discouraged, calculate the new official unemployment rate. ",
+    "answer": "1. UR = 14.29%, LFPR = 70%; 2. New UR = 7.69%. ",
+    "analysis": {
+      "decoding": [
+        "初始数据：$E = 600, U = 100, WAP = 1000$ 。",
+        "变动情况：50名失业者退出劳动力市场，变为气馁者 。"
+      ],
+      "conditions": [
+        {
+          "title": "核心计算公式",
+          "content": "$UR = \\frac{U}{E + U} \\text{ and } LFPR = \\frac{E + U}{WAP}$",
+          "description": "失业率和参与率的计算必须基于劳动力总量 $LF = E + U$ 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "气馁者分母影响",
+          "description": "当气馁者退出时，分子 $U$ 减少，同时分母 $LF$ 也会同步减少，不能只减分子 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算初始指标",
+          "content": "劳动力 $LF = 600 + 100 = 700$。\\n初始失业率 = $\\frac{100}{700} \\times 100 \\approx 14.29$%。\\n初始参与率 = $\\frac{700}{1000} \\times 100 = 70$%。",
+          "tag": "计算"
+        },
+        {
+          "title": "分析气馁者退出后的变量",
+          "content": "50人变为气馁者后，新 $U = 100 - 50 = 50$。\\n新劳动力 $LF = 700 - 50 = 650$。 ",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "新失业率 = $\\frac{50}{650} \\approx 7.69$%。 ",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Unemployment Rate Calculation",
+      "Labour Force Participation Rate",
+      "Discouraged Worker Dynamics"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "econ102-w4-q10",
+    "type": "essay",
+    "question": "Explain the concept of 'Hysteresis' and how a period of high unemployment can lead to long-term costs for the economy. ",
+    "answer": "Hysteresis refers to the situation where short-term high unemployment causes a permanent increase in the equilibrium unemployment rate due to skill decay and loss of hope. ",
+    "analysis": {
+      "decoding": [
+        "迟滞效应 (Hysteresis) 解释了高失业率的长期经济后果 。",
+        "核心逻辑是短期波动如何转化为长期均衡状态的恶化 。"
+      ],
+      "conditions": [
+        {
+          "title": "迟滞效应机制",
+          "content": "$\\uparrow U_{short} \\rightarrow \\downarrow \\text{Human Capital} \\rightarrow \\uparrow U_{equilibrium}$",
+          "description": "长期的失业经历会导致工人技能生疏，并在劳动力市场上遭遇歧视，使其难以再次就业 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "暂时与永久的区分",
+          "description": "容易认为经济复苏后失业率会自动回到原位。迟滞效应指出复苏后的均衡点可能已经升高 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "描述失业对个人的影响",
+          "content": "高失业率导致工人失去技能，并容易失去希望停止寻找工作 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析对政府和社会的成本",
+          "content": "失业导致政府税收减少但福利支出增加，且对失业者子女的未来就业有负面影响 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出宏观经济结论",
+          "content": "这一段时期的持续失业最终导致长期的均衡失业率上升 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Hysteresis",
+      "Costs of Unemployment",
+      "Equilibrium Unemployment Rate"
+    ],
+    "source": "Notes"
+  }
+]

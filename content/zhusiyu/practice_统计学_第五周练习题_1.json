@@ -1,0 +1,591 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "Which of the following is a fundamental characteristic of a Bernoulli random variable?",
+    "options": [
+      "It represents a continuous range of values between 0 and 1.",
+      "It can only take two possible values, typically 0 and 1.",
+      "The sum of its possible outcomes must equal the sample size n.",
+      "The probability of success p must always be 0.5."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "根据定义，伯努利随机变量是只能取两个值（通常为0和1）的随机变量 。",
+      "decoding": [
+        "题干要求识别伯努利随机变量的核心定义特征 。",
+        "伯努利变量通过 $P(1)=p$ 和 $P(0)=1-p$ 来描述成功与失败 。"
+      ],
+      "conditions": [
+        {
+          "title": "伯努利变量定义",
+          "content": "$B \\in \\{0, 1\\}$",
+          "description": "变量仅有两种离散状态：成功（1）或失败（0） 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "连续性误区",
+          "description": "容易将概率 $p$ 的连续取值范围（0到1）与变量本身的离散取值（0或1）混淆 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别变量取值",
+          "content": "伯努利随机变量是离散的，且仅限两个值 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "排除错误选项",
+          "content": "它不是连续的，且 $p$ 可以是 1/6 或其他值，不限于 0.5 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：将其描述为连续变量。正确概念：伯努利变量是离散的 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：混淆了变量取值与样本量。正确概念：伯努利变量描述单次试验结果 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：限制了 $p$ 的取值。正确概念：$p$ 可以是任何 0 到 1 之间的概率，如 $p=1/6$ 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Bernoulli Random Variable",
+      "Probability Mass Function",
+      "Discrete Random Variables"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "As the sample size n increases, what changes occur in the sampling distribution of the sample proportion?",
+    "options": [
+      "The distribution becomes more skewed and the spread increases.",
+      "The distribution becomes more symmetric (bell-shaped) and the spread decreases.",
+      "The distribution remains the same shape but the mean converges to 0.",
+      "The standard error increases because the denominator in the formula is n."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "随着样本量增加，分布会越来越接近对称的钟形，且离散程度（宽度）会越来越小 。",
+      "decoding": [
+        "考察样本量 $n$ 对抽样分布形态（Shape）和离散程度（Spread）的影响 。",
+        "根据大数定律的直观表现进行判断 。"
+      ],
+      "conditions": [
+        {
+          "title": "标准误与样本量关系",
+          "content": "$SE = \\sqrt{\\frac{p(1-p)}{n}}$",
+          "description": "因为 $n$ 在分母，所以 $n$ 越大，标准误 $SE$ 越小 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "分布偏态陷阱",
+          "description": "学生常误认为初始分布不对称则结果永远不对称，实际上大样本下会趋于钟形 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析形态变化",
+          "content": "无论初始分布如何，大样本下分布趋向于对称的钟形 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析离散程度",
+          "content": "随 $n$ 增加，$SE$ 减小，数据向中心（真实 $p$）集中 。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "分布呈现\"窄且对称\"的特征 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：认为偏态和宽度增加。正确概念：$n$ 越大，图形越窄且越接近钟形 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：均值收敛于 0。正确概念：样本比例会收敛于真实的总体概率 $p$ 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：认为标准误增加。正确概念：$n$ 在分母的根号里，越大则 $SE$ 越小 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Law of Large Numbers",
+      "Sampling Distribution",
+      "Standard Error"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-03",
+    "type": "choice",
+    "question": "If you roll a fair six-sided die 24 times, what is the expected number of times a '6' will appear?",
+    "options": [
+      "24",
+      "6",
+      "4",
+      "1"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "期望次数为 $24 \\times (1/6) = 4$ 次 。",
+      "decoding": [
+        "识别掷骰子为伯努利试验，出现\"6\"的概率 $p = 1/6$ 。",
+        "应用期望值的线性运算规则 。"
+      ],
+      "conditions": [
+        {
+          "title": "伯努利期望规则",
+          "content": "$E\\sum X_{i} = \\sum EX_{i} = n \\times p$",
+          "description": "独立试验总和的期望等于次数乘以单次成功的概率 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "概率识别错误",
+          "description": "可能误将骰子的面数（6）直接当作期望值 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "确定单次成功的概率",
+          "content": "掷出 6 的概率 $p = 1/6$ 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入期望公式",
+          "content": "$E = 24 \\times \\frac{1}{6}$ 。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算结果",
+          "content": "$E = 4$ 。",
+          "tag": "计算"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：直接取总次数。正确概念：期望必须结合成功概率计算 。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：混淆了骰子的面数。正确概念：应使用概率 $1/6$ 进行加权 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：单次试验的期望值。正确概念：题目要求 24 次试验的总期望 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Expected Value",
+      "Bernoulli Trials",
+      "Rules of Expectation"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-04",
+    "type": "choice",
+    "question": "A business game costs 15 dollars to play per round. If you play 10 rounds and the reward for each win is 120 dollars with a winning probability of 1/6, what is your expected profit?",
+    "options": [
+      "200 dollars",
+      "150 dollars",
+      "50 dollars",
+      "20 dollars"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "预期利润 = 预期收入 - 总成本 = $120 \\times 10 \\times (1/6) - (15 \\times 10) = 50$ 。",
+      "decoding": [
+        "识别获胜奖励、获胜概率 $p$、成本和总次数 $n$ 。",
+        "应用预期利润公式，注意必须减去成本 。"
+      ],
+      "conditions": [
+        {
+          "title": "预期利润公式",
+          "content": "$\\text{Profit} = (\\text{Reward} \\times n \\times p) - (\\text{Cost} \\times n)$",
+          "description": "预期利润等于预期总收益减去总投入成本 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "遗漏成本陷阱",
+          "description": "计算时容易只计算预期收益（200）而忘记减去成本（150） 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算预期总收益",
+          "content": "$120 \\times 10 \\times \\frac{1}{6} = 200$ 。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算总成本",
+          "content": "$15 \\times 10 = 150$ 。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算预期利润",
+          "content": "$200 - 150 = 50$ 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：只计算了预期收入，未扣除成本 。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：仅计算了总成本。正确概念：利润需要收入减去成本 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：单次游戏的预期利润。正确概念：题目要求 10 次的总预期利润 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Expected Profit",
+      "Expected Value",
+      "Cost-Benefit Analysis"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "Which of the following describes the spread of a sampling distribution when n is very small?",
+    "options": [
+      "The spread is small and the data is highly concentrated.",
+      "The spread is large and the distribution appears wider.",
+      "The spread is independent of the sample size n.",
+      "The spread is calculated using the formula $\\sigma / n$."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "样本量 $n$ 越小，离散程度（Spread）越大，图形越宽 。",
+      "decoding": [
+        "考查 $n$ 与图形分布\"胖瘦\"的关系 。",
+        "理解标准误 $SE$ 作为离散程度度量随 $n$ 变化的趋势 。"
+      ],
+      "conditions": [
+        {
+          "title": "离散程度规律",
+          "content": "$n \\downarrow \\implies SE \\uparrow \\implies \\text{Spread} \\uparrow$",
+          "description": "较小的样本量意味着单次抽样的波动更大 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "读图陷阱",
+          "description": "学生常混淆\"窄\"和\"宽\"对应的样本量大小 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "确定变量关系",
+          "content": "标准误 $SE$ 与 $\\sqrt{n}$ 成反比 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析小样本表现",
+          "content": "当 $n$ 较小时，$SE$ 较大，导致直方图看起来更宽（Spread大） 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：描述为 $n$ 很大时的特征。正确概念：大样本才会有高度集中的分布 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：认为独立于 $n$。正确概念：离散程度受 $n$ 的强烈影响 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：公式错误。正确概念：分母应为 $\\sqrt{n}$ 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Error",
+      "Sampling Variation",
+      "Histogram Interpretation"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-06",
+    "type": "choice",
+    "question": "What is the correct formula for the population variance of a Bernoulli random variable B with success probability p?",
+    "options": [
+      "$Var(B) = p$",
+      "$Var(B) = \\sqrt{p(1-p)}$",
+      "$Var(B) = p(1-p)$",
+      "$Var(B) = \\frac{p(1-p)}{n}$"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "伯努利变量的总体方差公式为 $Var(B)=p(1-p)$ 。",
+      "decoding": [
+        "区分总体方差、总体标准差与标准误的概念 。",
+        "直接从核心知识点提炼公式 。"
+      ],
+      "conditions": [
+        {
+          "title": "伯努利方差公式",
+          "content": "$Var(B) = p(1-p)$",
+          "description": "这是描述单个伯努利随机变量离散程度的总体参数 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "公式混淆陷阱",
+          "description": "容易将方差与标准差（带根号）或标准误（带 $n$）混淆 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别总体参数",
+          "content": "题目要求的是\"总体方差\" 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "选择对应公式",
+          "content": "直接应用公式 $p(1-p)$ 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是伯努利变量的期望值 $EB$ 。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：这是总体标准差 $\\sigma$ 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：这是样本比例的标准误（SE）的平方 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Variance",
+      "Bernoulli Distribution",
+      "Population Parameters"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-07",
+    "type": "bool",
+    "question": "Increasing the sample size n will decrease the standard error (SE) of the sample proportion.",
+    "answer": true,
+    "analysis": {
+      "solution": "正确。增加样本量会降低样本比例的标准误（离散程度） 。",
+      "decoding": [
+        "考察 $SE$ 与 $n$ 之间的反向变动关系 。",
+        "验证概念判断题中的离散程度规律 。"
+      ],
+      "conditions": [
+        {
+          "title": "标准误公式",
+          "content": "$SE = \\sqrt{\\frac{p(1-p)}{n}}$",
+          "description": "由于 $n$ 在分母的根号里，它的增加必然导致 $SE$ 的减小 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "比例混淆陷阱",
+          "description": "不要误认为 $n$ 增加会改变总体概率 $p$，它改变的是估算的精确度（离散程度） 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析公式结构",
+          "content": "$SE$ 与 $\\sqrt{n}$ 成反比 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "判断变动方向",
+          "content": "$n$ 增大，分母变大，分数值（$SE$）变小 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Error",
+      "Sample Size",
+      "Convergence"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-08",
+    "type": "bool",
+    "question": "The expected value of a Bernoulli random variable B is equal to the probability of success p.",
+    "answer": true,
+    "analysis": {
+      "solution": "正确。对于伯努利变量 $B$，期望值 $EB = p$ 。",
+      "decoding": [
+        "考查伯努利变量的基础期望属性 。",
+        "识别伯努利场景下的均值特征 。"
+      ],
+      "conditions": [
+        {
+          "title": "伯努利期望定义",
+          "content": "$EB = 1 \\times p + 0 \\times (1-p) = p$",
+          "description": "期望值是所有可能值的加权平均数 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "数值混淆陷阱",
+          "description": "容易混淆\"期望值\"与\"可能取值\"（0或1） 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "回顾定义",
+          "content": "期望值是可能值的加权平均 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "应用到伯努利变量",
+          "content": "成功的概率记为 $p$，对应的变量值为 1，因此均值即比例 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Expected Value",
+      "Bernoulli Random Variables",
+      "Mean"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-09",
+    "type": "essay",
+    "question": "Suppose you flip a fair coin 50 times. Calculate the expected number of heads and the standard error of the proportion of heads.",
+    "answer": "The expected number of heads is 25, and the standard error of the proportion is approximately 0.0707.",
+    "analysis": {
+      "decoding": [
+        "识别硬币抛掷为伯努利试验，正面概率 $p=0.5$ 。",
+        "给定样本量 $n=50$ 。",
+        "需要计算期望总数 $E$ 和比例的标准误 $SE$ 。"
+      ],
+      "conditions": [
+        {
+          "title": "期望计算公式",
+          "content": "$E = n \\times p$",
+          "description": "用于计算多次独立试验中成功的预期次数 。"
+        },
+        {
+          "title": "标准误计算公式",
+          "content": "$SE = \\sqrt{\\frac{p(1-p)}{n}}$",
+          "description": "衡量样本比例的离散程度 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "分母规则陷阱",
+          "description": "计算标准误时分母必须使用 $n=50$，不能使用 $n-1=49$ 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算预期正面次数",
+          "content": "$E = 50 \\times 0.5 = 25$ 。",
+          "tag": "计算"
+        },
+        {
+          "title": "代入标准误公式",
+          "content": "$SE = \\sqrt{\\frac{0.5 \\times (1 - 0.5)}{50}}$ 。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "化简得出结论",
+          "content": "$SE = \\sqrt{\\frac{0.25}{50}} = \\sqrt{0.005} \\approx 0.0707$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Expected Value",
+      "Standard Error",
+      "Coin Flipping"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-10",
+    "type": "essay",
+    "question": "A student claims that the sampling distribution of a sample proportion will be skewed if the population distribution is skewed, regardless of the sample size. Is this claim correct? Explain using the visual patterns discussed in the notes.",
+    "answer": "The claim is incorrect. As n increases, the distribution becomes symmetric and bell-shaped regardless of the initial population skewness.",
+    "analysis": {
+      "decoding": [
+        "考察对样本量 $n$ 增加时分布形态演变规律的理解 。",
+        "重点在于理解大数定律下分布趋于对称（钟形）的特性 。"
+      ],
+      "conditions": [
+        {
+          "title": "分布形态规律",
+          "content": "$\\text{Shape} \\approx \\text{Bell-shaped for large } n$",
+          "description": "无论初始分布多不对称，图形会越来越接近对称的钟形 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "初始状态误区",
+          "description": "学生容易忽略 $n$ 增大带来的形态转变，误以为样本特征必须完全遗传自总体 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别小样本表现",
+          "content": "$n$ 越小时，图形确实可能更歪（Skewed） 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "阐述大样本演变",
+          "content": "随着 $n$ 的增加，分布会强制向对称的钟形靠拢 。",
+          "tag": "结论"
+        },
+        {
+          "title": "得出最终判断",
+          "content": "该学生的说法忽略了样本量对形态的决定性影响，因此是错误的 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Law of Large Numbers",
+      "Central Limit Theorem Intuition",
+      "Skewness and Symmetry"
+    ],
+    "source": "Lecture"
+  }
+]

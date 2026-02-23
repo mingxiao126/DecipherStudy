@@ -8,6 +8,7 @@ class PracticeApp {
         this.container = document.getElementById('questionsContainer');
         this.modal = document.getElementById('analysisModal');
         this.modalBody = document.getElementById('modalBody');
+        this.subjectFilter = document.getElementById('subjectFilter');
         this.topicSelector = document.getElementById('topicSelector');
         this.closeModalBtn = document.getElementById('closeModal');
     }
@@ -22,16 +23,60 @@ class PracticeApp {
             const builtInTopics = await window.fetchUserTopics('practice');
             this.topics = builtInTopics;
 
+            // Extract unique subjects
+            const subjects = new Set();
+            this.topics.forEach(t => {
+                if (t.subject) subjects.add(t.subject);
+            });
+
+            if (subjects.size > 0) {
+                this.subjectFilter.classList.remove('hidden');
+                this.subjectFilter.innerHTML = '<option value="" disabled selected>请选择学科...</option>';
+                [...subjects].sort().forEach(sub => {
+                    const opt = document.createElement('option');
+                    opt.value = opt.textContent = sub;
+                    this.subjectFilter.appendChild(opt);
+                });
+            } else {
+                this.subjectFilter.classList.add('hidden');
+            }
+
+            this.renderTopicOptions();
+        } catch (error) {
+            console.error('Error loading topics:', error);
+            this.container.innerHTML = `<div class="text-red-400 py-10 text-center">加载题库列表失败: ${error.message}</div>`;
+        }
+    }
+
+    renderTopicOptions() {
+        const selectedSubject = this.subjectFilter ? this.subjectFilter.value : '';
+
+        if (this.subjectFilter && !this.subjectFilter.classList.contains('hidden') && !selectedSubject) {
+            this.topicSelector.innerHTML = '<option value="">请先在左边选择学科</option>';
+            this.topicSelector.disabled = true;
+            this.topicSelector.classList.add('opacity-50', 'cursor-not-allowed');
+        } else {
             this.topicSelector.innerHTML = '<option value="">选择习题集...</option>';
-            this.topics.forEach(topic => {
+            this.topicSelector.disabled = false;
+            this.topicSelector.classList.remove('opacity-50', 'cursor-not-allowed');
+
+            const filteredTopics = selectedSubject
+                ? this.topics.filter(t => t.subject === selectedSubject)
+                : this.topics;
+
+            filteredTopics.forEach(topic => {
                 const opt = document.createElement('option');
                 opt.value = topic.file;
                 opt.textContent = topic.name;
                 this.topicSelector.appendChild(opt);
             });
-        } catch (error) {
-            console.error('Error loading topics:', error);
-            this.container.innerHTML = `<div class="text-red-400 py-10 text-center">加载题库列表失败: ${error.message}</div>`;
+        }
+
+        // Clear board if topic file doesn't match available
+        const currentFile = this.topicSelector.value;
+        if (!currentFile && this.questions.length > 0) {
+            this.questions = [];
+            this.renderQuestions();
         }
     }
 
@@ -141,16 +186,16 @@ class PracticeApp {
         // 3. Handle inline lists separated by semicolons (e.g. "1. Ans1; 2. Ans2")
         processed = processed.replace(/;\s+(?=\d+\.\s)/g, '\n');
 
-        // 4. Fix accidentally evaluated newlines in latex commands (e.g. \notin)
-        // This converts literal newline+otin back to \notin (backslash+notin)
+        // 4. Fix accidentally evaluated newlines in latex commands (e.g. \notin becomes newline + "otin")
         processed = processed.replace(/\notin/g, '\\notin');
+        processed = processed.replace(/\neq/g, '\\neq');
 
         // Protect \\notin from being split by the next step's \\n matching
-        processed = processed.replace(/\\notin/g, '__NOTIN__');
+        processed = processed.replace(/\\\\notin/g, '__NOTIN__');
 
         // 5. Handle literal \n or actual newlines -> array of lines
-        // We split by \n or actual \n, but ignore \\n (escaped newline)
-        let lines = processed.split(/(?<!\\)\\n|\n/);
+        // Use negative lookahead (?![a-zA-Z]) to prevent splitting LaTeX commands like \\neq, \\nabla
+        let lines = processed.split(/(?<!\\\\)\\\\n(?![a-zA-Z])|\n/);
 
         let html = '';
         let inUl = false;
@@ -195,6 +240,14 @@ class PracticeApp {
     }
 
     setupEventListeners() {
+        if (this.subjectFilter) {
+            this.subjectFilter.addEventListener('change', () => {
+                this.renderTopicOptions();
+                this.topicSelector.value = '';
+                this.loadQuestions('');
+            });
+        }
+
         this.topicSelector.addEventListener('change', (e) => {
             this.loadQuestions(e.target.value);
         });

@@ -1,0 +1,607 @@
+[
+  {
+    "id": "econ102-w6-01",
+    "type": "choice",
+    "question": "If a household's income increases by 1,000 dollars and their consumption increases by 600 dollars, what is the Marginal Propensity to Consume (MPC)?",
+    "options": [
+      "0.4",
+      "0.6",
+      "1.0",
+      "1.6"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "根据公式，边际消费倾向 $MPC$ 等于消费变动额除以收入变动额 。",
+      "decoding": [
+        "题干给出额外收入为 1,000 美元 。",
+        "题干给出额外消费为 600 美元 。",
+        "要求计算边际消费倾向 $MPC$ 。"
+      ],
+      "conditions": [
+        {
+          "title": "边际消费倾向公式",
+          "content": "$MPC = \\frac{\\Delta \\text{Consumption}}{\\Delta \\text{Income}}$",
+          "description": "衡量家庭将每一份额外的收入用于消费的比例 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "分子分母颠倒",
+          "description": "学生容易误用收入除以消费 。识别方法：$MPC$ 的值通常在 0 和 1 之间 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别变量",
+          "content": "已知收入变动额为 1,000，消费变动额为 600 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入公式",
+          "content": "$MPC = \\frac{600}{1000}$ 。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "$MPC = 0.6$ 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是边际储蓄倾向（MPS）。正确概念：储蓄是收入减去消费后的剩余部分 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这是指 MPC 等于 1 的情况。正确概念：本题中消费增加额小于收入增加额 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：计算结果大于 1。正确概念：MPC 的值通常在 0 和 1 之间 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Marginal Propensity to Consume",
+      "Consumption Function"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "econ102-w6-02",
+    "type": "choice",
+    "question": "Which of the following scenarios will cause the consumption function to shift upward?",
+    "options": [
+      "An increase in current income",
+      "An increase in real interest rates",
+      "A decrease in taxes",
+      "A decrease in household wealth"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "减税会导致可支配收入增加，从而使消费曲线上移 。",
+      "decoding": [
+        "题干要求识别导致消费曲线\"平移（Shift）\"且方向为\"向上\"的因素 。",
+        "需要区分\"沿着曲线移动\"与\"曲线平移\" 。"
+      ],
+      "conditions": [
+        {
+          "title": "消费曲线平移因素",
+          "content": "$\\text{Shifters} \\in \\{\\text{Interest rates, Expectations, Taxes, Wealth}\\}$",
+          "description": "除了当期收入以外的因素发生变化会导致曲线平移 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "收入变动误区",
+          "description": "容易将收入增加视为平移 。识别方法：收入变动只会导致沿着曲线的点移动 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "排除点移动",
+          "content": "当期收入的变动（选项 A）只会导致沿着曲线的 Movement 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析平移方向",
+          "content": "利率上升（选项 B）和财富减少（选项 D）都会导致曲线下移 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "减税会增加消费，导致消费曲线向上平移 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：导致点移动。正确概念：收入变动仅导致沿着消费曲线的 Movement 。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：方向错误。正确概念：实际利率高时通常会减少当前消费，使曲线向下平移 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：方向错误。正确概念：财富增加才会带来更多消费（曲线上移） 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Consumption Function Shifts",
+      "Disposable Income"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "econ102-w6-03",
+    "type": "choice",
+    "question": "According to the Permanent Income Hypothesis, how would a 'consumption smoother' react to a temporary 500 dollars bonus?",
+    "options": [
+      "Spend the entire 500 dollars immediately",
+      "Increase current consumption by a very small amount",
+      "Decrease current consumption to save more",
+      "Not change consumption at all until the bonus becomes permanent"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "平滑消费者只会针对暂时性收入增加而略微增加消费 。",
+      "decoding": [
+        "题干涉及\"平滑消费者（Consumption smoothers）\" 。",
+        "收入变动性质为\"暂时性（Temporary）\" 。"
+      ],
+      "conditions": [
+        {
+          "title": "永久收入假说",
+          "content": "$C \\approx f(\\text{Permanent Income})$",
+          "description": "消费决策由长期平均收入决定，而非当期绝对收入 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "消费者类型混淆",
+          "description": "容易混淆平滑消费者与糊口型消费者 。识别方法：糊口型消费者会把拿到的钱全花掉 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别变动性质",
+          "content": "一次性奖金属于暂时性收入增加 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "应用平滑理论",
+          "content": "平滑消费者会倾向于在时间上保持平稳消费，将资金分摊到未来 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "因此，平滑消费者当前消费增加微乎其微 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是糊口型消费者的行为。正确概念：糊口型消费者会大幅增加消费并花掉奖金 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：收入增加通常不会减少消费。正确概念：收入增加会带来消费增加 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：忽略了边际收益的微弱调整。正确概念：平滑消费者仍会增加一点点消费 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Permanent Income Hypothesis",
+      "Consumption Smoothing"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "econ102-w6-04",
+    "type": "choice",
+    "question": "Which of the following describes the behavior of a 'hand-to-mouth' consumer regarding an expected future income increase?",
+    "options": [
+      "Increase current consumption immediately upon hearing the news",
+      "Wait until the money actually arrives to increase consumption",
+      "Increase current consumption by borrowing against future income",
+      "Decrease current consumption to save for the future"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "糊口型消费者要等到钱实际到账时才会大幅增加消费 。",
+      "decoding": [
+        "题干关注\"糊口型消费者（Hand-to-mouth consumers）\" 。",
+        "情景为\"预期到的未来收入增加\" 。"
+      ],
+      "conditions": [
+        {
+          "title": "糊口型消费者特征",
+          "content": "$MPC = 1$",
+          "description": "完全受限于当期到手的现金，有多少花多少 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "预测反应混淆",
+          "description": "容易认为所有人都会对消息做出反应 。识别方法：只有平滑消费者会立刻改变当前消费 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析消费者限制",
+          "content": "糊口型消费者受限于现金流，无法基于未来消息借款 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "对比反应时机",
+          "content": "对于预期的增收，平滑消费者当前消费不变，糊口型消费者也要等钱到账 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "糊口型消费者在钱实际到账前消费不变 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是平滑消费者面对\"得知未来变动消息\"时的反应。正确概念：平滑消费者对消息反应，糊口型对到账反应 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：糊口型消费者无法或不愿借贷。正确概念：平滑消费者才倾向于跨期转移资金 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：与增加消费的动机相反。正确概念：收入增加通常伴随消费增加 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Hand-to-mouth Consumers",
+      "Intertemporal Choice"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-w6-05",
+    "type": "choice",
+    "question": "Which of the following is an example of a 'stock' variable as defined in chapter 13?",
+    "options": [
+      "Consumption",
+      "Saving",
+      "Net wealth",
+      "Income"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "随着时间推移积累的财富总量（如净财富）属于\"存量\" 。",
+      "decoding": [
+        "题干要求识别\"存量（Stock）\" 。",
+        "对比概念是\"流量（Flow）\" 。"
+      ],
+      "conditions": [
+        {
+          "title": "存量与流量区别",
+          "content": "$\\text{Stock} = \\sum \\text{Flows}$",
+          "description": "流量在特定时期内衡量，存量是积累的总量 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "储蓄性质混淆",
+          "description": "容易将\"储蓄\"误认为存量 。识别方法：储蓄（新存的钱）是流量，积攒的财富才是存量 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别流量变量",
+          "content": "消费、收入和储蓄（给定时期内未花的钱）都属于流量 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "识别存量变量",
+          "content": "净财富（资产减去债务）是时间点上的积累总量 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "因此，净财富是存量 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：属于流量。正确概念：消费是在特定时期内的支出 。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：属于流量。正确概念：本章定义中，新存的钱（储蓄）属于流量 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：属于流量。正确概念：收入是在给定时期内获得的报酬 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Stock versus Flow",
+      "Wealth and Income"
+    ],
+    "source": "Textbook"
+  },
+  {
+    "id": "econ102-w6-06",
+    "type": "choice",
+    "question": "According to the life-cycle characteristic, which stage of life is typically associated with borrowing or accumulating debt?",
+    "options": [
+      "Middle age",
+      "Retirement",
+      "Young age",
+      "Late middle age"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "在典型的生命周期中，年轻时通常借款或积累债务 。",
+      "decoding": [
+        "题干考察\"生命周期特征\" 。",
+        "要求识别\"借款/积累债务\"对应的阶段 。"
+      ],
+      "conditions": [
+        {
+          "title": "生命周期模型",
+          "content": "$\\text{Age} \\to \\text{Saving/Borrowing Behavior}$",
+          "description": "描述个人在不同年龄阶段的收入、消费与储蓄模式 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "退休阶段误区",
+          "description": "可能认为退休后也会借款。识别方法：退休后主要是消耗之前积累的储蓄 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析中年阶段",
+          "content": "中年时通常还债并为退休储蓄 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析退休阶段",
+          "content": "退休后开始消耗储蓄 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "确定早期阶段",
+          "content": "年轻时由于收入低且有大额支出需求，通常表现为借款 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：中年是储蓄高峰。正确概念：中年还债并为未来储蓄 。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：退休是消耗储蓄阶段。正确概念：退休后动用积累的资产 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：与中年类似。正确概念：中年及中后期通常是净储蓄者 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Life-cycle Hypothesis",
+      "Consumption Smoothing"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "econ102-w6-07",
+    "type": "bool",
+    "question": "A medical student borrowing a large sum for tuition based on high expected future earnings is an example of the rational rule for consumers.",
+    "answer": true,
+    "analysis": {
+      "solution": "正确。理性法则建议如果未来收益超过当前成本（含利息），则应跨期转移消费 。",
+      "decoding": [
+        "题干描述医学生借款的情景 。",
+        "判断其是否符合\"消费者的理性法则（Rational rule）\" 。"
+      ],
+      "conditions": [
+        {
+          "title": "消费者的理性法则",
+          "content": "$MB_{\\text{today}} \\ge MB_{\\text{future}} + \\text{\\interest}$",
+          "description": "当今天消费的边际收益大于未来收益加利息时，应增加当前消费 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "单纯债务误区",
+          "description": "容易将借债视为非理性行为。识别方法：永久收入假说支持基于长期收入进行消费规划 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "评估未来收入",
+          "content": "医学生预期未来收入很高，属于永久收入的一部分 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "应用理性法则",
+          "content": "为了平滑一生消费，在收入低时借款以提高当前效用是理性的 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出判断结论",
+          "content": "该行为符合理性法则，为 true 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Rational Rule for Consumers",
+      "Permanent Income Hypothesis"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-w6-08",
+    "type": "bool",
+    "question": "According to the materials, 'saving' and 'consumption' are both considered stock variables in macroeconomics.",
+    "answer": false,
+    "analysis": {
+      "solution": "错误。储蓄（新存的钱）、消费和收入在特定时期内均属于\"流量\" 。",
+      "decoding": [
+        "题干将储蓄与消费归类为\"存量\" 。",
+        "需要对照存量与流量的明确分类 。"
+      ],
+      "conditions": [
+        {
+          "title": "流量变量定义",
+          "content": "$\\text{Flow} \\in \\{\\text{Saving, Consumption, Income}\\}$",
+          "description": "这些变量衡量的是单位时间内的变化或支出 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "财富混淆陷阱",
+          "description": "容易将储蓄与积累的财富存量混淆 。识别方法：储蓄是流向，财富是池里的总量 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "核查变量属性",
+          "content": "资料明确指出储蓄、消费和收入属于\"流量\" 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "识别存量范畴",
+          "content": "只有随时间积累的财富总量（如净财富）属于\"存量\" 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出最终判定",
+          "content": "题干分类错误，命题为 false 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Stock versus Flow",
+      "Economic Definitions"
+    ],
+    "source": "Textbook"
+  },
+  {
+    "id": "econ102-w6-09",
+    "type": "essay",
+    "question": "If an economy's total income increases by 10 billion dollars and the Marginal Propensity to Consume (MPC) is 0.7, calculate the change in total consumption. Additionally, describe how this change would be represented on a consumption function graph.",
+    "answer": "The total consumption increases by 7 billion dollars. This change is represented as a movement along the consumption function curve to the right.",
+    "analysis": {
+      "decoding": [
+        "题干给出收入增加额 $\\Delta Y = 10$ 亿美元 。",
+        "题干给出 $MPC = 0.7$ 。",
+        "要求计算 $\\Delta C$ 并说明在图表上的表现 。"
+      ],
+      "conditions": [
+        {
+          "title": "消费变动计算公式",
+          "content": "$\\Delta \\text{Consumption} = MPC \\times \\Delta \\text{Income}$",
+          "description": "通过边际消费倾向计算总收入变化带来的消费影响 。"
+        },
+        {
+          "title": "点移动判定准则",
+          "content": "$\\Delta \\text{Income} \\implies \\text{Movement along the curve}$",
+          "description": "当期收入的变动只会导致沿着现有曲线的移动 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "图表表现误判",
+          "description": "容易误认为曲线会发生平移 。识别方法：检查变量是否为坐标轴上的 Income 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "执行数值计算",
+          "content": "$10 \\times 0.7 = 7$ 亿美元 。",
+          "tag": "计算"
+        },
+        {
+          "title": "判定图形变动类型",
+          "content": "由于变化是由收入（Income）引起的，根据规则这属于\"点移动\" 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "消费增加 7 亿美元，表现为沿着消费曲线向右上方移动 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Marginal Propensity to Consume",
+      "Movement along the Consumption Function"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-w6-10",
+    "type": "essay",
+    "question": "List and briefly explain the four motives for savings as outlined in the text.",
+    "answer": "The four motives are: 1. Lifecycle income changes; 2. Lifecycle demand changes; 3. Bequests; 4. Precautionary saving.",
+    "analysis": {
+      "decoding": [
+        "题干要求列出并解释\"储蓄的四大动机\" 。",
+        "内容需直接引用资料中的相关定义 。"
+      ],
+      "conditions": [
+        {
+          "title": "储蓄动机模型",
+          "content": "$\\text{Savings} = f(\\text{Lifecycle, Bequests, Precautions})$",
+          "description": "描述人们不进行当期消费而选择储蓄的背后驱动力 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "遗漏关键动机",
+          "description": "容易忽略\"遗赠\"或\"预防性\"动机 。识别方法：区分计划内支出与应对意外的支出。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "列举生命周期相关动机",
+          "content": "包括收入在不同阶段的变化（如退休）以及购买大件（如买房）的需求变化 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "列举代际与意外动机",
+          "content": "遗赠（留给子女）和预防性储蓄（应对失业、生病等紧急情况） 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "总结四大核心动机",
+          "content": "完成对四种动机的完整表述 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Savings Motives",
+      "Precautionary Saving"
+    ],
+    "source": "Notes"
+  }
+]

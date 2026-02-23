@@ -1,0 +1,612 @@
+[
+  {
+    "id": "econ102-w5-01",
+    "type": "choice",
+    "question": "The Consumer Price Index (CPI) tends to overestimate the true increase in the cost of living because it ignores the fact that consumers often buy cheaper alternatives when the price of a specific good rises. This phenomenon is known as:",
+    "options": [
+      "Quality improvement bias",
+      "Substitution bias",
+      "New product bias",
+      "Inflation fallacy"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "CPI 高估生活成本的主要原因之一是替代偏差（Substitution bias），即固定篮子忽略了消费者转向低价替代品的行为。",
+      "decoding": [
+        "题干描述了“消费者在价格上涨时购买较便宜替代品”的行为。",
+        "要求识别这一行为在 CPI 衡量挑战中对应的术语。"
+      ],
+      "conditions": [
+        {
+          "title": "CPI 的局限性",
+          "content": "$\\text{CPI Overestimation} \\leftarrow \\text{Fixed Basket}$",
+          "description": "由于 CPI 追踪的是固定的一揽子商品，它无法反映消费结构的动态调整。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "定义混淆陷阱",
+          "description": "学生容易将“产品质量提升导致的价格上涨”与“购买行为的转变”混淆。前者属于质量改进偏差。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别消费者行为",
+          "content": "当某些商品价格相对上涨时，理性的消费者会减少该商品的购买并转向替代品。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "对比 CPI 计算逻辑",
+          "content": "CPI 使用固定篮子（Fixed Basket），假设消费量不变，因此计算出的总支出会高于实际支出的增长。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "这种由于忽略替代行为导致的偏差被称为 Substitution bias。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：该项描述的是产品性能提升未被计入。正确概念：这是 Quality improvements 导致的偏差，而非替代行为。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：该项描述的是新产品降低了生活成本但未入篮子。正确概念：这是 New products 带来的挑战。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：这是人们对购买力变动的认知误区。正确概念：Inflation fallacy 指错误认为通胀破坏了购买力（忽视了工资也在涨）。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Consumer Price Index (CPI)",
+      "Substitution Bias",
+      "Challenges of Measuring Cost of Living"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "econ102-w5-02",
+    "type": "choice",
+    "question": "Which function of money is being fulfilled when a coffee shop lists the price of a latte as 4.50 $ on its menu?",
+    "options": [
+      "Medium of exchange",
+      "Store of value",
+      "Unit of account",
+      "Standard of deferred payment"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "当货币用于标价和衡量价值时，它履行的是计价单位（Unit of account）职能。",
+      "decoding": [
+        "题干场景是“咖啡店在菜单上标注价格”。",
+        "核心动作是“标价”而非“交易”或“存钱”。"
+      ],
+      "conditions": [
+        {
+          "title": "货币职能分类",
+          "content": "$\\text{Functions} = \\{ \\text{Medium of Exchange}, \\text{Unit of Account}, \\text{Store of Value} \\}$",
+          "description": "计价单位提供了一个衡量经济价值的共同标准。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "交易媒介混淆",
+          "description": "看到买咖啡容易联想到支付，但题干强调的是“菜单标价”，这是计价职能。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析具体用途",
+          "content": "菜单上的 4.50 $ 是一个数字，用来告诉消费者拿什么去比价和衡量成本。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配定义",
+          "content": "提供统一衡量单位的功能符合 Unit of account 的定义。",
+          "tag": "结论"
+        },
+        {
+          "title": "排除干扰项",
+          "content": "若正在付钱则是 Medium of exchange，若是存钱则是 Store of value。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：将“潜在交易”等同于“当前职能”。正确概念：只有在实际支付购买时才体现 Medium of exchange。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：标价并不涉及财富的跨期转移。正确概念：Store of value 指将价值储存到未来。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：这是部分教材补充的第四职能，且与标价无关。正确概念：它是指延期支付的标准。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Functions of Money",
+      "Unit of Account"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "econ102-w5-03",
+    "type": "choice",
+    "question": "If the nominal interest rate on a savings account is 6% and the inflation rate is 2%, what is the real interest rate?",
+    "options": [
+      "8%",
+      "4%",
+      "3%",
+      "12%"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "实际利率等于名义利率减去通货膨胀率，即 6\\\\ - 2\\\\ = 4\\\\%。",
+      "decoding": [
+        "已知名义利率 i = 6\\\\%。",
+        "已知通货膨胀率 \\pi = 2\\\\%。",
+        "求实际利率 $r$。"
+      ],
+      "conditions": [
+        {
+          "title": "实际利率公式",
+          "content": "$r = i - \\pi$",
+          "description": "费雪方程式的简化版，用于衡量购买力的实际增长。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "加减法方向错误",
+          "description": "学生可能错误地将通胀率加到名义利率上，得出 8%。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "代入公式",
+          "content": "r = 6\\\\ - 2\\\\%",
+          "tag": "公式代入"
+        },
+        {
+          "title": "执行减法",
+          "content": "r = 4\\\\%",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "该储蓄账户的实际购买力增加了 4%。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：方向性错误。正确概念：通胀会侵蚀名义收益，应相减而非相加。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：将相减误操作为除法。正确概念：根据公式应使用减法。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：将利率进行了乘法运算。正确概念：实际利率反映的是差额关系。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Nominal vs. Real",
+      "Fisher Equation"
+    ],
+    "source": "Textbook"
+  },
+  {
+    "id": "econ102-w5-04",
+    "type": "choice",
+    "question": "When unexpected inflation occurs, which of the following groups is most likely to benefit?",
+    "options": [
+      "Lenders (Banks) holding fixed-rate mortgages",
+      "Retirees living on a fixed pension",
+      "Borrowers with fixed-rate student loans",
+      "Savers holding cash under their mattress"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "非预期通货膨胀对借款人（Borrowers）有利，因为他们偿还的固定名义金额的实际购买力下降了。",
+      "decoding": [
+        "考察非预期通胀下的财富再分配（Redistribution）。",
+        "核心逻辑是判断名义债务的实际价值变动。"
+      ],
+      "conditions": [
+        {
+          "title": "财富再分配效应",
+          "content": "$\\text{Unexpected } \\pi \\uparrow \\implies \\text{Real Wealth: Lender } \\downarrow, \\text{ Borrower } \\uparrow$",
+          "description": "通胀降低了货币的单位价值，使债务人的负担减轻。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "受益方识别陷阱",
+          "description": "学生容易认为所有人都会受损。实际上，债务契约的另一方（借款人）会获益。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析债务属性",
+          "content": "固定利率贷款的名义还款额在合同期内是不变的。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "评估实际价值",
+          "content": "随着通胀上升，未来还款的实际购买力（Real value）低于借贷时的预期。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "借款人可以用“更便宜”的钱来偿还贷款，因此受益。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：银行作为贷款人，收回的钱价值缩水。正确概念：Lenders 在非预期通胀中受损。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：固定收入无法随物价上涨而调整。正确概念：固定收入群体购买力下降。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：现金购买力被通胀直接侵蚀。正确概念：持有货币资产的储蓄者受损。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Unexpected Inflation",
+      "Wealth Redistribution",
+      "Lenders vs. Borrowers"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-w5-05",
+    "type": "choice",
+    "question": "Which of the following describes 'shoe-leather costs' of inflation?",
+    "options": [
+      "The cost to a firm of changing its prices",
+      "The time and effort people spend to minimize their cash holdings",
+      "The confusion caused by changing relative prices",
+      "The redistribution of wealth from creditors to debtors"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "皮鞋成本（Shoe-leather costs）指人们为了避免现金贬值而频繁跑银行或进行转账所花费的时间与精力。",
+      "decoding": [
+        "考察预期通胀成本的具体术语定义。",
+        "重点区分“卖家成本”与“买家精力”。"
+      ],
+      "conditions": [
+        {
+          "title": "预期通胀成本",
+          "content": "$\\text{Expected Inflation} \\to \\text{Menu Costs} + \\text{Shoe-\\leather Costs}$",
+          "description": "皮鞋成本侧重于货币持有者（消费者）的行为反应。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "菜单成本混淆",
+          "description": "选项 A 是菜单成本。学生常将企业调整价格的成本与个人跑银行的精力混淆。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别成本主体",
+          "content": "皮鞋成本的主体是试图降低通胀损失的普通持币者。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析行为动因",
+          "content": "因为持有现金会因为通胀而贬值，人们会减少持有现金，增加去银行的频率。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配术语",
+          "content": "这种由于频繁往返而“磨损鞋底”的隐喻对应 Shoe-leather costs。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是卖方（企业）的成本。正确概念：这是 Menu costs。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这属于非预期通胀的信号干扰。正确概念：这是 Price signal confusion。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：这是社会层面的分配效应。正确概念：这是 Wealth redistribution。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Shoe-leather Costs",
+      "Costs of Inflation",
+      "Expected Inflation"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "econ102-w5-06",
+    "type": "choice",
+    "question": "What is the key difference between the CPI and the GDP deflator?",
+    "options": [
+      "CPI includes only domestically produced goods, while GDP deflator includes imports.",
+      "CPI tracks a fixed basket of goods, while GDP deflator tracks everything produced domestically.",
+      "GDP deflator uses prices from a fixed base year, while CPI does not.",
+      "CPI is used to calculate nominal GDP, while GDP deflator is used for real GDP."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "CPI 追踪固定的消费者篮子，而 GDP 平减指数涵盖国内生产的所有商品和服务。",
+      "decoding": [
+        "比较两种不同的价格指数（Price Index）。",
+        "核心差异在于涵盖范围（Domestic vs. Consumer）和权重逻辑（Fixed basket vs. Current production）。"
+      ],
+      "conditions": [
+        {
+          "title": "GDP 平减指数公式",
+          "content": "$\\text{GDP Deflator} = \\frac{\\text{Nominal GDP}}{\\text{Real GDP}} \\times 100$",
+          "description": "反映国内生产的所有最终商品的价格变动。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "进口商品归属陷阱",
+          "description": "学生容易记反。CPI 包含进口消费品，而 GDP 平减指数只包含国内生产的产品。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析 CPI 特点",
+          "content": "CPI 基于典型消费者的固定篮子（Fixed basket），包含进口商品。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析 GDP 平减指数特点",
+          "content": "GDP 平减指数基于当年生产的所有产品（Current production），不含进口。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "对比得出结论",
+          "content": "固定篮子与全部国内产出是两者的核心区别。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：完全记反了。正确概念：CPI 包含进口消费品，GDP 平减指数仅限国产。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：两者通常都选定基期。正确概念：关键区别不在于基期选择，而在篮子构成。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：逻辑颠倒。正确概念：GDP 平减指数是平减名义 GDP 以求实际 GDP 的工具。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Consumer Price Index (CPI)",
+      "GDP Deflator",
+      "Nominal vs. Real GDP"
+    ],
+    "source": "Textbook"
+  },
+  {
+    "id": "econ102-w5-07",
+    "type": "bool",
+    "question": "The 'Inflation Fallacy' occurs because people fail to realize that when prices rise, nominal incomes (such as wages) also tend to rise over time.",
+    "answer": true,
+    "analysis": {
+      "solution": "正确。通胀谬误（Inflation Fallacy）的核心就是人们只看到物价涨了，而忽视了自己的名义收入通常也会随之增长。",
+      "decoding": [
+        "考察对通胀谬误（Inflation Fallacy）定义的理解。",
+        "题干准确描述了购买力感知的错觉。"
+      ],
+      "conditions": [
+        {
+          "title": "通胀谬误定义",
+          "content": "$\\text{Purchasing Power} \\approx \\frac{\\text{Nominal Income}}{\\text{Price Level}}$",
+          "description": "若分子分母同步上涨，实际购买力基本不变。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "货币幻觉混淆陷阱",
+          "description": "容易与 Money illusion 混淆。Money illusion 是只看名义钱数多就觉得富了；Fallacy 是觉得通胀单方面破坏了财富。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别谬误核心",
+          "content": "通胀通常是普遍性的，意味着商品价格上涨的同时，劳动力作为“商品”的价格（工资）也会上涨。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "评估实际购买力",
+          "content": "如果工资和物价同比例上升，真实购买力没有改变。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "认为通胀必然降低购买力的观点是一种谬误，故表述正确。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Inflation Fallacy",
+      "Purchasing Power",
+      "Money Illusion"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "econ102-w5-08",
+    "type": "bool",
+    "question": "The Producer Price Index (PPI) is considered a leading indicator of future inflation in the CPI because firms often pass on their increased input costs to consumers.",
+    "answer": true,
+    "analysis": {
+      "solution": "正确。PPI 追踪生产端的投入价格，由于成本最终会转嫁给消费者，它常被视为 CPI 的先行指标。",
+      "decoding": [
+        "考察 PPI 与 CPI 之间的逻辑传导关系。",
+        "判定 PPI 是否具有“预测”或“先行”属性。"
+      ],
+      "conditions": [
+        {
+          "title": "PPI 的功能",
+          "content": "$\\text{PPI } \\uparrow \\implies \\text{Cost Push} \\implies \\text{CPI } \\uparrow$",
+          "description": "生产成本的增加通常会通过价格调整传导至终端消费市场。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "涵盖范围陷阱",
+          "description": "学生可能认为两者无关。实际上，原材料和中间品价格的波动先于最终消费品显现。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "界定 PPI 范畴",
+          "content": "PPI 衡量的是企业购买投入品的价格指数。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析价格传导",
+          "content": "当投入成本上升，企业为了维持利润率会提高售价。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "生产端的价格变动先于消费端，因此 PPI 是 CPI 的领先指标（Leading indicator）。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Producer Price Index (PPI)",
+      "Leading Indicators",
+      "Inflation Trends"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "econ102-w5-09",
+    "type": "essay",
+    "question": "In 1980, a college graduate earned a starting salary of 15,000 $ when the CPI was 80. In 2024, the CPI has risen to 240. Calculate the 'real' value of the 1980 starting salary \\in terms of today's (2024) dollars. Based on your calculation, if a graduate \\in 2024 earns 40,000, $ are they better or worse off than the 1980 graduate in terms of purchasing power?",
+    "answer": "The real value of the 1980 salary in today's dollars is 45,000. $ Therefore, the 2024 graduate earning 40,000 $ is worse off.",
+    "analysis": {
+      "decoding": [
+        "已知：1980年名义薪资 $V_{\\text{past}} = 15,000$，1980年 $CPI_{\\text{past}} = 80$。",
+        "已知：2024年 $CPI_{\\text{today}} = 240$，2024年名义薪资 $V_{\\text{2024}} = 40,000$。",
+        "任务：1. 将 1980 年薪资折算为 2024 年购买力；2. 比较两代毕业生的实际福利。"
+      ],
+      "conditions": [
+        {
+          "title": "跨期价值换算公式",
+          "content": "$V_{\\text{today}} = V_{\\text{past}} \\times \\frac{CPI_{\\text{today}}}{CPI_{\\text{past}}}$",
+          "description": "用于消除通胀影响，将过去的货币金额调整为当前的购买力单位。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "公式分子分母颠倒",
+          "description": "学生常混淆 CPI 的位置，算成 15,000 $ \\times \\frac{80}{240}$。记住：要折算到现在，分子必须是现在的指数。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "折算 1980 年薪资到今天",
+          "content": "代入公式：$V_{\\text{today}} = 15,000 \\times \\frac{240}{80}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算折算结果",
+          "content": "$V_{\\text{today}} = 15,000 \\times 3 = 45,000$。",
+          "tag": "计算"
+        },
+        {
+          "title": "对比实际购买力并下结论",
+          "content": "比较 1980 年的实际购买力 (45,00 $0$) 与 2024 年的实际薪资 (40,00 $0$)。因为 40,000 $ < 45,000$，2024年的毕业生购买力更低，即 worse off。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Purchasing Power Conversion",
+      "Nominal vs. Real Variables",
+      "Consumer Price Index (CPI)"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "econ102-w5-10",
+    "type": "essay",
+    "question": "Suppose Alice borrows 100,000 $ from a bank at a fixed nominal interest rate of 5% to buy a house, expecting inflation to be 2%. However, the actual inflation rate turns out to be 8%. Explain who benefits and who loses in this situation by calculating the expected vs. actual real interest rates. Also, explain why this redistribution occurs.",
+    "answer": "Alice (the borrower) benefits while the bank (the lender) loses. The expected real interest rate was 3%, but the actual real interest rate became -3%.",
+    "analysis": {
+      "decoding": [
+        "名义利率 $i = 5\\%$ 固定。",
+        "预期通胀 $\\pi_{\\text{expected}} = 2\\%$，实际通胀 $\\pi_{\\text{actual}} = 8\\%$。",
+        "任务：计算两种情况下的实际利率，并解释财富再分配的逻辑。"
+      ],
+      "conditions": [
+        {
+          "title": "费雪方程式 (Fisher Equation)",
+          "content": "$r = i - \\pi$",
+          "description": "实际利率决定了财富在贷出者和借入者之间的真实转移。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "名义与实际混淆",
+          "description": "学生可能只看到名义利率 5% 没变，就认为没受影响。必须分析购买力的变动。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算预期与实际的 $r$",
+          "content": "预期 $r = 5\\% - 2\\% = 3\\%$；实际 $r = 5\\% - 8\\% = -3\\%$。",
+          "tag": "计算"
+        },
+        {
+          "title": "分析负利率的意义",
+          "content": "实际利率为 $-3\\%$ 意味着银行收回的本息总额在实际购买力上比贷出去时还缩水了 $3\\%$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "解释再分配逻辑",
+          "content": "Alice 偿还的名义金额保持不变，但每一美元代表的实物价值因高通胀而骤降。因此，财富从贷款人（银行）强制转移到了借款人（Alice）手中。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Wealth Redistribution",
+      "Unexpected Inflation"
+    ],
+    "source": "Mixed"
+  }
+]

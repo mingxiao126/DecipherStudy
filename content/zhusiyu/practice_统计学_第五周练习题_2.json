@@ -1,0 +1,576 @@
+[
+  {
+    "id": "q-11",
+    "type": "choice",
+    "question": "In a survey where respondents answer 'True' (1) or 'False' (0), what is the mean of the resulting Bernoulli random variables equivalent to?",
+    "options": [
+      "The total count of all responses",
+      "The sample proportion of 'True' responses",
+      "The standard deviation of the responses",
+      "The total number of 'False' responses"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "$n$ 个独立伯努利变量的平均值实际上就是样本中\"成功\"的比例 。",
+      "decoding": [
+        "识别问卷调查情境属于伯努利试验（True=1, False=0） 。",
+        "考察\"均值即比例\"这一核心统计特征 。"
+      ],
+      "conditions": [
+        {
+          "title": "均值比例等价性",
+          "content": "$\\bar{B} = \\hat{p}$",
+          "description": "伯努利随机变量的样本均值直接等于样本比例 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "定义混淆陷阱",
+          "description": "学生容易把\"均值\"理解为某种中间数值，但在 0-1 变量中，它精确代表了 1 出现的频率 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别变量取值",
+          "content": "伯努利变量只能取 0 或 1 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "应用均值定义",
+          "content": "总和除以 $n$ 等于成功次数占总数的比例 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：均值是总和除以样本量，而非总和本身。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：均值衡量中心位置，标准差衡量离散程度 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：在 0-1 编码中，均值对应的是 1（True）的比例 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sample Proportions",
+      "Mean of Bernoulli Variables",
+      "Survey Data Coding"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-12",
+    "type": "choice",
+    "question": "According to the visual patterns of the Law of Large Numbers, what happens to the 'Spread' of the sample proportion distribution as n increases?",
+    "options": [
+      "The spread increases, making the graph wider.",
+      "The spread decreases, making the graph narrower.",
+      "The spread remains constant as long as p is unchanged.",
+      "The spread becomes zero instantly when n exceeds 30."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "分布的离散程度（宽度）会越来越小，数据越来越向中心集中 。",
+      "decoding": [
+        "考察样本量增加对分布离散程度（Spread）的影响 。",
+        "关联读图题中的\"胖瘦\"变化规律 。"
+      ],
+      "conditions": [
+        {
+          "title": "收敛性特征",
+          "content": "$n \\uparrow \\implies \\text{Spread} \\downarrow$",
+          "description": "样本比例会越来越收敛于真实的总体概率 $p$ 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "反向变动陷阱",
+          "description": "容易直觉认为数据越多分布越广，实际上均值的分布会由于抵消效应而变窄 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "观察读图规律",
+          "content": "图形越窄代表它对应的样本量越大 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "关联标准误",
+          "content": "因为 $n$ 在分母，所以越大，标准误越小，即 Spread 越小 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：描述为 $n$ 减小的情形。$n$ 越小图形越宽 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：离散程度受 $n$ 影响显著 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：收敛是一个渐进过程，而非瞬间突变 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Law of Large Numbers",
+      "Spread",
+      "Sample Size Effects"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-13",
+    "type": "choice",
+    "question": "Which rule states that the expectation of a constant times a random variable is the constant times the expectation of that variable?",
+    "options": [
+      "Rule 1 (Sum of expectations)",
+      "Rule 2 (MBA MAA)",
+      "The Law of Large Numbers",
+      "The Rule of Profit"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "Rule 2 (MBA MAA) 指出：乘常数后的期望 = 期望乘以常数 。",
+      "decoding": [
+        "考察期望值的运算规则 Rule 2 。",
+        "识别公式 $EcX = cEX$ 的文字描述 。"
+      ],
+      "conditions": [
+        {
+          "title": "期望 Rule 2",
+          "content": "$E(cX) = cE(X)$",
+          "description": "常数可以从期望号内部提取到外部 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "名称混淆陷阱",
+          "description": "容易将 Rule 1（和的期望）与 Rule 2（常数倍期望）记混 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别运算类型",
+          "content": "题目描述的是\"常数乘以变量\"的期望运算 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配规则编号",
+          "content": "对应笔记中的 Rule 2 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：Rule 1 描述的是和的期望等于期望的和 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：大数定律描述的是样本量增加时的分布趋势 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：这属于利润计算的具体场景，而非通用的期望规则 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Rules of Expectation",
+      "Arithmetic of Expected Values",
+      "Bernoulli Statistics"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-14",
+    "type": "choice",
+    "question": "When matching histograms to sample sizes, which visual cue indicates the largest n?",
+    "options": [
+      "The most skewed (asymmetric) shape",
+      "The widest spread of bars",
+      "The narrowest and most bell-shaped curve",
+      "The distribution with the most gaps between bars"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "$n$ 越大，图形越窄且越像钟形（Bell-shaped） 。",
+      "decoding": [
+        "针对\"匹配样本量与直方图\"这一高频考点 。",
+        "寻找代表最大 $n$ 的图形视觉特征 。"
+      ],
+      "conditions": [
+        {
+          "title": "大样本读图口诀",
+          "content": "$n \\uparrow \\to \\text{Narrower } \\\\& \\text{ Symmetric}$",
+          "description": "形态（Shape）会越来越接近对称的钟形 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "偏态误判陷阱",
+          "description": "小 $n$ 对应更歪（Skewed）的图形，大 $n$ 消除偏态 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别关键指标",
+          "content": "寻找最窄、最集中的分布图 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "验证形态特征",
+          "content": "确认其是否具有钟形对称性 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：偏态图形对应的是较小的 $n$ 。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：宽度（Spread）大代表 $n$ 较小 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：间隙通常与离散取值的可能性有关，非判断 $n$ 的核心准则。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Histogram Interpretation",
+      "Sampling Distribution",
+      "Convergence in Distribution"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-15",
+    "type": "choice",
+    "question": "What is the standard deviation ($\\sigma$) of a Bernoulli variable B with p = 0.2?",
+    "options": [
+      "0.16",
+      "0.40",
+      "0.20",
+      "0.80"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "总体标准差 $\\sigma = \\sqrt{p(1-p)} = \\sqrt{0.2 \\times 0.8} = \\sqrt{0.16} = 0.4$ 。",
+      "decoding": [
+        "应用伯努利变量总体标准差公式 。",
+        "注意区分方差与标准差（开方） 。"
+      ],
+      "conditions": [
+        {
+          "title": "伯努利标准差公式",
+          "content": "$\\sigma = \\sqrt{p(1-p)}$",
+          "description": "描述伯努利变量单次试验的总体波动程度 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "忘记开方陷阱",
+          "description": "计算得出 0.1 $6$（方差）后忘记开平方得到标准差 0. $4$ 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算方差",
+          "content": "$Var(B) = 0.2 \\times (1 - 0.2) = 0.16$ 。",
+          "tag": "计算"
+        },
+        {
+          "title": "执行开方运算",
+          "content": "$\\sigma = \\sqrt{0.16} = 0.4$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "总体标准差为 0.4。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是总体方差 $Var(B)$，未进行开方运算 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这是期望值 $p$，而非标准差 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：这是失败的概率 1 $-p$ 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Deviation",
+      "Bernoulli Distribution",
+      "Variance Calculation"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-16",
+    "type": "choice",
+    "question": "Which of the following describes the convergence property of sample proportions as sample size grows?",
+    "options": [
+      "The sample proportion will converge to a value of 0.5.",
+      "The observed sample proportion will increasingly converge to the true population probability p.",
+      "The sample proportion will diverge from p as n increases.",
+      "The sample proportion becomes identical to the total number of successes."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "观察到的样本比例会越来越收敛于真实的总体概率 $p$ 。",
+      "decoding": [
+        "考察大数定律中的收敛性（Convergence）定义 。",
+        "关联样本均值与总体参数的关系 。"
+      ],
+      "conditions": [
+        {
+          "title": "收敛性定律",
+          "content": "$\\hat{p} \\xrightarrow{n \\to \\infty} p$",
+          "description": "随样本量增加，随机误差被抵消，样本统计量趋向总体参数 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "特定值收敛陷阱",
+          "description": "容易误认为总是收敛于 0. $5$（抛硬币常见值），实际上取决于真实的总体 $p$ 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别大数定律本质",
+          "content": "研究样本比例随 $n$ 增加的趋势 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "确定目标参数",
+          "content": "收敛的目标是真实的总体概率 $p$ 。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：只有当总体概率 $p=0.5$ 时才成立 。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：大数定律保证的是收敛（靠近），而非发散（背离） 。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：比例是成功次数除以 $n$，不是成功次数本身 。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Convergence",
+      "Law of Large Numbers",
+      "Sample Proportion"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-17",
+    "type": "bool",
+    "question": "Rule 1 of expected values states that the expectation of a sum of random variables is equal to the sum of their individual expectations.",
+    "answer": true,
+    "analysis": {
+      "solution": "正确。Rule 1 指出：和的期望 = 期望的和 。",
+      "decoding": [
+        "考察期望值的线性运算规则（Rule 1） 。",
+        "识别公式 $E\\sum X_{i} = \\sum EX_{i}$ 。"
+      ],
+      "conditions": [
+        {
+          "title": "期望 Rule 1 (AS=SA)",
+          "content": "$E(X+Y) = E(X) + E(Y)$",
+          "description": "期望运算满足加法的可分配性 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "独立性假设陷阱",
+          "description": "注意该规则对期望值成立并不要求变量独立（虽然本课伯努利场景通常独立） 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "核对规则定义",
+          "content": "Rule 1 明确对应\"和的期望 = 期望的和\" 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "命题陈述完全符合知识点 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Rules of Expectation",
+      "Linearity of Expectation",
+      "Sum of Random Variables"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-18",
+    "type": "bool",
+    "question": "Regardless of how asymmetric the initial population distribution is, the distribution of the sample proportion will become more bell-shaped as the sample size n increases.",
+    "answer": true,
+    "analysis": {
+      "solution": "正确。无论初始分布多不对称，分布图形会越来越接近对称的钟形 。",
+      "decoding": [
+        "考察样本量增加对分布形态（Shape）的影响 。",
+        "理解\"钟形\"（Bell-shaped）这一核心演变趋势 。"
+      ],
+      "conditions": [
+        {
+          "title": "形态演化规律",
+          "content": "$\\text{Skewed} \\xrightarrow{n \\uparrow} \\text{Symmetric/Bell-shaped}$",
+          "description": "随 $n$ 增加，抽样分布的偏态逐渐消失 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "初始状态误导陷阱",
+          "description": "学生容易认为分布形态会被总体分布永远锁定。实际上 $n$ 是形态转变的驱动力 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别大数定律表现",
+          "content": "三大规律之一即为形态（Shape）向钟形趋近 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出判断",
+          "content": "命题准确描述了该趋势 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Shape of Distribution",
+      "Bell-shaped Curve",
+      "Law of Large Numbers"
+    ],
+    "source": "Lecture"
+  },
+  {
+    "id": "q-19",
+    "type": "essay",
+    "question": "A business project involves 100 independent trials, each with a success probability p = 0.3. If each success brings a revenue of 500 dollars and each trial costs 100 dollars to run, calculate the expected total profit for the project.",
+    "answer": "The expected total profit is 5,000 dollars.",
+    "analysis": {
+      "decoding": [
+        "给定试验次数 $n=100$，成功概率 $p=0.3$ 。",
+        "单次收益奖励 500，单次运行成本 100 。",
+        "目标：计算预期总利润 。"
+      ],
+      "conditions": [
+        {
+          "title": "预期利润公式",
+          "content": "$E(\\text{Profit}) = (\\text{Reward} \\times n \\times p) - (\\text{Cost} \\times n)$",
+          "description": "预期总收入减去总运行成本 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "成本扣除陷阱",
+          "description": "高频考点预测中提到，很多人会忘记减去成本 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算预期总收入",
+          "content": "预期收入 = 500 $ \\times 100 \\times 0.3 = 15,000$ 元 。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算总成本",
+          "content": "总成本 = 100 $ \\times 100 = 10,000$ 元 。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出最终预期利润",
+          "content": "预期利润 = 15,000 $ - 10,000 = 5,000$ 元 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Expected Profit",
+      "Bernoulli Success Calculations",
+      "Cost-Revenue Analysis"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-20",
+    "type": "essay",
+    "question": "Based on the standard error formula for Bernoulli sample proportions, explain why a sample size of n=400 results in a standard error that is half of the standard error when n=100 (assume p remains the same).",
+    "answer": "Because the standard error is inversely proportional to the square root of n, and $\\sqrt{400}$ is twice $\\sqrt{100}. $",
+    "analysis": {
+      "decoding": [
+        "考察对 $SE$ 公式中分母根号项的定量理解 。",
+        "比较不同 $n$ 对 $SE$ 数值的影响程度 。"
+      ],
+      "conditions": [
+        {
+          "title": "比例标准误公式",
+          "content": "$SE = \\sqrt{\\frac{p(1-p)}{n}}$",
+          "description": "$n$ 在分母的根号里，比例波动随样本量的增加而非线性减小 。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "平方根关系陷阱",
+          "description": "容易误认为 $n$ 增加 4 倍则 $SE$ 减小为 1/4，实际上由于根号作用，它只减小为 1/2 。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "建立比例关系",
+          "content": "$SE$ 比例取决于 1 $/\\sqrt{n}$ 。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入数值对比",
+          "content": "当 $n=100$ 时分母项为 $\\sqrt{100}=10$；当 $n=400$ 时分母项为 $\\sqrt{400}=20$ 。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "推导最终比例",
+          "content": "因为分母从 10 变为 20（扩大 2 倍），所以整体数值 $SE$ 变为原来的 1/2 。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Error",
+      "Square Root Rule",
+      "Bernoulli Proportions"
+    ],
+    "source": "Lecture"
+  }
+]

@@ -231,35 +231,114 @@
         return result;
     };
 
+    // 静态模式下合并共享 + 个人 topics（复刻 server 端 _getMergedTopics 逻辑）
+    const TOPIC_INDEX_FILES = {
+        flashcard: 'flashcard_topics.json',
+        decoder: 'decoder_topics.json',
+        practice: 'practice_topics.json'
+    };
+
+    async function mergeTopicsStatic(type) {
+        const indexFile = TOPIC_INDEX_FILES[type] || TOPIC_INDEX_FILES.flashcard;
+        const mergedMap = new Map();
+
+        // 1. 尝试读取用户 meta.json 获取 schoolId 和 enabledSubjects
+        try {
+            const meta = await fetchJson(`/content/${userId}/meta.json`);
+            if (meta && meta.schoolId && Array.isArray(meta.enabledSubjects)) {
+                // 2. 加载每个 subject 的共享 topics
+                for (const subjectId of meta.enabledSubjects) {
+                    try {
+                        const sharedTopics = await fetchJson(
+                            `/content/shared/${meta.schoolId}/${subjectId}/${indexFile}`
+                        );
+                        if (Array.isArray(sharedTopics)) {
+                            sharedTopics.forEach(t => {
+                                if (t && t.file) {
+                                    mergedMap.set(t.file, { ...t, source_scope: 'shared' });
+                                }
+                            });
+                        }
+                    } catch (e) {
+                        // 该科目可能没有此类型的 topics，跳过
+                    }
+                }
+            }
+        } catch (e) {
+            console.warn('Static merge: meta.json 读取失败，仅返回个人 topics');
+        }
+
+        // 3. 加载个人 topics（覆盖共享，优先级更高）
+        try {
+            const userTopics = await fetchJson(`/content/${userId}/${indexFile}`);
+            if (Array.isArray(userTopics)) {
+                userTopics.forEach(t => {
+                    if (t && t.file) {
+                        mergedMap.set(t.file, { ...t, source_scope: 'user' });
+                    }
+                });
+            }
+        } catch (e) {
+            // 个人 topics 文件可能不存在
+        }
+
+        return Array.from(mergedMap.values());
+    }
+
     window.fetchUserTopics = async function (type) {
         const apiMode = await checkApiMode();
-        try {
-            return apiMode
-                ? await fetchJson(window.DecipherUser.getTopicsUrl(type))
-                : await fetchJson(window.DecipherUser.getStaticTopicsUrl(type));
-        } catch (err) {
-            // 不要因为单次 topics 加载失败就关闭 API 模式
-            if (apiMode) {
-                return fetchJson(window.DecipherUser.getStaticTopicsUrl(type));
+        if (apiMode) {
+            try {
+                return await fetchJson(window.DecipherUser.getTopicsUrl(type));
+            } catch (err) {
+                // API 失败，尝试静态合并
+                return mergeTopicsStatic(type);
             }
-            throw err;
         }
+        // 静态模式：合并共享 + 个人
+        return mergeTopicsStatic(type);
     };
 
     window.fetchUserDataset = async function (fileName) {
         const apiMode = await checkApiMode();
-        try {
-            return apiMode
-                ? await fetchJson(window.DecipherUser.getDatasetUrl(fileName))
-                : await fetchJson(window.DecipherUser.getStaticDatasetUrl(fileName));
-        } catch (err) {
-            // Do NOT flip apiModeCache here. One file failure shouldn't kill the API mode for everyone.
-            // If we are in API mode, we can still try a fallback if it makes sense, 
-            // but the static fallback is likely to fail anyway if the server blocks it.
-            if (apiMode) {
-                return fetchJson(window.DecipherUser.getStaticDatasetUrl(fileName));
+        if (apiMode) {
+            try {
+                return await fetchJson(window.DecipherUser.getDatasetUrl(fileName));
+            } catch (err) {
+                // API 失败，尝试静态 fallback
+                return fetchDatasetStatic(fileName);
             }
-            throw err;
         }
+        return fetchDatasetStatic(fileName);
     };
+
+    // 静态模式下按优先级尝试：个人目录 → 共享目录
+    async function fetchDatasetStatic(fileName) {
+        // 1. 先尝试个人目录
+        try {
+            return await fetchJson(`/content/${userId}/${encodeURIComponent(fileName)}`);
+        } catch (e) {
+            // 个人目录没有，继续尝试共享目录
+        }
+
+        // 2. 尝试从 meta.json 获取学校信息，遍历共享目录
+        try {
+            const meta = await fetchJson(`/content/${userId}/meta.json`);
+            if (meta && meta.schoolId && Array.isArray(meta.enabledSubjects)) {
+                for (const subjectId of meta.enabledSubjects) {
+                    try {
+                        return await fetchJson(
+                            `/content/shared/${meta.schoolId}/${subjectId}/${encodeURIComponent(fileName)}`
+                        );
+                    } catch (e) {
+                        // 此 subject 下没有该文件，继续
+                    }
+                }
+            }
+        } catch (e) {
+            // meta.json 读取失败
+        }
+
+        throw new Error(`Dataset not found: ${fileName}`);
+    }
 })();

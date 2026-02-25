@@ -5,5 +5,11 @@
   "createdAt": "2026-02-22T08:14:21.920Z",
   "updatedAt": "2026-02-22T08:14:21.920Z",
   "dataVersion": "v1",
-  "isSystem": false
+  "isSystem": false,
+  "schoolId": "ualberta",
+  "enabledSubjects": [
+    "econ102",
+    "stat124",
+    "auto_user_v3"
+  ]
 }

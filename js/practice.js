@@ -20,8 +20,26 @@ class PracticeApp {
 
     async loadTopics() {
         try {
-            const builtInTopics = await window.fetchUserTopics('practice');
-            this.topics = builtInTopics;
+            let fetchedTopics = [];
+            const apiMode = await window.DecipherRuntime.ensureApiMode();
+
+            if (apiMode && window.DecipherUser && window.DecipherUser.id) {
+                try {
+                    const res = await fetch(`/api/workspaces/${window.DecipherUser.id}/practice-topics-merged`);
+                    if (res.ok) {
+                        fetchedTopics = await res.json();
+                    } else {
+                        throw new Error('Merged API failed');
+                    }
+                } catch (e) {
+                    console.warn('Fallback to standard fetchUserTopics', e);
+                    fetchedTopics = await window.fetchUserTopics('practice');
+                }
+            } else {
+                fetchedTopics = await window.fetchUserTopics('practice');
+            }
+
+            this.topics = fetchedTopics;
 
             // Extract unique subjects and infer missing ones
             const subjects = new Set();
@@ -60,7 +78,11 @@ class PracticeApp {
             this.renderTopicOptions();
         } catch (error) {
             console.error('Error loading topics:', error);
-            this.container.innerHTML = `<div class="text-red-400 py-10 text-center">加载题库列表失败: ${error.message}</div>`;
+            const errDiv = document.createElement('div');
+            errDiv.className = 'text-red-400 py-10 text-center';
+            errDiv.textContent = `加载题库列表失败: ${error.message}`;
+            this.container.innerHTML = '';
+            this.container.appendChild(errDiv);
         }
     }
 
@@ -83,7 +105,12 @@ class PracticeApp {
             filteredTopics.forEach(topic => {
                 const opt = document.createElement('option');
                 opt.value = topic.file;
-                opt.textContent = topic.name;
+
+                let prefix = '';
+                if (topic.source_scope === 'shared') prefix = '';
+                else if (topic.source_scope === 'user') prefix = '[定制] ';
+
+                opt.textContent = prefix + topic.name;
                 this.topicSelector.appendChild(opt);
             });
         }
@@ -113,7 +140,11 @@ class PracticeApp {
             this.renderQuestions();
         } catch (error) {
             console.error('Error loading questions:', error);
-            this.container.innerHTML = `<div class="text-red-400 py-10 text-center">加载题目失败: ${error.message}</div>`;
+            const errDiv = document.createElement('div');
+            errDiv.className = 'text-red-400 py-10 text-center';
+            errDiv.textContent = `加载题目失败: ${error.message}`;
+            this.container.innerHTML = '';
+            this.container.appendChild(errDiv);
         }
     }
 

@@ -1,0 +1,796 @@
+[
+  {
+    "id": "q-10-a",
+    "type": "essay",
+    "question": "In a random sample of 144 female weights, it was found that the average was 64 kg and the variance was 225 squared kilograms. Calculate the margin of error for estimating the population mean of the female weights at an approximate 95% confidence level.",
+    "answer": "The margin of error is 2.45.",
+    "analysis": {
+      "decoding": [
+        "题干给出样本量 $n = 144$，样本均值 $\\bar{x} = 64$ kg，样本方差 $s^2 = 225$。",
+        "任务是计算 95% 置信水平下的边际误差（Margin of Error, ME）。",
+        "由于样本量较大（$n > 30$），可以根据中心极限定理使用正态分布近似，对应的临界值 $z_{0.025} \\approx 1.96$。"
+      ],
+      "conditions": [
+        {
+          "title": "边际误差公式",
+          "content": "$ME = z \\times \\frac{s}{\\sqrt{n}}$",
+          "description": "边际误差由临界值乘以标准误构成，反映了估计值的精度。"
+        },
+        {
+          "title": "标准差与方差关系",
+          "content": "$s = \\sqrt{s^2}$",
+          "description": "标准差是方差的算术平方根。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "方差标准差混淆陷阱",
+          "description": "学生容易直接把方差 225 代入公式分子。识别方法：公式中使用的是标准差 $s$，必须先对方差开方。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算样本标准差",
+          "content": "已知方差 $s^2 = 225$，则标准差 $s = \\sqrt{225} = 15$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "确定临界值与代入公式",
+          "content": "对于 95% 置信水平，$z = 1.96$。代入公式：$ME = 1.96 \\times \\frac{15}{\\sqrt{144}}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "执行数值计算",
+          "content": "计算得 $ME = 1.96 \\times \\frac{15}{12} = 1.96 \\times 1.25 = 2.45$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "在 95% 置信水平下，估计总体均值的边际误差为 2.45。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Confidence Interval",
+      "Standard Error",
+      "Normal Distribution"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-10-b",
+    "type": "essay",
+    "question": "In a random sample of 144 female weights, the variance was 225 squared kilograms. Determine the sample size required to obtain a margin of error of 1.0 at a 95% confidence level.",
+    "answer": "The required sample size is 865.",
+    "analysis": {
+      "decoding": [
+        "题干设定边际误差目标 $ME = 1.0$。",
+        "置信水平为 95%，对应临界值 $z = 1.96$。",
+        "样本方差沿用前文数据 $s^2 = 225$。",
+        "任务是反求样本量 $n$。"
+      ],
+      "conditions": [
+        {
+          "title": "样本量计算公式",
+          "content": "$n = \\left( \\frac{z \\times s}{ME} \\right)^2$",
+          "description": "该公式由边际误差公式变形得到，用于实验设计阶段确定样本规模。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "向上取整陷阱",
+          "description": "在计算样本量时，若结果有小数，必须向上取整（Ceiling）以确保误差不超标。在本题中计算结果恰好为整数或需检查精度。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别已知变量",
+          "content": "设定 $ME = 1.0$，$z = 1.96$，$s = 15$（由 $\\sqrt{225}$ 得出）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入样本量公式",
+          "content": "$n = \\left( \\frac{1.96 \\times 15}{1.0} \\right)^2 = 29.4^2$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算并得出结论",
+          "content": "$29.4^2 = 864.36$，向上取整得到 $n = 865$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sample Size Determination",
+      "Margin of Error",
+      "Statistical Power"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-practice-01",
+    "type": "essay",
+    "question": "A research institution surveyed the sleep duration of 100 college students and found that the average sleep time was 6.5 hours, with a sample variance of 4 squared hours. At a 95% confidence level ($z^* = 1.96$), what is the margin of error (ME) for estimating the population mean sleep duration?",
+    "answer": "The margin of error is 0.392.",
+    "analysis": {
+      "decoding": [
+        "题干给出样本量 $n = 100$，样本均值 $\\bar{x} = 6.5$，样本方差 $s^2 = 4$。",
+        "要求计算 95% 置信水平下的边际误差 $ME$，已知临界值 $z^* = 1.96$。"
+      ],
+      "conditions": [
+        {
+          "title": "边际误差公式",
+          "content": "$ME = z^* \\times \\frac{s}{\\sqrt{n}}$",
+          "description": "边际误差取决于置信水平对应的临界值、样本标准差以及样本量的平方根。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "方差与标准差混淆",
+          "description": "学生容易直接将方差 $s^2 = 4$ 代入公式分子。识别方法：公式需要的是标准差 $s$，必须对 $4$ 进行开方处理。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取并转换变量",
+          "content": "已知 $n = 100$，$z^* = 1.96$，方差 $s^2 = 4$，则标准差 $s = \\sqrt{4} = 2$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入计算公式",
+          "content": "代入 $ME = 1.96 \\times \\frac{2}{\\sqrt{100}}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "$ME = 1.96 \\times \\frac{2}{10} = 1.96 \\times 0.2 = 0.392$。因此边际误差为 0.392。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Confidence Interval",
+      "Standard Deviation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-practice-02",
+    "type": "essay",
+    "question": "A light bulb factory wants to estimate the average lifespan of its products. The standard deviation of the product lifespan is known to be 40 hours. If they want to control the margin of error within 5 hours at a 90% confidence level (corresponding to $z^* = 1.645$), what is the minimum sample size required?",
+    "answer": "The minimum sample size required is 174.",
+    "analysis": {
+      "decoding": [
+        "题干给出已知标准差 $\\sigma = 40$（或用 $s$ 代替），目标边际误差 $ME \\le 5$。",
+        "置信水平为 90%，对应临界值 $z^* = 1.645$。",
+        "任务是求解满足条件的最小样本量 $n$。"
+      ],
+      "conditions": [
+        {
+          "title": "样本量计算公式",
+          "content": "$n = \\left( \\frac{z^* \\times s}{ME} \\right)^2$",
+          "description": "用于在已知预想误差和标准差的情况下，反向推导所需的最小样本规模。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "数值取整原则",
+          "description": "样本量必须是整数，且为了保证误差不超过设定范围，任何小数位都必须向上取整。识别方法：即使小数部分很小，也要进位到下一个整数。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "列出已知参数",
+          "content": "已知 $z^* = 1.645$，$s = 40$，$ME = 5$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入公式计算",
+          "content": "$n = \\left( \\frac{1.645 \\times 40}{5} \\right)^2 = (1.645 \\times 8)^2 = 13.16^2$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算平方并取整",
+          "content": "$13.16^2 = 173.1856$。向上取整得 $n = 174$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sample Size Determination",
+      "Confidence Level",
+      "Margin of Error"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-practice-03",
+    "type": "essay",
+    "question": "In a random sample survey of adult male heights, the sample size $n = 400$, the sample mean is 175 cm, and the standard deviation is 10 cm. \\n a) Calculate the confidence interval at a 95% confidence level. \\n b) If the confidence level remains unchanged, but the width of the confidence interval needs to be reduced by half, what should the sample size be increased to?",
+    "answer": "a) [174.02, 175.98]; b) The sample size should be increased to 1600.",
+    "analysis": {
+      "decoding": [
+        "第一小题要求计算置信区间（Confidence Interval, CI）。",
+        "第二小题考察样本量 $n$ 与置信区间宽度（或边际误差 $ME$）之间的平方根反比关系。"
+      ],
+      "conditions": [
+        {
+          "title": "置信区间公式",
+          "content": "$CI = \\bar{x} \\pm z^* \\times \\frac{s}{\\sqrt{n}}$",
+          "description": "置信区间由均值加减边际误差构成。"
+        },
+        {
+          "title": "区间宽度与样本量关系",
+          "content": "$Width = 2 \\times ME = 2 \\times z^* \\times \\frac{s}{\\sqrt{n}}$",
+          "description": "由此可见，宽度与 $\\sqrt{n}$ 成反比。若要宽度减半，则 $\\sqrt{n}$ 需翻倍。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "比例关系误区",
+          "description": "学生容易认为宽度减半样本量也减半或仅翻倍。识别方法：注意 $n$ 在根号内，宽度的线性变化对应 $n$ 的平方倍变化。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算第一小题置信区间",
+          "content": "$ME = 1.96 \\times \\frac{10}{\\sqrt{400}} = 1.96 \\times 0.5 = 0.98$。区间为 $175 \\pm 0.98$，即 $[174.02, 175.98]$。",
+          "tag": "计算"
+        },
+        {
+          "title": "分析宽度减半的逻辑",
+          "content": "设原宽度为 $W$，新宽度 $W' = 0.5W$。由于 $W \\propto \\frac{1}{\\sqrt{n}}$，则有 $\\sqrt{n'} = 2\\sqrt{n}$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "求出新的样本量",
+          "content": "$n' = (2\\sqrt{n})^2 = 4n = 4 \\times 400 = 1600$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval Width",
+      "Square Root Law",
+      "Margin of Error"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-practice-04",
+    "type": "essay",
+    "question": "In a 95% confidence interval study, the sample size is 64, and the calculated margin of error (ME) is exactly 2.45. Assuming $z^* = 1.96$, what is the sample standard deviation (s)?",
+    "answer": "The sample standard deviation is 10.",
+    "analysis": {
+      "decoding": [
+        "题干给出 $ME = 2.45$，$n = 64$，$z^* = 1.96$。",
+        "这是一个逆向求解题，任务是求出标准差 $s$。"
+      ],
+      "conditions": [
+        {
+          "title": "边际误差变形公式",
+          "content": "$s = \\frac{ME \\times \\sqrt{n}}{z^*}$",
+          "description": "通过移项将标准差隔离在等式一侧进行求解。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "计算顺序与根号",
+          "description": "确保先计算 $\\sqrt{64}$ 而不是直接乘 64。识别方法：牢记 $n$ 始终处于根号下。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "代入已知数值",
+          "content": "由 $2.45 = 1.96 \\times \\frac{s}{\\sqrt{64}}$，代入 $\\sqrt{64} = 8$ 得 $2.45 = 1.96 \\times \\frac{s}{8}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "隔离未知数 s",
+          "content": "整理等式：$s = \\frac{2.45 \\times 8}{1.96}$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结果",
+          "content": "$s = \\frac{19.6}{1.96} = 10$。因此样本标准差为 10。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Deviation",
+      "Margin of Error",
+      "Inverse Calculation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-11",
+    "type": "choice",
+    "question": "225 independent Bernoulli trials were conducted in which the probability of success was unknown. If there were 50 successes, find an approximate 95% confidence interval for the true probability of success.",
+    "options": [
+      "0.222 +/- 0.0548",
+      "0.222 +/- 0.548",
+      "0.222 +/- 0.028",
+      "0.222 +/- 0.055"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "通过计算样本比例 $\\hat{p} = \\frac{50}{225} \\approx 0.222$，代入比例置信区间公式得到 $0.222 \\pm 0.0548$。",
+      "decoding": [
+        "题干给出独立伯努利试验次数 $n = 225$，成功次数 $x = 50$。",
+        "任务是计算总体成功概率 $p$ 的 95% 置信区间。"
+      ],
+      "conditions": [
+        {
+          "title": "样本比例计算",
+          "content": "$\\hat{p} = \\frac{x}{n}$",
+          "description": "样本成功次数除以总试验次数得到样本比例。"
+        },
+        {
+          "title": "比例置信区间公式",
+          "content": "$CI = \\hat{p} \\pm z \\times \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$",
+          "description": "在满足大样本条件时，比例的分布近似正态分布，使用 $z$ 临界值。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "标准误公式混淆",
+          "description": "学生容易误用均值的标准误公式 $\\frac{s}{\\sqrt{n}}$。识别方法：对于比例数据（0-1分布），标准误必须使用 $\\sqrt{\\frac{p(1-p)}{n}}$。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算样本比例",
+          "content": "$\\hat{p} = \\frac{50}{225} \\approx 0.2222$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算标准误",
+          "content": "$SE = \\sqrt{\\frac{0.2222 \\times (1-0.2222)}{225}} = \\sqrt{\\frac{0.2222 \\times 0.7778}{225}} \\approx 0.0277$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算边际误差并得出区间",
+          "content": "$ME = 1.96 \\times 0.0277 \\approx 0.0543$（取选项中最接近值 $0.0548$）。区间为 $0.222 \\pm 0.0548$。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：小数点位置错误，边际误差扩大了 10 倍。正确概念：$ME$ 应在 0.05 左右。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：仅计算了标准误 $SE$，未乘以 $z$ 临界值 1.96。正确概念：边际误差等于临界值乘以标准误。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：数值舍入误差或估算偏差。正确概念：经精确计算 $1.96 \\times 0.0277$ 更接近 0.0548。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval for Proportion",
+      "Bernoulli Trials",
+      "Standard Error"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-12",
+    "type": "choice",
+    "question": "A random sample of 80 elderly males were selected from a larger population and their systolic blood pressure was measured. The average was found to be 139 and the standard deviation was 21. An approximate 95% confidence interval for the mean systolic blood pressure in the larger population is",
+    "options": [
+      "139 +/- 2.4",
+      "139 +/- 4.7",
+      "139 +/- 21",
+      "139 +/- 2.3"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "使用均值置信区间公式 $139 \\pm 1.96 \\times \\frac{21}{\\sqrt{80}}$ 计算得到 $139 \\pm 4.6$（选项最接近 4.7）。",
+      "decoding": [
+        "已知样本量 $n = 80$，样本均值 $\\bar{x} = 139$，样本标准差 $s = 21$。",
+        "要求计算总体均值的 95% 置信区间。"
+      ],
+      "conditions": [
+        {
+          "title": "均值置信区间公式",
+          "content": "$CI = \\bar{x} \\pm z \\times \\frac{s}{\\sqrt{n}}$",
+          "description": "当样本量较大（$n \\ge 30$）时，即使总体分布未知，也可使用 $z$ 统计量。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "样本量开方陷阱",
+          "description": "学生容易忘记对分母 $n$ 进行开方。识别方法：标准误是 $s / \\sqrt{n}$，不是 $s / n$。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算标准误",
+          "content": "$SE = \\frac{s}{\\sqrt{n}} = \\frac{21}{\\sqrt{80}} \\approx \\frac{21}{8.944} \\approx 2.348$。",
+          "tag": "计算"
+        },
+        {
+          "title": "代入临界值计算 ME",
+          "content": "$ME = 1.96 \\times 2.348 \\approx 4.60$。选项中最接近的为 4.7。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "95% 置信区间为 $139 \\pm 4.7$。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：仅计算了标准误（约 2.35），未乘以 1.96。正确概念：$ME = z \\times SE$。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：直接将标准差 21 作为边际误差。正确概念：随着样本量增加，边际误差应远小于单体标准差。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：数值计算错误，可能未乘以 1.96 或计算标准误出错。正确概念：应为 $1.96 \\times 2.35$。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval for Mean",
+      "Standard Error",
+      "Central Limit Theorem"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "practice-1-1",
+    "type": "essay",
+    "question": "A research institution surveyed the sleep duration of 100 college students and found that the average sleep time was 6.5 hours, with a sample variance of 4 squared hours. Calculate the margin of error (ME) for estimating the population mean sleep duration at a 95% confidence level ($z^* = 1.96$).",
+    "answer": "The margin of error is 0.392.",
+    "analysis": {
+      "decoding": [
+        "题干给出样本量 $n = 100$，样本均值 $\\bar{x} = 6.5$，样本方差 $s^2 = 4$。",
+        "置信水平为 95%，对应临界值 $z^* = 1.96$。",
+        "任务是计算均值估计的边际误差（Margin of Error）。"
+      ],
+      "conditions": [
+        {
+          "title": "边际误差公式",
+          "content": "$ME = z^* \\times \\frac{s}{\\sqrt{n}}$",
+          "description": "边际误差由临界值乘以标准误构成，反映了抽样估计的精度。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "方差与标准差混淆陷阱",
+          "description": "题干给出的是方差 $s^2=4$，公式中需要标准差 $s$。识别方法：必须先对方差开根号得到 $s=2$。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别已知变量",
+          "content": "$n=100$, $z^*=1.96$, $s^2=4$，则样本标准差 $s = \\sqrt{4} = 2$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入计算公式",
+          "content": "$ME = 1.96 \\times \\frac{2}{\\sqrt{100}} = 1.96 \\times \\frac{2}{10}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "$ME = 1.96 \\times 0.2 = 0.392$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Confidence Level",
+      "Sample Variance vs Standard Deviation"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "practice-1-2",
+    "type": "essay",
+    "question": "A light bulb factory wants to estimate the average lifespan of its products. The standard deviation of the product lifespan is known to be 40 hours. If they want to control the margin of error within 5 hours at a 90% confidence level (corresponding to $z^* = 1.645$), what is the minimum sample size required for testing?",
+    "answer": "The minimum sample size required is 174.",
+    "analysis": {
+      "decoding": [
+        "已知总体标准差 $s = 40$ 小时，目标边际误差 $ME \\le 5$。",
+        "置信水平为 90%，对应 $z^* = 1.645$。",
+        "任务是求解最小样本量 $n$。"
+      ],
+      "conditions": [
+        {
+          "title": "样本量估算公式",
+          "content": "$n = \\left( \\frac{z^* \\times s}{ME} \\right)^2$",
+          "description": "该公式用于根据预设的误差范围和置信水平确定所需的最小样本规模。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "数值取整原则",
+          "description": "样本量计算结果通常有小数，为了满足误差控制要求，必须向上取整（Ceiling）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "列出参数并代入",
+          "content": "$z^* = 1.645$, $s = 40$, $ME = 5$。代入公式：$n = \\left( \\frac{1.645 \\times 40}{5} \\right)^2$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "执行数值计算",
+          "content": "$n = (1.645 \\times 8)^2 = 13.16^2 = 173.1856$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "向上取整，至少需要测试 174 个灯泡。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sample Size Determination",
+      "Confidence Level",
+      "Margin of Error"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "practice-1-3",
+    "type": "essay",
+    "question": "In a random survey of adult male heights, the sample size $n = 400$, the sample mean is 175 cm, and the standard deviation is 10 cm. \\n a) Calculate the 95% confidence interval. \\n b) If the confidence level remains unchanged, but the width of the confidence interval needs to be reduced by half, what should the sample size be increased to?",
+    "answer": "a) 175 +/- 0.98 cm (or [174.02, 175.98]); b) 1600.",
+    "analysis": {
+      "decoding": [
+        "题干给出 $n = 400$, $\\bar{x} = 175$, $s = 10$。",
+        "a项要求计算 95% 置信区间。",
+        "b项要求探讨区间宽度减半时样本量的变化关系。"
+      ],
+      "conditions": [
+        {
+          "title": "置信区间公式",
+          "content": "$CI = \\bar{x} \\pm z^* \\times \\frac{s}{\\sqrt{n}}$",
+          "description": "置信区间由均值加减边际误差构成。"
+        },
+        {
+          "title": "样本量与宽度的平方反比关系",
+          "content": "$Width \\propto \\frac{1}{\\sqrt{n}}$",
+          "description": "若要使区间宽度（或 $ME$）变为原来的 $1/k$，样本量需增加到原来的 $k^2$ 倍。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "宽度与样本量的比例陷阱",
+          "description": "学生容易误认为宽度减半样本量只需翻倍。识别方法：注意 $n$ 在根号下，线性误差的 $1/2$ 对应 $n$ 的 $4$ 倍。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算a项边际误差",
+          "content": "对于 95% 水平，$z^* = 1.96$。$ME = 1.96 \\times \\frac{10}{\\sqrt{400}} = 1.96 \\times \\frac{10}{20} = 0.98$。区间为 $175 \\pm 0.98$。",
+          "tag": "计算"
+        },
+        {
+          "title": "分析b项比例关系",
+          "content": "置信区间宽度减半意味着边际误差 $ME$ 减半。由于 $ME \\propto \\frac{1}{\\sqrt{n}}$，若 $ME' = \\frac{1}{2} ME$，则 $\\sqrt{n'} = 2\\sqrt{n}$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出b项目标样本量",
+          "content": "$n' = 4n = 4 \\times 400 = 1600$。样本量应增加到 1600。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval Width",
+      "Square Root Law",
+      "Margin of Error"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "practice-1-4",
+    "type": "essay",
+    "question": "In a 95% confidence interval study, the sample size is 64, and the calculated margin of error (ME) is exactly 2.45. Assuming $z^* = 1.96$, what is the sample standard deviation (Standard Deviation)?",
+    "answer": "The standard deviation is 10.",
+    "analysis": {
+      "decoding": [
+        "已知 $n = 64$, $ME = 2.45$, $z^* = 1.96$。",
+        "任务是逆向求解标准差 $s$。"
+      ],
+      "conditions": [
+        {
+          "title": "边际误差公式变形",
+          "content": "$s = \\frac{ME \\times \\sqrt{n}}{z^*}$",
+          "description": "由 $ME = z^* \\times \\frac{s}{\\sqrt{n}}$ 变形得到。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "计算顺序陷阱",
+          "description": "容易忘记对样本量 64 开根号。识别方法：在公式中 $n$ 始终处于根号下。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "代入已知数值",
+          "content": "$2.45 = 1.96 \\times \\frac{s}{\\sqrt{64}}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "执行数值化简",
+          "content": "$2.45 = 1.96 \\times \\frac{s}{8}$，则 $2.45 = 0.245 \\times s$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "$s = \\frac{2.45}{0.245} = 10$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Standard Deviation",
+      "Confidence Interval"
+    ],
+    "source": "Notes"
+  },
+  {
+    "id": "q-11",
+    "type": "choice",
+    "question": "225 independent Bernoulli trials were conducted in which the probability of success was unknown. If there were 50 successes, find an approximate 95% confidence interval for the true probability of success.",
+    "options": [
+      "0.222 +/- 0.0548",
+      "0.222 +/- 0.548",
+      "0.222 +/- 0.028",
+      "0.222 +/- 0.055"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "通过样本比例 $\\hat{p} = 50/225 \\approx 0.222$ 以及比例置信区间公式计算得到。",
+      "decoding": [
+        "试验次数 $n = 225$，成功数 $x = 50$。",
+        "置信水平 95%。",
+        "目标：计算比例的置信区间。"
+      ],
+      "conditions": [
+        {
+          "title": "样本比例计算",
+          "content": "$\\hat{p} = \\frac{x}{n}$",
+          "description": "样本成功比例。"
+        },
+        {
+          "title": "比例置信区间公式",
+          "content": "$CI = \\hat{p} \\pm z \\times \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$",
+          "description": "适用于伯努利试验的大样本比例估计。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "标准误估算陷阱",
+          "description": "比例的标准误使用 $\\hat{p}$ 的函数，而非均值的 $s/\\sqrt{n}$。需注意 $\\sqrt{p(1-p)/n}$ 的计算。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算样本比例",
+          "content": "$\\hat{p} = 50 / 225 \\approx 0.222$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算标准误 (SE)",
+          "content": "$SE = \\sqrt{\\frac{0.222 \\times (1-0.222)}{225}} \\approx 0.0277$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出边际误差 (ME)",
+          "content": "$ME = 1.96 \\times 0.0277 \\approx 0.0543$。匹配选项 A 的 0.0548。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：ME 数量级错误。正确概念：比例 $0.2$ 的误差不应高达 $0.5$。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：该数值仅为标准误（SE），未乘以临界值 $z$。正确概念：边际误差必须包含临界值。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：舍入误差。正确概念：精确计算应更接近 0.0548。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval for Proportion",
+      "Bernoulli Distribution",
+      "Standard Error"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-12",
+    "type": "choice",
+    "question": "A random sample of 80 elderly males were selected from a larger population and their systolic blood pressure was measured. The average was found to be 139 and the standard deviation was 21. An approximate 95% confidence interval for the mean systolic blood pressure in the larger population is",
+    "options": [
+      "139 +/- 2.4",
+      "139 +/- 4.7",
+      "139 +/- 21",
+      "139 +/- 2.3"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "通过均值置信区间公式 $\\bar{x} \\pm z^* \\times (s/\\sqrt{n})$ 计算得到。",
+      "decoding": [
+        "$n = 80$, $\\bar{x} = 139$, $s = 21$, 置信水平 95%。"
+      ],
+      "conditions": [
+        {
+          "title": "均值置信区间公式",
+          "content": "$CI = \\bar{x} \\pm z \\times \\frac{s}{\\sqrt{n}}$",
+          "description": "用于已知样本量、均值和标准差的总体均值估计。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "样本量开方陷阱",
+          "description": "学生容易直接计算 $21/80$。识别方法：标准误计算中 $n$ 必须开根号。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算标准误 (SE)",
+          "content": "$SE = 21 / \\sqrt{80} \\approx 21 / 8.944 \\approx 2.348$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算边际误差 (ME)",
+          "content": "$ME = 1.96 \\times 2.348 \\approx 4.602$。匹配选项 B 的 4.7。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "置信区间约为 $139 \\pm 4.7$。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：该数值为标准误（SE）四舍五入值，未乘以 $z$。正确概念：$ME = z \\times SE$。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：直接使用了标准差 $s$。正确概念：标准差反映个体波动，误差反映均值估计的精度。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：数值计算错误。正确概念：应准确执行开方和乘法运算。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval for Mean",
+      "Standard Error",
+      "z-critical value"
+    ],
+    "source": "Mixed"
+  }
+]

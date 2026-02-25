@@ -1,0 +1,19 @@
+{
+  "schoolId": "ualberta",
+  "schoolName": "University of Alberta",
+  "subjects": [
+    {
+      "id": "econ102",
+      "label": "经济学（ECON 102）"
+    },
+    {
+      "id": "stat124",
+      "label": "统计学（STAT 124）"
+    },
+    {
+      "id": "auto_shared_v2",
+      "label": "auto_shared_v2",
+      "enabled": true
+    }
+  ]
+}

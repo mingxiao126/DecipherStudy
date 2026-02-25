@@ -1,0 +1,561 @@
+[
+  {
+    "question": "What are the primary goals of Exploratory Data Analysis (EDA)?",
+    "answer": {
+      "final_answer": "探索性数据分析（EDA）的主要目标是通过可视化和数值描述来理解数据的形状、中心和离散程度。",
+      "key_points": [
+        "EDA 强调理解数据而非统计推断",
+        "重点关注 Shape、Center 和 Spread"
+      ],
+      "tested_points": [
+        "EDA 的核心目标"
+      ],
+      "logic_memo": "EDA 就像先看体检报告的总体指标，而不是直接做复杂检查。"
+    },
+    "category": "EDA 基础",
+    "type": "定义题",
+    "signals": [
+      "EDA",
+      "Shape",
+      "Center",
+      "Spread"
+    ],
+    "steps": [
+      "Step 1: 使用图形方法观察数据分布",
+      "Step 2: 计算描述性统计量进行总结"
+    ],
+    "glossary": [
+      {
+        "term": "Exploratory Data Analysis",
+        "definition": "利用图形和数值方法理解数据特征的分析阶段"
+      }
+    ],
+    "source_reference": "Introductory Statistics"
+  },
+  {
+    "question": "Differentiate between a Bar Chart and a Histogram.",
+    "answer": {
+      "final_answer": "条形图用于分类数据，直方图用于连续数值数据。",
+      "key_points": [
+        "条形图的柱子彼此分离",
+        "直方图的柱子相连表示连续区间"
+      ],
+      "tested_points": [
+        "图形选择依据"
+      ],
+      "logic_memo": "类别像水果，数值像身高区间。"
+    },
+    "category": "数据可视化",
+    "type": "对比题",
+    "signals": [
+      "Bar Chart",
+      "Histogram"
+    ],
+    "steps": [
+      "Step 1: 判断数据类型",
+      "Step 2: 选择对应图表"
+    ],
+    "glossary": [
+      {
+        "term": "Histogram",
+        "definition": "用于展示连续数值数据分布的图形"
+      }
+    ],
+    "source_reference": "Data Visualization Basics"
+  },
+  {
+    "question": "Describe the four common Distribution Shapes.",
+    "answer": {
+      "final_answer": "常见分布形状包括对称、右偏、左偏和双峰。",
+      "key_points": [
+        "偏态由尾部方向决定",
+        "双峰常暗示混合群体"
+      ],
+      "tested_points": [
+        "分布形状识别"
+      ],
+      "logic_memo": "看尾巴往哪边拖。"
+    },
+    "category": "分布分析",
+    "type": "分类题",
+    "signals": [
+      "Symmetric",
+      "Right-skewed",
+      "Left-skewed",
+      "Bimodal"
+    ],
+    "steps": [
+      "Step 1: 绘制直方图",
+      "Step 2: 判断峰和尾部"
+    ],
+    "glossary": [
+      {
+        "term": "Bimodal Distribution",
+        "definition": "具有两个明显峰值的分布"
+      }
+    ],
+    "source_reference": "Statistics Fundamentals"
+  },
+  {
+    "question": "What is the Five-Number Summary in a Box Plot?",
+    "answer": {
+      "final_answer": "五数概括包括最小值、第一四分位数、中位数、第三四分位数和最大值。",
+      "key_points": [
+        "概括分布位置",
+        "支持箱线图绘制"
+      ],
+      "tested_points": [
+        "五数概括组成"
+      ],
+      "logic_memo": "抓住队伍的头、尾和中间。"
+    },
+    "category": "数值汇总",
+    "type": "组成题",
+    "signals": [
+      "Five-number summary",
+      "Quartiles"
+    ],
+    "steps": [
+      "Step 1: 对数据排序",
+      "Step 2: 确定 $Q_1$, Median, $Q_3$"
+    ],
+    "glossary": [
+      {
+        "term": "Quartile",
+        "definition": "将数据分为四等份的分位点"
+      }
+    ],
+    "source_reference": "Descriptive Statistics"
+  },
+  {
+    "question": "How are Whiskers and Outliers calculated in a Box Plot?",
+    "answer": {
+      "final_answer": "胡须延伸至位于 $[Q_1-1.5\\times IQR,\\;Q_3+1.5\\times IQR]$ 内的最极端值，超出该范围的点为离群值。",
+      "key_points": [
+        "1.5×IQR 是标准规则",
+        "离群值需要进一步核查"
+      ],
+      "tested_points": [
+        "离群值判定方法"
+      ],
+      "logic_memo": "超过警戒线就要重点检查。"
+    },
+    "category": "数据可视化",
+    "type": "技术题",
+    "signals": [
+      "Whiskers",
+      "Outliers"
+    ],
+    "steps": [
+      "Step 1: 计算 $IQR=Q_3-Q_1$",
+      "Step 2: 确定上下界并识别异常点"
+    ],
+    "glossary": [
+      {
+        "term": "Interquartile Range",
+        "definition": "中间 50% 数据的跨度"
+      }
+    ],
+    "source_reference": "Box Plot Interpretation"
+  },
+  {
+    "question": "What is a Pareto Chart and the 80/20 Rule?",
+    "answer": {
+      "final_answer": "帕累托图通过排序柱形和累计折线识别造成主要影响的少数关键因素。",
+      "key_points": [
+        "强调关键少数",
+        "用于问题优先级判断"
+      ],
+      "tested_points": [
+        "帕累托分析"
+      ],
+      "logic_memo": "先解决最闹事的几个问题。"
+    },
+    "category": "专项图表",
+    "type": "定义题",
+    "signals": [
+      "Pareto Chart",
+      "80/20 Rule"
+    ],
+    "steps": [
+      "Step 1: 按频数排序原因",
+      "Step 2: 绘制累计百分比线"
+    ],
+    "glossary": [
+      {
+        "term": "Pareto Principle",
+        "definition": "少数原因导致多数结果的经验法则"
+      }
+    ],
+    "source_reference": "Quality Control Tools"
+  },
+  {
+    "question": "What are the best and worst attributes for Visual Perception?",
+    "answer": {
+      "final_answer": "人类最擅长感知长度和位置，最不擅长感知角度和面积。",
+      "key_points": [
+        "条形图和散点图更准确",
+        "饼图易造成误判"
+      ],
+      "tested_points": [
+        "视觉感知原则"
+      ],
+      "logic_memo": "眼睛像尺子，不像量角器。"
+    },
+    "category": "视觉感知",
+    "type": "原则题",
+    "signals": [
+      "Length",
+      "Position",
+      "Angle",
+      "Area"
+    ],
+    "steps": [
+      "Step 1: 判断比较属性",
+      "Step 2: 选择合适图形"
+    ],
+    "glossary": [
+      {
+        "term": "Visual Encoding",
+        "definition": "用视觉属性表达数据的方法"
+      }
+    ],
+    "source_reference": "Data Visualization Principles"
+  },
+  {
+    "question": "Why should Bar Charts usually start at a Zero Baseline?",
+    "answer": {
+      "final_answer": "从零开始能确保视觉比例与真实数据比例一致，避免误导。",
+      "key_points": [
+        "条形长度直接比较",
+        "非零起点会夸大差异"
+      ],
+      "tested_points": [
+        "视觉误导风险"
+      ],
+      "logic_memo": "地基歪了，楼就显得不真实。"
+    },
+    "category": "视觉感知",
+    "type": "原则题",
+    "signals": [
+      "Zero Baseline"
+    ],
+    "steps": [
+      "Step 1: 检查纵轴起点",
+      "Step 2: 判断是否合理"
+    ],
+    "glossary": [
+      {
+        "term": "Baseline",
+        "definition": "坐标轴的起始参考值"
+      }
+    ],
+    "source_reference": "Ethical Data Visualization"
+  },
+  {
+    "question": "When is a Dot Chart better than a Bar Chart?",
+    "answer": {
+      "final_answer": "当零值不具备实际意义时，点图优于条形图。",
+      "key_points": [
+        "点图强调位置比较",
+        "避免不必要的长度暗示"
+      ],
+      "tested_points": [
+        "图形选择场景"
+      ],
+      "logic_memo": "比高低，不必拉柱子。"
+    },
+    "category": "视觉感知",
+    "type": "对比题",
+    "signals": [
+      "Dot Chart",
+      "Position"
+    ],
+    "steps": [
+      "Step 1: 判断零是否重要",
+      "Step 2: 选择点或条形"
+    ],
+    "glossary": [
+      {
+        "term": "Dot Chart",
+        "definition": "用点的位置表示数值大小的图形"
+      }
+    ],
+    "source_reference": "Visualization Design"
+  },
+  {
+    "question": "Define Explanatory and Response variables in a Scatterplot.",
+    "answer": {
+      "final_answer": "解释变量用于解释或预测结果，响应变量是被解释或预测的结果。",
+      "key_points": [
+        "解释变量通常在 X 轴",
+        "响应变量通常在 Y 轴"
+      ],
+      "tested_points": [
+        "变量角色区分"
+      ],
+      "logic_memo": "因在前，果在后。"
+    },
+    "category": "双变量分析",
+    "type": "定义题",
+    "signals": [
+      "Explanatory",
+      "Response"
+    ],
+    "steps": [
+      "Step 1: 判断预测关系",
+      "Step 2: 确定轴位置"
+    ],
+    "glossary": [
+      {
+        "term": "Response Variable",
+        "definition": "被解释或预测的结果变量"
+      }
+    ],
+    "source_reference": "Bivariate Data Analysis"
+  },
+  {
+    "question": "When should you use a Stem-and-Leaf Plot?",
+    "answer": {
+      "final_answer": "当数据量较小且需要保留原始数值时使用茎叶图。",
+      "key_points": [
+        "保留所有观测值",
+        "展示分布形状"
+      ],
+      "tested_points": [
+        "茎叶图适用场景"
+      ],
+      "logic_memo": "既是图，又是账本。"
+    },
+    "category": "数据可视化",
+    "type": "使用题",
+    "signals": [
+      "Stem-and-Leaf"
+    ],
+    "steps": [
+      "Step 1: 拆分茎和叶",
+      "Step 2: 按顺序排列叶"
+    ],
+    "glossary": [
+      {
+        "term": "Stem-and-Leaf Plot",
+        "definition": "保留原始数值的分布图"
+      }
+    ],
+    "source_reference": "Exploratory Graphics"
+  },
+  {
+    "question": "What is the purpose of Side-by-side Box Plots?",
+    "answer": {
+      "final_answer": "并排箱线图用于比较不同类别下数值变量的分布。",
+      "key_points": [
+        "比较中心与离散程度",
+        "识别类别差异"
+      ],
+      "tested_points": [
+        "分组比较"
+      ],
+      "logic_memo": "把箱子并排，差异立现。"
+    },
+    "category": "数据可视化",
+    "type": "对比题",
+    "signals": [
+      "Side-by-side Box Plot"
+    ],
+    "steps": [
+      "Step 1: 按类别分组",
+      "Step 2: 对比中位数和 IQR"
+    ],
+    "glossary": [
+      {
+        "term": "Side-by-side Box Plot",
+        "definition": "用于比较多个分布的箱线图"
+      }
+    ],
+    "source_reference": "Comparative Visualization"
+  },
+  {
+    "question": "What is Standard Deviation (s)?",
+    "answer": {
+      "final_answer": "标准差是衡量数据围绕均值波动程度的统计量。",
+      "key_points": [
+        "反映离散程度",
+        "基于均值计算"
+      ],
+      "tested_points": [
+        "标准差定义"
+      ],
+      "logic_memo": "看大家离平均值有多远。"
+    },
+    "category": "数值汇总",
+    "type": "定义题",
+    "signals": [
+      "Standard Deviation"
+    ],
+    "steps": [
+      "Step 1: 计算均值 $\\bar{x}$",
+      "Step 2: 计算 $s=\\sqrt{\\frac{1}{n-1}\\sum (x_i-\\bar{x})^2}$"
+    ],
+    "glossary": [
+      {
+        "term": "Standard Deviation",
+        "definition": "样本数据偏离均值的典型距离"
+      }
+    ],
+    "source_reference": "Statistical Measures"
+  },
+  {
+    "question": "What are the three types of Color Palettes in visualization?",
+    "answer": {
+      "final_answer": "三种常见配色方案是顺序色、发散色和定性色。",
+      "key_points": [
+        "顺序色表示大小变化",
+        "定性色表示无序类别"
+      ],
+      "tested_points": [
+        "颜色编码选择"
+      ],
+      "logic_memo": "有高低用深浅，无高低用不同颜色。"
+    },
+    "category": "视觉感知",
+    "type": "技术题",
+    "signals": [
+      "Sequential",
+      "Diverging",
+      "Qualitative"
+    ],
+    "steps": [
+      "Step 1: 判断是否存在顺序",
+      "Step 2: 选择对应配色"
+    ],
+    "glossary": [
+      {
+        "term": "Sequential Palette",
+        "definition": "用同一颜色不同深浅表示数值大小"
+      }
+    ],
+    "source_reference": "Color Theory in Visualization"
+  },
+  {
+    "question": "Explain Frequency vs. Relative Frequency in Histograms.",
+    "answer": {
+      "final_answer": "频数表示区间内观测值个数，相对频数表示其占总体的比例。",
+      "key_points": [
+        "相对频数便于跨样本比较",
+        "两者反映同一分布"
+      ],
+      "tested_points": [
+        "直方图刻度理解"
+      ],
+      "logic_memo": "人数 vs 百分比。"
+    },
+    "category": "数据可视化",
+    "type": "技术题",
+    "signals": [
+      "Frequency",
+      "Relative Frequency"
+    ],
+    "steps": [
+      "Step 1: 统计每个 bin 的数量",
+      "Step 2: 用 $\\frac{\\text{Frequency}}{n}$ 计算比例"
+    ],
+    "glossary": [
+      {
+        "term": "Relative Frequency",
+        "definition": "频数除以总样本量得到的比例"
+      }
+    ],
+    "source_reference": "Histogram Interpretation"
+  },
+  {
+    "question": "How does Bin Width affect a Histogram?",
+    "answer": {
+      "final_answer": "分组宽度会影响分布形状的呈现，过细会产生噪声，过粗会掩盖结构。",
+      "key_points": [
+        "bin 过小导致噪声",
+        "bin 过大导致过度平滑"
+      ],
+      "tested_points": [
+        "直方图参数影响"
+      ],
+      "logic_memo": "分辨率太高或太低都不好。"
+    },
+    "category": "数据可视化",
+    "type": "技术题",
+    "signals": [
+      "Bin Width"
+    ],
+    "steps": [
+      "Step 1: 选择初始 bin 宽度",
+      "Step 2: 对比不同设置下的形状"
+    ],
+    "glossary": [
+      {
+        "term": "Bin Width",
+        "definition": "直方图区间的宽度"
+      }
+    ],
+    "source_reference": "Histogram Design"
+  },
+  {
+    "question": "Compare Mean vs. Median as measures of Center.",
+    "answer": {
+      "final_answer": "在对称分布中均值和中位数接近，在偏态分布中均值更易受极端值影响。",
+      "key_points": [
+        "均值对极端值敏感",
+        "中位数更稳健"
+      ],
+      "tested_points": [
+        "中心位置比较"
+      ],
+      "logic_memo": "富豪会拉高平均数，但拉不动中位数。"
+    },
+    "category": "数值汇总",
+    "type": "对比题",
+    "signals": [
+      "Mean",
+      "Median"
+    ],
+    "steps": [
+      "Step 1: 判断分布是否偏态",
+      "Step 2: 选择合适中心指标"
+    ],
+    "glossary": [
+      {
+        "term": "Median",
+        "definition": "将数据一分为二的中间值"
+      }
+    ],
+    "source_reference": "Measures of Center"
+  },
+  {
+    "question": "What is an Outlier and how should it be handled?",
+    "answer": {
+      "final_answer": "离群值是显著偏离其他数据的观测值，应核查其来源再决定处理方式。",
+      "key_points": [
+        "可能是录入错误",
+        "也可能是真实极端值"
+      ],
+      "tested_points": [
+        "离群值处理原则"
+      ],
+      "logic_memo": "先查错，再判断留不留。"
+    },
+    "category": "数据清洗",
+    "type": "定义题",
+    "signals": [
+      "Outlier"
+    ],
+    "steps": [
+      "Step 1: 核查数据来源",
+      "Step 2: 决定修正、保留或剔除"
+    ],
+    "glossary": [
+      {
+        "term": "Outlier",
+        "definition": "与其余数据显著不同的观测值"
+      }
+    ],
+    "source_reference": "Data Cleaning Guidelines"
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "inbox_1771987785215_y5ygt",
+    "fileName": "practice_统计学_0225考前.json",
+    "displayName": "[自定义] 统计学 - 0225考前",
+    "type": "practice",
+    "subject": "stat124",
+    "userId": "zhusiyu",
+    "schoolId": "ualberta",
+    "createdAt": "2026-02-25T02:49:45.215Z",
+    "status": "moved_to_shared",
+    "sourceScopeHint": "user",
+    "originalInputMode": "text",
+    "movedAt": "2026-02-25T02:50:04.404Z",
+    "movedTarget": "shared:ualberta/stat124",
+    "assignedAt": "2026-02-25T02:50:04.404Z",
+    "assignedBy": "zhusiyu"
+  }
+]

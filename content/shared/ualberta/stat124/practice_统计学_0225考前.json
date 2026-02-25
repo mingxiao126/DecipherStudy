@@ -1,0 +1,112 @@
+[
+  {
+    "id": "q-10-a",
+    "type": "essay",
+    "question": "In a random sample of 144 female weights, it was found that the average was 64 kg and the variance was 225 squared kilograms. Calculate the margin of error for estimating the population mean of the female weights at an approximate 95% confidence level.",
+    "answer": "The margin of error is 2.45.",
+    "analysis": {
+      "decoding": [
+        "题干给出样本量 $n = 144$，样本均值 $\\bar{x} = 64$ kg，样本方差 $s^2 = 225$。",
+        "任务是计算 95% 置信水平下的边际误差（Margin of Error, ME）。",
+        "由于样本量较大（$n > 30$），可以根据中心极限定理使用正态分布近似，对应的临界值 $z_{0.025} \\approx 1.96$。"
+      ],
+      "conditions": [
+        {
+          "title": "边际误差公式",
+          "content": "$ME = z \\times \\frac{s}{\\sqrt{n}}$",
+          "description": "边际误差由临界值乘以标准误构成，反映了估计值的精度。"
+        },
+        {
+          "title": "标准差与方差关系",
+          "content": "$s = \\sqrt{s^2}$",
+          "description": "标准差是方差的算术平方根。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "方差标准差混淆陷阱",
+          "description": "学生容易直接把方差 225 代入公式分子。识别方法：公式中使用的是标准差 $s$，必须先对方差开方。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算样本标准差",
+          "content": "已知方差 $s^2 = 225$，则标准差 $s = \\sqrt{225} = 15$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "确定临界值与代入公式",
+          "content": "对于 95% 置信水平，$z = 1.96$。代入公式：$ME = 1.96 \\times \\frac{15}{\\sqrt{144}}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "执行数值计算",
+          "content": "计算得 $ME = 1.96 \\times \\frac{15}{12} = 1.96 \\times 1.25 = 2.45$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "在 95% 置信水平下，估计总体均值的边际误差为 2.45。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Confidence Interval",
+      "Standard Error",
+      "Normal Distribution"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-10-b",
+    "type": "essay",
+    "question": "In a random sample of 144 female weights, the variance was 225 squared kilograms. Determine the sample size required to obtain a margin of error of 1.0 at a 95% confidence level.",
+    "answer": "The required sample size is 865.",
+    "analysis": {
+      "decoding": [
+        "题干设定边际误差目标 $ME = 1.0$。",
+        "置信水平为 95%，对应临界值 $z = 1.96$。",
+        "样本方差沿用前文数据 $s^2 = 225$。",
+        "任务是反求样本量 $n$。"
+      ],
+      "conditions": [
+        {
+          "title": "样本量计算公式",
+          "content": "$n = \\left( \\frac{z \\times s}{ME} \\right)^2$",
+          "description": "该公式由边际误差公式变形得到，用于实验设计阶段确定样本规模。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "向上取整陷阱",
+          "description": "在计算样本量时，若结果有小数，必须向上取整（Ceiling）以确保误差不超标。在本题中计算结果恰好为整数或需检查精度。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别已知变量",
+          "content": "设定 $ME = 1.0$，$z = 1.96$，$s = 15$（由 $\\sqrt{225}$ 得出）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入样本量公式",
+          "content": "$n = \\left( \\frac{1.96 \\times 15}{1.0} \\right)^2 = 29.4^2$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算并得出结论",
+          "content": "$29.4^2 = 864.36$，向上取整得到 $n = 865$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sample Size Determination",
+      "Margin of Error",
+      "Statistical Power"
+    ],
+    "source": "Mixed"
+  }
+]

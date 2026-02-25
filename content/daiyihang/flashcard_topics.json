@@ -1,70 +1,20 @@
 [
   {
-    "name": "经济学 - 第一周",
-    "file": "flashcard_经济学_w1.json"
-  },
-  {
-    "name": "经济学 - 第二周",
-    "file": "flashcard_经济学_w2.json"
-  },
-  {
-    "name": "经济学 - 第三周",
-    "file": "flashcard_经济学_w3.json"
-  },
-  {
-    "name": "经济学 - 1-3周重点词汇",
-    "file": "flashcard_经济学_w1-3_vocabulary.json"
-  },
-  {
     "name": "经济学 - term1 期中考试",
-    "file": "flashcard_经济学_w1-3_midterm.json"
-  },
-  {
-    "name": "统计学 - 第一周",
-    "file": "flashcard_统计学_w1.json"
-  },
-  {
-    "name": "统计学 - 第二周",
-    "file": "flashcard_统计学_w2.json"
-  },
-  {
-    "name": "统计学 - 第三周",
-    "file": "flashcard_统计学_w3.json"
-  },
-  {
-    "name": "统计学 - 1-3周重点词汇",
-    "file": "flashcard_统计学_w1-3_vocabulary.json"
-  },
-  {
-    "name": "统计学-第四周",
-    "file": "flashcard_统计学-第四周.json"
+    "file": "flashcard_经济学_w1-3_midterm.json",
+    "subject": "econ102"
   },
   {
     "name": "统计学 - 0221(戴一航）",
-    "file": "flashcard_统计学_0221_戴一航.json"
+    "file": "flashcard_统计学_0221_戴一航.json",
+    "subject": "stat124"
   },
   {
     "id": "ds_1771757251244",
     "name": "经济学 - Real GDP",
     "file": "flashcard_经济学_real_gdp.json",
-    "subject": "经济学",
+    "subject": "econ102",
     "createdAt": "2026-02-22T10:47:31.244Z",
     "updatedAt": "2026-02-22T10:47:31.244Z"
-  },
-  {
-    "id": "ds_1771848579775",
-    "name": "[自定义] 经济学 - 4-6周知识点",
-    "file": "flashcard_经济学_4-6周知识点.json",
-    "subject": "经济学",
-    "createdAt": "2026-02-23T12:09:39.775Z",
-    "updatedAt": "2026-02-23T12:09:39.775Z"
-  },
-  {
-    "id": "ds_1771848820588",
-    "name": "[自定义] 统计学 - 4-6周知识点",
-    "file": "flashcard_统计学_4-6周知识点.json",
-    "subject": "统计学",
-    "createdAt": "2026-02-23T12:13:40.588Z",
-    "updatedAt": "2026-02-23T12:13:40.588Z"
   }
 ]

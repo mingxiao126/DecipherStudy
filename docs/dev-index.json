@@ -1,0 +1,316 @@
+{
+    "version": 1,
+    "updatedAt": "2026-02-24",
+    "project": {
+        "name": "DecipherStudy",
+        "summary": "Multi-tenant educational knowledge base with a unified Inbox approval workflow and dual-mode execution.",
+        "storage_model": "Disk-based JSON documents abstracted via FileStore",
+        "deployment_modes": [
+            "local_api_mode",
+            "static_netlify_mode"
+        ]
+    },
+    "core_modules": [
+        {
+            "id": "user_context",
+            "name": "User Context Manager",
+            "purpose": "Manages active user context, caching, and multi-tenant session state.",
+            "files": [
+                "js/core/user-context.js"
+            ],
+            "key_apis": [
+                "/api/workspaces/active"
+            ],
+            "data_dependencies": [
+                "sessionStorage"
+            ],
+            "constraints": [
+                "Must support graceful fallback to static mode if API is unreachable",
+                "Must use specific cache keys",
+                "Switching users must clear session caches"
+            ],
+            "status": "active"
+        },
+        {
+            "id": "practice_module",
+            "name": "Practice Exercises Renderer",
+            "purpose": "Renders practice exercises and handles the table structural components.",
+            "files": [
+                "js/practice.js",
+                "js/core/qa-auditor.js"
+            ],
+            "key_apis": [
+                "/api/workspaces/:userId/topics"
+            ],
+            "data_dependencies": [
+                "content/<userId>/practice_topics.json"
+            ],
+            "constraints": [
+                "API-first approach with static fallback",
+                "question_table is an optional data structure"
+            ],
+            "status": "active"
+        },
+        {
+            "id": "flashcards_module",
+            "name": "Flashcards Renderer",
+            "purpose": "Renders spaced repetition flashcards from user and shared domains.",
+            "files": [
+                "js/flashcards.js"
+            ],
+            "key_apis": [
+                "/api/workspaces/:userId/topics"
+            ],
+            "data_dependencies": [
+                "content/<userId>/flashcard_topics.json"
+            ],
+            "constraints": [
+                "Legacy data might lack source_scope attribute",
+                "Subject inference may depend on historical naming conventions if metadata is absent"
+            ],
+            "status": "active"
+        },
+        {
+            "id": "decoder_module",
+            "name": "Decoder Renderer",
+            "purpose": "Renders high-fidelity problem decoding steps.",
+            "files": [
+                "js/decoder.js",
+                "js/core/decoder-schema.js"
+            ],
+            "key_apis": [
+                "/api/workspaces/:userId/topics"
+            ],
+            "data_dependencies": [
+                "content/<userId>/decoder_topics.json"
+            ],
+            "constraints": [
+                "Legacy entries may be uncategorized",
+                "UI must remain compatible with legacy filename conventions"
+            ],
+            "status": "active"
+        },
+        {
+            "id": "uploader_module",
+            "name": "Upload and Audit Manager",
+            "purpose": "Handles JSON file validation, schema auditing, and submission logic.",
+            "files": [
+                "js/uploader.js",
+                "upload.html"
+            ],
+            "key_apis": [
+                "/api/upload-dataset"
+            ],
+            "data_dependencies": [
+                "content/inbox/index.json"
+            ],
+            "constraints": [
+                "Static mode permits validation but denies disk-write operations",
+                "Upon API upload success, physical files go to user vault and metadata is appended to Inbox manifest"
+            ],
+            "status": "active"
+        },
+        {
+            "id": "storage_layer",
+            "name": "File Store Abstraction",
+            "purpose": "Centralized interface for all fs operations to guarantee thread safety and atomicity.",
+            "files": [
+                "storage/file-store.js"
+            ],
+            "key_apis": [
+                "Internal Method Calls"
+            ],
+            "data_dependencies": [
+                "content/*"
+            ],
+            "constraints": [
+                "All writes must use writeJsonAtomic (temp file + rename)",
+                "Must not mutate read objects in-place",
+                "Shared directory pathing must enforce English subjectId keys"
+            ],
+            "status": "active"
+        },
+        {
+            "id": "api_server",
+            "name": "Node.js Local API Server",
+            "purpose": "Serves dynamic JSON endpoints for multi-tenant data operations.",
+            "files": [
+                "server.js"
+            ],
+            "key_apis": [
+                "/api/*"
+            ],
+            "data_dependencies": [
+                "content/*"
+            ],
+            "constraints": [
+                "Must strictly validate userId via [a-z0-9_-]+ allowlist and active status check",
+                "Enforce strict ownership paths for inbox actions",
+                "Handle move-* state machine idempotency"
+            ],
+            "status": "active"
+        },
+        {
+            "id": "inbox_manager_ui",
+            "name": "Inbox Management Frontend",
+            "purpose": "UI for managing pending dataset approvals across user boundaries.",
+            "files": [
+                "inbox-manager.html",
+                "js/inbox-manager.js"
+            ],
+            "key_apis": [
+                "GET /api/inbox",
+                "POST /api/inbox/:id/move-to-user",
+                "POST /api/inbox/:id/move-to-shared",
+                "POST /api/inbox/:id/reject"
+            ],
+            "data_dependencies": [
+                "content/inbox/index.json"
+            ],
+            "constraints": [
+                "Owner-only operation UI visibility limits",
+                "All user data rendering must leverage textContent to prevent XSS injection"
+            ],
+            "status": "active"
+        }
+    ],
+    "data_layers": [
+        {
+            "id": "user_private_vault",
+            "path_pattern": "content/<userId>/...",
+            "purpose": "Primary data landing zone and localized index files for individual users.",
+            "notes": [
+                "Original files uploaded remain here even after inbox transition"
+            ]
+        },
+        {
+            "id": "school_shared_library",
+            "path_pattern": "content/shared/<schoolId>/<subjectId>/...",
+            "purpose": "Global pool of distributed topics accessible by all tenants under the same school context.",
+            "notes": [
+                "subjectId must be the strict English designation mapped via school.json"
+            ]
+        },
+        {
+            "id": "inbox_manifest",
+            "path_pattern": "content/inbox/index.json",
+            "purpose": "Centralized registry mapping document states for approval workflows.",
+            "notes": [
+                "Controls state engine mapping. Never perform physical deletion, only state updates."
+            ]
+        },
+        {
+            "id": "school_configuration",
+            "path_pattern": "content/shared/<schoolId>/school.json",
+            "purpose": "Canonical registry for subject mapping and school attributes.",
+            "notes": [
+                "Serves as the truth table when converting Chinese UI labels to path IDs"
+            ]
+        },
+        {
+            "id": "user_metadata",
+            "path_pattern": "content/<userId>/meta.json",
+            "purpose": "Tenant verification and lifecycle status.",
+            "notes": [
+                "Track active workspace states for access control middleware"
+            ]
+        }
+    ],
+    "workflow_flows": [
+        {
+            "id": "auth_context_hydration",
+            "name": "User Identity Loading",
+            "steps": [
+                "Load workspace via URL or UI selection",
+                "Fetch /api/workspaces/active",
+                "Write to UI DOM Context",
+                "Hydrate items into window.sessionStorage Cache"
+            ],
+            "involved_modules": [
+                "user_context",
+                "api_server"
+            ],
+            "key_constraints": [
+                "Fallback gracefully to reading pure static config.js if /api fails"
+            ]
+        },
+        {
+            "id": "merged_topics_retrieval",
+            "name": "Topic Library Fetch Pipeline",
+            "steps": [
+                "Component calls specific topic (e.g. Decoder)",
+                "Request /api/workspaces/:user/topics?type=decoder",
+                "FileStore aggregates internal user decoder_topics.json and maps against shared library topics",
+                "Frontend renders combined topic navigation list"
+            ],
+            "involved_modules": [
+                "decoder_module",
+                "flashcards_module",
+                "practice_module",
+                "storage_layer",
+                "api_server"
+            ],
+            "key_constraints": [
+                "UI must visibly distinguish global shared sources from local sources"
+            ]
+        },
+        {
+            "id": "upload_and_registration",
+            "name": "File Upload and Auditing",
+            "steps": [
+                "Validate JSON Schema locally via QA auditor",
+                "Submit dataset via POST /api/upload-dataset",
+                "Server writes dataset physical file to /content/<user>/",
+                "Server generates 'pending' state artifact in content/inbox/index.json"
+            ],
+            "involved_modules": [
+                "uploader_module",
+                "storage_layer",
+                "api_server"
+            ],
+            "key_constraints": [
+                "Must atomicaly write physical file first before indexing into Inbox"
+            ]
+        },
+        {
+            "id": "inbox_state_machine",
+            "name": "Inbox Approval Workflow",
+            "steps": [
+                "Operator clicks action in Inbox Manager",
+                "Backend validates reqUser === record.userId and status === pending",
+                "If move-to-*, verify physical file remains readable",
+                "(For shared only) map subject utilizing school.json",
+                "Modify Inbox index.json status to final state (moved_to_*, rejected)",
+                "Return success and reload UI"
+            ],
+            "involved_modules": [
+                "inbox_manager_ui",
+                "storage_layer",
+                "api_server"
+            ],
+            "key_constraints": [
+                "No hard physical deletion. Ownership restricted. Strictly idempotent operations."
+            ]
+        }
+    ],
+    "recent_architecture_decisions": [
+        {
+            "id": "ADR-002",
+            "title": "Inbox Approval Workflow",
+            "path": "docs/adr/ADR-002-inbox-approval-workflow.md",
+            "impact": [
+                "Restricts inbox mutations to status endpoints only",
+                "Mandates english subject pathing for shared volumes",
+                "Implements strict ownership permission boundary"
+            ]
+        }
+    ],
+    "editing_guardrails": [
+        "New JSON properties must be synchronized across the schema definitions, QA auditors, and frontend rendering components concurrently.",
+        "Do not break static-mode fallback compatibility. The codebase must be able to gracefully serve from Netlify or CDNs with API responses stubbed or ignored.",
+        "File writes must only ever be piped through storage/file-store.js using writeJsonAtomic mechanisms. Do not spawn raw fs operations in server.js.",
+        "All physical subject sub-directories must leverage strict English subjectId mappings matching school.json.",
+        "Inbox record manipulations must progress strictly from pending to a designated terminal state. Reversal or deletion actions are disallowed.",
+        "API state transitions (e.g. Inbox movements) must always independently verify user permission, file-existence/readability, and domain constraints prior to executing index modifications."
+    ]
+}

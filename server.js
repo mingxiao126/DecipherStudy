@@ -244,6 +244,25 @@ function saveDatasetToContent(payload) {
   if (!workspace) {
     return { ok: false, status: 403, errors: [`无效或已停用的工作区 ID: ${userId}`] };
   }
+
+  // 1.5 将中文 subject 映射为英文稳定 ID（与共享库保持一致）
+  let stableSubjectId = subject;
+  if (workspace.schoolId) {
+    try {
+      const schoolPath = path.join(CONTENT_DIR, 'shared', workspace.schoolId, 'school.json');
+      if (fs.existsSync(schoolPath)) {
+        const schoolMeta = JSON.parse(fs.readFileSync(schoolPath, 'utf8'));
+        if (schoolMeta && Array.isArray(schoolMeta.subjects)) {
+          const matched = schoolMeta.subjects.find(s =>
+            s.id === subject || s.name === subject || s.label === subject
+          );
+          if (matched) stableSubjectId = matched.id;
+        }
+      }
+    } catch (e) {
+      console.warn(`[API] Subject ID resolve failed, using original: ${subject}`, e.message);
+    }
+  }
   if (!['flashcard', 'decoder', 'practice'].includes(type)) {
     return { ok: false, status: 400, errors: ['type 仅支持 flashcard, decoder 或 practice'] };
   }
@@ -275,15 +294,34 @@ function saveDatasetToContent(payload) {
   }
 
   try {
-    const displayName = `[自定义] ${subject} - ${name}`;
+    const displayName = `${subject} - ${name}`;
     fileStore.saveDataset(userId, {
       type,
-      subject,
+      subject: stableSubjectId,
       name: displayName,
       data: validated.normalized,
       fileName
     });
+    try {
+      const schoolId = (workspace && workspace.schoolId) ? workspace.schoolId : 'unknown';
+      const recordId = `inbox_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`;
 
+      fileStore.appendInboxRecord({
+        id: recordId,
+        fileName: fileName,
+        displayName: displayName,
+        type: type,
+        subject: stableSubjectId,
+        userId: userId,
+        schoolId: schoolId,
+        createdAt: new Date().toISOString(),
+        status: 'pending',
+        sourceScopeHint: 'user',
+        originalInputMode: payload.inputSource || 'unknown'
+      });
+    } catch (metaErr) {
+      console.warn(`[API] 写入 inbox 元数据失败: ${metaErr.message}`);
+    }
     return {
       ok: true,
       status: 200,
@@ -397,7 +435,28 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // 3. Workspace APIs
+  // 2.5 Get User Context (Phase 3)
+  if (req.method === 'GET' && req.url.startsWith('/api/users/') && req.url.endsWith('/context')) {
+    const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+    const parts = url.pathname.split('/');
+    const userId = parts[3]; // /api/users/:userId/context
+
+    if (!userId || !/^[a-z0-9_-]+$/.test(userId)) {
+      sendJson(res, 400, { ok: false, errors: ['缺少用户 ID 或格式不合法'] });
+      return;
+    }
+
+    try {
+      const context = fileStore.getUserContext(userId);
+      sendJson(res, 200, context);
+    } catch (error) {
+      // Return 404 for missing user/school, 400 for bad meta, 500 for parsing errors
+      const status = error.status || 500;
+      sendJson(res, status, { ok: false, errors: [error.message] });
+    }
+    return;
+  }
+
   // 3. Workspace APIs
   if (req.method === 'GET' && req.url.startsWith('/api/workspaces/')) {
     const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
@@ -436,17 +495,60 @@ const server = http.createServer(async (req, res) => {
       return;
     }
 
+    if (action === 'practice-topics-merged') {
+      try {
+        const mergedTopics = fileStore.getMergedPracticeTopics(userId);
+        sendJson(res, 200, mergedTopics);
+      } catch (e) {
+        const status = e.status || 500;
+        sendJson(res, status, { ok: false, errors: [e.message] });
+      }
+      return;
+    }
+
+    if (action === 'flashcard-topics-merged') {
+      try {
+        const mergedTopics = fileStore.getMergedFlashcardTopics(userId);
+        sendJson(res, 200, mergedTopics);
+      } catch (e) {
+        const status = e.status || 500;
+        sendJson(res, status, { ok: false, errors: [e.message] });
+      }
+      return;
+    }
+
+    if (action === 'decoder-topics-merged') {
+      try {
+        const mergedTopics = fileStore.getMergedDecoderTopics(userId);
+        sendJson(res, 200, mergedTopics);
+      } catch (e) {
+        const status = e.status || 500;
+        sendJson(res, status, { ok: false, errors: [e.message] });
+      }
+      return;
+    }
+
     if (action === 'datasets') {
       const fileName = decodeURIComponent(parts[5] || '');
-      // 安全补丁：放宽正则以支持中文、短横线、下划线及圆括号，并强制 .json 后缀
-      if (!/^[a-zA-Z0-9\u4e00-\u9fa5_\-()（）]+\.json$/.test(fileName)) {
-        sendJson(res, 400, { ok: false, errors: ['不合法的文件名格式'] });
+      // 安全补丁：支持中文、空格、短横线、下划线及各种括号，并强制 .json 后缀
+      const pattern = /^[a-zA-Z0-9\u4e00-\u9fa5\s_\-\(\)（）\[\]【】\.]+\.json$/;
+      const isValid = pattern.test(fileName);
+
+      if (!isValid) {
+        console.warn(`[API] Dataset Regex Failure: "${fileName}" for pattern ${pattern}`);
+        sendJson(res, 400, { ok: false, errors: [`不合法的文件名格式: ${fileName}`] });
         return;
       }
       try {
         const content = fileStore.getDatasetContent(userId, fileName);
+        if (content === null) {
+          console.warn(`[API] Dataset found but content is NULL (invalid JSON): fileName="${fileName}"`);
+          sendJson(res, 500, { ok: false, errors: ['数据读取失败 (内容为空或 JSON 格式错误)'] });
+          return;
+        }
         sendJson(res, 200, content);
       } catch (e) {
+        console.error(`[API] Dataset Load Exception: "${fileName}"`, e);
         sendJson(res, 404, { ok: false, errors: [e.message] });
       }
       return;
@@ -455,7 +557,402 @@ const server = http.createServer(async (req, res) => {
     console.warn(`[API] Unmatched workspace action: ${action} for URL: ${req.url}`);
   }
 
-  // 5. Upload Dataset
+  // 5. Inbox Management API (Phase 9A, 9B, 9C)
+  const reqUrlObj = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+  const pathname = reqUrlObj.pathname;
+
+  if (pathname.startsWith('/api/inbox')) {
+    const reqUser = reqUrlObj.searchParams.get('user');
+
+    // A2: Lightweight access control
+    if (!reqUser) {
+      sendJson(res, 400, { ok: false, errors: ['需要提供 ?user= 参数以验证权限'] });
+      return;
+    }
+    const workspace = resolveWorkspaceContext(reqUser);
+    if (!workspace) {
+      sendJson(res, 403, { ok: false, errors: ['无权访问或用户已停用'] });
+      return;
+    }
+
+    // GET /api/inbox
+    if (req.method === 'GET' && pathname === '/api/inbox') {
+      try {
+        const records = fileStore.getInboxRecords();
+        sendJson(res, 200, records);
+      } catch (e) {
+        sendJson(res, 500, { ok: false, errors: [e.message] });
+      }
+      return;
+    }
+
+    // POST /api/inbox/:id/move-to-user (Phase 9C)
+    const moveMatch = pathname.match(/^\/api\/inbox\/([^/]+)\/move-to-user$/);
+    if (req.method === 'POST' && moveMatch) {
+      const recordId = moveMatch[1];
+      try {
+        const records = fileStore.getInboxRecords();
+        const recordIndex = records.findIndex(r => r.id === recordId);
+        if (recordIndex === -1) {
+          sendJson(res, 404, { ok: false, errors: ['找不到该 Inbox 记录'] });
+          return;
+        }
+
+        const record = records[recordIndex];
+        if (record.status !== 'pending') {
+          sendJson(res, 400, { ok: false, errors: ['仅支持对 pending 状态的记录执行此操作'] });
+          return;
+        }
+
+        // Phase 9C.1: Validate ownership
+        if (reqUser !== record.userId) {
+          sendJson(res, 403, { ok: false, errors: ['只能处理本人上传记录'] });
+          return;
+        }
+
+        // Phase 9C.1: Validate file existence
+        try {
+          fileStore.getDatasetContent(record.userId, record.fileName);
+        } catch (err) {
+          sendJson(res, 404, { ok: false, errors: ['原始文件读取失败或已丢失，无法完成转移'] });
+          return;
+        }
+
+        // B2: 记录状态流转
+        record.status = 'moved_to_user';
+        record.movedAt = new Date().toISOString();
+        record.movedTarget = `user:${record.userId}`;
+
+        // 保存更新后的 inbox index
+        const inboxDir = path.join(fileStore.contentDir, 'inbox');
+        const indexPath = path.join(inboxDir, 'index.json');
+        fileStore.writeJsonAtomic(indexPath, records);
+
+        sendJson(res, 200, { ok: true, record: record });
+      } catch (e) {
+        sendJson(res, 500, { ok: false, errors: [e.message] });
+      }
+      return;
+    }
+
+    // POST /api/inbox/:id/move-to-shared (Phase 9D)
+    const shareMatch = pathname.match(/^\/api\/inbox\/([^/]+)\/move-to-shared$/);
+    if (req.method === 'POST' && shareMatch) {
+      const recordId = shareMatch[1];
+      try {
+        const records = fileStore.getInboxRecords();
+        const recordIndex = records.findIndex(r => r.id === recordId);
+        if (recordIndex === -1) {
+          sendJson(res, 404, { ok: false, errors: ['找不到该 Inbox 记录'] });
+          return;
+        }
+
+        const record = records[recordIndex];
+        if (record.status !== 'pending') {
+          sendJson(res, 400, { ok: false, errors: ['仅支持对 pending 状态的记录执行此操作'] });
+          return;
+        }
+
+        // Phase 9D: Validate ownership
+        if (reqUser !== record.userId) {
+          sendJson(res, 403, { ok: false, errors: ['只能将本人上传的记录发布至共享库'] });
+          return;
+        }
+
+        // Phase 9D: Validate essential fields
+        if (!record.userId || !record.schoolId || !record.subject || !record.type || !record.fileName) {
+          sendJson(res, 422, { ok: false, errors: ['记录缺少发布共享所需的关键字段'] });
+          return;
+        }
+
+        // Phase 9D.1: Subject Normalization
+        const schoolPath = path.join(fileStore.contentDir, 'shared', record.schoolId, 'school.json');
+        let normalizedSubjectId = null;
+        try {
+          let schoolMeta = null;
+          if (fs.existsSync(schoolPath)) {
+            schoolMeta = fileStore.readJson(schoolPath);
+          }
+          if (schoolMeta && Array.isArray(schoolMeta.subjects)) {
+            const matched = schoolMeta.subjects.find(s =>
+              s.id === record.subject ||
+              s.name === record.subject ||
+              s.label === record.subject
+            );
+            if (matched) {
+              normalizedSubjectId = matched.id;
+            }
+          }
+        } catch (e) {
+          console.error("Subject normalization err:", e);
+        }
+
+        if (!normalizedSubjectId) {
+          sendJson(res, 422, { ok: false, errors: ['记录 subject 无法映射到学校课程配置'] });
+          return;
+        }
+
+        // Update record state with canonical subjectId for correct downstream pathing
+        record.subject = normalizedSubjectId;
+
+        // Phase 9D: Validate file existence & read content
+        let content;
+        try {
+          content = fileStore.getDatasetContent(record.userId, record.fileName);
+        } catch (err) {
+          sendJson(res, 404, { ok: false, errors: ['原始文件读取失败或已丢失，无法发布共享'] });
+          return;
+        }
+
+        // B4: Publish to shared index and directory
+        fileStore.publishToShared(record, content);
+
+        // B5: Inbox state transition
+        record.status = 'moved_to_shared';
+        record.movedAt = new Date().toISOString();
+        record.movedTarget = `shared:${record.schoolId}/${record.subject}`;
+
+        // 保存更新后的 inbox index
+        const inboxDir = path.join(fileStore.contentDir, 'inbox');
+        const indexPath = path.join(inboxDir, 'index.json');
+        fileStore.writeJsonAtomic(indexPath, records);
+
+        sendJson(res, 200, { ok: true, record: record });
+      } catch (e) {
+        sendJson(res, 500, { ok: false, errors: [e.message] });
+      }
+      return;
+    }
+
+    // POST /api/inbox/:id/reject (Phase 9E)
+    const rejectMatch = pathname.match(/^\/api\/inbox\/([^/]+)\/reject$/);
+    if (req.method === 'POST' && rejectMatch) {
+      const recordId = rejectMatch[1];
+      try {
+        const records = fileStore.getInboxRecords();
+        const recordIndex = records.findIndex(r => r.id === recordId);
+        if (recordIndex === -1) {
+          sendJson(res, 404, { ok: false, errors: ['找不到该 Inbox 记录'] });
+          return;
+        }
+
+        const record = records[recordIndex];
+        if (record.status !== 'pending') {
+          sendJson(res, 400, { ok: false, errors: ['仅支持对 pending 状态的记录执行此操作'] });
+          return;
+        }
+
+        // Phase 9E: Validate ownership
+        if (reqUser !== record.userId) {
+          sendJson(res, 403, { ok: false, errors: ['只能驳回本人上传的记录'] });
+          return;
+        }
+
+        // State transition
+        record.status = 'rejected';
+        record.rejectedAt = new Date().toISOString();
+        record.rejectedBy = reqUser;
+
+        // 保存更新后的 inbox index
+        const inboxDir = path.join(fileStore.contentDir, 'inbox');
+        const indexPath = path.join(inboxDir, 'index.json');
+        fileStore.writeJsonAtomic(indexPath, records);
+
+        sendJson(res, 200, { ok: true, record: record });
+      } catch (e) {
+        sendJson(res, 500, { ok: false, errors: [e.message] });
+      }
+      return;
+    }
+
+    // GET /api/inbox/:id
+    const detailMatch = pathname.match(/^\/api\/inbox\/([^/]+)$/);
+    if (req.method === 'GET' && detailMatch) {
+      const recordId = detailMatch[1];
+      try {
+        const records = fileStore.getInboxRecords();
+        const record = records.find(r => r.id === recordId);
+        if (!record) {
+          sendJson(res, 404, { ok: false, errors: ['找不到该 Inbox 记录'] });
+          return;
+        }
+
+        // Phase 9D.1: 限制只有本人可以查看详情
+        if (reqUser !== record.userId) {
+          sendJson(res, 403, { ok: false, errors: ['只能查看本人上传的记录详情'] });
+          return;
+        }
+
+        // Read actual file content
+        const userId = record.userId;
+        const fileName = record.fileName;
+        try {
+          const content = fileStore.getDatasetContent(userId, fileName);
+          sendJson(res, 200, { record: record, data: content });
+        } catch (err) {
+          sendJson(res, 404, { ok: false, errors: [`原始文件读取失败或已丢失: ${err.message}`] });
+        }
+      } catch (e) {
+        sendJson(res, 500, { ok: false, errors: [e.message] });
+      }
+      return;
+    }
+    // POST /api/inbox/:id/assign (Phase 11A)
+    const assignMatch = pathname.match(/^\/api\/inbox\/([^/]+)\/assign$/);
+    if (req.method === 'POST' && assignMatch) {
+      const recordId = assignMatch[1];
+      try {
+        const payload = await parseRequestBody(req);
+        const { targetScope, targetSchoolId, targetUserId, targetSubjectId, createSubjectIfMissing } = payload;
+
+        // B1 & B2: Basic record and status check
+        const records = fileStore.getInboxRecords();
+        const recordIndex = records.findIndex(r => r.id === recordId);
+        if (recordIndex === -1) {
+          sendJson(res, 404, { ok: false, errors: ['找不到该 Inbox 记录'] });
+          return;
+        }
+        const record = records[recordIndex];
+        if (record.status !== 'pending') {
+          sendJson(res, 400, { ok: false, errors: ['仅支持对 pending 状态的记录执行此操作'] });
+          return;
+        }
+
+        // B1: Authorization check (for now, only allow owner)
+        if (reqUser !== record.userId) {
+          sendJson(res, 403, { ok: false, errors: ['只能处理本人上传的记录'] });
+          return;
+        }
+
+        // B4: targetSubjectId validation
+        if (!targetSubjectId || !/^[a-z0-9_-]+$/.test(targetSubjectId)) {
+          sendJson(res, 400, { ok: false, errors: ['targetSubjectId 必填且必须为英文稳定 ID（a-z, 0-9, _, -）'] });
+          return;
+        }
+
+        // B3: Scope exclusivity check
+        if (!targetScope || !['shared', 'user'].includes(targetScope)) {
+          sendJson(res, 400, { ok: false, errors: ['targetScope 必须为 shared 或 user'] });
+          return;
+        }
+
+        if (targetScope === 'shared') {
+          if (!targetSchoolId || targetUserId) {
+            sendJson(res, 400, { ok: false, errors: ['分配到共享库时，必须提供 targetSchoolId 且不得提供 targetUserId'] });
+            return;
+          }
+
+          // C2: shared path logic
+          const schoolPath = path.join(fileStore.contentDir, 'shared', targetSchoolId, 'school.json');
+          if (!fs.existsSync(schoolPath)) {
+            sendJson(res, 404, { ok: false, errors: [`学校 ${targetSchoolId} 的配置未找到`] });
+            return;
+          }
+
+          if (createSubjectIfMissing === true) {
+            try {
+              fileStore.ensureSchoolSubject(targetSchoolId, targetSubjectId);
+            } catch (e) {
+              sendJson(res, 400, { ok: false, errors: [`自动创建学校专业失败: ${e.message}`] });
+              return;
+            }
+          } else {
+            const schoolMeta = fileStore.readJson(schoolPath);
+            const subjectExists = schoolMeta && Array.isArray(schoolMeta.subjects) && schoolMeta.subjects.some(s => s.id === targetSubjectId);
+            if (!subjectExists) {
+              sendJson(res, 422, { ok: false, errors: [`科目 ID ${targetSubjectId} 在学校 ${targetSchoolId} 中不存在，如需自动创建请开启 createSubjectIfMissing`] });
+              return;
+            }
+          }
+
+          // Read source file
+          let content;
+          try {
+            content = fileStore.getDatasetContent(record.userId, record.fileName);
+          } catch (err) {
+            sendJson(res, 404, { ok: false, errors: ['原始文件读取失败或已丢失，无法完成分配'] });
+            return;
+          }
+
+          // Overwrite record metadata with target values before publishing
+          record.schoolId = targetSchoolId;
+          record.subject = targetSubjectId;
+
+          // Publish
+          fileStore.publishToShared(record, content);
+
+          // Update record status
+          record.status = 'moved_to_shared';
+          record.movedAt = new Date().toISOString();
+          record.movedTarget = `shared:${targetSchoolId}/${targetSubjectId}`;
+          record.assignedAt = record.movedAt;
+          record.assignedBy = reqUser;
+
+        } else {
+          // targetScope === 'user'
+          if (!targetUserId || targetSchoolId) {
+            sendJson(res, 400, { ok: false, errors: ['分配到个人库时，必须提供 targetUserId 且不得提供 targetSchoolId'] });
+            return;
+          }
+          if (targetUserId !== record.userId) {
+            sendJson(res, 403, { ok: false, errors: ['本阶段仅支持分配给自己'] });
+            return;
+          }
+
+          if (createSubjectIfMissing === true) {
+            try {
+              fileStore.ensureUserSubject(targetUserId, targetSubjectId);
+            } catch (e) {
+              sendJson(res, 400, { ok: false, errors: [`自动启用用户专业失败: ${e.message}`] });
+              return;
+            }
+          }
+
+          // Verify file existence
+          try {
+            fileStore.getDatasetContent(record.userId, record.fileName);
+          } catch (err) {
+            sendJson(res, 404, { ok: false, errors: ['原始文件读取失败或已丢失，无法完成分配'] });
+            return;
+          }
+
+          // Note: targetSubjectId is stored in metadata but physical directory change is out of scope for now
+          record.status = 'moved_to_user';
+          record.movedAt = new Date().toISOString();
+          record.movedTarget = `user:${targetUserId}`;
+          record.assignedAt = record.movedAt;
+          record.assignedBy = reqUser;
+          record.subject = targetSubjectId; // record the choice
+        }
+
+        // Finalize index write
+        const inboxDir = path.join(fileStore.contentDir, 'inbox');
+        const indexPath = path.join(inboxDir, 'index.json');
+        fileStore.writeJsonAtomic(indexPath, records);
+
+        sendJson(res, 200, {
+          ok: true,
+          action: "assign",
+          target: {
+            scope: targetScope,
+            owner: targetScope === 'shared' ? targetSchoolId : targetUserId,
+            subjectId: targetSubjectId
+          },
+          recordStatus: record.status
+        });
+
+      } catch (e) {
+        sendJson(res, e.status || 500, { ok: false, errors: [e.message] });
+      }
+      return;
+    }
+
+    // Default 404 for unhandled /api/inbox routes
+    sendJson(res, 404, { ok: false, errors: ['Inbox 路由未找到'] });
+    return;
+  }
+
+  // 6. Upload Dataset
   if (req.method === 'POST' && req.url === '/api/upload-dataset') {
     try {
       const body = await parseRequestBody(req);

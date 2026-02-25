@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ds_1771930581854_420",
+    "name": "decoders_stat_w1",
+    "file": "decoders_stat_w1.json",
+    "subject": "stat124",
+    "createdAt": "2026-02-24T10:56:21.854Z"
+  },
+  {
+    "id": "ds_1771930581856_688",
+    "name": "decoders_stat_comprehensive",
+    "file": "decoders_stat_comprehensive.json",
+    "subject": "stat124",
+    "createdAt": "2026-02-24T10:56:21.856Z"
+  },
+  {
+    "id": "ds_1771930581858_198",
+    "name": "decoder_统计学_难题-1",
+    "file": "decoder_统计学_难题-1.json",
+    "subject": "stat124",
+    "createdAt": "2026-02-24T10:56:21.858Z"
+  }
+]

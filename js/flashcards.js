@@ -9,7 +9,6 @@ class FlashCardApp {
         this.isFlipped = false;
         this.timer = null;
         this.timerSeconds = 10;
-        this.timerSeconds = 10;
         this.timerInterval = null;
         this.masteryData = this.loadMasteryData(); // 从 LocalStorage 加载掌握度数据
 
@@ -105,7 +104,25 @@ class FlashCardApp {
         const customTopics = this.getCustomFlashcardTopics();
 
         try {
-            const builtInTopics = await window.fetchUserTopics('flashcard');
+            let builtInTopics = [];
+            const apiMode = await window.DecipherRuntime.ensureApiMode();
+
+            if (apiMode && window.DecipherUser && window.DecipherUser.id) {
+                try {
+                    const res = await fetch(`/api/workspaces/${window.DecipherUser.id}/flashcard-topics-merged`);
+                    if (res.ok) {
+                        builtInTopics = await res.json();
+                    } else {
+                        throw new Error('Merged API failed');
+                    }
+                } catch (e) {
+                    console.warn('Fallback to standard fetchUserTopics', e);
+                    builtInTopics = await window.fetchUserTopics('flashcard');
+                }
+            } else {
+                builtInTopics = await window.fetchUserTopics('flashcard');
+            }
+
             this.topics = [...builtInTopics, ...customTopics];
             console.log('加载主题成功，内置+自定义:', this.topics.length);
         } catch (error) {
@@ -175,7 +192,12 @@ class FlashCardApp {
             filteredTopics.forEach(topic => {
                 const opt = document.createElement('option');
                 opt.value = topic.file;
-                opt.textContent = topic.name;
+
+                let prefix = '';
+                if (topic.source_scope === 'shared') prefix = '';
+                else if (topic.source_scope === 'user') prefix = '[定制] ';
+
+                opt.textContent = prefix + topic.name;
                 this.topicSelector.appendChild(opt);
             });
         }

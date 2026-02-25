@@ -584,7 +584,9 @@
             subject,
             name: finalName,
             data: result.normalized,
-            userId: window.DecipherUser ? window.DecipherUser.id : null
+            userId: window.DecipherUser ? window.DecipherUser.id : null,
+            schoolId: (window.DecipherUser && window.DecipherUser.context && window.DecipherUser.context.user) ? window.DecipherUser.context.user.schoolId : null,
+            inputSource: inputSource
         };
 
         if (confirmBtn) {
@@ -615,7 +617,9 @@
             const saved = await uploadToDiskApi(pendingUpload);
             if (fileEl) fileEl.value = '';
             if (textEl) textEl.value = '';
-            statusText(statusEl, `上传成功并落盘：${saved.saved.fileName}`, false);
+            const userParam = window.DecipherUser && window.DecipherUser.id ? `?user=${window.DecipherUser.id}` : '';
+            statusText(statusEl, ``, false);
+            statusEl.innerHTML = `上传成功并落盘：${saved.saved.fileName} <a href="/inbox-manager.html${userParam}" class="ml-2 text-indigo-400 underline hover:text-indigo-300">去审批池处理 &rarr;</a>`;
             clearPendingUpload();
             hideRepairPanel();
             hideIssuesPanel();

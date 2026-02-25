@@ -1,0 +1,247 @@
+[
+  {
+    "question": "What is the core difference between Absolute Advantage and Comparative Advantage?",
+    "answer": {
+      "final_answer": "绝对优势关注的是效率（谁用更少资源或更快完成任务），而比较优势关注的是机会成本（谁为完成该任务放弃得更少）。",
+      "key_points": [
+        "绝对优势比较的是生产效率或投入使用量。",
+        "比较优势比较的是完成任务所放弃的机会成本。",
+        "决策与分工应依据比较优势而非绝对优势。"
+      ],
+      "tested_points": [
+        "绝对优势与比较优势的区别"
+      ],
+      "logic_memo": "绝对优势是“谁更快”，比较优势是“谁更不亏”。社会分工听比较优势的，整体收益才最大。"
+    },
+    "category": "Trade & Advantage",
+    "type": "对比题",
+    "signals": [
+      "fewer inputs",
+      "lower opportunity cost"
+    ],
+    "steps": [
+      "Step 1: 判断谁在该任务上更高效（绝对优势）。",
+      "Step 2: 计算各自完成该任务的机会成本。",
+      "Step 3: 以机会成本更低的一方作为比较优势拥有者。"
+    ],
+    "glossary": [
+      {
+        "term": "Absolute Advantage",
+        "definition": "使用更少时间或资源完成某项任务的能力。"
+      },
+      {
+        "term": "Comparative Advantage",
+        "definition": "以更低机会成本完成某项任务的能力。"
+      }
+    ],
+    "source_reference": "Trade Theory / Advantages"
+  },
+  {
+    "question": "How do you calculate the opportunity cost of a task?",
+    "answer": {
+      "final_answer": "机会成本通过“放弃的产出 ÷ 得到的产出”来计算，即为了多做一件事而必须放弃的最佳替代品数量。",
+      "key_points": [
+        "机会成本衡量的是被放弃的次优选择。",
+        "计算公式是放弃的数量除以得到的数量。",
+        "结果用于比较谁在某任务上有比较优势。"
+      ],
+      "tested_points": [
+        "机会成本的计算方法"
+      ],
+      "logic_memo": "记住口诀：你在做什么放下面（分母），你放弃什么放上面（分子）。"
+    },
+    "category": "Opportunity Cost",
+    "type": "计算题",
+    "signals": [
+      "give up / gain",
+      "convert"
+    ],
+    "steps": [
+      "Step 1: 写出完成不同任务所需的时间或产量。",
+      "Step 2: 计算为了多做任务 A 需要放弃多少任务 B。",
+      "Step 3: 用放弃的 B 除以得到的 A，得到机会成本。"
+    ],
+    "glossary": [
+      {
+        "term": "Opportunity Cost",
+        "definition": "为了获得某项选择而放弃的次优替代方案的价值。"
+      }
+    ],
+    "source_reference": "Opportunity Cost / Calculation"
+  },
+  {
+    "question": "What is specialization and why is it beneficial?",
+    "answer": {
+      "final_answer": "专业化是指个人或国家专注于自己具有比较优势的活动，这样可以提高总产出并带来贸易收益。",
+      "key_points": [
+        "专业化基于比较优势而非绝对优势。",
+        "专业化可以提高整体生产效率。",
+        "通过交换，各方都能获得更多收益。"
+      ],
+      "tested_points": [
+        "专业化与贸易收益的关系"
+      ],
+      "logic_memo": "各做各最不亏的事，再交换，大家都会过得更好。"
+    },
+    "category": "Trade Theory",
+    "type": "概念题",
+    "signals": [
+      "specialization",
+      "gains from trade"
+    ],
+    "steps": [
+      "Step 1: 识别个人或国家的比较优势。",
+      "Step 2: 将资源集中于机会成本最低的活动。",
+      "Step 3: 通过交换获得其他产品或服务。"
+    ],
+    "glossary": [
+      {
+        "term": "Specialization",
+        "definition": "专注于生产自己具有比较优势的商品或服务。"
+      },
+      {
+        "term": "Gains from Trade",
+        "definition": "通过分工和交换使参与者福利提高的收益。"
+      }
+    ],
+    "source_reference": "Trade Theory / Specialization"
+  },
+  {
+    "question": "What are the three functions of prices in a market?",
+    "answer": {
+      "final_answer": "价格在市场中具有三大功能：作为信号、作为激励、以及作为信息的汇总机制。",
+      "key_points": [
+        "信号功能：告诉买卖双方商品的稀缺程度。",
+        "激励功能：引导买卖双方改变行为。",
+        "信息功能：汇总分散在市场中的信息。"
+      ],
+      "tested_points": [
+        "价格的三大功能"
+      ],
+      "logic_memo": "价格既是红绿灯，也是指挥棒，还是情报中心。"
+    },
+    "category": "Market Mechanism",
+    "type": "分析题",
+    "signals": [
+      "signal",
+      "incentive",
+      "information"
+    ],
+    "steps": [
+      "Step 1: 观察价格变化方向。",
+      "Step 2: 分析该变化如何影响买卖双方行为。",
+      "Step 3: 理解价格背后汇总的信息含义。"
+    ],
+    "glossary": [
+      {
+        "term": "Price Signal",
+        "definition": "价格变化向市场参与者传递的稀缺性信息。"
+      }
+    ],
+    "source_reference": "Market Mechanism / Prices"
+  },
+  {
+    "question": "What is the knowledge problem and how do internal markets help solve it?",
+    "answer": {
+      "final_answer": "知识问题指中央决策者无法掌握分散在个体中的具体信息，而内部市场通过价格和竞标机制，让最需要资源的人获得资源，从而缓解这一问题。",
+      "key_points": [
+        "信息分散在个人手中，难以集中掌握。",
+        "中央计划难以做出高效配置。",
+        "内部市场通过价格反映真实需求。"
+      ],
+      "tested_points": [
+        "知识问题的含义",
+        "内部市场的作用"
+      ],
+      "logic_memo": "不知道谁最需要，就让大家出价；出价最高的，通常最需要。"
+    },
+    "category": "Market Mechanism",
+    "type": "案例题",
+    "signals": [
+      "knowledge problem",
+      "internal markets"
+    ],
+    "steps": [
+      "Step 1: 认识到信息分散无法被中央掌握。",
+      "Step 2: 引入内部竞价或价格机制。",
+      "Step 3: 让资源流向边际收益最高的部门。"
+    ],
+    "glossary": [
+      {
+        "term": "Knowledge Problem",
+        "definition": "中央决策者无法掌握分散在个体中的具体信息的问题。"
+      },
+      {
+        "term": "Internal Market",
+        "definition": "组织内部用于分配稀缺资源的市场机制。"
+      }
+    ],
+    "source_reference": "Market Mechanism / Knowledge Problem"
+  },
+  {
+    "question": "What are prediction markets?",
+    "answer": {
+      "final_answer": "预测市场是通过交易合约价格来反映对未来事件发生概率的市场机制。",
+      "key_points": [
+        "参与者用金钱表达对未来的判断。",
+        "价格反映集体对事件发生概率的预期。",
+        "预测市场能有效汇总分散信息。"
+      ],
+      "tested_points": [
+        "预测市场的运作原理"
+      ],
+      "logic_memo": "把猜测变成交易，价格就变成了概率。"
+    },
+    "category": "Market Mechanism",
+    "type": "概念题",
+    "signals": [
+      "prediction markets",
+      "future events"
+    ],
+    "steps": [
+      "Step 1: 参与者根据判断买卖预测合约。",
+      "Step 2: 市场价格随交易变化。",
+      "Step 3: 价格反映集体预期。"
+    ],
+    "glossary": [
+      {
+        "term": "Prediction Market",
+        "definition": "通过合约交易价格来预测未来事件结果的市场。"
+      }
+    ],
+    "source_reference": "Market Mechanism / Prediction Markets"
+  },
+  {
+    "question": "What are the exam short-cuts for identifying trade and advantage questions?",
+    "answer": {
+      "final_answer": "看到“更快/更省投入”联想绝对优势；看到“放弃多少/机会成本”联想比较优势。",
+      "key_points": [
+        "效率关键词对应绝对优势。",
+        "机会成本关键词对应比较优势。",
+        "分工与贸易题目通常基于比较优势。"
+      ],
+      "tested_points": [
+        "考试中快速识别比较优势与绝对优势"
+      ],
+      "logic_memo": "考试选任务分配，几乎永远是看比较优势，不看谁最强。"
+    },
+    "category": "Exam Strategy",
+    "type": "记忆题",
+    "signals": [
+      "keywords",
+      "logic chain"
+    ],
+    "steps": [
+      "Step 1: 找题干中的效率或机会成本关键词。",
+      "Step 2: 将关键词映射到对应概念。",
+      "Step 3: 按比较优势原则作答。"
+    ],
+    "glossary": [
+      {
+        "term": "Exam Keywords",
+        "definition": "用于快速识别题目考点的提示性词语。"
+      }
+    ],
+    "source_reference": "Chapter 2 / Review"
+  }
+]

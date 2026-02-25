@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecipherStudy - 待审阅池管理 (Inbox)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+            color: #f8fafc;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .table-row-hover:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body class="relative">
+    <div class="stars" id="stars"></div>
+
+    <nav class="relative z-20 glass-card rounded-b-2xl mb-6 border-b border-purple-500/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <a href="/dashboard.html"
+                    class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-300 hover:to-pink-300 transition-all">
+                    DecipherStudy
+                </a>
+                <div class="flex flex-wrap items-center gap-2">
+                    <a href="/dashboard.html"
+                        class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-500/10 transition-colors font-medium text-sm">
+                        📚 闪卡学习
+                    </a>
+                    <a href="/decoder.html"
+                        class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-500/10 transition-colors font-medium text-sm">
+                        🔍 难题拆解
+                    </a>
+                    <a href="/practice.html"
+                        class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-500/10 transition-colors font-medium text-sm">
+                        📝 考题练习
+                    </a>
+                    <a href="/upload.html"
+                        class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-500/10 transition-colors font-medium text-sm">
+                        📤 题库上传
+                    </a>
+                    <a href="/inbox-manager.html"
+                        class="px-3 py-2 rounded-lg text-purple-300 font-semibold bg-purple-500/20 transition-colors text-sm">
+                        📬 Inbox 管理 (内部)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="relative z-10 container mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <h1
+                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">
+                Inbox 待审阅池管理
+            </h1>
+            <p class="text-slate-400">查看来自各工作区的用户上传及提交请求。</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 shadow-xl mb-8 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm whitespace-nowrap">
+                    <thead>
+                        <tr class="border-b border-slate-700 text-slate-400">
+                            <th class="px-4 py-3 font-medium">状态</th>
+                            <th class="px-4 py-3 font-medium">展名</th>
+                            <th class="px-4 py-3 font-medium">类型</th>
+                            <th class="px-4 py-3 font-medium">学科</th>
+                            <th class="px-4 py-3 font-medium">上传者</th>
+                            <th class="px-4 py-3 font-medium">学院</th>
+                            <th class="px-4 py-3 font-medium">存储文件名</th>
+                            <th class="px-4 py-3 font-medium">提交时间</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inboxTableBody" class="divide-y divide-slate-700/50">
+                        <tr>
+                            <td colspan="8" class="px-4 py-8 text-center text-slate-500">正在加载数据...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Details Modal (Phase 9B) -->
+    <div id="detailsModal"
+        class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/90 backdrop-blur-md p-4">
+        <div
+            class="glass-card rounded-2xl w-full max-w-4xl max-h-[90vh] border border-slate-700 shadow-2xl overflow-hidden flex flex-col">
+            <!-- Modal Header -->
+            <div class="p-4 border-b border-slate-700 flex justify-between items-center bg-slate-800/50">
+                <h3 id="modalRecordName" class="text-xl font-bold text-white truncate pr-4">记录详情</h3>
+                <button onclick="window.inboxManagerApp.closeDetails()"
+                    class="text-slate-400 hover:text-white transition-colors p-1">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="flex-1 overflow-hidden flex flex-col md:flex-row min-h-0">
+                <!-- Meta Sidebar -->
+                <div
+                    class="w-full md:w-72 p-6 border-b md:border-b-0 md:border-r border-slate-700 overflow-y-auto bg-slate-800/20">
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">元数据元</h4>
+                    <div id="modalMetaGrid" class="space-y-4">
+                        <!-- Items injected by JS -->
+                    </div>
+                </div>
+
+                <!-- JSON Content Container -->
+                <div class="flex-1 relative bg-slate-950/50">
+                    <!-- Loading Overlay -->
+                    <div id="modalLoadingOverlay"
+                        class="absolute inset-0 z-10 hidden flex items-center justify-center bg-slate-900/60 backdrop-blur-sm">
+                        <div class="flex flex-col items-center gap-3">
+                            <div
+                                class="w-10 h-10 border-4 border-purple-500/20 border-t-purple-500 rounded-full animate-spin">
+                            </div>
+                            <span class="text-slate-400 text-sm font-medium">加载详情中...</span>
+                        </div>
+                    </div>
+
+                    <pre id="modalJsonContent"
+                        class="absolute inset-0 p-4 overflow-auto text-xs font-mono text-green-300 custom-scrollbar leading-relaxed text-left whitespace-pre-wrap word-break-all">
+                        <!-- JSON injected by JS -->
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assignment Modal (Phase 11B) -->
+    <div id="assignModal"
+        class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-slate-900/90 backdrop-blur-md p-4">
+        <div
+            class="glass-card rounded-2xl w-full max-w-lg border border-slate-700 shadow-2xl overflow-hidden flex flex-col">
+            <div class="p-4 border-b border-slate-700 flex justify-between items-center bg-slate-800/50">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                    <span>分配记录目标</span>
+                </h3>
+                <button onclick="window.inboxManagerApp.closeAssignModal()"
+                    class="text-slate-400 hover:text-white transition-colors p-1">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="p-6 space-y-5">
+                <!-- Scope Selection -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-400 mb-2">目标范围 (Scope)</label>
+                    <div class="flex gap-4">
+                        <label class="flex items-center gap-2 cursor-pointer group">
+                            <input type="radio" name="targetScope" value="shared" checked
+                                class="w-4 h-4 text-purple-600 bg-slate-700 border-slate-600 focus:ring-purple-500"
+                                onchange="window.inboxManagerApp.onScopeChange()">
+                            <span class="text-slate-200 group-hover:text-white transition-colors">大学共享库</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer group">
+                            <input type="radio" name="targetScope" value="user"
+                                class="w-4 h-4 text-purple-600 bg-slate-700 border-slate-600 focus:ring-purple-500"
+                                onchange="window.inboxManagerApp.onScopeChange()">
+                            <span class="text-slate-200 group-hover:text-white transition-colors">个人库</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Owner Selection -->
+                <div id="ownerContainer">
+                    <label id="ownerLabel" class="block text-sm font-medium text-slate-400 mb-2">目标大学</label>
+                    <select id="targetOwner"
+                        class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 focus:ring-2 focus:ring-purple-500 outline-none appearance-none"
+                        onchange="window.inboxManagerApp.updateAssignPreview()">
+                    </select>
+                </div>
+
+                <!-- Subject Selection -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-400 mb-2">目标专业 (Subject ID)</label>
+                    <div class="space-y-3">
+                        <select id="subjectDropdown"
+                            class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 focus:ring-2 focus:ring-purple-500 outline-none appearance-none"
+                            onchange="window.inboxManagerApp.syncSubjectInput()">
+                        </select>
+                        <div class="relative">
+                            <input type="text" id="subjectInput" placeholder="手动输入英文专业 ID (如 econ102)"
+                                class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-slate-200 focus:ring-2 focus:ring-purple-500 outline-none placeholder:text-slate-600"
+                                oninput="window.inboxManagerApp.updateAssignPreview()">
+                            <p class="mt-1 text-[10px] text-slate-500 italic">如有输入，将优先使用输入内容。仅限 a-z, 0-9, _, -</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Options -->
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="createSubjectIfMissing"
+                        class="w-4 h-4 text-purple-600 bg-slate-700 border-slate-600 rounded focus:ring-purple-500">
+                    <label for="createSubjectIfMissing"
+                        class="text-sm text-slate-300 cursor-pointer">若专业不存在则尝试自动创建</label>
+                </div>
+
+                <!-- Preview -->
+                <div class="p-3 bg-purple-500/10 border border-purple-500/20 rounded-xl">
+                    <p class="text-[11px] text-purple-300 font-mono" id="assignPreview">
+                        Target: shared / ualberta / econ102
+                    </p>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-slate-700 flex justify-end gap-3 bg-slate-800/30">
+                <button onclick="window.inboxManagerApp.closeAssignModal()"
+                    class="px-4 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-700 transition-colors text-sm font-medium">
+                    取消
+                </button>
+                <button id="confirmAssignBtn" onclick="window.inboxManagerApp.submitAssign()"
+                    class="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-sm font-bold shadow-lg shadow-purple-900/20 transition-all transform active:scale-95">
+                    确认分配
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/core/decoder-runtime.js"></script>
+    <script src="/js/core/user-context.js"></script>
+    <script src="/js/inbox-manager.js"></script>
+    <script>
+        // Start Stars animation
+        function createStars() {
+            const container = document.getElementById('stars');
+            const count = 50;
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                container.appendChild(star);
+            }
+        }
+        createStars();
+    </script>
+</body>
+
+</html>

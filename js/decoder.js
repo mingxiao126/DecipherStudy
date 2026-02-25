@@ -45,7 +45,25 @@ class LogicDecoder {
         const customTopics = this.getCustomDecoderTopics();
 
         try {
-            const builtInTopics = await window.fetchUserTopics('decoder');
+            let builtInTopics = [];
+            const apiMode = await window.DecipherRuntime.ensureApiMode();
+
+            if (apiMode && window.DecipherUser && window.DecipherUser.id) {
+                try {
+                    const res = await fetch(`/api/workspaces/${window.DecipherUser.id}/decoder-topics-merged`);
+                    if (res.ok) {
+                        builtInTopics = await res.json();
+                    } else {
+                        throw new Error('Merged API failed');
+                    }
+                } catch (e) {
+                    console.warn('Fallback to standard fetchUserTopics', e);
+                    builtInTopics = await window.fetchUserTopics('decoder');
+                }
+            } else {
+                builtInTopics = await window.fetchUserTopics('decoder');
+            }
+
             this.topics = [...builtInTopics, ...customTopics];
 
             // Infer missing subjects
@@ -112,7 +130,12 @@ class LogicDecoder {
         this.filteredTopics.forEach(topic => {
             const option = document.createElement('option');
             option.value = topic.file;
-            option.textContent = topic.name;
+
+            let prefix = '';
+            if (topic.source_scope === 'shared') prefix = '';
+            else if (topic.source_scope === 'user') prefix = '[定制] ';
+
+            option.textContent = prefix + topic.name;
             selector.appendChild(option);
         });
 

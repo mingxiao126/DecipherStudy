@@ -32,12 +32,34 @@
 
     async function checkApiMode() {
         if (apiModeCache !== null) return apiModeCache;
+
+        // Eagerly assume API mode if running on localhost or 127.0.0.1
+        const isLocalHost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
         try {
+            // First attempt
             const res = await fetch('/api/health', { cache: 'no-store' });
-            apiModeCache = !!res.ok;
+            if (res.ok) {
+                apiModeCache = true;
+                return true;
+            }
         } catch (_e) {
+            // Silence initial error
+        }
+
+        // Only fallback to static if local dev server probe absolutely fails after a short retry
+        if (isLocalHost) {
+            try {
+                await new Promise(r => setTimeout(r, 500)); // wait a bit for server if it's lagging
+                const res = await fetch('/api/health', { cache: 'no-store' });
+                apiModeCache = !!res.ok;
+            } catch (_e) {
+                apiModeCache = false;
+            }
+        } else {
             apiModeCache = false;
         }
+
         return apiModeCache;
     }
 
@@ -49,12 +71,55 @@
         return res.json();
     }
 
+    // Phase 4: Fetch and cache user context
+    async function loadAndCacheUserContext() {
+        if (!userId) return;
+
+        const cachedId = sessionStorage.getItem('decipher_current_user_id');
+        const cachedCtxStr = sessionStorage.getItem('decipher_current_user_context');
+
+        if (cachedId === userId && cachedCtxStr) {
+            try {
+                window.DecipherUser.context = JSON.parse(cachedCtxStr);
+                return;
+            } catch (e) {
+                console.warn('Context cache parse failed, refetching...');
+            }
+        }
+
+        sessionStorage.removeItem('decipher_current_user_id');
+        sessionStorage.removeItem('decipher_current_user_context');
+
+        try {
+            const apiMode = await checkApiMode();
+            if (!apiMode) return; // skip in static mode
+
+            const res = await fetch(`/api/users/${userId}/context`);
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error((data.errors && data.errors[0]) || `错误码 ${res.status}`);
+            }
+
+            sessionStorage.setItem('decipher_current_user_id', userId);
+            sessionStorage.setItem('decipher_current_user_context', JSON.stringify(data));
+            window.DecipherUser.context = data;
+
+        } catch (error) {
+            console.error('Failed to load user context:', error);
+            alert(`无法加载用户配置 (${userId})：\n${error.message}\n请联系管理员或切换回有效用户。`);
+        }
+    }
+
     window.DecipherUser = {
         id: userId,
         name: userName,
+        context: null, // Will be populated
         logout: function () {
             localStorage.removeItem('decipher_user_id');
             localStorage.removeItem('decipher_user_name');
+            sessionStorage.removeItem('decipher_current_user_id');
+            sessionStorage.removeItem('decipher_current_user_context');
             window.location.href = '/index.html';
         },
         // Database-ready API helpers
@@ -79,6 +144,11 @@
             return `${url}${separator}user=${userId}`;
         }
     };
+
+    // Phase 4: Fire eagerly after DecipherUser object is defined
+    if (userId) {
+        loadAndCacheUserContext();
+    }
 
     // Auto-update all navigation links to include user context
     const updateLinksWithContext = () => {
@@ -168,9 +238,8 @@
                 ? await fetchJson(window.DecipherUser.getTopicsUrl(type))
                 : await fetchJson(window.DecipherUser.getStaticTopicsUrl(type));
         } catch (err) {
-            // If API probe was a false positive or API unavailable on static host, fallback once.
+            // 不要因为单次 topics 加载失败就关闭 API 模式
             if (apiMode) {
-                apiModeCache = false;
                 return fetchJson(window.DecipherUser.getStaticTopicsUrl(type));
             }
             throw err;
@@ -184,8 +253,10 @@
                 ? await fetchJson(window.DecipherUser.getDatasetUrl(fileName))
                 : await fetchJson(window.DecipherUser.getStaticDatasetUrl(fileName));
         } catch (err) {
+            // Do NOT flip apiModeCache here. One file failure shouldn't kill the API mode for everyone.
+            // If we are in API mode, we can still try a fallback if it makes sense, 
+            // but the static fallback is likely to fail anyway if the server blocks it.
             if (apiMode) {
-                apiModeCache = false;
                 return fetchJson(window.DecipherUser.getStaticDatasetUrl(fileName));
             }
             throw err;

@@ -177,7 +177,7 @@
       "conditions": [
         {
           "title": "官方失业率 (U-3) 公式",
-          "content": "$U\\\\text{-}3 = \\\\frac{U}{LF} = \\\\frac{U}{E + U}$",
+          "content": "$U\\\\text{-}3 = \\frac{U}{LF} = \\frac{U}{E + U}$",
           "description": "$U$ 必须满足过去4周内有积极求职行为。边际劳动力因不满足此条件被归为 $\\text{Not in Labor Force}$。"
         },
         {

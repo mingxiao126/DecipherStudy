@@ -288,6 +288,37 @@ class PracticeApp {
         return html;
     }
 
+    formatAnswerDetailed(answer) {
+        if (!answer || typeof answer !== 'string') return this.preprocessMath(answer);
+        
+        // 尝试匹配 "A) ... B) ..." 或 "A. ... B. ..." 模式
+        const parts = answer.split(/(?=[A-Z][\)\.]\s)/g);
+        
+        // 如果成功分割成多个部分，且第一或第二部分确实是以字母标号开头
+        if (parts.length > 1 && /^[A-Z][\)\.]\s/.test(parts[0].trim() || (parts[1] && parts[1].trim()))) {
+            let html = '<div class="flex flex-col gap-3 mt-2 text-base font-normal">';
+            parts.forEach(part => {
+                const trimmed = part.trim();
+                if (!trimmed) return;
+                const match = trimmed.match(/^([A-Z][\)\.])\s*(.*)/s);
+                if (match) {
+                    html += `
+                        <div class="flex items-start bg-emerald-950/20 p-3 rounded-lg border border-emerald-500/10">
+                            <span class="font-bold text-emerald-400 w-8 shrink-0">${match[1]}</span>
+                            <span class="text-slate-300 leading-relaxed">${this.preprocessMath(match[2])}</span>
+                        </div>`;
+                } else {
+                    html += `<div class="text-slate-300 leading-relaxed p-2">${this.preprocessMath(part)}</div>`;
+                }
+            });
+            html += '</div>';
+            return html;
+        }
+
+        // 默认渲染逻辑
+        return `<div class="text-emerald-400 font-medium leading-relaxed">${this.preprocessMath(answer)}</div>`;
+    }
+
     applyMath(element = this.container) {
         if (window.renderMathInElement) {
             window.renderMathInElement(element, {
@@ -561,7 +592,7 @@ class PracticeApp {
             
             <div class="mt-10 p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 text-left">
                 <div class="text-slate-400 text-sm mb-3">参考答案:</div>
-                <div class="text-emerald-400 text-lg font-bold">${q.answer === true ? '正确' : (q.answer === false ? '错误' : this.preprocessMath(q.answer))}</div>
+                ${q.answer === true ? '<div class="text-emerald-400 text-lg font-bold">正确</div>' : (q.answer === false ? '<div class="text-emerald-400 text-lg font-bold">错误</div>' : this.formatAnswerDetailed(q.answer))}
             </div>
         `;
 

@@ -235,6 +235,14 @@ class PracticeApp {
         // This commonly occurs when JSON contains "\\\\frac" which parses to "\\frac" in JS
         processed = processed.replace(/\\\\(?=[a-zA-Z])/g, '\\');
 
+        // 2.5 Heuristic auto-wrap for raw LaTeX
+        const hasRawLatex = /\\(frac|text|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla)\{?/.test(processed);
+        const hasDelimiters = processed.includes('$') || processed.includes('\\(') || processed.includes('\\[') || processed.includes('$$');
+
+        if (hasRawLatex && !hasDelimiters) {
+            processed = `\\(${processed}\\)`;
+        }
+
         // 3. Handle inline lists separated by semicolons (e.g. "1. Ans1; 2. Ans2")
         processed = processed.replace(/;\s+(?=\d+\.\s)/g, '\n');
 
@@ -285,6 +293,8 @@ class PracticeApp {
             window.renderMathInElement(element, {
                 delimiters: [
                     { left: '$$', right: '$$', display: true },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true },
                     { left: '$', right: '$', display: false }
                 ],
                 throwOnError: false

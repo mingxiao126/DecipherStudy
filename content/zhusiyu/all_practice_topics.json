@@ -1,0 +1,158 @@
+[
+  {
+    "id": "ds_1771930581827_59",
+    "name": "practice_micro_econ",
+    "file": "practice_micro_econ.json",
+    "subject": "econ102",
+    "createdAt": "2026-02-24T10:56:21.827Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581827_623",
+    "name": "practice_经济学_real_gdp",
+    "file": "practice_经济学_real_gdp.json",
+    "subject": "econ102",
+    "createdAt": "2026-02-24T10:56:21.828Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581837_886",
+    "name": "practice_经济学_第四周练习题_1",
+    "file": "practice_经济学_第四周练习题_1.json",
+    "subject": "econ102",
+    "createdAt": "2026-02-24T10:56:21.838Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581838_367",
+    "name": "practice_经济学_第四周练习题_2",
+    "file": "practice_经济学_第四周练习题_2.json",
+    "subject": "econ102",
+    "createdAt": "2026-02-24T10:56:21.839Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581840_400",
+    "name": "practice_经济学_第五周练习题_1",
+    "file": "practice_经济学_第五周练习题_1.json",
+    "subject": "econ102",
+    "createdAt": "2026-02-24T10:56:21.840Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581841_197",
+    "name": "practice_经济学_第五周练习题_2",
+    "file": "practice_经济学_第五周练习题_2.json",
+    "subject": "econ102",
+    "createdAt": "2026-02-24T10:56:21.841Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581842_572",
+    "name": "practice_经济学_第六周练习题_1",
+    "file": "practice_经济学_第六周练习题_1.json",
+    "subject": "econ102",
+    "createdAt": "2026-02-24T10:56:21.842Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581843_131",
+    "name": "practice_经济学_第六周练习题_2",
+    "file": "practice_经济学_第六周练习题_2.json",
+    "subject": "econ102",
+    "createdAt": "2026-02-24T10:56:21.843Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581845_51",
+    "name": "practice_经济学_学校练习题",
+    "file": "practice_经济学_学校练习题.json",
+    "subject": "econ102",
+    "createdAt": "2026-02-24T10:56:21.846Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581829_522",
+    "name": "practice_统计学_第四周练习题(1)",
+    "file": "practice_统计学_第四周练习题(1).json",
+    "subject": "stat124",
+    "createdAt": "2026-02-24T10:56:21.830Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581831_6",
+    "name": "practice_统计学_第四周练习题(2)",
+    "file": "practice_统计学_第四周练习题(2).json",
+    "subject": "stat124",
+    "createdAt": "2026-02-24T10:56:21.832Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581833_653",
+    "name": "practice_统计学_第五周练习题_1",
+    "file": "practice_统计学_第五周练习题_1.json",
+    "subject": "stat124",
+    "createdAt": "2026-02-24T10:56:21.833Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581834_300",
+    "name": "practice_统计学_第五周练习题_2",
+    "file": "practice_统计学_第五周练习题_2.json",
+    "subject": "stat124",
+    "createdAt": "2026-02-24T10:56:21.834Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581835_628",
+    "name": "practice_统计学_第六周练习题_1",
+    "file": "practice_统计学_第六周练习题_1.json",
+    "subject": "stat124",
+    "createdAt": "2026-02-24T10:56:21.835Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771930581836_216",
+    "name": "practice_统计学_第六周练习题_2",
+    "file": "practice_统计学_第六周练习题_2.json",
+    "subject": "stat124",
+    "createdAt": "2026-02-24T10:56:21.836Z",
+    "source_scope": "shared"
+  },
+  {
+    "id": "ds_1771987785214",
+    "name": "统计学 - 0225考前",
+    "file": "practice_统计学_0225考前.json",
+    "subject": "stat124",
+    "createdAt": "2026-02-25T02:49:45.214Z",
+    "updatedAt": "2026-02-25T02:49:45.214Z",
+    "source_scope": "user"
+  },
+  {
+    "id": "ds_1771753367037",
+    "name": "经济学 - 0221作业",
+    "file": "practice_经济学_0221作业.json",
+    "subject": "econ102",
+    "createdAt": "2026-02-22T09:42:47.037Z",
+    "updatedAt": "2026-02-22T09:42:47.037Z",
+    "source_scope": "user"
+  },
+  {
+    "id": "ds_1772808053931",
+    "name": "经济学 - 经济学（第一章节练习）",
+    "file": "practice_经济学_经济学_第一章节练习.json",
+    "subject": "经济学",
+    "createdAt": "2026-03-06T14:40:53.931Z",
+    "updatedAt": "2026-03-06T14:40:53.931Z",
+    "source_scope": "user"
+  },
+  {
+    "id": "ds_1773542523568",
+    "name": "经济学 - 第六章",
+    "file": "practice_经济学_第六章.json",
+    "subject": "经济学",
+    "createdAt": "2026-03-15T02:42:03.568Z",
+    "updatedAt": "2026-03-15T02:42:03.568Z",
+    "source_scope": "user"
+  }
+]

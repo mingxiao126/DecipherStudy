@@ -9,7 +9,6 @@
   "schoolId": "ualberta",
   "enabledSubjects": [
     "econ102",
-    "stat124",
-    "auto_user_v3"
+    "stat124"
   ]
 }

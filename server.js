@@ -215,6 +215,15 @@ function normalizeLatexString(str) {
   out = out.replace(/\\\(([\s\S]*?)\\\)/g, (full, inner) => `\\(${restoreInMath(inner)}\\)`);
   out = out.replace(/\\\[([\s\S]*?)\\\]/g, (full, inner) => `\\[${restoreInMath(inner)}\\]`);
 
+  // 4. 启发式修正：处理裸露的 LaTeX 命令 (没有 $ 或 \()
+  const hasDelimiters = out.includes('$') || out.includes('\\(') || out.includes('\\[') || out.includes('$$');
+  const latexCommands = 'frac|text|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla';
+  const hasRawLatexRegex = new RegExp(`\\\\(${latexCommands})(\\{|\\b)`);
+
+  if (!hasDelimiters && hasRawLatexRegex.test(out)) {
+    out = `\\(${out}\\)`;
+  }
+
   return out;
 }
 
@@ -366,7 +375,8 @@ function resolveStaticPath(urlPath) {
   if (pathname === '/') pathname = '/index.html';
 
   const absPath = path.normalize(path.join(ROOT, pathname));
-  if (!absPath.startsWith(ROOT)) return null;
+  const rel = path.relative(ROOT, absPath);
+  if (rel.startsWith('..') || path.isAbsolute(rel)) return null;
   return absPath;
 }
 
@@ -578,7 +588,7 @@ const server = http.createServer(async (req, res) => {
     // GET /api/inbox
     if (req.method === 'GET' && pathname === '/api/inbox') {
       try {
-        const records = fileStore.getInboxRecords();
+        const records = fileStore.getInboxRecords().filter(r => r && r.userId === reqUser);
         sendJson(res, 200, records);
       } catch (e) {
         sendJson(res, 500, { ok: false, errors: [e.message] });

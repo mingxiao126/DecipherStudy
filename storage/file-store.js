@@ -186,7 +186,37 @@ class FileStore {
         }
 
         this.writeJsonAtomic(indexPath, index);
+
+        // 自动重建合并索引
+        this._rebuildMergedTopicsForUser(userId);
         return { fileName };
+    }
+
+    /**
+     * 重建用户侧合并 topics 索引（兼容静态读取优化/未来预计算）
+     * 失败不应阻断主保存流程，因此仅记录告警。
+     */
+    _rebuildMergedTopicsForUser(userId) {
+        if (!userId) return;
+        try {
+            const userDir = path.join(this.contentDir, userId);
+            if (!fs.existsSync(userDir)) return;
+
+            for (const type of ['flashcard', 'decoder', 'practice']) {
+                let merged = [];
+                try {
+                    // 若用户具备完整 school 上下文，则预构建共享+个人合并索引
+                    merged = this._getMergedTopics(userId, type);
+                } catch (_e) {
+                    // 回退：仅写入个人 topics，避免因未配置 schoolId 影响上传
+                    const indexFile = `${type}_topics.json`;
+                    merged = this.readJson(path.join(userDir, indexFile)) || [];
+                }
+                this.writeJsonAtomic(path.join(userDir, `all_${type}_topics.json`), merged);
+            }
+        } catch (e) {
+            console.warn(`[FileStore] 重建用户合并 topics 失败 (${userId}): ${e.message}`);
+        }
     }
 
     /**
@@ -405,6 +435,49 @@ class FileStore {
         }
 
         this.writeJsonAtomic(indexPath, index);
+
+        // 自动重建合并索引
+        this._rebuildMergedTopicsForSchool(record.schoolId);
+    }
+
+    /**
+     * 重建指定学校的合并 topics 索引（all_*_topics.json）
+     */
+    _rebuildMergedTopicsForSchool(schoolId) {
+        if (!schoolId) return;
+        try {
+            const schoolDir = path.join(this.contentDir, 'shared', schoolId);
+            if (!fs.existsSync(schoolDir)) return;
+
+            const subjects = fs.readdirSync(schoolDir).filter(name => {
+                const full = path.join(schoolDir, name);
+                return fs.statSync(full).isDirectory();
+            });
+
+            for (const type of ['flashcard', 'decoder', 'practice']) {
+                const indexFile = `${type}_topics.json`;
+                const allTopics = [];
+
+                for (const subjectId of subjects) {
+                    const topicPath = path.join(schoolDir, subjectId, indexFile);
+                    if (fs.existsSync(topicPath)) {
+                        const topics = this.readJson(topicPath);
+                        if (Array.isArray(topics)) {
+                            topics.forEach(t => {
+                                if (t && t.file) {
+                                    allTopics.push({ ...t, subject: t.subject || subjectId });
+                                }
+                            });
+                        }
+                    }
+                }
+
+                this.writeJsonAtomic(path.join(schoolDir, `all_${indexFile}`), allTopics);
+            }
+            console.log(`[FileStore] 已重建 ${schoolId} 合并 topics 索引`);
+        } catch (e) {
+            console.warn(`[FileStore] 重建合并 topics 失败: ${e.message}`);
+        }
     }
 
     /**

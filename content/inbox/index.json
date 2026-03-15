@@ -15,5 +15,35 @@
     "movedTarget": "shared:ualberta/stat124",
     "assignedAt": "2026-02-25T02:50:04.404Z",
     "assignedBy": "zhusiyu"
+  },
+  {
+    "id": "inbox_1772808053935_lmv7j",
+    "fileName": "practice_经济学_经济学_第一章节练习.json",
+    "displayName": "经济学 - 经济学（第一章节练习）",
+    "type": "practice",
+    "subject": "经济学",
+    "userId": "zhusiyu",
+    "schoolId": "ualberta",
+    "createdAt": "2026-03-06T14:40:53.935Z",
+    "status": "moved_to_user",
+    "sourceScopeHint": "user",
+    "originalInputMode": "text",
+    "movedAt": "2026-03-06T14:40:59.095Z",
+    "movedTarget": "user:zhusiyu"
+  },
+  {
+    "id": "inbox_1773542523573_lrjra",
+    "fileName": "practice_经济学_第六章.json",
+    "displayName": "经济学 - 第六章",
+    "type": "practice",
+    "subject": "经济学",
+    "userId": "zhusiyu",
+    "schoolId": "ualberta",
+    "createdAt": "2026-03-15T02:42:03.573Z",
+    "status": "moved_to_user",
+    "sourceScopeHint": "user",
+    "originalInputMode": "text",
+    "movedAt": "2026-03-15T02:42:07.053Z",
+    "movedTarget": "user:zhusiyu"
   }
 ]

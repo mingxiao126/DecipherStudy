@@ -147,3 +147,21 @@ stateDiagram-v2
 - **上传闭环**: 优化了上传成功后的交互。用户完成上传后，状态栏会直接显示“去审批池处理 →”的快捷链接，提升了管理员/贡献者的操作流转效率。
 
 ![导航与上传成功入口](file:///Users/ming/.gemini/antigravity/brain/9eccc8c4-6c84-4db7-ac0e-fc3d60ffb8d2/.system_generated/click_feedback/click_feedback_1771931765065.png)
+
+## 2026-03-15: LaTeX 渲染修复与上传智能校验增强
+
+本阶段修复了难题拆解模块中 LaTeX 公式因缺少界定符（Delimiters）导致无法渲染的问题，并增强了上传全链路的自动化修正能力。
+
+### 1. 鲁棒的 LaTeX 渲染逻辑 (Robust Renderer)
+- **`js/decoder.js`**: 增加了“启发式包裹”逻辑。当检测到文本中包含典型的 LaTeX 指令（如 `\text`, `\frac`, `\mu` 等）但未被 `$` 或 `\( ... \)` 包裹时，渲染器会自动为其添加界定符，确保 KaTeX 能够正常解析展示。
+
+### 2. 上传端的“智能修复” (Smart Fix in Uploader)
+- **QA 审计增强**：在 `js/core/qa-auditor.js` 中新增规则 `QA_LATEX_004`，实时捕捉缺失界定符的公式。
+- **一键修正功能**：在 `upload.html` 中集成自动修正按钮。当识别到公式语法不规范时，用户只需点击“立即自动修复”，系统会自动在前端补齐所有缺失的界定符并重新校验。
+
+### 3. 服务端安全加固 (Server-side Normalization)
+- **`server.js`**: 在数据落盘落库前，增加了同样的规范化处理逻辑。即使客户端校验被跳过，后端也会确保存入 `content/` 目录的 JSON 数据具备标准的 LaTeX 格式，提升了系统的整体容错性。
+
+### 4. 验证结果
+- **自动化测试**：通过 `tmp/test_latex.js` 和 `tmp/verify_server_norm.js` 验证了包括双重转义、混合文本、裸命令在内的 7 种边界情况，全部通过。
+- **数据兼容性**：现已完美支持 `zhusiyu/practice_经济学_第六章.json` 等存量数据中不规范公式的正确显示。

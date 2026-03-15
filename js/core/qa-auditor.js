@@ -49,6 +49,15 @@
     return /\$[^$]*%[^$]*\$/.test(text);
   }
 
+  // 检测文本中包含 LaTeX 命令但不在公式界定符内的情况
+  function hasUnwrappedLatex(text) {
+    if (!isNonEmptyString(text)) return false;
+    const hasLatexCommand = /\\(frac|text|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla)\b/.test(text);
+    const hasDelimiters = /\$[^$]*\$|\\\(.*\\\)|\\\[.*\\\]/.test(text);
+    // 如果有指令但没界定符，或者指令出现在界定符之外（简单判定）
+    return hasLatexCommand && !hasDelimiters;
+  }
+
   // 检测同一字符串中“货币 $数字”与“LaTeX 公式 $...$”混用。
   // 例如：Expected income is $120 \times ... = 240$.
   function hasMoneyMathDollarMix(text) {
@@ -302,6 +311,17 @@
       }
       if (hasPercentInMath(s)) {
         addIssue(issues, 'Minor', 'latex', 'QA_LATEX_002', strLoc, '百分号不应放在 LaTeX 数学环境中。', '将 $98%$ 改为 98%。');
+      }
+      if (hasUnwrappedLatex(s)) {
+        addIssue(
+          issues,
+          'Major',
+          'latex',
+          'QA_LATEX_004',
+          strLoc,
+          '检测到 LaTeX 命令（如 \\frac, \\text）暴露在公式界定符 $ 或 \\( 之外。',
+          '请务必将公式内容包裹在 $...$ 或 \\(...\\) 中，以确保渲染器能正确识别。'
+        );
       }
       if (hasMoneyMathDollarMix(s)) {
         addIssue(

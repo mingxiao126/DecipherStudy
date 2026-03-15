@@ -238,6 +238,16 @@
                 // 3. 修复货币 $ 冲突 (针对 PRAC_LAT_003 启发式)
                 fixed = fixed.replace(/\$([0-9.,]+)(?!\$)/g, '$1 $');
 
+                // 4. 修复缺失的 LaTeX 界定符 (针对 QA_LATEX_004)
+                // 启发式：如果包含典型命令但没 $ 或 \(
+                const latexCommands = 'frac|text|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla';
+                const hasRawLatexRegex = new RegExp(`\\\\(${latexCommands})(\\{|\\b)`);
+                const hasDelimiters = fixed.includes('$') || fixed.includes('\\(') || fixed.includes('\\[') || fixed.includes('$$');
+
+                if (hasRawLatexRegex.test(fixed) && !hasDelimiters) {
+                    fixed = `\\(${fixed}\\)`;
+                }
+
                 return fixed;
             }
             if (Array.isArray(obj)) return obj.map(traverse);
@@ -561,7 +571,12 @@
             showIssuesPanel(issues);
 
             // 如果存在可自动修复的 LaTeX/语法问题，显示智能修复面板
-            const fixable = issues.some(msg => msg.includes('PRAC_LAT_001') || msg.includes('PRAC_LAT_002'));
+            const fixable = issues.some(msg => 
+                msg.includes('PRAC_LAT_001') || 
+                msg.includes('PRAC_LAT_002') || 
+                msg.includes('QA_LATEX_004') || // 后增：缺失界定符
+                msg.includes('QA_LATEX_001')    // 后增：不安全反斜杠
+            );
             if (fixable) {
                 showSmartFixPanel(data);
             }

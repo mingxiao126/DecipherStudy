@@ -17,85 +17,137 @@ function fail(message) {
   process.exitCode = 1;
 }
 
-function validateFlashcards() {
-  const topicsPath = path.join(contentDir, 'topics.json');
-  const topics = readJson(topicsPath);
+function collectTopicIndexTargets(indexFileName) {
+  const targets = [];
 
-  if (!Array.isArray(topics)) {
-    fail('content/topics.json must be an array.');
-    return;
+  const legacyPath = path.join(contentDir, indexFileName);
+  if (fs.existsSync(legacyPath)) {
+    targets.push({
+      topicsPath: legacyPath,
+      dataBaseDir: contentDir,
+      scopeLabel: `legacy/${indexFileName}`
+    });
   }
 
+  // Workspace-scoped indexes: content/<userId>/<indexFileName>
+  for (const entry of fs.readdirSync(contentDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    if (entry.name === 'shared') continue;
+
+    const dirPath = path.join(contentDir, entry.name);
+    const metaPath = path.join(dirPath, 'meta.json');
+    const indexPath = path.join(dirPath, indexFileName);
+    if (fs.existsSync(metaPath) && fs.existsSync(indexPath)) {
+      targets.push({
+        topicsPath: indexPath,
+        dataBaseDir: dirPath,
+        scopeLabel: `workspace/${entry.name}/${indexFileName}`
+      });
+    }
+  }
+
+  // Shared subject-scoped indexes: content/shared/<schoolId>/<subjectId>/<indexFileName>
+  const sharedRoot = path.join(contentDir, 'shared');
+  if (fs.existsSync(sharedRoot)) {
+    for (const school of fs.readdirSync(sharedRoot, { withFileTypes: true })) {
+      if (!school.isDirectory()) continue;
+      const schoolDir = path.join(sharedRoot, school.name);
+      for (const subject of fs.readdirSync(schoolDir, { withFileTypes: true })) {
+        if (!subject.isDirectory()) continue;
+        const subjectDir = path.join(schoolDir, subject.name);
+        const indexPath = path.join(subjectDir, indexFileName);
+        if (fs.existsSync(indexPath)) {
+          targets.push({
+            topicsPath: indexPath,
+            dataBaseDir: subjectDir,
+            scopeLabel: `shared/${school.name}/${subject.name}/${indexFileName}`
+          });
+        }
+      }
+    }
+  }
+
+  return targets;
+}
+
+function validateFlashcards() {
+  const targets = collectTopicIndexTargets('flashcard_topics.json');
+  if (targets.length === 0) return { topicCount: 0, cardCount: 0 };
+
+  let topicCount = 0;
   let cardCount = 0;
 
-  topics.forEach((topic, topicIndex) => {
-    const context = `topics[${topicIndex}]`;
-
-    if (!topic || typeof topic !== 'object') {
-      fail(`${context} must be an object.`);
+  targets.forEach(({ topicsPath, dataBaseDir, scopeLabel }) => {
+    const topics = readJson(topicsPath);
+    if (!Array.isArray(topics)) {
+      fail(`${scopeLabel} must be an array.`);
       return;
     }
 
-    if (!topic.name || typeof topic.name !== 'string') {
-      fail(`${context}.name is required and must be a string.`);
-    }
+    topics.forEach((topic, topicIndex) => {
+      topicCount += 1;
+      const context = `${scopeLabel}[${topicIndex}]`;
 
-    if (!topic.file || typeof topic.file !== 'string') {
-      fail(`${context}.file is required and must be a string.`);
-      return;
-    }
-
-    // 跳过自定义题库（localStorage），不校验文件存在
-    if (topic.file.startsWith('custom:')) return;
-
-    const dataPath = path.join(contentDir, topic.file);
-    if (!fs.existsSync(dataPath)) {
-      fail(`${context}.file not found: ${topic.file}`);
-      return;
-    }
-
-    const raw = readJson(dataPath);
-    const cards = Array.isArray(raw) ? raw : (Array.isArray(raw.cards) ? raw.cards : null);
-
-    if (!cards) {
-      fail(`${topic.file} must be an array, or an object with a cards array.`);
-      return;
-    }
-
-    cards.forEach((card, cardIndex) => {
-      cardCount += 1;
-      const cardCtx = `${topic.file}[${cardIndex}]`;
-
-      if (!card || typeof card !== 'object') {
-        fail(`${cardCtx} must be an object.`);
+      if (!topic || typeof topic !== 'object') {
+        fail(`${context} must be an object.`);
         return;
       }
 
-      if (!card.question || typeof card.question !== 'string') {
-        fail(`${cardCtx}.question is required and must be a string.`);
+      if (!topic.name || typeof topic.name !== 'string') {
+        fail(`${context}.name is required and must be a string.`);
       }
 
-      const answerType = typeof card.answer;
-      const hasAnswerObject = answerType === 'object' && card.answer !== null;
-      const hasAnswerString = answerType === 'string';
-
-      if (!hasAnswerObject && !hasAnswerString) {
-        fail(`${cardCtx}.answer must be a string or a non-null object.`);
+      if (!topic.file || typeof topic.file !== 'string') {
+        fail(`${context}.file is required and must be a string.`);
+        return;
       }
+
+      if (topic.file.startsWith('custom:')) return;
+
+      const dataPath = path.join(dataBaseDir, topic.file);
+      if (!fs.existsSync(dataPath)) {
+        fail(`${context}.file not found: ${topic.file}`);
+        return;
+      }
+
+      const raw = readJson(dataPath);
+      const cards = Array.isArray(raw) ? raw : (Array.isArray(raw.cards) ? raw.cards : null);
+
+      if (!cards) {
+        fail(`${scopeLabel}:${topic.file} must be an array, or an object with a cards array.`);
+        return;
+      }
+
+      cards.forEach((card, cardIndex) => {
+        cardCount += 1;
+        const cardCtx = `${scopeLabel}:${topic.file}[${cardIndex}]`;
+
+        if (!card || typeof card !== 'object') {
+          fail(`${cardCtx} must be an object.`);
+          return;
+        }
+
+        if (!card.question || typeof card.question !== 'string') {
+          fail(`${cardCtx}.question is required and must be a string.`);
+        }
+
+        const answerType = typeof card.answer;
+        const hasAnswerObject = answerType === 'object' && card.answer !== null;
+        const hasAnswerString = answerType === 'string';
+
+        if (!hasAnswerObject && !hasAnswerString) {
+          fail(`${cardCtx}.answer must be a string or a non-null object.`);
+        }
+      });
     });
   });
 
-  return { topicCount: topics.length, cardCount };
+  return { topicCount, cardCount };
 }
 
 function validateDecoders() {
-  const decoderTopicsPath = path.join(contentDir, 'decoder_topics.json');
-  const decoderTopics = readJson(decoderTopicsPath);
-
-  if (!Array.isArray(decoderTopics)) {
-    fail('content/decoder_topics.json must be an array.');
-    return;
-  }
+  const targets = collectTopicIndexTargets('decoder_topics.json');
+  if (targets.length === 0) return { fileCount: 0, problemCount: 0 };
 
   const schema = require(decoderSchemaPath);
   const validateDecoderProblem = schema.validateDecoderProblem;
@@ -109,44 +161,51 @@ function validateDecoders() {
   let fileCount = 0;
   let problemCount = 0;
 
-  decoderTopics.forEach((topic, topicIndex) => {
-    const context = `decoder_topics[${topicIndex}]`;
-
-    if (!topic || typeof topic !== 'object') {
-      fail(`${context} must be an object.`);
+  targets.forEach(({ topicsPath, dataBaseDir, scopeLabel }) => {
+    const decoderTopics = readJson(topicsPath);
+    if (!Array.isArray(decoderTopics)) {
+      fail(`${scopeLabel} must be an array.`);
       return;
     }
 
-    if (!topic.file || typeof topic.file !== 'string') {
-      fail(`${context}.file is required and must be a string.`);
-      return;
-    }
+    decoderTopics.forEach((topic, topicIndex) => {
+      const context = `${scopeLabel}[${topicIndex}]`;
 
-    // 跳过自定义题库（localStorage）
-    if (topic.file.startsWith('custom:')) return;
-
-    const dataPath = path.join(contentDir, topic.file);
-    if (!fs.existsSync(dataPath)) {
-      fail(`${context}.file not found: ${topic.file}`);
-      return;
-    }
-
-    fileCount += 1;
-
-    const raw = readJson(dataPath);
-    const problems = normalizeDecoderProblems(raw);
-
-    if (!Array.isArray(problems) || problems.length === 0) {
-      fail(`${topic.file} did not normalize to a non-empty problem list.`);
-      return;
-    }
-
-    problems.forEach((problem, problemIndex) => {
-      problemCount += 1;
-      const result = validateDecoderProblem(problem);
-      if (!result.valid) {
-        fail(`${topic.file}[${problemIndex}] schema errors: ${result.errors.join(' | ')}`);
+      if (!topic || typeof topic !== 'object') {
+        fail(`${context} must be an object.`);
+        return;
       }
+
+      if (!topic.file || typeof topic.file !== 'string') {
+        fail(`${context}.file is required and must be a string.`);
+        return;
+      }
+
+      if (topic.file.startsWith('custom:')) return;
+
+      const dataPath = path.join(dataBaseDir, topic.file);
+      if (!fs.existsSync(dataPath)) {
+        fail(`${context}.file not found: ${topic.file}`);
+        return;
+      }
+
+      fileCount += 1;
+
+      const raw = readJson(dataPath);
+      const problems = normalizeDecoderProblems(raw);
+
+      if (!Array.isArray(problems) || problems.length === 0) {
+        fail(`${scopeLabel}:${topic.file} did not normalize to a non-empty problem list.`);
+        return;
+      }
+
+      problems.forEach((problem, problemIndex) => {
+        problemCount += 1;
+        const result = validateDecoderProblem(problem);
+        if (!result.valid) {
+          fail(`${scopeLabel}:${topic.file}[${problemIndex}] schema errors: ${result.errors.join(' | ')}`);
+        }
+      });
     });
   });
 
@@ -154,43 +213,47 @@ function validateDecoders() {
 }
 
 function validatePractices() {
-  const practiceTopicsPath = path.join(contentDir, 'practice_topics.json');
-  if (!fs.existsSync(practiceTopicsPath)) return { fileCount: 0, questionCount: 0 };
-
-  const practiceTopics = readJson(practiceTopicsPath);
-  if (!Array.isArray(practiceTopics)) {
-    fail('content/practice_topics.json must be an array.');
-    return;
-  }
+  const targets = collectTopicIndexTargets('practice_topics.json');
+  if (targets.length === 0) return { fileCount: 0, questionCount: 0 };
 
   const { normalizePracticeQuestions, validatePracticeQuestion } = require(practiceSchemaPath);
 
   let fileCount = 0;
   let questionCount = 0;
 
-  practiceTopics.forEach((topic, topicIndex) => {
-    const context = `practice_topics[${topicIndex}]`;
-    if (!topic || typeof topic.file !== 'string') {
-      fail(`${context}.file is required.`);
+  targets.forEach(({ topicsPath, dataBaseDir, scopeLabel }) => {
+    const practiceTopics = readJson(topicsPath);
+    if (!Array.isArray(practiceTopics)) {
+      fail(`${scopeLabel} must be an array.`);
       return;
     }
 
-    const dataPath = path.join(contentDir, topic.file);
-    if (!fs.existsSync(dataPath)) {
-      fail(`${context}.file not found: ${topic.file}`);
-      return;
-    }
-
-    fileCount += 1;
-    const raw = readJson(dataPath);
-    const questions = normalizePracticeQuestions(raw);
-
-    questions.forEach((q, qIndex) => {
-      questionCount += 1;
-      const res = validatePracticeQuestion(q);
-      if (!res.valid) {
-        fail(`${topic.file}[${qIndex}] schema errors: ${res.errors.join(' | ')}`);
+    practiceTopics.forEach((topic, topicIndex) => {
+      const context = `${scopeLabel}[${topicIndex}]`;
+      if (!topic || typeof topic.file !== 'string') {
+        fail(`${context}.file is required.`);
+        return;
       }
+
+      if (topic.file.startsWith('custom:')) return;
+
+      const dataPath = path.join(dataBaseDir, topic.file);
+      if (!fs.existsSync(dataPath)) {
+        fail(`${context}.file not found: ${topic.file}`);
+        return;
+      }
+
+      fileCount += 1;
+      const raw = readJson(dataPath);
+      const questions = normalizePracticeQuestions(raw);
+
+      questions.forEach((q, qIndex) => {
+        questionCount += 1;
+        const res = validatePracticeQuestion(q);
+        if (!res.valid) {
+          fail(`${scopeLabel}:${topic.file}[${qIndex}] schema errors: ${res.errors.join(' | ')}`);
+        }
+      });
     });
   });
 

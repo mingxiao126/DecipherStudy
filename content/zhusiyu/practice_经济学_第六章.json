@@ -1,0 +1,720 @@
+[
+  {
+    "id": "q-01",
+    "type": "essay",
+    "question": "The Interdependence Principle states that economic decisions are never made in isolation. List the Four Interdependence Principles. Then, provide a brief real-world example illustrating 'Dependence between markets.'",
+    "answer": "The Four Interdependence Principles are: 1. Dependencies between your own choices; 2. Dependencies between people or businesses; 3. Dependencies between markets; 4. Dependencies through time. Example of Dependence between markets: An increase in the price of timber reduces the supply of new homes in the real estate market.",
+    "analysis": {
+      "decoding": [
+        "题干要求列出四大相互依存原则。",
+        "题干要求结合具体场景给出“市场间依存”的一句话实例。"
+      ],
+      "conditions": [
+        {
+          "title": "四大相互依存原则",
+          "content": "\\text{Principles} = \\{ \\text{Self}, \\text{Others}, \\text{Markets}, \\text{Time} \\}",
+          "description": "经济主体的决策在自身、他人、市场和时间四个维度上相互影响。"
+        },
+        {
+          "title": "市场间依存逻辑",
+          "content": "$P_A \\uparrow \\implies S_B \\downarrow$",
+          "description": "一个市场（如原材料市场）的波动会导致相关联的另一个市场（如成品市场）的供需发生改变。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆主体间与市场间依赖",
+          "description": "学生容易把个人或两家企业之间的竞争（主体间依存）当作市场间依存。识别方法：确保举例中明确包含两个不同的行业或商品市场。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "罗列四大原则",
+          "content": "列出自身选择之间、经济主体之间、不同市场之间、跨时间维度这四个原则。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "构建市场依存关系",
+          "content": "利用公式 $P_A \\uparrow \\implies S_B \\downarrow$ 寻找存在互补或投入产出关系的两个市场。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出实例并写出结论",
+          "content": "以木材与房地产市场为例，写出具体的影响传导路径，完成最终解答。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Interdependence Principle",
+      "Dependence Between Markets"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "essay",
+    "question": "Define the Production Possibilities Frontier (PPF). Explain what it means when an economy is operating at a point inside the PPF curve versus a point on the PPF curve. Can an economy operate outside the curve without trade?",
+    "answer": "The Production Possibilities Frontier (PPF) is a curve showing the maximum combinations of two goods an economy can produce given fixed resources and technology. Operating inside the curve means the economy is inefficient or has unemployed resources. Operating on the curve means the economy is fully and efficiently utilizing its resources. An economy cannot operate outside the curve without trade or technological advancement because those points represent currently unattainable production levels.",
+    "analysis": {
+      "decoding": [
+        "题干要求定义生产可能性边界（PPF）。",
+        "要求分别解释 PPF 内部点和曲线上点的经济学含义。",
+        "要求回答在没有贸易的情况下是否能达到曲线外的点。"
+      ],
+      "conditions": [
+        {
+          "title": "PPF 的定义与约束",
+          "content": "Y = f(X | \\text{Resources}, \\text{Tech})",
+          "description": "在既定资源和技术水平下，两种商品最大产量的组合轨迹。"
+        },
+        {
+          "title": "PPF 点的效率判定",
+          "content": "\\text{Inside PPF} \\implies \\text{Inefficient}",
+          "description": "曲线内部点代表资源未充分利用；曲线上代表达到生产效率极值；曲线外代表当前资源无法达到的状态。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "遗漏前提条件",
+          "description": "在定义 PPF 时忘记提及“资源和技术给定”。识别方法：边界之所以存在，就是因为资源具有稀缺性（Scarcity）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "阐述 PPF 定义",
+          "content": "给出 PPF 的核心定义，强调固定资源和技术限制下的最大产出组合。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析曲线内与曲线上",
+          "content": "代入效率判定规则，指出内部点意味着低效或失业，曲线上意味着生产效率（Productive Efficiency）最大化。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "判断曲线外部可行性",
+          "content": "基于资源稀缺性，说明曲线外的点在没有外部贸易或技术进步时是绝对不可达到的，得出结论。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Production Possibilities Frontier",
+      "Scarcity",
+      "Productive Efficiency"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "essay",
+    "question": "Explain the difference between Absolute Advantage and Comparative Advantage. Why is it possible for a country to have an absolute advantage in producing all goods, but impossible for it to have a comparative advantage in producing all goods?",
+    "answer": "Absolute advantage is the ability to produce more of a good with the same resources (or the same amount with fewer resources). Comparative advantage is the ability to produce a good at a lower opportunity cost. A country can have an absolute advantage in everything if it is generally more productive. However, opportunity costs of two goods are reciprocals of each other; if a country has a lower opportunity cost in one good, its opportunity cost for the other good must mathematically be higher. Thus, no one can have a comparative advantage in everything.",
+    "analysis": {
+      "decoding": [
+        "题干要求区分绝对优势与比较优势。",
+        "要求用逻辑或数学原理解释为什么一个国家不可能在所有商品上都拥有比较优势。"
+      ],
+      "conditions": [
+        {
+          "title": "优势判定标准",
+          "content": "\\text{Comparative Adv} \\iff \\text{Lower Opportunity Cost}",
+          "description": "绝对优势看物理生产率，比较优势看相对的机会成本。"
+        },
+        {
+          "title": "机会成本的倒数关系",
+          "content": "OC_X = \\frac{1}{OC_Y}",
+          "description": "生产 X 的机会成本与生产 Y 的机会成本互为倒数。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆优势维度",
+          "description": "学生容易把生产力强弱直接等同于应该生产该产品。识别方法：明确分工的基础是比较优势（机会成本），而不是绝对优势。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "定义两种优势",
+          "content": "绝对优势基于投入产出的绝对数量；比较优势基于放弃的另一种商品的数量（机会成本）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析绝对优势的全局性",
+          "content": "说明如果一个国家技术全面领先，完全可以在所有商品的生产率上都占据绝对优势。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "运用倒数关系证明比较优势的互斥性",
+          "content": "代入公式 $OC_X = \\frac{1}{OC_Y}$，指出既然互为倒数，一方在 X 上的机会成本比另一方小，那么它在 Y 上的机会成本必定比另一方大。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "由于数学上的倒数关系，一个经济体不可能同时在所有商品上保持最低的机会成本，得出结论。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Absolute Advantage",
+      "Comparative Advantage",
+      "Opportunity Cost"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "essay",
+    "question": "Define both a Sunk Cost and the Framing Effect. Briefly explain why rational decision-makers using the cost-benefit principle must ignore both of these factors.",
+    "answer": "A sunk cost is a past expense that cannot be recovered. The framing effect is a cognitive bias where decisions are influenced by how information is presented (e.g., phrasing as a loss versus a gain) rather than objective facts. Rational decision-makers using the cost-benefit principle evaluate only future marginal benefits against future marginal costs. Both sunk costs and the framing effect must be ignored because they distort this objective marginal analysis—sunk costs tie decisions to unchangeable past events, and the framing effect creates false perceptions of value, both of which lead to choices that do not maximize true economic surplus.",
+    "analysis": {
+      "decoding": [
+        "题干要求分别定义沉没成本和框架效应这两个概念。",
+        "要求基于成本收益原则，解释为什么理性人必须在决策时忽略这两个因素。"
+      ],
+      "conditions": [
+        {
+          "title": "前瞻性边际分析",
+          "content": "\\Delta \\text{Net Benefit} = \\text{Future } MB - \\text{Future } MC",
+          "description": "理性决策只关心未来新增的收益和成本。"
+        },
+        {
+          "title": "决策扭曲机制",
+          "content": "\\text{Biased Decision} \\implies MB \\neq \\text{True } MB \\text{ or } MC \\neq \\text{True } MC",
+          "description": "沉没成本和框架效应都会导致感知到的边际量偏离真实的边际量。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "强行合并概念",
+          "description": "学生可能只定义了概念但没有指出它们的共同点。识别方法：题干的核心是“为什么都要被忽略”，必须回到对“边际成本与收益的干扰”这一共同本质上解答。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "定义沉没成本与框架效应",
+          "content": "沉没成本是不可回收的历史支出；框架效应是因信息呈现方式而产生的心理偏差。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "引入理性决策法则",
+          "content": "根据成本收益原则，决策应当且仅应当基于客观的 $\\text{Future } MB$ 和 $\\text{Future } MC$ 的比较。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "分析干扰因素并得出结论",
+          "content": "说明沉没成本属于历史变量不属于未来边际量，而框架效应会扭曲主观感知使其偏离客观真实值；两者都会破坏最大化经济剩余的计算，因此必须被忽略。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sunk Cost",
+      "Framing Effect",
+      "Cost-Benefit Principle",
+      "Marginal Analysis"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "essay",
+    "question": "Define the Knowledge Problem within a large organization. How do companies or organizations use Internal Markets to solve this problem? Provide one example.",
+    "answer": "The Knowledge Problem occurs when centralized decision-makers lack the necessary localized information to efficiently allocate resources across a large organization. Companies solve this by creating Internal Markets, using virtual currencies or bidding systems that allow departments to signal their actual demand and urgency for resources. Example: A tech company might give project teams a budget of virtual tokens to bid for server computing power; the teams with the most critical needs will bid the highest, ensuring the servers are allocated where they produce the most value without central micromanagement.",
+    "analysis": {
+      "decoding": [
+        "题干要求定义大型组织内部的“知识问题（Knowledge Problem）”。",
+        "要求解释如何利用“内部市场（Internal Markets）”机制来解决此问题，并提供一个具体案例。"
+      ],
+      "conditions": [
+        {
+          "title": "知识问题实质",
+          "content": "\\text{Central Planner} \\notin \\text{Local Information}",
+          "description": "中央管理者无法掌握所有局部和分散的信息以实现最优资源配置。"
+        },
+        {
+          "title": "内部市场解决机制",
+          "content": "\\text{Internal Price} \\implies \\text{Efficient Allocation}",
+          "description": "通过引入内部价格信号和竞价机制，让资源自发流向边际收益最高的用途。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "偏离经济学解释",
+          "description": "容易把知识问题理解为“员工缺乏培训”。识别方法：在哈耶克与组织经济学语境中，“Knowledge Problem”专指中央计划者缺乏“关于特定时间与地点的知识”导致的分配低效。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "定义知识问题",
+          "content": "指出大型组织中高层管理者无法获悉基层真实需求和资源紧缺度的问题。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "阐述内部市场作用",
+          "content": "基于 $\\text{Internal Price}$ 机制，解释企业如何通过设立虚拟货币和内部竞价体系，让各部门通过报价展示其真实的资源需求迫切程度。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "结合实例得出结论",
+          "content": "举出类似服务器算力分配或内部人才流转的例子，完成论述。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "The Knowledge Problem",
+      "Internal Markets",
+      "Resource Allocation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "essay",
+    "question": "Elena runs a small artisan bakery. She has 8 hours of labor available each day, which she can use to bake either Gourmet Croissants or Artisan Loaves of Bread. In 1 hour of labor, Elena can bake either 12 Croissants OR 4 Loaves of Bread. She pays a fixed daily rent of 120 dollars for her kitchen space, which she signed a 6-month contract for. Last week, she spent 300 dollars on a new baking mixer, which cannot be refunded. The market price for 1 Croissant is 3 dollars. The market price for 1 Loaf of Bread is 10 dollars. Questions: A) Identify any sunk costs in the scenario above. B) Assuming a linear PPF, calculate Elena's opportunity cost of producing 1 Loaf of Bread (in terms of Croissants). C) Calculate her opportunity cost of producing 1 Croissant (in terms of Loaves of Bread). D) Using marginal analysis, calculate the Marginal Benefit (Revenue) Elena receives from spending 1 hour baking Croissants versus 1 hour baking Bread. E) To maximize her economic surplus, how should Elena allocate her 8 hours today?",
+    "answer": "A) The 120 dollars daily rent and 300 dollars mixer are sunk costs. B) The opportunity cost of 1 Loaf of Bread is 3 Croissants. C) The opportunity cost of 1 Croissant is 0.33 Loaves of Bread. D) Marginal Benefit for 1 hour of Croissants is 36 dollars; Marginal Benefit for 1 hour of Bread is 40 dollars. E) Elena should allocate all 8 hours to baking Artisan Loaves of Bread.",
+    "analysis": {
+      "decoding": [
+        "题干给出了时间约束（8小时）、两种商品的生产效率、售价，以及两项前期投入费用。",
+        "要求排查沉没成本，计算两种商品的单位机会成本，并通过比较边际收益得出最佳时间分配方案。"
+      ],
+      "conditions": [
+        {
+          "title": "机会成本公式",
+          "content": "OC_X = \\frac{\\text{Max } Y}{\\text{Max } X}",
+          "description": "生产一单位 X 放松的 Y 的数量等于一小时内最大产出之比。"
+        },
+        {
+          "title": "边际收益计算",
+          "content": "MB_{\\text{hour}} = \\text{Yield per hour} \\times \\text{Price}",
+          "description": "计算每一小时劳动投入能带来的总收入增加量。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "沉没成本干扰",
+          "description": "题干中长期的固定房租（120）和已买的搅拌机（300）是无效信息。识别方法：这类成本不会因每天排班烤什么面包而改变，在计算边际收益时不应扣除。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别沉没成本",
+          "content": "房租和不可退的搅拌机均已成定局，属于沉没成本，解答 A 问。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算单位机会成本",
+          "content": "代入公式 $OC_{\\text{Bread}} = \\frac{12}{4} = 3$ 个可颂；同理 $OC_{\\text{Croissant}} = \\frac{4}{12} \\approx 0.33$ 个面包。完成 B 和 C 问计算。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算每小时边际收益",
+          "content": "可颂的 $MB_{\\text{hour}} = 12 \\times 3 = 36$ 美元；面包的 $MB_{\\text{hour}} = 4 \\times 10 = 40$ 美元。完成 D 问计算。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最优决策",
+          "content": "比较两者的边际收益，因为 $40 > 36$，为了最大化经济剩余，应该将全部 8 小时用于烤制边际收益更高的面包。解答 E 问。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sunk Cost",
+      "Opportunity Cost",
+      "Production Possibilities Frontier",
+      "Marginal Analysis",
+      "Economic Surplus"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-07",
+    "type": "essay",
+    "question": "A tech consulting firm employs two programmers, Mateo and Sofia. They are assigned to complete two types of tasks: designing Web Pages and writing Database Scripts. The table below shows how many units of each task they can complete in exactly 1 hour. Note: Mateo earns a salary of 50 dollars per hour, while Sofia earns 40 dollars per hour. Mateo also paid 2,000 dollars for a coding bootcamp last year to improve his skills. Questions: A) Which programmer has the absolute advantage in designing Web Pages? Which programmer has the absolute advantage in writing Database Scripts? B) Calculate Mateo's opportunity cost for designing 1 Web Page. C) Calculate Sofia's opportunity cost for designing 1 Web Page. D) Based on the opportunity costs, who has the comparative advantage in designing Web Pages? Who has the comparative advantage in writing Database Scripts? E) If the firm wants to allocate tasks efficiently, who should specialize in what? Explain your reasoning.",
+    "question_table": {
+      "columns": [
+        "Programmer",
+        "Web Pages per hour",
+        "Database Scripts per hour"
+      ],
+      "rows": [
+        [
+          "Mateo",
+          "8",
+          "24"
+        ],
+        [
+          "Sofia",
+          "6",
+          "12"
+        ]
+      ]
+    },
+    "answer": "A) Mateo has the absolute advantage in both Web Pages (8 > 6) and Database Scripts (24 > 12). B) Mateo's opportunity cost for 1 Web Page is 3 Database Scripts. C) Sofia's opportunity cost for 1 Web Page is 2 Database Scripts. D) Sofia has the comparative advantage in designing Web Pages (2 < 3). Mateo has the comparative advantage in writing Database Scripts. E) Sofia should specialize in designing Web Pages, and Mateo should specialize in writing Database Scripts, because assigning tasks according to their lowest opportunity cost (comparative advantage) maximizes total efficiency.",
+    "analysis": {
+      "decoding": [
+        "题干中包含了一个生产率矩阵表格，以及薪水和培训费用的干扰信息。",
+        "要求基于表格数据判断绝对优势、计算各自的单位机会成本、判断比较优势，并最终给出专业化分工建议。"
+      ],
+      "conditions": [
+        {
+          "title": "绝对优势判断",
+          "content": "\\text{Absolute Adv} \\iff \\text{Higher Quantity per Hour}",
+          "description": "比较两人在同一时间内生产某商品的绝对物理产量。"
+        },
+        {
+          "title": "单位机会成本计算",
+          "content": "OC_{\\text{Web}} = \\frac{\\text{Scripts per Hour}}{\\text{Web per Hour}}",
+          "description": "生产1单位Web需要放弃的Scripts数量。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "无关财务数据干扰",
+          "description": "题干中特意给出了两人的时薪和培训费。识别方法：计算比较优势和机会成本时，只比较物理单位的生产率（时间或产量），货币成本是干扰项。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "判定绝对优势",
+          "content": "直接读取表格，Mateo 每小时产出 8 个 Web 和 24 个 Scripts，均大于 Sofia 的 6 和 12。因此 Mateo 在两项任务上均具绝对优势。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算机会成本",
+          "content": "代入机会成本公式。Mateo 生产 1 个 Web 的成本是 $\\frac{24}{8} = 3$ 个 Scripts；Sofia 生产 1 个 Web 的成本是 $\\frac{12}{6} = 2$ 个 Scripts。",
+          "tag": "计算"
+        },
+        {
+          "title": "确定比较优势",
+          "content": "对比机会成本，Sofia 在 Web 上的成本更低（$2 < 3$），拥有 Web 的比较优势；根据倒数原则，Mateo 必定拥有 Scripts 的比较优势。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "制定分工决策",
+          "content": "根据比较优势原则，企业应让员工专门从事其拥有比较优势（即机会成本最低）的任务。得出结论：Sofia 专攻 Web，Mateo 专攻 Scripts。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Absolute Advantage",
+      "Comparative Advantage",
+      "Opportunity Cost",
+      "Specialization"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-08",
+    "type": "essay",
+    "question": "The table below shows the number of minutes it takes for two teaching assistants, David and Sarah, to grade one Economics (ECON) assignment and one Statistics (STAT) assignment. They both have 10 hours of working time this week. A) Who has the absolute advantage in grading ECON assignments? B) Calculate David's opportunity cost of grading 1 ECON assignment. C) Calculate Sarah's opportunity cost of grading 1 STAT assignment. D) Who has the comparative advantage in grading STAT assignments?",
+    "question_table": {
+      "columns": [
+        "Teaching Assistant",
+        "Minutes to grade 1 ECON assignment",
+        "Minutes to grade 1 STAT assignment"
+      ],
+      "rows": [
+        [
+          "David",
+          "15",
+          "30"
+        ],
+        [
+          "Sarah",
+          "20",
+          "60"
+        ]
+      ]
+    },
+    "answer": "A) David has the absolute advantage in grading ECON assignments. B) David's opportunity cost of grading 1 ECON assignment is 0.5 STAT assignments. C) Sarah's opportunity cost of grading 1 STAT assignment is 3 ECON assignments. D) David has the comparative advantage in grading STAT assignments.",
+    "analysis": {
+      "decoding": [
+        "题干给出了完成单件任务所需的耗时（分钟），属于基于投入时间（Inputs）计算的矩阵。",
+        "任务要求判断绝对优势、计算单位机会成本并确定比较优势。"
+      ],
+      "conditions": [
+        {
+          "title": "基于耗时的机会成本公式",
+          "content": "$OC_A = \\frac{\\text{Time for A}}{\\text{Time for B}}$",
+          "description": "当数据是生产一单位所需的投入时间时，生产 A 的机会成本等于完成 A 的时间除以完成 B 的时间。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "投入产出颠倒陷阱",
+          "description": "学生习惯了基于产量（Outputs）的矩阵，容易直接用“放弃产量/获得产量”的公式导致分子分母颠倒。识别方法：看清表格抬头是“Minutes to grade”（耗时）还是“Assignments per hour”（产量）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "判断绝对优势",
+          "content": "从表格读取：David 批改 ECON 需 15 分钟，少于 Sarah 的 20 分钟，因此 David 在批改 ECON 上具有绝对优势。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算各项机会成本",
+          "content": "代入耗时公式。David 批改 1 份 ECON 的成本：$\\frac{15}{30} = 0.5$ 份 STAT；Sarah 批改 1 份 STAT 的成本：$\\frac{60}{20} = 3$ 份 ECON。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算并比较 STAT 的机会成本",
+          "content": "要求 STAT 的比较优势，先求 David 批改 1 份 STAT 的成本：$\\frac{30}{15} = 2$ 份 ECON。对比可知 $2 < 3$，即 David 拥有更低的机会成本。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出比较优势结论",
+          "content": "因为 David 批改 STAT 的机会成本更低，所以 David 拥有批改 STAT 的比较优势。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Absolute Advantage",
+      "Comparative Advantage",
+      "Opportunity Cost",
+      "Input Method"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-09",
+    "type": "essay",
+    "question": "A startup company is developing an AI-driven educational software to help primary school students learn math. The company has already spent 50,000 dollars on early software development. To finish the project and launch it, they need to pay an additional 20,000 dollars to software engineers. They also pay a non-cancellable monthly office rent of 2,000 dollars. Once launched, they estimate the software will generate 35,000 dollars in total revenue. A) Identify the sunk costs in this scenario. B) Should the company spend the additional 20,000 dollars to finish and launch the software? Use the Cost-Benefit Principle to calculate the relevant economic surplus and explain your decision.",
+    "answer": "A) The 50,000 dollars development cost and the 2,000 dollars rent are sunk costs. B) Yes, the company should spend the additional 20,000 dollars. The marginal benefit (35,000 dollars) exceeds the marginal cost (20,000 dollars), resulting in an economic surplus of 15,000 dollars.",
+    "analysis": {
+      "decoding": [
+        "题干描述了一个商业开发项目，其中夹杂了已发生的历史成本和未来的预期收益与成本。",
+        "任务要求剥离沉没成本，并利用边际分析计算真实的经济剩余。"
+      ],
+      "conditions": [
+        {
+          "title": "沉没成本剥离原则",
+          "content": "Cost_{\\text{sunk}} \\notin \\text{Marginal Analysis}",
+          "description": "已经发生且无法收回的成本（如前期开发费、不可退租金）不能计入未来决策的成本收益计算中。"
+        },
+        {
+          "title": "成本收益原则",
+          "content": "\\text{Surplus} = MB - MC",
+          "description": "基于未来的边际收益和边际成本进行决策，若剩余大于零则说明行为能够增加总福利。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "总成本沉没陷阱",
+          "description": "学生容易把前期投入的 50000 美元加上未来的 20000 美元算作总成本（70000），得出亏损结论。识别方法：严格区分“已经花掉不可挽回的钱”和“未来还要花的钱”。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别沉没成本",
+          "content": "前期的 50000 美元开发费和不可取消的 2000 美元房租属于沉没成本，决策时应被剔除。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "提取边际数据",
+          "content": "如果继续项目，未来的边际收益 $MB = 35000$ 美元；未来的边际成本 $MC = 20000$ 美元。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算经济剩余",
+          "content": "代入公式 $\\text{Surplus} = 35000 - 20000 = 15000$ 美元。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出决策结论",
+          "content": "由于 $MB > MC$，继续投资创造了 15000 美元的正向经济剩余，因此公司应该追加投资完成项目。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sunk Cost",
+      "Cost-Benefit Principle",
+      "Marginal Analysis",
+      "Economic Surplus"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-10",
+    "type": "choice",
+    "question": "Due to a sudden increase in the popularity of artificial intelligence courses, a university decides to hire the best computer science professors by offering them significantly higher salaries. As a result, fewer talented mathematical analysts are available to teach traditional statistics courses, leading to larger class sizes and fewer course options in the statistics department. Which of the Four Interdependence Principles does this scenario BEST illustrate?",
+    "options": [
+      "Dependence between your individual choices",
+      "Dependence between economic actors",
+      "Dependence between markets",
+      "Dependence through time"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "这属于不同市场间的相互依赖（Dependence between markets）。计算机科学教授劳动力市场的变动直接抽干了相邻的统计学教授劳动力市场的供给。",
+      "decoding": [
+        "题干描述了一个学科（AI 课程）的薪资变动如何导致相邻学科（统计学）的人才供给不足。",
+        "任务要求将这一跨领域的连锁反应归类到四大相互依存原则之一。"
+      ],
+      "conditions": [
+        {
+          "title": "市场间的相互依存模型",
+          "content": "$D_A \\uparrow \\implies S_B \\downarrow$",
+          "description": "一个市场的要素流动或价格变化会溢出并直接影响相关联的其他市场的供需平衡。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "经济主体间依存误判",
+          "description": "学生可能选“经济主体之间的依赖”，认为这是学校和教授之间的关系。识别方法：这里强调的是“计算机教授劳动力市场”与“统计学教授劳动力市场”两个不同宏观要素市场间的挤出效应。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "拆解因果链条",
+          "content": "起因：AI 课程火爆引发 CS 教授高薪（市场 A 发生需求与价格变动）；结果：导致统计学人才流失、班级规模变大（市场 B 供给减少）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配理论模型",
+          "content": "这种跨越不同学科子市场的供需传导，完全契合市场间依存的定义。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "该场景体现了不同市场之间如何通过价格和资源流动相互依存，对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：混淆了个人的资源权衡。正确概念：这是衡量单个个体在有限预算/时间内的权衡，本题探讨的是宏观视角的资源流动。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：混淆了人际博弈与市场传导。正确概念：“主体间依赖”主要指特定企业间的竞争或个人间的拥挤效应，本题核心是两类“劳动力市场”的连接。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：没有体现跨期决策属性。正确概念：“时间上的依赖”指的是现在的决策如何影响未来的选项，本题关注的是同期的市场空间挤压。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Interdependence Principle",
+      "Dependence Between Markets",
+      "Labor Market Dynamics"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-11",
+    "type": "essay",
+    "question": "A large tutoring business has 50 different branch managers, each needing marketing funds to acquire new clients. The CEO has a limited marketing budget of 100,000 dollars but does not know the exact marginal benefit of a marketing dollar in each specific branch (e.g., whether advertising in Branch A will yield more new students than in Branch B). A) What economic term from Chapter 6 describes the CEO's lack of information? B) How could the CEO use an \"Internal Market\" to solve this problem and ensure the marketing funds are allocated to the branches where they will be most effective?",
+    "answer": "A) The Knowledge Problem. B) The CEO could establish an internal market by issuing virtual currency or creating a bidding system. Branch managers would bid for the marketing funds based on their specific local conversion rates (marginal benefit). This allows the forces of supply and demand to naturally allocate the resources to the branches that value them most, without the CEO needing to gather all local data.",
+    "analysis": {
+      "decoding": [
+        "题干描述了中心化管理者（CEO）面对分散的下属机构时，无法准确掌握各地边际收益以进行高效分配的困境。",
+        "要求指出该现象的经济学术语，并说明如何利用内部市场机制（Internal Markets）来解决资金的高效配置问题。"
+      ],
+      "conditions": [
+        {
+          "title": "知识问题（The Knowledge Problem）",
+          "content": "\\text{Central Planner} \\notin \\text{Local Information}",
+          "description": "中央管理者缺乏实现最优资源分配所需的底层和局部信息。"
+        },
+        {
+          "title": "内部市场机制",
+          "content": "\\text{Internal Bidding} \\implies \\text{Efficient Allocation}",
+          "description": "通过构建内部价格信号系统，让资源自发流向边际收益最高的地方。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "非经济学方案陷阱",
+          "description": "学生可能会回答“CEO 应该去开会调研”或“给所有人平分预算”。识别方法：题目明确要求运用经济学中的“内部市场”工具来克服信息不对称。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别知识缺口现象",
+          "content": "CEO 缺乏各分校真实转化率（即边际收益）的信息，这在组织经济学中被称为 The Knowledge Problem（知识问题）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "引入内部竞价系统",
+          "content": "CEO 可设立类似内部虚拟货币的工具，让 50 个分校经理根据自己辖区的真实需求预期进行竞标以获得营销资金。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "推演资源流动并得出结论",
+          "content": "通过供求规律，愿意出高价竞标的经理必然是那些边际收益最高的分校，从而在不需要中央指令的情况下实现了资金的最优配置。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "The Knowledge Problem",
+      "Internal Markets",
+      "Resource Allocation",
+      "Organizational Economics"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-12",
+    "type": "essay",
+    "question": "Define the Framing Effect. Imagine a grocery store sells two types of ground beef. Package A says '80% Lean', while Package B says '20% Fat'. Even though they are identical products and cost the same, a consumer chooses Package A because it sounds healthier. Explain how this consumer's choice violates the standard Cost-Benefit Principle.",
+    "answer": "The Framing Effect is a cognitive bias where decisions are influenced by how information is presented (e.g., phrasing as a positive vs. negative) rather than the objective facts. According to the Cost-Benefit Principle, rational individuals should make decisions based solely on real marginal benefits and marginal costs. Since Package A and Package B are physically identical and cost the same, their true marginal benefit and marginal cost are equal. The consumer's preference for Package A simply because of its phrasing shows they are reacting to the 'frame' rather than maximizing actual economic surplus, violating rational economic behavior.",
+    "analysis": {
+      "decoding": [
+        "题干要求定义框架效应（Framing Effect）。",
+        "结合“80%瘦肉”与“20%肥肉”的经典案例，要求运用成本收益原则，解释为什么消费者因包装措辞而改变选择是违背理性的。"
+      ],
+      "conditions": [
+        {
+          "title": "框架效应",
+          "content": "\\text{Decision} = f(\\text{Presentation}) \\neq f(\\text{Objective Value})",
+          "description": "人们对本质相同但呈现方式不同的信息做出不同反应的心理偏差。"
+        },
+        {
+          "title": "理性决策基准",
+          "content": "MB_A = MB_B \\land MC_A = MC_B \\implies \\text{Indifferent}",
+          "description": "根据成本收益原则，两件客观收益和成本完全相等的物品，理性消费者的偏好应当是无差异的。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "主观偏好合理化陷阱",
+          "description": "学生可能认为“买觉得健康的包装能增加消费者的好心情，所以是理性的”。识别方法：经济学假设理性人是追求客观效用最大化的，被单纯的文字魔术或心理错觉改变决策属于认知偏差。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "给出框架效应定义",
+          "content": "指出框架效应是指信息的呈现方式（如正面描述与负面描述）而非信息的实质内容改变了人的决策行为。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "评估真实边际量",
+          "content": "牛肉 A 和牛肉 B 的物理属性和价格完全一致，这意味着它们的真实边际收益（$MB$）和边际成本（$MC$）是完全相等的。",
+          "tag": "计算"
+        },
+        {
+          "title": "对照成本收益原则并得出结论",
+          "content": "理性人应该只根据真实的 $MB$ 和 $MC$ 做出选择。消费者因为标签措辞而产生偏好，偏离了客观剩余最大化的原则，违背了标准的成本收益理论。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Framing Effect",
+      "Cost-Benefit Principle",
+      "Cognitive Bias",
+      "Behavioral Economics"
+    ],
+    "source": "Mixed"
+  }
+]

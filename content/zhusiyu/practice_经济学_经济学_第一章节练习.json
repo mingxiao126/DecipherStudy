@@ -1,0 +1,788 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "Sarah is deciding whether to take a summer economics course or work full-time at a local bookstore. The course tuition is 800 dollars, and the required textbooks cost 150 dollars. If she works at the bookstore, she will earn 3,000 dollars over the summer. Her apartment rent for the summer is 1,200 dollars, which she has signed a lease for and must pay regardless of her choice. What is Sarah's opportunity cost of taking the summer course?",
+    "options": [
+      "950 dollars",
+      "3,000 dollars",
+      "3,950 dollars",
+      "5,150 dollars"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "机会成本为 3950 美元，包含学费书本费（显性成本）和放弃的工资（隐性成本）。租金是沉没成本，不计入。",
+      "decoding": [
+        "题干要求计算选择上暑期课的机会成本。",
+        "需要区分哪些是因该决策而产生的显性成本、隐性成本，以及哪些是不受决策影响的沉没成本。"
+      ],
+      "conditions": [
+        {
+          "title": "机会成本公式",
+          "content": "$\\text{Opportunity Cost} = \\text{Explicit Costs} + \\text{Implicit Costs}$",
+          "description": "机会成本等于为做出某项选择而付出的所有直接货币成本与放弃的最大潜在收益之和。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "沉没成本陷阱",
+          "description": "学生容易把不论如何都要支付的公寓租金（1200 美元）计入成本。识别方法：判断该笔支出是否会因当前决策的改变而改变。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "筛选相关成本",
+          "content": "学费 800 美元和书本费 150 美元是显性成本；放弃的工资 3000 美元是隐性成本；租金是沉没成本，忽略不计。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入机会成本公式",
+          "content": "代入 $\\text{OC} = \\text{Explicit} + \\text{Implicit}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "执行计算",
+          "content": "$OC = (800 + 150) + 3000 = 3950$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "莎拉上暑期课的机会成本为 3950 美元，对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：只计算了显性成本（$800 + 150$）。正确概念：机会成本必须包含放弃的最大隐性收益（3000美元）。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：只计算了隐性成本（放弃的工资）。正确概念：必须同时加上因上课产生的直接现金支出（显性成本）。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：错误地将沉没成本（1200美元的租金）计入总额。正确概念：已经签订租约不可撤销的费用不应影响当前决策。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Opportunity Cost",
+      "Explicit Cost",
+      "Implicit Cost",
+      "Sunk Cost"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "In an 8-hour workday, Alex can either code 4 websites or write 12 articles. Assuming a constant opportunity cost (a linear Production Possibilities Frontier), what is Alex's opportunity cost of coding 1 website?",
+    "options": [
+      "1/3 of an article",
+      "3 articles",
+      "4 articles",
+      "8 articles"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "编码 1 个网站的机会成本是 3 篇文章。",
+      "decoding": [
+        "题干给出了 Alex 在相同时间内的两种最大生产可能：4 个网站或 12 篇文章。",
+        "要求计算生产 1 单位网站需要放弃的文章数量。"
+      ],
+      "conditions": [
+        {
+          "title": "机会成本比率",
+          "content": "$\\text{Opportunity Cost of X} = \\frac{\\text{Max Y}}{\\text{Max X}}$",
+          "description": "在生产可能性边界（PPF）为直线的情况下，生产一单位 X 所放弃的 Y 的数量等于最大产出 Y 除以最大产出 X。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "比率倒置陷阱",
+          "description": "学生容易把分子分母搞反，算出 1/3。识别方法：问的是“1 个网站”的成本，所以分母必须是网站的最大数量。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别端点数据",
+          "content": "最大网站产量为 4，最大文章产量为 12。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入转换公式",
+          "content": "求 1 个网站的成本，代入公式 $\\frac{\\text{Max Articles}}{\\text{Max Websites}}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "执行计算",
+          "content": "$\\frac{12}{4} = 3$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "编码 1 个网站的机会成本是 3 篇文章，对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：分子分母颠倒（$\\frac{4}{12}$）。正确概念：这是写 1 篇文章的机会成本，不是 1 个网站的。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：直接取了网站的最大产量数字。正确概念：机会成本是放弃的另一种物品的数量，而不是自身的绝对产量。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：使用了工作时长（8小时）作为答案。正确概念：机会成本应用另一种产品的产量来衡量，而非投入的时间要素。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Opportunity Cost",
+      "Production Possibilities Frontier"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "choice",
+    "question": "A local bakery sells gourmet cookies for 4 dollars each. David's marginal benefit from eating the first cookie is 7 dollars. His marginal benefit decreases by 1.50 dollars for each additional cookie. To maximize his economic surplus, how many cookies should David buy?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "应购买 3 块饼干，因为在第 3 块时边际收益等于边际成本（4 美元）。",
+      "decoding": [
+        "题干给出了饼干的固定边际成本（$MC=4$）。",
+        "同时给出了第一块的边际收益（$MB_1=7$）以及每次递减的幅度（1.50美元）。",
+        "任务是利用边际分析找到最大化剩余的购买数量。"
+      ],
+      "conditions": [
+        {
+          "title": "理性决策法则（Rational Rule）",
+          "content": "$MB \\ge MC$",
+          "description": "为了最大化经济剩余，消费者应该持续购买商品，直到额外一单位的边际收益不再大于或等于其边际成本。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "提前停止陷阱",
+          "description": "学生可能在第 2 块时觉得边际收益下降就停止。识别方法：只要 $MB > MC$，这笔交易仍能增加总剩余，必须继续。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "明确判定条件",
+          "content": "已知每块饼干的边际成本 $MC = 4$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "列出各单位边际收益",
+          "content": "代入递减规律：$MB_1 = 7$；$MB_2 = 7 - 1.50 = 5.50$；$MB_3 = 5.50 - 1.50 = 4.00$；$MB_4 = 4.00 - 1.50 = 2.50$。",
+          "tag": "计算"
+        },
+        {
+          "title": "比对边际收益与边际成本",
+          "content": "将上述 $MB$ 值依次带入不等式 $MB \\ge MC$：前三块饼干均满足条件，第 4 块时不满足（$2.50 < 4$）。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "由于买第 3 块时 $MB = MC$，此时总剩余达到最大，因此大卫应该买 3 块饼干。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：只买 1 块时确实有正剩余，但没有实现总剩余最大化。正确概念：只要后续消费的 $MB \\ge MC$，就应继续购买以扩大总剩余。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：在第 2 块后过早停止。正确概念：第 3 块的 $MB=4$ 刚好等于成本，仍可维持最优状态，不应在第 2 块就停止。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：购买了第 4 块饼干。正确概念：第 4 块饼干的 $MB$ 仅为 2.50，低于 $MC$（4美元），购买这块会倒扣总剩余。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Marginal Analysis",
+      "Marginal Benefit",
+      "Rational Rule",
+      "Economic Surplus"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "choice",
+    "question": "You purchased a non-refundable ticket to an outdoor music festival for 80 dollars. On the day of the festival, there is a severe thunderstorm. You estimate that the discomfort of attending the festival in the rain will cost you 50 dollars worth of psychological distress. If you stay home, you can watch a movie with a net benefit of 20 dollars. According to the cost-benefit principle, what should you do?",
+    "options": [
+      "Go to the festival because you have already spent 80 dollars.",
+      "Go to the festival because the 80 dollar ticket price is higher than the 50 dollar cost of distress.",
+      "Stay home because the total loss will be 130 dollars if you go.",
+      "Stay home because the sunk cost of the ticket should be ignored, and the net benefit of staying home (20 dollars) is strictly greater than the net benefit of attending the festival (-50 dollars)."
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "应该待在家里，因为不可退的门票是沉没成本应当忽略，而待在家的净收益（20美元）大于去现场的净收益（-50美元）。",
+      "decoding": [
+        "题干引入了已支付且不可退还的 80 美元门票费用，这是干扰项。",
+        "决策需基于未来的边际收益与边际成本比较：去现场带来的心理痛苦（成本 50 美元），和待在家里看电影的净收益（20 美元）。"
+      ],
+      "conditions": [
+        {
+          "title": "沉没成本谬误（Sunk Cost Fallacy）",
+          "content": "$Cost_{sunk} \\notin \\text{Future Decision}$",
+          "description": "理性的前瞻性决策应当完全忽略已经发生且无法回收的历史成本。"
+        },
+        {
+          "title": "成本收益原则",
+          "content": "$\\text{Choice A} \\succ \\text{Choice B} \\iff \\text{Net Benefit}_A > \\text{Net Benefit}_B$",
+          "description": "选择使得未来净收益最大化的方案。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "亏损厌恶陷阱",
+          "description": "觉得花了钱不去就“亏了”。识别方法：钱已经花出去了，不管去不去这笔钱都回不来，重点看去的话会不会带来更多新痛苦。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "剥离沉没成本",
+          "content": "80 美元的门票是不可退款的沉没成本，在比较时直接将其价值剔除。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "评估各选项未来净收益",
+          "content": "去现场的未来净收益为负值（仅有50美元的痛苦，无其他新增收益）；待在家的未来净收益为 20 美元。",
+          "tag": "计算"
+        },
+        {
+          "title": "代入决策公式",
+          "content": "对比两者：$20 > -50$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "因为待在家的净收益更高，所以应该留在家，对应选项 D。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：因已经花钱而强迫自己去，这是典型的沉没成本谬误。正确概念：不可退的费用不应影响当下决策。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：拿历史成本（80美元）与未来的痛苦成本（50美元）进行无意义的大小比较。正确概念：历史沉没成本与未来预期成本之间没有决策比较关系。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：将沉没成本与未来成本加总得出所谓“总损失 130 美元”作为依据。正确概念：虽然绝对损失计算没错，但这违反了边际分析原则，决策应只看边际变化量。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sunk Cost",
+      "Cost-Benefit Principle",
+      "Marginal Analysis"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "Which of the following scenarios best illustrates the framing effect influencing a consumer's economic decision?",
+    "options": [
+      "A consumer buys a winter jacket because the weather is getting colder, increasing their marginal benefit.",
+      "A consumer decides not to buy a smartphone because the opportunity cost is too high.",
+      "A consumer buys a jacket for 150 dollars because a large red sign says 'Original Price: 400, Today Only: 150', making it feel like a steal, even though the consumer initially only valued a new jacket at 100 dollars.",
+      "A consumer buys a coffee because the marginal benefit of the caffeine exceeds the marginal cost."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "选项 C 最好地展示了框架效应，消费者因为虚高的“原价”锚点改变了购买决策，尽管其真实估值低于现价。",
+      "decoding": [
+        "题干寻找“框架效应”（Framing Effect）的最佳示例。",
+        "框架效应是指信息的呈现方式（而非信息本质内容）改变了人们的偏好或决定。"
+      ],
+      "conditions": [
+        {
+          "title": "框架效应（Framing Effect）",
+          "content": "$\\text{Perceived Value} \\neq \\text{Actual Value}$",
+          "description": "当同等实质的经济选项因表述、对比、展示方式的不同而导致经济主体做出非理性选择的心理现象。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "正常供需变动误判",
+          "description": "学生容易把因偏好、季节等客观条件改变导致的需求变化误认为是心理偏差。识别方法：确认决策的改变是否仅仅是因为“说法的改变”。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "理解题意要求",
+          "content": "寻找一个决策并非出于自身真实边际效用，而是被外部话术或营销视觉误导的场景。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "逐个对比情境",
+          "content": "A是由于天气变冷的真实效用增加；B是理性的机会成本考量；D是理性的边际分析。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "分析 C 选项结构",
+          "content": "在 C 选项中，消费者的真实 $MB = 100$，实际花费 $MC = 150$。理应不买（$100 < 150$），但他因为被 400 美元的“原价”框架锚定而产生了虚假的获利感。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "C 选项完美符合因展示方式导致经济剩余受损的框架效应定义。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：天气变冷导致边际收益提升是完全理性的效用变化。正确概念：这属于效用函数本身的平移，不是被表面框架误导。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：放弃购买是因为机会成本过高，属于标准的理性人假设行为。正确概念：框架效应通常导致非理性的偏差决策。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：遵循 $MB > MC$ 进行消费是教科书式的理性决策。正确概念：这展示的是成本收益法则的正确运用，与框架效应无关。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Framing Effect",
+      "Behavioral Economics",
+      "Cognitive Bias"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "choice",
+    "question": "The government recently introduced a program that significantly subsidizes high-speed internet access for rural households. Consequently, more individuals in these areas are choosing to accept remote work positions rather than commuting to the city. Which of the four interdependence principles does this scenario best represent?",
+    "options": [
+      "Dependence between your individual choices",
+      "Dependence between economic actors",
+      "Dependence between markets",
+      "Dependence through time"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "这体现了市场间的相互依赖（Dependence between markets），宽带市场（互联网服务）的补贴政策直接改变了劳动力市场（通勤与工作形式）的供需。",
+      "decoding": [
+        "题干描述了一个政策在“宽带网络市场”实施，随后影响了人们在“劳动力/通勤市场”的决策。",
+        "要求将其归类到四种相互依赖原则之一。"
+      ],
+      "conditions": [
+        {
+          "title": "相互依赖原则：市场间依赖",
+          "content": "$\\text{Market}_A \\rightarrow \\text{Market}_B$",
+          "description": "一个市场的价格、政策或环境变化，会溢出并影响到看似不相关的另一个市场的均衡状态。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "经济主体间依赖误判",
+          "description": "学生可能选“经济主体间的依赖”（人与人之间），认为政府政策影响了个人。识别方法：这里的重点不是个体互助，而是网络基建这一“商品市场”的变化重塑了“劳动力市场”的结构。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "梳理因果链条",
+          "content": "起点事件：互联网补贴（属于通信市场/基建市场）。终点事件：接受远程工作（属于劳动力市场）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配理论模型",
+          "content": "这种跨越不同商品/服务领域的连锁反应，完全契合 Dependence between markets 模型。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "排除其他选项",
+          "content": "这不是个人在预算约束内的权衡（A），也不是竞争对手或合作者的博弈（B），更未着重强调现在的选择对将来的跨期影响（D）。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "该场景属于市场间的相互依赖，正确答案为 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：混淆了个人内部资源的权衡。正确概念：“个人选择间依赖”指一个人的时间或金钱在不同用途间的此消彼长，如学习还是工作。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：误解了主体间依赖的核心。正确概念：“经济主体间依赖”多指企业博弈、拥挤效应等特定个体或群体间的互相影响。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：没有体现跨期决策。正确概念：“时间上的依赖”指的是今天的消费与储蓄如何影响明天的财富状况。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Interdependence Principle",
+      "Dependence Between Markets"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-07",
+    "type": "essay",
+    "question": "The Interdependence Principle states that your best choice depends on your other choices, the choices others make, developments in other markets, and expectations about the future. List the Four Interdependence Principles and provide a brief, one-sentence real-world example for 'Dependence between markets'.",
+    "answer": "The Four Interdependence Principles are: 1. Dependencies between your own choices; 2. Dependencies between people or businesses; 3. Dependencies between markets; 4. Dependencies through time. Example of Dependence between markets: A drought in Brazil reduces the supply of coffee, driving up its price, which consequently increases the consumer demand for tea as a substitute.",
+    "analysis": {
+      "decoding": [
+        "题干要求列出相互依赖原则的四个维度。",
+        "题干进一步要求为“市场间的依赖”提供一个简短的真实世界示例。"
+      ],
+      "conditions": [
+        {
+          "title": "四大相互依赖原则模型",
+          "content": "\\text{Principles} = \\{ \\text{Self}, \\text{Others}, \\text{Markets}, \\text{Time} \\}",
+          "description": "这是经济学中描述决策网络复杂性的基础框架。"
+        },
+        {
+          "title": "市场间依赖公式",
+          "content": "P_A \\uparrow \\implies D_B \\uparrow \\text{ (if substitutes)}",
+          "description": "市场 A 的变动引发市场 B 的供需变动。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "举例不当陷阱",
+          "description": "学生在举例时容易举成“主体间依赖”（如室友打游戏影响我学习）。识别方法：确保例子中包含两个明确的商品、服务或要素市场。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "列举四大原则",
+          "content": "根据定义列出：自我选择间的依赖、人与企业间的依赖、市场间的依赖、跨时间段的依赖。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "构思市场关联机制",
+          "content": "寻找一组具有替代或互补关系的市场，例如咖啡市场和茶叶市场，或者汽油市场和汽车市场。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "撰写一句话示例",
+          "content": "将构思转化为简洁的表述：例如由于咖啡减产导致价格上涨（市场1变动），进而推高了茶叶的需求（市场2受影响）。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Interdependence Principle",
+      "Macroeconomic Connections"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-08",
+    "type": "essay",
+    "question": "Define the Production Possibilities Frontier (PPF). If an economy is producing at a point inside (below) the PPF curve, what does this indicate about its resource allocation? What does a point on the curve indicate?",
+    "answer": "The Production Possibilities Frontier (PPF) is a curve that illustrates the maximum possible combinations of two goods or services an economy can produce given its available resources and current technology. A point inside (below) the curve indicates inefficiency, meaning resources are either unemployed or misallocated. A point directly on the curve indicates productive efficiency, meaning the economy is fully and efficiently utilizing all its resources.",
+    "analysis": {
+      "decoding": [
+        "题目包含三个子任务：定义 PPF、解释 PPF 曲线内部点的经济含义、解释 PPF 曲线上的点的经济含义。"
+      ],
+      "conditions": [
+        {
+          "title": "PPF 定义要素",
+          "content": "F(X, Y) = \\text{Max Output given fixed resources}",
+          "description": "固定资源、既定技术、两种产品的最大组合。"
+        },
+        {
+          "title": "PPF 位置判定",
+          "content": "\\text{Inside PPF} \\implies \\text{Inefficient}; \\text{On PPF} \\implies \\text{Efficient}",
+          "description": "几何位置直接映射到经济效率状态。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "遗漏假设条件陷阱",
+          "description": "在定义 PPF 时忘记提及“在资源和技术给定的情况下”。识别方法：PPF 的边界之所以存在且固定，就是因为约束条件。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "撰写 PPF 定义",
+          "content": "明确 PPF 是描述在现有资源与技术下，两种商品最大可能生产组合的边界曲线。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析曲线内部",
+          "content": "落在曲线内部说明实际产量未能达到理论最大值，这在宏观层面代表资源闲置（如高失业率）或分配效率低下。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "分析曲线上",
+          "content": "落在曲线上说明经济体已达到生产效率的极限，不存在帕累托改进空间（必须放弃一种才能增加另一种）。整合以上三点得出结论。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Production Possibilities Frontier",
+      "Productive Efficiency",
+      "Resource Allocation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-09",
+    "type": "essay",
+    "question": "Define Economic Surplus. Then, define the Framing Effect and explain how the framing effect might trick a consumer into making a decision that actually reduces their economic surplus.",
+    "answer": "Economic Surplus is a measure of total welfare, calculated as the difference between the total benefits received from a decision and its total costs. The Framing Effect is a cognitive bias where people decide on options based on whether they are presented with positive or negative semantics (e.g., as a loss or as a gain). It tricks consumers by artificially inflating their perceived marginal benefit (like perceiving a 'huge discount' as added value), leading them to purchase an item where the true marginal cost exceeds their objective marginal benefit, thereby resulting in a negative net change to their actual economic surplus.",
+    "analysis": {
+      "decoding": [
+        "第一步：定义经济剩余（Economic Surplus）。",
+        "第二步：定义框架效应（Framing Effect）。",
+        "第三步：阐述两者之间的破坏性关联，即心理错觉如何导致实际福利的受损。"
+      ],
+      "conditions": [
+        {
+          "title": "经济剩余公式",
+          "content": "\\text{Surplus} = \\text{Total Benefit} - \\text{Total Cost}",
+          "description": "理性人致力于最大化这个差值。"
+        },
+        {
+          "title": "由于框架效应导致的决策错误",
+          "content": "\\text{Perceived MB} > MC > \\text{True MB}",
+          "description": "当感知边际收益被包装放大时，消费者会做出损害真实剩余的购买决策。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "概念割裂陷阱",
+          "description": "学生能够分别定义两个概念，但无法通过公式或逻辑说明“为什么”剩余会减少。识别方法：必须通过“虚假夸大收益”或“隐瞒真实成本”的机制把两点连接起来。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "解释经济剩余",
+          "content": "写出定义：衡量收益减去成本后的净福利增加值。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "解释框架效应",
+          "content": "写出定义：人们的决策受到选项呈现方式（锚定、折扣话术）的过度影响，而非基于客观价值。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "阐述损害机制",
+          "content": "分析结合过程：框架效应让商品看起来“更值钱”，导致感知收益高于其实际产生的效用；消费者据此购买时，实际支付的成本 $MC$ 会高于其带来的真实 $MB$，最终使得 $\\text{Surplus}$ 出现净减少。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Economic Surplus",
+      "Framing Effect",
+      "Behavioral Economics",
+      "Consumer Behavior"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-10",
+    "type": "essay",
+    "question": "Define a Sunk Cost. Why does the Cost-Benefit Principle dictate that rational individuals should completely ignore sunk costs when making forward-looking decisions?",
+    "answer": "A sunk cost is a cost that has already been incurred and cannot be recovered regardless of any future action. The Cost-Benefit Principle dictates that decisions should be based on marginal analysis, comparing only future additional benefits against future additional costs. Since sunk costs remain identical across all available alternatives moving forward, they mathematically cancel out when comparing net benefits, making them irrelevant to rational, forward-looking decision-making.",
+    "analysis": {
+      "decoding": [
+        "任务一是准确给出沉没成本的定义。",
+        "任务二是利用成本收益原则（边际分析）论证为什么在理性决策中应当剥离这些成本。"
+      ],
+      "conditions": [
+        {
+          "title": "沉没成本属性",
+          "content": "\\text{Sunk Cost} = \\text{Unrecoverable Past Expense}",
+          "description": "已经发生、无法改变的时间、精力或金钱支出。"
+        },
+        {
+          "title": "前瞻性边际分析",
+          "content": "\\Delta \\text{Net Benefit} = \\text{Future Marginal Benefit} - \\text{Future Marginal Cost}",
+          "description": "最优决策仅依赖于因当前选择而发生的边际变化量。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "情感依恋解释",
+          "description": "学生可能只从心理学角度说“人不应该留恋过去”。识别方法：经济学题目的解释必须回到“边际量比较”或“不随选项改变的常数会在比较中抵消”的数学逻辑上。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "明确沉没成本概念",
+          "content": "说明沉没成本是指那些已经支付且绝对无法收回的历史成本。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "引入边际分析框架",
+          "content": "根据成本收益原则，一项新的决策只应当看它带来了多少新的收益和新的成本（增量分析）。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "完成逻辑闭环",
+          "content": "指出既然无论做哪个选择，沉没成本的数值都不变，那么在计算不同选项的差值时，它就像方程式两边同时存在的一个常数，对寻找最优解毫无影响，应当被彻底忽略。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sunk Cost",
+      "Cost-Benefit Principle",
+      "Marginal Analysis",
+      "Rational Decision Making"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-11",
+    "type": "essay",
+    "question": "Emma currently works as a data analyst earning 75,000 dollars per year. She is considering quitting her job to pursue a 1-year intensive Master's degree. She has gathered the following financial information: Tuition for the Master's program: 45,000 dollars; Non-refundable application fee she paid three months ago: 500 dollars; Required textbooks and software for the program: 3,000 dollars; Apartment rent for the year: 18,000 dollars (She has signed a 1-year lease and must pay this regardless of whether she works or studies); Groceries and food for the year: 8,000 dollars (She will spend this amount whether she works or studies); A new laptop she bought last week specifically for the program, which cannot be returned: 2,000 dollars. Emma estimates that the personal satisfaction and future career value (Total Benefit) she will get from the Master's degree is worth 130,000 dollars to her. A) Identify two items from the list above that are sunk costs or irrelevant to her decision. Briefly explain why. B) Calculate Emma's total opportunity cost of pursuing the Master's degree. C) Using the cost-benefit principle, calculate her Economic Surplus. Should Emma quit her job to study?",
+    "answer": "A) The 500 dollars application fee and 2,000 dollars laptop are sunk costs; the 18,000 dollars rent and 8,000 dollars groceries are irrelevant costs. B) Total opportunity cost is 123,000 dollars. C) Economic surplus is 7,000 dollars. Emma should quit her job to study.",
+    "analysis": {
+      "decoding": [
+        "题干给出了 Emma 读研和工作两种选择下的各项财务数据[cite: 62, 63, 64, 65, 66, 67, 68, 69, 70, 71]。",
+        "任务要求识别沉没成本和无关成本，计算总机会成本，并基于经济剩余计算得出最终决策结论[cite: 73, 74, 75]。"
+      ],
+      "conditions": [
+        {
+          "title": "沉没成本与无关成本模型",
+          "content": "$\\text{Cost}_{\\text{sunk/fixed}} \\notin \\text{Decision}$",
+          "description": "已经发生且无法收回的成本（沉没成本）或无论做何选择都会发生的成本（无关成本）不计入决策的边际成本分析。"
+        },
+        {
+          "title": "机会成本公式",
+          "content": "$OC = \\text{Explicit Costs} + \\text{Implicit Costs}$",
+          "description": "总机会成本等于因决策直接增加的实际财务支出（显性成本）加上放弃的最大潜在收益（隐性成本）。"
+        },
+        {
+          "title": "经济剩余公式",
+          "content": "$\\text{Surplus} = \\text{Total Benefit} - OC$",
+          "description": "经济剩余等于总收益减去总机会成本，当剩余大于零时，该行动是理性的。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "沉没成本误入陷阱",
+          "description": "学生极易将近期刚购买但不可退的电脑（2000美元）或不可退的申请费（500美元）计入成本。识别方法：判断这笔钱在做出选择时是否还会发生变动，若不可退则属于沉没成本。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别无关成本与沉没成本",
+          "content": "申请费（500）和不可退换的笔记本电脑（2000）属于已经发生且不可收回的沉没成本；一年的房租（18000）和食物杂费（8000）是无论工作还是学习都要支付的无关成本。以上四项均不计入机会成本分析。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算总机会成本",
+          "content": "显性成本为读研直接增加的费用：学费加上书本费，即 $45000 + 3000 = 48000$。隐性成本为读研期间放弃的工资收入，即 75000。代入机会成本公式，得总机会成本 $OC = 48000 + 75000 = 123000$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算经济剩余",
+          "content": "已知读研带来的总收益（Total Benefit）为 130000。代入经济剩余公式，得 $\\text{Surplus} = 130000 - 123000$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "经济剩余为 7000 美元。因为净收益大于零（$\\text{Surplus} > 0$），根据成本收益原则，Emma 应该辞职去读研。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sunk Cost",
+      "Opportunity Cost",
+      "Economic Surplus",
+      "Cost-Benefit Principle"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-12",
+    "type": "essay",
+    "question": "Lucas owns a small farm where he has 10 hours a day to dedicate to harvesting. He can choose to harvest either Strawberries or Blueberries. Based on his equipment, in 1 hour of labor, Lucas can harvest either 5 kilograms of Strawberries OR 10 kilograms of Blueberries. He pays a daily fixed maintenance fee of 50 dollars for his tractor, regardless of what he does. The local market will pay him 6 dollars for each kilogram of Strawberries and 4 dollars for each kilogram of Blueberries. A) Assuming a linear PPF, calculate the opportunity cost of producing 1 kilogram of Strawberries (in terms of Blueberries). B) Calculate the opportunity cost of producing 1 kilogram of Blueberries (in terms of Strawberries). C) Using marginal analysis, calculate the Marginal Benefit (in dollars) Lucas receives from 1 hour of harvesting Strawberries versus 1 hour of harvesting Blueberries. D) To maximize his total benefit, how many hours should Lucas spend on Strawberries, and how many hours on Blueberries? What is his maximum total revenue for the day?",
+    "answer": "A) 2 kilograms of Blueberries; B) 0.5 kilograms of Strawberries; C) Strawberries: 30 dollars/hour, Blueberries: 40 dollars/hour; D) 0 hours on Strawberries, 10 hours on Blueberries. Maximum total revenue is 400 dollars.",
+    "analysis": {
+      "decoding": [
+        "题干给出了 Lucas 每小时生产两种水果的效率及各自的市场售价，还有一个固定的拖拉机维护费（沉没成本）[cite: 77, 78, 79, 80]。",
+        "要求计算两种水果的单位机会成本，以及基于边际收益原则的最优时间分配和最大化总收入[cite: 82, 83, 84, 85, 86]。"
+      ],
+      "conditions": [
+        {
+          "title": "单位机会成本比率",
+          "content": "$OC_X = \\frac{\\text{Max } Y}{\\text{Max } X}$",
+          "description": "在固定时间约束下，生产一单位某商品所必须放弃的另一商品的数量。"
+        },
+        {
+          "title": "每小时边际收益",
+          "content": "$MB_{\\text{hour}} = \\text{Yield per hour} \\times \\text{Price}$",
+          "description": "每一小时投入到特定作物的采摘所能带来的新增财务收入。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "固定成本减除陷阱",
+          "description": "在计算最大“总收入”（Total Revenue）时，学生可能会错误地扣除 50 美元的固定维护费。识别方法：看清题目问的是 Total Revenue（总收入，即销售额）还是 Total Profit（总利润），收入不扣除成本。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算单位机会成本（A与B）",
+          "content": "根据题干，1 小时可产出 5kg 草莓或 10kg 蓝莓。因此，产 1kg 草莓的机会成本是 $\\frac{10}{5} = 2$ kg 蓝莓；产 1kg 蓝莓的机会成本是 $\\frac{5}{10} = 0.5$ kg 草莓。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算每小时边际收益（C）",
+          "content": "将各作物的每小时产量乘以单价。1 小时草莓的收益为：$5 \\times 6 = 30$ 美元；1 小时蓝莓的收益为：$10 \\times 4 = 40$ 美元。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "时间分配决策与总收入（D）",
+          "content": "对比两者边际收益，由于 $40 > 30$，每一小时分配给蓝莓都能带来绝对的更高收益。因此，理性的选择是将全部 10 小时用于采摘蓝莓，草莓投入 0 小时。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "全部 10 小时采摘蓝莓，总产量为 $10 \\times 10 = 100$ kg。最大总收入为 $100 \\times 4 = 400$ 美元。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Opportunity Cost",
+      "Production Possibilities Frontier",
+      "Marginal Benefit",
+      "Revenue Maximization"
+    ],
+    "source": "Mixed"
+  }
+]

@@ -1,0 +1,6 @@
+# Netlify 构建配置
+# 部署前自动生成合并后的 topics 索引文件，减少静态模式请求数
+
+[build]
+  command = "node scripts/build-merged-topics.js"
+  publish = "."

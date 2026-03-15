@@ -231,44 +231,69 @@
         return result;
     };
 
-    // 静态模式下合并共享 + 个人 topics（复刻 server 端 _getMergedTopics 逻辑）
+    // 静态模式优化：缓存 meta.json + 使用预构建的合并索引
     const TOPIC_INDEX_FILES = {
         flashcard: 'flashcard_topics.json',
         decoder: 'decoder_topics.json',
         practice: 'practice_topics.json'
     };
 
+    // 优化 1: meta.json 内存缓存（整个会话只请求一次）
+    let _metaCache = null;
+    async function getCachedMeta() {
+        if (_metaCache) return _metaCache;
+        try {
+            _metaCache = await fetchJson(`/content/${userId}/meta.json`);
+        } catch (e) {
+            _metaCache = {};
+        }
+        return _metaCache;
+    }
+
     async function mergeTopicsStatic(type) {
         const indexFile = TOPIC_INDEX_FILES[type] || TOPIC_INDEX_FILES.flashcard;
         const mergedMap = new Map();
 
-        // 1. 尝试读取用户 meta.json 获取 schoolId 和 enabledSubjects
-        try {
-            const meta = await fetchJson(`/content/${userId}/meta.json`);
-            if (meta && meta.schoolId && Array.isArray(meta.enabledSubjects)) {
-                // 2. 加载每个 subject 的共享 topics
-                for (const subjectId of meta.enabledSubjects) {
-                    try {
-                        const sharedTopics = await fetchJson(
-                            `/content/shared/${meta.schoolId}/${subjectId}/${indexFile}`
-                        );
-                        if (Array.isArray(sharedTopics)) {
-                            sharedTopics.forEach(t => {
-                                if (t && t.file) {
-                                    mergedMap.set(t.file, { ...t, source_scope: 'shared' });
-                                }
-                            });
+        // 1. 获取缓存的 meta（不再重复请求）
+        const meta = await getCachedMeta();
+
+        // 2. 优化 2: 使用预构建的合并索引（1 次请求代替 N 次）
+        if (meta.schoolId) {
+            try {
+                const allSharedTopics = await fetchJson(
+                    `/content/shared/${meta.schoolId}/all_${indexFile}`
+                );
+                if (Array.isArray(allSharedTopics)) {
+                    // 按 enabledSubjects 过滤（如果设置了的话）
+                    const enabled = Array.isArray(meta.enabledSubjects) ? new Set(meta.enabledSubjects) : null;
+                    allSharedTopics.forEach(t => {
+                        if (t && t.file && (!enabled || enabled.has(t.subject))) {
+                            mergedMap.set(t.file, { ...t, source_scope: 'shared' });
                         }
-                    } catch (e) {
-                        // 该科目可能没有此类型的 topics，跳过
+                    });
+                }
+            } catch (e) {
+                // 合并索引不存在，回退到逐 subject 加载
+                if (meta.schoolId && Array.isArray(meta.enabledSubjects)) {
+                    for (const subjectId of meta.enabledSubjects) {
+                        try {
+                            const sharedTopics = await fetchJson(
+                                `/content/shared/${meta.schoolId}/${subjectId}/${indexFile}`
+                            );
+                            if (Array.isArray(sharedTopics)) {
+                                sharedTopics.forEach(t => {
+                                    if (t && t.file) {
+                                        mergedMap.set(t.file, { ...t, source_scope: 'shared' });
+                                    }
+                                });
+                            }
+                        } catch (e) { /* skip */ }
                     }
                 }
             }
-        } catch (e) {
-            console.warn('Static merge: meta.json 读取失败，仅返回个人 topics');
         }
 
-        // 3. 加载个人 topics（覆盖共享，优先级更高）
+        // 3. 个人 topics（覆盖共享，优先级更高）
         try {
             const userTopics = await fetchJson(`/content/${userId}/${indexFile}`);
             if (Array.isArray(userTopics)) {
@@ -278,9 +303,7 @@
                     }
                 });
             }
-        } catch (e) {
-            // 个人 topics 文件可能不存在
-        }
+        } catch (e) { /* 个人目录可能没有 */ }
 
         return Array.from(mergedMap.values());
     }
@@ -312,31 +335,23 @@
         return fetchDatasetStatic(fileName);
     };
 
-    // 静态模式下按优先级尝试：个人目录 → 共享目录
+    // 静态模式下按优先级尝试：个人目录 → 共享目录（使用缓存 meta）
     async function fetchDatasetStatic(fileName) {
         // 1. 先尝试个人目录
         try {
             return await fetchJson(`/content/${userId}/${encodeURIComponent(fileName)}`);
-        } catch (e) {
-            // 个人目录没有，继续尝试共享目录
-        }
+        } catch (e) { /* 继续尝试共享目录 */ }
 
-        // 2. 尝试从 meta.json 获取学校信息，遍历共享目录
-        try {
-            const meta = await fetchJson(`/content/${userId}/meta.json`);
-            if (meta && meta.schoolId && Array.isArray(meta.enabledSubjects)) {
-                for (const subjectId of meta.enabledSubjects) {
-                    try {
-                        return await fetchJson(
-                            `/content/shared/${meta.schoolId}/${subjectId}/${encodeURIComponent(fileName)}`
-                        );
-                    } catch (e) {
-                        // 此 subject 下没有该文件，继续
-                    }
-                }
+        // 2. 使用缓存的 meta 遍历共享目录
+        const meta = await getCachedMeta();
+        if (meta.schoolId && Array.isArray(meta.enabledSubjects)) {
+            for (const subjectId of meta.enabledSubjects) {
+                try {
+                    return await fetchJson(
+                        `/content/shared/${meta.schoolId}/${subjectId}/${encodeURIComponent(fileName)}`
+                    );
+                } catch (e) { /* 继续 */ }
             }
-        } catch (e) {
-            // meta.json 读取失败
         }
 
         throw new Error(`Dataset not found: ${fileName}`);

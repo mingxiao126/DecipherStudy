@@ -799,6 +799,17 @@ class LogicDecoder {
         // 这是因为 JSON 文件中常出现 "\\\\frac" ，被 JS 解析为 "\\frac" 
         processed = processed.replace(/\\\\(?=[a-zA-Z])/g, '\\');
 
+        // 2.5 启发式识别：如果文本中包含 LaTeX 命令但没有界定符，自动包裹它
+        // 匹配逻辑：包含 \frac, \text, \sqrt, \sum, \mu, \sigma, \alpha 等典型指令但整段没有 $ 或 \(
+        const hasRawLatex = /\\(frac|text|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla)\{?/.test(processed);
+        const hasDelimiters = processed.includes('$') || processed.includes('\\(') || processed.includes('\\[') || processed.includes('$$');
+
+        if (hasRawLatex && !hasDelimiters) {
+            // 如果整行看起来就是一个公式，或者包含明显的 LaTeX 指令且没有被保护
+            // 我们尝试将其包裹在行内公式中
+            processed = `\\(${processed}\\)`;
+        }
+
         // 3. 处理由分号隔开的内联列表 (如 "1. A; 2. B")
         processed = processed.replace(/;\s+(?=\d+\.\s)/g, '\n');
 

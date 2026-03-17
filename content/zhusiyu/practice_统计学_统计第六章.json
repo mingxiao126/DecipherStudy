@@ -1,0 +1,661 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "The standard deviation of the sample 14, 19, 25, 30, 10 is",
+    "options": [
+      "8.08",
+      "7.23",
+      "52.2",
+      "65.3"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "样本标准差约为 8.08。需要使用样本方差公式（除以 n-1）。",
+      "decoding": [
+        "题干给出一组样本数据，要求计算其样本标准差（Sample Standard Deviation）。",
+        "需要先求出均值，再求方差，最后开方得到标准差。"
+      ],
+      "conditions": [
+        {
+          "title": "样本均值",
+          "content": "$\\bar{x} = \\frac{\\sum x_i}{n}$",
+          "description": "所有数据之和除以样本量。"
+        },
+        {
+          "title": "样本方差与标准差",
+          "content": "$s^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1}, s = \\sqrt{s^2}$",
+          "description": "注意样本方差的分母必须是自由度 $n - 1$，而不是 $n$。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "总体标准差陷阱",
+          "description": "学生容易错用总体标准差公式（分母除以 $n$），从而得出 7.23。识别方法：题干明确说明这是“sample”（样本），必须除以 $n-1$。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算样本均值",
+          "content": "数据集为 14, 19, 25, 30, 10，数量 $n = 5$。均值 $\\bar{x} = \\frac{14 + 19 + 25 + 30 + 10}{5} = \\frac{98}{5} = 19.6$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算离差平方和",
+          "content": "各项减去均值的平方和：$(14-19.6)^2 = 31.36$；$(19-19.6)^2 = 0.36$；$(25-19.6)^2 = 29.16$；$(30-19.6)^2 = 108.16$；$(10-19.6)^2 = 92.16$。总和为 261. $2$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算样本方差",
+          "content": "代入样本方差公式，除以 $n - 1 = 4$：$s^2 = \\frac{261.2}{4} = 65.3$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出标准差",
+          "content": "开平方得到标准差 $s = \\sqrt{65.3} \\approx 8.08$。对应选项 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：使用了总体标准差公式。正确概念：因为是样本数据，分母应除以 $n-1=4$，如果除以 $n=5$ 会得出 52.2 $4$ 的方差和 7.2 $3$ 的标准差。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这是总体方差的值。正确概念：本题要求的是标准差，且数据是样本。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：只算到了样本方差。正确概念：方差 $s^2 = 65.3$，求标准差还必须进行开根号处理。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sample Standard Deviation",
+      "Sample Variance",
+      "Descriptive Statistics"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "A sample of 9 independent Bernoulli random variables have been observed. The variance of the sum of these random variables is 1.89, so the standard deviation of the average of these random variables is",
+    "options": [
+      "1.503",
+      "0.0153",
+      "0.1503",
+      "0.153"
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "样本均值的方差等于总和方差除以 n 的平方。取平方根后得出标准差为 0.153。",
+      "decoding": [
+        "题干已知 9 个独立随机变量之和（Sum）的方差为 1.89。",
+        "要求求出这些变量的平均值（Average）的标准差（Standard Deviation）。"
+      ],
+      "conditions": [
+        {
+          "title": "均值的方差公式",
+          "content": "$Var(\\bar{X}) = Var(\\frac{S}{n}) = \\frac{1}{n^2} Var(S)$",
+          "description": "随机变量乘以常数 $c$（这里是 1 $/n$）的方差，等于原方差乘以 $c^2$。"
+        },
+        {
+          "title": "标准差与方差关系",
+          "content": "$SD(\\bar{X}) = \\sqrt{Var(\\bar{X})}$",
+          "description": "标准差是方差的正平方根。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "线性缩放陷阱",
+          "description": "学生容易误以为平均值的方差是总方差除以 $n$。识别方法：方差的常数乘法法则是平方关系，即除以 $n^2$。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别已知变量",
+          "content": "已知样本量 $n = 9$，变量之和记为 $S$，已知 $Var(S) = 1.89$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入方差变换公式",
+          "content": "样本均值 $\\bar{X} = \\frac{S}{9}$。因此其方差为 $Var(\\bar{X}) = Var(\\frac{S}{9}) = \\frac{1}{9^2} Var(S) = \\frac{1.89}{81}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算方差与标准差",
+          "content": "$\\frac{1.89}{81} = 0.02333...$。对该方差开平方：$SD(\\bar{X}) = \\sqrt{0.02333...} \\approx 0.15275$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "四舍五入后约为 0.153。对应选项 D。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：计算过程混乱或使用了错误的缩小倍数。正确概念：必须严格使用 $\\frac{Var(S)}{n^2}$ 后再开方。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：小数点错位或在未开方前就进行了多余的除法。正确概念：均值的标准差为 $\\frac{\\sqrt{Var(S)}}{n} = \\frac{\\sqrt{1.89}}{9} \\approx 0.153$。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：计算中的精度截断或小数点错位。正确概念：正确的计算结果为 0.15275...，四舍五入为 0.153。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Variance Properties",
+      "Standard Error",
+      "Linear Transformation of Random Variables"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "essay",
+    "question": "Suppose B and D are independent Bernoulli random variables, both having parameter p, where p = P(B = 1) = P(D = 1) = .2. Define F = B + D. Find: a) E(F), b) E(BD), c) E(B^2), d) E(F^2).",
+    "answer": "a) E(F) = 0.4; b) E(BD) = 0.04; c) E(B^2) = 0.2; d) E(F^2) = 0.48.",
+    "analysis": {
+      "decoding": [
+        "题干给定两个独立的伯努利随机变量 B 和 D，成功概率均为 0.2。",
+        "要求计算新变量 F 的期望、两变量乘积的期望、变量平方的期望以及 F 平方的期望。"
+      ],
+      "conditions": [
+        {
+          "title": "伯努利变量期望",
+          "content": "$E(B) = p = 0.2$",
+          "description": "伯努利分布的期望值直接等于其成功概率 $p$。"
+        },
+        {
+          "title": "独立变量乘积期望",
+          "content": "$E(BD) = E(B)E(D)$",
+          "description": "当变量相互独立时，乘积的期望等于各自期望的乘积。"
+        },
+        {
+          "title": "伯努利变量平方特性",
+          "content": "$B^2 = B \\implies E(B^2) = E(B)$",
+          "description": "因为伯努利变量只取 0 或 1，其平方值与原值完全相同。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "期望的平方计算陷阱",
+          "description": "在求 $E(F^2)$ 时，学生容易错误地认为 $E(F^2) = (E(F))^2$。识别方法：必须展开为 $E(B^2 + 2BD + D^2)$ 再利用线性性质逐项求和。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算 E(F)",
+          "content": "根据期望的线性性质：$E(F) = E(B + D) = E(B) + E(D) = 0.2 + 0.2 = 0.4$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算 E(BD)",
+          "content": "由于 B 和 D 是独立的：$E(BD) = E(B) \\times E(D) = 0.2 \\times 0.2 = 0.04$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算 E(B^2)",
+          "content": "因为 B 是伯努利变量，取值只有 0 和 1，所以 $B^2 = B$。因此 $E(B^2) = E(B) = 0.2$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入展开式计算 E(F^2)",
+          "content": "$F^2 = (B+D)^2 = B^2 + 2BD + D^2$。两边取期望：$E(F^2) = E(B^2) + 2E(BD) + E(D^2)$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "将前面计算的值代入：$E(F^2) = 0.2 + 2(0.04) + 0.2 = 0.4 + 0.08 = 0.48$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Bernoulli Distribution",
+      "Expected Value Properties",
+      "Independence of Random Variables"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "choice",
+    "question": "B is a Bernoulli random variable with parameter p = 0.35. Therefore, B^4 =",
+    "options": [
+      "0.0150.",
+      "B, and has expected value 0.35.",
+      "0, with probability 0.985.",
+      "1, with probability 0.0150."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "因为伯努利变量只能取 0 或 1，所以任何正整数次幂都等于自身。因此 $B^4 = B$，期望仍为 0.35。",
+      "decoding": [
+        "题干给出一个伯努利随机变量 B，参数 $p = 0.35$。",
+        "要求判断该变量的四次方 $B^4$ 的等价形式及其数学期望。"
+      ],
+      "conditions": [
+        {
+          "title": "伯努利变量的幂等性",
+          "content": "$B \\in \\{0, 1\\} \\implies B^k = B \\text{ (for } k \\ge 1 \\text{)}$",
+          "description": "0 的任意正整数次幂是 0，1 的任意正整数次幂是 1，因此幂次变换不改变该变量的分布。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "概率乘方陷阱",
+          "description": "学生容易把随机变量的幂 $B^4$ 误认为是“进行四次独立试验”，从而将概率 $p$ 进行四次方计算得到 0.35 $^4 \\approx 0.0150$。识别方法：$B^4$ 是对单次试验的结果本身求四次方，不是多次独立试验的联合概率。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别变量取值范围",
+          "content": "伯努利变量 B 的可能取值只能是 0 或者 1。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入指数运算",
+          "content": "当 $B=0$ 时，$B^4 = 0^4 = 0$；当 $B=1$ 时，$B^4 = 1^4 = 1$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出等效关系",
+          "content": "无论取哪种情况，$B^4$ 始终等于 $B$。这意味着 $B^4$ 依然是一个参数为 0.3 $5$ 的伯努利变量。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "因为 $B^4 = B$，所以其期望 $E(B^4) = E(B) = 0.35$。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：将参数 $p$ 进行了四次方计算（0.35 $^4 \\approx 0.015$）。正确概念：这是对 4 次独立伯努利试验全成功的联合概率计算，而不是对变量本身取幂。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：认为高次幂会使变量退化为常数 0。正确概念：当取值为 1 时，其四次方仍为 1，并不会消失。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：将概率 $p$ 进行了四次方，并认为这是取值为 1 的概率。正确概念：单次试验取 1 的概率就是 0.35，即使结果求四次方，这个基础概率分布也不会改变。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Bernoulli Distribution",
+      "Properties of Random Variables",
+      "Expected Value"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "125 independent Bernoulli trials were conducted in which the probability of success was unknown. If there were 50 successes, find an approximate 95% confidence interval for the true probability of success.",
+    "options": [
+      "0.4 +/- 0.0548",
+      "0.4 +/- 0.088",
+      "0.4 +/- 0.044",
+      "0.4 +/- 0.548"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "\\(样本比例为 0.4，标准误约为 0.0438。使用 z=2 作为近似 95 置信系数，误差范围为 2 \\times 0.0438 \\approx 0.088%。\\)",
+      "decoding": [
+        "已知试验次数 $n=125$，成功次数 $X=50$。",
+        "要求构建总体成功率 $p$ 的 95% 近似置信区间。"
+      ],
+      "conditions": [
+        {
+          "title": "样本比例估计",
+          "content": "$\\hat{p} = \\frac{X}{n}$",
+          "description": "成功次数除以总试验次数。"
+        },
+        {
+          "title": "比例的标准误（SE）",
+          "content": "$SE = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$",
+          "description": "用样本比例近似计算估计量的标准误。"
+        },
+        {
+          "title": "近似置信区间构建",
+          "content": "$CI = \\hat{p} \\pm z \\cdot SE$",
+          "description": "对于近似的 95% 置信水平，常使用 $z \\approx 2$（或 1.96）作为临界值。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆标准误与误差界限",
+          "description": "学生容易算出 $SE \\approx 0.044$ 后直接当成最终的加减数值。识别方法：置信区间的加减量（误差范围 ME）需要将 SE 乘以对应的 z 值。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算样本比例",
+          "content": "$\\hat{p} = \\frac{50}{125} = 0.4$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入公式计算标准误 SE",
+          "content": "$SE = \\sqrt{\\frac{0.4 \\times (1 - 0.4)}{125}} = \\sqrt{\\frac{0.24}{125}} = \\sqrt{0.00192} \\approx 0.0438$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算误差范围 ME",
+          "content": "依据题意的粗略近似（empirical rule），取 $z \\approx 2$。计算误差范围 $ME = 2 \\times 0.0438 = 0.0876 \\approx 0.088$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终区间",
+          "content": "置信区间为 0.4 $ \\pm 0.088$。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：使用了错误的 z 值或在计算平方根时发生精度错误。正确概念：95% 置信水平下，z 值应取 1.96 或 2。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：直接将标准误 SE (0.0438 $ \\approx 0.044$) 作为误差范围。正确概念：必须乘以 z 值（约等于 2）才能形成 95% 置信区间。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：小数位数严重错误。正确概念：误差计算为 0.088，并非 0.548。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval for Proportion",
+      "Standard Error",
+      "Normal Approximation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "choice",
+    "question": "Suppose X is a random variable with mean 320 and variance 144. If Y = X/3, then the variance of Y is",
+    "options": [
+      "16",
+      "48",
+      "6.93",
+      "144"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "变量缩放时，方差按系数的平方进行缩放。144 $ \\times (1/3)^2 = 144 / 9 = 16$。",
+      "decoding": [
+        "题干给出随机变量 X 的方差为 144。",
+        "要求计算当 X 除以常数 3 后，新变量 Y 的方差。"
+      ],
+      "conditions": [
+        {
+          "title": "方差的线性变换规则",
+          "content": "$Var(aX + b) = a^2 Var(X)$",
+          "description": "随机变量乘以常数 $a$ 时，方差变为原来的 $a^2$ 倍。加减常数 $b$ 不改变方差。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "忘记平方陷阱",
+          "description": "学生容易把方差和期望的变换规则混淆，直接用 144 除以 3。识别方法：期望是线性同倍数变化，但方差描述的是面积尺度的离散程度，必须随常数的平方变化。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别变换系数",
+          "content": "已知变换关系 $Y = \\frac{X}{3} = \\frac{1}{3} X$，因此缩放系数 $a = \\frac{1}{3}$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入方差变换公式",
+          "content": "$Var(Y) = Var(\\frac{1}{3} X) = (\\frac{1}{3})^2 Var(X)$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算最终结果",
+          "content": "$Var(Y) = \\frac{1}{9} \\times 144 = 16$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "新变量 Y 的方差为 16。对应选项 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：直接将方差除以 3（144 $ / 3 = 48$）。正确概念：方差的常数乘法法则是平方倍数关系，必须除以 3 $^2=9$。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：对结果错误地开方或进行其他无意义计算。正确概念：本题要求的是方差，不需要对最终结果 16 进行开方运算（如果求标准差才是 4）。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：认为除以常数不会改变方差。正确概念：只有加减常数时方差才不变，乘除常数必然改变数据的离散程度。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Variance Properties",
+      "Linear Transformation of Random Variables"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-07",
+    "type": "essay",
+    "question": "In a random sample of 100 male heights, it was found that the average was 169 cm and the variance was 121 squared centimetres. a) The margin of error for estimating the population mean of the male heights, at an approximate 95% confidence level, is [Answer 1]. b) The sample size required to obtain a margin of error of 1.0, at 95% confidence, is [Answer 2].",
+    "answer": "a) 2.2; b) 484.",
+    "analysis": {
+      "decoding": [
+        "已知样本量 $n=100$，样本均值 169，样本方差 $s^2=121$。",
+        "任务一是基于给定数据计算 95% 置信度下的误差范围（Margin of Error）。",
+        "任务二是逆向推导：如果要求误差范围限制在 1.0，需要多大的样本量。"
+      ],
+      "conditions": [
+        {
+          "title": "标准误（SE）公式",
+          "content": "$SE = \\frac{s}{\\sqrt{n}}$",
+          "description": "用样本标准差除以样本量的平方根。"
+        },
+        {
+          "title": "误差范围（ME）公式",
+          "content": "$ME = z \\times SE = z \\times \\frac{s}{\\sqrt{n}}$",
+          "description": "近似 95% 置信水平下，通常采用 $z \\approx 2$（或 1.96）进行经验法则估算。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "方差未开方陷阱",
+          "description": "题目给的是“variance was 121”，学生极易直接把 121 当作标准差 $s$ 代入公式计算。识别方法：认真区分 variance（方差 $s^2$）和 standard deviation（标准差 $s$）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算标准差与初步代入",
+          "content": "已知方差 $s^2 = 121$，得出样本标准差 $s = \\sqrt{121} = 11$。样本量 $n = 100$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算第一问的误差范围",
+          "content": "根据公式 $ME = z \\times \\frac{s}{\\sqrt{n}}$，取 $z=2$（遵循题库近似惯例）。$ME = 2 \\times \\frac{11}{\\sqrt{100}} = 2 \\times 1.1 = 2.2$。",
+          "tag": "计算"
+        },
+        {
+          "title": "建立第二问的等式",
+          "content": "要求新误差范围 $ME = 1.0$。设定未知样本量为 $n_{new}$，则有等式 1.0 $ = 2 \\times \\frac{11}{\\sqrt{n_{new}}}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "解方程得出所需样本量",
+          "content": "变形等式得 $\\sqrt{n_{new}} = 22$，平方两边得到 $n_{new} = 484$。得出两部分答案。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Confidence Interval for Mean",
+      "Sample Size Determination"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-08",
+    "type": "choice",
+    "question": "A weight loss supplement has been developed and tested on a random sample of excessively overweight individuals. After 6 months of treatment, it was found that a 95% confidence interval for the true mean amount of weight lost, in pounds, is 15 +/- 2.5. By other means, it was found that the true population mean weight loss is 16 pounds. What is the probability that the true mean amount of weight lost is in the interval (12.5, 17.5)?",
+    "options": [
+      "95%.",
+      "0.",
+      "I don't know.",
+      "1."
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "由于真实的总体均值（16）是一个确定的常数，且已经落入了计算好的具体区间 (12.5, 17.5) 内部，因此它在该区间内的概率为 100%（即概率为 1）。",
+      "decoding": [
+        "题干给出了一个具体的置信区间 $[12.5, 17.5]$，并作为已知条件告知了真实的总体均值是 16。",
+        "要求判断这个确定的真实参数落在这个确定的具体区间内的概率。"
+      ],
+      "conditions": [
+        {
+          "title": "参数与具体区间关系",
+          "content": "$P(\\mu \\in [a, b]) \\in \\{0, 1\\}$",
+          "description": "在频率学派框架下，一旦样本被抽取且具体区间计算完成，它就不再包含随机性。总体参数也是常数。因此常数是否在区间内是一个非 0 即 1 的客观事实。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "生搬硬套置信度概念",
+          "description": "学生一看到“95% 置信区间”，就条件反射地选 95%。识别方法：“95%”描述的是构造这种区间的方法在长期的成功率；针对某一个已经算出来的具体区间和已知的参数，包含关系是确定的事实，不再有概率波动。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "理解题意和常量状态",
+          "content": "已知真实参数 $\\mu = 16$（这是一个没有随机性的常数）。具体计算出的区间为 $(15-2.5, 15+2.5) = (12.5, 17.5)$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入验证包含关系",
+          "content": "验证常数 16 是否满足 12.5 $ < 16 < 17.5$。显然满足。",
+          "tag": "计算"
+        },
+        {
+          "title": "应用统计学原理得出结论",
+          "content": "既然是一个常数完全处于一个确定的数值范围内，这是一个确定发生的事实，因此概率为 1（或 100%）。对应选项 D。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：混淆了“方法论的置信度”与“单次已实现结果的概率”。正确概念：95% 是指如果在抽样前看这个过程，区间覆盖真实参数的概率。抽样完成后，概率只能是 0 或 1。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：认为没有包含进去。正确概念：16 显然在 12.5 到 17.5 之间，并非不在区间内（如果不在才是 0）。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这是一个干扰选项。正确概念：利用已有条件完全可以做出确定判断。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval Interpretation",
+      "Frequentist Probability",
+      "Population Parameters"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-09",
+    "type": "choice",
+    "question": "A random sample of 80 elderly males were selected from a larger population and their systolic blood pressure was measured. The average was found to be 139 and the standard deviation was 21. An approximate 95% confidence interval for the mean systolic blood pressure in the larger population is",
+    "options": [
+      "139 +/- 21",
+      "139 +/- 4.7",
+      "139 +/- 2.3",
+      "139 +/- 2.4"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "计算标准误 SE 为 2.348，乘以 2（近似 95% 置信度的 z 值）得到误差范围 4.7。置信区间为 139 +/- 4.7。",
+      "decoding": [
+        "已知样本量 $n=80$，样本均值 $\\bar{x}=139$，样本标准差 $s=21$。",
+        "要求构建总体均值的 95% 近似置信区间。"
+      ],
+      "conditions": [
+        {
+          "title": "标准误（SE）与置信区间公式",
+          "content": "$CI = \\bar{x} \\pm z \\cdot \\frac{s}{\\sqrt{n}}$",
+          "description": "\\(用样本均值加上/减去 z 倍的标准误来构造置信区间。对于近似 95 置信区间，通常取 z \\approx 2%。\\)"
+        }
+      ],
+      "traps": [
+        {
+          "title": "错把标准差当标准误",
+          "description": "学生容易直接用标准差 $s=21$ 作为加减的范围。识别方法：均值的抽样分布的标准差是 $s/\\sqrt{n}$，而不是原数据的标准差 $s$。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取题干数据",
+          "content": "$n=80, $ $\\bar{x}=139, $ $s=21$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入公式计算标准误",
+          "content": "$SE = \\frac{s}{\\sqrt{n}} = \\frac{21}{\\sqrt{80}} \\approx \\frac{21}{8.944} \\approx 2.3478$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算误差范围并组合结果",
+          "content": "利用经验法则取 $z \\approx 2$，误差范围 $ME = 2 \\times 2.3478 \\approx 4.695 \\approx 4.7$。置信区间表示为 139 $ \\pm 4.7$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：直接加减了原始数据的标准差 21。正确概念：均值的置信区间必须使用标准误（$s/\\sqrt{n}$），而非标准差。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：只计算了 1 倍的标准误（$ME \\approx 2.348$）。正确概念：构建 95% 置信区间需要加上或减去大约 2 倍的标准误。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：计算了 1 倍的标准误并错误进位。正确概念：没有乘以置信系数 $z \\approx 2$。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval for Mean",
+      "Standard Error",
+      "Normal Approximation"
+    ],
+    "source": "Mixed"
+  }
+]

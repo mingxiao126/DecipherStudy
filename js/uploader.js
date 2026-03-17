@@ -239,13 +239,19 @@
                 fixed = fixed.replace(/\$([0-9.,]+)(?!\$)/g, '$1 $');
 
                 // 4. 修复缺失的 LaTeX 界定符 (针对 QA_LATEX_004)
-                // 启发式：如果包含典型命令但没 $ 或 \(
                 const latexCommands = 'frac|text|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla';
                 const hasRawLatexRegex = new RegExp(`\\\\(${latexCommands})(\\{|\\b)`);
                 const hasDelimiters = fixed.includes('$') || fixed.includes('\\(') || fixed.includes('\\[') || fixed.includes('$$');
+                const hasChinese = /[\u4e00-\u9fa5]/.test(fixed);
 
                 if (hasRawLatexRegex.test(fixed) && !hasDelimiters) {
-                    fixed = `\\(${fixed}\\)`;
+                    if (!hasChinese) {
+                        fixed = `\\(${fixed}\\)`;
+                    } else {
+                        // 对于混合文本，仅包裹 LaTeX 指令
+                        const islandRegex = new RegExp(`\\\\(${latexCommands})(?:\\{[^{}]*\\}|[^{}\\s])*`, 'g');
+                        fixed = fixed.replace(islandRegex, '\\($&\\)');
+                    }
                 }
 
                 return fixed;

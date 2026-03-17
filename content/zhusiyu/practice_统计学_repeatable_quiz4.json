@@ -1,0 +1,837 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "In a survey of 500 voters in February, 38% indicated support for the Liberal Party. In another survey of 600 voters held in January, 41% indicated support for the Liberal Party. Consider the possible hypotheses A: $p_2 - p_1 = 0, $ B: $p_2 - p_1 > 0, $ C: $p_2 - p_1 < 0, $ D: $p_2 - p_1 \\ne 0, $ where $p_1$ and $p_2$ represent true population support for the Liberals in February and January, respectively. If our goal is to test whether the support for the Liberals decreased between January and February, the alternative hypothesis for our test is",
+    "options": [
+      "$p_2 - p_1 = 0$",
+      "$p_2 - p_1 > 0$",
+      "$p_2 - p_1 < 0$",
+      "$p_2 - p_1 \\ne 0$"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "为了检验支持率是否下降，即二月的支持率小于一月，应设置备择假设为 p1 < p2，移项得到 p2 - p1 > 0。",
+      "decoding": [
+        "题干描述了两次民调并定义参数：$p_1$ 为二月（后期），$p_2$ 为一月（前期）。",
+        "任务是根据“支持率下降”这一目标，正确设定单侧检验的备择假设。"
+      ],
+      "conditions": [
+        {
+          "title": "备择假设方向设定",
+          "content": "$H_a: p_1 < p_2 \\implies p_2 - p_1 > 0$",
+          "description": "下降意味着后期的真实比例要严格小于前期的真实比例。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "见词乱选陷阱",
+          "description": "学生看到“decreased”容易直接选带有小于号“<”的选项。识别方法：严格按照代数移项法则把不等式写出来验证。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "理清时间先后顺序",
+          "content": "一月是前期（对应 $p_2$），二月是后期（对应 $p_1$）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "建立自然语义的不等式",
+          "content": "支持率下降等价于：二月支持率 $<$ 一月支持率，即 $p_1 < p_2$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "形式转换得出结论",
+          "content": "对 $p_1 < p_2$ 移项得到 $p_2 - p_1 > 0$，因此正确选项为 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是检验无差异的原假设。正确概念：备择假设需要包含严格的不等关系。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：符号方向颠倒。正确概念：这代表二月高于一月（即支持率上升）。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：这是双侧检验假设。正确概念：题目明确指出检验“下降（decreased）”，属于有特定方向的单侧检验。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Hypothesis Testing",
+      "Alternative Hypothesis",
+      "Two-Sample Proportion Test"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "A random sample of 180 elderly females were selected from a larger population and their systolic blood pressure was measured. The average was found to be 131 and the standard deviation was 17. An approximate 95% confidence interval for the mean systolic blood pressure in the larger population is",
+    "options": [
+      "131 +/- 1.3",
+      "131 +/- 2.5",
+      "131 +/- 17",
+      "131 +/- 1.2"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "标准误为 1.267，乘以近似的 z 值（约等于 2），得到误差范围约为 2.5。置信区间为 131 +/- 2.5。",
+      "decoding": [
+        "题干给出样本量 $n=180$，样本均值 $\\bar{x}=131$，样本标准差 $s=17$。",
+        "要求求出总体均值的 95% 近似置信区间。"
+      ],
+      "conditions": [
+        {
+          "title": "均值的标准误公式",
+          "content": "$SE = \\frac{s}{\\sqrt{n}}$",
+          "description": "用样本标准差除以样本量的平方根计算标准误。"
+        },
+        {
+          "title": "置信区间构造",
+          "content": "$CI = \\bar{x} \\pm z \\cdot SE$",
+          "description": "对于近似 95% 置信度，按照常见大样本近似题库惯例，通常取 $z \\approx 2$（或 1.96）。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "错用标准差陷阱",
+          "description": "直接把原始数据的标准差 17 作为误差范围。识别方法：置信区间的加减量必须是标准误的倍数，而不能直接用标准差。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算标准误",
+          "content": "代入数据：$SE = \\frac{17}{\\sqrt{180}} \\approx \\frac{17}{13.416} \\approx 1.267$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算误差界限",
+          "content": "使用 $z \\approx 2$ 进行经验近似估算：$ME = 2 \\times 1.267 = 2.534 \\approx 2.5$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "组装区间并得出结论",
+          "content": "因此置信区间可表示为 131 $ \\pm 2.5$，对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：使用了错误的标准误计算或 z 值（如只取了 1 倍 SE 并粗略取整为 1.3）。正确概念：95% 置信区间需使用约 2 倍的 SE。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：直接将标准差 17 当作误差范围加减。正确概念：均值的置信区间需除以 $\\sqrt{n}$ 求出标准误后再加减。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：直接取了约 1 倍的标准误（1.267 $ \\approx 1.2$ 或 1. $3$）。正确概念：没有乘以置信系数。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval for Mean",
+      "Standard Error",
+      "Normal Approximation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "choice",
+    "question": "A sample of 64 independent Bernoulli random variables have been observed. The variance of the sum of these random variables is 10.24, so the standard deviation of the average of these random variables is",
+    "options": [
+      "0.25",
+      "0.4",
+      "0.02",
+      "0.05"
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "均值的标准差等于总和的标准差除以 n。总标准差为 $\\sqrt{10.24}=3.2$，除以 64 后得到 0.05。",
+      "decoding": [
+        "题干已知 $n=64$ 个独立变量总和的方差为 10.24。",
+        "要求推算这些变量平均值（均值）的标准差。"
+      ],
+      "conditions": [
+        {
+          "title": "均值方差换算公式",
+          "content": "$Var(\\bar{X}) = Var(\\frac{S}{n}) = \\frac{1}{n^2} Var(S)$",
+          "description": "随机变量乘以常数（1 $/n$），其方差变为原来的平方倍。"
+        },
+        {
+          "title": "标准差换算公式",
+          "content": "$SD(\\bar{X}) = \\frac{SD(S)}{n}$",
+          "description": "均值的标准差直接等于总和的标准差除以 $n$。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "公式套用错位",
+          "description": "部分学生习惯了用 $SD/\\sqrt{n}$，但那是从“单个变量的标准差”推导均值标准差的公式。本题给出的是“总和的方差”。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取已知量",
+          "content": "已知总和 $S$ 的方差 $Var(S) = 10.24$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算总和的标准差",
+          "content": "对总和方差开方得到总和的标准差：$SD(S) = \\sqrt{10.24} = 3.2$。",
+          "tag": "计算"
+        },
+        {
+          "title": "转换为均值的标准差",
+          "content": "根据均值的定义 $\\bar{X} = \\frac{S}{64}$，提取常数：$SD(\\bar{X}) = \\frac{SD(S)}{64} = \\frac{3.2}{64}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "$\\frac{3.2}{64} = 0.05$，对应选项 D。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：可能用总方差 10.24 进行了错误的开方除法组合。正确概念：应严谨执行 $\\frac{\\sqrt{10.24}}{64}$。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：求出了单个变量的标准差或者是其他计算干扰项。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：计算错误（比如错按了小数点）。正确概念：$\\frac{3.2}{64}$ 的结果确切为 0.05。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Variance Properties",
+      "Standard Error",
+      "Linear Transformation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "choice",
+    "question": "225 independent Bernoulli trials were conducted in which the probability of success was unknown. If there were 50 successes, find an approximate 95% confidence interval for the true probability of success.",
+    "options": [
+      "0.222 +/- 0.055",
+      "0.222 +/- 0.028",
+      "0.222 +/- 0.0548",
+      "0.222 +/- 0.548"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "样本比例为 0.222，计算其标准误约为 0.0277，再乘以 2（近似的 95% z 值）得到误差范围 0.055。",
+      "decoding": [
+        "题干给出了试验总数 $n=225$，成功次数 $X=50$。",
+        "要求求出真实成功率的 95% 近似置信区间。"
+      ],
+      "conditions": [
+        {
+          "title": "样本比例估计公式",
+          "content": "$\\hat{p} = \\frac{X}{n}$",
+          "description": "用样本中成功的频率来估计总体的成功率。"
+        },
+        {
+          "title": "比例的标准误与误差范围",
+          "content": "$SE = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}, \\quad ME = z \\cdot SE$",
+          "description": "大样本下基于正态近似构造区间，通常 95% 置信度取 $z \\approx 2$。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆标准误与置信区间",
+          "description": "学生容易把计算出的标准误 $SE \\approx 0.028$ 直接当作最后答案。识别方法：置信区间的加减必须包含 z 值的放大倍数。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算样本比例",
+          "content": "$\\hat{p} = \\frac{50}{225} \\approx 0.2222$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算标准误",
+          "content": "代入公式：$SE = \\sqrt{\\frac{0.2222 \\times (1 - 0.2222)}{225}} = \\sqrt{\\frac{0.1728}{225}} = \\sqrt{0.000768} \\approx 0.0277$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算误差界限",
+          "content": "使用 $z \\approx 2$ 计算：$ME = 2 \\times 0.0277 = 0.0554 \\approx 0.055$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "置信区间为 0.222 $ \\pm 0.055$，对应选项 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：这是单倍的标准误（SE）。正确概念：构建 95% 置信区间必须乘以临界值 z（约为 2）。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：精度截断不同或混淆了其他题目中遗留的常见数字。正确概念：0.0554 四舍五入为 0.055。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：数字小数点错位，误差严重偏大。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval for Proportion",
+      "Standard Error",
+      "Normal Approximation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "95 independent Bernoulli trials were conducted in which the probability of success was unknown. If there were 60 successes, find an approximate 95% confidence interval for the true probability of success.",
+    "options": [
+      "0.63 +/- 0.548",
+      "0.63 +/- 0.049",
+      "0.63 +/- 0.099",
+      "0.63 +/- 0.0548"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "样本比例为 0.632，计算标准误约为 0.049，再乘以近似的 z 值（约等于 2）得到误差范围 0.099。",
+      "decoding": [
+        "题干给定 $n=95$，成功次数 $X=60$。",
+        "要求构建成功概率的 95% 近似置信区间。"
+      ],
+      "conditions": [
+        {
+          "title": "基础公式与 z 值",
+          "content": "$CI = \\hat{p} \\pm z \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$",
+          "description": "依照这套试卷的近似惯例，$z$ 近似取 2 计算 95% 置信区间误差。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "漏乘 z 值",
+          "description": "选项中往往存在只等于 SE 结果的干扰项，诱骗学生过早结束计算。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算比例估计值",
+          "content": "$\\hat{p} = \\frac{60}{95} \\approx 0.6316$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算标准误 SE",
+          "content": "$SE = \\sqrt{\\frac{0.6316 \\times (1 - 0.6316)}{95}} = \\sqrt{\\frac{0.2327}{95}} \\approx \\sqrt{0.002449} \\approx 0.0495$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算误差范围并得出结论",
+          "content": "取 $z=2$，误差范围 $ME = 2 \\times 0.0495 = 0.099$。置信区间表达为 0.63 $ \\pm 0.099$，对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：小数点位置完全错误。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：只计算了 1 倍的标准误（SE）。正确概念：需要乘以 2 形成完整的 95% 置信区间。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：数值计算错误或沿用了其他题目的无关联数字。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval for Proportion",
+      "Standard Error",
+      "Normal Approximation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "choice",
+    "question": "Joe has used the formula \\bar{x} \\pm 1.65SE to calculate a 90 confidence interval for the true mean of a population that he took a sample of measurements from. (SE stands for Standard Error of the Mean). Joe's interval is 28 \\pm 5.2. % Based on Joe's interval, we can find that an approximate 95% confidence interval for the true population mean is 28 ±",
+    "options": [
+      "6.3",
+      "4.0",
+      "2.0",
+      "2.6"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "从 90% 置信区间反推标准误 SE = 5.2 / 1.65 = 3.15，再用近似的 95 置信系数（z=2%）乘以 SE，得到新的误差界限 6. $3$。",
+      "decoding": [
+        "题干给出了 90% 置信区间的计算公式（$z=1.65$）和实际数值误差范围 5. $2$。",
+        "要求在此基础上推算出 95% 置信区间下的误差范围。"
+      ],
+      "conditions": [
+        {
+          "title": "误差范围逆向推导标准误",
+          "content": "\\(SE = \\frac{ME}{z_{90\\}}%\\)",
+          "description": "由于标准误在同一次抽样中是不变的，可以利用已知的 $ME$ 和 $z$ 值将其反解出来。"
+        },
+        {
+          "title": "新误差范围构造",
+          "content": "\\(ME_{new} = z_{95\\} \\cdot SE%\\)",
+          "description": "用解出的标准误乘以 95% 置信度对应的 $z$ 值（常见近似为 2）。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "随意比例放缩陷阱",
+          "description": "学生可能直接用 95 除以 90 再乘以 5.2。识别方法：置信度百分比与误差范围不是线性正比关系，是通过标准正态分布分位数 $z$ 链接的。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "建立等式反解 SE",
+          "content": "已知 1.65 $ \\times SE = 5.2$，解得 $SE = \\frac{5.2}{1.65} \\approx 3.1515$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "使用新系数计算",
+          "content": "题目一直采用大样本近似（95% 对应 $z=2$），新的误差界限 $ME_{95} = 2 \\times SE$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "$ME_{95} = 2 \\times 3.1515 = 6.303 \\approx 6.3$。对应选项 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：计算毫无根据，可能是用 SE 进行了其他错误运算。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这是直接用了题目里的某个系数 2 盲猜的选项。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：这是将 5.2 除以 2 得到的值。正确概念：95% 置信度意味着更宽的区间，误差范围应该比 5.2 更大，而不是更小。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Margin of Error",
+      "Confidence Interval Scaling",
+      "Standard Error"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-07",
+    "type": "choice",
+    "question": "X and Y are random variables having mean 3 and 5 respectively. The variance of X is 7, the variance of Y is 9, and the variance of $(X+Y)$ is 12. Therefore, the covariance of X and Y must be",
+    "options": [
+      "2",
+      "4",
+      "-2",
+      "-4"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "利用和的方差公式 $Var(X+Y) = Var(X) + Var(Y) + 2Cov(X, Y)$。代入数据：12 $ = 7 + 9 + 2Cov$，解得 $Cov = -2$。",
+      "decoding": [
+        "已知两变量的期望、各自方差、及和的方差。",
+        "要求计算这两个变量之间的协方差（Covariance）。注意期望在这里是冗余信息。"
+      ],
+      "conditions": [
+        {
+          "title": "随机变量和的方差公式",
+          "content": "$Var(X+Y) = Var(X) + Var(Y) + 2Cov(X, Y)$",
+          "description": "两个随机变量相加的方差，等于各自方差加上两倍的协方差。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "忘记除以 2",
+          "description": "学生可能算出交叉项之和为 -4 后直接作为答案。识别方法：公式里的交叉项是 2 $Cov(X, Y)$，求出总缺口后必须除以 2。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取关键信息",
+          "content": "有效信息为：$Var(X) = 7, $ $Var(Y) = 9, $ $Var(X+Y) = 12$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "构建代数方程",
+          "content": "代入方差公式：12 $ = 7 + 9 + 2Cov(X, Y)$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "求解未知量",
+          "content": "化简得 12 $ = 16 + 2Cov(X, Y)$，即 2 $Cov(X, Y) = 12 - 16 = -4$。最后得出 $Cov(X, Y) = -2$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "协方差必须为 -2，对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：符号错误或代数移项失误。正确概念：和的方差比两者独立时小（12 $ < 16$），说明存在负相关，协方差必定为负。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：符号错误且忘记除以 2。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：算出了 2 $Cov$ 的值（-4）后忘记除以 2 得到 $Cov$。正确概念：必须化简到最后一步。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Variance Properties",
+      "Covariance",
+      "Linear Combination of Random Variables"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-08",
+    "type": "choice",
+    "question": "X and Y are random variables having mean 11 and 7 respectively. The variance of X is 4, the variance of Y is 5, and the variance of $(X+Y)$ is 13. Therefore, the covariance of X and Y must be",
+    "options": [
+      "2",
+      "4",
+      "-2",
+      "-4"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "利用和的方差公式，代入数据：13 $ = 4 + 5 + 2Cov$，即 13 $ = 9 + 2Cov$，解得 $Cov = 2$。",
+      "decoding": [
+        "与上一题考点完全一致，题干给出了不同的数字集合，同样带有冗余的期望值信息。",
+        "要求再次反解出协方差。"
+      ],
+      "conditions": [
+        {
+          "title": "和的方差公式",
+          "content": "$Var(X+Y) = Var(X) + Var(Y) + 2Cov(X,Y)$",
+          "description": "通过移项可知 $Cov(X,Y) = \\frac{Var(X+Y) - Var(X) - Var(Y)}{2}$。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "期望冗余干扰",
+          "description": "题目给的均值 11 和 7 是完全不需要的。如果试图将其纳入公式将导致无法解题。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "剔除冗余变量",
+          "content": "忽略均值，提取方差信息：$Var(X) = 4, $ $Var(Y) = 5, $ $Var(X+Y) = 13$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入方程",
+          "content": "建立方程：13 $ = 4 + 5 + 2Cov(X, Y)$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "求解未知量",
+          "content": "即 13 $ = 9 + 2Cov(X, Y)$，得到 2 $Cov = 4$，进而 $Cov = 2$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "协方差为 2，对应选项 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：算出 2 $Cov = 4$ 后忘记除以 2。正确概念：方差公式交叉项带有系数 2。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：将移项符号搞反。正确概念：本题中和的方差大于两者之和（13 $ > 9$），说明是正相关，协方差应为正数。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：符号错误且忘记除以 2。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Variance Properties",
+      "Covariance",
+      "Linear Combination of Random Variables"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-09",
+    "type": "bool",
+    "question": "A random sample of 20 married couples was selected for a study comparing the amount of time married men and women spend reading. For one month, each individual in the study was tasked with recording the number of hours spent reading each day. Interest centers on the difference in the mean amount of time spent on reading by men with the mean amount of time spent on ready by women. This is an example of a matched-pairs design.",
+    "answer": true,
+    "analysis": {
+      "solution": "因为样本是以“一对夫妻（couples）”为单位抽取的，丈夫和妻子之间存在天然的关联和相互影响，属于配对样本设计，故命题正确。",
+      "decoding": [
+        "题干描述了一项通过比较已婚男性和女性阅读时间的实验设计。",
+        "样本选取单位是“20对夫妻（20 married couples）”。",
+        "要求判断该设计是否属于配对样本设计（matched-pairs design）。"
+      ],
+      "conditions": [
+        {
+          "title": "配对样本设计判断标准",
+          "content": "\\(\\text{Matched-Pairs} \\implies \\text{Dependent Samples}\\)",
+          "description": "当两组数据并非独立抽取，而是存在天然的一一对应关系（如同一个人的两次测量、夫妻、双胞胎）时，构成相关（配对）样本。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆独立性陷阱",
+          "description": "如果忽视了“couples”这个词，以为只是随便找了男人和女人，就会错判为独立样本。识别方法：找准抽样单位，本题的单位是一对对夫妻。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别抽样单位",
+          "content": "题目明确写出是抽取了“20 married couples”（20对夫妻），而不是零散的个人。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "判断样本关联性",
+          "content": "在一对夫妻中，丈夫和妻子的生活习惯、阅读时间很可能相互影响或拥有共同的环境因素，存在自然的一一对应关系。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "比对实验设计定义",
+          "content": "这种具有内部对应和关联的数据对，完美契合 matched-pairs design 的定义要求。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "因此该陈述是正确的（True）。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Matched-Pairs Design",
+      "Dependent Samples",
+      "Experimental Design"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-10",
+    "type": "bool",
+    "question": "A random sample of 20 married individuals was selected for a study comparing the amount of time married men and women spend reading. There were 8 men in the sample and 12 women in the sample. For one month, each individual in the study was tasked with recording the number of hours spent reading each day. Interest centers on the difference in the mean amount of time spent on reading by men with the mean amount of time spent on ready by women. This is an example of a matched-pairs design.",
+    "answer": false,
+    "analysis": {
+      "solution": "错误。样本是作为独立个体（individuals）抽取的，并且男女数量不一致（8男12女），无法形成一一对应的配对关系，因此属于独立样本设计。",
+      "decoding": [
+        "题干描述了一个类似前题的实验，但样本单位变成了“20名已婚个人（individuals）”。",
+        "并指出其中有 8名男性 和 12名女性。",
+        "要求判断这是否也是配对样本设计。"
+      ],
+      "conditions": [
+        {
+          "title": "独立样本设计特征",
+          "content": "\\(\\text{Independent Samples} \\implies n_1 \\neq n_2 \\text{ allowed}\\)",
+          "description": "两组数据从总体中独立抽取，内部成员互不关联。配对样本不仅要求有对应关系，且两组的样本量必须严格相等（$n_1 = n_2$）。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "被“married”字眼误导",
+          "description": "看到“married”就下意识认为是配偶，从而误认作配对样本。识别方法：仔细看后面的名词，是“individuals”（个体）并且男女数量都不对等，绝无配对可能。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取抽样特征",
+          "content": "本次抽样抽取的是 20 individuals（个人），而不是成对的夫妻。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "检查必要条件",
+          "content": "配对样本的一个必要条件是两组样本量必须完全相等。而此题中，男性为 8 人，女性为 12 人。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "推导与得出结论",
+          "content": "由于不仅个体之间没有关联，且数量上无法实现一一对应（8 $ \\neq 12$），所以这绝对不是 matched-pairs design。因此该陈述错误（False）。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Matched-Pairs Design",
+      "Independent Samples",
+      "Experimental Design"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-11",
+    "type": "choice",
+    "question": "In a study to test the effectiveness of a sleeping pill, 30 individuals were assigned to a control group (no pill) and 25 individuals were assigned to a treatment group (one pill per night for 20 nights). The total number of sleep hours for each individual in both groups was calculated. The average for the control group was 125 hours and the average for the treatment group was 132 hours. When testing the hypothesis that the mean amount of sleep for those taking the sleeping pill is larger than for those not taking the sleeping pill, the p-value was found to be 0.19. This means that",
+    "options": [
+      "the probability that the null hypothesis is true is 0.19.",
+      "the probability that the sleeping pill will work effectively is 0.19.",
+      "the evidence is very weak that the sleeping pill is effective.",
+      "the evidence is very strong that the sleeping pill is effective."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "p值为0.19意味着在原假设成立的前提下，观察到当前或更极端样本的概率是19%。因为 p > 0.05，我们没有足够的证据拒绝原假设，即证明安眠药有效的证据非常微弱。",
+      "decoding": [
+        "题干描述了一项关于安眠药效果的假设检验。",
+        "最终得出的单侧 p 值为 0.19。",
+        "要求选出对该 p 值的正确解释。"
+      ],
+      "conditions": [
+        {
+          "title": "p 值的统计学含义",
+          "content": "\\text{If p-value } > \\alpha \\implies \\text{Weak evidence against } H_0",
+          "description": "p 值衡量的是反对原假设的证据强度。较大的 p 值（如 0.19 > 0.05）表明证据很弱，无法拒绝原假设。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "p值概率解释陷阱",
+          "description": "学生常把 p 值误认为是“原假设为真的概率”或“备择假设为真的概率”。识别方法：p 值是基于数据算出的条件概率 $P(\\text{Data} | H_0)$，绝不能解释为 $P(H_0 | \\text{Data})$。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "评估 p 值大小",
+          "content": "$p = 0.19$ 是一个相对较大的值，通常远大于常用的显著性水平 $\\alpha = 0.05$ 或 $0.10$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出检验结论",
+          "content": "因为 $p > \\alpha$，我们未能拒绝原假设（Fail to reject $H_0$）。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "解释实际意义",
+          "content": "备择假设是“安眠药有效”。既然不能拒绝原假设，说明支持“安眠药有效”的证据非常微弱（very weak）。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：将 p 值解释为原假设为真的概率。正确概念：p 值是在原假设为真的条件下，观察到当前结果的概率。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：将 p 值解释为药物有效的概率。正确概念：频率学派的 p 值不能赋予假设任何概率。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：认为获得了支持药物有效的强证据。正确概念：只有当 p 值很小（如 <0.05）时，才算是有强证据。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "p-value Interpretation",
+      "Hypothesis Testing"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-12",
+    "type": "choice",
+    "question": "Jane found that a 99% confidence interval for the true mean of a population is (0.4, 1.7). Jane is interested in testing the null hypothesis that the true mean is 0.3 against a two-sided alternative hypothesis (i.e that the mean is not equal to 0.3). Without doing any difficult calculations, Jane finds that",
+    "options": [
+      "the p-value for her test must be less than 0.01, and she has strong evidence against the alternative hypothesis. She can be very confident that the true mean is 0.3.",
+      "the p-value for her test must be greater than 0.99, and she has strong evidence against the null hypothesis. She can be very confident that the true mean is not 0.3.",
+      "the p-value for her test must be less than 0.01, and she has strong evidence against the null hypothesis. She can be very confident that the true mean is not 0.3.",
+      "the p-value for her test must be greater than 0.99, and she has no evidence against the null hypothesis. She can be very confident that the true mean is 0.3."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "原假设的均值0.3不在99%的置信区间(0.4, 1.7)内，说明在0.01的显著性水平下应拒绝原假设，即 p-value < 0.01。这提供了反对原假设的强烈证据。",
+      "decoding": [
+        "题干已知总体均值的 99% 置信区间为 $(0.4, 1.7)$。",
+        "要求利用置信区间与双侧假设检验的等价关系，判断当原假设 $H_0: \\mu = 0.3$ 时的检验结论和 p 值范围。"
+      ],
+      "conditions": [
+        {
+          "title": "置信区间与双侧检验的对偶性",
+          "content": "\\text{Reject } H_0 \\iff \\mu_0 \\notin CI_{1-\\alpha}",
+          "description": "如果假设的总体参数值落在了 $1-\\alpha$ 的置信区间之外，则说明在 $\\alpha$ 的显著性水平下，双侧检验的 p 值小于 $\\alpha$。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "p值大小方向混淆",
+          "description": "学生可能知道不在区间内就要拒绝，却错误地认为这意味着 p 值大于 0.99。识别方法：拒绝原假设的条件永远是 p 值足够小（$p < \\alpha$）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "检查原假设值的位置",
+          "content": "原假设指定总体均值 $\\mu_0 = 0.3$。给定的 99% 置信区间是 $(0.4, 1.7)$。显然 $0.3 \\notin (0.4, 1.7)$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "运用对偶关系推导",
+          "content": "因为 $0.3$ 不在该 99% 置信区间内，所以如果在 $\\alpha = 1 - 0.99 = 0.01$ 的水平下进行双侧检验，必定会拒绝原假设。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出 p 值和结论",
+          "content": "拒绝原假设意味着 $p\\text{-value} < 0.01$。这构成了反对原假设（即均值不是0.3）的强有力证据。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：结论颠倒。正确概念：拒绝原假设意味着有强证据支持备择假设（均值不是0.3），而不是支持原假设。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：认为 p 值大于 0.99。正确概念：p 值小才能拒绝原假设，而不是 p 值大。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：结论完全反转，认为没有证据反对原假设。正确概念：不在区间内正是强烈反对原假设的证据。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval and Hypothesis Testing Duality",
+      "p-value Interpretation",
+      "Two-Sided Test"
+    ],
+    "source": "Mixed"
+  }
+]

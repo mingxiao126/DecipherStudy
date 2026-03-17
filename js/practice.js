@@ -226,21 +226,29 @@ class PracticeApp {
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
 
-        // 1. Protect currency signs that shouldn't trigger math mode
-        // Matches number followed by optional space and $
-        processed = processed.replace(/(\d+(?:,\d+)*(?:\.\d+)?)\s*\$(?!\S)/g, '$1 &#36;');
-        processed = processed.replace(/(^|\s)\$(\d+(?:,\d+)*(?:\.\d+)?)/g, '$1&#36;$2');
+        // 1. Protect currency signs - but ONLY if they are NOT followed by math commands
+        // Matches number followed by $ (e.g., 100$) but skip if it looks like a math start ($ \times)
+        processed = processed.replace(/(\d+(?:,\d+)*(?:\.\d+)?)\s*\$(?!\s*\\[a-zA-Z])/g, '$1 &#36;');
+        processed = processed.replace(/(^|\s)\$(?!\s*\\[a-zA-Z])(\d+(?:,\d+)*(?:\.\d+)?)/g, '$1&#36;$2');
 
-        // 2. Fix double-escaped latex commands (e.g. \\frac -> \frac)
-        // This commonly occurs when JSON contains "\\\\frac" which parses to "\\frac" in JS
+        // 2. Fix double-escaped latex commands
         processed = processed.replace(/\\\\(?=[a-zA-Z])/g, '\\');
 
         // 2.5 Heuristic auto-wrap for raw LaTeX
+        // CRITICAL: ONLY wrap if it does NOT contain Chinese characters (non-ASCII), 
+        // as wrapping the whole block including Chinese in \( \) causes KaTeX parsing errors.
+        const hasChinese = /[\u4e00-\u9fa5]/.test(processed);
         const hasRawLatex = /\\(frac|text|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla)\{?/.test(processed);
         const hasDelimiters = processed.includes('$') || processed.includes('\\(') || processed.includes('\\[') || processed.includes('$$');
 
         if (hasRawLatex && !hasDelimiters) {
-            processed = `\\(${processed}\\)`;
+            if (!hasChinese) {
+                processed = `\\(${processed}\\)`;
+            } else {
+                // For mixed text/math, try to wrap individual islands of TeX commands
+                // This is a safety measure for raw commands like \frac{...}{...} inside Chinese text
+                processed = processed.replace(/(\\(?:frac|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla)(?:\{[^{}]*\}|[^{}\s])*)/g, '\\($1\\)');
+            }
         }
 
         // 3. Handle inline lists separated by semicolons (e.g. "1. Ans1; 2. Ans2")

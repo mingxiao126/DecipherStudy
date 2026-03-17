@@ -1,0 +1,772 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "X and Y are random variables where $E[X]=E[Y]=5$ and $Var(X)=Var(Y)=7. $ If the covariance of X and Y is 2.5, then $Var(X-Y)$ is",
+    "options": [
+      "93",
+      "9",
+      "103",
+      "19"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "根据方差的减法运算法则，计算结果为 9。",
+      "decoding": [
+        "题干给出两个随机变量的期望、方差以及它们之间的协方差。",
+        "要求计算这两个随机变量之差的方差 $Var(X-Y)$。"
+      ],
+      "conditions": [
+        {
+          "title": "差的方差公式",
+          "content": "$Var(X-Y) = Var(X) + Var(Y) - 2Cov(X, Y)$",
+          "description": "两个随机变量之差的方差，等于各自方差之和减去两倍的协方差。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "符号误用陷阱",
+          "description": "学生容易错误地将公式记为加上两倍协方差，或者直接将方差相减。识别方法：牢记 $(X-Y)^2$ 展开后的交叉项为 $-2XY$。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取已知变量",
+          "content": "已知 $Var(X) = 7, $ $Var(Y) = 7, $ $Cov(X, Y) = 2.5$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入公式计算",
+          "content": "代入公式可得 $Var(X-Y) = 7 + 7 - 2(2.5)$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "计算结果为 14 $ - 5 = 9$，对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：毫无根据的计算数值。正确概念：应当严格套用方差展开公式。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：毫无根据的计算数值。正确概念：应当严格套用方差展开公式。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：错误地使用了加号 14 $ + 5 = 19$。正确概念：减法的方差展开公式中协方差前面必须是负号。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Variance Properties",
+      "Covariance"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "In a survey of 500 voters in February, 38% indicated support for the Liberal Party. In another survey of 600 voters held in January, 41% indicated support for the Liberal Party. Consider the possible hypotheses A: $p_2 - p_1 = 0, $ B: $p_2 - p_1 > 0, $ C: $p_2 - p_1 < 0, $ D: $p_2 - p_1 \\ne 0, $ where $p_1$ and $p_2$ represent true population support for the Liberals in February and January, respectively. If our goal is to test whether the support for the Liberals decreased between January and February, the alternative hypothesis for our test is",
+    "options": [
+      "$p_2 - p_1 = 0$",
+      "$p_2 - p_1 > 0$",
+      "$p_2 - p_1 < 0$",
+      "$p_2 - p_1 \\ne 0$"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "研究目标是证明支持率下降，即二月小于一月，等价于一月减二月大于零。",
+      "decoding": [
+        "题干描述了两次民调的支持率比较，定义 $p_1$ 为二月参数，$p_2$ 为一月参数。",
+        "研究目的是检验“支持率是否在二月相比一月有所下降”。"
+      ],
+      "conditions": [
+        {
+          "title": "备择假设的设定",
+          "content": "$H_a: p_1 < p_2 \\implies p_2 - p_1 > 0$",
+          "description": "备择假设代表我们要尝试证明的论断。支持率下降意味着二月 ($p_1$) 的真实比例小于一月 ($p_2$)。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "方向颠倒陷阱",
+          "description": "容易把 $p_1$ 和 $p_2$ 的时间顺序搞混，看到“下降”就直接选小于号。识别方法：先写出自然语言的数学表达 $p_1 < p_2$，再进行移项。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "明确变量与时间关系",
+          "content": "$p_1$ 代表二月（后期），$p_2$ 代表一月（前期）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "转化研究目标",
+          "content": "“支持率下降”表示后期的支持率低于前期，即 $p_1 < p_2$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出等价不等式",
+          "content": "将 $p_1 < p_2$ 移项转化为 $p_2 - p_1 > 0$，对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是原假设（无差异）。正确概念：备择假设通常包含严格的不等号。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：不等号方向颠倒。正确概念：这表示二月支持率高于一月（即支持率上升）。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：这是双侧检验。正确概念：“下降”是有明确方向的单侧检验。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Hypothesis Testing",
+      "Alternative Hypothesis",
+      "Two-Sample Proportion Test"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "choice",
+    "question": "In a survey of 500 voters in February, 38% indicated support for the Liberal Party. In another survey of 600 voters held in January, 41% indicated support for the Liberal Party. Consider the possible hypotheses A: $p_2 - p_1 = 0, $ B: $p_2 - p_1 > 0, $ C: $p_2 - p_1 < 0, $ D: $p_2 - p_1 \\ne 0, $ where $p_1$ and $p_2$ represent true population support for the Liberals in February and January, respectively. If our goal is to test whether the support for the Liberals changed between January and February, the alternative hypothesis for our test is",
+    "options": [
+      "$p_2 - p_1 = 0$",
+      "$p_2 - p_1 > 0$",
+      "$p_2 - p_1 < 0$",
+      "$p_2 - p_1 \\ne 0$"
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "研究目标是检验是否发生变化，并未指定变化方向，因此应当使用不等于的备择假设。",
+      "decoding": [
+        "题干背景与上题一致，但研究目的改为了检验“支持率是否发生了变化（changed）”。"
+      ],
+      "conditions": [
+        {
+          "title": "双侧检验的备择假设",
+          "content": "$H_a: p_1 \\ne p_2 \\implies p_2 - p_1 \\ne 0$",
+          "description": "当且仅当研究只关心参数是否不同，而不限定哪边大时，使用双侧检验（包含不等于号）。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "单双侧混淆",
+          "description": "受前面题目的影响，可能顺手选择了单侧检验。识别方法：严格寻找题干中的方向词（如 increased, decreased），如果只有 changed, different 等词，则是双侧。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别关键词汇",
+          "content": "研究目的中的关键词为“changed”（发生改变）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "设定假设方向",
+          "content": "改变意味着两个时期的真实比例不再相等，即 $p_1 \\ne p_2$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出对应选项",
+          "content": "移项后得到 $p_2 - p_1 \\ne 0$，对应选项 D。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：等于是原假设（Null Hypothesis），而不是备择假设。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：这是检测是否单向减少的单侧假设。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这是检测是否单向增加的单侧假设。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Hypothesis Testing",
+      "Alternative Hypothesis",
+      "Two-Sided Test"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "essay",
+    "question": "Anne has studied hard for a multiple choice test. On the first two questions, she has figured out that she has a probability of getting either of the first two questions right with probability 0.6, and both right with probability 0.5. In other words, if A represents the Bernoulli random variable for success on the first question and B the Bernoulli random variable for success on the second question, $P(A=1)=P(B=1)=0.6$ and $P(AB=1)=0.5. $ Calculate: a) $E(A)$; b) $E(AB)$; c) $Cov(A,B)$; d) $E(A+B)$; e) $Var(A)$; f) $Var(A+B)$; g) $Var(A-B). $",
+    "answer": "a) E(A) = 0.6; b) E(AB) = 0.5; c) Cov(A,B) = 0.14; d) E(A+B) = 1.2; e) Var(A) = 0.24; f) Var(A+B) = 0.76; g) Var(A-B) = 0.20.",
+    "analysis": {
+      "decoding": [
+        "已知 A 和 B 都是参数为 $p=0.6$ 的伯努利随机变量，且它们乘积为 1 的概率为 0.5。",
+        "要求系统地计算它们的期望、协方差、和与差的方差。"
+      ],
+      "conditions": [
+        {
+          "title": "伯努利变量期望与方差",
+          "content": "$E(A) = p,\\\\ Var(A) = p(1-p)$",
+          "description": "伯努利分布的基础公式。"
+        },
+        {
+          "title": "协方差计算",
+          "content": "$Cov(A,B) = E(AB) - E(A)E(B)$",
+          "description": "协方差等于乘积的期望减去期望的乘积。"
+        },
+        {
+          "title": "和与差的方差",
+          "content": "$Var(A \\pm B) = Var(A) + Var(B) \\pm 2Cov(A,B)$",
+          "description": "相关随机变量加减后的方差公式。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "独立性假设陷阱",
+          "description": "学生容易习惯性认为两次答题是独立的，从而认为协方差为 0。识别方法：题干给出了联合概率 $P(AB=1)=0.5 \\ne P(A=1)P(B=1)$，说明它们并非独立。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算基础期望与方差",
+          "content": "因为是伯努利变量，$E(A) = P(A=1) = 0.6$。同理 $E(B) = 0.6$。$Var(A) = 0.6 \\times 0.4 = 0.24$；$Var(B) = 0.24$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算联合期望与协方差",
+          "content": "因为只有当 $A=1$ 且 $B=1$ 时 $AB$ 才为 1，故 $E(AB) = P(AB=1) = 0.5$。代入协方差公式：$Cov(A,B) = 0.5 - (0.6 \\times 0.6) = 0.5 - 0.36 = 0.14$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算和的期望",
+          "content": "$E(A+B) = E(A) + E(B) = 0.6 + 0.6 = 1.2$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算和与差的方差",
+          "content": "代入方差展开式：$Var(A+B) = 0.24 + 0.24 + 2(0.14) = 0.48 + 0.28 = 0.76$。$Var(A-B) = 0.24 + 0.24 - 2(0.14) = 0.48 - 0.28 = 0.20$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Bernoulli Distribution",
+      "Expected Value",
+      "Covariance",
+      "Variance of Sums and Differences"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "essay",
+    "question": "In a random sample of 64 male heights, it was found that the average was 169.5 cm and the variance was 144 squared centimetres. Consider the hypotheses $H_0: \\mu = 170$ and $H_a: \\mu < 170. $ a) The standard error for estimating the population mean of the male heights is [Select]. b) The p-value for this one sided test is 0.37. The conclusion of the test is [Select]. c) If a two-sided alternative hypothesis had been used instead, the p-value would be [Select].",
+    "answer": "a) The standard error is 1.5; b) Fail to reject the null hypothesis; c) The two-sided p-value would be 0.74.",
+    "analysis": {
+      "decoding": [
+        "已知样本量 $n=64$，样本方差 $s^2=144$，要求计算标准误。",
+        "给出了单侧检验的 p-value 为 0.37，要求得出假设检验结论并计算对应的双侧 p-value。"
+      ],
+      "conditions": [
+        {
+          "title": "标准误（SE）公式",
+          "content": "$SE = \\frac{s}{\\sqrt{n}}$",
+          "description": "用样本标准差除以样本量的平方根。"
+        },
+        {
+          "title": "p值判定规则",
+          "content": "$\\text{If p-value} > \\alpha \\implies \\text{Fail to reject } H_0$",
+          "description": "当 p 值大于显著性水平（通常为 0.05）时，无法拒绝原假设。"
+        },
+        {
+          "title": "单双侧 p 值关系",
+          "content": "\\(\\text{Two-sided p-value} = 2 \\times \\text{One-sided p-value}\\)",
+          "description": "在分布对称且检验统计量方向一致的情况下，双侧 p 值是单侧的两倍。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "方差与标准差混淆",
+          "description": "题目给的是方差 144，计算标准误时必须先开方得到标准差 12。如果直接用 144 除以 8 会得出错误的结论。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算标准误",
+          "content": "已知方差 $s^2 = 144$，故标准差 $s = 12$。代入标准误公式 $SE = \\frac{12}{\\sqrt{64}} = \\frac{12}{8} = 1.5$。",
+          "tag": "计算"
+        },
+        {
+          "title": "判断假设检验结论",
+          "content": "给定的 p-value 为 0.37，远大于通常的显著性水平（如 0.05 或 0.10），因此没有充分证据拒绝原假设（Fail to reject $H_0$）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算双侧 p 值",
+          "content": "如果变为双侧假设 $H_a: \\mu \\ne 170$，其 p 值应当翻倍：0.37 $ \\times 2 = 0.74$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Error",
+      "p-value",
+      "Hypothesis Testing",
+      "One-sided vs Two-sided Tests"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "essay",
+    "question": "In a random sample of 225 male heights, it was found that the average was 168 cm and the variance was 81 squared centimetres. Consider the hypotheses $H_0: \\mu = 170$ and $H_a: \\mu < 170. $ a) The standard error for estimating the population mean of the male heights is [Select]. b) The p-value for this one sided test is 0.0004. The conclusion of the test is [Select]. c) If a two-sided alternative hypothesis had been used instead, the p-value would be [Select].",
+    "answer": "a) The standard error is 0.6; b) Reject the null hypothesis; c) The two-sided p-value would be 0.0008.",
+    "analysis": {
+      "decoding": [
+        "题干结构与前一题完全相同，只是给定的样本量变为了 $n=225$，方差变为了 8 $1$，给出的 p-value 变成了 0.0004。"
+      ],
+      "conditions": [
+        {
+          "title": "标准误及判定规则同上",
+          "content": "$SE = \\frac{s}{\\sqrt{n}}$ 且 $\\text{If p-value} < \\alpha \\implies \\text{Reject } H_0$",
+          "description": "基于更小 p 值应当做出拒绝原假设的决策。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "无",
+          "description": "考察基础计算与判定。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算标准误",
+          "content": "已知方差 $s^2 = 81$，标准差 $s = 9$。代入标准误公式 $SE = \\frac{9}{\\sqrt{225}} = \\frac{9}{15} = 0.6$。",
+          "tag": "计算"
+        },
+        {
+          "title": "判断假设检验结论",
+          "content": "由于 p-value = 0.0004 远小于 0.05（或 0.01），存在极强的证据反对原假设，因此结论为拒绝原假设（Reject $H_0$）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出双侧 p 值",
+          "content": "双侧检验的 p 值为单侧的两倍：0.0004 $ \\times 2 = 0.0008$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Error",
+      "p-value",
+      "Hypothesis Testing",
+      "One-sided vs Two-sided Tests"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-07",
+    "type": "essay",
+    "question": "In a survey of 500 voters in February, 38% indicated support for the Liberal Party. In another survey of 800 voters held in March, 39% indicated support for the Liberal Party. Consider the hypotheses $H_0: p_2 - p_1 = 0$ and $H_a: p_2 - p_1 > 0, $ where $p_1$ and $p_2$ represent true population support for the Liberals in February and March, respectively. An estimate of the variance of the difference between the February and March proportions (i.e. $\\hat{p}_2 - \\hat{p}_1$) is 0.00077. a) The standard error of the difference is [Select]. b) The p-value for this one sided test is 0.428. The conclusion of the test is [Select]. c) If a two-sided alternative hypothesis had been used instead, the p-value would be [Select].",
+    "answer": "a) The standard error is approximately 0.0277; b) Fail to reject the null hypothesis; c) The two-sided p-value would be 0.856.",
+    "analysis": {
+      "decoding": [
+        "题干是关于两个比例之差的假设检验。",
+        "题目直接给出了比例差值的方差估计量为 0.00077，要求求标准误以及根据给出的 p-value 进行结论判定。"
+      ],
+      "conditions": [
+        {
+          "title": "标准误与方差的关系",
+          "content": "$SE(\\hat{p}_2 - \\hat{p}_1) = \\sqrt{Var(\\hat{p}_2 - \\hat{p}_1)}$",
+          "description": "任何统计量的标准误本质上就是其抽样分布的方差的平方根。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "重复除以样本量陷阱",
+          "description": "学生可能试图使用公式重新计算方差，或者把给出的方差再除以 n。识别方法：题干已经明确说明这是“variance of the difference”（差值的方差），直接对其开方即可。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取直接已知数据",
+          "content": "已知方差估计量 $Var = 0.00077$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算标准误",
+          "content": "$SE = \\sqrt{0.00077} \\approx 0.027748 \\approx 0.0277$。",
+          "tag": "计算"
+        },
+        {
+          "title": "评估假设检验结论",
+          "content": "给定的单侧 p-value = 0.428，大于 0.05，所以无法拒绝原假设（Fail to reject $H_0$）。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算双侧 p 值",
+          "content": "双侧 p 值为单侧的 2 倍：0.428 $ \\times 2 = 0.856$。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Error of Difference",
+      "Two-Sample Proportion Test",
+      "p-value Interpretation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-08",
+    "type": "choice",
+    "question": "95 independent Bernoulli trials were conducted in which the probability of success was unknown. If there were 60 successes, find an approximate 95% confidence interval for the true probability of success.",
+    "options": [
+      "0.63 +/- 0.548",
+      "0.63 +/- 0.099",
+      "0.63 +/- 0.049",
+      "0.63 +/- 0.0548"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "样本比例为 0.63，标准误约为 0.049，乘以经验法则的 z=2 得到误差范围 0.099。",
+      "decoding": [
+        "给定 95 次试验中 60 次成功，要求计算 95% 的近似置信区间。"
+      ],
+      "conditions": [
+        {
+          "title": "样本比例估计与标准误",
+          "content": "$\\hat{p} = \\frac{X}{n}, SE = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$",
+          "description": "计算大样本下二项分布的样本比例及其标准误。"
+        },
+        {
+          "title": "误差范围（Margin of Error）",
+          "content": "$ME = z \\times SE$",
+          "description": "对于近似的 95% 置信度，按照常见题库近似取 $z=2$（部分情况取 1.96）。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "漏乘置信系数陷阱",
+          "description": "算出了标准误 $SE \\approx 0.049$，却忘记乘以 $z$ 值，从而误选 0.049 所在的选项。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算样本比例",
+          "content": "$\\hat{p} = \\frac{60}{95} \\approx 0.6316$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算标准误 SE",
+          "content": "$SE = \\sqrt{\\frac{0.6316 \\times 0.3684}{95}} = \\sqrt{\\frac{0.2327}{95}} \\approx \\sqrt{0.002449} \\approx 0.0495$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算误差界限并得出结论",
+          "content": "以 $z=2$ 进行近似计算：$ME = 2 \\times 0.0495 = 0.099$。置信区间为 0.63 $ \\pm 0.099$，对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：毫无根据的误差范围数据。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：只计算了标准误 0.049，忘记乘以置信区间系数 $z=2$。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：数据错位计算。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval for Proportion",
+      "Standard Error",
+      "Normal Approximation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-09",
+    "type": "choice",
+    "question": "325 independent Bernoulli trials were conducted in which the probability of success was unknown. If there were 200 successes, find an approximate 95% confidence interval for the true probability of success.",
+    "options": [
+      "0.615 +/- 0.027",
+      "0.615 +/- 0.548",
+      "0.615 +/- 0.0548",
+      "0.615 +/- 0.054"
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "样本比例为 0.615，标准误为 0.027。取 z=2 计算的误差范围为 0.054。",
+      "decoding": [
+        "给定 325 次试验中 200 次成功，计算 95% 近似置信区间。"
+      ],
+      "conditions": [
+        {
+          "title": "置信区间基础公式",
+          "content": "$\\hat{p} \\pm z \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$",
+          "description": "用样本比例、样本量及 z 值来构造范围。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆标准误与置信区间宽度",
+          "description": "算出 SE 是 0.027 后直接当成最终结果选择。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算样本比例",
+          "content": "$\\hat{p} = \\frac{200}{325} \\approx 0.6154$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算标准误 SE",
+          "content": "$SE = \\sqrt{\\frac{0.6154 \\times 0.3846}{325}} = \\sqrt{\\frac{0.2367}{325}} \\approx \\sqrt{0.000728} \\approx 0.027$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "算出误差范围及结论",
+          "content": "取 $z=2$：$ME = 2 \\times 0.027 = 0.054$。最终表示为 0.615 $ \\pm 0.054$，对应选项 D。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是标准误（SE），没有乘以对应的 $z$ 值以扩充为 95% 的置信区间。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：小数点位置错位及使用了错误的数据。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：保留的小数位数存在干扰或计算精度存在偏差。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Confidence Interval for Proportion",
+      "Standard Error",
+      "Normal Approximation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-10",
+    "type": "choice",
+    "question": "In a survey of 500 voters in February, 38% indicated support for the Liberal Party. In another survey of 600 voters held in January, 41% indicated support for the Liberal Party. Consider the possible hypotheses A: $p_2 - p_1 = 0, $ B: $p_2 - p_1 > 0, $ C: $p_2 - p_1 < 0, $ D: $p_2 - p_1 \\ne 0, $ where $p_1$ and $p_2$ represent true population support for the Liberals in February and January, respectively. If our goal is to test whether the support for the Liberals decreased between January and February, the alternative hypothesis for our test is",
+    "options": [
+      "$p_2 - p_1 = 0$",
+      "$p_2 - p_1 > 0$",
+      "$p_2 - p_1 < 0$",
+      "$p_2 - p_1 \\ne 0$"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "此题与第 2 题在题干描述上完全一致。目标为证明支持率下降（二月小于一月），故 $p_1 < p_2$，即 $p_2 - p_1 > 0$。",
+      "decoding": [
+        "题干重复了前面出现的两次民调支持率比较的情景，考查“支持率下降”对应的备择假设设定。"
+      ],
+      "conditions": [
+        {
+          "title": "单侧假设设定方向",
+          "content": "$H_a: p_1 < p_2 \\implies p_2 - p_1 > 0$",
+          "description": "反映由于支持率下降，$p_1$（后期）必须小于 $p_2$（前期）。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "方向判断失误",
+          "description": "极容易因为看到“decreased”直接选小于号。识别方法：始终以不等式移项结果为准。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "定义变量顺序",
+          "content": "$p_1$ 为二月，$p_2$ 为一月。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "写出下降的等价式",
+          "content": "下降代表二月低于一月：$p_1 < p_2$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "移项得出答案",
+          "content": "移项后得到 $p_2 - p_1 > 0$。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是假设支持率不变的原假设。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这代表支持率增加的备择假设。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：这是未指明变动方向的双侧假设。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Hypothesis Testing",
+      "Alternative Hypothesis",
+      "Two-Sample Proportion Test"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-11",
+    "type": "essay",
+    "question": "In a random sample of 100 male heights, it was found that the average was 169 cm and the variance was 121 squared centimetres. a) The standard deviation of the sample is [Select] b) The estimated standard error of the mean is [Select]",
+    "answer": "a) 11; b) 1.1.",
+    "analysis": {
+      "decoding": [
+        "已知样本量 $n=100$，样本方差 $s^2=121$。",
+        "要求分别计算样本的标准差和均值的估计标准误。"
+      ],
+      "conditions": [
+        {
+          "title": "样本标准差",
+          "content": "$s = \\sqrt{s^2}$",
+          "description": "标准差是方差的正平方根。"
+        },
+        {
+          "title": "标准误（SE）",
+          "content": "$SE = \\frac{s}{\\sqrt{n}}$",
+          "description": "标准误等于样本标准差除以样本量的平方根。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "直接使用方差陷阱",
+          "description": "计算标准误时，学生容易错误地将方差 121 直接当作标准差代入分子。识别方法：看清单位“squared centimetres”以及“variance”一词，必须先开方。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算样本标准差",
+          "content": "对方差开平方：$s = \\sqrt{121} = 11$。解答 a 问。",
+          "tag": "计算"
+        },
+        {
+          "title": "代入标准误公式",
+          "content": "将 $n=100$ 和计算得出的 $s=11$ 代入：$SE = \\frac{11}{\\sqrt{100}}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结果",
+          "content": "计算得到 $SE = \\frac{11}{10} = 1.1$。解答 b 问。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Standard Deviation",
+      "Standard Error",
+      "Descriptive Statistics"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-12",
+    "type": "choice",
+    "question": "A sample of 64 independent Bernoulli random variables have been observed. The variance of the sum of these random variables is 10.24, so the standard deviation of the average of these random variables is",
+    "options": [
+      "0.25",
+      "0.05",
+      "0.02",
+      "0.4"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "均值的标准差等于总和的标准差除以 n。总标准差为 3.2，除以 64 后得到 0.05。",
+      "decoding": [
+        "已知 $n=64$ 个独立变量的总和（Sum）的方差为 10.24。",
+        "要求求出这些变量均值（Average）的标准差。"
+      ],
+      "conditions": [
+        {
+          "title": "随机变量缩放法则",
+          "content": "$Var(\\frac{S}{n}) = \\frac{1}{n^2} Var(S)$",
+          "description": "均值是总和除以 $n$，其方差等于总和方差除以 $n$ 的平方。"
+        },
+        {
+          "title": "标准差换算法则",
+          "content": "$SD(\\frac{S}{n}) = \\frac{SD(S)}{n}$",
+          "description": "常数提取法则中，标准差的倍数直接等于常数的绝对值，因此均值的标准差等于总和的标准差除以 $n$。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "常数缩放陷阱",
+          "description": "学生容易混淆标准误的推导与此题已知条件。如果已知的是“单个变量方差”，则标准误是除以 $\\sqrt{n}$；但本题已知是“总和的方差”，转化为均值需要除以 $n^2$（方差）或除以 $n$（标准差）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取已知量",
+          "content": "总和记为 $S$，已知 $Var(S) = 10.24$，$n = 64$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算总和的标准差",
+          "content": "对总和方差开根号：$SD(S) = \\sqrt{10.24} = 3.2$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算均值的标准差",
+          "content": "均值等于 $\\frac{S}{64}$。代入换算公式：$SD(\\text{Average}) = \\frac{SD(S)}{64} = \\frac{3.2}{64}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "$SD(\\text{Average}) = 0.05$。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：混淆了方差与标准差的缩放系数。正确概念：方差的常数提取需平方，标准差则是直接提取常数。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：使用了错误的分母或进行了多次除法。正确概念：计算 $\\frac{3.2}{64}$ 即可得到准确结果。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：把 10.24 直接当成某个倍数关系进行推算。正确概念：必须严格按照线性组合公式，利用已知总和属性反推均值属性。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Variance Properties",
+      "Standard Error",
+      "Linear Transformation of Random Variables"
+    ],
+    "source": "Mixed"
+  }
+]

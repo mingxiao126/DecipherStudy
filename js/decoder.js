@@ -791,23 +791,25 @@ class LogicDecoder {
         if (!text) return '';
         let processed = String(text);
 
-        // 1. 保护作为货币使用的 $ 符号，防止其被误认为 LaTeX 界定符
-        processed = processed.replace(/(\d+(?:,\d+)*(?:\.\d+)?)\s*\$(?!\S)/g, '$1 &#36;');
-        processed = processed.replace(/(^|\s)\$(\d+(?:,\d+)*(?:\.\d+)?)/g, '$1&#36;$2');
+        // 1. Protect currency signs - but ONLY if they are NOT followed by math commands
+        processed = processed.replace(/(\d+(?:,\d+)*(?:\.\d+)?)\s*\$(?!\s*\\[a-zA-Z])/g, '$1 &#36;');
+        processed = processed.replace(/(^|\s)\$(?!\s*\\[a-zA-Z])(\d+(?:,\d+)*(?:\.\d+)?)/g, '$1&#36;$2');
 
-        // 2. 修复双重转义的 LaTeX 命令 (例如 \\frac -> \frac)
-        // 这是因为 JSON 文件中常出现 "\\\\frac" ，被 JS 解析为 "\\frac" 
+        // 2. 修复双重转义的 LaTeX 命令
         processed = processed.replace(/\\\\(?=[a-zA-Z])/g, '\\');
 
         // 2.5 启发式识别：如果文本中包含 LaTeX 命令但没有界定符，自动包裹它
-        // 匹配逻辑：包含 \frac, \text, \sqrt, \sum, \mu, \sigma, \alpha 等典型指令但整段没有 $ 或 \(
+        const hasChinese = /[\u4e00-\u9fa5]/.test(processed);
         const hasRawLatex = /\\(frac|text|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla)\{?/.test(processed);
         const hasDelimiters = processed.includes('$') || processed.includes('\\(') || processed.includes('\\[') || processed.includes('$$');
 
         if (hasRawLatex && !hasDelimiters) {
-            // 如果整行看起来就是一个公式，或者包含明显的 LaTeX 指令且没有被保护
-            // 我们尝试将其包裹在行内公式中
-            processed = `\\(${processed}\\)`;
+            if (!hasChinese) {
+                processed = `\\(${processed}\\)`;
+            } else {
+                // 对于混合文本，尝试仅包裹 LaTeX 指令岛
+                processed = processed.replace(/(\\(?:frac|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla)(?:\{[^{}]*\}|[^{}\s])*)/g, '\\($1\\)');
+            }
         }
 
         // 3. 处理由分号隔开的内联列表 (如 "1. A; 2. B")

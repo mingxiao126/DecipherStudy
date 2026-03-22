@@ -105,5 +105,50 @@
     "originalInputMode": "text",
     "movedAt": "2026-03-17T01:37:56.135Z",
     "movedTarget": "user:zhusiyu"
+  },
+  {
+    "id": "inbox_1774171647815_atpph",
+    "fileName": "practice_econ102_chapter18_基础.json",
+    "displayName": "econ102 - chapter18（基础）",
+    "type": "practice",
+    "subject": "econ102",
+    "userId": "zhusiyu",
+    "schoolId": "ualberta",
+    "createdAt": "2026-03-22T09:27:27.815Z",
+    "status": "moved_to_user",
+    "sourceScopeHint": "user",
+    "originalInputMode": "text",
+    "movedAt": "2026-03-22T09:27:32.615Z",
+    "movedTarget": "user:zhusiyu"
+  },
+  {
+    "id": "inbox_1774171886386_ydfr0",
+    "fileName": "practice_econ102_chapter18_练习一.json",
+    "displayName": "econ102 - chapter18（练习一）",
+    "type": "practice",
+    "subject": "econ102",
+    "userId": "zhusiyu",
+    "schoolId": "ualberta",
+    "createdAt": "2026-03-22T09:31:26.386Z",
+    "status": "moved_to_user",
+    "sourceScopeHint": "user",
+    "originalInputMode": "text",
+    "movedAt": "2026-03-22T09:33:31.746Z",
+    "movedTarget": "user:zhusiyu"
+  },
+  {
+    "id": "inbox_1774172007314_koj95",
+    "fileName": "practice_econ102_chapter18_练习二.json",
+    "displayName": "econ102 - chapter18（练习二）",
+    "type": "practice",
+    "subject": "econ102",
+    "userId": "zhusiyu",
+    "schoolId": "ualberta",
+    "createdAt": "2026-03-22T09:33:27.314Z",
+    "status": "moved_to_user",
+    "sourceScopeHint": "user",
+    "originalInputMode": "text",
+    "movedAt": "2026-03-22T09:33:35.379Z",
+    "movedTarget": "user:zhusiyu"
   }
 ]

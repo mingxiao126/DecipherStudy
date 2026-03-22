@@ -238,7 +238,12 @@
                 // 3. 修复货币 $ 冲突 (针对 PRAC_LAT_003 启发式)
                 fixed = fixed.replace(/\$([0-9.,]+)(?!\$)/g, '$1 $');
 
-                // 4. 修复缺失的 LaTeX 界定符 (针对 QA_LATEX_004)
+                // 4. 修复缺失或错误的 LaTeX 界定符 (针对 QA_LATEX_004)
+                // 如果界定符内包含中文，视为“脏界定符”，先剥离
+                if (/\\\(.*[\u4e00-\u9fa5].*\\\)/.test(fixed) || /\$.*[\u4e00-\u9fa5].*\$/.test(fixed)) {
+                    fixed = fixed.replace(/\\\(|\\\)/g, ' ').replace(/\$/g, ' ');
+                }
+
                 const latexCommands = 'frac|text|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla';
                 const hasRawLatexRegex = new RegExp(`\\\\(${latexCommands})(\\{|\\b)`);
                 const hasDelimiters = fixed.includes('$') || fixed.includes('\\(') || fixed.includes('\\[') || fixed.includes('$$');
@@ -659,6 +664,70 @@
         if (!validateBtn) return;
 
         validateBtn.textContent = '先校验';
+
+        // Dynamic Subject Loading
+        const loadUserSubjects = async () => {
+            const subjectEl = document.getElementById('datasetSubject');
+            if (!subjectEl) return;
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const userId = urlParams.get('user');
+
+            if (!userId) {
+                subjectEl.innerHTML = '<option value="">请提供 ?user= 参数以加载科目</option>';
+                return;
+            }
+
+            try {
+                const res = await fetch(`/api/users/${userId}/context`);
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.accessibleSubjects && Array.isArray(data.accessibleSubjects)) {
+                        subjectEl.innerHTML = data.accessibleSubjects.map(s => 
+                            `<option value="${s.id}">${s.label || s.id}</option>`
+                        ).join('');
+                        
+                        // Add a manual input option as fallback
+                        const hr = document.createElement('option');
+                        hr.disabled = true;
+                        hr.textContent = '──────────';
+                        subjectEl.appendChild(hr);
+                        
+                        const manual = document.createElement('option');
+                        manual.value = "__MANUAL__";
+                        manual.textContent = "+ 其他新科目 (手动输入)";
+                        subjectEl.appendChild(manual);
+                        
+                        subjectEl.addEventListener('change', () => {
+                            if (subjectEl.value === "__MANUAL__") {
+                                const newSub = prompt("请输入新科目名称（例如：MAT101）：");
+                                if (newSub) {
+                                    const opt = document.createElement('option');
+                                    opt.value = opt.textContent = newSub;
+                                    subjectEl.insertBefore(opt, hr);
+                                    subjectEl.value = newSub;
+                                } else {
+                                    subjectEl.selectedIndex = 0;
+                                }
+                            }
+                        });
+                    } else {
+                        throw new Error('No accessible subjects found');
+                    }
+                } else {
+                    throw new Error(`API Error: ${res.status}`);
+                }
+            } catch (err) {
+                console.error('Failed to load subjects:', err);
+                subjectEl.innerHTML = `
+                    <option value="经济学">经济学 (Fallback)</option>
+                    <option value="统计学">统计学 (Fallback)</option>
+                    <option value="eesa07">EESA07 (Fallback)</option>
+                `;
+            }
+        };
+
+        loadUserSubjects();
 
         const confirmBtn = getOrCreateConfirmUploadBtn();
 

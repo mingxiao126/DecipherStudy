@@ -1,0 +1,489 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "The economy of Novalis is currently at macroeconomic equilibrium. Suddenly, a severe stock market crash destroys a significant amount of household wealth, causing consumers to drastically reduce their spending overnight. Before businesses have a chance to adjust their production schedules, what will immediately happen in this economy?",
+    "options": [
+      "The potential output of the economy will immediately decrease.",
+      "Businesses will experience an unplanned buildup of extra inventories.",
+      "Aggregate expenditure will temporarily exceed total production.",
+      "The Bank of Canada will immediately raise the risk premium to compensate."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "消费骤减意味着总支出突然变小，此时原来的生产量还未来得及缩减，导致产出大于支出，卖不出去的商品堆积形成非计划库存增加。",
+      "decoding": [
+        "题干描述了一个经济体在均衡状态下遭受财富冲击（股市崩盘），导致消费骤减（总支出下降）。",
+        "要求判断在企业调整生产时间滞后的瞬间，经济体内会立刻发生的状况。"
+      ],
+      "conditions": [
+        {
+          "title": "宏观经济均衡被打破",
+          "content": "$Y > AE \\implies \\Delta \\text{Inventory} > 0$",
+          "description": "当实际产出大于计划总支出时，未售出的商品成为非计划库存增加。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆潜在产出与实际产出",
+          "description": "学生可能认为股市崩盘会破坏生产能力。识别方法：股市崩盘短期冲击的是需求端（消费支出），而不改变机器设备等长期生产潜能（Potential Output）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析冲击对总支出的影响",
+          "content": "消费 $C$ 骤减，导致总支出 $AE$ 突然变小。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "比对生产与支出的关系",
+          "content": "短期内产出 $Y$ 还未来得及缩减，导致 $Y > AE$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "推导库存变化并得出结论",
+          "content": "卖不出去的商品只能堆积在仓库中，形成非计划的额外库存积压（unplanned buildup of extra inventories）。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：认为潜在产出会立即下降。正确概念：潜在产出由技术和资源禀赋决定，短期需求冲击不会改变潜在产出。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：认为支出超过了产出。正确概念：消费减少导致的是支出低于产出（$AE < Y$），而不是超过。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：央行直接干预风险溢价。正确概念：风险溢价由金融市场自发决定，且货币政策通常存在决策滞后，不会是“瞬间”发生的直接反应。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Macroeconomic Equilibrium",
+      "Unplanned Inventory Investment",
+      "Aggregate Expenditure"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "Why is the IS (Investment-Spending) curve downward-sloping?",
+    "options": [
+      "Because higher inflation naturally leads to higher nominal interest rates.",
+      "Because lower real interest rates reduce the opportunity cost of spending, thereby boosting aggregate expenditure and leading to a more positive output gap.",
+      "Because when the output gap is negative, businesses are forced to lower the prices of their goods.",
+      "Because the Bank of Canada always lowers interest rates when the economy is \"too hot.\""
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "IS曲线向下倾斜的根本原因是实际利率与总支出之间的反向关系。较低的利率降低了储蓄的吸引力（机会成本），从而刺激投资和消费支出，拉动产出上升。",
+      "decoding": [
+        "题干要求解释 IS 曲线（投资-储蓄曲线）具有向下倾斜斜率的根本原因。",
+        "需要回到利率影响总支出成分的微观决策逻辑中寻找答案。"
+      ],
+      "conditions": [
+        {
+          "title": "IS 曲线的传导机制",
+          "content": "\\(r \\downarrow \\implies (C \\uparrow, I \\uparrow) \\implies AE \\uparrow \\implies Y \\uparrow\\)",
+          "description": "实际利率下降，使得借款成本和存钱的机会成本双双降低，进而推高总支出和产出缺口。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆 IS 曲线与 MP 曲线/菲利普斯曲线",
+          "description": "学生可能将央行对经济过热的反应（货币政策规则）或者物价变动当作 IS 曲线的成因。识别方法：IS 曲线描述的是产品市场的均衡，起点必须是给定的利率如何影响需求。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "明确 IS 曲线坐标轴",
+          "content": "纵轴是实际利率（Real Interest Rate），横轴是产出缺口（Output Gap）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析利率变动的微观影响",
+          "content": "当实际利率较低时，企业借钱投资的成本降低，同时家庭放弃消费去存钱的机会成本也变低。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "这使得计划投资和消费增加，总支出上升，推动产出增加（向右下方移动）。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：描述的是费雪效应相关现象。正确概念：IS 曲线探讨的是实际利率与实际产出之间的关系，与名义利率和通胀的直接转换无关。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：描述的是菲利普斯曲线或总供给曲线背后的价格调整机制。正确概念：价格调整不是 IS 曲线向下倾斜的原因。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：央行的行为逻辑颠倒。正确概念：经济过热时央行通常会提高（而不是降低）利率；且这是货币政策反应函数（MP 曲线）的逻辑，而非 IS 曲线的逻辑。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "IS Curve",
+      "Opportunity Cost",
+      "Real Interest Rate",
+      "Aggregate Expenditure"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "choice",
+    "question": "Suppose the Bank of Canada sets the nominal overnight interest rate at 4.0%, and the current inflation rate is 2.0%. A year later, a global supply chain crisis causes the inflation rate to spike to 5.0%, but the Bank of Canada decides to keep the nominal overnight interest rate unchanged at 4.0%. What happens to the risk-free real interest rate?",
+    "options": [
+      "It increases to 9.0%.",
+      "It remains unchanged at 2.0%.",
+      "It decreases to -1.0%.",
+      "It decreases to 1.0%."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "初始实际利率为 4.0% - 2.0% = 2.0%。通胀升至 5.0% 后，名义利率维持 4.0% 不变，新的实际利率为 4.0% - 5.0% = -1.0%。",
+      "decoding": [
+        "题干给出了央行设定的名义利率（4.0%保持不变），以及两期的通胀率（2.0% 和 5.0%）。",
+        "要求计算通胀飙升后实际无风险利率的具体数值变化。"
+      ],
+      "conditions": [
+        {
+          "title": "费雪方程式",
+          "content": "\\(r = i - \\pi\\)",
+          "description": "实际利率等于名义利率减去通货膨胀率。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "名义与实际不分",
+          "description": "学生容易认为只要央行不调整基准利率，利率环境就没有发生改变。识别方法：通胀本身就是影响借款人真实资金成本的核心因素，名义不变时，高通胀等同于真实降息。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取已知数据",
+          "content": "名义利率 i = 4.0，第一期通胀 \\pi_1 = 2.0，第二期通胀 \\pi_2 = 5.0%%。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算初始实际利率",
+          "content": "$r_1 = 4.0 - 2.0 = 2.0$%。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算变化后的实际利率",
+          "content": "$r_2 = 4.0 - 5.0 = -1.0$%。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "实际利率降至负数（-1.0%），对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：将名义利率和新的通胀率相加。正确概念：实际利率是名义利率扣减通胀，而非相加。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：只看到了名义利率没变，误以为实际利率也不变。正确概念：通货膨胀率变化会直接改变实际利率。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：公式相减方向错误或算术错误（可能用 5.0 - 4.0 得到了正的 1.0）。正确概念：必须用名义利率减去通胀率，结果可以是负数。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Fisher Equation",
+      "Inflation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "choice",
+    "question": "Assuming the Bank of Canada holds the risk-free real interest rate constant, which of the following borrowers will likely be charged the highest risk premium by the financial markets?",
+    "options": [
+      "A young tech startup with no physical assets applying for an unsecured business expansion loan.",
+      "A wealthy individual taking out a mortgage secured by a 2 million dollars mansion.",
+      "A consumer taking out a car loan secured by a brand-new vehicle.",
+      "The federal government issuing a 10-year treasury bond."
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "初创企业不仅前景充满不确定性，且没有任何物理资产作为抵押（unsecured），对金融机构而言违约风险最高，因此会被收取最高的风险溢价。",
+      "decoding": [
+        "题干假设基准无风险利率恒定，要求在四个不同的借款主体中选出风险溢价（Risk Premium）最高的一个。",
+        "判定标准依据各主体的违约风险（riskiness）和是否有优质抵押物（collateral）。"
+      ],
+      "conditions": [
+        {
+          "title": "风险溢价决定因素",
+          "content": "\\(\\text{Risk Premium} = f(\\text{Default Risk}, \\text{Collateral})\\)",
+          "description": "贷款违约概率越高、抵押物越少或越不值钱，金融机构要求的风险溢价就越高。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "金额大小迷惑",
+          "description": "学生可能认为 200 万美元的豪宅贷款金额极其巨大，所以风险溢价肯定高。识别方法：只要有足额的优质不动产作为抵押，即便金额大，银行的实际损失风险仍然很低。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "逐一分析借款人的违约风险",
+          "content": "政府发行国债几乎没有违约风险；有豪宅或新车抵押的贷款，银行在违约时可没收资产，风险较低。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "评估初创企业的风险",
+          "content": "初创企业倒闭率高，且本题强调其是“无抵押（unsecured）”贷款。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "一旦初创企业破产，银行将血本无归，因此必须要求极高的风险溢价予以补偿。对应选项 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：高估了抵押贷款的风险。正确概念：豪宅本身就是极好的抵押物，大大降低了银行面临的风险敞口。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：汽车贷款也有实物抵押。正确概念：新车可以被随时收回（repo），风险显著低于无抵押商业贷款。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：联邦政府被视为无风险主体。正确概念：国债利率通常被直接用作无风险基准利率，其风险溢价接近于零。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Risk Premium",
+      "Collateral",
+      "Credit Risk"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "An economy's actual output is currently 2.2 trillion dollars, while its potential output is 2.0 trillion dollars. According to macroeconomic theory, what is the primary driver of this situation, and why is it considered unsustainable?",
+    "options": [
+      "Weak aggregate expenditure; businesses are forced to store excessive inventory.",
+      "Strong aggregate expenditure; suppliers are forced to run extra overnight shifts and defer machine maintenance to meet the high demand.",
+      "The central bank has set the nominal interest rate too high, suppressing investment.",
+      "The risk premium in the financial market has collapsed to zero."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "实际产出大于潜在产出（正缺口）通常是由于总支出过度旺盛引起的，这迫使企业过度使用产能（如让工人加班、推迟机器保养），长期来看这种超负荷运转是不可持续的。",
+      "decoding": [
+        "题干给出了实际产出（2.2 兆）大于潜在产出（2.0 兆）的情境。",
+        "要求分析这种“正产出缺口”（经济过热）的根本驱动力以及其微观不可持续性的表现。"
+      ],
+      "conditions": [
+        {
+          "title": "正产出缺口的形成",
+          "content": "\\(AE > Y^* \\implies Y > Y^*\\)",
+          "description": "当计划总支出（需求）异常强劲时，会拉动实际产出暂时性地超过经济长期的健康潜在产能。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "对“超过潜能”的误解",
+          "description": "学生可能疑惑为什么能生产出“大于潜在极值”的商品。识别方法：这里的潜能是指长期的、可持续的正常运转水平；短期的压榨式加班是可以暂时突破这个水平的，但会付出机器加速损耗的代价。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "判定产出缺口状态",
+          "content": "实际产量 2.2 兆 > 潜在产量 2.0 兆，经济处于过热（Too hot）状态。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "寻找驱动力",
+          "content": "工厂不会无缘无故疯狂生产，必然是前端的需求（Strong aggregate expenditure）极为旺盛导致。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "分析微观不可持续性",
+          "content": "为了满足超额需求，工厂只能强制工人加班、牺牲设备的维护时间，这种超负荷状态在长期内必定无法维持。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：描述的是经济低迷（负缺口）的情景。正确概念：本题中实际产量大于潜在产量，是强劲的需求而非疲软的需求驱动的。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：高利率会抑制需求导致衰退。正确概念：当前经济处于过热状态，往往是因为利率偏低或扩张性政策刺激所致。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：风险溢价归零极度不现实且不是根本驱动力。正确概念：核心动因是宏观总支出水平的亢奋。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Output Gap",
+      "Potential Output",
+      "Business Cycle",
+      "Aggregate Expenditure"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "essay",
+    "question": "The economy of Arcadia is currently facing economic turbulence. You are an economist hired to analyze its current state. You have collected the following macroeconomic data for the current year:\n- Consumer spending ($C$): 1,200 billion dollars\n- Planned Investment ($I$): 300 billion dollars\n- Government Purchases ($G$): 400 billion dollars\n- Net Exports (NX): -50 billion dollars (Trade deficit)\n- Actual Output produced by suppliers (GDP): 1,800 billion dollars\n- Potential Output of Arcadia: 2,000 billion dollars\nNote: Last year's inflation rate was 2.5, but it is not expected to affect this year's output capacity.\n\nQuestions:\nA) Identify any irrelevant information (distractors) in the prompt above.\nB) Calculate Arcadia's total Aggregate Expenditure (AE%).\nC) Compare the Actual Output with the Aggregate Expenditure. What is the exact dollar amount of the difference? Will businesses' inventories unexpectedly pile up or deplete?\nD) In the short run, how will factory managers adjust their production to reach macroeconomic equilibrium? (Will they ramp up or cut back?)\nE) Calculate Arcadia's Output Gap. According to the Goldilocks approach, what state is this economy in, and what is the root cause?",
+    "answer": "A) Last year's inflation rate (2.5%) is irrelevant.\nB) AE = 1200 + 300 + 400 + (-50) = 1,850 billion dollars.\nC) The difference is 50 billion dollars ($AE > Y$). Inventories will unexpectedly deplete.\nD) Factory managers will ramp up production to meet the high demand.\nE) Output Gap = -10%. The economy is \"Too cold\" because aggregate expenditure, though greater than actual output, is still far below potential output.",
+    "analysis": {
+      "decoding": [
+        "题干给出了多项宏观经济总量的数值，要求从中剔除干扰项，并逐步计算总支出 $AE$。",
+        "随后要求对比实际产出 $Y$ 和总支出 $AE$，推断非计划库存的变动及企业的应对策略。",
+        "最后计算产出缺口并定性分析经济状态。"
+      ],
+      "conditions": [
+        {
+          "title": "总支出公式",
+          "content": "$AE = C + I + G + NX$",
+          "description": "用于计算经济体内真实发生的计划总需求。"
+        },
+        {
+          "title": "库存调节机制",
+          "content": "\\(AE > Y \\implies \\Delta \\text{Inventory} < 0\\)",
+          "description": "当人们想买的商品（AE）大于工厂当期生产的商品（Y）时，企业只能消耗存量库存来发货。"
+        },
+        {
+          "title": "产出缺口计算",
+          "content": "\\(\\text{Output Gap} = \\frac{Y - Y^*}{Y^*}\\)",
+          "description": "实际产出相对潜在产出的偏离率。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆库存消耗与积压",
+          "description": "这道题中 $AE > Y$（1850 > 1800），与常见的生产过剩不同，这里是“生产不足”，因此库存会被迅速消耗殆尽（deplete），企业下一期必须增加生产（ramp up）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "剔除干扰信息",
+          "content": "去年的通胀率（2.5%）不影响当前的产出和支出核算，属于完全的干扰项。解答 A 问。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算总支出 AE",
+          "content": "代入公式：$AE = 1200 + 300 + 400 + (-50) = 1850$ 十亿美元。解答 B 问。",
+          "tag": "计算"
+        },
+        {
+          "title": "推断库存动向",
+          "content": "对比得出 $AE (1850) > Y (1800)$，差额为 50 十亿美元。需求旺盛导致库存意料之外地快速下降（deplete）。解答 C 问。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "推导企业对策",
+          "content": "为了补充见底的库存并满足客户需求，经理们会在下一周期加速增产（ramp up production）。解答 D 问。",
+          "tag": "结论"
+        },
+        {
+          "title": "计算产出缺口与定性",
+          "content": "代入公式：$\\frac{1800 - 2000}{2000} = \\frac{-200}{2000} = -0.1$。缺口为 -10%，属于负缺口。虽然眼下需求大于了缩减后的产出，但在宏观尺度上，经济远远没有达到 2000 的潜能，因此依然处于“太冷（Too cold）”的衰退状态。解答 E 问。",
+          "tag": "计算"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Aggregate Expenditure",
+      "Macroeconomic Equilibrium",
+      "Inventory Adjustment",
+      "Output Gap"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-07",
+    "type": "essay",
+    "question": "The Governor of the Bank of Canada is looking at an economy with an Output Gap of +3.5% (a \"Too Hot\" economy). The current inflation rate is 4.0%. Currently, the Bank of Canada has set the nominal overnight interest rate at 5.0%.\n\nIn the financial markets on Bay Street:\n- The risk premium for a 25-year residential mortgage is 2.0%.\n- The risk premium for an unsecured small business loan is 8.0%.\n\nQuestions:\nA) Calculate the current risk-free real interest rate set by the Bank of Canada.\nB) Calculate the final real interest rate actually paid by a family taking out a residential mortgage, and the real interest rate paid by a small business taking out an unsecured loan.\nC) Policy Action: To cool down the \"too hot\" economy, the Bank of Canada decides to aggressively hike the nominal overnight interest rate to 7.5%. Assuming the inflation rate temporarily stays at 4.0%, calculate the new risk-free real interest rate.\nD) The Mechanism: Using the Opportunity Cost Principle, explain exactly how this new, higher real interest rate will alter the behavior of the family (regarding consumption, $C$) and the small business (regarding planned investment, $I$).\nE) Visualizing the IS Curve: Describe how this policy action is represented on the IS Curve graph. Does the curve itself shift, or is there a movement along the curve? What ultimately happens to the Output Gap?",
+    "answer": "A) Current risk-free real rate = 1.0%.\nB) Family Mortgage Real Rate = 3.0%. Small Business Real Rate = 9.0%.\nC) New risk-free real rate = 3.5%.\nD) The higher real interest rate increases the opportunity cost of spending (saving money becomes more rewarding, and borrowing becomes more expensive). Consequently, the family will reduce consumption ($C$), and the small business will reduce planned investment ($I$).\nE) This policy action represents a movement up along the IS curve. Ultimately, the Output Gap will move to the left, becoming less positive (narrowing the gap) as the economy cools down.",
+    "analysis": {
+      "decoding": [
+        "这是一道宏观货币政策的完整推演题。",
+        "需要经过：名义利率换算实际利率 $\\implies$ 叠加风险溢价得出最终利率 $\\implies$ 加息政策冲击 $\\implies$ 机会成本行为改变 $\\implies$ IS曲线图像变动的闭环分析。"
+      ],
+      "conditions": [
+        {
+          "title": "费雪方程式与最终利率模型",
+          "content": "$r_{\\text{risk-free}} = i - \\pi, \\quad r_{\\text{final}} = r_{\\text{risk-free}} + \\text{Risk Premium}$",
+          "description": "先剥离通胀得到无风险实际利率，再根据借款人资质叠加风险溢价。"
+        },
+        {
+          "title": "紧缩性货币政策传导",
+          "content": "\\(r \\uparrow \\implies (C \\downarrow, I \\downarrow) \\implies \\text{Movement UP along IS}\\)",
+          "description": "央行加息推高全社会借贷成本，抑制需求，在纵轴为利率的 IS 图中表现为沿着曲线向上方攀升。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "名义与实际相加陷阱",
+          "description": "学生在 B 问时，容易用名义利率 5.0% 直接加上 2.0% 得到房贷利率。识别方法：风险溢价是真实存在的资金成本补偿，叠加在实际利率（剥离通胀后）之上进行理论分析更为准确。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算初始无风险实际利率",
+          "content": "$r_{\\text{risk-free}} = 5.0 - 4.0 = 1.0$%。解答 A 问。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算各类借款人最终利率",
+          "content": "家庭房贷：1.0  + 2.0 = 3.0。小微企业：1.0 + 8.0 = 9.0%%。解答 B 问。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算政策调控后的新利率",
+          "content": "名义利率升至 7.5%，通胀仍为 4.0%，新的实际无风险利率为 7.5 $ - 4.0 = 3.5$%。解答 C 问。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "分析行为改变的微观机制",
+          "content": "基于机会成本原则，实际利率升至 3.5% 意味着借钱成本飙升，存钱收益大增。这促使家庭推迟购房等大宗消费（$C$ 下降），迫使小企业取消无法覆盖高昂利息的扩张项目（$I$ 下降）。解答 D 问。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "映射至 IS 曲线与宏观结果",
+          "content": "纵轴代表实际利率，横轴代表产出缺口。实际利率的自主上升表现为沿着既有 IS 曲线向上方移动（movement up along the curve）。横轴的产出缺口随之向左收缩，正缺口变小，经济得到降温。解答 E 问。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Risk Premium",
+      "Opportunity Cost",
+      "IS Curve",
+      "Monetary Policy Transmission"
+    ],
+    "source": "Mixed"
+  }
+]

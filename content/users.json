@@ -16,5 +16,14 @@
     "updatedAt": "2026-02-22T08:14:21.920Z",
     "dataVersion": "v1",
     "isSystem": false
+  },
+  {
+    "id": "jiatianyi",
+    "displayName": "贾天一",
+    "status": "active",
+    "createdAt": "2026-03-20T02:14:28.000Z",
+    "updatedAt": "2026-03-20T02:14:28.000Z",
+    "dataVersion": "v1",
+    "isSystem": false
   }
 ]

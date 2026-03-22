@@ -799,6 +799,15 @@ class LogicDecoder {
         processed = processed.replace(/\\\\(?=[a-zA-Z])/g, '\\');
 
         // 2.5 启发式识别：如果文本中包含 LaTeX 命令但没有界定符，自动包裹它
+        // 先检查是否存在包含中文的“脏界定符”
+        const containsDirtyDelimiters = /\\\(.*[\u4e00-\u9fa5].*\\\)/.test(processed) || /\$.*[\u4e00-\u9fa5].*\$/.test(processed);
+        
+        // 如果包含脏界定符，先将其剥离，让后续的指令岛逻辑接管
+        if (containsDirtyDelimiters) {
+            processed = processed.replace(/\\\(|\\\)/g, ' ');
+            processed = processed.replace(/\$/g, ' ');
+        }
+
         const hasChinese = /[\u4e00-\u9fa5]/.test(processed);
         const hasRawLatex = /\\(frac|text|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla)\{?/.test(processed);
         const hasDelimiters = processed.includes('$') || processed.includes('\\(') || processed.includes('\\[') || processed.includes('$$');

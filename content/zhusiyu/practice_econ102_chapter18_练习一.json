@@ -1,0 +1,480 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "Suppose the total production of output (measured by GDP) in an economy is 2.5 trillion dollars, but the aggregate expenditure (AE) is 2.2 trillion dollars. According to the principle of macroeconomic equilibrium, what will happen next?",
+    "options": [
+      "Businesses will experience a shortage of inventory and will respond by ramping up production.",
+      "Extra output will be stored as inventories, and managers will respond by cutting back production.",
+      "The Bank of Canada will immediately lower the interest rate to reduce aggregate expenditure.",
+      "Consumers will automatically increase their consumption to match the total production."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "由于实际产出大于总支出，多余的产出将变成非计划库存积压，这将促使企业在未来削减产量，直到经济重新回到均衡状态。",
+      "decoding": [
+        "题干给出了经济的实际总产出 $Y = 2.5$ 兆美元，而总计划支出 $AE = 2.2$ 兆美元。",
+        "要求基于宏观经济均衡原理，预测市场接下来的动态调整过程。"
+      ],
+      "conditions": [
+        {
+          "title": "宏观经济均衡与库存调整",
+          "content": "$Y > AE \\implies \\Delta \\text{Inventory} > 0$",
+          "description": "当实际产出大于计划总支出时，未售出的商品成为非计划库存增加，促使企业在未来削减产量以恢复均衡。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "库存变动方向误判",
+          "description": "学生容易把产出大于支出时的状态误认为是“库存耗尽”。识别方法：供大于求，卖不出去的东西堆积在仓库，自然是库存增加（stored as inventories）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "比较产出与支出",
+          "content": "已知实际产出 $Y = 2.5$ 兆美元，总支出 $AE = 2.2$ 兆美元，得出 $Y > AE$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "推导库存变化",
+          "content": "由于生产量大于购买量，多出的 0.3 兆美元商品无法售出，变成了被动累积的库存。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "为了消化多余库存并避免资金占用，企业经理们会选择减产（cutting back production）。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：认为库存短缺并增产。正确概念：只有当需求（$AE$）大于产出（$Y$）时，库存才会被大量消耗从而短缺。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：引入央行干预。正确概念：本题考察的是市场自发调节机制，依靠企业自身的库存和产量调整来恢复均衡，并非依赖货币政策。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：认为消费者会自动增加消费以匹配产出。正确概念：消费取决于可支配收入等宏观因素，不会单纯因为企业多生产了就自动去购买。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Macroeconomic Equilibrium",
+      "Aggregate Expenditure",
+      "Inventory Adjustment"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "If an economy's actual output is 1.9 trillion dollars and its potential output is 2.0 trillion dollars, what is the output gap, and how would this economy be described using the \"Goldilocks approach\"?",
+    "options": [
+      "+5%; \"Too hot\"",
+      "-5%; \"Too cold\"",
+      "-0.05%; \"Too cold\"",
+      "+10%; \"Too hot\""
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "产出缺口为 -5%，负缺口表示需求疲软，经济未达到其潜能，处于 \"Too cold\" 状态。",
+      "decoding": [
+        "题干给出了实际产出 $Y = 1.9$ 兆美元和潜在产出 $Y^* = 2.0$ 兆美元。",
+        "要求计算产出缺口的百分比，并使用“金发姑娘（Goldilocks）”比喻判断经济状态。"
+      ],
+      "conditions": [
+        {
+          "title": "产出缺口公式",
+          "content": "\\(\\text{Output Gap} = \\frac{Y - Y^*}{Y^*}\\)",
+          "description": "衡量实际产出偏离潜在产出的百分比程度。"
+        },
+        {
+          "title": "金发姑娘法则判断",
+          "content": "\\(\\text{Output Gap} < 0 \\implies \\text{Too cold}\\)",
+          "description": "负的产出缺口意味着经济低迷、失业率高，被描述为“太冷”。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "百分数换算错误",
+          "description": "学生可能计算出 -0.05 后，直接选择了带有 -0.05% 的选项。识别方法：小数转换为百分数时必须乘以 100。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取已知数据",
+          "content": "实际产出 $Y = 1.9$，潜在产出 $Y^* = 2.0$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入公式计算缺口",
+          "content": "代入公式：$\\frac{1.9 - 2.0}{2.0} = \\frac{-0.1}{2.0} = -0.05$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "将 $-0.05$ 转换为百分比得到 -5%。因为是负数，表示需求不足，属于 \"Too cold\"。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：计算出的符号为正。正确概念：实际产出小于潜在产出，必须是负缺口。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：百分数转换未乘以 100。正确概念：$-0.05$ 就是 -5，而不是 -0.05%%。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：计算数值与符号完全错误。正确概念：必须严格使用实际减去潜在，再除以潜在产量。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Output Gap",
+      "Potential Output",
+      "Business Cycle",
+      "Goldilocks Economy"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "choice",
+    "question": "How does a lower real interest rate boost planned investment ($I$) in the economy?",
+    "options": [
+      "It increases the opportunity cost of spending money, making businesses want to save more.",
+      "It reduces the inflation rate, which makes equipment cheaper to buy.",
+      "It means money spent on new equipment is money not in the bank earning interest, thereby lowering the opportunity cost of investing.",
+      "It forces the government to increase its spending to balance the aggregate expenditure."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "实际利率下降意味着企业将资金存入银行能获得的利息回报减少。这降低了企业将资金用于购买新设备的“机会成本”，从而刺激投资增加。",
+      "decoding": [
+        "题干询问：较低的实际利率（lower real interest rate）是如何刺激计划投资（planned investment）增加的。",
+        "要求从微观主体决策逻辑出发，选择最准确的传导机制。"
+      ],
+      "conditions": [
+        {
+          "title": "投资的机会成本原则",
+          "content": "\\(\\text{Opportunity Cost of Investment} = \\text{Foregone Interest}\\)",
+          "description": "企业用留存收益进行实业投资的机会成本，就是放弃掉的将资金存入金融市场所能赚取的利息。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "倒置因果或混淆名义价格",
+          "description": "学生可能误以为利率降低会直接让设备的标价下降。识别方法：利率影响的是资金的跨期时间价值（利息成本/机会成本），而非物理资本品的标价本身。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "明确投资决策考量",
+          "content": "企业在决定是否投资时，不仅考虑借贷成本，还要考虑使用自有资金的机会成本。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析降息的影响",
+          "content": "当实际利率下降，存钱在银行的利息回报减少。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "因为把钱存在银行不划算了（放弃的潜在收益变小），把钱拿去买机器设备的机会成本因此降低，企业更愿意投资。对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：结论完全反转。正确概念：较低的利率会降低存钱的吸引力，从而“减少”了花钱的机会成本，让企业更倾向于花钱投资而不是储蓄。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：混淆了利率与设备价格。正确概念：利率下降改变的是资金的时间价值，并不会直接导致设备造价降低；且降息通常可能推升而非降低通胀。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：引入无关的政府行为。正确概念：这是企业基于利益最大化的微观自发调节，与政府是否被迫支出无关。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Planned Investment",
+      "Opportunity Cost Principle",
+      "Real Interest Rate",
+      "Monetary Policy Transmission"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "choice",
+    "question": "Which of the following best describes the IS curve?",
+    "options": [
+      "An upward-sloping curve showing that higher real interest rates lead to a more positive output gap.",
+      "A downward-sloping curve illustrating that lower real interest rates lead to a more positive output gap (higher output).",
+      "A horizontal line representing the risk-free interest rate set by the Bank of Canada.",
+      "A downward-sloping curve showing the relationship between the nominal interest rate and inflation."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "IS曲线是一条向下倾斜的曲线，反映了实际利率下降会导致投资和消费增加，进而推动总需求和产出上升（产出缺口变得更正）。",
+      "decoding": [
+        "题干要求选出对 IS 曲线（投资-储蓄曲线）最准确的描述。",
+        "需要明确 IS 曲线的坐标轴、斜率方向及其经济学含义。"
+      ],
+      "conditions": [
+        {
+          "title": "IS 曲线的定义",
+          "content": "\\(r \\downarrow \\implies Y \\uparrow\\)",
+          "description": "在以实际利率（$r$）为纵轴、产出缺口（$Y$）为横轴的坐标系中，IS 曲线是一条向下倾斜的曲线，反映了产品市场的均衡关系。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆曲线斜率与坐标轴",
+          "description": "学生容易把 IS 曲线和货币政策规则（MP曲线）混淆，后者可能是水平线或向上倾斜。识别方法：IS代表“需求端”，价格（利率）越低，需求（产出）越高，必然是向下倾斜。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "确定坐标轴物理意义",
+          "content": "IS 曲线反映的是实际利率与产出（或产出缺口）之间的关系。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "推导经济传导逻辑",
+          "content": "较低的实际利率会刺激企业投资和家庭消费，导致总计划支出增加，从而拉动产出上升（创造更正的产出缺口）。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "这种反向关系在图表上表现为一条向下倾斜的曲线（downward-sloping）。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：描述为向上倾斜且逻辑错误。正确概念：较高的实际利率会抑制经济，导致负的产出缺口，曲线是向下倾斜的。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：描述为水平线。正确概念：水平线通常用来表示在特定模型设定下的货币政策规则曲线（MP Curve），而不是 IS 曲线。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：混淆了坐标轴变量。正确概念：IS 曲线描述的是实际利率（Real interest rate）与产出之间的关系，而不是名义利率与通胀。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "IS Curve",
+      "Macroeconomic Equilibrium",
+      "Real Interest Rate",
+      "Output Gap"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "The Bank of Canada sets the nominal overnight rate. Which of the following statements about how this affects the economy is TRUE?",
+    "options": [
+      "The Bank sets the exact interest rate for every credit card and car loan in the country.",
+      "The overnight rate only affects government purchases and has no impact on consumer loans.",
+      "The overnight rate serves as the risk-free interest rate, which ripples through the economy, but financial markets add a risk premium based on the borrower's riskiness.",
+      "A higher risk premium set by the financial markets will decrease the final real interest rate paid by a risky borrower."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "央行设定的隔夜利率作为全社会的无风险基准利率传导至整个经济，但最终贷款利率还需由商业银行根据借款人的违约风险加上风险溢价。",
+      "decoding": [
+        "题干探讨央行设定的名义隔夜利率（基准利率）如何影响实体经济中的各种贷款利率。",
+        "要求选出描述传导机制（Ripple Effect）与风险溢价（Risk Premium）最准确的表述。"
+      ],
+      "conditions": [
+        {
+          "title": "最终借贷利率决定模型",
+          "content": "\\(i_{\\text{final}} = i_{\\text{policy}} + \\text{Risk Premium}\\)",
+          "description": "最终商业贷款的名义利率等于央行设定的政策基准利率（即无风险利率），加上针对具体借款人风险评估给出的风险溢价。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "中央计划经济错觉",
+          "description": "学生可能认为央行直接规定了所有贷款的具体利率。识别方法：央行只控制资金的水位（基准），具体浪花（各笔贷款最终利率）由市场风险决定。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "明确央行利率的角色",
+          "content": "央行设定的隔夜利率构成了整个金融体系的资金成本底座，即无风险利率（risk-free interest rate）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "理解涟漪效应",
+          "content": "基准利率的变动会像波纹一样传导（ripples through）到整个经济的信贷市场。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "最终金融市场会在基准之上，依据借款人的信用资质追加不同的风险溢价（risk premium）。对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：认为央行直接决定每笔贷款的具体利率。正确概念：央行不直接干预微观的信用卡或车贷最终定价，这由商业银行决定。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：认为基准利率对消费贷款没有影响。正确概念：基准利率变动会带动包括消费贷款在内的所有利率整体移动。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：认为高风险溢价会降低最终利率。正确概念：风险溢价是附加在基准利率之上的，高风险溢价会导致借款人支付更高的最终利率。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Ripple Effect",
+      "Risk Premium",
+      "Overnight Rate",
+      "Monetary Policy Transmission"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "essay",
+    "question": "The economy of Mapleland currently has a potential output of 500 billion dollars. Currently, the components of Aggregate Expenditure ($AE$) in Mapleland are as follows:\nConsumption ($C$): 300 billion dollars\nPlanned Investment ($I$): 80 billion dollars\nGovernment Purchases ($G$): 100 billion dollars\nNet Exports ($NX$): -10 billion dollars (a trade deficit)\n\nHowever, due to over-optimistic forecasting last year, suppliers collectively produced an actual output (GDP) of 490 billion dollars this year.\n\nQuestions:\nA) Calculate the total Aggregate Expenditure ($AE$) for Mapleland.\nB) Compare the Actual Output (GDP) to the Aggregate Expenditure ($AE$). Are people purchasing more than, less than, or exactly what businesses produced?\nC) Based on your answer in (B), what will happen to businesses' inventories? How will managers respond in the next production cycle to reach macroeconomic equilibrium?\nD) Calculate the current Output Gap of Mapleland using the actual output and potential output. Based on the Goldilocks approach, is this economy \"too hot\", \"too cold\", or \"just right\"?",
+    "answer": "A) AE = 300 + 80 + 100 + (-10) = 470 billion dollars.\nB) Actual Output (490) > AE (470). People purchase less than businesses produce.\nC) Extra output is stored as inventories. Managers respond by cutting back production.\nD) Output gap = (490 - 500) / 500 * 100% = -2%. The economy is \"Too cold\".",
+    "analysis": {
+      "decoding": [
+        "题干给出了 Mapleland 经济体的潜在产出、各项支出成分（$C, $ $I, $ $G, $ $NX$）以及当期的实际总产出。",
+        "要求计算总计划支出，对比实际产出与支出以判断库存调整方向，并计算产出缺口判定经济热度。"
+      ],
+      "conditions": [
+        {
+          "title": "总支出公式",
+          "content": "$AE = C + I + G + NX$",
+          "description": "将消费、计划投资、政府购买与净出口相加。"
+        },
+        {
+          "title": "产出缺口公式",
+          "content": "\\(\\text{Output Gap} = \\frac{Y - Y^*}{Y^*}\\)",
+          "description": "实际产出减去潜在产出，除以潜在产出。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "忽略净出口的负号",
+          "description": "贸易逆差意味着净出口为负值，如果在计算 $AE$ 时错误地将其加上，会导致总支出高估。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算总支出 AE",
+          "content": "代入公式：$AE = 300 + 80 + 100 + (-10) = 470$ 亿美元。解答 A 问。",
+          "tag": "计算"
+        },
+        {
+          "title": "对比产出与支出",
+          "content": "实际产出 $Y = 490$ 大于总支出 $AE = 470$。这表明人们购买的数量少于企业生产的数量。解答 B 问。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "判断库存与企业对策",
+          "content": "卖不出去的多余产出会转化为积压库存（extra output is stored as inventories）。为了恢复均衡，企业经理将会在下个周期削减产量（cut back production）。解答 C 问。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算产出缺口并定性",
+          "content": "代入产出缺口公式：$\\frac{490 - 500}{500} = \\frac{-10}{500} = -0.02$。转换为百分比为 -2%。负缺口意味着需求疲软，经济属于“太冷（Too cold）”。解答 D 问。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Aggregate Expenditure",
+      "Macroeconomic Equilibrium",
+      "Inventory Adjustment",
+      "Output Gap"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-07",
+    "type": "essay",
+    "question": "The Bank of Canada observes that inflation is currently running at 3.5%. To stimulate an economy that has a negative output gap, the Bank of Canada decides to lower the nominal overnight interest rate (the policy rate) to 5.0%.\n\nYou are analyzing two different borrowers in the financial market:\n- Borrower A is a large, stable corporation taking out a loan secured by its real estate. The financial market assigns a risk premium of 1.5% to this loan.\n- Borrower B is a young startup applying for an unsecured business credit card. The financial market assigns a risk premium of 9.0% to this credit card.\n\nQuestions:\nA) Calculate the risk-free real interest rate set by the Bank of Canada. (Show the formula and your work).\nB) Using the concept of the Ripple Effect and the formula for determining real interest rates, calculate the final real interest rate paid by Borrower A and Borrower B.\nC) Explain intuitively why Borrower B pays a much higher interest rate than Borrower A.\nD) Macroeconomic Impact (The IS Curve): Suppose the Bank of Canada decides to further decrease the nominal overnight rate to 3.5% (keeping inflation constant). Describe the step-by-step chain of events this creates:\n1. How does it affect the risk-free real interest rate?\n2. How does it affect Consumption ($C$) and Planned Investment ($I$)?\n3. How does this visually shift/move along the IS Curve, and what happens to the Output Gap?",
+    "answer": "A) Risk-free real rate = Nominal rate - Inflation = 5.0% - 3.5% = 1.5%.\nB) Borrower A final real rate = 1.5% + 1.5% = 3.0%. Borrower B final real rate = 1.5% + 9.0% = 10.5%.\nC) Riskier loans have higher risk premiums; loans with real estate collateral are significantly less risky than unsecured credit cards.\nD) 1. Risk-free real interest rate decreases. 2. Consumption and Planned Investment increase. 3. This is a movement down along the IS curve, causing the Output Gap to move right and become more positive (narrowing the negative gap).",
+    "analysis": {
+      "decoding": [
+        "题干模拟了央行设定基础名义利率，并要求推导不同风险借款人的最终实际借贷成本，随后要求分析降息政策的宏观传导路径。",
+        "核心任务是按步骤串联费雪方程式、风险溢价机制以及 IS 曲线的动态调整过程。"
+      ],
+      "conditions": [
+        {
+          "title": "费雪方程式",
+          "content": "\\(r_{\\text{risk-free}} = i - \\pi\\)",
+          "description": "无风险实际利率等于名义政策利率减去通货膨胀率。"
+        },
+        {
+          "title": "最终借款人实际利率",
+          "content": "\\(r_{\\text{final}} = r_{\\text{risk-free}} + \\text{Risk Premium}\\)",
+          "description": "任何借款人的最终资金成本都是在无风险实际底座上叠加自身的违约风险溢价。"
+        },
+        {
+          "title": "IS 曲线的货币传导机制",
+          "content": "\\(i \\downarrow \\implies r \\downarrow \\implies (C \\uparrow, I \\uparrow) \\implies AE \\uparrow \\implies Y \\uparrow\\)",
+          "description": "央行降息使得实际利率下降，这刺激了消费和投资，从而拉动总需求，在图表上表现为沿 IS 曲线向下移动并使得产出缺口向右扩张。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆名义与实际叠加次序",
+          "description": "学生容易直接用名义利率 5.0% 去加上风险溢价得到最终利率。识别方法：必须先将央行的名义利率转化为实际无风险利率，再统一叠加实际层面的风险溢价。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算无风险实际利率",
+          "content": "已知名义利率 i=5.0，通胀率 \\pi=3.5。代入公式：r_{risk-free} = 5.0 - 3.5 = 1.5%。解答 A 问。",
+          "tag": "计算"
+        },
+        {
+          "title": "分别计算借款人最终利率",
+          "content": "对于 Borrower A：r_A = 1.5 + 1.5 = 3.0。对于 Borrower B：r_B = 1.5 + 9.0 = 10.5%%。解答 B 问。",
+          "tag": "计算"
+        },
+        {
+          "title": "解释风险溢价差异",
+          "content": "B 是初创企业且是无抵押信用卡贷款，违约风险极大；而 A 拥有优质的房地产作为抵押物（collateral）。因此金融市场向 B 收取更高的风险溢价。解答 C 问。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "推演 IS 曲线动态传导",
+          "content": "1. 进一步降低名义利率至 3.5%，在通胀不变时，无风险实际利率将下降（降至 0%）。2. 借贷成本降低，将促使消费（$C$）和计划投资（$I$）增加。3. 在 IS 曲线图像上，表现为沿着原有曲线向下方移动（movement down along the IS curve），横轴的产出缺口将向右移动，即变得更正或缩小当前的负缺口。解答 D 问。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Risk Premium",
+      "Ripple Effect",
+      "IS Curve",
+      "Monetary Policy Transmission"
+    ],
+    "source": "Mixed"
+  }
+]

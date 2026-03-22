@@ -1,0 +1,10 @@
+{
+  "schoolId": "utsc",
+  "schoolName": "University of Toronto Scarborough",
+  "subjects": [
+    {
+      "id": "eesa07",
+      "label": "EESA07: Water"
+    }
+  ]
+}

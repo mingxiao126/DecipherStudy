@@ -233,10 +233,16 @@ class PracticeApp {
 
         // 2. Fix double-escaped latex commands
         processed = processed.replace(/\\\\(?=[a-zA-Z])/g, '\\');
+        // 2.5 启发式识别：如果文本中包含 LaTeX 命令但没有界定符，自动包裹它
+        // 先检查是否存在包含中文的“脏界定符”
+        const containsDirtyDelimiters = /\\\(.*[\u4e00-\u9fa5].*\\\)/.test(processed) || /\$.*[\u4e00-\u9fa5].*\$/.test(processed);
+        
+        // 如果包含脏界定符，先将其剥离，让后续的指令岛逻辑接管
+        if (containsDirtyDelimiters) {
+            processed = processed.replace(/\\\(|\\\)/g, ' ');
+            processed = processed.replace(/\$/g, ' ');
+        }
 
-        // 2.5 Heuristic auto-wrap for raw LaTeX
-        // CRITICAL: ONLY wrap if it does NOT contain Chinese characters (non-ASCII), 
-        // as wrapping the whole block including Chinese in \( \) causes KaTeX parsing errors.
         const hasChinese = /[\u4e00-\u9fa5]/.test(processed);
         const hasRawLatex = /\\(frac|text|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla)\{?/.test(processed);
         const hasDelimiters = processed.includes('$') || processed.includes('\\(') || processed.includes('\\[') || processed.includes('$$');
@@ -245,8 +251,7 @@ class PracticeApp {
             if (!hasChinese) {
                 processed = `\\(${processed}\\)`;
             } else {
-                // For mixed text/math, try to wrap individual islands of TeX commands
-                // This is a safety measure for raw commands like \frac{...}{...} inside Chinese text
+                // 对于混合文本，尝试仅包裹 LaTeX 指令岛
                 processed = processed.replace(/(\\(?:frac|sqrt|sum|mu|sigma|alpha|beta|gamma|delta|epsilon|phi|theta|lambda|pi|rho|tau|omega|cdot|times|le|ge|in|notin|neq|approx|iff|implies|Delta|nabla)(?:\{[^{}]*\}|[^{}\s])*)/g, '\\($1\\)');
             }
         }

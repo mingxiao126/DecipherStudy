@@ -1,0 +1,474 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "This month, a car factory produced 1,000 cars (Output). However, consumers only bought 800 cars (Aggregate Expenditure). What will happen next month?",
+    "options": [
+      "The factory's inventory will decrease, so they will produce more cars.",
+      "The factory's inventory will increase, so they will cut back production.",
+      "The factory will keep production the same because output equals expenditure.",
+      "The government will buy the extra cars."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "因为实际产出大于总支出，产品滞销导致库存增加，工厂下个月将减产。",
+      "decoding": [
+        "题干给出了本月的实际产出 (Output = 1000) 和总计划支出 (Aggregate Expenditure = 800)。",
+        "要求判断当产出大于支出时，宏观经济模型中企业的动态调整过程。"
+      ],
+      "conditions": [
+        {
+          "title": "宏观经济均衡与库存调整",
+          "content": "$Y > AE \\implies \\Delta \\text{Inventory} > 0$",
+          "description": "当实际产出大于计划总支出时，未售出的商品成为非计划库存增加，促使企业在未来削减产量以恢复均衡。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "库存变化方向判断错误",
+          "description": "学生容易混淆产出大于支出时库存是增加还是减少。识别方法：卖不出去的商品就会堆积在仓库，导致库存增加（inventory increases）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "比较产出与支出",
+          "content": "已知实际产出 $Y = 1000$，总支出 $AE = 800$，显然 1000 $ > 800$。",
+          "tag": "计算"
+        },
+        {
+          "title": "推导库存变化",
+          "content": "由于供大于求，多出的 200 辆车成为被动累积的库存，即库存增加。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "为了消化多余库存并避免资金占用，工厂下个月将减少生产（cut back production），对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：认为库存减少。正确概念：只有当需求（AE）大于产出（Output）时，库存才会被消耗从而减少。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：认为产出等于支出。正确概念：题干明确给出两者的具体数字且不相等（1000 $ \\neq 800$）。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：引入无关的政府行为。正确概念：在基本的宏观经济调整机制中，市场通过企业自身调整库存和产量来恢复均衡，并非依赖政府收购。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Macroeconomic Equilibrium",
+      "Aggregate Expenditure",
+      "Inventory Adjustment"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "You borrow money from a bank. The bank charges a 5% nominal interest rate. This year, the inflation rate is 2%. Next year, the inflation rate jumps to 4%, but your nominal interest rate stays at 5%. What happens to your real interest rate?",
+    "options": [
+      "It increases from 3% to 9%.",
+      "It decreases from 3% to 1%.",
+      "It stays the same at 5%.",
+      "It decreases from 5% to 4%."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "根据费雪方程式，实际利率从 3% 下降到了 1%。",
+      "decoding": [
+        "题干给出了固定的名义利率 5%，以及两年不同的通货膨胀率（2% 和 4%）。",
+        "要求计算并比较这两年实际利率的变化。"
+      ],
+      "conditions": [
+        {
+          "title": "费雪方程式（实际利率公式）",
+          "content": "$r = i - \\pi$",
+          "description": "实际利率 ($r$) 等于名义利率 ($i$) 减去通货膨胀率 ($\\pi$)。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "直觉反转陷阱",
+          "description": "学生可能错误地将通胀上升等同于实际利率上升。识别方法：牢记通胀是侵蚀购买力的，对于借款人来说，通胀越高，实际偿还的真实利息成本越低。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算第一年的实际利率",
+          "content": "代入公式：$r_1 = 5 - 2 = 3$%。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "计算第二年的实际利率",
+          "content": "代入公式：$r_2 = 5 - 4 = 1$%。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "对比两次计算结果，实际利率从 3% 降到了 1%，对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：认为实际利率增加了。正确概念：在名义利率不变时，通胀率的上升必然导致实际利率下降。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：将名义利率等同于实际利率。正确概念：实际利率必须扣除通货膨胀的影响，不能只看名义数字。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：公式套用完全错误（把名义利率减去了通胀的变化量，而不是通胀率本身）。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Nominal Interest Rate",
+      "Fisher Equation",
+      "Inflation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "choice",
+    "question": "The Bank of Canada lowers the real interest rate. According to the opportunity cost principle, why does a business owner decide to buy new machines (Investment) now?",
+    "options": [
+      "Because the inflation rate is zero.",
+      "Because money kept in the bank now earns very little interest.",
+      "Because the machines are cheaper to produce.",
+      "Because the government forces them to buy machines."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "因为存银行的利息回报减少了，购买机器进行投资的机会成本降低，所以企业选择投资。",
+      "decoding": [
+        "题干指出央行降低了实际利率，询问这为何会刺激企业的投资行为。",
+        "且明确要求运用“机会成本原则”（Opportunity Cost Principle）来解释这一微观逻辑传导机制。"
+      ],
+      "conditions": [
+        {
+          "title": "投资的机会成本",
+          "content": "\\(\\text{Opportunity Cost of Investment} = \\text{Interest Yield from Saving}\\)",
+          "description": "企业用资金购买资本品（机器）所放弃的最大潜在收益，就是将这笔钱存在银行所能赚取的利息。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "忽略微观基础陷阱",
+          "description": "学生通常只背诵了“利率降则投资升”的宏观结论，却不知道背后的微观动机。识别方法：必须从“放弃的利息收益减少”这一机会成本角度来寻找解释。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "定义当前情境下的机会成本",
+          "content": "企业如果把钱拿去买机器，就必须放弃把钱存入银行赚取利息的收益。这笔潜在的利息就是实业投资的机会成本。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析利率变化的影响",
+          "content": "当央行降低实际利率时，存银行所能获得的利息回报变少了。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "由于机会成本（放弃的利息收益）降低，购买机器变得相对更划算，促使企业增加计划投资。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：假设通胀率为零。正确概念：央行降息与当前通胀率是否为零无必然逻辑联系，且无法解释投资动机。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：认为是机器本身的生产成本下降。正确概念：利率下降改变的是资金的时间价值（融资成本或机会成本），而非资本品的物理造价。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：认为是政府的强制干预。正确概念：宏观经济学中利率对投资的传导是基于市场价格信号引导的自发理性决策。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Planned Investment",
+      "Opportunity Cost",
+      "Real Interest Rate",
+      "Monetary Policy Transmission"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "choice",
+    "question": "A country's Potential Output is 100 billion dollars. Its Actual Output is 105 billion dollars. Which of the following statements is TRUE?",
+    "options": [
+      "The output gap is negative, and the economy is \"too cold.\"",
+      "The output gap is positive, meaning suppliers are running extra shifts to meet high demand.",
+      "The economy is in a perfect long-run equilibrium.",
+      "Aggregate expenditure is extremely weak."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "实际产出大于潜在产出，产生正的产出缺口，意味着经济过热，企业需要通过额外加班来满足旺盛的需求。",
+      "decoding": [
+        "题干给出了潜在产出（100 billion）和实际产出（105 billion）。",
+        "要求判断当前经济的缺口方向及其对应的宏观经济状态。"
+      ],
+      "conditions": [
+        {
+          "title": "产出缺口公式",
+          "content": "\\(\\text{Output Gap} = \\frac{Y - Y^*}{Y^*} \\times 100\\)",
+          "description": "衡量实际产出 $Y$ 偏离潜在产出 $Y^*$ 的百分比。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "经济冷热反向误判",
+          "description": "学生容易把产出超出潜能误认为是“完美状态”或“健康状态”。识别方法：实际超过潜能，意味着资源被过度使用，经济处于“太热（too hot）”的状态。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "比较产出数值",
+          "content": "已知实际产出 $Y = 105$，潜在产出 $Y^* = 100$，显然 $Y > Y^*$。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算并判定缺口方向",
+          "content": "产出缺口为 $\\frac{105 - 100}{100} = 0.05$，即 $+5$%，这是一个正的产出缺口（positive output gap）。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "正缺口表明经济处于繁荣或过热期，总需求旺盛，供应商被迫让工人额外加班（running extra shifts）来满足高需求。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：认为缺口是负的且经济过冷。正确概念：实际产出大于潜在产出，是正缺口且经济过热。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：认为处于完美的长期均衡。正确概念：长期均衡要求实际产出刚好等于潜在产出（即缺口为零）。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：认为总支出非常疲软。正确概念：正是因为总支出（需求）异常强劲，才拉动了超越正常潜能的产出水平。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Output Gap",
+      "Potential Output",
+      "Actual Output",
+      "Business Cycle"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "Tom applies for a loan to buy a house (mortgage). Jerry applies for a loan to go on a vacation (unsecured personal loan). The Bank of Canada's risk-free rate is 2%. Who will pay a higher risk premium, and why?",
+    "options": [
+      "Tom, because houses are very expensive.",
+      "Jerry, because a vacation loan has no collateral (no asset to repossess), so it is riskier for the bank.",
+      "They will pay the same interest rate because the Bank of Canada sets one rate for everyone.",
+      "Tom, because the housing market is unpredictable."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "Jerry 会支付更高的风险溢价，因为度假贷款是无抵押的，借款人违约时银行无法没收资产来止损，对银行的风险更高。",
+      "decoding": [
+        "题干对比了两种典型的贷款：房屋按揭贷款（有抵押）和个人度假贷款（无抵押）。",
+        "要求根据风险溢价的原理判断哪种贷款的利率附加（Risk Premium）更高及其原因。"
+      ],
+      "conditions": [
+        {
+          "title": "风险溢价决定模型",
+          "content": "\\(i = r_{\\text{risk-free}} + \\text{Risk Premium}\\)",
+          "description": "贷款的最终利率由无风险利率和针对具体借款人/项目的违约风险溢价组成。风险敞口越大，溢价越高。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "以绝对金额判断风险",
+          "description": "学生可能下意识认为买房的金额巨大，所以风险高、溢价高。识别方法：银行看重的是“抵押物（collateral）”的有无。金额大但有房产兜底，风险反而远低于纯信用贷款。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析两者的抵押属性",
+          "content": "Tom 的房贷有真实的房子作为抵押物；Jerry 的度假贷款是一次性消费，没有实体资产作为担保。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "评估违约风险",
+          "content": "如果有抵押物，借款人违约不还钱时银行可以拍卖房产止损，风险较低；无抵押贷款违约时银行可能血本无归，属于高风险业务。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "由于 Jerry 的贷款对银行风险更大，银行会向他收取更高的风险溢价来补偿潜在损失。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：认为房屋昂贵导致高风险。正确概念：房屋作为优质抵押物极大地降低了银行的风险敞口，从而降低了风险溢价。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：认为央行决定所有人的最终利率。正确概念：央行只设定基础无风险利率，商业银行会根据具体业务风险自行附加不同的风险溢价。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：将市场波动与单笔贷款的违约损失风险完全等同。正确概念：即便市场有波动，房贷有实际资产抵押，其违约损失率依然远低于纯信用消费贷款。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Risk Premium",
+      "Interest Rate Determination",
+      "Collateral",
+      "Credit Risk"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "essay",
+    "question": "Look at the following data for an economy:\nConsumption ($C$) = 400\nPlanned Investment ($I$) = 100\nGovernment Purchases ($G$) = 150\nNet Exports ($NX$) = -50\nActual Output (GDP) produced by suppliers = 650\nPotential Output = 600\n\nQuestions:\nA) Calculate the total Aggregate Expenditure ($AE$). (Show your formula).\nB) Compare Actual Output with Aggregate Expenditure. Will businesses' inventories increase or decrease?\nC) Calculate the Output Gap. (Show your formula).",
+    "answer": "A) AE = C + I + G + NX = 400 + 100 + 150 + (-50) = 600; B) Actual Output (650) > Aggregate Expenditure (600). Because they produced more than people bought, inventories will increase; C) Output Gap = (650 - 600) / 600 * 100% = 8.33%.",
+    "analysis": {
+      "decoding": [
+        "题干给出了一国宏观经济的核心总量数据，包括支出的四大组成部分，以及实际产出与潜在产出。",
+        "要求计算总计划支出，通过对比判断库存变动方向，并计算产出缺口的具体百分比。"
+      ],
+      "conditions": [
+        {
+          "title": "总支出公式",
+          "content": "AE = C + I + G + NX",
+          "description": "总计划支出等于消费、投资、政府购买与净出口之和。"
+        },
+        {
+          "title": "产出缺口公式",
+          "content": "\\(\\text{Output Gap} = \\frac{Y - Y^*}{Y^*}\\)",
+          "description": "衡量实际产出偏离潜在产出的百分比程度。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "净出口符号错误",
+          "description": "题干中的净出口是负数（$-50$），加总时如果误当成正数加进去会导致 $AE$ 整体计算错误。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算总支出 AE",
+          "content": "代入公式：$AE = 400 + 100 + 150 + (-50) = 600$。完成 A 问。",
+          "tag": "计算"
+        },
+        {
+          "title": "比较产出与支出",
+          "content": "已知 Actual Output $Y = 650$，计算得 $AE = 600$。因为 650 $ > 600$，说明工厂生产的商品总额大于被买走的商品总额。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "判断库存走向",
+          "content": "多生产出的商品无法售出，会变成存货，因此企业的库存将会增加（Inventories will increase）。完成 B 问。",
+          "tag": "结论"
+        },
+        {
+          "title": "计算产出缺口",
+          "content": "代入产出缺口公式：$\\text{Output Gap} = \\frac{650 - 600}{600} = \\frac{50}{600} \\approx 0.0833$。换算为百分比即为 8.33%。完成 C 问。",
+          "tag": "计算"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Aggregate Expenditure",
+      "Macroeconomic Equilibrium",
+      "Inventory Adjustment",
+      "Output Gap Calculation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-07",
+    "type": "essay",
+    "question": "The Bank of Canada wants to cool down a 'too hot' economy.\nStep 1: The Bank sets the nominal interest rate at 6%.\nStep 2: The current inflation rate is 2%.\nStep 3: A local bank adds a 3% risk premium for a business loan.\n\nQuestions:\nA) Calculate the risk-free real interest rate.\nB) Calculate the final real interest rate the business will pay.\nC) Because this interest rate is now very high, what will happen to Planned Investment ($I$) and Aggregate Expenditure ($AE$)? (Answer with 'Increase' or 'Decrease').\nD) On the IS curve, does this mean we move UP the curve or DOWN the curve?",
+    "answer": "A) Risk-free real rate = 6% - 2% = 4%; B) Final real rate = 4% + 3% = 7%; C) Planned Investment ($I$) will Decrease, and Aggregate Expenditure ($AE$) will Decrease; D) We move UP the IS curve.",
+    "analysis": {
+      "decoding": [
+        "题干模拟了央行为了给过热经济降温而采取的货币紧缩政策传导过程。",
+        "要求按步骤计算无风险实际利率、企业最终实际借款利率，并推演该利率变动对投资、总支出以及 IS 曲线的传导效果。"
+      ],
+      "conditions": [
+        {
+          "title": "费雪方程式",
+          "content": "\\(r_{\\text{risk-free}} = i - \\pi\\)",
+          "description": "无风险实际利率等于名义利率减去通胀率。"
+        },
+        {
+          "title": "最终借贷利率",
+          "content": "\\(r_{\\text{final}} = r_{\\text{risk-free}} + \\text{Risk Premium}\\)",
+          "description": "企业实际承担的借款成本需要在实际无风险利率的基础上加上风险溢价。"
+        },
+        {
+          "title": "IS 曲线机制",
+          "content": "\\(r \\uparrow \\implies I \\downarrow \\implies AE \\downarrow \\implies Y \\downarrow\\)",
+          "description": "实际利率上升提高融资成本，压抑投资与总需求，在 IS 曲线上体现为沿着曲线向左上方移动。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "忘记扣除通胀",
+          "description": "在计算最终企业支付的利率时，如果直接用名义利率 6 加风险溢价 3 就会得到错误的 9。必须先转成实际利率再加。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算无风险实际利率",
+          "content": "已知名义利率 i=6，通胀率 \\pi=2，则 r_{risk-free} = 6 - 2 = 4%。完成 A 问。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算企业最终实际利率",
+          "content": "在无风险实际利率的基础上加上本地银行 3% 的风险溢价，最终实际利率为 4 $ + 3 = 7$%。完成 B 问。",
+          "tag": "计算"
+        },
+        {
+          "title": "推演对投资与支出的影响",
+          "content": "高昂的实际借款成本（7%）使得许多投资项目变得不划算，导致计划投资（$I$）减少（Decrease）；由于投资是总支出的重要组成部分，总支出（$AE$）也随之减少（Decrease）。完成 C 问。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "定位 IS 曲线移动方向",
+          "content": "在 IS 曲线模型中，纵轴是实际利率，横轴是产出。实际利率上升导致产出下降，这在曲线上表现为沿着既有的 IS 曲线向上方移动（Move UP the curve）。完成 D 问。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Risk Premium",
+      "Monetary Policy Transmission",
+      "IS Curve Dynamics"
+    ],
+    "source": "Mixed"
+  }
+]

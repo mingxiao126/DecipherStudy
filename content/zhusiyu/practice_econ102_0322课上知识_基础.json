@@ -1,0 +1,846 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "What does the MP curve illustrate?",
+    "options": [
+      "Output gap",
+      "Real interest rate",
+      "Multiplier",
+      "Government purchases"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "MP曲线代表实际利率水平。",
+      "decoding": [
+        "题干考查 MP 曲线（Monetary Policy curve）在宏观经济模型中的基本定义。",
+        "需要识别该曲线所代表的核心经济变量。"
+      ],
+      "conditions": [
+        {
+          "title": "MP 曲线定义",
+          "content": "$MP = r$",
+          "description": "在 IS-MP 框架中，MP 曲线通常由中央银行设定的实际利率（Real interest rate）决定，在图形上表现为一条水平线。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆坐标轴变量",
+          "description": "学生可能将横轴的产出缺口（Output gap）与 MP 曲线的纵轴变量混淆。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "关联关键词",
+          "content": "MP 代表货币政策（Monetary Policy），其核心操作工具就是利率。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "因此 MP 曲线反映的是实际利率（Real interest rate）。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：Output gap 是 IS-MP 模型图中的横轴变量，而非 MP 曲线本身代表的值。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：乘数（Multiplier）是一个比率，用于衡量支出变化对总产出的放大效应，与 MP 曲线无直接对应关系。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：政府购买（Government purchases）属于财政政策，影响的是 IS 曲线。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "MP Curve",
+      "Real Interest Rate",
+      "IS-MP Model"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "The Bank of Canada raises the risk-free interest rate. What happens to the MP curve?",
+    "options": [
+      "Shifts UP",
+      "Shifts DOWN",
+      "Shifts RIGHT",
+      "Shifts LEFT"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "央行提高无风险利率会导致代表实际利率的 MP 水平线向上移动。",
+      "decoding": [
+        "题干指出央行提高了无风险利率（raises the risk-free interest rate）。",
+        "要求判断这一政策动作在 IS-MP 图像中如何体现。"
+      ],
+      "conditions": [
+        {
+          "title": "MP 曲线的移动",
+          "content": "\\(r \\uparrow \\implies \\text{MP Shifts UP}\\)",
+          "description": "由于纵轴代表实际利率，利率水平的任何上升都表现为 MP 水平线的整体上移。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "左右移动陷阱",
+          "description": "学生可能习惯性地选择左右移动。识别方法：MP 曲线是一条水平线，高度由利率决定，因此只能上下移动（UP/DOWN）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析利率变化",
+          "content": "Raises 意味着实际利率 $r$ 变大，即纵轴数值变高。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "高度增加对应着曲线向上平移（Shifts UP）。对应选项 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：这是降息（lowers the interest rate）时的曲线变动方向。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：水平线不存在左右平移的概念（或者说左右平移对其图像没有意义），影响左右移动的通常是 IS 曲线。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：同上，左右移动属于 IS 曲线的变动描述。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "MP Curve",
+      "Monetary Policy",
+      "Interest Rate Shift"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "choice",
+    "question": "Financial markets become scared, so the risk premium rises. Which curve shifts?",
+    "options": [
+      "IS curve shifts RIGHT",
+      "IS curve shifts LEFT",
+      "MP curve shifts UP",
+      "MP curve shifts DOWN"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "风险溢价上升会导致经济中的实际借贷利率上升，这在模型中表现为 MP 曲线向上移动。",
+      "decoding": [
+        "题干指出金融市场恐慌导致风险溢价（risk premium）上升。",
+        "要求判断这会对 IS-MP 框架中的哪条曲线产生什么方向的影响。"
+      ],
+      "conditions": [
+        {
+          "title": "借贷利率的构成",
+          "content": "\\(r = r_{\\text{risk-free}} + \\text{Risk Premium}\\)",
+          "description": "企业和消费者面临的实际利率等于无风险利率加上风险溢价。风险溢价的变动直接改变 MP 曲线的位置。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "误认为影响 IS 曲线",
+          "description": "学生可能认为市场恐慌直接改变支出，从而认为是 IS 曲线左移。识别方法：题干明确指出变化的是“风险溢价（risk premium）”，这是利率的组成部分，应直接作用于 MP 曲线。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "归类变量",
+          "content": "风险溢价（Risk premium）属于决定利率水平的金融因素。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "判断移动方向",
+          "content": "风险溢价上升（rises）使得整体实际借贷利率 $r$ 变高。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "利率变高对应着纵轴数值上升，因此 MP 曲线向上平移（shifts UP）。对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：IS 曲线右移代表需求增加，与市场恐慌相悖。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：虽然高利率最终会抑制支出（沿 IS 曲线移动），但“风险溢价上升”这个原始冲击本身是移动 MP 曲线，而不是直接移动 IS 曲线。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：风险溢价上升导致利率上升，而不是下降。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Risk Premium",
+      "MP Curve",
+      "Financial Shock"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "choice",
+    "question": "Where is the macroeconomic equilibrium in the IS-MP framework?",
+    "options": [
+      "Where inflation is zero.",
+      "Where the IS curve intersects (crosses) the MP curve.",
+      "Where the risk premium is zero.",
+      "Where the IS curve shifts left."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "在 IS-MP 框架中，宏观经济均衡点位于 IS 曲线与 MP 曲线相交的位置。",
+      "decoding": [
+        "题干考查 IS-MP 框架中“宏观经济均衡（macroeconomic equilibrium）”的图形学定义。"
+      ],
+      "conditions": [
+        {
+          "title": "IS-MP 均衡",
+          "content": "\\(Y_{\\text{equilibrium}} \\iff IS \\cap MP\\)",
+          "description": "产品市场均衡（IS）和金融市场利率水平（MP）同时满足的点，即两条曲线的交点。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "概念混淆陷阱",
+          "description": "用通胀或风险溢价等零值状态来定义均衡。识别方法：在图形框架中，均衡永远是需求与供给或两条行为约束曲线的交点。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "回顾模型结构",
+          "content": "IS 曲线代表产品市场的产出与利率关系，MP 曲线代表现行实际利率水平。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "两者相交的点（intersects）既满足利率设定，又满足总支出等于总产出，因此是均衡点。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：宏观经济均衡时通常会有温和的通胀，不要求通胀为零。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：现实中风险溢价通常为正，且均衡的达成不依赖于风险溢价归零。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：IS 曲线左移是一种经济冲击（导致衰退），并不是均衡本身的定义。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Macroeconomic Equilibrium",
+      "IS-MP Model"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "Initial government spending increases by 40 billion dollars. The multiplier is 2. What is the total change in GDP?",
+    "options": [
+      "Increases by 20 billion dollars",
+      "Increases by 38 billion dollars",
+      "Increases by 42 billion dollars",
+      "Increases by 80 billion dollars"
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "GDP 的总变化量等于初始支出变化量乘以乘数。40 * 2 = 80。",
+      "decoding": [
+        "题干给出了初始的政府支出增加量（$\\Delta G = 40$）以及支出乘数（Multiplier = 2）。",
+        "要求计算由于这一支出冲击带来的 GDP 总变化量（Total change in GDP）。"
+      ],
+      "conditions": [
+        {
+          "title": "乘数效应公式",
+          "content": "\\(\\Delta Y = \\Delta \\text{Spending} \\times \\text{Multiplier}\\)",
+          "description": "初始支出的增加会通过循环消费引发倍数级别的 GDP 增长。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "误用运算符",
+          "description": "学生可能将支出增加量与乘数相除或相加。识别方法：乘数（Multiplier）的核心作用是“乘”法放大。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取已知数据",
+          "content": "$\\Delta \\text{Spending} = 40$ 亿，$\\text{Multiplier} = 2$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入乘数公式",
+          "content": "$\\Delta GDP = 40 \\times 2 = 80$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "因此 GDP 总共增加 80 billion dollars。对应选项 D。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：进行了除法运算（$40 / 2 = 20$）。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：进行了减法运算（$40 - 2 = 38$）。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：进行了加法运算（$40 + 2 = 42$）。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Fiscal Multiplier",
+      "Government Spending",
+      "GDP Calculation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "choice",
+    "question": "People feel very optimistic and wealthy. Consumption ($C$) rises. What happens to the IS curve?",
+    "options": [
+      "Shifts RIGHT",
+      "Shifts LEFT",
+      "Shifts UP",
+      "Shifts DOWN"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "消费属于总支出的组成部分，消费增加（自发性支出增加）会导致在任何既定利率下需求都变高，因此 IS 曲线向右移动。",
+      "decoding": [
+        "题干指出人们感到乐观和富有，导致消费（$C$）增加。",
+        "要求判断这一行为对 IS 曲线造成的影响。"
+      ],
+      "conditions": [
+        {
+          "title": "IS 曲线的平移规律",
+          "content": "\\(C \\uparrow \\implies AE \\uparrow \\implies \\text{IS Shifts RIGHT}\\)",
+          "description": "任何外生（非利率驱动）的支出（消费、投资、政府购买、净出口）增加，都会促使 IS 曲线整体向右移动。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "上下移动陷阱",
+          "description": "将 IS 曲线与 MP 曲线的移动方向混淆。识别方法：IS 曲线是水平方向判断（增加向右，减少向左），MP 曲线才是垂直方向（升高向上，降低向下）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别变量属性",
+          "content": "消费（$C$）的上升代表支出（spending）的增加，这是一种正向的支出冲击。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "推演曲线移动",
+          "content": "支出增加刺激了经济，使得产量扩张，在横轴上表现为向右侧平移。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "因此 IS 曲线向右移动（Shifts RIGHT）。对应选项 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：这是消费下降（需求疲软）时的曲线移动方向。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：在标准 IS-MP 分析中，通常用左右平移描述 IS 曲线的需求变动。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：同上，IS 曲线主要以左右移动为主。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "IS Curve",
+      "Consumption",
+      "Spending Shock"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-07",
+    "type": "choice",
+    "question": "The government decreases corporate taxes. Planned investment ($I$) increases. What happens?",
+    "options": [
+      "IS curve shifts RIGHT",
+      "IS curve shifts LEFT",
+      "MP curve shifts UP",
+      "MP curve shifts DOWN"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "计划投资增加属于总支出的增加，这将导致 IS 曲线整体向右移动。",
+      "decoding": [
+        "题干指出企业税减免导致了计划投资（$I$）增加。",
+        "要求判断这属于什么冲击，影响哪条曲线向哪个方向移动。"
+      ],
+      "conditions": [
+        {
+          "title": "支出冲击与 IS 曲线",
+          "content": "\\(I \\uparrow \\implies AE \\uparrow \\implies \\text{IS Shifts RIGHT}\\)",
+          "description": "计划投资作为总支出的组成部分，其外生增加（非因利率下降引起）会使得在每一个给定的利率水平下产出需求都更高，表现为 IS 曲线右移。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆影响 MP 曲线的因素",
+          "description": "学生可能把税收或投资政策当作货币/金融政策。识别方法：只要不直接涉及基准利率或风险溢价，就不移动 MP 曲线。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "对冲击进行分类",
+          "content": "计划投资（$I$）的增加是一种“支出冲击（Spending shock）”。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "判断曲线移动方向",
+          "content": "因为是花钱（spending）增加了，这属于正向刺激，因此作用于 IS 曲线，且使其向右（RIGHT）移动。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "IS 曲线向右移动，对应选项 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：这是投资减少时发生的状况。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：MP 曲线受利率或金融风险影响，不受政府税收或实体投资直接驱动。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：同上，这是央行降息时的曲线反映。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "IS Curve",
+      "Planned Investment",
+      "Spending Shock"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-08",
+    "type": "choice",
+    "question": "Global demand for Canadian goods falls. Net exports ($NX$) decrease. What is the result?",
+    "options": [
+      "IS curve shifts RIGHT",
+      "IS curve shifts LEFT",
+      "MP curve shifts UP",
+      "MP curve shifts DOWN"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "净出口的减少代表总支出下降，这构成了负向的支出冲击，导致 IS 曲线向左移动。",
+      "decoding": [
+        "题干指出全球需求下降导致净出口（$NX$）减少。",
+        "要求判断这一事件对 IS-MP 模型的图形影响。"
+      ],
+      "conditions": [
+        {
+          "title": "净出口与 IS 曲线",
+          "content": "\\(NX \\downarrow \\implies AE \\downarrow \\implies \\text{IS Shifts LEFT}\\)",
+          "description": "净出口是总需求的四大构成之一。其减少意味着整体支出水平下降，IS 曲线向左平移。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "反向直觉陷阱",
+          "description": "遇到带有“需求”字眼的内容时，可能脑子发热选 RIGHT。识别方法：仔细看清楚是 falls（下降）和 decrease（减少）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "归类宏观变量",
+          "content": "净出口（$NX$）是支出项（Spending）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "判断移动方向",
+          "content": "因为支出减少（decrease），意味着经济需求变弱，因此 IS 曲线向左侧移动。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "IS 曲线向左平移，对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是出口强劲、净出口增加时的移动方向。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：出口的波动属于产品市场的支出冲击，不直接使得 MP 曲线移动。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：这是货币政策宽松时的图形表现。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "IS Curve",
+      "Net Exports",
+      "Spending Shock"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-09",
+    "type": "choice",
+    "question": "A change in the risk-free interest rate or the risk premium is called a:",
+    "options": [
+      "Spending shock",
+      "Financial shock",
+      "Consumer shock",
+      "Output gap"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "任何与无风险利率或风险溢价相关的变动，在宏观模型中都被统称为金融冲击（Financial shock），它们会导致 MP 曲线的移动。",
+      "decoding": [
+        "题干要求为“无风险利率或风险溢价的变化”选择一个经济学术语归类。"
+      ],
+      "conditions": [
+        {
+          "title": "宏观冲击的分类",
+          "content": "\\(\\text{Shock} = \\begin{cases} \\text{Spending Shock}, & \\Delta (C, I, G, NX) \\\\ \\text{Financial Shock}, & \\Delta (r_{\\text{risk-free}}, \\text{Risk Premium}) \\end{cases}\\)",
+          "description": "直接影响总支出成分的外生变化叫支出冲击；改变金融借贷资金成本的变化叫金融冲击。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆冲击类型",
+          "description": "学生可能认为投资受利率影响，因此利率变化就是支出冲击。识别方法：区分引起变化的“源头”。利率的自主变动属于金融冲击（动 MP 线）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别关键字",
+          "content": "题干中提到了“interest rate”（利率）和“risk premium”（风险溢价）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配经济学概念",
+          "content": "这两个变量都是金融市场借贷资金的价格，因此它们的变动属于金融系统内部的冲击。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "这被称为 Financial shock（金融冲击）。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：支出冲击指的是非金融因素引起的自发消费、投资、政府开支或净出口的变动。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这属于支出冲击（Spending shock）中的一种特定子类，不适用于利率。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：产出缺口（Output gap）是冲击所导致的结果，而不是对冲击类型的分类。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Financial Shock",
+      "Risk-free Interest Rate",
+      "Risk Premium"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-10",
+    "type": "choice",
+    "question": "People become pessimistic (negative) about the future. The IS curve shifts left. This leads to a:",
+    "options": [
+      "Boom (Happy equilibrium)",
+      "Bust (Unhappy equilibrium)",
+      "Higher interest rate",
+      "Financial shock"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "悲观预期导致总需求下降，IS 曲线向左移动。这使得经济产出萎缩，陷入负产出缺口状态，即通常所说的衰退或萧条（Bust）。",
+      "decoding": [
+        "题干指出人们对未来悲观，导致 IS 曲线左移。",
+        "要求指出这种需求收缩会导致宏观经济周期进入哪种状态。"
+      ],
+      "conditions": [
+        {
+          "title": "经济周期状态对应",
+          "content": "\\(\\text{IS Shifts LEFT} \\implies Y \\downarrow \\implies \\text{Negative Output Gap} \\implies \\text{Bust}\\)",
+          "description": "需求的下降会导致产出偏离其潜在水平并在其下方，失业率上升，形成令人不快的萧条（Bust）。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "对立词汇选错",
+          "description": "将 Boom 与 Bust 混淆。识别方法：pessimistic（悲观的）、negative（负面的）、left（向左代表缩减）这些词汇全都指向经济的不良状态（Unhappy equilibrium）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "推导产量变化",
+          "content": "IS 曲线向左移动意味着在任何给定利率下，经济的总产出需求都更低。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "关联经济周期阶段",
+          "content": "产出萎缩导致经济出现闲置产能和失业，这种状态在周期理论中被称为萧条（Bust）。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "对应选项 B 的 Bust (Unhappy equilibrium)。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：繁荣（Boom）对应的是 IS 曲线右移、需求过旺、经济过热的状态。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：IS 曲线左移代表经济变冷，央行往往会降低利率（降息）以刺激经济，因此通常会导致较低的利率，而非更高的利率。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：由于人们悲观引发的消费/投资下降属于“支出冲击（Spending shock）”，而不是由于利率变化引起的金融冲击。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Business Cycle",
+      "Bust",
+      "IS Curve",
+      "Macroeconomic Equilibrium"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-11",
+    "type": "essay",
+    "question": "The government builds new hospitals. Government purchases ($G$) increase by 20 billion dollars. The multiplier is 4.\n\nQuestions:\nA) Calculate the total change in GDP. (Show formula: $\\Delta Spending \\times Multiplier$).\nB) Is this a \"Spending shock\" or a \"Financial shock\"?\nC) Does the IS curve shift RIGHT or LEFT?",
+    "answer": "A) Total change = 20 * 4 = 80 billion dollars; B) Spending shock; C) Shifts RIGHT.",
+    "analysis": {
+      "decoding": [
+        "题干给出了政府购买的增加量（$\\Delta G = 20$）以及乘数（Multiplier = 4）。",
+        "要求计算 GDP 的总变化，判断冲击类型，并推断 IS 曲线的移动方向。"
+      ],
+      "conditions": [
+        {
+          "title": "乘数效应",
+          "content": "$\\Delta Y = \\Delta \\text{Spending} \\times \\text{Multiplier}",
+          "description": "初始支出的增加会成倍地放大最终的 GDP 总变化。"
+        },
+        {
+          "title": "宏观冲击分类与曲线移动",
+          "content": "\\(G \\uparrow \\implies \\text{Spending Shock} \\implies \\text{IS Shifts RIGHT}\\)",
+          "description": "政府购买属于自发性支出，其增加是正向的支出冲击，导致 IS 曲线向右平移。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆冲击类型",
+          "description": "学生可能分不清哪些变量影响哪条曲线。识别方法：只要不直接涉及利率和风险溢价的政策/行为变动，就是影响 IS 曲线的支出冲击（Spending shock）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算 GDP 变化",
+          "content": "代入公式 $\\Delta GDP = 20 \\times 4 = 80$ 十亿美元。完成 A 问。",
+          "tag": "计算"
+        },
+        {
+          "title": "判断冲击类型",
+          "content": "政府购买（$G$）属于实体层面的支出（Spending），因此这是 Spending shock。完成 B 问。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "推演曲线移动",
+          "content": "政府购买等支出的增加代表宏观需求总水平上升，因此 IS 曲线向右移动（Shifts RIGHT）。完成 C 问。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Fiscal Multiplier",
+      "Spending Shock",
+      "IS Curve",
+      "Government Purchases"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-12",
+    "type": "essay",
+    "question": "The Bank of Canada wants to fight inflation. The old risk-free interest rate was 2%. The Bank raises the new risk-free interest rate to 4%. The risk premium stays the same at 1%.\n\nQuestions:\nA) Calculate the OLD real interest rate. (Formula: Risk-free rate + Risk premium).\nB) Calculate the NEW real interest rate.\nC) Does the MP curve shift UP or DOWN?\nD) Is this a \"Spending shock\" or a \"Financial shock\"?",
+    "answer": "A) Old real interest rate = 2% + 1% = 3%; B) New real interest rate = 4% + 1% = 5%; C) Shifts UP; D) Financial shock.",
+    "analysis": {
+      "decoding": [
+        "题干给出了央行调息前后的无风险利率（2% 升至 4%），以及固定不变的风险溢价（1%）。",
+        "要求计算前后的实际借款利率，判断 MP 曲线移动方向并对该冲击进行分类。"
+      ],
+      "conditions": [
+        {
+          "title": "实际借贷利率模型",
+          "content": "\\(r_{\\text{final}} = r_{\\text{risk-free}} + \\text{Risk Premium}\\)",
+          "description": "实体经济面临的借贷成本等于无风险利率加上风险溢价。"
+        },
+        {
+          "title": "金融冲击与 MP 曲线",
+          "content": "\\(r \\uparrow \\implies \\text{Financial Shock} \\implies \\text{MP Shifts UP}\\)",
+          "description": "利率或风险溢价的变动被称为金融冲击，直接导致代表实际利率水平的 MP 曲线发生垂直移动。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "错把利率当支出",
+          "description": "学生可能误认为这是 Spending shock。识别方法：凡是资金借贷成本（利率、溢价）的自主变动，均属于纯粹的 Financial shock。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算旧利率",
+          "content": "旧的实际借款利率 = 2\\\\ + 1\\\\ = 3\\\\%。完成 A 问。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算新利率",
+          "content": "新的实际借款利率 = 4\\\\ + 1\\\\ = 5\\\\%。完成 B 问。",
+          "tag": "计算"
+        },
+        {
+          "title": "判断曲线移动与冲击类型",
+          "content": "利率从 3% 升至 5%，由于 MP 曲线代表纵轴上的利率高度，因此 MP 曲线向上移动（Shifts UP）。完成 C 问。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "定性冲击分类",
+          "content": "此事件纯粹涉及货币政策和利率设定，因此是金融冲击（Financial shock）。完成 D 问。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Risk Premium",
+      "MP Curve",
+      "Financial Shock"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-13",
+    "type": "essay",
+    "question": "Match the event (1 to 4) to the correct curve shift (A, B, C, or D).\n\nEvents:\n1. Consumer confidence falls, so Consumption ($C$) decreases.\n2. The Bank of Canada lowers the risk-free interest rate.\n3. Business confidence rises, so Planned Investment ($I$) increases.\n4. Lending becomes riskier, so the risk premium rises.\n\nCurve Shifts:\nA. IS curve shifts RIGHT\nB. IS curve shifts LEFT\nC. MP curve shifts UP\nD. MP curve shifts DOWN",
+    "answer": "1 = B; 2 = D; 3 = A; 4 = C.",
+    "analysis": {
+      "decoding": [
+        "这是一道连线匹配题，要求将四种不同的宏观经济冲击事件与 IS-MP 模型中的四种曲线移动方向进行正确的一一匹配。"
+      ],
+      "conditions": [
+        {
+          "title": "支出冲击（移动 IS 曲线）",
+          "content": "\\(C \\downarrow \\implies \\text{IS Left}, \\quad I \\uparrow \\implies \\text{IS Right}\\)",
+          "description": "消费和投资的非利率自发变动属于支出冲击，导致 IS 曲线水平移动。"
+        },
+        {
+          "title": "金融冲击（移动 MP 曲线）",
+          "content": "\\(r_{\\text{risk-free}} \\downarrow \\implies \\text{MP Down}, \\quad \\text{Risk Premium} \\uparrow \\implies \\text{MP Up}\\)",
+          "description": "无风险利率或风险溢价的变动改变了整体借贷资金成本，导致 MP 曲线垂直移动。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆冲击归属",
+          "description": "学生可能把金融市场恐慌错误地算在 IS 曲线收缩上，或者把移动方向反转。识别方法：牢记 $C, I, G, NX$ 属于 IS（管左右），利率与风险等金融价格参数属于 MP（管上下）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "匹配事件 1",
+          "content": "消费（$C$）下降是负向支出冲击，IS 曲线向左移。故 1 匹配 B。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配事件 2",
+          "content": "央行降低无风险利率，导致整体利率水平下降，MP 曲线向下移。故 2 匹配 D。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配事件 3",
+          "content": "投资（$I$）增加是正向支出冲击，IS 曲线向右移。故 3 匹配 A。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配事件 4",
+          "content": "风险溢价上升导致实体经济借贷成本增加，使得 MP 曲线向上移。故 4 匹配 C。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "IS Curve",
+      "MP Curve",
+      "Spending Shock",
+      "Financial Shock"
+    ],
+    "source": "Mixed"
+  }
+]

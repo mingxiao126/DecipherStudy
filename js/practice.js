@@ -176,11 +176,14 @@ class PracticeApp {
             if (q.type === 'choice') {
                 html += `<div class="options-list grid gap-3" data-q-idx="${index}">
                     ${q.options.map((opt, i) => {
-                    const label = String.fromCharCode(65 + i);
+                    const isObject = typeof opt === 'object' && opt !== null;
+                    const label = isObject ? (opt.key || String.fromCharCode(65 + i)) : String.fromCharCode(65 + i);
+                    const text = isObject ? (opt.value || opt.text || '') : opt;
+                    const val = label; // Use label (A, B, C...) as the value for matching answer
                     return `
-                            <div class="option-item" data-val="${label}">
+                            <div class="option-item" data-val="${val}">
                                 <span class="option-label">${label}</span>
-                                <span class="option-text">${this.preprocessMath(opt)}</span>
+                                <span class="option-text">${this.preprocessMath(text)}</span>
                             </div>
                         `;
                 }).join('')}
@@ -460,7 +463,8 @@ class PracticeApp {
         `;
 
         // 1. 解读题目 (Decoding Section)
-        if (q.analysis.decoding && Array.isArray(q.analysis.decoding)) {
+        const decodingList = q.analysis?.decoding || (Array.isArray(q.segments) ? q.segments.map(s => s.text) : []);
+        if (decodingList.length > 0) {
             html += `
                 <div class="analysis-section">
                     <div class="section-header">
@@ -472,7 +476,7 @@ class PracticeApp {
                             “${this.preprocessMath(q.question)}”
                         </div>
                         <div class="grid gap-3">
-                            ${q.analysis.decoding.map(seg => `
+                            ${decodingList.map(seg => `
                                 <div class="decode-segment border-l-2 border-blue-500/40 pl-3">
                                     <div class="flex items-start gap-3">
                                         <span class="text-blue-400 text-xs mt-1">💡</span>
@@ -487,7 +491,28 @@ class PracticeApp {
         }
 
         // 2. 已知条件 & 知识点 (Known Conditions)
-        if (q.analysis.conditions && Array.isArray(q.analysis.conditions)) {
+        let conditions = [];
+        if (q.analysis?.conditions && Array.isArray(q.analysis.conditions) && q.analysis.conditions.length > 0) {
+            conditions = q.analysis.conditions.map(c => {
+                if (typeof c === 'string') return { title: '核心知识', content: c, description: '' };
+                return {
+                    title: c.title || '提取信息',
+                    content: c.content || '',
+                    description: c.description || ''
+                };
+            });
+        }
+        
+        // 如果 conditions 为空，尝试从 segments 提取（更详细）
+        if (conditions.length === 0 && Array.isArray(q.segments)) {
+            conditions = q.segments.filter(s => s.has_info).map(s => ({
+                title: s.condition || '提取信息',
+                content: s.knowledge || '',
+                description: s.explanation || ''
+            }));
+        }
+
+        if (conditions.length > 0) {
             html += `
                 <div class="analysis-section">
                     <div class="section-header">
@@ -495,7 +520,7 @@ class PracticeApp {
                         <span>【已知条件 & 知识点】</span>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        ${q.analysis.conditions.map(cond => `
+                        ${conditions.map(cond => `
                             <div class="box-green p-4 flex flex-col h-full">
                                 <div class="text-green-400 font-bold text-sm mb-2">${this.preprocessMath(cond.title)}</div>
                                 <div class="text-white text-md font-mono mb-2">${this.preprocessMath(cond.content)}</div>
@@ -508,7 +533,12 @@ class PracticeApp {
         }
 
         // 3. 题目陷阱 (Traps Section)
-        if (q.analysis.traps && Array.isArray(q.analysis.traps)) {
+        const traps = q.analysis?.traps || q.traps || (Array.isArray(q.segments) ? q.segments.filter(s => s.is_trap).map(s => ({
+            title: s.knowledge || '逻辑陷阱',
+            description: s.explanation || ''
+        })) : []);
+
+        if (traps.length > 0) {
             html += `
                 <div class="analysis-section">
                     <div class="section-header">
@@ -516,7 +546,7 @@ class PracticeApp {
                         <span>【题目陷阱】</span>
                     </div>
                     <div class="space-y-3">
-                        ${q.analysis.traps.map(trap => `
+                        ${traps.map(trap => `
                             <div class="box-red p-4 border-l-4 border-rose-500">
                                 <div class="text-rose-400 font-bold text-sm mb-1">⚠️ ${this.preprocessMath(trap.title)}</div>
                                 <div class="text-slate-400 text-sm leading-relaxed">${this.preprocessMath(trap.description)}</div>
@@ -528,7 +558,17 @@ class PracticeApp {
         }
 
         // 4. 详细解答 (Steps Section)
-        if (q.analysis.steps && Array.isArray(q.analysis.steps)) {
+        const rawSteps = q.analysis?.steps || q.solution;
+        let steps = [];
+        if (Array.isArray(rawSteps)) {
+            steps = rawSteps.map((s, i) => ({
+                title: s.title || s.step_desc || `步骤 ${i + 1}`,
+                content: s.content || s.text || (typeof s === 'string' ? s : ''),
+                tag: s.tag || s.source_label || `Step ${i + 1}`
+            }));
+        }
+
+        if (steps.length > 0) {
             html += `
                 <div class="analysis-section">
                     <div class="section-header">
@@ -536,7 +576,7 @@ class PracticeApp {
                         <span>【详细解答】</span>
                     </div>
                     <div class="space-y-4">
-                        ${q.analysis.steps.map((step, i) => `
+                        ${steps.map((step, i) => `
                             <div class="step-card">
                                 <div class="flex flex-col gap-2">
                                     <div class="text-slate-100 font-bold">${this.preprocessMath(step.title)}</div>
@@ -544,7 +584,7 @@ class PracticeApp {
                                     <div class="flex">
                                         <span class="segment-tag tag-purple">
                                             <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path></svg>
-                                            ${step.tag || 'Calculation Step ' + (i + 1)}
+                                            ${step.tag}
                                         </span>
                                     </div>
                                 </div>
@@ -553,28 +593,42 @@ class PracticeApp {
                     </div>
                 </div>
             `;
-        } else if (q.analysis.solution) {
+        } else if (q.analysis?.solution || (typeof q.solution === 'string' && q.solution)) {
             // Fallback to simple solution if steps are missing
+            const solText = q.analysis?.solution || q.solution;
             html += `
                 <div class="analysis-section">
                     <div class="section-header">【解题逻辑】</div>
                     <div class="text-slate-200 leading-relaxed bg-slate-900/40 p-5 rounded-2xl border border-slate-700/50">
-                        ${this.preprocessMath(q.analysis.solution)}
+                        ${this.preprocessMath(solText)}
                     </div>
                 </div>
             `;
         }
 
         // 5. 选项解析 (仅限选择题)
-        if (q.type === 'choice' && q.analysis.option_analysis && Array.isArray(q.analysis.option_analysis)) {
+        const rawOptionAnalysis = q.analysis?.option_analysis;
+        let optionAnalysis = [];
+        if (rawOptionAnalysis) {
+            if (Array.isArray(rawOptionAnalysis)) {
+                optionAnalysis = rawOptionAnalysis;
+            } else if (typeof rawOptionAnalysis === 'object') {
+                optionAnalysis = Object.entries(rawOptionAnalysis).map(([k, v]) => ({
+                    label: k,
+                    reason: v
+                }));
+            }
+        }
+
+        if (q.type === 'choice' && optionAnalysis.length > 0) {
             html += `
                 <div class="analysis-section">
                     <div class="section-header">【选项解析】</div>
                     <div class="grid gap-3">
-                        ${q.analysis.option_analysis.map(item => `
+                        ${optionAnalysis.map(item => `
                             <div class="p-3 rounded-lg bg-rose-950/10 border border-rose-500/20 text-sm">
-                                <strong class="text-rose-400 mr-2">${item.label} 选项:</strong>
-                                <span class="text-slate-400">${this.preprocessMath(item.reason)}</span>
+                                <strong class="text-rose-400 mr-2">${item.label || item.key} 选项:</strong>
+                                <span class="text-slate-400">${this.preprocessMath(item.reason || item.value)}</span>
                             </div>
                         `).join('')}
                     </div>

@@ -150,5 +150,50 @@
     "originalInputMode": "text",
     "movedAt": "2026-03-22T09:33:35.379Z",
     "movedTarget": "user:zhusiyu"
+  },
+  {
+    "id": "inbox_1774273562245_wcrjg",
+    "fileName": "practice_econ102_0322课上知识_基础.json",
+    "displayName": "econ102 - 0322课上知识（基础）",
+    "type": "practice",
+    "subject": "econ102",
+    "userId": "zhusiyu",
+    "schoolId": "ualberta",
+    "createdAt": "2026-03-23T13:46:02.245Z",
+    "status": "moved_to_user",
+    "sourceScopeHint": "user",
+    "originalInputMode": "text",
+    "movedAt": "2026-03-23T13:46:05.601Z",
+    "movedTarget": "user:zhusiyu"
+  },
+  {
+    "id": "inbox_1774273770979_vyz7x",
+    "fileName": "practice_econ102_0322练习题_一.json",
+    "displayName": "econ102 - 0322练习题（一）",
+    "type": "practice",
+    "subject": "econ102",
+    "userId": "zhusiyu",
+    "schoolId": "ualberta",
+    "createdAt": "2026-03-23T13:49:30.979Z",
+    "status": "moved_to_user",
+    "sourceScopeHint": "user",
+    "originalInputMode": "text",
+    "movedAt": "2026-03-23T13:53:28.898Z",
+    "movedTarget": "user:zhusiyu"
+  },
+  {
+    "id": "inbox_1774274005593_zutpf",
+    "fileName": "practice_econ102_0322练习题_二.json",
+    "displayName": "econ102 - 0322练习题（二）",
+    "type": "practice",
+    "subject": "econ102",
+    "userId": "zhusiyu",
+    "schoolId": "ualberta",
+    "createdAt": "2026-03-23T13:53:25.593Z",
+    "status": "moved_to_user",
+    "sourceScopeHint": "user",
+    "originalInputMode": "text",
+    "movedAt": "2026-03-23T13:53:31.051Z",
+    "movedTarget": "user:zhusiyu"
   }
 ]

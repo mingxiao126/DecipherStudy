@@ -1,0 +1,362 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "An economy is currently experiencing an economic downturn. The macroeconomic data is as follows: Potential Output = 2,000 billion dollars; Actual Output produced this month = 1,800 billion dollars; Aggregate Expenditure (AE) this month = 1,700 billion dollars. What is the Output Gap? In the next month, what will happen to the businesses' inventories, and how will managers adjust production?",
+    "options": [
+      "Output gap is -10%. Inventories will decrease, so managers will ramp up production.",
+      "Output gap is -10%. Inventories will increase, so managers will cut back production.",
+      "Output gap is +10%. Inventories will increase, so managers will cut back production.",
+      "Output gap is -5%. Inventories will decrease, so managers will keep production the same."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "产出缺口为 -10%。因为实际产出（1800）大于总支出（1700），100 亿的未售出产品将转化为库存，库存增加，经理将削减生产。",
+      "decoding": [
+        "题干给出了潜在产出、实际产出和总支出三个数据。",
+        "需要分别独立计算产出缺口，并依据实际产出与总支出的关系判断库存变化逻辑。"
+      ],
+      "conditions": [
+        {
+          "title": "产出缺口公式",
+          "content": "$\\text{Output Gap} = \\frac{Y - Y^*}{Y^*}$",
+          "description": "衡量实际产出偏离潜在产出的百分比。实际小于潜在即为负缺口。"
+        },
+        {
+          "title": "库存调整逻辑",
+          "content": "$Y > AE \\implies \\Delta \\text{Inventory} > 0$",
+          "description": "当实际生产量大于人们的实际购买量时，多余商品会转为非计划库存积压，促使企业未来削减产量。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆实际产出与潜在产出的作用",
+          "description": "看到经济处于衰退（负缺口），就直觉认为“产出不足”，从而错误地推断库存一定会减少、需要增产。识别方法：库存变化只看  Y  和  AE  的对比，与  Y^*  无关。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算产出缺口",
+          "content": "已知  Y = 1800 ，潜在产出  Y^* = 2000 。代入公式： \\(\\frac{1800 - 2000}{2000}\\) = -0.1 ，即 -10%。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "判定库存变化基准",
+          "content": "决定库存变动的是实际产出（ Y=1800 ）和总支出（ AE=1700 ）的对比。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "推演结论",
+          "content": "由于 1800 $ > 1700$，工厂生产了但没卖出去的 100 亿将变成库存积压（increase），经理为了消化库存必须削减生产（cut back）。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：认为库存减少并增产。正确概念：实际产量依然大于购买量，所以库存是在增加的。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：产出缺口计算方向错误（+10%）。正确概念：实际产出小于潜在产出，缺口必须是负号。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：缺口计算数值错误且库存逻辑颠倒。正确概念：必须严格套用缺口公式以及进行  Y  与  AE  的对比。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Output Gap",
+      "Macroeconomic Equilibrium",
+      "Inventory Adjustment"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "The Bank of Canada wants to encourage people to spend more money, so it announces a policy to change the nominal risk-free interest rate from 4% to 5%. At the exact same time, a global supply chain crisis causes the inflation rate to jump from 1% to 4%. Assume the risk premium remains at 0%. What is the final effect of these events on the MP Curve?",
+    "options": [
+      "The MP curve shifts UP.",
+      "The MP curve shifts DOWN.",
+      "The MP curve shifts RIGHT.",
+      "The MP curve does not shift."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "实际利率从 3% 降至 1%，借款真实成本下降，因此代表实际利率的 MP 曲线向下移动。",
+      "decoding": [
+        "题干描述了名义利率的上升（4% 到 5%）和通货膨胀率的飙升（1% 到 4%）。",
+        "任务是判断这两种同步变化对 MP 曲线（纵轴为实际利率）的综合最终影响。"
+      ],
+      "conditions": [
+        {
+          "title": "费雪方程式",
+          "content": "$r = i - \\pi$",
+          "description": "实际利率（决定 MP 曲线高度的变量）等于名义利率减去通货膨胀率。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "名义利率上升幻觉",
+          "description": "学生看到名义利率从 4% 变到 5%，大脑立刻触发“央行加息 = 利率上升 = MP 曲线向上移”的条件反射，忽略了通胀的强力抵消作用。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算旧的实际利率",
+          "content": "已知旧名义利率为 4%，旧通胀率为 1%。$r_{\\text{old}} = 4 - 1 = 3$%。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算新的实际利率",
+          "content": "已知新名义利率为 5%，新通胀率为 4%。$r_{\\text{new}} = 5 - 4 = 1$%。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "判断曲线移动方向",
+          "content": "真实的借款成本（实际利率）实际上从 3% 下降到了 1%。由于 MP 曲线的纵轴是实际利率，利率水平下降必然导致曲线向下移动（shifts DOWN）。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：只看了名义利率的上升，没有扣除通胀的影响。正确概念：MP 曲线纵轴永远是实际利率（Real Interest Rate）。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：MP 曲线是水平线，并不左右平移。正确概念：MP 代表利率的绝对高度，只能上下移动。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：认为两者相互抵消。正确概念：通胀的绝对涨幅（3%）大于名义利率的绝对涨幅（1%），实际利率明显发生了大幅改变。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Fisher Equation",
+      "Real Interest Rate",
+      "MP Curve",
+      "Inflation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "choice",
+    "question": "The economy is in a bust. The actual output is currently 40 billion dollars below the potential output (a negative output gap). The government decides to fix this exact problem by increasing Government Purchases ($G$) by exactly 40 billion dollars. The macroeconomic multiplier is 3. What will be the final result of this government policy?",
+    "options": [
+      "The economy will return perfectly to its potential output (Just right).",
+      "The actual output will end up being 120 billion dollars below the potential output.",
+      "The actual output will overshoot and end up being 80 billion dollars ABOVE the potential output (Too hot).",
+      "The IS curve will shift left by 40 billion dollars."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "政府支出的 40 亿会经过乘数放大为 120 亿的 GDP 增长。填平原本 40 亿的缺口后，实际产出将超出潜在产出 80 亿，导致经济过热。",
+      "decoding": [
+        "题干给出了当前的负产出缺口绝对值（40亿），政府购买的增加量（40亿），以及乘数（3）。",
+        "要求计算政府支出的最终乘数效应，并结合原有的缺口来判断政策实施后的最终经济状态。"
+      ],
+      "conditions": [
+        {
+          "title": "乘数效应公式",
+          "content": "$\\Delta Y = \\Delta G \\times \\text{Multiplier}$",
+          "description": "总产出变化量等于初始政府支出变化量乘以宏观乘数。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "数值迷惑陷阱",
+          "description": "表面上的数值匹配陷阱。学生看到“差40亿”和“政府花40亿”，会觉得刚好 1:1 填平缺口，从而错误地认为经济回到了完美均衡。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算总产出的实际增加量",
+          "content": "初始注入 40 亿，乘数为 3。$\\Delta Y = 40 \\times 3 = 120$ 亿美元。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "评估与潜在产出的关系",
+          "content": "经济原本落后潜在产出 40 亿（缺口状态为 -40），现在总需求/产出整体增加了 120 亿。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "填平 40 亿的“坑”之后，产出还会多出 120 $ - 40 = 80$ 亿。最终实际产出将超越潜在产出 80 亿，导致经济严重过热（overshoot / Too hot）。对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：忽略了乘数效应。正确概念：政府支出的 40 亿会在经济体中循环消费并放大，导致最终产出增加量远超 40 亿。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：将产出的增加反向误认为是缺口的扩大。正确概念：增加正向支出是在缩小负缺口，而不是让经济更差。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：政府购买增加会使 IS 曲线向右移动，且移动的最终效应与乘数有关，绝非简单的向左移动 40 亿。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Fiscal Multiplier",
+      "Government Purchases",
+      "Output Gap",
+      "Overheating Economy"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "choice",
+    "question": "To stimulate the economy, the Bank of Canada lowers the risk-free interest rate by 2%. However, on the exact same day, a major bank goes bankrupt, causing massive panic in the financial markets. Because lending becomes much riskier, the risk premium spikes (increases) by 5%. Based on the IS-MP framework, what happens to the overall MP Curve for business loans, and how does this affect planned investment ($I$)?",
+    "options": [
+      "MP curve shifts DOWN; Planned investment increases.",
+      "MP curve shifts UP; Planned investment decreases.",
+      "MP curve shifts RIGHT; Planned investment increases.",
+      "MP curve does not shift because the two events cancel each other out."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "实际利率变动 = 无风险利率变动（-2%）+ 风险溢价变动（+5%）= +3%。最终借贷成本上升，MP 曲线向上移动，导致计划投资减少。",
+      "decoding": [
+        "题干给出了两个同时发生且方向相反的金融冲击：央行降息导致无风险利率下降（-2%），与市场恐慌导致风险溢价上升（+5%）。",
+        "要求计算净效应并推导对 MP 曲线位置及企业投资的影响。"
+      ],
+      "conditions": [
+        {
+          "title": "最终借款利率模型",
+          "content": "$r_{\\text{final}} = r_{\\text{risk-free}} + \\text{Risk Premium}$",
+          "description": "实体经济面临的最终利率包含基础的无风险利率和附加的风险溢价。任意一项的变动都会改变 MP 曲线的位置。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "政策意图迷惑",
+          "description": "矛盾信息陷阱：央行明明在“救市”（降息），但市场在“恐慌”（溢价飙升）。学生可能会纠结听谁的，或者误认为政策意图能压倒一切。必须严格将变化量代入公式计算净值。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取变量变动方向与数值",
+          "content": "$\\Delta r_{\\text{risk-free}} = -2，%\\Delta \\text{Risk Premium} = +5$%。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算最终利率净变化",
+          "content": "$\\Delta r_{\\text{final}} = -2 + 5 = +3$%。最终实际借贷利率呈现上升态势。",
+          "tag": "计算"
+        },
+        {
+          "title": "推导结果",
+          "content": "因为最终借钱的成本还是变贵了（上升了 3%），所以代表利率的 MP 曲线整体向上移动（shifts UP）。由于借贷成本升高，企业的计划投资必然受压抑减少（decreases）。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：只看到了央行降息的动作，忽略了风险溢价飙升的抵消甚至反超作用。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：MP 曲线是水平线，不进行左右平移，且最终利率上升会抑制投资而非刺激投资。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：认为两者相互抵消。正确概念：+5% 的影响绝对值大于 -2%，净效应不为零，借贷成本实质性升高了。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "MP Curve",
+      "Risk Premium",
+      "Real Interest Rate",
+      "Financial Shock"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "Read the following two events that happen in order: Event 1: A new AI technology is invented, making factory equipment highly profitable. Businesses drastically increase their Planned Investment ($I$). Event 2: Because the economy is booming too fast from Event 1, the Bank of Canada decides to drastically raise the risk-free interest rate. How are these two events represented on the IS curve?",
+    "options": [
+      "Event 1 shifts the IS curve RIGHT. Event 2 shifts the IS curve LEFT.",
+      "Event 1 shifts the IS curve RIGHT. Event 2 causes a movement UP along the same IS curve.",
+      "Event 1 shifts the IS curve LEFT. Event 2 shifts the MP curve DOWN.",
+      "Event 1 causes a movement along the IS curve. Event 2 shifts the IS curve RIGHT."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "投资的自主增加是外生支出冲击，使得 IS 曲线整体向右移动。而央行加息改变的是 IS 曲线图上的纵轴变量（利率），这只表现为沿着新的 IS 曲线向上滑动（movement）。",
+      "decoding": [
+        "事件 1 是非利率因素（技术突破）导致的投资自主增加。",
+        "事件 2 是利率（纵轴内生变量）本身的改变。",
+        "任务是区分哪种冲击会导致 IS 曲线的“整体平移（shift）”，哪种会导致“滑动（movement）”。"
+      ],
+      "conditions": [
+        {
+          "title": "IS 曲线的平移（Shift）规律",
+          "content": "\\(\\Delta I_{\\text{autonomous}} > 0 \\implies \\text{IS Shifts RIGHT}\\)",
+          "description": "任何外生支出（如由技术、信心等非利率因素驱动的 $C, I, G, NX$）变动都会导致 IS 曲线整体平移。"
+        },
+        {
+          "title": "IS 曲线的滑动（Movement）规律",
+          "content": "\\(\\Delta r > 0 \\implies \\text{Movement UP along IS}\\)",
+          "description": "当纵轴变量（实际利率 $r$）发生改变时，坐标点只能沿着现有的 IS 曲线移动，而不会导致曲线本身的平移。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆 Shift 与 Movement",
+          "description": "很多学生知道“利率变高导致投资变少”，于是会错误地顺推认为 Event 2 会导致 IS 曲线整体向左平移（选 A）。识别方法：牢记“利率”就是 IS 曲线自身的纵坐标，自身坐标变化只能是沿线滑动。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "分析事件 1 的性质",
+          "content": "技术突破带来的投资热情是外生变量带来的总支出增加（Spending shock），所以它直接使得 IS 曲线向右移动（shifts RIGHT）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析事件 2 的性质",
+          "content": "央行改变了无风险利率，这正是 IS 曲线图上的纵轴变量。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "综合结论",
+          "content": "当坐标轴变量发生改变时，曲线本身绝对不平移，而是沿着曲线滑动。由于利率上升，这表现为沿着新 IS 曲线向上滑动（movement UP along the curve）。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：认为加息会使 IS 曲线整体左移。正确概念：利率是内生纵轴变量，加息只会引起沿着 IS 曲线的 movement，永远不会引发 IS 曲线的 shift。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：方向完全反转。技术突破增加投资，IS 曲线应右移而不是左移；加息应使 MP 曲线向上而非向下。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：因果颠倒。事件 1（外生冲击）导致的是 shift；事件 2（内生利率变量变动）导致的是 movement。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "IS Curve",
+      "Movement vs Shift",
+      "Spending Shock",
+      "Monetary Policy"
+    ],
+    "source": "Mixed"
+  }
+]

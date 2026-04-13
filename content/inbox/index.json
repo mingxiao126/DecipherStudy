@@ -195,5 +195,20 @@
     "originalInputMode": "text",
     "movedAt": "2026-03-23T13:53:31.051Z",
     "movedTarget": "user:zhusiyu"
+  },
+  {
+    "id": "inbox_1776044706570_yq9qq",
+    "fileName": "practice_econ102_0413.json",
+    "displayName": "econ102 - 0413",
+    "type": "practice",
+    "subject": "econ102",
+    "userId": "zhusiyu",
+    "schoolId": "ualberta",
+    "createdAt": "2026-04-13T01:45:06.571Z",
+    "status": "moved_to_user",
+    "sourceScopeHint": "user",
+    "originalInputMode": "text",
+    "movedAt": "2026-04-13T01:45:11.612Z",
+    "movedTarget": "user:zhusiyu"
   }
 ]

@@ -1,0 +1,2023 @@
+[
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "The Bank of Canada lowers the risk-free interest rate. What happens to the curves?",
+    "options": [
+      "IS curve shifts RIGHT",
+      "IS curve shifts LEFT",
+      "MP curve shifts UP",
+      "MP curve shifts DOWN"
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "央行降低无风险利率会导致代表实际利率的 MP 曲线向下移动。",
+      "decoding": [
+        "题干指出央行降低了无风险利率（lowers the risk-free interest rate）。",
+        "要求判断这会对宏观经济模型中的曲线产生何种影响。"
+      ],
+      "conditions": [
+        {
+          "title": "MP 曲线与利率",
+          "content": "$MP = r$",
+          "description": "MP 曲线的位置由实际利率决定，利率下降意味着代表该利率水平的水平线降低。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆受影响的曲线",
+          "description": "学生可能错把利率变动当作移动 IS 曲线的因素。识别方法：只要直接操作的是“interest rate”，它就是 MP 曲线（管上下移动）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "锁定关键字",
+          "content": "题干中的关键字为 lowers interest rate。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配曲线与方向",
+          "content": "利率（interest rate）对应 MP 曲线，降低（lowers）对应向下移动（DOWN）。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：IS 曲线不因内生的利率变动而平移，且降息带来的是沿 IS 曲线滑动。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：同上，IS 曲线不移动。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这是加息（raises interest rate）时的曲线变动方向。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "MP Curve",
+      "Monetary Policy",
+      "Interest Rate"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "Consumer confidence is very high. People increase their consumption ($C$). What happens to the curves?",
+    "options": [
+      "IS curve shifts RIGHT",
+      "IS curve shifts LEFT",
+      "MP curve shifts UP",
+      "MP curve shifts DOWN"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "消费者信心高涨导致的消费增加属于外生支出冲击，会使得 IS 曲线向右移动。",
+      "decoding": [
+        "题干指出消费（$C$）增加（increase）。",
+        "要求判断这一事件在 IS-MP 框架中如何移动曲线。"
+      ],
+      "conditions": [
+        {
+          "title": "支出冲击与 IS 曲线",
+          "content": "\\(C \\uparrow \\implies AE \\uparrow \\implies \\text{IS Shifts RIGHT}\\)",
+          "description": "消费作为总支出的核心成分，其自发性增加会使得每个给定利率下的总需求都变高，导致 IS 曲线整体向右移。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "死记硬背方向错误",
+          "description": "部分学生混淆左右方向代表的意义。识别方法：花钱增加（increase）是扩大需求，对应向右（RIGHT）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "锁定关键字",
+          "content": "题干的关键字是 increase consumption。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配曲线与方向",
+          "content": "消费（Spending）归 IS 曲线管；增加意味着向右侧扩张。对应选项 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：这是消费下降、需求萎缩时的移动方向。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：消费冲击不直接决定央行的利率水平或金融风险，因此不移动 MP 曲线。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：同上，不移动 MP 曲线。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "IS Curve",
+      "Consumption",
+      "Spending Shock"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "essay",
+    "question": "The nominal interest rate is 8%, and the inflation rate is 3%. Calculate the real interest rate.",
+    "answer": "The real interest rate is 5%.",
+    "analysis": {
+      "decoding": [
+        "题干已知名义利率为 8%，通胀率为 3%。",
+        "任务是计算实际利率。"
+      ],
+      "conditions": [
+        {
+          "title": "实际利率计算公式",
+          "content": "$r = i - \\pi$",
+          "description": "实际利率等于名义利率减去通货膨胀率。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "算术方向弄反",
+          "description": "学生可能把名义和实际的关系颠倒，用加法计算。识别方法：通胀是在侵蚀货币价值，必须用减法扣除。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取已知数据",
+          "content": "名义利率  i = 8，通胀率 %\\(\\pi\\) = 3 %。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入公式",
+          "content": "代入费雪方程式：$r = 8 - 3 = 5$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "因此实际利率为 5%。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Fisher Equation",
+      "Inflation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "essay",
+    "question": "An economy has an actual output of 500 and a potential output of 500. Calculate the output gap. Is the economy \"Too hot\", \"Too cold\", or \"Just right\"?",
+    "answer": "The output gap is 0%. The economy is \"Just right\".",
+    "analysis": {
+      "decoding": [
+        "已知实际产出（Actual Output）为 500，潜在产出（Potential Output）也是 500。",
+        "要求计算产出缺口并用相应的宏观术语定性评价。"
+      ],
+      "conditions": [
+        {
+          "title": "产出缺口计算公式",
+          "content": "\\(\\text{Output Gap} = \\frac{Y - Y^*}{Y^*}\\)",
+          "description": "用实际产出减去潜在产出，除以潜在产出。"
+        },
+        {
+          "title": "状态判定标准",
+          "content": "\\(\\text{Gap} = 0 \\implies \\text{Just \\right}\\)",
+          "description": "缺口为正说明太热，缺口为负说明太冷，缺口为零说明刚好处于长期均衡状态。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "基本运算失误",
+          "description": "遇到相同数字反而犹豫是否需要相减。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "代入缺口公式",
+          "content": "$\\frac{500 - 500}{500} = 0$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "定性分析",
+          "content": "缺口为 0，说明产量不多不少刚好等于经济的健康潜能，因此状态是 \"Just right\"。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Output Gap",
+      "Potential Output",
+      "Macroeconomic Equilibrium"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "Macroeconomic equilibrium happens when:",
+    "options": [
+      "Inflation equals the interest rate.",
+      "Output equals Aggregate Expenditure (AE).",
+      "The multiplier is zero.",
+      "The IS curve shifts left."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "宏观经济的均衡核心定律是实际生产量必须等于总支出购买量。",
+      "decoding": [
+        "题干考查宏观经济均衡（Macroeconomic equilibrium）的最基础定义。"
+      ],
+      "conditions": [
+        {
+          "title": "宏观经济均衡条件",
+          "content": "Y = AE",
+          "description": "全社会的实际总产出等于总计划支出时，经济处于均衡状态，没有意外的库存积压或消耗。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "乱凑金融变量",
+          "description": "学生可能把通胀等于利率当作某种神奇的均衡。识别方法：产品市场的均衡永远是供给（Output）与需求（AE）的匹配。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "寻找核心匹配词",
+          "content": "寻找与 Output 和 Aggregate Expenditure 相等的描述，这是均衡的铁律。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：当通胀等于名义利率时，实际利率为 0，这只是一个特定的状态，并非宏观经济均衡的普遍定义。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：乘数不可能为 0，乘数为 0 意味着支出没有任何乘数效应，不符合现实模型。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：IS 曲线左移代表经济衰退冲击，并不是均衡状态的定义。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Macroeconomic Equilibrium",
+      "Aggregate Expenditure"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "choice",
+    "question": "Suppliers produced 1,000 items (Output). Buyers only purchased 800 items (AE). What happens to businesses' inventories?",
+    "options": [
+      "Inventories decrease.",
+      "Inventories increase.",
+      "Inventories stay the same.",
+      "The multiplier increases."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "由于生产量大于购买量，多余的 200 个产品无法卖出，将变成库存积压，导致库存增加。",
+      "decoding": [
+        "题干给出了实际产出（1000）和总支出（800）。",
+        "要求判断非计划库存的变动方向。"
+      ],
+      "conditions": [
+        {
+          "title": "非计划库存变动逻辑",
+          "content": "\\(Y > AE \\implies \\Delta \\text{Inventory} > 0\\)",
+          "description": "当生产出来的东西大于被买走的东西时，剩下的只能留在仓库里，库存增加。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "正负判断失误",
+          "description": "有些学生记不住方向，直觉认为“销量不好所以变少了”。识别方法：卖不掉的东西都是留给自己的库存，越卖不掉库存就越多。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "比较产量与支出",
+          "content": "Output (1000) > AE (800)。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出库存流向结论",
+          "content": "多出来的 200 件商品变成了库存，因此 inventories increase。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：只有当供不应求（AE > Output）时，库存才会被消耗从而减少。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：只有在宏观均衡（Output = AE）时，库存才保持不变。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：库存变化与宏观乘数的大小改变无关。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Unplanned Inventory Investment",
+      "Macroeconomic Equilibrium"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-07",
+    "type": "essay",
+    "question": "The government increases spending ($G$) by 20 billion dollars. The macroeconomic multiplier is 3. Calculate the total change in GDP.",
+    "answer": "The total change in GDP is an increase of 60 billion dollars.",
+    "analysis": {
+      "decoding": [
+        "题干给出了初始的政府支出增加量（20 billion dollars）以及乘数（3）。",
+        "任务是计算 GDP 的总变化量。"
+      ],
+      "conditions": [
+        {
+          "title": "乘数效应公式",
+          "content": "$\\Delta Y = \\Delta \\text{Spending} \\times \\text{Multiplier}$",
+          "description": "总产出的变化等于初始支出的变化乘以乘数。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "直接用加法或除法",
+          "description": "不理解 multiplier 的含义，用 20 除以 3。识别方法：乘数就是用来“乘”的倍数工具。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别数据并代入公式",
+          "content": "初始支出  \\(\\Delta\\) G = 20 ，乘数为 3。计算 20   \\(\\times\\) 3 。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "总变化量为 60 亿。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Fiscal Multiplier",
+      "Government Purchases",
+      "GDP Calculation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-08",
+    "type": "essay",
+    "question": "The risk-free real interest rate is 2%. The risk premium for a business loan is 6%. Calculate the final real interest rate for this business loan.",
+    "answer": "The final real interest rate for this business loan is 8%.",
+    "analysis": {
+      "decoding": [
+        "题干给出了无风险实际利率（2%）和风险溢价（6%）。",
+        "任务是计算借款人最终面临的实际借贷利率。"
+      ],
+      "conditions": [
+        {
+          "title": "最终借贷利率构成",
+          "content": "$r_{\\text{final}} = r_{\\text{risk-free}} + \\text{Risk Premium}$",
+          "description": "最终利率等于无风险利率的基础底座加上为了补偿违约风险所叠加的风险溢价。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆公式中的通胀项",
+          "description": "题目已经直接给出了无风险实际利率（已扣除通胀），不需要再找通胀数据进行减法。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "代入求和公式",
+          "content": "最终利率 = 2\\\\ + 6\\\\%。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "结果为 8%。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Risk Premium",
+      "Interest Rate Determination"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-09",
+    "type": "choice",
+    "question": "The Bank of Canada raises the nominal interest rate from 3% to 4%. At the exact same time, the inflation rate increases from 1% to 5%. What happens to the MP curve?",
+    "options": [
+      "MP curve shifts UP.",
+      "MP curve shifts DOWN.",
+      "MP curve shifts RIGHT.",
+      "MP curve does not shift."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "计算得出实际利率从 2% 下降到了 -1%，真实的借贷成本实质上降低了，因此代表实际利率的 MP 曲线向下移动。",
+      "decoding": [
+        "题干名义利率上升（3%到4%），通胀大幅上升（1%到5%）。",
+        "要求判断这对纵轴代表实际利率的 MP 曲线的影响。"
+      ],
+      "conditions": [
+        {
+          "title": "费雪方程式与 MP 曲线位置",
+          "content": "$r = i - \\pi$",
+          "description": "MP 曲线的高度由实际利率 $r$ 决定。必须扣除通胀的影响来判断整体水平是否改变。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "名义加息直觉陷阱",
+          "description": "看到央行提高 nominal interest rate，学生容易条件反射地认为利率上升，直接选 UP。必须计算 Real interest rate 的净变化。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算旧的实际利率",
+          "content": "旧的 r = 3 - 1 = 2\\\\%。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算新的实际利率",
+          "content": "新的 r = 4 - 5 = -1\\\\%。",
+          "tag": "计算"
+        },
+        {
+          "title": "比较并得出结论",
+          "content": "实际利率从正的 2% 跌到了负的 1%，利率环境极大地宽松了。实际利率变低，导致 MP 曲线向下移（shifts DOWN）。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：只盯着名义利率的上升而没有扣减通胀。正确概念：通胀飙升吃掉了名义利率的全部涨幅并使真实利率暴跌。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：MP 曲线不进行左右平移。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：认为影响互相抵消。正确概念：新旧实际利率相差了 3 个百分点，发生显著改变。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Fisher Equation",
+      "MP Curve",
+      "Inflation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-10",
+    "type": "choice",
+    "question": "An economy has a negative output gap. Actual Output is 50 billion dollars below Potential Output. The government wants to fix this. The multiplier is 2. How much should the government increase its spending ($G$) to reach exactly Potential Output?",
+    "options": [
+      "100 billion dollars",
+      "50 billion dollars",
+      "25 billion dollars",
+      "2 billion dollars"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "由于乘数效应为 2，政府只需初始支出 25 亿，即可撬动总共 50 亿的 GDP 增长，从而完美填平产出缺口。",
+      "decoding": [
+        "已知当前实际产出落后潜在产出 50 亿（即目标增加量 $\\Delta Y = 50$），且乘数 Multiplier = 2。",
+        "要求逆推政府需要初始增加多少支出（$\\Delta G$）。"
+      ],
+      "conditions": [
+        {
+          "title": "乘数逆推公式",
+          "content": "\\(\\Delta G = \\frac{\\Delta Y}{\\text{Multiplier}}\\)",
+          "description": "为了达到既定的总产出目标，需要投入的初始支出等于目标增量除以乘数。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "乘数用力过猛陷阱",
+          "description": "经济差 50 亿，直觉会选 50 亿（补 50 亿）或者误把乘数做乘法（50 乘 2 = 100）。识别方法：政府不需要直接花 50 亿，花一点钱通过循环能成倍放大效果。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "建立方程",
+          "content": "已知目标  \\(\\Delta\\) GDP = 50 ，根据公式：50   = \\(\\Delta\\) \\(\\text{Spending}\\) \\(\\times\\) 2 。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "解出未知量并得出结论",
+          "content": "$\\Delta \\text{Spending} = \\frac{50}{2} = 25$。政府只需花 25 亿美元即可。对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：误把缺口和乘数相乘（50 $ \\times 2 = 100$）。正确概念：这样会导致最终经济总产出增加 200 亿，严重过热。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：忽略了乘数效应，直接 1:1 填补缺口。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：毫无根据的数据，可能是直接选了乘数的值。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Fiscal Multiplier",
+      "Government Purchases",
+      "Output Gap"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-11",
+    "type": "essay",
+    "question": "Actual Output produced = 900. Aggregate Expenditure (AE) = 950. A) What is the unexpected change in inventories? (Write a positive or negative number). B) In the next month, will managers ramp up or cut back production?",
+    "answer": "A) -50; B) Ramp up.",
+    "analysis": {
+      "decoding": [
+        "题干给出了实际产出为 900，总支出为 950。",
+        "要求计算非计划库存变动，并判断管理者的后续生产决策。"
+      ],
+      "conditions": [
+        {
+          "title": "非计划库存变动公式",
+          "content": "$\\Delta \\text{Inventory} = Y - AE$",
+          "description": "非计划库存变动等于实际生产量减去实际购买量。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆正负号和增减产决策",
+          "description": "学生容易把库存消耗当作应该减产的信号。识别方法：需求大于产出导致库存意外减少（负数），这意味着商品不够卖，下期必须增加生产。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "代入库存变动公式",
+          "content": "计算 $\\Delta \\text{Inventory} = 900 - 950 = -50$。这表示库存意外消耗了 50。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "推断管理者行为",
+          "content": "由于现有库存即将耗尽，为了满足旺盛的需求，管理者在下个月必须增加生产（ramp up production）。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Unplanned Inventory Investment",
+      "Macroeconomic Equilibrium"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-12",
+    "type": "choice",
+    "question": "The Bank of Canada aggressively lowers the risk-free interest rate. Because borrowing is cheaper, businesses increase their Planned Investment ($I$). How is this modeled on the IS-MP graph?",
+    "options": [
+      "IS curve shifts RIGHT. MP curve shifts DOWN.",
+      "IS curve does not shift. MP curve shifts DOWN.",
+      "IS curve shifts RIGHT. MP curve does not shift.",
+      "Both IS and MP curves shift UP."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "央行降低无风险利率使得代表利率的 MP 曲线向下移动；而利率下降引发的投资增加属于沿着 IS 曲线滑动，IS 曲线本身不移动。",
+      "decoding": [
+        "题干描述了央行降息导致投资增加的过程。",
+        "要求判断这一连串事件在 IS-MP 模型图中分别如何影响两条曲线的位置。"
+      ],
+      "conditions": [
+        {
+          "title": "利率变动的图形映射",
+          "content": "\\(\\Delta r < 0 \\implies \\text{MP Shifts DOWN} \\land \\text{Movement along IS}\\)",
+          "description": "实际利率是纵轴的内生变量，其自主变动只移动 MP 曲线，并在 IS 曲线上产生滑动（movement），不导致 IS 平移。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "投资增加必导致 IS 右移错觉",
+          "description": "学生容易条件反射地认为“花钱变多=IS右移”。识别方法：区分引起支出的源头。外生冲击（如情绪好转）导致平移，而因利率（纵轴坐标）改变导致的内生变动绝不移动 IS 曲线。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "判断 MP 曲线变化",
+          "content": "央行降息直接降低了纵轴的利率水平，导致 MP 曲线向下平移（shifts DOWN）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "判断 IS 曲线变化",
+          "content": "投资的增加是由于纵轴变量（利率）下降引起的，这是沿着既定的 IS 曲线滑动，因此 IS 曲线不发生平移（does not shift）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "结合两者，对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：认为投资增加一定会导致 IS 曲线右移。正确概念：因利率变化导致的投资增加仅表现为沿曲线滑动。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：忽略了利率的变化本身是在移动 MP 曲线，且错误移动了 IS 曲线。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：方向和移动对象全部错误。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "IS-MP Model",
+      "Movement vs Shift",
+      "Monetary Policy Transmission"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-13",
+    "type": "choice",
+    "question": "A bank makes two loans. Loan A is a mortgage (secured by a house). Loan B is a credit card for a college student (unsecured). Which loan will have the highest real interest rate, and why?",
+    "options": [
+      "Loan A, because houses cost more money.",
+      "Loan B, because the risk premium is higher for riskier loans.",
+      "They will be exactly the same because the Bank of Canada sets the rate.",
+      "Loan A, because the multiplier is higher."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "信用卡是无抵押贷款，违约风险极高，因此银行会收取极高的风险溢价，导致其实际利率高于有抵押的房贷。",
+      "decoding": [
+        "题干比较了有房屋抵押的房贷（Loan A）和无抵押的大学生信用卡（Loan B）。",
+        "要求基于两者的风险特征，判断哪种贷款的实际利率更高。"
+      ],
+      "conditions": [
+        {
+          "title": "风险溢价决定原理",
+          "content": "$r_{\\text{final}} = r_{\\text{risk-free}} + \\text{Risk Premium}$",
+          "description": "借款人的违约风险越高（尤其是缺乏抵押物担保时），金融机构要求的风险溢价就越高，最终利率也就越高。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "金额大小错觉",
+          "description": "学生容易误认为贷款金额越大，利率必定越高。识别方法：银行看重的是违约时的安全垫。房产作为优质抵押物极大降低了坏账风险，反而能享受较低的利率。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "评估两者的抵押状况",
+          "content": "Loan A 有房产作为担保（secured），违约时银行可没收房产。Loan B 无抵押（unsecured）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "推断风险溢价",
+          "content": "由于 Loan B 没有任何抵押物，收不回欠款的风险极大，银行必须向其收取更高的风险溢价（Risk Premium）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出结论",
+          "content": "风险溢价更高导致最终的实际利率更高。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：金额大并不意味着利率高。正确概念：抵押物降低了风险，使得大额房贷的利率通常远低于无抵押消费贷。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：认为央行直接决定每种贷款的具体利率。正确概念：央行只定无风险基准利率，具体贷款利率由市场根据风险加成定价。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：强行引入无关的“乘数（multiplier）”概念。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Risk Premium",
+      "Collateral",
+      "Interest Rate Determination"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-14",
+    "type": "essay",
+    "question": "Potential Output = 2,000. Consumption ($C$) = 1,000. Planned Investment ($I$) = 400. Government Purchases ($G$) = 300. Net Exports ($NX$) = 100. Assume the economy is currently in Macroeconomic Equilibrium. A) Calculate the Actual Output. B) Calculate the Output Gap. Is it \"Too hot\" or \"Too cold\"?",
+    "answer": "A) Actual Output = 1,800. B) Output Gap = -10%. It is \"Too cold\".",
+    "analysis": {
+      "decoding": [
+        "题干给出了潜在产出以及总支出的各项构成，并声明经济处于宏观经济均衡状态。",
+        "要求利用均衡条件计算实际产出，并进一步计算产出缺口以定性经济状态。"
+      ],
+      "conditions": [
+        {
+          "title": "宏观经济均衡条件",
+          "content": "$Y = AE = C + I + G + NX$",
+          "description": "在均衡状态下，实际总产出完全等于全社会的总计划支出。"
+        },
+        {
+          "title": "产出缺口公式",
+          "content": "$\\text{Output Gap} = \\frac{Y - Y^*}{Y^*}$",
+          "description": "实际产出减去潜在产出，再除以潜在产出。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "找不到实际产出数据",
+          "description": "题干并未直接给出 Actual Output 的数值。如果学生忽略了“in Macroeconomic Equilibrium”这个关键前提，将无法解题。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算总支出 AE",
+          "content": "代入公式计算 $AE = 1000 + 400 + 300 + 100 = 1800$。",
+          "tag": "计算"
+        },
+        {
+          "title": "利用均衡条件求实际产出",
+          "content": "因为经济处于均衡，所以 Actual Output $Y = AE = 1800$。解答 A 问。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算产出缺口并定性",
+          "content": "代入公式：\\(\\frac{1800 - 2000}{2000}\\) = \\(\\frac{-200}{2000}\\) = -10\\\\%。由于缺口是负数，表示需求疲软，经济处于衰退，即“太冷（Too cold）”。解答 B 问。",
+          "tag": "计算"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Macroeconomic Equilibrium",
+      "Aggregate Expenditure",
+      "Output Gap"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "Sarah is deciding whether to take a summer economics course or work full-time at a local bookstore. The course tuition is 800 dollars, and the required textbooks cost 150 dollars. If she works at the bookstore, she will earn 3,000 dollars over the summer. Her apartment rent for the summer is 1,200 dollars, which she has signed a lease for and must pay regardless of her choice. What is Sarah's opportunity cost of taking the summer course?",
+    "options": [
+      "950 dollars",
+      "3,000 dollars",
+      "3,950 dollars",
+      "5,150 dollars"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "机会成本为3950美元，包含学费和书本费（显性成本）以及放弃的工资（隐性成本）。已经签订租约且必须支付的公寓租金是沉没成本，不计入机会成本。",
+      "decoding": [
+        "题干给出了Sarah上暑期课的显性成本（学费和书本费）以及放弃的工作收入（隐性成本）。",
+        "此外，题干还提供了一个无论决策如何都要支付的房租（沉没成本）。",
+        "任务是计算决策的总机会成本。"
+      ],
+      "conditions": [
+        {
+          "title": "机会成本公式",
+          "content": "$\\text{Opportunity Cost} = \\text{Explicit Costs} + \\text{Implicit Costs}$",
+          "description": "机会成本等于做出一项决策所需支付的显性成本与放弃的最大潜在隐性收益之和。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "沉没成本陷阱",
+          "description": "学生容易将无论如何都会发生的房租支出计入机会成本中。识别方法：判断该成本是否会因当前决策的改变而改变，不可改变的即为沉没成本。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别各项成本性质",
+          "content": "学费800美元和书本费150美元是直接产生的显性成本；放弃的工资3000美元是隐性成本；房租1200美元是不可收回的沉没成本。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入机会成本公式",
+          "content": "将显性成本和隐性成本代入公式 $\\text{Opportunity Cost} = 800 + 150 + 3000$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "执行计算",
+          "content": "$800 + 150 + 3000 = 3950$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "Sarah上课的机会成本为3950美元，对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：只计算了显性成本（$800+150$）。正确概念：机会成本必须包含放弃的隐性收益（3000美元工资）。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：只计算了隐性成本。正确概念：机会成本应包含所有的显性成本和隐性成本之和。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：错误地将沉没成本（1200美元房租）计入了总机会成本中。正确概念：不受决策影响的沉没成本应当在计算中被忽略。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Opportunity Cost",
+      "Explicit Cost",
+      "Implicit Cost",
+      "Sunk Cost"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "In an 8-hour workday, Alex can either code 4 websites or write 12 articles. Assuming a constant opportunity cost (a linear Production Possibilities Frontier), what is Alex's opportunity cost of coding 1 website?",
+    "options": [
+      "1/3 of an article",
+      "3 articles",
+      "4 articles",
+      "8 articles"
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "编写1个网站的机会成本是3篇文章。通过将放弃的文章最大产量除以网站的最大产量计算得出。",
+      "decoding": [
+        "题干给出了在固定时间（8小时）内两种产品的最大产量：4个网站或12篇文章。",
+        "任务是计算生产1单位网站（website）所需要放弃的文章数量。"
+      ],
+      "conditions": [
+        {
+          "title": "机会成本比率公式",
+          "content": "$OC_X = \\frac{\\text{Max Y}}{\\text{Max X}}$",
+          "description": "生产一单位X的机会成本，等于放弃的Y的最大产量除以X的最大产量。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "分子分母颠倒",
+          "description": "容易把网站数量放分子，文章数量放分母。识别方法：求“1单位某物”的成本，该物品的产量必须作为分母。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别端点产量",
+          "content": "网站最大产量 $\\text{Max Websites} = 4$，文章最大产量 $\\text{Max Articles} = 12$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入比率公式",
+          "content": "代入公式 $OC_{\\text{website}} = \\frac{12}{4}$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "执行计算",
+          "content": "$\\frac{12}{4} = 3$。",
+          "tag": "计算"
+        },
+        {
+          "title": "得出结论",
+          "content": "编写1个网站的机会成本是3篇文章，对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：计算成了写1篇文章的机会成本（$4/12$）。正确概念：编写1个网站的机会成本应为文章总产量除以网站总产量。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：直接选择了网站的最大产量数字。正确概念：机会成本是用放弃的另一种物品的数量来衡量的，而非自身产量。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：使用了工作时长（8小时）作为答案。正确概念：机会成本是在两种产品的产出之间权衡，而非投入的时间要素。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Opportunity Cost",
+      "Production Possibilities Frontier",
+      "Constant Opportunity Cost"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "choice",
+    "question": "A local bakery sells gourmet cookies for 4 dollars each. David's marginal benefit from eating the first cookie is 7 dollars. His marginal benefit decreases by 1.50 dollars for each additional cookie. To maximize his economic surplus, how many cookies should David buy?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "David应该购买3块饼干。在第3块饼干时，边际收益（4美元）刚好等于边际成本（4美元），实现了经济剩余最大化。",
+      "decoding": [
+        "题干给出了单块饼干的边际成本（$MC=4$）。",
+        "给出了第一块的边际收益（$MB_1=7$）和每次递减的金额（1.50美元）。",
+        "任务是利用边际分析找到经济剩余最大化的购买数量。"
+      ],
+      "conditions": [
+        {
+          "title": "理性决策法则（Rational Rule）",
+          "content": "$MB \\ge MC$",
+          "description": "为了最大化经济剩余，消费者应该持续购买，直到新增的边际收益等于边际成本。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "提前停止消费",
+          "description": "学生可能认为边际收益开始下降时就应该停止。识别方法：只要新增的边际收益仍然大于或等于边际成本，这笔交易就能继续增加总剩余。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "确定边际成本",
+          "content": "每块饼干的价格固定，因此边际成本 $MC = 4$。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "计算各单位边际收益",
+          "content": "第1块：$MB_1 = 7$；第2块：$MB_2 = 7 - 1.50 = 5.50$；第3块：$MB_3 = 5.50 - 1.50 = 4.00$；第4块：$MB_4 = 4.00 - 1.50 = 2.50$。",
+          "tag": "计算"
+        },
+        {
+          "title": "比对判定条件",
+          "content": "将每个 $MB$ 与 $MC=4$ 比较：第1块 $7 > 4$，买；第2块 $5.50 > 4$，买；第3块 $4 = 4$，买；第4块 $2.50 < 4$，不买。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "在第3块时 $MB = MC$，经济剩余最大化，所以应该买3块，对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：只买了1块，没有将剩余最大化。正确概念：只要后续的边际收益仍然大于边际成本，就应该继续购买。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：过早停止购买。正确概念：第3块的边际收益（4美元）仍足以覆盖成本，应当购买。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：购买了第4块。正确概念：第4块的边际收益（2.50美元）小于边际成本（4美元），购买会导致总剩余减少。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Marginal Analysis",
+      "Marginal Benefit",
+      "Rational Rule",
+      "Economic Surplus"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "choice",
+    "question": "You purchased a non-refundable ticket to an outdoor music festival for 80 dollars. On the day of the festival, there is a severe thunderstorm. You estimate that the discomfort of attending the festival in the rain will cost you 50 dollars worth of psychological distress. If you stay home, you can watch a movie with a net benefit of 20 dollars. According to the cost-benefit principle, what should you do?",
+    "options": [
+      "Go to the festival because you have already spent 80 dollars.",
+      "Go to the festival because the 80 dollars ticket price is higher than the 50 dollars cost of distress.",
+      "Stay home because the total loss will be 130 dollars if you go.",
+      "Stay home because the sunk cost of the ticket should be ignored, and the net benefit of staying home (20 dollars) is strictly greater than the net benefit of attending the festival (-50 dollars)."
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "应该待在家里。80美元是沉没成本应该忽略。去音乐节的净收益为-50美元，而待在家里的净收益为20美元，20大于-50。",
+      "decoding": [
+        "题干引入了不可退款的80美元门票，这是一个沉没成本。",
+        "给出了去音乐节的未来边际成本（50美元的痛苦），以及待在家里的边际净收益（20美元）。",
+        "任务是利用成本收益原则在两个选项中做出理性决策。"
+      ],
+      "conditions": [
+        {
+          "title": "沉没成本忽略原则",
+          "content": "$Cost_{sunk} \\notin \\text{Future Decision}$",
+          "description": "已经发生且不可收回的成本不应影响当前的边际决策。"
+        },
+        {
+          "title": "成本收益比较",
+          "content": "$\\text{Choice A} \\succ \\text{Choice B} \\iff \\text{Net Benefit}_A > \\text{Net Benefit}_B$",
+          "description": "比较各选项剥离沉没成本后的未来边际净收益。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "亏损厌恶陷阱",
+          "description": "觉得自己花了钱，不去就“亏了”。识别方法：这80美元无论你去不去都回不来了，决策应只看未来的新增痛苦或快乐。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "剥离沉没成本",
+          "content": "80美元的门票是不可退的，属于沉没成本，在比较时直接将其价值剔除。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "评估各选项边际净收益",
+          "content": "去音乐节的未来净收益为负值（仅有50美元的痛苦，$-50$）；待在家的未来净收益为 $20$ 美元。",
+          "tag": "计算"
+        },
+        {
+          "title": "代入决策公式",
+          "content": "对比两者：$20 > -50$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "待在家的净收益更高，所以应该留在家，对应选项 D。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：强迫自己承受痛苦以“回本”，是典型的沉没成本谬误。正确概念：历史成本无法收回，不应影响当前决策。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：将沉没成本与未来的痛苦成本进行比较。正确概念：两者的性质不同，历史沉没成本与未来的边际成本之间没有决策比较关系。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：将沉没成本和未来成本加总来计算总损失作为依据。正确概念：决策应基于边际分析，而非将沉没成本包含在内的总损失计算。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sunk Cost",
+      "Cost-Benefit Principle",
+      "Marginal Analysis"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "Which of the following scenarios best illustrates the framing effect influencing a consumer's economic decision?",
+    "options": [
+      "A consumer buys a winter jacket because the weather is getting colder, increasing their marginal benefit.",
+      "A consumer decides not to buy a smartphone because the opportunity cost is too high.",
+      "A consumer buys a jacket for 150 dollars because a large red sign says 'Original Price: 400, Today Only: 150', making it feel like a steal, even though the consumer initially only valued a new jacket at 100 dollars.",
+      "A consumer buys a coffee because the marginal benefit of the caffeine exceeds the marginal cost."
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "选项C完美展示了框架效应。消费者因为虚高的“原价”锚点改变了决策，尽管其自身对物品的真实估值（100美元）低于现价（150美元）。",
+      "decoding": [
+        "题干寻找“框架效应（Framing Effect）”的最佳生活示例。",
+        "框架效应是指信息的表达或呈现方式改变了人的选择，而非基于物品的真实客观价值。"
+      ],
+      "conditions": [
+        {
+          "title": "框架效应",
+          "content": "$\\text{Perceived Value} \\neq \\text{Actual Value}$",
+          "description": "当同等实质的选项因表述（如锚定原价、折扣话术）的不同，导致人们做出违背真实意愿的非理性选择。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "将真实需求增加误认为心理偏差",
+          "description": "把因为天气变冷导致的真实效用增加当成效应。识别方法：确认决策的改变是否仅仅是因为商家“说法的改变”。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "理解题意要求",
+          "content": "寻找一个决策并非出于自身真实边际效用，而是被外部表述框架误导的场景。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "逐个对比情境",
+          "content": "A是因为客观环境变化导致效用变化；B是理性的机会成本考量；D是理性的边际分析。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析 C 选项结构",
+          "content": "消费者的真实 $MB = 100$，实际花费 $MC = 150$。原本不该买（$100 < 150$），但他被400美元的“原价”框架锚定产生了虚假划算感而购买。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "C选项展示了展示方式如何扭曲理性决策，最符合框架效应。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：这是因为天气变冷带来的真实效用提升。正确概念：这属于效用函数的合理平移，不是心理错觉。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：基于机会成本放弃购买。正确概念：这是遵循经济学原理的教科书式理性决策。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：依据边际收益大于边际成本进行消费。正确概念：这展示的是成本收益法则的正确运用，与认知偏差无关。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Framing Effect",
+      "Behavioral Economics",
+      "Cognitive Bias"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "choice",
+    "question": "The government recently introduced a program that significantly subsidizes high-speed internet access for rural households. Consequently, more individuals in these areas are choosing to accept remote work positions rather than commuting to the city. Which of the four interdependence principles does this scenario best represent?",
+    "options": [
+      "Dependence between your individual choices",
+      "Dependence between economic actors",
+      "Dependence between markets",
+      "Dependence through time"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "这体现了市场间的相互依赖（Dependence between markets），互联网服务市场的补贴政策直接改变了劳动力市场（通勤与工作形式）的供需。",
+      "decoding": [
+        "题干描述了一个政策在“网络服务市场”实施，随后影响了人们在“劳动力/通勤市场”的决策。",
+        "要求将其归类到四种相互依赖原则之一。"
+      ],
+      "conditions": [
+        {
+          "title": "相互依赖原则：市场间依赖",
+          "content": "$\\text{Market}_A \\rightarrow \\text{Market}_B$",
+          "description": "一个市场的价格、政策或环境变化，会溢出并影响到看似不相关的另一个市场的均衡。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "经济主体间依赖误判",
+          "description": "学生可能选“经济主体间的依赖”，认为政府影响了个人。识别方法：这里的重点是宽带基建这一“商品市场”的变化重塑了“劳动力市场”的结构。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "梳理因果链条",
+          "content": "起点事件：互联网网络补贴（属于通信/基建市场）。终点事件：接受远程工作（属于劳动力市场）。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配理论模型",
+          "content": "这种跨越不同商品/要素领域的连锁反应，契合 Dependence between markets 模型。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "该场景属于市场间的相互依赖，对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：混淆了个人内部资源的权衡。正确概念：“个人选择间依赖”指一个人的时间和金钱在不同用途间的权衡。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：误解了主体间依赖的核心。正确概念：“经济主体间依赖”多指企业间博弈或个体间的拥挤效应。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：没有体现跨期决策。正确概念：“时间上的依赖”指的是今天的选择如何影响明天的财富或机会。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Interdependence Principle",
+      "Dependence Between Markets"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-07",
+    "type": "essay",
+    "question": "The Interdependence Principle states that your best choice depends on your other choices, the choices others make, developments in other markets, and expectations about the future. List the Four Interdependence Principles and provide a brief, one-sentence real-world example for 'Dependence between markets'.",
+    "answer": "The Four Interdependence Principles are: 1. Dependence between your individual choices; 2. Dependence between economic actors; 3. Dependence between markets; 4. Dependence through time. Example of Dependence between markets: A drought in Brazil reduces the supply of coffee, driving up its price, which consequently increases the consumer demand for tea.",
+    "analysis": {
+      "decoding": [
+        "题干要求列出相互依赖原则的四个维度。",
+        "题干进一步要求为“市场间的依赖”提供一个简短的真实世界示例。"
+      ],
+      "conditions": [
+        {
+          "title": "四大相互依赖原则",
+          "content": "\\text{Principles} = \\{ \\text{Self}, \\text{Others}, \\text{Markets}, \\text{Time} \\}",
+          "description": "经济学中描述决策网络复杂性的基础框架。"
+        },
+        {
+          "title": "市场间依赖公式",
+          "content": "$P_A \\uparrow \\implies D_B \\uparrow \\text{ (if substitutes)}$",
+          "description": "市场 A 的变动引发市场 B 的供需变动。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "举例不当陷阱",
+          "description": "学生在举例时容易举成“主体间依赖”（如室友打游戏影响我学习）。识别方法：确保例子中包含两个明确且不同的商品、服务或要素市场。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "列举四大原则",
+          "content": "列出：个人选择间的依赖、经济主体间的依赖、市场间的依赖、跨时间的依赖。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "构思市场关联机制",
+          "content": "寻找一组具有替代或互补关系的市场，如咖啡市场和茶叶市场，或者汽油市场和汽车市场。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "撰写示例",
+          "content": "用一句话表述：例如由于咖啡减产导致咖啡价格上涨（市场1变动），从而推高了消费者对茶叶的需求（市场2受影响）。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Interdependence Principle",
+      "Dependence Between Markets"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-08",
+    "type": "essay",
+    "question": "Define the Production Possibilities Frontier (PPF). If an economy is producing at a point inside (below) the PPF curve, what does this indicate about its resource allocation? What does a point on the curve indicate?",
+    "answer": "The Production Possibilities Frontier (PPF) is a curve illustrating the maximum possible combinations of two goods an economy can produce given fixed resources and technology. A point inside the curve indicates inefficiency, meaning resources are underutilized or misallocated. A point on the curve indicates productive efficiency, meaning all resources are fully and efficiently utilized.",
+    "analysis": {
+      "decoding": [
+        "题目包含三个任务：定义 PPF，解释 PPF 曲线内部点的经济含义，以及解释 PPF 曲线上的点的经济含义。"
+      ],
+      "conditions": [
+        {
+          "title": "PPF 定义要素",
+          "content": "$F(X, Y) = \\text{Max Output given fixed resources}$",
+          "description": "固定资源、既定技术、两种产品的最大组合。"
+        },
+        {
+          "title": "PPF 位置判定",
+          "content": "$\\text{Inside PPF} \\implies \\text{Inefficient}; \\text{On PPF} \\implies \\text{Efficient}$",
+          "description": "几何位置直接映射到经济效率状态。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "遗漏假设条件陷阱",
+          "description": "在定义 PPF 时忘记提及“在给定资源和技术下”。识别方法：PPF 的边界之所以存在且固定，就是因为约束条件的存在。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "撰写 PPF 定义",
+          "content": "明确 PPF 是描述在现有资源与技术下，两种商品最大可能生产组合的边界曲线。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "分析曲线内部点",
+          "content": "落在曲线内部说明实际产量未能达到理论最大值，这代表资源闲置（如失业）或分配效率低下。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "分析曲线上点",
+          "content": "落在曲线上说明经济体已达到生产效率的极限，不存在不减少一种商品就能增加另一种商品的空间。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Production Possibilities Frontier",
+      "Productive Efficiency",
+      "Resource Allocation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-09",
+    "type": "essay",
+    "question": "Define Economic Surplus. Then, define the Framing Effect and explain how the framing effect might trick a consumer into making a decision that actually reduces their economic surplus.",
+    "answer": "Economic Surplus is a measure of total welfare, calculated as total benefits minus total costs. The Framing Effect is a cognitive bias where decisions are influenced by how information is presented (e.g., as a loss or a gain) rather than objective facts. It tricks consumers by artificially inflating their perceived marginal benefit (like perceiving a 'huge discount' as added value), leading them to purchase an item where the true marginal cost exceeds their objective marginal benefit, thereby reducing their actual economic surplus.",
+    "analysis": {
+      "decoding": [
+        "第一步：定义经济剩余（Economic Surplus）。",
+        "第二步：定义框架效应（Framing Effect）。",
+        "第三步：阐述两者之间的逻辑关联，说明心理偏差如何导致实际福利的受损。"
+      ],
+      "conditions": [
+        {
+          "title": "经济剩余公式",
+          "content": "$\\text{Surplus} = \\text{Total Benefit} - \\text{Total Cost}$",
+          "description": "衡量收益减去成本后的净增加值。"
+        },
+        {
+          "title": "框架效应决策偏差",
+          "content": "$\\text{Perceived MB} > MC > \\text{True MB}$",
+          "description": "感知边际收益被包装放大，导致购买了真实成本大于真实收益的物品。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "概念割裂陷阱",
+          "description": "学生可能分别写了两个定义，但没有说明“为什么”剩余会减少。识别方法：必须通过“虚假夸大收益”或“隐瞒真实成本”的传导机制把两点连接起来。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "解释经济剩余",
+          "content": "给出定义：总收益与总成本之差。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "解释框架效应",
+          "content": "给出定义：决策受到选项呈现方式影响的认知偏差。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "阐述损害机制",
+          "content": "框架效应让商品看起来“更划算”，导致消费者的感知收益高于实际效用。这使得消费者在实际 $MC$ 高于客观 $MB$ 时仍做出购买决策，最终使得 $\\text{Surplus}$ 出现净减少。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Economic Surplus",
+      "Framing Effect",
+      "Cognitive Bias",
+      "Cost-Benefit Principle"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-10",
+    "type": "essay",
+    "question": "Define a Sunk Cost. Why does the Cost-Benefit Principle dictate that rational individuals should completely ignore sunk costs when making forward-looking decisions?",
+    "answer": "A sunk cost is a past expense that has already been incurred and cannot be recovered regardless of any future action. The Cost-Benefit Principle dictates that rational decisions should be based on marginal analysis, comparing only future additional benefits against future additional costs. Since sunk costs remain identical across all available alternatives moving forward, they mathematically cancel out when comparing net benefits, making them irrelevant to rational decision-making.",
+    "analysis": {
+      "decoding": [
+        "任务一是准确给出沉没成本（Sunk Cost）的定义。",
+        "任务二是利用成本收益原则论证为什么在理性决策中应当忽略沉没成本。"
+      ],
+      "conditions": [
+        {
+          "title": "沉没成本属性",
+          "content": "$\\text{Sunk Cost} = \\text{Unrecoverable Past Expense}$",
+          "description": "已经发生且绝对无法收回的历史支出。"
+        },
+        {
+          "title": "前瞻性边际分析",
+          "content": "$\\Delta \\text{Net Benefit} = \\text{Future Marginal Benefit} - \\text{Future Marginal Cost}$",
+          "description": "最优决策仅依赖于因当前选择而发生的边际变化量。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "情感化解释陷阱",
+          "description": "学生可能只从心理学角度说“人不应该留恋过去”。识别方法：经济学题目的解释必须回到“边际量比较”或“不随选项改变的常数在比较中会抵消”的数学逻辑上。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "明确沉没成本概念",
+          "content": "说明沉没成本是指那些已经支付且无法收回的成本。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "引入边际分析框架",
+          "content": "根据成本收益原则，新决策应当只看它带来了多少新的收益和新的成本。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "完成逻辑闭环",
+          "content": "因为无论做哪个选择，沉没成本的数值都不变，所以在计算比较不同选项的差值时，它就像方程式两边相同的常数一样被抵消，对寻找最优解毫无影响。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Sunk Cost",
+      "Cost-Benefit Principle",
+      "Marginal Analysis"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-01",
+    "type": "choice",
+    "question": "The Bank of Canada lowers the risk-free interest rate. What happens to the curves?",
+    "options": [
+      "IS curve shifts RIGHT",
+      "IS curve shifts LEFT",
+      "MP curve shifts UP",
+      "MP curve shifts DOWN"
+    ],
+    "answer": "D",
+    "analysis": {
+      "solution": "央行降低无风险利率会导致代表实际利率的 MP 曲线向下移动。",
+      "decoding": [
+        "题干指出央行降低了无风险利率（lowers the risk-free interest rate）。",
+        "要求判断这会对宏观经济模型中的曲线产生何种影响。"
+      ],
+      "conditions": [
+        {
+          "title": "MP 曲线与利率",
+          "content": "$MP = r$",
+          "description": "MP 曲线的位置由实际利率决定，利率下降意味着代表该利率水平的水平线降低。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆受影响的曲线",
+          "description": "学生可能错把利率变动当作移动 IS 曲线的因素。识别方法：只要直接操作的是“interest rate”，它就是 MP 曲线（管上下移动）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "锁定关键字",
+          "content": "题干中的关键字为 lowers interest rate。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配曲线与方向",
+          "content": "利率（interest rate）对应 MP 曲线，降低（lowers）对应向下移动（DOWN）。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：IS 曲线不因内生的利率变动而平移，且降息带来的是沿 IS 曲线滑动。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：同上，IS 曲线不移动。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：这是加息（raises interest rate）时的曲线变动方向。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "MP Curve",
+      "Monetary Policy",
+      "Interest Rate"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-02",
+    "type": "choice",
+    "question": "Consumer confidence is very high. People increase their consumption ($C$). What happens to the curves?",
+    "options": [
+      "IS curve shifts RIGHT",
+      "IS curve shifts LEFT",
+      "MP curve shifts UP",
+      "MP curve shifts DOWN"
+    ],
+    "answer": "A",
+    "analysis": {
+      "solution": "消费者信心高涨导致的消费增加属于外生支出冲击，会使得 IS 曲线向右移动。",
+      "decoding": [
+        "题干指出消费（$C$）增加（increase）。",
+        "要求判断这一事件在 IS-MP 框架中如何移动曲线。"
+      ],
+      "conditions": [
+        {
+          "title": "支出冲击与 IS 曲线",
+          "content": "\\(C \\uparrow \\implies AE \\uparrow \\implies \\text{IS Shifts RIGHT}\\)",
+          "description": "消费作为总支出的核心成分，其自发性增加会使得每个给定利率下的总需求都变高，导致 IS 曲线整体向右移。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "死记硬背方向错误",
+          "description": "部分学生混淆左右方向代表的意义。识别方法：花钱增加（increase）是扩大需求，对应向右（RIGHT）。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "锁定关键字",
+          "content": "题干的关键字是 increase consumption。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "匹配曲线与方向",
+          "content": "消费（Spending）归 IS 曲线管；增加意味着向右侧扩张。对应选项 A。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "B",
+          "reason": "错误点：这是消费下降、需求萎缩时的移动方向。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：消费冲击不直接决定央行的利率水平或金融风险，因此不移动 MP 曲线。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：同上，不移动 MP 曲线。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "IS Curve",
+      "Consumption",
+      "Spending Shock"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-03",
+    "type": "essay",
+    "question": "The nominal interest rate is 8%, and the inflation rate is 3%. Calculate the real interest rate.",
+    "answer": "The real interest rate is 5%.",
+    "analysis": {
+      "decoding": [
+        "题干已知名义利率为 8%，通胀率为 3%。",
+        "任务是计算实际利率。"
+      ],
+      "conditions": [
+        {
+          "title": "实际利率计算公式",
+          "content": "$r = i - \\pi$",
+          "description": "实际利率等于名义利率减去通货膨胀率。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "算术方向弄反",
+          "description": "学生可能把名义和实际的关系颠倒，用加法计算。识别方法：通胀是在侵蚀货币价值，必须用减法扣除。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "提取已知数据",
+          "content": "名义利率  i = 8，通胀率 %\\(\\pi\\) = 3 %。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "代入公式",
+          "content": "代入费雪方程式：$r = 8 - 3 = 5$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出结论",
+          "content": "因此实际利率为 5%。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Fisher Equation",
+      "Inflation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-04",
+    "type": "essay",
+    "question": "An economy has an actual output of 500 and a potential output of 500. Calculate the output gap. Is the economy \"Too hot\", \"Too cold\", or \"Just right\"?",
+    "answer": "The output gap is 0%. The economy is \"Just right\".",
+    "analysis": {
+      "decoding": [
+        "已知实际产出（Actual Output）为 500，潜在产出（Potential Output）也是 500。",
+        "要求计算产出缺口并用相应的宏观术语定性评价。"
+      ],
+      "conditions": [
+        {
+          "title": "产出缺口计算公式",
+          "content": "\\(\\text{Output Gap} = \\frac{Y - Y^*}{Y^*}\\)",
+          "description": "用实际产出减去潜在产出，除以潜在产出。"
+        },
+        {
+          "title": "状态判定标准",
+          "content": "\\(\\text{Gap} = 0 \\implies \\text{Just right}\\)",
+          "description": "缺口为正说明太热，缺口为负说明太冷，缺口为零说明刚好处于长期均衡状态。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "基本运算失误",
+          "description": "遇到相同数字反而犹豫是否需要相减。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "代入缺口公式",
+          "content": "$\\frac{500 - 500}{500} = 0$。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "定性分析",
+          "content": "缺口为 0，说明产量不多不少刚好等于经济的健康潜能，因此状态是 \"Just right\"。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Output Gap",
+      "Potential Output",
+      "Macroeconomic Equilibrium"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-05",
+    "type": "choice",
+    "question": "Macroeconomic equilibrium happens when:",
+    "options": [
+      "Inflation equals the interest rate.",
+      "Output equals Aggregate Expenditure (AE).",
+      "The multiplier is zero.",
+      "The IS curve shifts left."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "宏观经济的均衡核心定律是实际生产量必须等于总支出购买量。",
+      "decoding": [
+        "题干考查宏观经济均衡（Macroeconomic equilibrium）的最基础定义。"
+      ],
+      "conditions": [
+        {
+          "title": "宏观经济均衡条件",
+          "content": "Y = AE",
+          "description": "全社会的实际总产出等于总计划支出时，经济处于均衡状态，没有意外的库存积压或消耗。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "乱凑金融变量",
+          "description": "学生可能把通胀等于利率当作某种神奇的均衡。识别方法：产品市场的均衡永远是供给（Output）与需求（AE）的匹配。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "寻找核心匹配词",
+          "content": "寻找与 Output 和 Aggregate Expenditure 相等的描述，这是均衡的铁律。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：当通胀等于名义利率时，实际利率为 0，这只是一个特定的状态，并非宏观经济均衡的普遍定义。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：乘数不可能为 0，乘数为 0 意味着支出没有任何乘数效应，不符合现实模型。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：IS 曲线左移代表经济衰退冲击，并不是均衡状态的定义。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Macroeconomic Equilibrium",
+      "Aggregate Expenditure"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-06",
+    "type": "choice",
+    "question": "Suppliers produced 1,000 items (Output). Buyers only purchased 800 items (AE). What happens to businesses' inventories?",
+    "options": [
+      "Inventories decrease.",
+      "Inventories increase.",
+      "Inventories stay the same.",
+      "The multiplier increases."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "由于生产量大于购买量，多余的 200 个产品无法卖出，将变成库存积压，导致库存增加。",
+      "decoding": [
+        "题干给出了实际产出（1000）和总支出（800）。",
+        "要求判断非计划库存的变动方向。"
+      ],
+      "conditions": [
+        {
+          "title": "非计划库存变动逻辑",
+          "content": "\\(Y > AE \\implies \\Delta \\text{Inventory} > 0\\)",
+          "description": "当生产出来的东西大于被买走的东西时，剩下的只能留在仓库里，库存增加。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "正负判断失误",
+          "description": "有些学生记不住方向，直觉认为“销量不好所以变少了”。识别方法：卖不掉的东西都是留给自己的库存，越卖不掉库存就越多。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "比较产量与支出",
+          "content": "Output (1000) > AE (800)。",
+          "tag": "逻辑拆解"
+        },
+        {
+          "title": "得出库存流向结论",
+          "content": "多出来的 200 件商品变成了库存，因此 inventories increase。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：只有当供不应求（AE > Output）时，库存才会被消耗从而减少。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：只有在宏观均衡（Output = AE）时，库存才保持不变。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：库存变化与宏观乘数的大小改变无关。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Unplanned Inventory Investment",
+      "Macroeconomic Equilibrium"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-07",
+    "type": "essay",
+    "question": "The government increases spending ($G$) by 20 billion dollars. The macroeconomic multiplier is 3. Calculate the total change in GDP.",
+    "answer": "The total change in GDP is an increase of 60 billion dollars.",
+    "analysis": {
+      "decoding": [
+        "题干给出了初始的政府支出增加量（20 billion dollars）以及乘数（3）。",
+        "任务是计算 GDP 的总变化量。"
+      ],
+      "conditions": [
+        {
+          "title": "乘数效应公式",
+          "content": "$\\Delta Y = \\Delta \\text{Spending} \\times \\text{Multiplier}$",
+          "description": "总产出的变化等于初始支出的变化乘以乘数。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "直接用加法或除法",
+          "description": "不理解 multiplier 的含义，用 20 除以 3。识别方法：乘数就是用来“乘”的倍数工具。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "识别数据并代入公式",
+          "content": "初始支出  \\(\\Delta\\) G = 20 ，乘数为 3。计算 20   \\(\\times\\) 3 。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "总变化量为 60 亿。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Fiscal Multiplier",
+      "Government Purchases",
+      "GDP Calculation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-08",
+    "type": "essay",
+    "question": "The risk-free real interest rate is 2%. The risk premium for a business loan is 6%. Calculate the final real interest rate for this business loan.",
+    "answer": "The final real interest rate for this business loan is 8%.",
+    "analysis": {
+      "decoding": [
+        "题干给出了无风险实际利率（2%）和风险溢价（6%）。",
+        "任务是计算借款人最终面临的实际借贷利率。"
+      ],
+      "conditions": [
+        {
+          "title": "最终借贷利率构成",
+          "content": "$r_{\\text{final}} = r_{\\text{risk-free}} + \\text{Risk Premium}$",
+          "description": "最终利率等于无风险利率的基础底座加上为了补偿违约风险所叠加的风险溢价。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "混淆公式中的通胀项",
+          "description": "题目已经直接给出了无风险实际利率（已扣除通胀），不需要再找通胀数据进行减法。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "代入求和公式",
+          "content": "最终利率 = 2\\\\ + 6\\\\%。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "得出最终结论",
+          "content": "结果为 8%。",
+          "tag": "结论"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Risk Premium",
+      "Interest Rate Determination"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-09",
+    "type": "choice",
+    "question": "The Bank of Canada raises the nominal interest rate from 3% to 4%. At the exact same time, the inflation rate increases from 1% to 5%. What happens to the MP curve?",
+    "options": [
+      "MP curve shifts UP.",
+      "MP curve shifts DOWN.",
+      "MP curve shifts RIGHT.",
+      "MP curve does not shift."
+    ],
+    "answer": "B",
+    "analysis": {
+      "solution": "计算得出实际利率从 2% 下降到了 -1%，真实的借贷成本实质上降低了，因此代表实际利率的 MP 曲线向下移动。",
+      "decoding": [
+        "题干名义利率上升（3%到4%），通胀大幅上升（1%到5%）。",
+        "要求判断这对纵轴代表实际利率的 MP 曲线的影响。"
+      ],
+      "conditions": [
+        {
+          "title": "费雪方程式与 MP 曲线位置",
+          "content": "$r = i - \\pi$",
+          "description": "MP 曲线的高度由实际利率 $r$ 决定。必须扣除通胀的影响来判断整体水平是否改变。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "名义加息直觉陷阱",
+          "description": "看到央行提高 nominal interest rate，学生容易条件反射地认为利率上升，直接选 UP。必须计算 Real interest rate 的净变化。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "计算旧的实际利率",
+          "content": "旧的 r = 3 - 1 = 2\\\\%。",
+          "tag": "计算"
+        },
+        {
+          "title": "计算新的实际利率",
+          "content": "新的 r = 4 - 5 = -1\\\\%。",
+          "tag": "计算"
+        },
+        {
+          "title": "比较并得出结论",
+          "content": "实际利率从正的 2% 跌到了负的 1%，利率环境极大地宽松了。实际利率变低，导致 MP 曲线向下移（shifts DOWN）。对应选项 B。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：只盯着名义利率的上升而没有扣减通胀。正确概念：通胀飙升吃掉了名义利率的全部涨幅并使真实利率暴跌。"
+        },
+        {
+          "label": "C",
+          "reason": "错误点：MP 曲线不进行左右平移。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：认为影响互相抵消。正确概念：新旧实际利率相差了 3 个百分点，发生显著改变。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Real Interest Rate",
+      "Fisher Equation",
+      "MP Curve",
+      "Inflation"
+    ],
+    "source": "Mixed"
+  },
+  {
+    "id": "q-10",
+    "type": "choice",
+    "question": "An economy has a negative output gap. Actual Output is 50 billion dollars below Potential Output. The government wants to fix this. The multiplier is 2. How much should the government increase its spending ($G$) to reach exactly Potential Output?",
+    "options": [
+      "100 billion dollars",
+      "50 billion dollars",
+      "25 billion dollars",
+      "2 billion dollars"
+    ],
+    "answer": "C",
+    "analysis": {
+      "solution": "由于乘数效应为 2，政府只需初始支出 25 亿，即可撬动总共 50 亿的 GDP 增长，从而完美填平产出缺口。",
+      "decoding": [
+        "已知当前实际产出落后潜在产出 50 亿（即目标增加量 $\\Delta Y = 50$），且乘数 Multiplier = 2。",
+        "要求逆推政府需要初始增加多少支出（$\\Delta G$）。"
+      ],
+      "conditions": [
+        {
+          "title": "乘数逆推公式",
+          "content": "\\(\\Delta G = \\frac{\\Delta Y}{\\text{Multiplier}}\\)",
+          "description": "为了达到既定的总产出目标，需要投入的初始支出等于目标增量除以乘数。"
+        }
+      ],
+      "traps": [
+        {
+          "title": "乘数用力过猛陷阱",
+          "description": "经济差 50 亿，直觉会选 50 亿（补 50 亿）或者误把乘数做乘法（50 乘 2 = 100）。识别方法：政府不需要直接花 50 亿，花一点钱通过循环能成倍放大效果。"
+        }
+      ],
+      "steps": [
+        {
+          "title": "建立方程",
+          "content": "已知目标  \\(\\Delta\\) GDP = 50 ，根据公式：50   = \\(\\Delta\\) \\(\\text{Spending}\\) \\(\\times\\) 2 。",
+          "tag": "公式代入"
+        },
+        {
+          "title": "解出未知量并得出结论",
+          "content": "$\\Delta \\text{Spending} = \\frac{50}{2} = 25$。政府只需花 25 亿美元即可。对应选项 C。",
+          "tag": "结论"
+        }
+      ],
+      "option_analysis": [
+        {
+          "label": "A",
+          "reason": "错误点：误把缺口和乘数相乘（50 $ \\times 2 = 100$）。正确概念：这样会导致最终经济总产出增加 200 亿，严重过热。"
+        },
+        {
+          "label": "B",
+          "reason": "错误点：忽略了乘数效应，直接 1:1 填补缺口。"
+        },
+        {
+          "label": "D",
+          "reason": "错误点：毫无根据的数据，可能是直接选了乘数的值。"
+        }
+      ]
+    },
+    "knowledge_points": [
+      "Fiscal Multiplier",
+      "Government Purchases",
+      "Output Gap"
+    ],
+    "source": "Mixed"
+  }
+]
